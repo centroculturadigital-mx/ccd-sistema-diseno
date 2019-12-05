@@ -4,7 +4,6 @@
   let final = "Hola mundo";
 
   const validaDato = e => {
-    
     let evento = e.target.value;
 
     if (evento === final) {
@@ -18,50 +17,50 @@
       color = "error";
     }
   };
-
 </script>
 
 <style>
-  .error {
-    border: 1px solid red;
-  }
-  .ok {
-    border: 1px solid green;
-  }
   input {
     border: 1px solid gray;
     border-radius: 0.25rem;
   }
+  .error {
+    border: 1px solid red;
+    color: red;
+  }
+  .ok {
+    border: 1px solid green;
+    color: green;
+  }
+  #mensaje {
+    border: none;
+  }
 </style>
 
 <section>
-    <h3>Validación de 1 input texto</h3>
+  <h3>Validación de 1 input texto</h3>
   <form action="">
-    <label for="text">
+    <label>
       <input
         on:keyup={validaDato}
         id="text"
         class={color}
         type="text"
         name="text"
-        placeholder={final}/>
-      {#if !!valor}
-      <!-- valor correcto -->
-        <div>
-          <p>Gracias!</p>
-        </div>
-      {:else if valor === false}
-      <!-- valor error -->
-        <div>
-          <p>Valor no válido</p>
-        </div>
-      {:else if !valor || valor === ''}
-      <!-- valor default -->
-        <div>
-          <small>Escribe: {final}</small>
-        </div>
-      {/if}
+        placeholder={final} />
     </label>
+    <div id="mensaje" class={color}>
+      {#if !!valor}
+        <!-- valor correcto -->
+        <p>Gracias!</p>
+      {:else if valor === false}
+        <!-- valor error -->
+        <p>Valor no válido</p>
+      {:else if !valor || valor === ''}
+        <!-- valor default -->
+        <small>Escribe: {final}</small>
+      {/if}
+    </div>
 
   </form>
 

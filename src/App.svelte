@@ -1,5 +1,5 @@
 <script>
-import Formulario from './Formulario.svelte';
+import InputValidaContenido from './Formularios/InputValidaContenido.svelte';
 
 export let valor;
 
@@ -7,7 +7,7 @@ export let valor;
 
 <main>
 	
-	<Formulario {valor}/>
+	<InputValidaContenido {valor}/>
 
 </main>
 
