@@ -1,13 +1,11 @@
 <script>
-import InputValidaContenido from './Formularios/InputValidaContenido.svelte';
-
 export let valor;
 
 </script>
 
 <main>
 	
-	<InputValidaContenido {valor}/>
+<h1>npm run {valor}</h1>
 
 </main>
 
