@@ -1,7 +1,6 @@
 import BotonView from './stories/botones/BotonView.svelte';
-import InputTextoView from './stories/formularios/InputTextoView.svelte';
 
-export default { title: 'Mis Componentes' }
+export default { title: 'Botones' }
 
 // BotonView
 export const BotonTexto = () => ({
@@ -18,12 +17,3 @@ export const BotonEmoji = () => ({
         rounded: 3,
     },
 });
-
-// input texto
-export const InputTextoDefault = () => ({
-    Component:InputTextoView,
-    props: {
-        textoLabel: 'Valida: ',
-        textoValidado: 'Agenda cultura digital',
-    },
-})

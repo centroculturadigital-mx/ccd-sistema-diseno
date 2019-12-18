@@ -1,9 +1,9 @@
 <script>
-  import MyButton from "./Boton.svelte";
+  import Boton from "./Boton.svelte";
 
   export let buttonText;
   export let rounded;
 
 </script>
 
-<MyButton {rounded} {buttonText} on:click />
+<Boton {rounded} {buttonText} on:click />
