@@ -1,22 +1,23 @@
 <script>
-  export let buttonText;
-  export let rounded;
+  export let texto;
+  export let radius;
+  export let color;
+  export let colorBG;
+  export let paddingX;
 </script>
 
-<button style="border-radius:{rounded}px">{buttonText}</button>
+<button style="border-radius:{radius}px;background-color:{colorBG};color:{color};padding: 0.5rem {paddingX}rem;" on:click>{texto}</button>
 
 <style>
     button {
         transition: 0.5s;
-        background-color: darkorange;
+        background-color: black;
+        color: #FFF;
         border: none;
-        padding: 0.5rem 1.5rem;
         cursor: pointer;
-        box-shadow: 0px rgba(0,0,0,0.1)
+        box-shadow: 0px rgba(0,0,0,0)
     }
     button:hover {
-        /* background-color: firebrick; */
-        /* color: whitesmoke; */
-        box-shadow: 1px 1px 3px rgba(0,0,0,0.5)
+        box-shadow: 1px 1px 2px #477751;
     }
 </style>
