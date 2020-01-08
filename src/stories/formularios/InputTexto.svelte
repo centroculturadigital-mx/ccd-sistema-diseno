@@ -1,13 +1,15 @@
 <script>
-  export let textoValidar;
+  export let textoPlaceHolder;
   export let textoLabel;
   let valor;
   let color;
-  const validaDato = e => {
-    let textoEvalua = textoValidar.toLowerCase();
-    let evento = e.target.value.toLowerCase();
+  
+  const validaEntrada = e => {
+    let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>\/?]"); //solo acepta guion medio y bajo
+    let evento = e.target.value;
+    let validado = caracteresEspeciales.test(evento);
 
-    if (evento === textoEvalua) {
+    if (validado != true) {
       valor = true;
       color = "ok";
     } else if (evento === "" || evento === 0) {
@@ -19,6 +21,24 @@
     }
   };
 </script>
+
+<label>
+  {#if !!textoLabel}{textoLabel}{/if}
+  <input
+    on:keyup={validaEntrada}
+    id="text"
+    class={color}
+    type="text"
+    name="text"
+    placeholder={textoPlaceHolder} />
+</label>
+<div id="mensaje" class={color}>
+  {#if !!valor}
+    <p>Ok.</p>
+  {:else if valor === false}
+    <p>No acepta caracteres especiales.</p>
+  {/if}
+</div>
 
 <style>
   input {
@@ -39,26 +59,3 @@
     border: none;
   }
 </style>
-
-<label>
-  {#if !!textoLabel}{textoLabel}{/if}
-  <input
-    on:keyup={validaDato}
-    id="text"
-    class={color}
-    type="text"
-    name="text"
-    placeholder={textoValidar} />
-</label>
-<div id="mensaje" class={color}>
-  {#if !!valor}
-    <!-- valor correcto -->
-    <p>Gracias!</p>
-  {:else if valor === false}
-    <!-- valor error -->
-    <p>Valor no válido</p>
-  {:else if !valor || valor === ''}
-    <!-- valor default -->
-    <p>Escribe: {textoValidar}</p>
-  {/if}
-</div>
