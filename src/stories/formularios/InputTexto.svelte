@@ -10,14 +10,15 @@
     let validado = caracteresEspeciales.test(evento);
 
     if (validado != true) {
-      valor = true;
-      color = "ok";
-    } else if (evento === "" || evento === 0) {
-      valor = 0;
-      color = "";
-    } else {
       valor = false;
+      color = "ok";
+    } else {
+      valor = true;
       color = "error";
+    }
+    if  (evento == "") {
+      valor = false;
+      color = "";
     }
   };
 </script>
@@ -33,9 +34,7 @@
     placeholder={textoPlaceHolder} />
 </label>
 <div id="mensaje" class={color}>
-  {#if !!valor}
-    <p>Ok.</p>
-  {:else if valor === false}
+  {#if valor === true}
     <p>No acepta caracteres especiales.</p>
   {/if}
 </div>
@@ -57,5 +56,8 @@
   }
   #mensaje {
     border: none;
+  }
+  p {
+    font-size: 0.75rem;
   }
 </style>
