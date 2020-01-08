@@ -6,20 +6,34 @@ export default { title: 'Botones' }
 export const botonDefault = () => ({
     Component: BotonView,
     props: {
-        texto: 'Saber más',
-        radius: 3,
-        color: '#FFF',
-        colorbG: '#282828',
-        paddingX: 1,
+        texto: 'Boton Default',
     },
 });
-export const botonExpandido = () => ({
+export const botonColorTexto = () => ({
     Component: BotonView,
     props: {
-        texto: 'Enviar',
-        radius: 3,
-        color: '#FFF',
-        colorbG: '#282828',
-        paddingX: 4,
+        texto: 'Color de texto',
+        color: 'orange',
+    },
+});
+export const botonColorFondo = () => ({
+    Component: BotonView,
+    props: {
+        texto: 'Color de fondo',
+        colorBG: 'orange',
+    },
+});
+export const botonPaddingX = () => ({
+    Component: BotonView,
+    props: {
+        texto: 'Padding',
+        paddingX: 6,
+    },
+});
+export const botonRadius = () => ({
+    Component: BotonView,
+    props: {
+        texto: '!',
+        radius: 20,
     },
 });

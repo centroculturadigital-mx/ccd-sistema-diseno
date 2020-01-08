@@ -1,9 +1,9 @@
 <script>
   export let texto;
-  export let radius;
   export let color;
   export let colorBG;
   export let paddingX;
+  export let radius;
 </script>
 
 <button style="border-radius:{radius}px;background-color:{colorBG};color:{color};padding: 0.5rem {paddingX}rem;" on:click>{texto}</button>
@@ -15,7 +15,7 @@
         color: #FFF;
         border: none;
         cursor: pointer;
-        box-shadow: 0px rgba(0,0,0,0)
+        padding: 0.5rem 1rem;
     }
     button:hover {
         box-shadow: 1px 1px 2px #477751;
