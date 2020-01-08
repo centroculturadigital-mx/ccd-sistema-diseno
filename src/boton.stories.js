@@ -1,6 +1,6 @@
 import BotonView from './stories/botones/BotonView.svelte';
 
-export default { title: 'Botones' }
+export default { title: 'Boton' }
 
 // BotonView
 export const botonDefault = () => ({

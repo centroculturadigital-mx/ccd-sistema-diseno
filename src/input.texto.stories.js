@@ -1,20 +1,20 @@
 import InputTextoView from './stories/formularios/InputTextoView.svelte';
 import TextAreaVista from './stories/formularios/TextAreaVista.svelte';
 
-export default { title: 'Formularios' }
+export default { title: 'Input Texto' }
 
 // input texto
-export const inputTextoDefault = () => ({
+export const inputTextoLabel = () => ({
     Component:InputTextoView,
     props: {
-        textoLabel: 'Valida: ',
-        textoValidar: 'Agenda cultura digital',
+        textoLabel: 'Nombre: ',
+        textoPlaceHolder: 'Con Label',
     },
 })
-export const inputTexto = () => ({
+export const inputTextoNoLabel = () => ({
     Component:InputTextoView,
     props: {
-        textoValidar: 'Hola mundo',
+        textoPlaceHolder: 'Sin label',
     },
 })
 // text area
