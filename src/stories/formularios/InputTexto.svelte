@@ -1,11 +1,10 @@
 <script>
-  export let textoValidado;
+  export let textoValidar;
   export let textoLabel;
   let valor;
   let color;
   const validaDato = e => {
-    
-    let textoEvalua = textoValidado.toLowerCase();
+    let textoEvalua = textoValidar.toLowerCase();
     let evento = e.target.value.toLowerCase();
 
     if (evento === textoEvalua) {
@@ -20,29 +19,6 @@
     }
   };
 </script>
-
-<label>
-  {textoLabel}
-  <input
-    on:keyup={validaDato}
-    id="text"
-    class={color}
-    type="text"
-    name="text"
-    placeholder={textoValidado} />
-</label>
-<div id="mensaje" class={color}>
-  {#if !!valor}
-    <!-- valor correcto -->
-    <p>Gracias!</p>
-  {:else if valor === false}
-    <!-- valor error -->
-    <p>Valor no válido</p>
-  {:else if !valor || valor === ''}
-    <!-- valor default -->
-    <p>Escribe: {textoValidado}</p>
-  {/if}
-</div>
 
 <style>
   input {
@@ -63,3 +39,26 @@
     border: none;
   }
 </style>
+
+<label>
+  {#if !!textoLabel}{textoLabel}{/if}
+  <input
+    on:keyup={validaDato}
+    id="text"
+    class={color}
+    type="text"
+    name="text"
+    placeholder={textoValidar} />
+</label>
+<div id="mensaje" class={color}>
+  {#if !!valor}
+    <!-- valor correcto -->
+    <p>Gracias!</p>
+  {:else if valor === false}
+    <!-- valor error -->
+    <p>Valor no válido</p>
+  {:else if !valor || valor === ''}
+    <!-- valor default -->
+    <p>Escribe: {textoValidar}</p>
+  {/if}
+</div>
