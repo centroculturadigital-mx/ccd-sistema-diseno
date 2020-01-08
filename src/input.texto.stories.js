@@ -1,4 +1,5 @@
 import InputTextoView from './stories/formularios/InputTextoView.svelte';
+import TextAreaVista from './stories/formularios/TextAreaVista.svelte';
 
 export default { title: 'Formularios' }
 
@@ -15,4 +16,11 @@ export const inputTexto = () => ({
     props: {
         textoValidar: 'Hola mundo',
     },
+})
+// text area
+export const textArea = () => ({
+    Component:TextAreaVista,
+    props: {
+        texto: 'Hola mundo'
+    }
 })
