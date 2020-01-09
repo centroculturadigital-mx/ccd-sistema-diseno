@@ -3,6 +3,7 @@
 
   export let texto;
   export let radius;
+  export let textoPlaceHolder;   
 </script>
 
-<TextArea {texto} {radius}/>
+<TextArea {radius} {textoPlaceHolder} {texto}/>
