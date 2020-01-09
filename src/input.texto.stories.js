@@ -1,4 +1,4 @@
-import InputTextoView from './stories/formularios/InputTexto/InputTextoView.svelte';
+import InputTextoView from './stories/formularios/InputTexto/InputTextoVista.svelte';
 
 export default { title: 'Input Texto' }
 
