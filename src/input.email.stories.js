@@ -1,4 +1,4 @@
-import InputEmailVista from './stories/formularios/InputEmailVista.svelte';
+import InputEmailVista from './stories/formularios/InputEmail/InputEmailVista.svelte';
 
 export default { title: 'Input Email' }
 
