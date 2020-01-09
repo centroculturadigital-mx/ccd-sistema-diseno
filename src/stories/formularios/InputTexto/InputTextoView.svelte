@@ -1,8 +1,8 @@
 <script>
-  import InputTexto from "./InputTexto";
+  import InputTexto from "./InputTexto.svelte";
 
-  export let textoPlaceHolder;
+  export let textoPlaceholder;
   export let textoLabel;
 </script>
 
-<InputTexto {textoPlaceHolder} {textoLabel} />
+<InputTexto {textoPlaceholder} {textoLabel} />

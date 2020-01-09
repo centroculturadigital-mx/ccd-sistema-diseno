@@ -1,5 +1,5 @@
 <script>
-  export let textoPlaceHolder;
+  export let textoPlaceholder;
   export let textoLabel;
   let valor;
   let color;
@@ -31,7 +31,7 @@
     class={color}
     type="text"
     name="text"
-    placeholder={textoPlaceHolder} />
+    placeholder={textoPlaceholder} />
 </label>
 <div id="mensaje" class={color}>
   {#if valor === true}

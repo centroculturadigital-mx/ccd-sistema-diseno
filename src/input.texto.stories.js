@@ -3,18 +3,17 @@ import TextAreaVista from './stories/formularios/TextAreaVista.svelte';
 
 export default { title: 'Input Texto' }
 
-// input texto
 export const inputTextoLabel = () => ({
     Component:InputTextoView,
     props: {
         textoLabel: 'Nombre: ',
-        textoPlaceHolder: 'Con Label',
+        textoPlaceholder: 'Con Label',
     },
 })
 export const inputTextoNoLabel = () => ({
     Component:InputTextoView,
     props: {
-        textoPlaceHolder: 'Sin label',
+        textoPlaceholder: 'Sin label',
     },
 })
 // text area
