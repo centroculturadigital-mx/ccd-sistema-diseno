@@ -7,7 +7,7 @@ export default { title: 'Area de Texto' }
 export const textArea = () => ({
     Component:TextAreaVista,
     props: {
-        textoPlaceHolder: 'placeholder',
-        texto: 'texto'
+        textoPlaceHolder: 'Placeholder',
+        
     },
 })

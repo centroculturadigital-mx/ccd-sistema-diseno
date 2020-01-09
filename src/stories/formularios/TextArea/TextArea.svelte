@@ -1,5 +1,5 @@
 <script>
-  export let texto;
+  //export let texto;
   export let radius;
   export let textoPlaceHolder;
 </script>
@@ -17,8 +17,7 @@
   cols="30"
   rows="10"
   style="border-radius:{radius}px;"
-  placeholder={textoPlaceHolder}>
-  {texto}
-</textarea>
+  placeholder={textoPlaceHolder}></textarea>
+
 
 
