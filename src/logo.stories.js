@@ -21,7 +21,7 @@ export const logoImagen = () => ({
     props: {
         ancho: '40%',
         logoTexto: 'Logo sistema diseno',
-        logoImagenUrl: '/assets/placeholder.texto.jpg',
+        logoImagenUrl: '/assets/placeholder.jpg',
     }
 });
 export const logoAlineadoDerecha = () => ({
@@ -29,6 +29,6 @@ export const logoAlineadoDerecha = () => ({
     props: {
         alineacion: 'right',
         logoTexto: 'Logo sistema diseno',
-        logoImagenUrl: '/assets/placeholder.texto.jpg',
+        logoImagenUrl: 'placeholder.texto.jpg',
     }
 });

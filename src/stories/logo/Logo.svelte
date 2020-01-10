@@ -25,8 +25,7 @@
 
 <div style="width:{ancho};justify-content:{alineacion}">
   {#if !!logoImagenUrl}
-    <!-- <img src={logoImagenUrl} alt={logoTexto} /> -->
-    <img src="../../../static/placeholder.jpg" alt={logoTexto} />
+    <img src={logoImagenUrl} alt={logoTexto} />
   {:else if !logoImagenUrl && !!logoTexto}
     <h4>{logoTexto}</h4>
   {/if}

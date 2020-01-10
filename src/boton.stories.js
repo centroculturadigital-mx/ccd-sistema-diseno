@@ -1,4 +1,4 @@
-import BotonView from './stories/botones/BotonView.svelte';
+import BotonView from './stories/botones/Boton/BotonView.svelte';
 
 export default { title: 'Boton' }
 

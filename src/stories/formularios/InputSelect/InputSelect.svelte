@@ -2,10 +2,12 @@
   export let textoPlaceholder;
   export let textoLabel;
   export let opciones;
-  export let multiple;
 </script>
 
 <style>
+  div {
+    width: 100%;
+  }
   select {
     border: 1px solid gray;
     border-radius: 0.25rem;
@@ -17,7 +19,7 @@
   }
 </style>
 
-<div class="custom-select" style="width:200px;">
+<div class="custom-select">
 
   <label>
 
@@ -26,7 +28,7 @@
     <select>
 
       {#if !!opciones}
-      <!-- primer elemento de placeholder -->
+        <!-- primer elemento de placeholder -->
         {#if !!textoPlaceholder}
           <option class="placeholder" disabled selected>
             {textoPlaceholder}
