@@ -1,5 +1,5 @@
 <script>
-  import MenuMovil from "./MenuMovil";
+  import MenuMovil from "./MenuMovil.svelte";
 
   export let estadoMenu;
   export let objetosMenu;

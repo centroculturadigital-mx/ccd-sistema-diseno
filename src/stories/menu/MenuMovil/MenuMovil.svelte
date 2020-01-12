@@ -22,7 +22,7 @@
 </style>
 
 {#if !!estadoMenu}
-  <ul style="background-color:{colorFondo}:height:{alturaObjetoMenu}">
+  <ul style="background-color:{colorFondo};height:{alturaObjetoMenu}">
 
     {#each objetosMenu as objeto}
       <li>{objeto}</li>
@@ -30,7 +30,7 @@
 
   </ul>
 {:else}
-
+<!-- DEBUG -->
   <p>ksjnfijfn</p>
   
 {/if}

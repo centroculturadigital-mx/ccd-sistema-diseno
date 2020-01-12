@@ -21,6 +21,10 @@
   h4 {
     margin: 0.25rem 0;
   }
+  img {
+    object-fit: contain;
+    height: 100%;
+  }
 </style>
 
 <div style="width:{ancho};justify-content:{alineacion}">

@@ -8,7 +8,12 @@
   export let objetosMenu;
   export let altura;
   export let color;
+  export let sombra;
+  export let fixed;
 
+  //  Responsivo
+  let responsivo;
+  let breakpoint = 720;
 
 </script>
 
@@ -22,17 +27,33 @@
     height: 100%;
     width: 100%;
   }
+  .sombra {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+  .fixed {
+    position: fixed;
+    padding: 0.5rem;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
 </style>
 
-<header style="background-color:{color};height:{altura}">
-  <div>
-    <LogoVista {logoTexto} {logoImagenUrl} ancho={'33%'} />
+<svelte:window bind:innerWidth={responsivo} />
 
-    <BotonMenuMovilVista />
+{#if responsivo < breakpoint}
+  <header
+    style="background-color:{color};height:{altura};{!!sombra ? 'box-shadow:1px 0 2px rgba(0,0,0,0.5)' : ''}"
+    class={!!fixed ? 'fixed' : ''}>
+    <div>
+      <LogoVista {logoTexto} {logoImagenUrl} ancho={'33%'} />
 
-  </div>
+      <BotonMenuMovilVista />
 
-  {#if !!objetosMenu}
-    <MenuMovilVista {objetosMenu} on:eventoEstadoMenu/>
-  {/if}
-</header>
+    </div>
+
+    {#if !!objetosMenu}
+      <MenuMovilVista {objetosMenu} on:eventoEstadoMenu />
+    {/if}
+  </header>
+{/if}

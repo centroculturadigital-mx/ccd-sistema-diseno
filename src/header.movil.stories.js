@@ -28,13 +28,22 @@ export const headerMovilAltura = () => ({
         altura: '200px',
     }
 });
-export const headerMovilConMenu = () => ({
+export const headerMovilSombra = () => ({
     Component: HeaderMovilVista,
     props: {
         logoTexto: 'Logo Sitio',
         logoImagenUrl: 'placeholder.jpg',
-        color: 'lightblue',
-        altura: '200px',
-        objetosMenu: items,
+        altura: '70px',
+        sombra: true,
+    }
+});
+export const headerMovilFixed = () => ({
+    Component: HeaderMovilVista,
+    props: {
+        logoTexto: 'Logo Sitio',
+        logoImagenUrl: 'placeholder.jpg',
+        altura: '70px',
+        sombra: true,
+        fixed: true,
     }
 });
