@@ -13,8 +13,6 @@
     border-radius: 0.25rem;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-  }
-  .placeholder {
     color: #9fa7a7;
   }
 </style>

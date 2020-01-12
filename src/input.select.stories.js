@@ -14,7 +14,13 @@ export const inputSelectLabel = () => ({
 export const inputSelectNoLabel = () => ({
     Component: InputSelectVista,
     props: {
-        textoPlaceholder: "Selecciona asunto",
+        opciones: objetos,
+    },
+});
+export const inputSelectPlaceholder = () => ({
+    Component: InputSelectVista,
+    props: {
+        textoPlaceholder: "Placeholder",
         opciones: objetos,
     },
 });
