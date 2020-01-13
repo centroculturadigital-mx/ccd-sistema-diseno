@@ -9,7 +9,7 @@ let blocks = [
       type: "h4",
       data: {
         text:
-          "Titulo"
+          "Título"
       }
     },
     {
@@ -34,15 +34,14 @@ let blocks = [
         border-radius: 0.25rem;
         background-color: rgb(192, 192, 192);
         color: rgb(0, 0, 0);
-        
     }
     img {
         object-fit: contain;
-        
     }
     .botones-flecha {
         display: flex;
         flex-direction: wrap;
+        
     }
     button {
         background-color: transparent;

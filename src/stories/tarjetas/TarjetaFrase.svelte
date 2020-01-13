@@ -6,7 +6,7 @@ let blocks = [
       type: "h1",
       data: {
         text:
-          '"Titulo"'
+          '"Título"'
       }
     },
     {
@@ -35,5 +35,5 @@ let blocks = [
 </style>
 
 <article>
-    <ContenidoTarjetaFrase {blocks}/>
+    <ContenidoTarjeta {blocks}/>
 </article>
