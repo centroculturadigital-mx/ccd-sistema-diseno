@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
   import MenuIcon from "../../../../node_modules/svelte-feather-icons/src/icons/MenuIcon.svelte";
   import XIcon from "../../../../node_modules/svelte-feather-icons/src/icons/XIcon.svelte";
 
@@ -8,11 +8,9 @@
   const dispatch = createEventDispatcher();
 
   function estadoBotonMenu() {
+    !!estadoBoton ? (estadoBoton = false) : (estadoBoton = true);
 
-    !!estadoBoton ? estadoBoton = false : estadoBoton = true;
-    
-    dispatch("eventoBotonMenu",estadoBoton);
-    
+    dispatch("eventoBotonMenu", estadoBoton);
   }
 </script>
 
@@ -26,6 +24,7 @@
   }
   :global(.feather) {
     stroke: black;
+    
   }
   :global(.feather:hover) {
     stroke: red;

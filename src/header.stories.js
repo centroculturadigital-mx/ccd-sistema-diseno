@@ -45,6 +45,7 @@ export const headerSombra = () => ({
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
+        colorFondo: 'white',
         altura: '70px',
         sombra: true,
     }
@@ -54,6 +55,7 @@ export const headerFixed = () => ({
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
+        colorFondo: 'white',
         altura: '70px',
         sombra: true,
         fixed: true,
@@ -64,6 +66,7 @@ export const headerLogoImagen = () => ({
     props: {
         objetosMenu: items,
         logoImagenUrl: Placeholder,
+        colorFondo: 'white',
         logoTexto: 'Logo Sitio',
         altura: '70px',
         sombra: true,
