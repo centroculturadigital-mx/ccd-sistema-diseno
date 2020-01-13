@@ -53,6 +53,11 @@ export let blocks
 			{block.data.text}
 		</p></i>
 	{/if}
+	{#if block.type == "b" }
+		<b><p>
+			{block.data.text}
+		</p></b>
+	{/if}
 	{#if block.type == "img" }
 		<img src={block.data.src} alt={block.data.alt}/>
 	{/if}

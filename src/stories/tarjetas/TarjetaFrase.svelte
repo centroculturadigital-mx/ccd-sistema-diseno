@@ -1,5 +1,5 @@
 <script>
-import ContenidoTarjetaFrase from "../bloques/ContenidoTarjetaFrase.svelte";
+import ContenidoTarjeta from "../bloques/ContenidoTarjeta.svelte";
 
 let blocks = [
     {

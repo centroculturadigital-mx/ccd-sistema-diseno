@@ -1,8 +1,8 @@
 <script>
-import TarjetaFrase from "./TarjetaFrase.svelte";
+import TarjetaDeslizante from "./TarjetaDeslizante.svelte";
 import ContenidoTarjeta from "../bloques/ContenidoTarjeta.svelte";
 
 export let blocks
 </script>
 
-<TarjetaFrase {blocks}/>
+<TarjetaDeslizante {blocks}/>
