@@ -61,6 +61,6 @@ export const bienvenidaPosicionTexto = () => ({
         overlay: true,
         colorOverlay: 'red',
         textoTitulo: 'Lorem ipsum dolor sit amet',
-        positionTexto: 'center',
+        posicionTexto: 'center',
     }
 });
