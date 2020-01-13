@@ -1,18 +1,56 @@
 import BienvenidaVista from './stories/bienvenida/BienvenidaVista.svelte';
-import ImagenFondo from '../public/placeholder.texto.jpg';
+import ImagenFondo from '../public/placeholder.no.texto.jpg';
+import VideoFondoMp4 from '../public/video.placeholder.mp4';
+import VideoFondoWebm from '../public/video.placeholder.webm';
+// import VideoFondoOGV from '../public/video.placeholder.ogv';
 
 export default { title: "Bienvenida (Heroscreen)" }
 
+let videos = [VideoFondoMp4,VideoFondoWebm];
 
-export const bienvenidaImagen = () => ({
+export const bienvenidaImagenFondo = () => ({
     Component: BienvenidaVista,
     props: {
         imagenUrl: ImagenFondo,
     }
 });
-// export const bienvenidaImagen = () => ({
-//     Component: BienvenidaVista,
-//     props: {
-//         imagenUrl: './placeholder.texto.jpg',
-//     }
-// });
+export const bienvenidaImagenOverlay = () => ({
+    Component: BienvenidaVista,
+    props: {
+        imagenUrl: ImagenFondo,
+        overlay: true,
+        colorOverlay: 'red',
+    }
+});
+export const bienvenidaImagenOverlayTexto = () => ({
+    Component: BienvenidaVista,
+    props: {
+        imagenUrl: ImagenFondo,
+        overlay: true,
+        colorOverlay: 'red',
+        textoTitulo: 'Lorem ipsum dolor sit amet'
+    }
+});
+export const bienvenidaVideoFondo = () => ({
+    Component: BienvenidaVista,
+    props: {
+        videoUrls: videos,
+    }
+});
+export const bienvenidaVideoOverlay = () => ({
+    Component: BienvenidaVista,
+    props: {
+        videoUrls: videos,
+        overlay: true,
+        colorOverlay: 'red',
+    }
+});
+export const bienvenidaVideoOverlayTexto = () => ({
+    Component: BienvenidaVista,
+    props: {
+        videoUrls: videos,
+        overlay: true,
+        colorOverlay: 'red',
+        textoTitulo: 'Lorem ipsum dolor sit amet'
+    }
+});
