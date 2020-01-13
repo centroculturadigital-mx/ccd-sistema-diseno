@@ -6,7 +6,7 @@ import VideoFondoWebm from '../public/video.placeholder.webm';
 
 export default { title: "Bienvenida (Heroscreen)" }
 
-let videos = [VideoFondoMp4,VideoFondoWebm];
+let videos = [VideoFondoMp4, VideoFondoWebm];
 
 export const bienvenidaImagenFondo = () => ({
     Component: BienvenidaVista,
@@ -52,5 +52,15 @@ export const bienvenidaVideoOverlayTexto = () => ({
         overlay: true,
         colorOverlay: 'red',
         textoTitulo: 'Lorem ipsum dolor sit amet'
+    }
+});
+export const bienvenidaPosicionTexto = () => ({
+    Component: BienvenidaVista,
+    props: {
+        videoUrls: videos,
+        overlay: true,
+        colorOverlay: 'red',
+        textoTitulo: 'Lorem ipsum dolor sit amet',
+        positionTexto: 'center',
     }
 });

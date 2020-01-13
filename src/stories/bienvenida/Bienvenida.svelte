@@ -4,6 +4,7 @@
   export let videoUrls;
   export let imagenUrl;
   export let textoTitulo;
+  export let posicionTexto;
   export let overlay;
   export let colorOverlay;
   export let color;
@@ -55,16 +56,19 @@
   }
   .texto h1 {
     font-size: 2.7rem;
-    max-width: 18rem;
+    max-width: 19rem;
   }
   .texto article {
     height: auto;
     width: 100%;
     display: flex;
+    position: relative;
     max-width: 720px;
   }
   .texto div {
     max-width: 3rem;
+    position: absolute;
+    bottom: -1rem;
   }
   :global(svg.feather-play-circle) {
     stroke-width: 1px;
@@ -73,6 +77,9 @@
   @media (min-width: 720px) {
     .texto article {
       margin: 0 auto;
+    }
+    .texto h1 {
+      max-width: 26rem;
     }
   }
 </style>
@@ -95,7 +102,7 @@
   {/if}
   {#if !!textoTitulo}
     <div class="texto">
-      <article>
+      <article style="justify-content:{posicionTexto};">
         <h1 style="color:{color}">{textoTitulo}</h1>
         {#if !!videoUrls}
           <div>

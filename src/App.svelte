@@ -35,6 +35,7 @@
   <BienvenidaVista
     videoUrls={videos}
     textoTitulo="Construye el futuro con nosotros"
+	posicionTexto="left"
     colorOverlay="red"
     overlay />
   <h1>npm run {valor}</h1>
