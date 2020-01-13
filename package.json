@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
-    "@storybook/svelte": "^5.2.8",
+    "@storybook/svelte": "^5.3.1",
     "babel-loader": "^8.0.6",
     "rollup": "^1.12.0",
     "rollup-plugin-commonjs": "^10.0.0",

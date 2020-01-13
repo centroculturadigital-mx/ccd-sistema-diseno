@@ -28,3 +28,13 @@ export const menuMovilAlturaObjetoMenu = () => ({
         alturaObjetoMenu: '2rem',
     }
 });
+export const menuMovilColorTexto = () => ({
+    Component: MenuMovil,
+    props: {
+        estadoMenu: true,
+        objetosMenu: items,
+        colorFondo: 'lightblue',
+        alturaObjetoMenu: '2rem',
+        color: 'orange',
+    }
+});
