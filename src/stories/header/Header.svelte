@@ -20,6 +20,9 @@
 </script>
 
 <style>
+  header {
+    position: relative;
+  }
   header div:nth-child(1) {
     box-sizing: border-box;
     padding: 0 0.5rem;
