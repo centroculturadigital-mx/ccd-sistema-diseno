@@ -1,4 +1,5 @@
 import Logo from './stories/logo/LogoVista.svelte';
+import ImagenFondo from '../public/placeholder.texto.jpg';
 
 export default {title: "Logo"}
 
@@ -21,14 +22,15 @@ export const logoImagen = () => ({
     props: {
         ancho: '40%',
         logoTexto: 'Logo sistema diseno',
-        logoImagenUrl: '/assets/placeholder.jpg',
+        logoImagenUrl: ImagenFondo,
     }
 });
 export const logoAlineadoDerecha = () => ({
     Component: Logo,
     props: {
+        ancho: '40%',
         alineacion: 'right',
         logoTexto: 'Logo sistema diseno',
-        logoImagenUrl: 'placeholder.texto.jpg',
+        logoImagenUrl: ImagenFondo,
     }
 });
