@@ -2,27 +2,14 @@
   import HeaderMovilVista from "./stories/header/HeaderMovilVista.svelte";
   export let valor;
 
-  let menuItems = ["Item 1", "Item 1", "Item 1", "Item 1", "Item 1", "Item 1"];
+  let objetosMenu = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"];
+  
 </script>
-
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>
 
 <main>
 
   <HeaderMovilVista
-    objetosMenu={menuItems}
+    {objetosMenu}
     logoImagenUrl={'/placeholder.texto.jpg'}
     logoTexto="Logo"
     altura="70px"

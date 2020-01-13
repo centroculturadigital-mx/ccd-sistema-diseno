@@ -7,14 +7,12 @@
 
   const dispatch = createEventDispatcher();
 
-  function estadoBotonMenuMovil() {
+  function estadoBotonMenu() {
 
     !!estadoBoton ? estadoBoton = false : estadoBoton = true;
     
-    dispatch("eventoEstadoMenu", {
-      // estado: estadoBoton,
-      text: "Heyyy",
-    });
+    dispatch("eventoBotonMenu",estadoBoton);
+    
   }
 </script>
 
@@ -24,6 +22,7 @@
     border: none;
     cursor: pointer;
     width: 3rem;
+    margin: 0;
   }
   :global(.feather) {
     stroke: black;
@@ -33,7 +32,7 @@
   }
 </style>
 
-<button on:click={estadoBotonMenuMovil}>
+<button on:click={estadoBotonMenu}>
   {#if !!estadoBoton}
     <XIcon />
   {:else}

@@ -16,14 +16,13 @@
     width: 100%;
     align-items: center;
     justify-content: left;
-    padding: 0.25rem;
   }
   h4 {
     margin: 0.25rem 0;
   }
   img {
     object-fit: contain;
-    height: 100%;
+    height: 90%;
   }
 </style>
 

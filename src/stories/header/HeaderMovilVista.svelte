@@ -8,18 +8,22 @@
   export let objetosMenu;
   export let sombra;
   export let fixed;
+  export let estadoMenu;
 
-  function escuchaEstadoBotonMenuMovil(event) {
-    console.log("Ya por fin");
+  function activaMenu(evento) {
+    estadoMenu = evento.detail;
+    console.log(estadoMenu);
+    
   }
 </script>
 
 <HeaderMovil
+  on:eventoBotonMenu={activaMenu} 
   {objetosMenu}
+  {estadoMenu}
   {logoTexto}
   {logoImagenUrl}
   {altura}
   {color}
   {sombra}
-  {fixed}
-  on:eventoEstadoMenu={escuchaEstadoBotonMenuMovil} />
+  {fixed}/>

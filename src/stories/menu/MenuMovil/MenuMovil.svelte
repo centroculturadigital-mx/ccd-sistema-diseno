@@ -7,11 +7,13 @@
 
 <style>
   ul {
-    height: 100%;
+    height: auto;
     margin: 0;
     padding: 0;
     list-style-type: none;
     width: 100%;
+    position: absolute;
+    z-index: 1000;
   }
   li {
     padding: 0.5rem;
@@ -21,16 +23,15 @@
   }
 </style>
 
-{#if !!estadoMenu}
-  <ul style="background-color:{colorFondo};height:{alturaObjetoMenu}">
+{#if estadoMenu === true}
+  <ul style="background-color:{colorFondo}">
 
     {#each objetosMenu as objeto}
-      <li>{objeto}</li>
+      <li style="height:{alturaObjetoMenu}">{objeto}</li>
     {/each}
 
   </ul>
 {:else}
-<!-- DEBUG -->
+  <!-- DEBUG -->
   <p>ksjnfijfn</p>
-  
 {/if}

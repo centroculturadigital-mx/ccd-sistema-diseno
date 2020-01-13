@@ -3,5 +3,5 @@
 
 </script>
 
-  <BotonMenuMovil />
+  <BotonMenuMovil on:eventoBotonMenu />
 

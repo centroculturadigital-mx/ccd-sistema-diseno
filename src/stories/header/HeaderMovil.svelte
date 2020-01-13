@@ -1,4 +1,5 @@
 <script>
+import { slide } from 'svelte/transition'
   import LogoVista from "../logo/LogoVista.svelte";
   import BotonMenuMovilVista from "../botones/BotonMenuMovil/BotonMenuMovilVista.svelte";
   import MenuMovilVista from "../menu/MenuMovil/MenuMovilVista.svelte";
@@ -10,6 +11,7 @@
   export let color;
   export let sombra;
   export let fixed;
+  export let estadoMenu;
 
   //  Responsivo
   let responsivo;
@@ -18,17 +20,13 @@
 </script>
 
 <style>
-  header {
-    padding: 0.5rem;
-  }
-  div {
+  header div:nth-child(1) {
+    box-sizing: border-box;
+    padding: 0 0.5rem;
     display: flex;
     justify-content: space-between;
-    height: 100%;
+    height: 95%;
     width: 100%;
-  }
-  .sombra {
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
   }
   .fixed {
     position: fixed;
@@ -48,12 +46,12 @@
     <div>
       <LogoVista {logoTexto} {logoImagenUrl} ancho={'33%'} />
 
-      <BotonMenuMovilVista />
+      <BotonMenuMovilVista on:eventoBotonMenu/>
 
     </div>
 
     {#if !!objetosMenu}
-      <MenuMovilVista {objetosMenu} on:eventoEstadoMenu />
+      <MenuMovilVista estadoMenu={estadoMenu} colorFondo="lime" alturaObjetoMenu="4rem" {objetosMenu} on:eventoEstadoMenu />
     {/if}
   </header>
 {/if}
