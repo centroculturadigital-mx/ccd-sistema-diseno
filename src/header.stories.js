@@ -1,4 +1,4 @@
-import HeaderMovilVista from '../src/stories/header/HeaderMovilVista.svelte';
+import HeaderMovilVista from '../src/stories/header/HeaderVista.svelte';
 
 export default {title: 'Header Movil'}
 

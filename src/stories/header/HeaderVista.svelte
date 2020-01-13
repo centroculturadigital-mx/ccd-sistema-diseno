@@ -1,29 +1,31 @@
 <script>
-  import HeaderMovil from "./HeaderMovil.svelte";
+  import Header from "./Header.svelte";
 
   export let logoTexto;
   export let logoImagenUrl;
   export let altura;
+  export let colorFondo;
   export let color;
   export let objetosMenu;
   export let sombra;
   export let fixed;
   export let estadoMenu;
 
-  function activaMenu(evento) {
-    estadoMenu = evento.detail;
-    console.log(estadoMenu);
-    
+  function menu(evento) {
+
+    estadoMenu = evento.detail;    
+  
   }
 </script>
 
-<HeaderMovil
-  on:eventoBotonMenu={activaMenu} 
+<Header
+  on:eventoBotonMenu={menu} 
   {objetosMenu}
   {estadoMenu}
   {logoTexto}
   {logoImagenUrl}
   {altura}
+  {colorFondo}
   {color}
   {sombra}
   {fixed}/>

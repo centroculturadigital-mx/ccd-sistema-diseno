@@ -4,14 +4,9 @@
   export let estadoMenu;
   export let objetosMenu;
   export let colorFondo;
+  export let color;
   export let alturaObjetoMenu;
-
-
+  export let sombra;
 </script>
 
-<MenuMovil
-  {estadoMenu}
-  {objetosMenu}
-  {colorFondo} 
-  {alturaObjetoMenu}
-  />
+<MenuMovil {estadoMenu} {objetosMenu} {colorFondo} {color} {alturaObjetoMenu} {sombra} />

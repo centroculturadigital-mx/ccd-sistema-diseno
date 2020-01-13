@@ -1,8 +1,11 @@
 <script>
+  import { slide } from "svelte/transition";
   export let estadoMenu;
   export let objetosMenu;
   export let colorFondo;
+  export let color;
   export let alturaObjetoMenu;
+  export let sombra;
 </script>
 
 <style>
@@ -21,17 +24,24 @@
     align-items: center;
     justify-content: center;
   }
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    opacity: 0.75;
+  }
 </style>
 
 {#if estadoMenu === true}
-  <ul style="background-color:{colorFondo}">
+  <ul
+    style="background-color:{colorFondo};{!!sombra ? 'box-shadow: 0 1px 1px rgba(0,0,0,0.5)' : ''}"
+    transition:slide>
 
     {#each objetosMenu as objeto}
-      <li style="height:{alturaObjetoMenu}">{objeto}</li>
+      <li style="height:{alturaObjetoMenu};color={color}">
+        <a href="#" style="color:{color}">{objeto}</a>
+      </li>
     {/each}
 
   </ul>
-{:else}
-  <!-- DEBUG -->
-  <p>ksjnfijfn</p>
 {/if}

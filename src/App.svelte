@@ -1,5 +1,5 @@
 <script>
-  import HeaderMovilVista from "./stories/header/HeaderMovilVista.svelte";
+  import HeaderVista from "./stories/header/HeaderVista.svelte";
   export let valor;
 
   let objetosMenu = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"];
@@ -8,12 +8,14 @@
 
 <main>
 
-  <HeaderMovilVista
+  <HeaderVista
     {objetosMenu}
     logoImagenUrl={'/placeholder.texto.jpg'}
     logoTexto="Logo"
     altura="70px"
-    sombra
+    colorFondo="whitesmoke"
+    color="black"
+	sombra
     />
 
   <h1>npm run {valor}</h1>
