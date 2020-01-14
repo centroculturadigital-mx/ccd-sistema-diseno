@@ -28,7 +28,7 @@ export const bienvenidaImagenOverlayTexto = () => ({
         imagenUrl: ImagenFondo,
         overlay: true,
         colorOverlay: 'red',
-        textoTitulo: 'Lorem ipsum dolor sit amet'
+        titulo: 'Lorem ipsum dolor sit amet'
     }
 });
 export const bienvenidaVideoFondo = () => ({
@@ -51,7 +51,7 @@ export const bienvenidaVideoOverlayTexto = () => ({
         videoUrls: videos,
         overlay: true,
         colorOverlay: 'red',
-        textoTitulo: 'Lorem ipsum dolor sit amet'
+        titulo: 'Lorem ipsum dolor sit amet'
     }
 });
 export const bienvenidaPosicionTexto = () => ({
@@ -60,7 +60,7 @@ export const bienvenidaPosicionTexto = () => ({
         videoUrls: videos,
         overlay: true,
         colorOverlay: 'red',
-        textoTitulo: 'Lorem ipsum dolor sit amet',
+        titulo: 'Lorem ipsum dolor sit amet',
         posicionTexto: 'right',
     }
 });

@@ -1,11 +1,13 @@
 <script>
 import VideoVista from '../video/VideoVista.svelte';
 import ImagenVista from '../imagen/ImagenVista.svelte';
+import TituloVista from '../titulo/TituloVista.svelte';
 import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
 
   export let videoUrls;
   export let imagenUrl;
-  export let textoTitulo;
+  export let titulo;
+  export let nivelTitulo;
   export let posicionTexto;
   export let overlay;
   export let colorOverlay;
@@ -83,7 +85,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
 <section>
   <div class="fondo">
     {#if !!imagenUrl}
-      <ImagenVista {imagenUrl} altTexto={textoTitulo} />
+      <ImagenVista {imagenUrl} altTexto={titulo} />
     {:else if !!videoUrls}
       <VideoVista {videoUrls} loop="true" autoplay="true"/>
     {/if}
@@ -91,10 +93,11 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
   {#if !!overlay}
     <div class="overlay" style="background-color:{colorOverlay}" />
   {/if}
-  {#if !!textoTitulo}
+  {#if !!titulo}
     <div class="texto">
       <article style="justify-content:{posicionTexto};">
-        <h1 style="color:{color}">{textoTitulo}</h1>
+        <h1 style="color:{color}">{titulo}</h1>
+        <TituloVista {titulo} {nivelTitulo}/>
         {#if !!videoUrls}
           <div>
             <PlayCircleIcon />

@@ -3,7 +3,7 @@
 
   export let videoUrls;
   export let imagenUrl;
-  export let textoTitulo;
+  export let titulo;
   export let posicionTexto;
   export let overlay;
   export let colorOverlay;
@@ -13,7 +13,7 @@
 <Bienvenida
   {videoUrls}
   {imagenUrl}
-  {textoTitulo}
+  {titulo}
   {posicionTexto}
   {color}
   {overlay}
