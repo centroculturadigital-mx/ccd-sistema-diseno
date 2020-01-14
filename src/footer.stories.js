@@ -3,7 +3,7 @@ import Placeholder from '../public/placeholder.texto.jpg';
 
 
 export default {title: 'Footer'}
-let items = ["Item","Item","Item","Item","Item"];
+let items = ["Item","Item"];
 
 export const footerDefault = () => ({
     Component: FooterMovilVista,
