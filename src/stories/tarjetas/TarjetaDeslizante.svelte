@@ -1,5 +1,5 @@
 <script>
-import ContenidoTarjeta from "../bloques/ContenidoTarjeta.svelte";
+//import ContenidoTarjeta from "../bloques/ContenidoTarjeta.svelte";
 import ArrowLeftIcon from "./../../../node_modules/svelte-feather-icons/src/icons/ArrowLeftIcon.svelte";
 import ArrowRightIcon from "./../../../node_modules/svelte-feather-icons/src/icons/ArrowRightIcon.svelte";
 
@@ -58,7 +58,7 @@ let blocks = [
 <article>
     <img src="https://fakeimg.pl/360x140/" alt="header-imagen">
     
-    <ContenidoTarjeta {blocks}/>
+    
 
     <div class="botones-flecha">
         <button name="flecha-izquierda">

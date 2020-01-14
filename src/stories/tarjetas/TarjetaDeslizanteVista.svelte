@@ -1,8 +1,8 @@
 <script>
 import TarjetaDeslizante from "./TarjetaDeslizante.svelte";
-import ContenidoTarjeta from "../bloques/ContenidoTarjeta.svelte";
+//import ContenidoTarjeta from "../bloques/ContenidoTarjeta.svelte";
 
-export let blocks
+//export let blocks
 </script>
 
-<TarjetaDeslizante {blocks}/>
+<TarjetaDeslizante />
