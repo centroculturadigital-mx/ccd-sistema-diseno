@@ -4,12 +4,14 @@ import Placeholder from '../public/placeholder.texto.jpg';
 
 export default {title: 'Footer'}
 let items = ["Item","Item"];
+let itemsLogos = ['Placeholder','Placeholder'];
 
 export const footerDefault = () => ({
     Component: FooterMovilVista,
     props: {
         objetosMenu: items,
-        logoImagenUrl: Placeholder,
+        logosPleca: 'Logo Sitio',
+        colorFondo: 'grey',
         altura: '70px',
         
     }
