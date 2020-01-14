@@ -6,7 +6,7 @@
   export let radius;
 </script>
 
-<button style="border-radius:{radius}px;background-color:{colorBG};color:{color};padding: 0.5rem {paddingX}rem;" on:click>{texto}</button>
+<button style="border-radius:{radius};background-color:{colorBG};color:{color};padding: 0.5rem {paddingX};" on:click>{texto}</button>
 
 <style>
     button {

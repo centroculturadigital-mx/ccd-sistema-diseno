@@ -1,39 +1,39 @@
-import BotonView from './stories/botones/Boton/BotonView.svelte';
+import BotonVista from './stories/botones/Boton/BotonVista.svelte';
 
 export default { title: 'Boton' }
 
-// BotonView
+// BotonVista
 export const botonDefault = () => ({
-    Component: BotonView,
+    Component: BotonVista,
     props: {
         texto: 'Boton Default',
     },
 });
 export const botonColorTexto = () => ({
-    Component: BotonView,
+    Component: BotonVista,
     props: {
         texto: 'Color de texto',
         color: 'orange',
     },
 });
 export const botonColorFondo = () => ({
-    Component: BotonView,
+    Component: BotonVista,
     props: {
         texto: 'Color de fondo',
         colorBG: 'orange',
     },
 });
 export const botonPaddingX = () => ({
-    Component: BotonView,
+    Component: BotonVista,
     props: {
         texto: 'Padding',
-        paddingX: 6,
+        paddingX: '6rem',
     },
 });
 export const botonRadius = () => ({
-    Component: BotonView,
+    Component: BotonVista,
     props: {
         texto: '!',
-        radius: 20,
+        radius: '20px',
     },
 });

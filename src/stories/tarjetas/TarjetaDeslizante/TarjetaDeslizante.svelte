@@ -1,42 +1,70 @@
 <script>
+  import ImagenVista from "../../imagen/ImagenVista.svelte";
+  import BotonVista from "../../botones/Boton/BotonVista.svelte";
 
+  export let imagenUrl;
+  export let titulo;
+  export let textoParrafo;
 </script>
 
 <style>
+  article {
+    max-width: 20rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 0.25rem;
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+  }
+  .tarjeta-imagen {
+    width: 100%;
+    height: 10rem;
+  }
+  .tarjeta-texto {
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    width: 100%;
+  }
+  .tarjeta-boton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  @media (min-width: 720px) {
     article {
-        width: 22.5rem;
-        height: 22.5rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        border-radius: 0.25rem;
-        background-color: rgb(192, 192, 192);
-        color: rgb(0, 0, 0);
+      max-width: 100%;
+      flex-direction: unset;
     }
-    img {
-        object-fit: contain;
+    .tarjeta-imagen {
+      width: 50%;
+      height: 20rem;
     }
-    .botones-flecha {
-        display: flex;
-        flex-direction: wrap;
-        
+    .tarjeta-texto {
+      width: 50%;
+      box-sizing: border-box;
+      padding: 0.5rem 1rem;
     }
-    button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        width: 2rem;
-        margin: 0;
-    }
-    :global(.feather) {
-      stroke: rgb(141, 141, 141);
-    }
+  }
 </style>
 
 <article>
 
-    <img src="https://fakeimg.pl/360x140/" alt="header-imagen">
-    
+  <div class="tarjeta-imagen">
+    <ImagenVista {imagenUrl} altTexto={titulo} ajuste="cover" />
+  </div>
+
+  <div class="tarjeta-texto">
+    <h3>{titulo}</h3>
+
+    <p>{textoParrafo}</p>
+
+    <div class="tarjeta-boton">
+      <BotonVista radius="15px" texto="Saber más" on:click />
+    </div>
+
+  </div>
 
 </article>
