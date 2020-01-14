@@ -1,7 +1,8 @@
 <script>
 export let imagenUrl;
-export let alt;
+export let altTexto;
 export let ajuste;
+export let altura;
 </script>
 
 <style>
@@ -11,4 +12,4 @@ img {
 }
 </style>
 
-<img src={imagenUrl} alt={alt} style="object-fit:{ajuste}">
+<img src={imagenUrl} alt={altTexto} style="object-fit:{ajuste};height:{altura}">

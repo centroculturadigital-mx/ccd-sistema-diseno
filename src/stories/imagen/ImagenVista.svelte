@@ -2,8 +2,9 @@
 import Imagen from './Imagen.svelte';
 
 export let imagenUrl;
-export let alt;
+export let altTexto;
 export let ajuste;
+export let altura;
 </script>
 
-<Imagen {imagenUrl} {alt} {ajuste} />
+<Imagen {imagenUrl} {altTexto} {ajuste} {altura} />
