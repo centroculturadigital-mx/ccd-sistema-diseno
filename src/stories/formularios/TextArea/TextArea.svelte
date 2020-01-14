@@ -1,11 +1,13 @@
 <script>
   export let textoPlaceholder;
   export let textoLabel;
+  export let ancho;
+  export let altura;
   let valor;
 
 const validaEventoEntrada = e => {
   let evento = e.target.value;
-  if  (evento == "") {
+  if (evento == "") {
     valor = false;
     color = "";
   }
@@ -20,6 +22,7 @@ const validaEventoEntrada = e => {
     width: 18.5rem;
     height: 10.5rem;
     padding: 0.75rem;
+    resize: none;
   }
   label {
     display: flex;
@@ -29,13 +32,16 @@ const validaEventoEntrada = e => {
 </style>
 
 <label for="nombre-area">
-  {#if !!textoLabel}{textoLabel}{/if}
+  {#if !!textoLabel}
+    {textoLabel}
+  {/if}
 </label>
 <textarea
-  on:keyup={validaEventoEntrada}
   name="area-texto"
   id="texto"
-  placeholder={textoPlaceholder}></textarea>
+  on:keyup={validaEventoEntrada}
+  placeholder={textoPlaceholder}
+  style="width:{ancho};height:{altura};"></textarea>
 
 
 
