@@ -7,7 +7,7 @@ export const TarjetaFraseImagen = () => ({
     Component: TarjetaFraseVista,
     props: {
         imagenUrl: ImagenFondo,
-        textoFrase: "Nisi ut culpa pariatur commodo ad cillum ea ut pariatur.",
+        textoFrase: '"Nisi ut culpa pariatur commodo ad cillum ea ut pariatur."',
         textoAutor: "-Eiusmod pariatur.",
         posicionTexto: 'center',
         fontStyle: 'italic'
@@ -18,8 +18,8 @@ export const TarjetaFraseImagen = () => ({
 export const TarjetaFraseColor = () => ({
     Component: TarjetaFraseVista,
     props: {
-        colorFondo: 'blue',
-        textoFrase: "Nisi ut culpa pariatur commodo ad cillum ea ut pariatur.",
+        colorFondo: 'gray',
+        textoFrase: '"Nisi ut culpa pariatur commodo ad cillum ea ut pariatur."',
         textoAutor: "-Eiusmod pariatur.",
         posicionTexto: 'center',
         color: 'white',
