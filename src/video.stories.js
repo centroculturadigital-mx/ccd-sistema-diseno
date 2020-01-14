@@ -20,6 +20,13 @@ export const VideoControles = () => ({
         controls: true,
     }
 });
+export const VideoLoop = () => ({
+    Component: VideoVista,
+    props: {
+        videoUrls: videos,
+        loop: true,
+    }
+});
 export const VideoAltura = () => ({
     Component: VideoVista,
     props: {
