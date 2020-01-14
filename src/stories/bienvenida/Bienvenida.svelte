@@ -1,5 +1,6 @@
 <script>
-  import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
+import Video from '../video/VideoVista.svelte';
+import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
 
   export let videoUrls;
   export let imagenUrl;
@@ -27,8 +28,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
   }
-  img,
-  video {
+  img {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -89,12 +89,7 @@
     {#if !!imagenUrl}
       <img src={imagenUrl} alt={textoTitulo} />
     {:else if !!videoUrls}
-      <video autoplay loop>
-        {#each videoUrls as videoUrl}
-          <source src={videoUrl} />
-        {/each}
-        Tu navegador no soporta HTML5 video.
-      </video>
+      <Video {videoUrls} loop="true" autoplay="true"/>
     {/if}
   </div>
   {#if !!overlay}
