@@ -4,10 +4,18 @@ export default { title: 'Area de Texto' }
 
 
 // text area
-export const textArea = () => ({
+export const textAreaLabel = () => ({
     Component:TextAreaVista,
     props: {
-        textoPlaceHolder: 'Placeholder',
+        textoLabel: 'Nombre: ',
+        textoPlaceholder: 'Proident laborum',
+        
+    },
+})
+export const textAreaNoLabel = () => ({
+    Component:TextAreaVista,
+    props: {
+        textoPlaceholder: 'Proident laborum',
         
     },
 })

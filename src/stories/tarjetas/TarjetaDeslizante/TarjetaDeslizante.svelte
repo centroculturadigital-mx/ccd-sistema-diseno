@@ -37,6 +37,6 @@
 <article>
 
     <img src="https://fakeimg.pl/360x140/" alt="header-imagen">
-
+    
 
 </article>
