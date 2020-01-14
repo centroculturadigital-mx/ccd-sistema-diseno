@@ -61,12 +61,12 @@ export let colorFondo;
 
 <article style="justify-content:{posicionTexto};">
     <div class="contenedor-texto">
-    <h1 style="color:{color}">
-        {textoFrase}
-    </h1>
-    <p style="font-style:{fontStyle}">
-        {textoAutor}
-    </p>
+        <h1 style="color:{color}">
+            {textoFrase}
+        </h1>
+        <p style="font-style:{fontStyle}">
+            {textoAutor}
+        </p>
     </div>
     <div class="fondo" style="background-color:{colorFondo}">
         {#if !!imagenUrl}

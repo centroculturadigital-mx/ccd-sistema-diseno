@@ -3,7 +3,7 @@ import ImagenFondo from '../public/placeholder.no.texto.jpg';
 
 export default {title: 'Tarjeta Frase'}
 
-export const TarjetaFraseImagen = () => ({
+export const TarjetaFraseImagenFondo = () => ({
     Component: TarjetaFraseVista,
     props: {
         imagenUrl: ImagenFondo,
@@ -15,7 +15,7 @@ export const TarjetaFraseImagen = () => ({
     
 });
 
-export const TarjetaFraseColor = () => ({
+export const TarjetaFraseColorFondo = () => ({
     Component: TarjetaFraseVista,
     props: {
         colorFondo: 'gray',
