@@ -1,10 +1,13 @@
 <script>
   import ImagenVista from "../../imagen/ImagenVista.svelte";
+  import TituloVista from "../../titulo/TituloVista.svelte";
   import BotonVista from "../../botones/Boton/BotonVista.svelte";
 
   export let imagenUrl;
-  export let titulo;
   export let textoParrafo;
+  export let titulo;
+  export let nivelTitulo;
+  export let colorTitulo;
 </script>
 
 <style>
@@ -57,8 +60,10 @@
   </div>
 
   <div class="tarjeta-texto">
-    <h3>{titulo}</h3>
 
+    {#if !!titulo}
+      <TituloVista {titulo} {nivelTitulo} color={colorTitulo} />
+    {/if}
     <p>{textoParrafo}</p>
 
     <div class="tarjeta-boton">
