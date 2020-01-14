@@ -1,5 +1,6 @@
 <script>
-import Video from '../video/VideoVista.svelte';
+import VideoVista from '../video/VideoVista.svelte';
+import ImagenVista from '../imagen/ImagenVista.svelte';
 import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
 
   export let videoUrls;
@@ -27,11 +28,6 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
     flex-direction: column;
     flex-wrap: wrap;
     align-items: flex-start;
-  }
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
   }
   .overlay {
     position: absolute;
@@ -87,9 +83,9 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
 <section>
   <div class="fondo">
     {#if !!imagenUrl}
-      <img src={imagenUrl} alt={textoTitulo} />
+      <ImagenVista {imagenUrl} altTexto={textoTitulo} />
     {:else if !!videoUrls}
-      <Video {videoUrls} loop="true" autoplay="true"/>
+      <VideoVista {videoUrls} loop="true" autoplay="true"/>
     {/if}
   </div>
   {#if !!overlay}
