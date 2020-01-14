@@ -1,13 +1,18 @@
 <script>
   import LogoVista from "../logo/LogoVista.svelte";
   import BotonMenuMovilVista from "../botones/BotonMenuMovil/BotonMenuMovilVista.svelte";
-    import MenuEscritorioVista from "../menu/MenuEscritorio/MenuEscritorioVista.svelte";
+  import MenuEscritorioVista from "../menu/MenuEscritorio/MenuEscritorioVista.svelte";
   import MenuMovilVista from "../menu/MenuMovil/MenuMovilVista.svelte";
 
   export let sombra;
   export let fixed;
-  export let colorFondo;
+  export let logoTexto;
+  export let logoImagenUrl;
+  export let objetosMenu;
   export let altura;
+  export let colorFondo;
+  export let color;
+  export let estadoMenu;
 
 
   //  Responsivo
@@ -35,13 +40,14 @@
     z-index: 1000;
   }
 </style>
+
 <svelte:window bind:innerWidth={responsivo} />
 
 <footer
   style="background-color:{colorFondo};height:{altura};{!!sombra ? 'box-shadow:0 1px 2px rgba(0,0,0,0.5)' : ''}"
   class={!!fixed ? 'fixed' : ''}>
   <div>
-    <LogoVista {logoTexto} {logoImagenUrl} ancho={'auto'} />
+    <LogoVista {logoTexto} {logoImagenUrl}  ancho={'auto'} />
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
