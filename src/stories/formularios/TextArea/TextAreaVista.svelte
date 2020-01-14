@@ -1,8 +1,8 @@
 <script>
   import TextArea from "./TextArea.svelte";
 
-  export let texto;
-  export let textoPlaceHolder;   
+  export let textoPlaceholder;
+  export let textoLabel;  
 </script>
 
-<TextArea {textoPlaceHolder} {texto}/>
+<TextArea {textoLabel} {textoPlaceholder} />
