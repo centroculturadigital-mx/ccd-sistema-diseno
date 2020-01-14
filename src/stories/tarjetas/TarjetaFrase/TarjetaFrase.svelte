@@ -28,7 +28,7 @@ export let colorFondo;
         box-sizing: border-box;
         position: absolute;
         top: 0;
-        padding: 1rem;
+        padding: 1.5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
