@@ -10,6 +10,7 @@
   export let colorFondo;
   export let color;
   export let estadoMenu;
+  export let logosPleca;
 
 
   function menu(evento) {
@@ -29,4 +30,5 @@
   {colorFondo}
   {color}
   {sombra}
-  {fixed}/>
+  {fixed}
+  {logosPleca}/>

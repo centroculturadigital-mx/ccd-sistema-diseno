@@ -13,6 +13,7 @@
   export let colorFondo;
   export let color;
   export let estadoMenu;
+  export let logosPleca;
 
 
   //  Responsivo
@@ -47,13 +48,13 @@
   style="background-color:{colorFondo};height:{altura};{!!sombra ? 'box-shadow:0 1px 2px rgba(0,0,0,0.5)' : ''}"
   class={!!fixed ? 'fixed' : ''}>
   <div>
-    <LogoVista {logoTexto} {logoImagenUrl}  ancho={'auto'} />
+    <LogoVista {logosPleca}{logoTexto} {logoImagenUrl}  ancho={'auto'} />
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
-      <BotonMenuMovilVista on:eventoBotonMenu />
+      <BotonMenuMovilVista  />
     {:else if !!objetosMenu}
-      <MenuEscritorioVista {objetosMenu} {colorFondo} {color} />
+      <MenuEscritorioVista {logosPleca} {objetosMenu} {colorFondo} {color} />
     {/if}
 
   </div>
@@ -62,7 +63,7 @@
   {#if responsivo < breakpoint}
     {#if !!objetosMenu}
       <MenuMovilVista
-        on:eventoEstadoMenu
+       
         {estadoMenu}
         {objetosMenu}
         {colorFondo}
