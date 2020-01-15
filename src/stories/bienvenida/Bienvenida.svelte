@@ -7,7 +7,6 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
   export let videoUrls;
   export let imagenUrl;
   export let titulo;
-  export let nivelTitulo;
   export let posicionTexto;
   export let overlay;
   export let colorOverlay;
@@ -52,10 +51,6 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
     width: 100%;
     z-index: 2;
   }
-  .texto h1 {
-    font-size: 2.7rem;
-    max-width: 19rem;
-  }
   .texto article {
     height: auto;
     width: 100%;
@@ -66,7 +61,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
   .texto div {
     max-width: 3rem;
     position: absolute;
-    bottom: -1rem;
+    bottom: -2rem;
   }
   :global(svg.feather-play-circle) {
     stroke-width: 1px;
@@ -96,8 +91,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
   {#if !!titulo}
     <div class="texto">
       <article style="justify-content:{posicionTexto};">
-        <h1 style="color:{color}">{titulo}</h1>
-        <TituloVista {titulo} {nivelTitulo}/>
+        <TituloVista titulo={titulo} />
         {#if !!videoUrls}
           <div>
             <PlayCircleIcon />

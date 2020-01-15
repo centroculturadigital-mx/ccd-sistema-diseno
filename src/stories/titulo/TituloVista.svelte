@@ -4,6 +4,7 @@
   export let nivelTitulo;
   export let titulo;
   export let color;
-</script>
 
+</script>
+ 
 <Titulo {nivelTitulo} {titulo} {color} />

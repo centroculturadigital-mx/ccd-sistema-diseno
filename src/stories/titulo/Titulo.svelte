@@ -5,10 +5,20 @@
 </script>
 
 <style>
-h1,h2,h3,h4,h5,h6  {
-    color:black;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: white;
+  }
+  .titulo-grande {
+    font-size: 2.7rem;
+    max-width: 19rem;
+  }
 </style>
+
 {#if !!nivelTitulo}
   {#if nivelTitulo === 'h1'}
     <h1 style="color:{color};">{titulo}</h1>
@@ -28,4 +38,6 @@ h1,h2,h3,h4,h5,h6  {
   {#if nivelTitulo === 'h6'}
     <h6 style="color:{color};">{titulo}</h6>
   {/if}
+{:else }
+    <h1 class="titulo-grande" style="color:{color};">{titulo}</h1>
 {/if}
