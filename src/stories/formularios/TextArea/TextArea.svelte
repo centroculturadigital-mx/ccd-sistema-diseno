@@ -17,10 +17,10 @@ const validaEventoEntrada = e => {
 
 <style>
  textarea {
-    border: 1px solid gray;
-    border-radius: 0.5rem;
     width: 18.5rem;
     height: 10.5rem;
+    border: 1px solid gray;
+    border-radius: 0.5rem;
     padding: 0.75rem;
     resize: none;
   }
