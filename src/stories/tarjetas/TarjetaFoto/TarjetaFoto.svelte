@@ -15,13 +15,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 0.25rem;
     background-color: rgb(192, 192, 192);
     color: rgb(0, 0, 0);
   }
   .tarjeta-imagen {
     width: 16rem;
-    height: 22rem;
+    height: 20rem;
   }
   
   @media (min-width: 720px) {
@@ -31,7 +30,7 @@
     }
     .tarjeta-imagen {
       width: 100%;
-      height: 22rem;
+      height: 20rem;
     }
     
   }
