@@ -1,8 +1,8 @@
 <script>
-  import LogoVista from "../logo/LogoVista.svelte";
-  import BotonMenu from "../botones/BotonMenu/BotonMenu.svelte";
-  import MenuEscritorioVista from "../menu/MenuEscritorio/MenuEscritorioVista.svelte";
-  import MenuMovil from "../menu/MenuMovil/MenuMovil.svelte";
+  import LogoVista from "../Logo/Logo.svelte";
+  import BotonMenu from "../../elementos/botones/BotonMenu/BotonMenu.svelte";
+  import MenuEscritorioVista from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
+  import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
 
 
   export let menuAlternar;
