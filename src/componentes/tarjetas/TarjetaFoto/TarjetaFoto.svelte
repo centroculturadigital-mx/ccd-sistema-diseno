@@ -1,5 +1,5 @@
 <script>
-  import ImagenVista from "../../imagen/ImagenVista.svelte";
+  import Imagen from "../../imagen/Imagen.svelte";
 
   export let imagenUrl;
   export let titulo;
@@ -40,7 +40,7 @@
 <article style="{!!sombra ? 'box-shadow:0 2px 4px rgba(0,0,0,0.5)' : ''}"  >
 
   <div class="tarjeta-imagen">
-    <ImagenVista {imagenUrl} altTexto={titulo} ajuste="cover" />
+    <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
   </div>
 
   

@@ -1,5 +1,5 @@
 <script>
-  import ImagenVista from "../imagen/ImagenVista.svelte";
+  import Imagen from "../media/Imagen/Imagen.svelte";
   export let logoTexto;
   export let logoImagenUrl;
   export let ancho;
@@ -25,7 +25,7 @@
 
 <div style="width:{ancho};justify-content:{alineacion}">
   {#if !!logoImagenUrl}
-    <ImagenVista imagenUrl={logoImagenUrl} altTexto={logoTexto} altura="90%"/>
+    <Imagen imagenUrl={logoImagenUrl} altTexto={logoTexto} altura="90%"/>
   {:else if !logoImagenUrl && !!logoTexto}
     <h4>{logoTexto}</h4>
   {/if}

@@ -1,5 +1,5 @@
 <script>
-  import ImagenVista from "../../imagen/ImagenVista.svelte";
+  import Imagen from "../../imagen/Imagen.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import BotonVista from "../../botones/Boton/BotonVista.svelte";
 
@@ -56,7 +56,7 @@
 <article>
 
   <div class="tarjeta-imagen">
-    <ImagenVista {imagenUrl} altTexto={titulo} ajuste="cover" />
+    <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
   </div>
 
   <div class="tarjeta-texto">

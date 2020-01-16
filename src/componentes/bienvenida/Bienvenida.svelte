@@ -1,6 +1,6 @@
 <script>
 import Video from '../video/Video.svelte';
-import ImagenVista from '../imagen/ImagenVista.svelte';
+import Imagen from '../media/Imagen/Imagen.svelte';
 import Titulo from '../../elementos/texto/Titulo/Titulo.svelte';
 import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
 
@@ -80,7 +80,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
 <section>
   <div class="fondo">
     {#if !!imagenUrl}
-      <ImagenVista {imagenUrl} altTexto={titulo} />
+      <Imagen {imagenUrl} altTexto={titulo} />
     {:else if !!videoUrls}
       <Video {videoUrls} loop="true" autoplay="true"/>
     {/if}
