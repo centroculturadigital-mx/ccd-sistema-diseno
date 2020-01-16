@@ -1,4 +1,4 @@
-import TarjetaFraseVista from "./stories/tarjetas/TarjetaFrase/TarjetaFraseVista.svelte";
+import TarjetaFraseVista from "./componentes/tarjetas/TarjetaFrase/TarjetaFraseVista.svelte";
 import ImagenFondo from '../public/placeholder.no.texto.jpg';
 
 export default {title: 'Tarjeta Frase'}

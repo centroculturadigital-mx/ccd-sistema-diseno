@@ -1,4 +1,4 @@
-import FooterMovilVista from '../src/stories/footer/FooterVista.svelte';
+import FooterMovilVista from '../src/componentes/footer/FooterVista.svelte';
 import Placeholder from '../public/placeholder.texto.jpg';
 
 

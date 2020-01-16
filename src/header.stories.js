@@ -1,4 +1,4 @@
-import HeaderMovilVista from '../src/stories/header/HeaderVista.svelte';
+import Header from '../src/componentes/header/Header.svelte';
 import Placeholder from '../public/placeholder.texto.jpg';
 
 export default {title: 'Header'}
@@ -6,14 +6,14 @@ export default {title: 'Header'}
 let items = ["Item","Item","Item","Item","Item"];
 
 export const headerDefault = () => ({
-    Component: HeaderMovilVista,
+    Component: Header,
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
     }
 });
 export const headerColorBG = () => ({
-    Component: HeaderMovilVista,
+    Component: Header,
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
@@ -22,7 +22,7 @@ export const headerColorBG = () => ({
     }
 });
 export const headerColorTexto = () => ({
-    Component: HeaderMovilVista,
+    Component: Header,
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
@@ -32,7 +32,7 @@ export const headerColorTexto = () => ({
     }
 });
 export const headerAltura = () => ({
-    Component: HeaderMovilVista,
+    Component: Header,
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
@@ -41,7 +41,7 @@ export const headerAltura = () => ({
     }
 });
 export const headerSombra = () => ({
-    Component: HeaderMovilVista,
+    Component: Header,
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
@@ -51,7 +51,7 @@ export const headerSombra = () => ({
     }
 });
 export const headerFixed = () => ({
-    Component: HeaderMovilVista,
+    Component: Header,
     props: {
         objetosMenu: items,
         logoTexto: 'Logo Sitio',
@@ -62,7 +62,7 @@ export const headerFixed = () => ({
     }
 });
 export const headerLogoImagen = () => ({
-    Component: HeaderMovilVista,
+    Component: Header,
     props: {
         objetosMenu: items,
         logoImagenUrl: Placeholder,

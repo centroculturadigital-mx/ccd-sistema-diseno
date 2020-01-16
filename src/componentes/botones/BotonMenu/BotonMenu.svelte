@@ -1,17 +1,10 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+
   import MenuIcon from "../../../../node_modules/svelte-feather-icons/src/icons/MenuIcon.svelte";
   import XIcon from "../../../../node_modules/svelte-feather-icons/src/icons/XIcon.svelte";
+  
+  export let estado=false;
 
-  let estadoBoton = false; //boton cerrado
-
-  const dispatch = createEventDispatcher();
-
-  function estadoBotonMenu() {
-    !!estadoBoton ? (estadoBoton = false) : (estadoBoton = true);
-
-    dispatch("eventoBotonMenu", estadoBoton);
-  }
 </script>
 
 <style>
@@ -31,8 +24,8 @@
   }
 </style>
 
-<button on:click={estadoBotonMenu}>
-  {#if !!estadoBoton}
+<button on:click>
+  {#if !! estado}
     <XIcon />
   {:else}
     <MenuIcon />

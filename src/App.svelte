@@ -1,6 +1,6 @@
 <script>
-  import HeaderVista from "./stories/header/HeaderVista.svelte";
-  import BienvenidaVista from "./stories/bienvenida/BienvenidaVista.svelte";
+  import HeaderVista from "./componentes/header/HeaderVista.svelte";
+  import BienvenidaVista from "./componentes/bienvenida/BienvenidaVista.svelte";
 
   let videos = [
     "/video.placeholder.mp4",

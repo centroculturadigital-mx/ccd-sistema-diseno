@@ -1,4 +1,4 @@
-import MenuEscritorio from './stories/menu/MenuEscritorio/MenuEscritorioVista.svelte';
+import MenuEscritorio from './componentes/menu/MenuEscritorio/MenuEscritorioVista.svelte';
 
 export default { title: 'Menu Escritorio' }
 

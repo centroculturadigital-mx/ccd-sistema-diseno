@@ -1,4 +1,4 @@
-import MenuMovil from './stories/menu/MenuMovil/MenuMovilVista.svelte';
+import MenuMovil from './componentes/menu/MenuMovil/MenuMovil.svelte';
 
 export default { title: 'Menu Movil' }
 

@@ -1,4 +1,4 @@
-import TextAreaVista from './stories/formularios/TextArea/TextAreaVista.svelte';
+import TextAreaVista from './componentes/formularios/TextArea/TextAreaVista.svelte';
 
 export default { title: 'Area de Texto' }
 

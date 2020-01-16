@@ -1,5 +1,5 @@
 <script>
-  import Header from "./Header.svelte";
+  import HeaderVista from "./HeaderVista.svelte";
 
   export let logoTexto;
   export let logoImagenUrl;
@@ -9,17 +9,18 @@
   export let objetosMenu;
   export let sombra;
   export let fixed;
-  export let estadoMenu;
-
-  function menu(evento) {
-
-    estadoMenu = evento.detail;    
   
+  let estadoMenu=false;
+
+  const menuAlternar = () => {
+
+    estadoMenu =! estadoMenu    
+    
   }
 </script>
 
-<Header
-  on:eventoBotonMenu={menu} 
+<HeaderVista
+  {menuAlternar} 
   {objetosMenu}
   {estadoMenu}
   {logoTexto}

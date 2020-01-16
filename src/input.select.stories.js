@@ -1,4 +1,4 @@
-import InputSelectVista from './stories/formularios/InputSelect/InputSelectVista.svelte';
+import InputSelectVista from './componentes/formularios/InputSelect/InputSelectVista.svelte';
 
 export default { title: "Input Select"}
 

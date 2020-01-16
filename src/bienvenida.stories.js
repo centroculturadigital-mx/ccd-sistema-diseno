@@ -1,4 +1,4 @@
-import BienvenidaVista from './stories/bienvenida/BienvenidaVista.svelte';
+import BienvenidaVista from './componentes/bienvenida/BienvenidaVista.svelte';
 import ImagenFondo from '../public/placeholder.no.texto.jpg';
 import VideoFondoMp4 from '../public/video.placeholder.mp4';
 import VideoFondoWebm from '../public/video.placeholder.webm';

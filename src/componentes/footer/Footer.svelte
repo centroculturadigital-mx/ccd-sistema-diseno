@@ -1,8 +1,8 @@
 <script>
   import LogoVista from "../logo/LogoVista.svelte";
-  import BotonMenuMovilVista from "../botones/BotonMenuMovil/BotonMenuMovilVista.svelte";
+  import BotonMenu from "../botones/BotonMenu/BotonMenu.svelte";
   import MenuEscritorioVista from "../menu/MenuEscritorio/MenuEscritorioVista.svelte";
-  import MenuMovilVista from "../menu/MenuMovil/MenuMovilVista.svelte";
+  import MenuMovil from "../menu/MenuMovil/MenuMovil.svelte";
 
   export let sombra;
   export let fixed;
@@ -52,7 +52,7 @@
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
-      <BotonMenuMovilVista  />
+      <BotonMenu  />
     {:else if !!objetosMenu}
       <MenuEscritorioVista {logosPleca} {objetosMenu} {colorFondo} {color} />
     {/if}
@@ -62,7 +62,7 @@
   <!-- Menu Movil  -->
   {#if responsivo < breakpoint}
     {#if !!objetosMenu}
-      <MenuMovilVista
+      <MenuMovil
        
         {estadoMenu}
         {objetosMenu}

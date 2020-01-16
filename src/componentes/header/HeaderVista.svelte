@@ -1,9 +1,11 @@
 <script>
   import LogoVista from "../logo/LogoVista.svelte";
-  import BotonMenuMovilVista from "../botones/BotonMenuMovil/BotonMenuMovilVista.svelte";
+  import BotonMenu from "../botones/BotonMenu/BotonMenu.svelte";
   import MenuEscritorioVista from "../menu/MenuEscritorio/MenuEscritorioVista.svelte";
-  import MenuMovilVista from "../menu/MenuMovil/MenuMovilVista.svelte";
+  import MenuMovil from "../menu/MenuMovil/MenuMovil.svelte";
 
+
+  export let menuAlternar;
   export let logoTexto;
   export let logoImagenUrl;
   export let objetosMenu;
@@ -17,6 +19,8 @@
   //  Responsivo
   let responsivo;
   let breakpoint = 720;
+
+
 </script>
 
 <style>
@@ -50,7 +54,9 @@
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
-      <BotonMenuMovilVista on:eventoBotonMenu />
+      <BotonMenu
+      on:click={menuAlternar}
+      estado={estadoMenu}/>
     {:else if !!objetosMenu}
       <MenuEscritorioVista {objetosMenu} {colorFondo} {color} />
     {/if}
@@ -60,7 +66,7 @@
   <!-- Menu Movil  -->
   {#if responsivo < breakpoint}
     {#if !!objetosMenu}
-      <MenuMovilVista
+      <MenuMovil
         on:eventoEstadoMenu
         {estadoMenu}
         {objetosMenu}

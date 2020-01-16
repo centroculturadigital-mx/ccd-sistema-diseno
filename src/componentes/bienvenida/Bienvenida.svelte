@@ -1,5 +1,5 @@
 <script>
-import VideoVista from '../video/VideoVista.svelte';
+import Video from '../video/Video.svelte';
 import ImagenVista from '../imagen/ImagenVista.svelte';
 import TituloVista from '../titulo/TituloVista.svelte';
 import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
@@ -82,7 +82,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
     {#if !!imagenUrl}
       <ImagenVista {imagenUrl} altTexto={titulo} />
     {:else if !!videoUrls}
-      <VideoVista {videoUrls} loop="true" autoplay="true"/>
+      <Video {videoUrls} loop="true" autoplay="true"/>
     {/if}
   </div>
   {#if !!overlay}
