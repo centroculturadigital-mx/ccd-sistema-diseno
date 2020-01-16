@@ -1,6 +1,5 @@
 <script>
   export let objetosMenu;
-  export let colorFondo;
   export let color;
 </script>
 
@@ -33,7 +32,7 @@
   }
 </style>
 
-<ul style="background-color:{colorFondo};">
+<ul>
 
   {#each objetosMenu as objeto}
     <li>

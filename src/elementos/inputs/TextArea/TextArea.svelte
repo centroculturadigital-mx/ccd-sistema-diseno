@@ -1,11 +1,10 @@
 <script>
   export let textoPlaceholder;
-  export let textoLabel;
   export let ancho;
   export let altura;
   let valor;
 
-const validaEventoEntrada = e => {
+const validaEntrada = e => {
   let evento = e.target.value;
   if (evento == "") {
     valor = false;
@@ -31,15 +30,9 @@ const validaEventoEntrada = e => {
   }
 </style>
 
-<label for="nombre-area">
-  {#if !!textoLabel}
-    {textoLabel}
-  {/if}
-</label>
 <textarea
-  name="area-texto"
-  id="texto"
-  on:keyup={validaEventoEntrada}
+  name="text-area"
+  on:keyup={validaEntrada}
   placeholder={textoPlaceholder}
   style="width:{ancho};height:{altura};"></textarea>
 
