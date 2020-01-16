@@ -1,7 +1,7 @@
 import Header from '../../../componentes/Header/Header.svelte';
 import Placeholder from '../../../../public/placeholder.jpg';
 
-export default {title: 'Componentes/Header'}
+export default {title: 'Componentes/Header/Header'}
 
 let items = ["Menú","Menú","Menú","Menú","Menú"];
 

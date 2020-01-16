@@ -1,6 +1,6 @@
 import Label from '../../../componentes/Label/Label.svelte';
 
-export default {title: 'Componentes/Label'}
+export default {title: 'Componentes/Label/Label'}
 
 export const LabelDefault = () => ({
     Component: Label,

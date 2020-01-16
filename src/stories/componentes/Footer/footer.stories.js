@@ -2,15 +2,13 @@ import Footer from '../../../componentes/Footer/Footer.svelte';
 import Placeholder from '../../../../public/placeholder.jpg';
 
 
-export default {title: 'Componentes/Footer'}
+export default {title: 'Componentes/Footer/Footer'}
 
-let items = ["Item","Item"];
 let itemsLogos = ['Placeholder','Placeholder'];
 
 export const footerDefault = () => ({
     Component: Footer,
     props: {
-        objetosMenu: items,
         logosPleca: 'Logo Sitio',
         colorFondo: 'grey',
         altura: '70px',
@@ -21,7 +19,6 @@ export const footerDefault = () => ({
 export const footerLogoImagen = () => ({
     Component: Footer,
     props: {
-        objetosMenu: items,
         logoImagenUrl: Placeholder,
         colorFondo: 'white',
         logoTexto: 'Logo Sitio',

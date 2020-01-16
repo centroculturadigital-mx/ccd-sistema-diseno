@@ -1,7 +1,7 @@
 import Logo from '../../../componentes/Logo/Logo.svelte';
 import ImagenFondo from '../../../../public/placeholder.jpg';
 
-export default {title: "Componentes/Logo"}
+export default {title: "Componentes/Logo/Logo"}
 
 export const logoTexto = () => ({
     Component: Logo,
