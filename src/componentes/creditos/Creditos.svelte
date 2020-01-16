@@ -1,5 +1,5 @@
 <script>
-  import TituloVista from "../titulo/TituloVista.svelte";
+  import Titulo from "../titulo/Titulo.svelte";
 
   export let titulo;
   export let nivelTitulo;
@@ -46,7 +46,7 @@
 
   <div class="creditos-texto">
     {#if !!titulo}
-      <TituloVista {titulo} {nivelTitulo} color={colorTitulo} />
+      <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
     {/if}
     <p>{textoAutor}</p>
   </div>

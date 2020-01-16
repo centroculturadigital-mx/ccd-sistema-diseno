@@ -1,7 +1,7 @@
 <script>
 import Video from '../video/Video.svelte';
 import ImagenVista from '../imagen/ImagenVista.svelte';
-import TituloVista from '../titulo/TituloVista.svelte';
+import Titulo from '../titulo/Titulo.svelte';
 import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
 
   export let videoUrls;
@@ -91,7 +91,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
   {#if !!titulo}
     <div class="texto">
       <article style="justify-content:{posicionTexto};">
-        <TituloVista titulo={titulo} />
+        <Titulo titulo={titulo} />
         {#if !!videoUrls}
           <div>
             <PlayCircleIcon />

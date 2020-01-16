@@ -1,7 +1,7 @@
 <script>
   export let nivelTitulo;
   export let titulo;
-  export let color;
+  export let color="#000";
 </script>
 
 <style>
@@ -11,7 +11,7 @@
   h4,
   h5,
   h6 {
-    color: white;
+    color: #000;
   }
   .titulo-grande {
     font-size: 2.7rem;

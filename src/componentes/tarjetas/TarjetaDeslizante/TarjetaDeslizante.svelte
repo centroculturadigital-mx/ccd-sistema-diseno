@@ -1,6 +1,6 @@
 <script>
   import ImagenVista from "../../imagen/ImagenVista.svelte";
-  import TituloVista from "../../titulo/TituloVista.svelte";
+  import Titulo from "../../titulo/Titulo.svelte";
   import BotonVista from "../../botones/Boton/BotonVista.svelte";
 
   export let imagenUrl;
@@ -62,7 +62,7 @@
   <div class="tarjeta-texto">
 
     {#if !!titulo}
-      <TituloVista {titulo} {nivelTitulo} color={colorTitulo} />
+      <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
     {/if}
     <p>{textoParrafo}</p>
 
