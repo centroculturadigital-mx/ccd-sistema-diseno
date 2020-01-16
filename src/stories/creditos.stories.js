@@ -1,4 +1,4 @@
-import CreditosVista from "./componentes/creditos/CreditosVista.svelte";
+import CreditosVista from "../componentes/creditos/CreditosVista.svelte";
 
 export default {title: 'Creditos'}
 

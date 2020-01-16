@@ -1,5 +1,5 @@
-import FooterMovilVista from '../src/componentes/footer/FooterVista.svelte';
-import Placeholder from '../public/placeholder.texto.jpg';
+import FooterMovilVista from '../componentes/footer/FooterVista.svelte';
+import Placeholder from '../../public/placeholder.texto.jpg';
 
 
 export default {title: 'Footer'}

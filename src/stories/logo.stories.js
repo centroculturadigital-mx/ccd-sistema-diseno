@@ -1,5 +1,5 @@
-import Logo from './componentes/logo/LogoVista.svelte';
-import ImagenFondo from '../public/placeholder.texto.jpg';
+import Logo from '../componentes/logo/LogoVista.svelte';
+import ImagenFondo from '../../public/placeholder.texto.jpg';
 
 export default {title: "Logo"}
 

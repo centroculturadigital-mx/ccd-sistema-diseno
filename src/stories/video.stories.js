@@ -1,7 +1,7 @@
-import Video from './componentes/video/Video.svelte';
-import VideoFondoMp4 from '../public/video.placeholder.mp4';
-import VideoFondoWebm from '../public/video.placeholder.webm';
-// import VideoFondoOGV from '../public/video.placeholder.ogv';
+import Video from '../componentes/video/Video.svelte';
+import VideoFondoMp4 from '../../public/video.placeholder.mp4';
+import VideoFondoWebm from '../../public/video.placeholder.webm';
+// import VideoFondoOGV from '../../public/video.placeholder.ogv';
 
 let videos = [VideoFondoMp4, VideoFondoWebm];
 

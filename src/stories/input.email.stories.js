@@ -1,4 +1,4 @@
-import InputEmailVista from './componentes/formularios/InputEmail/InputEmailVista.svelte';
+import InputEmailVista from '../componentes/formularios/InputEmail/InputEmailVista.svelte';
 
 export default { title: 'Input Email' }
 

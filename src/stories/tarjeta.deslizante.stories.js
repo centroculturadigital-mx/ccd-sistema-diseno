@@ -1,5 +1,5 @@
-import TarjetaDeslizanteVista from "./componentes/tarjetas/TarjetaDeslizante/TarjetaDeslizanteVista.svelte";
-import Placeholder from '../public/placeholder.texto.jpg';
+import TarjetaDeslizanteVista from "../componentes/tarjetas/TarjetaDeslizante/TarjetaDeslizanteVista.svelte";
+import Placeholder from '../../public/placeholder.texto.jpg';
 
 export default {title: 'Tarjeta Deslizante'}
 

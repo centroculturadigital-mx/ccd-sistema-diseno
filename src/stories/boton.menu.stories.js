@@ -1,4 +1,4 @@
-import BotonMenu from './componentes/botones/BotonMenu/BotonMenu.svelte';
+import BotonMenu from '../componentes/botones/BotonMenu/BotonMenu.svelte';
 
 export default {title: 'Boton Menú '}
 

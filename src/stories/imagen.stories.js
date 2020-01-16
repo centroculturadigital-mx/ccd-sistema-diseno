@@ -1,5 +1,5 @@
-import ImagenVista from './componentes/imagen/ImagenVista.svelte';
-import Imagen from '../public/placeholder.texto.jpg';
+import ImagenVista from '../componentes/imagen/ImagenVista.svelte';
+import Imagen from '../../public/placeholder.texto.jpg';
 export default { title: "Imagen" }
 
 export const imagenDefault = () => ({

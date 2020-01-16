@@ -1,4 +1,4 @@
-import BotonVista from './componentes/botones/Boton/BotonVista.svelte';
+import BotonVista from '../componentes/botones/Boton/BotonVista.svelte';
 
 export default { title: 'Boton' }
 

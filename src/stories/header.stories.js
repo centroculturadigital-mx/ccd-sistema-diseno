@@ -1,5 +1,5 @@
-import Header from '../src/componentes/header/Header.svelte';
-import Placeholder from '../public/placeholder.texto.jpg';
+import Header from '../componentes/header/Header.svelte';
+import Placeholder from '../../public/placeholder.texto.jpg';
 
 export default {title: 'Header'}
 

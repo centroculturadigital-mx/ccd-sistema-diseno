@@ -1,4 +1,4 @@
-import InputTextoView from './componentes/formularios/InputTexto/InputTextoVista.svelte';
+import InputTextoView from '../componentes/formularios/InputTexto/InputTextoVista.svelte';
 
 export default { title: 'Input Texto' }
 

@@ -1,5 +1,5 @@
-import TarjetaFotoVista from "./componentes/tarjetas/TarjetaFoto/TarjetaFotoVista.svelte";
-import Placeholder from '../public/placeholder.texto.jpg';
+import TarjetaFotoVista from "../componentes/tarjetas/TarjetaFoto/TarjetaFotoVista.svelte";
+import Placeholder from '../../public/placeholder.texto.jpg';
 
 export default {title: 'Tarjeta Foto'}
 
