@@ -1,6 +1,6 @@
 <script>
   import ImagenVista from "../../imagen/ImagenVista.svelte";
-  import Titulo from "../../titulo/Titulo.svelte";
+  import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import BotonVista from "../../botones/Boton/BotonVista.svelte";
 
   export let imagenUrl;

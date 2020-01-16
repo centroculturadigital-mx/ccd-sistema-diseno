@@ -1,7 +1,7 @@
 <script>
 import Video from '../video/Video.svelte';
 import ImagenVista from '../imagen/ImagenVista.svelte';
-import Titulo from '../titulo/Titulo.svelte';
+import Titulo from '../../elementos/texto/Titulo/Titulo.svelte';
 import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
 
   export let videoUrls;

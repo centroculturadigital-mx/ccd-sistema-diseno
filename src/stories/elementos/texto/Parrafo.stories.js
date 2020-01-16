@@ -1,11 +1,11 @@
-import Titulo from '../../../elementos/texto/Titulo/Titulo.svelte';
+import Parrafo from '../../../elementos/texto/Parrafo/Parrafo.svelte';
 
 export default { title: 'Elementos/Texto/Parrafo' }
 
 
 export const parrafoDefault = () => ({
-    Component: Titulo,
+    Component: Parrafo,
     props: {
-        texto: 'Parrafo todavia chaca',
+        texto: 'Ad do officia ex amet excepteur cupidatat labore anim cillum dolore sunt voluptate sint. Proident aute ut officia veniam nisi aliqua aliquip Lorem in. Pariatur pariatur consequat aliqua ex exercitation sint mollit ipsum sit. Labore eiusmod occaecat culpa ad. Dolor esse enim laborum consequat eiusmod ea ex quis sit excepteur aliqua.',
     },
 });

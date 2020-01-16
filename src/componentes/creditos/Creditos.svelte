@@ -1,5 +1,5 @@
 <script>
-  import Titulo from "../titulo/Titulo.svelte";
+  import Titulo from "../../elementos/texto/Titulo/Titulo.svelte";
 
   export let titulo;
   export let nivelTitulo;
