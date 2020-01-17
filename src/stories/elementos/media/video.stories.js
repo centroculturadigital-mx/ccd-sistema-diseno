@@ -13,11 +13,19 @@ export const VideoFullScreen = () => ({
         videoUrls: videos,
     }
 });
+export const VideoAutoPlay = () => ({
+    Component: Video,
+    props: {
+        videoUrls: videos,
+        autoplay: true,
+    }
+});
 export const VideoControles = () => ({
     Component: Video,
     props: {
         videoUrls: videos,
         controls: true,
+        autoplay: true,
     }
 });
 export const VideoLoop = () => ({
@@ -25,6 +33,7 @@ export const VideoLoop = () => ({
     props: {
         videoUrls: videos,
         loop: true,
+        autoplay: true,
     }
 });
 export const VideoAltura = () => ({
@@ -33,5 +42,6 @@ export const VideoAltura = () => ({
         videoUrls: videos,
         controls: false,
         altura: '400px',
+        autoplay: true,
     }
 });
