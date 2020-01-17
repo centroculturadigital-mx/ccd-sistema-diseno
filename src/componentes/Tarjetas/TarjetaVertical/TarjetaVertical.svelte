@@ -41,27 +41,29 @@
     width: 100%;
   }
   .sombra {
-    box-shadow: -1px 2px 3px rgba(0,0,0,5);
+    box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
   }
 </style>
 
-  <article style="background-color:{colorBG};" class={!!sombra ? 'sombra' : ''}>
+<article style="background-color:{colorBG};" class={!!sombra ? 'sombra' : ''}>
 
-    <div class="tarjeta-imagen">
-      <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
-    </div>
+  <div class="tarjeta-imagen">
+    <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
+  </div>
 
-    <div class="tarjeta-texto">
+  <div class="tarjeta-texto">
 
-      {#if !!titulo}
-        <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
-      {/if}
+    {#if !!titulo}
+      <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
+    {/if}
+    {#if !!texto}
       <Parrafo {texto} {color} />
+    {/if}
 
-      <div class="tarjeta-boton">
-        <BotonVista radius="15px" texto="Saber más" on:click />
-      </div>
-
+    <div class="tarjeta-boton">
+      <BotonVista radius="15px" texto="Saber más" on:click />
     </div>
 
-  </article>
+  </div>
+
+</article>

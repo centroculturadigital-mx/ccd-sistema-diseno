@@ -9,7 +9,7 @@ export const tarjetaVerticalDefault = () => ({
     props: {
         imagenUrl: Placeholder,
         titulo: 'Esto es un título.',
-        textoParrafo:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3'
     }
 });
@@ -18,7 +18,7 @@ export const tarjetaVerticalTamanoTitulo = () => ({
     props: {
         imagenUrl: Placeholder,
         titulo: 'Esto es un título.',
-        textoParrafo:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h1'
     }
 });
@@ -27,7 +27,7 @@ export const tarjetaVerticalColorTitulo = () => ({
     props: {
         imagenUrl: Placeholder,
         titulo: 'Esto es un título.',
-        textoParrafo:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
         colorTitulo: 'gray',
     }
@@ -37,7 +37,7 @@ export const tarjetaVerticalColorTexto = () => ({
     props: {
         imagenUrl: Placeholder,
         titulo: 'Esto es un título.',
-        textoParrafo:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
         colorTitulo: 'gray',
         color: 'gray',
