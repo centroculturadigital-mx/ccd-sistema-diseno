@@ -1,5 +1,6 @@
 <script>
     export let texto;
+    export let color;
 </script>
 
 <style>
@@ -12,6 +13,6 @@
 </style>
 
 
-<p>
+<p style="color:{color};">
     { texto }
 </p>

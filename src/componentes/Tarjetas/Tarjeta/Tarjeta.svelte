@@ -2,74 +2,48 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import BotonVista from "../../../elementos/botones/Boton/Boton.svelte";
+  import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
+  import TarjetaHorizontal from "../TarjetaHorizontal/TarjetaHorizontal.svelte";
+  import TarjetaVertical from "../TarjetaVertical/TarjetaVertical.svelte";
 
   export let imagenUrl;
-  export let textoParrafo;
   export let titulo;
   export let nivelTitulo;
   export let colorTitulo;
+  export let texto;
+  export let color;
+  export let colorBG;
+  export let sombra;
+
+  let ventana;
+  let breakpoint = 720;
 </script>
 
 <style>
-  article {
-    max-width: 20rem;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    border-radius: 0.25rem;
-    background-color: rgb(192, 192, 192);
-    color: rgb(0, 0, 0);
-  }
-  .tarjeta-imagen {
-    width: 100%;
-    height: 10rem;
-  }
-  .tarjeta-texto {
-    box-sizing: border-box;
-    padding: 1rem 2rem;
-    width: 100%;
-  }
-  .tarjeta-boton {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  @media (min-width: 720px) {
-    article {
-      max-width: 100%;
-      flex-direction: unset;
-    }
-    .tarjeta-imagen {
-      width: 50%;
-      height: 20rem;
-    }
-    .tarjeta-texto {
-      width: 50%;
-      box-sizing: border-box;
-      padding: 0.5rem 1rem;
-    }
-  }
+
 </style>
 
-<article>
+<svelte:window bind:innerWidth={ventana} />
 
-  <div class="tarjeta-imagen">
-    <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
-  </div>
+{#if ventana > breakpoint}
+  <TarjetaHorizontal
+    {imagenUrl}
+    {titulo}
+    {nivelTitulo}
+    {colorTitulo}
+    {texto}
+    {color}
+    {colorBG}
+    {sombra} />
+{:else}
+  <TarjetaVertical
+    {imagenUrl}
+    {titulo}
+    {nivelTitulo}
+    {colorTitulo}
+    {texto}
+    {color}
+    {colorBG}
+    {sombra} />
 
-  <div class="tarjeta-texto">
-
-    {#if !!titulo}
-      <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
-    {/if}
-    <p>{textoParrafo}</p>
-
-    <div class="tarjeta-boton">
-      <BotonVista radius="15px" texto="Saber más" on:click />
-    </div>
-
-  </div>
-
-</article>
+{/if}

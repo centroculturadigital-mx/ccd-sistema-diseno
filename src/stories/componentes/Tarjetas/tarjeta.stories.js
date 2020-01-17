@@ -9,7 +9,7 @@ export const tarjetaDefault = () => ({
     props: {
         imagenUrl: Placeholder,
         titulo: 'Esto es un título.',
-        textoParrafo:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3'
     }
 });
@@ -18,7 +18,7 @@ export const tarjetaTamanoTitulo = () => ({
     props: {
         imagenUrl: Placeholder,
         titulo: 'Esto es un título.',
-        textoParrafo:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h1'
     }
 });
@@ -27,8 +27,44 @@ export const tarjetaColorTitulo = () => ({
     props: {
         imagenUrl: Placeholder,
         titulo: 'Esto es un título.',
-        textoParrafo:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
-        colorTitulo: 'red',
+        colorTitulo: 'gray',
+    }
+});
+export const tarjetaColorTexto = () => ({
+    Component: Tarjeta,
+    props: {
+        imagenUrl: Placeholder,
+        titulo: 'Esto es un título.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        nivelTitulo: 'h3',
+        colorTitulo: 'gray',
+        color: 'gray',
+    }
+});
+export const tarjetaColorFondo = () => ({
+    Component: Tarjeta,
+    props: {
+        imagenUrl: Placeholder,
+        titulo: 'Esto es un título.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        nivelTitulo: 'h3',
+        colorTitulo: 'gray',
+        color: 'gray',
+        colorBG: 'lightgray'
+    }
+});
+export const tarjetaSombra = () => ({
+    Component: Tarjeta,
+    props: {
+        imagenUrl: Placeholder,
+        titulo: 'Esto es un título.',
+        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        nivelTitulo: 'h3',
+        colorTitulo: 'gray',
+        color: 'gray',
+        colorBG: 'white',
+        sombra: true,
     }
 });
