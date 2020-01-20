@@ -1,6 +1,6 @@
 {
   "name": "@centroculturadigital-mx/ccd-sistema-diseno",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
