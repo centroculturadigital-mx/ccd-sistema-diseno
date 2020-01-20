@@ -3,6 +3,7 @@
 
   export let logoTexto;
   export let logoImagenUrl;
+  export let logoAncho;
   export let altura;
   export let colorFondo;
   export let colorFondoMovil;
@@ -25,6 +26,7 @@
   {objetosMenu}
   {estadoMenu}
   {logoTexto}
+  {logoAncho}
   {logoImagenUrl}
   {altura}
   {colorFondo}

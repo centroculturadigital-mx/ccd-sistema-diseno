@@ -2,12 +2,12 @@
   import Imagen from "../../elementos/media/Imagen/Imagen.svelte";
   export let logoTexto;
   export let logoImagenUrl;
-  export let ancho;
-  export let alineacion;
+  export let logoAncho;
+  // export let alineacion;
 
-  if (!alineacion) {
-    alineacion = "left";
-  }
+  // if (!alineacion) {
+  //   alineacion = "left";
+  // }
 </script>
 
 <style>
@@ -15,6 +15,7 @@
     display: flex;
     height: 100%;
     width: 100%;
+    min-width: 12rem;
     align-items: center;
     justify-content: left;
   }
@@ -29,7 +30,7 @@
   }
 </style>
 
-<div style="width:{ancho};justify-content:{alineacion};">
+<div style="width:{logoAncho};">
 <a href=".">
   {#if !!logoImagenUrl}
     <Imagen imagenUrl={logoImagenUrl} altTexto={logoTexto} altura="100%" ajuste="contain"/>

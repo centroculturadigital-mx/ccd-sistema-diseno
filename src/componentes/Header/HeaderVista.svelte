@@ -8,6 +8,7 @@
   export let menuAlternar;
   export let logoTexto;
   export let logoImagenUrl;
+  export let logoAncho;
   export let objetosMenu;
   export let altura;
   export let colorFondo;
@@ -52,7 +53,7 @@
   style="background-color:{colorFondo};height:{altura};{!!sombra ? 'box-shadow:0 1px 2px rgba(0,0,0,0.5)' : ''}"
   class={!!fixed ? 'fixed' : ''}>
   <div>
-    <Logo {logoTexto} {logoImagenUrl} ancho={'auto'} />
+    <Logo {logoTexto} {logoImagenUrl} logoAncho={'30%'} />
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
