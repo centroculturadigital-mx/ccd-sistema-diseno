@@ -10,18 +10,18 @@
   export let objetosMenu;
   export let sombra;
   export let fixed;
-  
-  let estadoMenu=false;
+  export let segment;
+
+  let estadoMenu = false;
 
   const menuAlternar = () => {
-
-    estadoMenu =! estadoMenu    
-    
-  }
+    estadoMenu = !estadoMenu;
+  };
 </script>
 
 <HeaderVista
-  {menuAlternar} 
+  {segment}
+  {menuAlternar}
   {objetosMenu}
   {estadoMenu}
   {logoTexto}
@@ -31,4 +31,4 @@
   {colorFondoMovil}
   {color}
   {sombra}
-  {fixed}/>
+  {fixed} />

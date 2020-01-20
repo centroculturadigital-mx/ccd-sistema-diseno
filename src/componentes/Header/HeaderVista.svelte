@@ -16,6 +16,7 @@
   export let sombra;
   export let fixed;
   export let estadoMenu;
+  export let segment;
 
   //  Responsivo
   let responsivo;
