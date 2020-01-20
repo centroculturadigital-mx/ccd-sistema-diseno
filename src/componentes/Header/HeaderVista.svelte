@@ -11,6 +11,7 @@
   export let objetosMenu;
   export let altura;
   export let colorFondo;
+  export let colorFondoMovil;
   export let color;
   export let sombra;
   export let fixed;
@@ -70,9 +71,9 @@
         on:eventoEstadoMenu
         {estadoMenu}
         {objetosMenu}
-        {colorFondo}
         {color}
         {sombra}
+        colorFondo={colorFondoMovil}
         alturaObjetoMenu="4rem" />
     {/if}
   {/if}

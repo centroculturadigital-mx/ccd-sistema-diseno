@@ -35,7 +35,7 @@
 
 <ul>
 
-  {#each objetosMenu as objeto}
+  {#each objetosMenu as objeto,i}
     <li>
       <a
         class:selected={segment === {objeto}}
