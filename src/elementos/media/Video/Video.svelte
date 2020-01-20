@@ -2,6 +2,7 @@
   export let videoUrls;
   export let autoplay;
   export let loop;
+  export let mute;
   export let controls;
   export let altura;
 </script>
@@ -15,7 +16,7 @@
 </style>
 
 {#if !!videoUrls}
-  <video {autoplay} {loop} {controls} style="height:{altura}">
+  <video {autoplay} {loop} {mute} {controls} style="height:{altura}">
     {#each videoUrls as videoUrl}
       <source src={videoUrl} />
     {/each}
