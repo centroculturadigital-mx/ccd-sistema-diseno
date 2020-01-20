@@ -5,6 +5,7 @@
   export let logoImagenUrl;
   export let altura;
   export let colorFondo;
+  export let colorFondoMovil;
   export let color;
   export let objetosMenu;
   export let sombra;
@@ -27,6 +28,7 @@
   {logoImagenUrl}
   {altura}
   {colorFondo}
+  {colorFondoMovil}
   {color}
   {sombra}
   {fixed}/>
