@@ -1,7 +1,7 @@
 <script>
 
-  import MenuIcon from "../../../../node_modules/svelte-feather-icons/src/icons/MenuIcon.svelte";
-  import XIcon from "../../../../node_modules/svelte-feather-icons/src/icons/XIcon.svelte";
+  import MenuIcon from "svelte-feather-icons/src/icons/MenuIcon.svelte";
+  import XIcon from "svelte-feather-icons/src/icons/XIcon.svelte";
   
   export let estado=false;
 
