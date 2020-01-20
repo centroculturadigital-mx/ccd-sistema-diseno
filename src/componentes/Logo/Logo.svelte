@@ -19,6 +19,8 @@
     justify-content: left;
   }
   a {
+    box-sizing: border-box;
+    padding: 0.5rem;
     height: 100%;
     width:  100%;
   }
@@ -30,7 +32,7 @@
 <div style="width:{ancho};justify-content:{alineacion};">
 <a href=".">
   {#if !!logoImagenUrl}
-    <Imagen imagenUrl={logoImagenUrl} altTexto={logoTexto} altura="90%" ajuste="contain"/>
+    <Imagen imagenUrl={logoImagenUrl} altTexto={logoTexto} altura="100%" ajuste="contain"/>
   {:else if !logoImagenUrl && !!logoTexto}
     <h4>{logoTexto}</h4>
   {/if}
