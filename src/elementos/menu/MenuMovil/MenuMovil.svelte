@@ -39,13 +39,13 @@
     style="background-color:{colorFondo};{!!sombra ? 'box-shadow: 0 1px 1px rgba(0,0,0,0.5)' : ''}"
     transition:slide>
 
-    {#each objetosMenu as objeto}
+    {#each objetosMenu as objeto,i}
       <li style="height:{alturaObjetoMenu};color={color}">
         <a
-          class:selected={segment === {objeto}}
-          href={objeto}
+          class:selected={segment === objeto.ruta}
+          href={objeto.ruta}
           style="color:{color}">
-          {objeto}
+          {objeto.label}
         </a>
       </li>
     {/each}

@@ -38,10 +38,10 @@
   {#each objetosMenu as objeto,i}
     <li>
       <a
-        class:selected={segment === {objeto}}
-        href={objeto}
+        class:selected={segment === objeto.ruta}
+        href={objeto.ruta}
         style="color:{color}">
-        {objeto}
+        {objeto.label}
       </a>
     </li>
   {/each}

@@ -2,19 +2,41 @@ import MenuEscritorio from '../../../elementos/menu/MenuEscritorio/MenuEscritori
 
 export default { title: 'Elementos/Menú/Menú Escritorio' }
 
-let items = ["Menu","Menu","Menu","Menu","Menu"];
+let rutas =  [
+    {
+        label: "Una Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Una Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Una Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Una Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Una Ruta",
+        ruta: "una-ruta"
+    }
+]
+
 
 export const menuEscritorioDefault = () => ({
     Component: MenuEscritorio,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
     }
 });
 
 export const menuEscritorioColorTexto = () => ({
     Component: MenuEscritorio,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
         colorFondo: 'lightblue',
         color: 'orange',
     }
