@@ -1,5 +1,5 @@
 {
-  "name": "ccd-sistema-diseno",
+  "name": "@centroculturadigital-mx/ccd-sistema-diseno",
   "version": "0.1.0",
   "scripts": {
     "build": "rollup -c",
