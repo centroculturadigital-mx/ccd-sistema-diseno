@@ -1,5 +1,7 @@
 <script>
   import { slide } from "svelte/transition";
+
+  export let segment;
   export let estadoMenu;
   export let objetosMenu;
   export let colorFondo;
@@ -39,7 +41,12 @@
 
     {#each objetosMenu as objeto}
       <li style="height:{alturaObjetoMenu};color={color}">
-        <a href="#" style="color:{color}">{objeto}</a>
+        <a
+          class:selected={segment === {objeto}}
+          href={objeto}
+          style="color:{color}">
+          {objeto}
+        </a>
       </li>
     {/each}
 

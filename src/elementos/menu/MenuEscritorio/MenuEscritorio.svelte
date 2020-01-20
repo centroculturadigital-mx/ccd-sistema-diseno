@@ -1,4 +1,5 @@
 <script>
+  export let segment;
   export let objetosMenu;
   export let color;
 </script>
@@ -36,7 +37,12 @@
 
   {#each objetosMenu as objeto}
     <li>
-      <a href="#" style="color:{color}">{objeto}</a>
+      <a
+        class:selected={segment === {objeto}}
+        href={objeto}
+        style="color:{color}">
+        {objeto}
+      </a>
     </li>
   {/each}
 
