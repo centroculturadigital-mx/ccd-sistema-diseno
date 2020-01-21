@@ -3,30 +3,54 @@ import Placeholder from '../../../../public/placeholder.jpg';
 
 export default {title: 'Componentes/Header/Header'}
 
-let items = ["Menú","Menú","Menú","Menú","Menú"];
+let rutas =  [
+    {
+        label: "Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Ruta",
+        ruta: "una-ruta"
+    }
+];
 
 export const headerDefault = () => ({
     Component: Header,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
+        logoImagenUrl: Placeholder,
         logoTexto: 'Logo Sitio',
     }
 });
 export const headerColorBG = () => ({
     Component: Header,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
+        logoImagenUrl: Placeholder,
         logoTexto: 'Logo Sitio',
-        colorFondo: 'lightblue',
+        colorFondo: 'lightgray',
         altura: '100px',
     }
 });
 export const headerColorTexto = () => ({
     Component: Header,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
+        logoImagenUrl: Placeholder,
         logoTexto: 'Logo Sitio',
-        colorFondo: 'lightblue',
+        colorFondo: 'lightgray',
         altura: '100px',
         color: 'orange'
     }
@@ -34,16 +58,18 @@ export const headerColorTexto = () => ({
 export const headerAltura = () => ({
     Component: Header,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
+        logoImagenUrl: Placeholder,
         logoTexto: 'Logo Sitio',
-        colorFondo: 'lightblue',
+        colorFondo: 'lightgray',
         altura: '200px',
     }
 });
 export const headerSombra = () => ({
     Component: Header,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
+        logoImagenUrl: Placeholder,
         logoTexto: 'Logo Sitio',
         colorFondo: 'white',
         altura: '70px',
@@ -53,7 +79,8 @@ export const headerSombra = () => ({
 export const headerFixed = () => ({
     Component: Header,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
+        logoImagenUrl: Placeholder,
         logoTexto: 'Logo Sitio',
         colorFondo: 'white',
         altura: '70px',
@@ -64,7 +91,7 @@ export const headerFixed = () => ({
 export const headerLogoImagen = () => ({
     Component: Header,
     props: {
-        objetosMenu: items,
+        objetosMenu: rutas,
         logoImagenUrl: Placeholder,
         colorFondo: 'white',
         logoTexto: 'Logo Sitio',

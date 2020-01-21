@@ -8,7 +8,6 @@
   export let menuAlternar;
   export let logoTexto;
   export let logoImagenUrl;
-  export let logoAncho;
   export let objetosMenu;
   export let altura;
   export let colorFondo;

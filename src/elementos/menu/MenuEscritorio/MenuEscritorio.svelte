@@ -35,7 +35,7 @@
 
 <ul>
 
-  {#each objetosMenu as objeto,i}
+  {#each objetosMenu as objeto}
     <li>
       <a
         class:selected={segment === objeto.ruta}

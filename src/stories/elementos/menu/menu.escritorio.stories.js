@@ -4,23 +4,23 @@ export default { title: 'Elementos/Menú/Menú Escritorio' }
 
 let rutas =  [
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     }
 ]

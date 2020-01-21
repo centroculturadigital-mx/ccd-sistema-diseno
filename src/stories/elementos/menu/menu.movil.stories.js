@@ -4,26 +4,26 @@ export default { title: 'Elementos/Menú/Menú Movil' }
 
 let rutas =  [
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Una Ruta",
+        label: "Ruta",
         ruta: "una-ruta"
     }
-]
+];
 
 export const menuMovilDefault = () => ({
     Component: MenuMovil,
