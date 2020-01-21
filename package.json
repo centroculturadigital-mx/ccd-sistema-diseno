@@ -1,11 +1,13 @@
 {
   "name": "@centroculturadigital-mx/ccd-sistema-diseno",
   "version": "0.1.14",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "svelte": "src/index.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public",
-    "storybook": "start-storybook"
+    "start": "sirv public"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
