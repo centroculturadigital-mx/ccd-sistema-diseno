@@ -49,7 +49,7 @@
   style="background-color:{colorFondo};height:{altura};{!!sombra ? 'box-shadow:0 -1px 2px rgba(0,0,0,0.5)' : ''}"
   class={!!fixed ? 'fixed' : ''}>
   <div>
-    <Logo {logosPleca}{logoTexto} {logoImagenUrl}  ancho={'auto'} />
+    <Logo {logosPleca} {logoTexto} {logoImagenUrl}  ancho={'auto'} />
 
   </div>
   <div class="copyright">
