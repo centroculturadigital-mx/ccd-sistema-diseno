@@ -4,13 +4,15 @@ import Placeholder from '../../../../public/placeholder.jpg';
 
 export default {title: 'Componentes/Footer/Footer'}
 
-let itemsLogos = ['Placeholder','Placeholder'];
+let itemsLogos = ['placeholder.jpg','placeholder.jpg'];
 
 export const footerDefault = () => ({
     Component: Footer,
     props: {
-        logosPleca: 'Logo Sitio',
-        colorFondo: 'grey',
+        logosPleca: itemsLogos,
+        logoTexto: 'Logo Sitio',
+        logoImagenUrl: Placeholder,
+        colorFondo: 'white',
         altura: '70px',
         
     }
@@ -20,6 +22,7 @@ export const footerLogoImagen = () => ({
     Component: Footer,
     props: {
         logoImagenUrl: Placeholder,
+        logosPleca: itemsLogos,
         colorFondo: 'white',
         logoTexto: 'Logo Sitio',
         altura: '70px',

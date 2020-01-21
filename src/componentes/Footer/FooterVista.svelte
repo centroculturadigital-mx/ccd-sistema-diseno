@@ -1,5 +1,8 @@
 <script>
-  import Footer from "./Footer.svelte";
+  import Logo from "../Logo/Logo.svelte";
+  import BotonMenu from "../../elementos/botones/BotonMenu/BotonMenu.svelte";
+  import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
+  import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
 
   export let sombra;
   export let fixed;
@@ -21,7 +24,7 @@
 </script>
 
 <Footer
- on:eventoBotonMenu={menu} 
+
   {objetosMenu}
   {estadoMenu}
   {logoTexto}
