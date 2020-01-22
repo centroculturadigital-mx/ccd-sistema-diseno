@@ -17,7 +17,7 @@ export default {
 		// 	name: 'app',
 		// 	file: 'public/build/bundle.js'
 		// },
-		{ file: pkg.module, 'format': 'iife' },
+		{ file: pkg.module, 'format': 'esm' },
 		{ file: pkg.main, 'format': 'umd', name: 'ccd-sistema-disenio' }
 	],
 	plugins: [
