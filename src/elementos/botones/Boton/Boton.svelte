@@ -21,9 +21,9 @@
     padding: 0.5rem 1rem;
     margin: 0;
   }
-  button:hover {
+  /* button:hover {
     box-shadow: 1px 1px 2px #477751;
-  }
+  } */
   img {
     height: 2rem;
     width: auto;
@@ -37,7 +37,7 @@
 
   {#if !!iconoBotonEstadoUnoUrl}
       <img
-        src={!!estado ? iconoBotonEstadoDosUrl:iconoBotonEstadoUnoUrl}
+        src={!!estado ? iconoBotonEstadoUnoUrl:iconoBotonEstadoDosUrl}
         alt={!!texto ? texto : ''}
         style="height:{iconoAltura};" />
 
