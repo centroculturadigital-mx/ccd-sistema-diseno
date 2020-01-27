@@ -57,11 +57,12 @@
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
       <Boton
+        {menuAlternar}
         colorBG={colorFondo}
         iconoAltura={iconoBotonAltura} 
         {iconoBotonEstadoUnoUrl}
         {iconoBotonEstadoDosUrl}
-        on:click={menuAlternar}
+        {estadoMenu}
         />
     {:else if !!objetosMenu}
       <MenuEscritorio {objetosMenu} {colorFondo} {color} />

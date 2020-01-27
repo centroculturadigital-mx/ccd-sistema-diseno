@@ -31,8 +31,7 @@
 </style>
 
 <button
-  style="border-radius:{radius}; background-color:{colorBG}; color:{color};
-  padding: 0.5rem {paddingX};"
+  style="border-radius:{radius};background-color:{colorBG};color:{color};padding: 0.5rem {paddingX};"
   on:click>
 
   {#if !!iconoBotonEstadoUnoUrl}
