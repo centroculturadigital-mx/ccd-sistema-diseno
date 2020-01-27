@@ -810,12 +810,12 @@
 
     function add_css$2() {
     	var style = element("style");
-    	style.id = "svelte-qb2fob-style";
-    	style.textContent = "button.svelte-qb2fob{transition:0.5s;background-color:black;color:#fff;border:none;cursor:pointer;padding:0.5rem 1rem}button.svelte-qb2fob:hover{box-shadow:1px 1px 2px #477751}img.svelte-qb2fob{height:2rem;width:auto}";
+    	style.id = "svelte-13uc7ut-style";
+    	style.textContent = "button.svelte-13uc7ut{transition:0.5s;background-color:transparent;color:#fff;border:none;cursor:pointer;padding:0.5rem 1rem;margin:0}button.svelte-13uc7ut:hover{box-shadow:1px 1px 2px #477751}img.svelte-13uc7ut{height:2rem;width:auto}";
     	append(document.head, style);
     }
 
-    // (43:2) {:else}
+    // (44:2) {:else}
     function create_else_block(ctx) {
     	let t_value = (!!/*texto*/ ctx[0] ? /*texto*/ ctx[0] : "") + "";
     	let t;
@@ -836,7 +836,7 @@
     	};
     }
 
-    // (37:2) {#if !!iconoBotonEstadoUnoUrl}
+    // (38:2) {#if !!iconoBotonEstadoUnoUrl}
     function create_if_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -847,20 +847,20 @@
     			img = element("img");
 
     			if (img.src !== (img_src_value = !!/*estado*/ ctx[8]
-    			? /*iconoBotonEstadoUnoUrl*/ ctx[5]
-    			: /*iconoBotonEstadoDosUrl*/ ctx[6])) attr(img, "src", img_src_value);
+    			? /*iconoBotonEstadoDosUrl*/ ctx[6]
+    			: /*iconoBotonEstadoUnoUrl*/ ctx[5])) attr(img, "src", img_src_value);
 
     			attr(img, "alt", img_alt_value = !!/*texto*/ ctx[0] ? /*texto*/ ctx[0] : "");
     			set_style(img, "height", /*iconoAltura*/ ctx[7]);
-    			attr(img, "class", "svelte-qb2fob");
+    			attr(img, "class", "svelte-13uc7ut");
     		},
     		m(target, anchor) {
     			insert(target, img, anchor);
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*estado, iconoBotonEstadoUnoUrl, iconoBotonEstadoDosUrl*/ 352 && img.src !== (img_src_value = !!/*estado*/ ctx[8]
-    			? /*iconoBotonEstadoUnoUrl*/ ctx[5]
-    			: /*iconoBotonEstadoDosUrl*/ ctx[6])) {
+    			if (dirty & /*estado, iconoBotonEstadoDosUrl, iconoBotonEstadoUnoUrl*/ 352 && img.src !== (img_src_value = !!/*estado*/ ctx[8]
+    			? /*iconoBotonEstadoDosUrl*/ ctx[6]
+    			: /*iconoBotonEstadoUnoUrl*/ ctx[5])) {
     				attr(img, "src", img_src_value);
     			}
 
@@ -898,7 +898,7 @@
     			set_style(button, "background-color", /*colorBG*/ ctx[2]);
     			set_style(button, "color", /*color*/ ctx[1]);
     			set_style(button, "padding", "0.5rem " + /*paddingX*/ ctx[3]);
-    			attr(button, "class", "svelte-qb2fob");
+    			attr(button, "class", "svelte-13uc7ut");
     			dispose = listen(button, "click", /*click_handler*/ ctx[9]);
     		},
     		m(target, anchor) {
@@ -988,7 +988,7 @@
     class Boton extends SvelteComponent {
     	constructor(options) {
     		super();
-    		if (!document.getElementById("svelte-qb2fob-style")) add_css$2();
+    		if (!document.getElementById("svelte-13uc7ut-style")) add_css$2();
 
     		init(this, options, instance$2, create_fragment$2, safe_not_equal, {
     			texto: 0,
@@ -1438,7 +1438,7 @@
     	append(document.head, style);
     }
 
-    // (65:28) 
+    // (66:28) 
     function create_if_block_3(ctx) {
     	let current;
 
@@ -1489,7 +1489,8 @@
     				estado: /*estadoMenu*/ ctx[10],
     				iconoBotonEstadoUnoUrl: /*iconoBotonEstadoUnoUrl*/ ctx[11],
     				iconoBotonEstadoDosUrl: /*iconoBotonEstadoDosUrl*/ ctx[12],
-    				iconoAltura: /*iconoBotonAltura*/ ctx[13]
+    				iconoAltura: /*iconoBotonAltura*/ ctx[13],
+    				colorBG: /*colorFondo*/ ctx[5]
     			}
     		});
 
@@ -1509,6 +1510,7 @@
     			if (dirty & /*iconoBotonEstadoUnoUrl*/ 2048) boton_changes.iconoBotonEstadoUnoUrl = /*iconoBotonEstadoUnoUrl*/ ctx[11];
     			if (dirty & /*iconoBotonEstadoDosUrl*/ 4096) boton_changes.iconoBotonEstadoDosUrl = /*iconoBotonEstadoDosUrl*/ ctx[12];
     			if (dirty & /*iconoBotonAltura*/ 8192) boton_changes.iconoAltura = /*iconoBotonAltura*/ ctx[13];
+    			if (dirty & /*colorFondo*/ 32) boton_changes.colorBG = /*colorFondo*/ ctx[5];
     			boton.$set(boton_changes);
     		},
     		i(local) {
@@ -1526,7 +1528,7 @@
     	};
     }
 
-    // (72:2) {#if responsivo < breakpoint}
+    // (73:2) {#if responsivo < breakpoint}
     function create_if_block$3(ctx) {
     	let if_block_anchor;
     	let current;
@@ -1579,7 +1581,7 @@
     	};
     }
 
-    // (73:4) {#if !!objetosMenu}
+    // (74:4) {#if !!objetosMenu}
     function create_if_block_1$1(ctx) {
     	let current;
 
@@ -1891,8 +1893,8 @@
 
     	const headervista = new HeaderVista({
     			props: {
+    				estadoMenu: /*estadoMenu*/ ctx[13],
     				segment: /*segment*/ ctx[12],
-    				menuAlternar: /*menuAlternar*/ ctx[14],
     				objetosMenu: /*objetosMenu*/ ctx[6],
     				estadoMenu: /*estadoMenu*/ ctx[13],
     				logoTexto: /*logoTexto*/ ctx[0],
@@ -1919,6 +1921,7 @@
     		},
     		p(ctx, [dirty]) {
     			const headervista_changes = {};
+    			if (dirty & /*estadoMenu*/ 8192) headervista_changes.estadoMenu = /*estadoMenu*/ ctx[13];
     			if (dirty & /*segment*/ 4096) headervista_changes.segment = /*segment*/ ctx[12];
     			if (dirty & /*objetosMenu*/ 64) headervista_changes.objetosMenu = /*objetosMenu*/ ctx[6];
     			if (dirty & /*estadoMenu*/ 8192) headervista_changes.estadoMenu = /*estadoMenu*/ ctx[13];
@@ -1966,10 +1969,6 @@
     	let { segment } = $$props;
     	let estadoMenu = false;
 
-    	const menuAlternar = () => {
-    		$$invalidate(13, estadoMenu = !estadoMenu);
-    	};
-
     	$$self.$set = $$props => {
     		if ("logoTexto" in $$props) $$invalidate(0, logoTexto = $$props.logoTexto);
     		if ("logoImagenUrl" in $$props) $$invalidate(1, logoImagenUrl = $$props.logoImagenUrl);
@@ -2000,8 +1999,7 @@
     		iconoBotonEstadoDosUrl,
     		iconoBotonAltura,
     		segment,
-    		estadoMenu,
-    		menuAlternar
+    		estadoMenu
     	];
     }
 

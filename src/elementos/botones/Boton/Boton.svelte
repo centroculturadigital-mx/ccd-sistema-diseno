@@ -14,11 +14,12 @@
 <style>
   button {
     transition: 0.5s;
-    background-color: black;
+    background-color: transparent;
     color: #fff;
     border: none;
     cursor: pointer;
     padding: 0.5rem 1rem;
+    margin: 0;
   }
   button:hover {
     box-shadow: 1px 1px 2px #477751;
@@ -36,7 +37,7 @@
 
   {#if !!iconoBotonEstadoUnoUrl}
       <img
-        src={!!estado ? iconoBotonEstadoUnoUrl:iconoBotonEstadoDosUrl}
+        src={!!estado ? iconoBotonEstadoDosUrl:iconoBotonEstadoUnoUrl}
         alt={!!texto ? texto : ''}
         style="height:{iconoAltura};" />
 

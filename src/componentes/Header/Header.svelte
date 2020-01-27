@@ -23,8 +23,8 @@
 </script>
 
 <HeaderVista
+  {estadoMenu}
   {segment}
-  {menuAlternar}
   {objetosMenu}
   {estadoMenu}
   {logoTexto}

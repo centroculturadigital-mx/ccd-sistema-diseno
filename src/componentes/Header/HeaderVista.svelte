@@ -61,7 +61,8 @@
         estado={estadoMenu}
         {iconoBotonEstadoUnoUrl}
         {iconoBotonEstadoDosUrl}
-        iconoAltura={iconoBotonAltura} />
+        iconoAltura={iconoBotonAltura} 
+        colorBG={colorFondo}/>
     {:else if !!objetosMenu}
       <MenuEscritorio {objetosMenu} {colorFondo} {color} />
     {/if}
