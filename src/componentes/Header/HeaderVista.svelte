@@ -15,11 +15,10 @@
   export let sombra;
   export let fixed;
   export let estadoMenu;
-  export let iconoBotonUrl;
+  export let iconoBotonEstadoUnoUrl = "menu.svg";
+  export let iconoBotonEstadoDosUrl = "cerrar.svg";
   export let iconoBotonAltura;
   export let segment;
-
-  let iconoMenu = "menu.svg";
 
   //  Responsivo
   let responsivo;
@@ -60,7 +59,8 @@
       <Boton
         on:click={menuAlternar}
         estado={estadoMenu}
-        iconoUrl={iconoMenu}
+        {iconoBotonEstadoUnoUrl}
+        {iconoBotonEstadoDosUrl}
         iconoAltura={iconoBotonAltura} />
     {:else if !!objetosMenu}
       <MenuEscritorio {objetosMenu} {colorFondo} {color} />

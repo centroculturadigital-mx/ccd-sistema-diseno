@@ -10,7 +10,8 @@
   export let objetosMenu;
   export let sombra;
   export let fixed;
-  export let iconoBotonUrl;
+  export let iconoBotonEstadoUnoUrl;
+  export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
   export let segment;
 
@@ -31,7 +32,8 @@
   {altura}
   {colorFondo}
   {colorFondoMovil}
-  {iconoBotonUrl}
+  {iconoBotonEstadoUnoUrl}
+  {iconoBotonEstadoDosUrl}
   {iconoBotonAltura}
   {color}
   {sombra}

@@ -818,7 +818,7 @@
     	append(document.head, style);
     }
 
-    // (41:2) {:else}
+    // (43:2) {:else}
     function create_else_block(ctx) {
     	let t_value = (!!/*texto*/ ctx[0] ? /*texto*/ ctx[0] : "") + "";
     	let t;
@@ -839,7 +839,7 @@
     	};
     }
 
-    // (34:2) {#if !!iconoUrl}
+    // (37:2) {#if !!iconoBotonEstadoUnoUrl}
     function create_if_block$1(ctx) {
     	let img;
     	let img_src_value;
@@ -848,16 +848,22 @@
     	return {
     		c() {
     			img = element("img");
-    			if (img.src !== (img_src_value = /*iconoUrl*/ ctx[5])) attr(img, "src", img_src_value);
+
+    			if (img.src !== (img_src_value = !!/*estado*/ ctx[8]
+    			? /*iconoBotonEstadoUnoUrl*/ ctx[5]
+    			: /*iconoBotonEstadoDosUrl*/ ctx[6])) attr(img, "src", img_src_value);
+
     			attr(img, "alt", img_alt_value = !!/*texto*/ ctx[0] ? /*texto*/ ctx[0] : "");
-    			set_style(img, "height", /*iconoAltura*/ ctx[6]);
+    			set_style(img, "height", /*iconoAltura*/ ctx[7]);
     			attr(img, "class", "svelte-qb2fob");
     		},
     		m(target, anchor) {
     			insert(target, img, anchor);
     		},
     		p(ctx, dirty) {
-    			if (dirty & /*iconoUrl*/ 32 && img.src !== (img_src_value = /*iconoUrl*/ ctx[5])) {
+    			if (dirty & /*estado, iconoBotonEstadoUnoUrl, iconoBotonEstadoDosUrl*/ 352 && img.src !== (img_src_value = !!/*estado*/ ctx[8]
+    			? /*iconoBotonEstadoUnoUrl*/ ctx[5]
+    			: /*iconoBotonEstadoDosUrl*/ ctx[6])) {
     				attr(img, "src", img_src_value);
     			}
 
@@ -865,8 +871,8 @@
     				attr(img, "alt", img_alt_value);
     			}
 
-    			if (dirty & /*iconoAltura*/ 64) {
-    				set_style(img, "height", /*iconoAltura*/ ctx[6]);
+    			if (dirty & /*iconoAltura*/ 128) {
+    				set_style(img, "height", /*iconoAltura*/ ctx[7]);
     			}
     		},
     		d(detaching) {
@@ -880,7 +886,7 @@
     	let dispose;
 
     	function select_block_type(ctx, dirty) {
-    		if (!!/*iconoUrl*/ ctx[5]) return create_if_block$1;
+    		if (!!/*iconoBotonEstadoUnoUrl*/ ctx[5]) return create_if_block$1;
     		return create_else_block;
     	}
 
@@ -896,7 +902,7 @@
     			set_style(button, "color", /*color*/ ctx[1]);
     			set_style(button, "padding", "0.5rem " + /*paddingX*/ ctx[3]);
     			attr(button, "class", "svelte-qb2fob");
-    			dispose = listen(button, "click", /*click_handler*/ ctx[7]);
+    			dispose = listen(button, "click", /*click_handler*/ ctx[9]);
     		},
     		m(target, anchor) {
     			insert(target, button, anchor);
@@ -947,8 +953,10 @@
     	let { colorBG } = $$props;
     	let { paddingX } = $$props;
     	let { radius } = $$props;
-    	let { iconoUrl } = $$props;
+    	let { iconoBotonEstadoUnoUrl } = $$props;
+    	let { iconoBotonEstadoDosUrl } = $$props;
     	let { iconoAltura } = $$props;
+    	let { estado = false } = $$props;
 
     	function click_handler(event) {
     		bubble($$self, event);
@@ -960,11 +968,24 @@
     		if ("colorBG" in $$props) $$invalidate(2, colorBG = $$props.colorBG);
     		if ("paddingX" in $$props) $$invalidate(3, paddingX = $$props.paddingX);
     		if ("radius" in $$props) $$invalidate(4, radius = $$props.radius);
-    		if ("iconoUrl" in $$props) $$invalidate(5, iconoUrl = $$props.iconoUrl);
-    		if ("iconoAltura" in $$props) $$invalidate(6, iconoAltura = $$props.iconoAltura);
+    		if ("iconoBotonEstadoUnoUrl" in $$props) $$invalidate(5, iconoBotonEstadoUnoUrl = $$props.iconoBotonEstadoUnoUrl);
+    		if ("iconoBotonEstadoDosUrl" in $$props) $$invalidate(6, iconoBotonEstadoDosUrl = $$props.iconoBotonEstadoDosUrl);
+    		if ("iconoAltura" in $$props) $$invalidate(7, iconoAltura = $$props.iconoAltura);
+    		if ("estado" in $$props) $$invalidate(8, estado = $$props.estado);
     	};
 
-    	return [texto, color, colorBG, paddingX, radius, iconoUrl, iconoAltura, click_handler];
+    	return [
+    		texto,
+    		color,
+    		colorBG,
+    		paddingX,
+    		radius,
+    		iconoBotonEstadoUnoUrl,
+    		iconoBotonEstadoDosUrl,
+    		iconoAltura,
+    		estado,
+    		click_handler
+    	];
     }
 
     class Boton extends SvelteComponent {
@@ -978,8 +999,10 @@
     			colorBG: 2,
     			paddingX: 3,
     			radius: 4,
-    			iconoUrl: 5,
-    			iconoAltura: 6
+    			iconoBotonEstadoUnoUrl: 5,
+    			iconoBotonEstadoDosUrl: 6,
+    			iconoAltura: 7,
+    			estado: 8
     		});
     	}
     }
@@ -1460,15 +1483,16 @@
     	};
     }
 
-    // (59:4) {#if responsivo < breakpoint}
+    // (58:4) {#if responsivo < breakpoint}
     function create_if_block_2(ctx) {
     	let current;
 
     	const boton = new Boton({
     			props: {
     				estado: /*estadoMenu*/ ctx[10],
-    				iconoUrl: iconoMenu,
-    				iconoAltura: /*iconoBotonAltura*/ ctx[11]
+    				iconoBotonEstadoUnoUrl: /*iconoBotonEstadoUnoUrl*/ ctx[11],
+    				iconoBotonEstadoDosUrl: /*iconoBotonEstadoDosUrl*/ ctx[12],
+    				iconoAltura: /*iconoBotonAltura*/ ctx[13]
     			}
     		});
 
@@ -1485,7 +1509,9 @@
     		p(ctx, dirty) {
     			const boton_changes = {};
     			if (dirty & /*estadoMenu*/ 1024) boton_changes.estado = /*estadoMenu*/ ctx[10];
-    			if (dirty & /*iconoBotonAltura*/ 2048) boton_changes.iconoAltura = /*iconoBotonAltura*/ ctx[11];
+    			if (dirty & /*iconoBotonEstadoUnoUrl*/ 2048) boton_changes.iconoBotonEstadoUnoUrl = /*iconoBotonEstadoUnoUrl*/ ctx[11];
+    			if (dirty & /*iconoBotonEstadoDosUrl*/ 4096) boton_changes.iconoBotonEstadoDosUrl = /*iconoBotonEstadoDosUrl*/ ctx[12];
+    			if (dirty & /*iconoBotonAltura*/ 8192) boton_changes.iconoAltura = /*iconoBotonAltura*/ ctx[13];
     			boton.$set(boton_changes);
     		},
     		i(local) {
@@ -1571,7 +1597,7 @@
     			}
     		});
 
-    	menumovil.$on("eventoEstadoMenu", /*eventoEstadoMenu_handler*/ ctx[16]);
+    	menumovil.$on("eventoEstadoMenu", /*eventoEstadoMenu_handler*/ ctx[17]);
 
     	return {
     		c() {
@@ -1616,7 +1642,7 @@
     	let header_class_value;
     	let current;
     	let dispose;
-    	add_render_callback(/*onwindowresize*/ ctx[15]);
+    	add_render_callback(/*onwindowresize*/ ctx[16]);
 
     	const logo = new Logo({
     			props: {
@@ -1630,7 +1656,7 @@
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (/*responsivo*/ ctx[12] < breakpoint) return 0;
+    		if (/*responsivo*/ ctx[14] < breakpoint) return 0;
     		if (!!/*objetosMenu*/ ctx[3]) return 1;
     		return -1;
     	}
@@ -1639,7 +1665,7 @@
     		if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
     	}
 
-    	let if_block1 = /*responsivo*/ ctx[12] < breakpoint && create_if_block$3(ctx);
+    	let if_block1 = /*responsivo*/ ctx[14] < breakpoint && create_if_block$3(ctx);
 
     	return {
     		c() {
@@ -1657,7 +1683,7 @@
     			: ""));
 
     			attr(header, "class", header_class_value = "" + (null_to_empty(!!/*fixed*/ ctx[9] ? "fixed" : "") + " svelte-301z16"));
-    			dispose = listen(window, "resize", /*onwindowresize*/ ctx[15]);
+    			dispose = listen(window, "resize", /*onwindowresize*/ ctx[16]);
     		},
     		m(target, anchor) {
     			insert(target, header, anchor);
@@ -1711,7 +1737,7 @@
     				}
     			}
 
-    			if (/*responsivo*/ ctx[12] < breakpoint) {
+    			if (/*responsivo*/ ctx[14] < breakpoint) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
     					transition_in(if_block1, 1);
@@ -1768,7 +1794,6 @@
     	};
     }
 
-    let iconoMenu = "menu.svg";
     let breakpoint = 720;
 
     function instance$5($$self, $$props, $$invalidate) {
@@ -1783,13 +1808,14 @@
     	let { sombra } = $$props;
     	let { fixed } = $$props;
     	let { estadoMenu } = $$props;
-    	let { iconoBotonUrl } = $$props;
+    	let { iconoBotonEstadoUnoUrl = "menu.svg" } = $$props;
+    	let { iconoBotonEstadoDosUrl = "cerrar.svg" } = $$props;
     	let { iconoBotonAltura } = $$props;
     	let { segment } = $$props;
     	let responsivo;
 
     	function onwindowresize() {
-    		$$invalidate(12, responsivo = window.innerWidth);
+    		$$invalidate(14, responsivo = window.innerWidth);
     	}
 
     	function eventoEstadoMenu_handler(event) {
@@ -1808,9 +1834,10 @@
     		if ("sombra" in $$props) $$invalidate(8, sombra = $$props.sombra);
     		if ("fixed" in $$props) $$invalidate(9, fixed = $$props.fixed);
     		if ("estadoMenu" in $$props) $$invalidate(10, estadoMenu = $$props.estadoMenu);
-    		if ("iconoBotonUrl" in $$props) $$invalidate(13, iconoBotonUrl = $$props.iconoBotonUrl);
-    		if ("iconoBotonAltura" in $$props) $$invalidate(11, iconoBotonAltura = $$props.iconoBotonAltura);
-    		if ("segment" in $$props) $$invalidate(14, segment = $$props.segment);
+    		if ("iconoBotonEstadoUnoUrl" in $$props) $$invalidate(11, iconoBotonEstadoUnoUrl = $$props.iconoBotonEstadoUnoUrl);
+    		if ("iconoBotonEstadoDosUrl" in $$props) $$invalidate(12, iconoBotonEstadoDosUrl = $$props.iconoBotonEstadoDosUrl);
+    		if ("iconoBotonAltura" in $$props) $$invalidate(13, iconoBotonAltura = $$props.iconoBotonAltura);
+    		if ("segment" in $$props) $$invalidate(15, segment = $$props.segment);
     	};
 
     	return [
@@ -1825,9 +1852,10 @@
     		sombra,
     		fixed,
     		estadoMenu,
+    		iconoBotonEstadoUnoUrl,
+    		iconoBotonEstadoDosUrl,
     		iconoBotonAltura,
     		responsivo,
-    		iconoBotonUrl,
     		segment,
     		onwindowresize,
     		eventoEstadoMenu_handler
@@ -1851,9 +1879,10 @@
     			sombra: 8,
     			fixed: 9,
     			estadoMenu: 10,
-    			iconoBotonUrl: 13,
-    			iconoBotonAltura: 11,
-    			segment: 14
+    			iconoBotonEstadoUnoUrl: 11,
+    			iconoBotonEstadoDosUrl: 12,
+    			iconoBotonAltura: 13,
+    			segment: 15
     		});
     	}
     }
@@ -1865,17 +1894,18 @@
 
     	const headervista = new HeaderVista({
     			props: {
-    				segment: /*segment*/ ctx[11],
-    				menuAlternar: /*menuAlternar*/ ctx[13],
+    				segment: /*segment*/ ctx[12],
+    				menuAlternar: /*menuAlternar*/ ctx[14],
     				objetosMenu: /*objetosMenu*/ ctx[6],
-    				estadoMenu: /*estadoMenu*/ ctx[12],
+    				estadoMenu: /*estadoMenu*/ ctx[13],
     				logoTexto: /*logoTexto*/ ctx[0],
     				logoImagenUrl: /*logoImagenUrl*/ ctx[1],
     				altura: /*altura*/ ctx[2],
     				colorFondo: /*colorFondo*/ ctx[3],
     				colorFondoMovil: /*colorFondoMovil*/ ctx[4],
-    				iconoBotonUrl: /*iconoBotonUrl*/ ctx[9],
-    				iconoBotonAltura: /*iconoBotonAltura*/ ctx[10],
+    				iconoBotonEstadoUnoUrl: /*iconoBotonEstadoUnoUrl*/ ctx[9],
+    				iconoBotonEstadoDosUrl: /*iconoBotonEstadoDosUrl*/ ctx[10],
+    				iconoBotonAltura: /*iconoBotonAltura*/ ctx[11],
     				color: /*color*/ ctx[5],
     				sombra: /*sombra*/ ctx[7],
     				fixed: /*fixed*/ ctx[8]
@@ -1892,16 +1922,17 @@
     		},
     		p(ctx, [dirty]) {
     			const headervista_changes = {};
-    			if (dirty & /*segment*/ 2048) headervista_changes.segment = /*segment*/ ctx[11];
+    			if (dirty & /*segment*/ 4096) headervista_changes.segment = /*segment*/ ctx[12];
     			if (dirty & /*objetosMenu*/ 64) headervista_changes.objetosMenu = /*objetosMenu*/ ctx[6];
-    			if (dirty & /*estadoMenu*/ 4096) headervista_changes.estadoMenu = /*estadoMenu*/ ctx[12];
+    			if (dirty & /*estadoMenu*/ 8192) headervista_changes.estadoMenu = /*estadoMenu*/ ctx[13];
     			if (dirty & /*logoTexto*/ 1) headervista_changes.logoTexto = /*logoTexto*/ ctx[0];
     			if (dirty & /*logoImagenUrl*/ 2) headervista_changes.logoImagenUrl = /*logoImagenUrl*/ ctx[1];
     			if (dirty & /*altura*/ 4) headervista_changes.altura = /*altura*/ ctx[2];
     			if (dirty & /*colorFondo*/ 8) headervista_changes.colorFondo = /*colorFondo*/ ctx[3];
     			if (dirty & /*colorFondoMovil*/ 16) headervista_changes.colorFondoMovil = /*colorFondoMovil*/ ctx[4];
-    			if (dirty & /*iconoBotonUrl*/ 512) headervista_changes.iconoBotonUrl = /*iconoBotonUrl*/ ctx[9];
-    			if (dirty & /*iconoBotonAltura*/ 1024) headervista_changes.iconoBotonAltura = /*iconoBotonAltura*/ ctx[10];
+    			if (dirty & /*iconoBotonEstadoUnoUrl*/ 512) headervista_changes.iconoBotonEstadoUnoUrl = /*iconoBotonEstadoUnoUrl*/ ctx[9];
+    			if (dirty & /*iconoBotonEstadoDosUrl*/ 1024) headervista_changes.iconoBotonEstadoDosUrl = /*iconoBotonEstadoDosUrl*/ ctx[10];
+    			if (dirty & /*iconoBotonAltura*/ 2048) headervista_changes.iconoBotonAltura = /*iconoBotonAltura*/ ctx[11];
     			if (dirty & /*color*/ 32) headervista_changes.color = /*color*/ ctx[5];
     			if (dirty & /*sombra*/ 128) headervista_changes.sombra = /*sombra*/ ctx[7];
     			if (dirty & /*fixed*/ 256) headervista_changes.fixed = /*fixed*/ ctx[8];
@@ -1932,13 +1963,14 @@
     	let { objetosMenu } = $$props;
     	let { sombra } = $$props;
     	let { fixed } = $$props;
-    	let { iconoBotonUrl } = $$props;
+    	let { iconoBotonEstadoUnoUrl } = $$props;
+    	let { iconoBotonEstadoDosUrl } = $$props;
     	let { iconoBotonAltura } = $$props;
     	let { segment } = $$props;
     	let estadoMenu = false;
 
     	const menuAlternar = () => {
-    		$$invalidate(12, estadoMenu = !estadoMenu);
+    		$$invalidate(13, estadoMenu = !estadoMenu);
     	};
 
     	$$self.$set = $$props => {
@@ -1951,9 +1983,10 @@
     		if ("objetosMenu" in $$props) $$invalidate(6, objetosMenu = $$props.objetosMenu);
     		if ("sombra" in $$props) $$invalidate(7, sombra = $$props.sombra);
     		if ("fixed" in $$props) $$invalidate(8, fixed = $$props.fixed);
-    		if ("iconoBotonUrl" in $$props) $$invalidate(9, iconoBotonUrl = $$props.iconoBotonUrl);
-    		if ("iconoBotonAltura" in $$props) $$invalidate(10, iconoBotonAltura = $$props.iconoBotonAltura);
-    		if ("segment" in $$props) $$invalidate(11, segment = $$props.segment);
+    		if ("iconoBotonEstadoUnoUrl" in $$props) $$invalidate(9, iconoBotonEstadoUnoUrl = $$props.iconoBotonEstadoUnoUrl);
+    		if ("iconoBotonEstadoDosUrl" in $$props) $$invalidate(10, iconoBotonEstadoDosUrl = $$props.iconoBotonEstadoDosUrl);
+    		if ("iconoBotonAltura" in $$props) $$invalidate(11, iconoBotonAltura = $$props.iconoBotonAltura);
+    		if ("segment" in $$props) $$invalidate(12, segment = $$props.segment);
     	};
 
     	return [
@@ -1966,7 +1999,8 @@
     		objetosMenu,
     		sombra,
     		fixed,
-    		iconoBotonUrl,
+    		iconoBotonEstadoUnoUrl,
+    		iconoBotonEstadoDosUrl,
     		iconoBotonAltura,
     		segment,
     		estadoMenu,
@@ -1988,9 +2022,10 @@
     			objetosMenu: 6,
     			sombra: 7,
     			fixed: 8,
-    			iconoBotonUrl: 9,
-    			iconoBotonAltura: 10,
-    			segment: 11
+    			iconoBotonEstadoUnoUrl: 9,
+    			iconoBotonEstadoDosUrl: 10,
+    			iconoBotonAltura: 11,
+    			segment: 12
     		});
     	}
     }

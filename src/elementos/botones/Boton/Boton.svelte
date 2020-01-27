@@ -4,8 +4,11 @@
   export let colorBG;
   export let paddingX;
   export let radius;
-  export let iconoUrl;
+  export let iconoBotonEstadoUnoUrl;
+  export let iconoBotonEstadoDosUrl;
   export let iconoAltura;
+
+  export let estado = false;
 </script>
 
 <style>
@@ -31,13 +34,12 @@
   padding: 0.5rem {paddingX};"
   on:click>
 
-  {#if !!iconoUrl}
+  {#if !!iconoBotonEstadoUnoUrl}
+      <img
+        src={!!estado ? iconoBotonEstadoUnoUrl:iconoBotonEstadoDosUrl}
+        alt={!!texto ? texto : ''}
+        style="height:{iconoAltura};" />
 
-    <img
-      src={iconoUrl}
-      alt={!!texto ? texto : ''}
-      style="height:{iconoAltura};" />
-  
   {:else}{!!texto ? texto : ''}{/if}
 
 </button>

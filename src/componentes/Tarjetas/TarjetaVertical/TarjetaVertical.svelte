@@ -12,7 +12,7 @@
   export let color;
   export let colorBG;
   export let sombra;
-  export let iconoBotonUrl;
+  export let iconoBotonEstadoUnoUrl;
   export let iconoBotonAltura;
 </script>
 
@@ -67,8 +67,8 @@
         on:click
         radius="15px"
         texto="Saber más"
-        iconoUrl={iconoBotonUrl}
-        iconoAltura={iconoBotonAltura} />
+        {iconoBotonEstadoUnoUrl}
+        {iconoBotonAltura} />
     </div>
 
   </div>
