@@ -1,7 +1,7 @@
 <script>
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
-  import BotonVista from "../../../elementos/botones/Boton/Boton.svelte";
+  import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let imagenUrl;
@@ -12,7 +12,8 @@
   export let color;
   export let colorBG;
   export let sombra;
-
+  export let iconoBotonUrl;
+  export let iconoBotonAltura;
 </script>
 
 <style>
@@ -42,11 +43,11 @@
     width: 100%;
   }
   .sombra {
-    box-shadow: -1px 2px 3px rgba(0,0,0,5);
+    box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
   }
 </style>
 
-<article style="background-color:{colorBG};" class="{!!sombra?"sombra":""}" >
+<article style="background-color:{colorBG};" class={!!sombra ? 'sombra' : ''}>
 
   <div class="tarjeta-imagen">
     <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
@@ -57,10 +58,15 @@
     {#if !!titulo}
       <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
     {/if}
-    <Parrafo {texto} {color}/>
+    <Parrafo {texto} {color} />
 
     <div class="tarjeta-boton">
-      <BotonVista radius="15px" texto="Saber más" on:click />
+      <Boton
+        on:click
+        radius="15px"
+        texto="Saber más"
+        iconoUrl={iconoBotonUrl}
+        iconoAltura={iconoBotonAltura} />
     </div>
 
   </div>

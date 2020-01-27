@@ -1,7 +1,7 @@
 <script>
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
-  import BotonVista from "../../../elementos/botones/Boton/Boton.svelte";
+  import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let imagenUrl;
@@ -12,6 +12,8 @@
   export let color;
   export let colorBG;
   export let sombra;
+  export let iconoBotonUrl;
+  export let iconoBotonAltura;
 </script>
 
 <style>
@@ -61,7 +63,12 @@
     {/if}
 
     <div class="tarjeta-boton">
-      <BotonVista radius="15px" texto="Saber más" on:click />
+      <Boton
+        on:click
+        radius="15px"
+        texto="Saber más"
+        iconoUrl={iconoBotonUrl}
+        iconoAltura={iconoBotonAltura} />
     </div>
 
   </div>

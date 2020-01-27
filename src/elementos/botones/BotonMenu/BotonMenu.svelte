@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 
   import MenuIcon from "svelte-feather-icons";
   import XIcon from "svelte-feather-icons";
@@ -30,4 +30,4 @@
   {:else}
     <MenuIcon />
   {/if}
-</button>
+</button> -->

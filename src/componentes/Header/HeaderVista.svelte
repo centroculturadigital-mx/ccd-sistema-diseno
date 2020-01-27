@@ -1,9 +1,8 @@
 <script>
   import Logo from "../Logo/Logo.svelte";
-  import BotonMenu from "../../elementos/botones/BotonMenu/BotonMenu.svelte";
+  import Boton from "../../elementos/botones/Boton/Boton.svelte";
   import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
   import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
-
 
   export let menuAlternar;
   export let logoTexto;
@@ -16,13 +15,15 @@
   export let sombra;
   export let fixed;
   export let estadoMenu;
+  export let iconoBotonUrl;
+  export let iconoBotonAltura;
   export let segment;
+
+  let iconoMenu = "menu.svg";
 
   //  Responsivo
   let responsivo;
   let breakpoint = 720;
-
-
 </script>
 
 <style>
@@ -56,9 +57,11 @@
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
-      <BotonMenu
-      on:click={menuAlternar}
-      estado={estadoMenu}/>
+      <Boton
+        on:click={menuAlternar}
+        estado={estadoMenu}
+        iconoUrl={iconoMenu}
+        iconoAltura={iconoBotonAltura} />
     {:else if !!objetosMenu}
       <MenuEscritorio {objetosMenu} {colorFondo} {color} />
     {/if}
