@@ -23,7 +23,8 @@
 </script>
 
 <HeaderVista
-  {estadoMenu}
+  on:click{menuAlternar}
+  estadoMenu={estadoMenu}
   {segment}
   {objetosMenu}
   {estadoMenu}
