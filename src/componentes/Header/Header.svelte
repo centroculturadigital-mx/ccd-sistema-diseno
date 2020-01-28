@@ -10,6 +10,7 @@
   export let objetosMenu;
   export let sombra;
   export let fixed;
+  export let estadoMenu;
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
@@ -23,8 +24,6 @@
 </script>
 
 <HeaderVista
-  on:click{menuAlternar}
-  estadoMenu={estadoMenu}
   {segment}
   {objetosMenu}
   {estadoMenu}
