@@ -10,10 +10,6 @@
   export let objetosMenu;
   export let sombra;
   export let fixed;
-  export let estadoMenu;
-  export let iconoBotonEstadoUnoUrl;
-  export let iconoBotonEstadoDosUrl;
-  export let iconoBotonAltura;
   export let segment;
 
   let estadoMenu = false;
@@ -25,6 +21,7 @@
 
 <HeaderVista
   {segment}
+  {menuAlternar}
   {objetosMenu}
   {estadoMenu}
   {logoTexto}
@@ -32,9 +29,6 @@
   {altura}
   {colorFondo}
   {colorFondoMovil}
-  {iconoBotonEstadoUnoUrl}
-  {iconoBotonEstadoDosUrl}
-  {iconoBotonAltura}
   {color}
   {sombra}
   {fixed} />

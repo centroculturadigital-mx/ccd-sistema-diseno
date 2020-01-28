@@ -59,11 +59,10 @@
       <Boton
         on:click={menuAlternar}
         estado={estadoMenu}
-        colorBG={colorFondo}
-        iconoAltura={iconoBotonAltura} 
         {iconoBotonEstadoUnoUrl}
         {iconoBotonEstadoDosUrl}
-        />
+        iconoAltura={iconoBotonAltura} 
+        colorBG={colorFondo}/>
     {:else if !!objetosMenu}
       <MenuEscritorio {objetosMenu} {colorFondo} {color} />
     {/if}
