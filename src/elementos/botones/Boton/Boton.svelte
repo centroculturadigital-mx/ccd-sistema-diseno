@@ -36,7 +36,7 @@
 
   {#if !!iconoBotonEstadoUnoUrl}
       <img
-        src={!!estado ? iconoBotonEstadoUnoUrl:iconoBotonEstadoDosUrl}
+        src={!!estado ? iconoBotonEstadoDosUrl:iconoBotonEstadoUnoUrl}
         alt={!!texto ? texto : ''}
         style="height:{iconoAltura};" />
 
