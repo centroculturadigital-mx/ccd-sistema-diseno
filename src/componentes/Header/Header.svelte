@@ -11,8 +11,8 @@
   export let sombra;
   export let fixed;
   export let estadoMenu;
-  export let iconoBotonEstadoUnoUrl = "menu.svg";
-  export let iconoBotonEstadoDosUrl = "cerrar.svg";
+  export let iconoBotonEstadoUnoUrl;
+  export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
   export let segment;
 
@@ -26,11 +26,14 @@
 <HeaderVista
   {segment}
   {menuAlternar}
-  {objetosMenu}
   {estadoMenu}
+  {altura}
+  {objetosMenu}
   {logoTexto}
   {logoImagenUrl}
-  {altura}
+  {iconoBotonEstadoUnoUrl}
+  {iconoBotonEstadoDosUrl}
+  {iconoBotonAltura}
   {colorFondo}
   {colorFondoMovil}
   {color}

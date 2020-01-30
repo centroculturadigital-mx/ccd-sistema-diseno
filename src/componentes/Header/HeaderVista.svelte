@@ -15,8 +15,8 @@
   export let sombra;
   export let fixed;
   export let estadoMenu;
-  export let iconoBotonEstadoUnoUrl = "menu.svg";
-  export let iconoBotonEstadoDosUrl = "cerrar.svg";
+  export let iconoBotonEstadoUnoUrl;
+  export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
   export let segment;
 
