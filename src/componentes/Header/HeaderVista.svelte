@@ -1,6 +1,6 @@
 <script>
   import Logo from "../Logo/Logo.svelte";
-  import Boton from "../../elementos/botones/Boton/Boton.svelte";
+  import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
   import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
 
@@ -56,7 +56,7 @@
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
-      <Boton
+      <BotonIcono
         on:click={menuAlternar}
         estado={estadoMenu}
         {iconoBotonEstadoUnoUrl}
