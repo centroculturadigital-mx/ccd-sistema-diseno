@@ -49,7 +49,7 @@
     transition:slide>
 
     {#each objetosMenu as objeto, i}
-      <li style="height:{alturaObjetoMenu};color={color};{!!objetosAlineacion?`justify-content: $objetosAlineacion;`:""}">
+      <li style="height:{alturaObjetoMenu};color:{color};justify-content:{objetosAlineacion};}">
         <a
           class:selected={segment === objeto.ruta}
           href={objeto.ruta}
