@@ -18,6 +18,8 @@
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
+  export let alturaMenuMovil;
+  export let objetosMenuExtra;
   export let segment;
 
   //  Responsivo
@@ -61,8 +63,8 @@
         estado={estadoMenu}
         {iconoBotonEstadoUnoUrl}
         {iconoBotonEstadoDosUrl}
-        iconoAltura={iconoBotonAltura} 
-        colorBG={colorFondo}/>
+        iconoAltura={iconoBotonAltura}
+        colorBG={colorFondo} />
     {:else if !!objetosMenu}
       <MenuEscritorio {objetosMenu} {colorFondo} {color} />
     {/if}
@@ -79,7 +81,9 @@
         {color}
         {sombra}
         colorFondo={colorFondoMovil}
-        alturaObjetoMenu="4rem" />
+        alturaObjetoMenu="3rem"
+        {alturaMenuMovil}
+        {objetosMenuExtra} />
     {/if}
   {/if}
 

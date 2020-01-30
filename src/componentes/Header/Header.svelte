@@ -10,10 +10,11 @@
   export let color;
   export let sombra;
   export let fixed;
-  // export let estadoMenu;
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
+  export let alturaMenuMovil;
+  export let objetosMenuExtra;
   export let segment;
 
   let estadoMenu = false;
@@ -38,4 +39,7 @@
   {colorFondoMovil}
   {color}
   {sombra}
-  {fixed} />
+  {fixed} 
+  {alturaMenuMovil}
+  {objetosMenuExtra}
+/>
