@@ -10,7 +10,7 @@
   export let color;
   export let sombra;
   export let fixed;
-  export let estadoMenu;
+  // export let estadoMenu;
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
