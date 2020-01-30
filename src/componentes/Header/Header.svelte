@@ -3,13 +3,17 @@
 
   export let logoTexto;
   export let logoImagenUrl;
+  export let objetosMenu;
   export let altura;
   export let colorFondo;
   export let colorFondoMovil;
   export let color;
-  export let objetosMenu;
   export let sombra;
   export let fixed;
+  export let estadoMenu;
+  export let iconoBotonEstadoUnoUrl = "menu.svg";
+  export let iconoBotonEstadoDosUrl = "cerrar.svg";
+  export let iconoBotonAltura;
   export let segment;
 
   let estadoMenu = false;
