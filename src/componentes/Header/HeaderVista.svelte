@@ -8,6 +8,7 @@
   export let logoTexto;
   export let logoImagenUrl;
   export let objetosMenu;
+  export let objetosAlineacion;
   export let altura;
   export let colorFondo;
   export let colorFondoMovil;
@@ -83,7 +84,9 @@
         colorFondo={colorFondoMovil}
         alturaObjetoMenu="3rem"
         {alturaMenuMovil}
-        {objetosMenuExtra} />
+        {objetosMenuExtra}
+        {objetosAlineacion}
+ />
     {/if}
   {/if}
 

@@ -15,6 +15,7 @@
   export let iconoBotonAltura;
   export let alturaMenuMovil;
   export let objetosMenuExtra;
+  export let objetosAlineacion;
   export let segment;
 
   let estadoMenu = false;
@@ -42,4 +43,5 @@
   {fixed} 
   {alturaMenuMovil}
   {objetosMenuExtra}
+  {objetosAlineacion}
 />

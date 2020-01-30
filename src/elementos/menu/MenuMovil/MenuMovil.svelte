@@ -6,6 +6,7 @@
   export let estadoMenu;
   export let objetosMenu;
   export let objetosMenuExtra;
+  export let objetosAlineacion;
   export let colorFondo;
   export let color;
   export let alturaObjetoMenu;
@@ -16,12 +17,14 @@
   ul {
     height: auto;
     margin: 0;
-    padding: 0;
+    padding: 1rem 4rem;
     list-style-type: none;
     width: 100%;
     display: grid;
     position: absolute;
     z-index: 1000;
+    box-sizing: border-box;
+
   }
   li {
     padding: 0.5rem;
@@ -35,6 +38,9 @@
   a:hover {
     opacity: 0.75;
   }
+  hr {
+    width: 100%;
+  }
 </style>
 
 {#if estadoMenu === true}
@@ -43,7 +49,7 @@
     transition:slide>
 
     {#each objetosMenu as objeto, i}
-      <li style="height:{alturaObjetoMenu};color={color}">
+      <li style="height:{alturaObjetoMenu};color={color};{!!objetosAlineacion?`justify-content: $objetosAlineacion;`:""}">
         <a
           class:selected={segment === objeto.ruta}
           href={objeto.ruta}
