@@ -17,8 +17,7 @@
   export let objetosMenuExtra;
   export let objetosAlineacion;
   export let segment;
-
-  let estadoMenu = false;
+  export let estadoMenu = false;
 
   const menuAlternar = () => {
     estadoMenu = !estadoMenu;

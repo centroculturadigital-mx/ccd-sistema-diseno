@@ -1,7 +1,7 @@
 <script>
   export let nivelTitulo;
   export let titulo;
-  export let color="#000";
+  export let color;
 </script>
 
 <style>
