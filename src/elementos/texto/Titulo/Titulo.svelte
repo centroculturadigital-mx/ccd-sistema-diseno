@@ -4,7 +4,7 @@
 
   export let nivel;
   export let titulo;
-  export let color;
+  export let color="#000";
   export let texto;
 
   const generarTitulo = (nivel,texto,color) => {
@@ -35,7 +35,6 @@
     color
   )
 
-  export let color="#000";
 
 </script>
 
