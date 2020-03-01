@@ -23,6 +23,7 @@
     "svelte-loader": "^2.13.6"
   },
   "dependencies": {
+    "escape-html": "^1.0.3",
     "sirv-cli": "^0.4.4"
   }
 }

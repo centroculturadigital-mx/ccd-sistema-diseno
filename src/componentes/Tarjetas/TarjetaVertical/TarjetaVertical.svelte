@@ -56,7 +56,7 @@
   <div class="tarjeta-texto">
 
     {#if !!titulo}
-      <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
+      <Titulo texto={titulo} nivel={nivelTitulo} color={colorTitulo} />
     {/if}
     {#if !!texto}
       <Parrafo {texto} {color} />

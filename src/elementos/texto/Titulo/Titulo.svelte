@@ -1,7 +1,42 @@
 <script>
-  export let nivelTitulo;
+
+  import generarEtiqueta from "../../../funciones/generarEtiqueta"
+
+  export let nivel;
   export let titulo;
   export let color;
+  export let texto;
+
+  const generarTitulo = (nivel,texto,color) => {
+    let html = ''
+    // agregar un default, h3:
+    
+    if( ! (parseInt(nivel) >= 1 && parseInt(nivel) <= 6 )) {
+      nivel = 3
+    }
+
+    html += generarEtiqueta.abrir(
+      'h'+nivel,
+      color?{
+        style: `color: ${color};`
+      }:null
+    );
+
+    html += texto;
+
+    html += generarEtiqueta.cerrar('h'+nivel);
+
+    return html
+  }
+
+  $: tituloRenderear = generarTitulo(
+    nivel,
+    !! texto ? texto : titulo,
+    color
+  )
+
+  export let color="#000";
+
 </script>
 
 <style>
@@ -13,31 +48,10 @@
   h6 {
     color: #000;
   }
-  .titulo-grande {
+  /* .titulo-grande {
     font-size: 2.7rem;
     max-width: 19rem;
-  }
+  } */
 </style>
 
-{#if !!nivelTitulo}
-  {#if nivelTitulo === 'h1'}
-    <h1 style="color:{color};">{titulo}</h1>
-  {/if}
-  {#if nivelTitulo === 'h2'}
-    <h2 style="color:{color};">{titulo}</h2>
-  {/if}
-  {#if nivelTitulo === 'h3'}
-    <h3 style="color:{color};">{titulo}</h3>
-  {/if}
-  {#if nivelTitulo === 'h4'}
-    <h4 style="color:{color};">{titulo}</h4>
-  {/if}
-  {#if nivelTitulo === 'h5'}
-    <h5 style="color:{color};">{titulo}</h5>
-  {/if}
-  {#if nivelTitulo === 'h6'}
-    <h6 style="color:{color};">{titulo}</h6>
-  {/if}
-{:else }
-    <h1 class="titulo-grande" style="color:{color};">{titulo}</h1>
-{/if}
+{@html tituloRenderear}
