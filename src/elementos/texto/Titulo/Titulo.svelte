@@ -1,6 +1,6 @@
 <script>
 
-  import etiquetaGenerar from "../../../funciones/etiquetaGenerar"
+  import generarEtiqueta from "../../../funciones/generarEtiqueta"
 
   export let nivel;
   export let titulo;
@@ -14,14 +14,25 @@
       nivel = 3
     }
 
-    html += etiquetaGenerar.abrir('h'+nivel)
-    html += texto
-    html += etiquetaGenerar.cerrar('h'+nivel)
+    html += generarEtiqueta.abrir(
+      'h'+nivel,
+      color?{
+        style: `color: ${color};`
+      }:null
+    );
+
+    html += texto;
+
+    html += generarEtiqueta.cerrar('h'+nivel);
 
     return html
   }
 
-  $: tituloRenderear = generarTitulo(nivel,!! texto ? texto : titulo,color)
+  $: tituloRenderear = generarTitulo(
+    nivel,
+    !! texto ? texto : titulo,
+    color
+  )
 
   export let color="#000";
 
@@ -42,6 +53,4 @@
   } */
 </style>
 
-<span style="color:{color};">
-  {@html tituloRenderear}
-</span>
+{@html tituloRenderear}
