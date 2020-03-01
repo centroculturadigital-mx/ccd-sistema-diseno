@@ -2,7 +2,7 @@
 
   import escapeHtml from 'escape-html'
 
-
+  import Texto from "../../elementos/texto/Texto/Texto"
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo"
   
   export let documento;
@@ -47,6 +47,13 @@
         console.log( "object", generarContenido(nodo.nodes) )
         break;
       case "text":
+        elementos.push({
+          componente: Texto,
+          propiedades: {
+            texto: nodo.text,
+            estilos: nodo.marks.map(m=>m.type)
+          }
+        })
         console.log( "texto", nodo.marks, escapeHtml(nodo.text) )
       case "inline":
         // console.log( "inline", generarContenido(nodo) )
@@ -60,7 +67,7 @@
 {#if Array.isArray(elementos) }
   {#each elementos as elemento,i ("elemento_"+i) }
 
-    <svelte:component this={elemento.componente}/>
+    <svelte:component this={elemento.componente} {...elemento.propiedades}/>
 
   {/each}
 {/if}

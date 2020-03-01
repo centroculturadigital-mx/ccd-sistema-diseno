@@ -3,7 +3,6 @@ const generar = (etiqueta,cerrar=false,atributos) => {
     let atributosHtml = ''
 
     if( typeof atributos == 'object' ) {
-
         
         Object.keys(atributos).forEach((k,i)=>{
             atributosHtml += `${k}="${atributos[k]}"`
@@ -14,6 +13,24 @@ const generar = (etiqueta,cerrar=false,atributos) => {
     }
 
     return `<${ cerrar ? '/' : '' }${etiqueta}${atributosHtml? " " + atributosHtml : ""}>`;
+    
+}
+
+const etiqueta = (etiqueta,texto,atributos) => {
+
+
+    let html = abrir(
+        etiqueta,
+        atributos
+    );
+
+    html += texto;
+
+    html += cerrar(
+        etiqueta
+    );
+
+    return html;
     
 }
 
@@ -44,5 +61,6 @@ const nombreGenerar = clave=>{
 export default {
     abrir,
     cerrar,
+    etiqueta,
     nombreGenerar
 }

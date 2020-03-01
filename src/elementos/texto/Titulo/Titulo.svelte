@@ -1,40 +1,41 @@
 <script>
 
-  import generarEtiqueta from "../../../funciones/generarEtiqueta"
+import generadorEtiquetas from "../../../funciones/generadorEtiquetas"
 
-  export let nivel;
-  export let titulo;
-  export let color="#000";
-  export let texto;
+export let nivel;
+export let color="#000";
+export let texto;
+export let data;
 
-  const generarTitulo = (nivel,texto,color) => {
-    let html = ''
-    // agregar un default, h3:
+const generarTitulo = (nivelTitulo,texto,atributos) => {
     
-    if( ! (parseInt(nivel) >= 1 && parseInt(nivel) <= 6 )) {
-      nivel = 3
-    }
+  let html = ''  
 
-    html += generarEtiqueta.abrir(
-      'h'+nivel,
-      color?{
-        style: `color: ${color};`
-      }:null
-    );
-
-    html += texto;
-
-    html += generarEtiqueta.cerrar('h'+nivel);
-
-    return html
+  if( ! (parseInt(nivelTitulo) >= 1 && parseInt(nivelTitulo) <= 6 )) {
+    nivel = 3
+  } else {
+    nivel = parseInt(nivelTitulo)
   }
 
-  $: tituloRenderear = generarTitulo(
-    nivel,
-    !! texto ? texto : titulo,
-    color
-  )
+  html += generadorEtiquetas.etiqueta(
+    'h'+nivel,
+    texto,
+    atributos
+  );
 
+  return html
+
+}
+
+
+$: tituloRenderear = generarTitulo(
+  nivel,
+  texto,
+  {
+      style: `color: ${color};`,
+      ...data
+  }
+)
 
 </script>
 
