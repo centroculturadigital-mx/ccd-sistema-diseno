@@ -6,7 +6,7 @@ export default { title: 'Elementos/Texto/Titulo' }
 export const tituloDefault = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo Default',
+        texto: 'Título Default',
         color: '#000'
     },
 });
@@ -14,7 +14,7 @@ export const tituloDefault = () => ({
 export const tituloColor = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo Color',
+        texto: 'Título Color',
         color: '#f0a'
     },
 });
@@ -22,47 +22,47 @@ export const tituloColor = () => ({
 export const titulo1 = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo 1',
-        nivelTitulo: 'h1'
+        texto: 'Título 1',
+        nivel: 1
     },
 });
 
 export const titulo2 = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo 2',
-        nivelTitulo: 'h2'
+        texto: 'Título 2',
+        nivel: 2
     },
 });
 
 export const titulo3 = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo 3',
-        nivelTitulo: 'h3'
+        texto: 'Título 3',
+        nivel: 3
     },
 });
 
 export const titulo4 = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo 4',
-        nivelTitulo: 'h4'
+        texto: 'Título 4',
+        nivel: 4
     },
 });
 
 export const titulo5 = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo 5',
-        nivelTitulo: 'h5'
+        texto: 'Título 5',
+        nivel: 5
     },
 });
 
 export const titulo6 = () => ({
     Component: Titulo,
     props: {
-        titulo: 'Titulo 6',
-        nivelTitulo: 'h6'
+        texto: 'Título 6',
+        nivel: 6
     },
 });

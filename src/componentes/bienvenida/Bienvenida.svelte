@@ -91,7 +91,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
   {#if !!titulo}
     <div class="texto">
       <article style="justify-content:{posicionTexto};">
-        <Titulo titulo={titulo} />
+        <Titulo texto={titulo} />
         {#if !!videoUrls}
           <div>
             <PlayCircleIcon />

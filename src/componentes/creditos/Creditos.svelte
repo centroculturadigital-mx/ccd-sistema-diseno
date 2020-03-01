@@ -46,7 +46,7 @@
 
   <div class="creditos-texto">
     {#if !!titulo}
-      <Titulo {titulo} {nivelTitulo} color={colorTitulo} />
+      <Titulo texto={titulo} nivel={nivelTitulo} color={colorTitulo} />
     {/if}
     <p>{textoAutor}</p>
   </div>
