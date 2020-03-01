@@ -7,6 +7,8 @@
   
   export let documento;
 
+  let elementos = []
+
   $: bloques = !! documento ? JSON.parse(documento).nodes : []
   $: console.log(bloques)
   // $: bloques.forEach( b => console.log("bloque", b));
@@ -55,9 +57,10 @@
 
 </script>
 
-<!-- {#if Array.isArray(bloques) }
-  {#each bloques as bloque,i ("bloque_"+i) }
+{#if Array.isArray(elementos) }
+  {#each elementos as elemento,i ("elemento_"+i) }
 
-    
+    <svelte:component this={elemento.componente}/>
+
   {/each}
-{/if} -->
+{/if}

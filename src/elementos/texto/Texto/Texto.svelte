@@ -1,6 +1,8 @@
 <script>
 
     import escapeHtml from "escape-html"
+    import { etiquetaNombreGenerar, etiquetaAbrir, etiquetaCerrar } from "../../../funciones/etiquetaGenerar"
+    import etiquetaGenerar from "../../../funciones/etiquetaGenerar"
 
     export let estilos;
     export let texto;
@@ -12,40 +14,21 @@
     const generarTexto = (estilos,texto) => {
         
         if(Array.isArray(estilos)){
-            estilos.forEach(e=>etiquetaEstilosAbrir(e))
+            estilos.forEach(e=>{
+                html += etiquetaGenerar.abrir(etiquetaGenerar.nombreGenerar(e));
+            })
         }
 
         html += escapeHtml(texto)
 
         if(Array.isArray(estilos)){
-            estilos.forEach(e=>etiquetaEstilosCerrar(e))
+            estilos.forEach(e=>{
+                html += etiquetaGenerar.cerrar(etiquetaGenerar.nombreGenerar(e));
+            })
         }
         
     }
 
-
-    const etiquetaEstilosAbrir = (estilo,cerrar=false) => {
-        etiquetaEstilosGenerar(estilo)
-    }
-
-
-    const etiquetaEstilosCerrar = (estilo,cerrar=false) => {
-        etiquetaEstilosGenerar(estilo,true)
-    }
-
-
-    const etiquetaEstilosGenerar = (estilo,cerrar=false) => {
-
-        estilos.forEach(e=>{
-            switch(e) {
-                case "bold":
-                    html += `<${ cerrar ? '/' : '' }strong>`;
-                case "italic":
-                    html += `<${ cerrar ? '/' : '' }em>`;
-            }
-        })
-
-    }
 
 </script>
 
