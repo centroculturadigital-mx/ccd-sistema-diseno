@@ -6,37 +6,17 @@
 
   import Texto from "../../elementos/texto/Texto/Texto"
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo"
+  import Titulo from "../../elementos/texto/Titulo/Titulo"
   import Enlace from "../../elementos/enlaces/Enlace/Enlace"
   
   export let documento;
 
 
   $: bloquesJSON = !! documento ? JSON.parse(documento).nodes : []
-  // $: bloques.forEach( b => console.log("bloque", b));
+
   $: bloques = bloquesJSON.map( bloque => generarContenido(bloque));
-  $: console.log(bloquesJSON)
-
-
-
-// const serialize = node => {
-//   if (Text.isText(node)) {
-//     return escapeHtml(node.text)
-//   }
-
-//   const children = node.children.map(n => serialize(n)).join('')
-
-//   switch (node.type) {
-//     case 'quote':
-//       return `<blockquote><p>${children}</p></blockquote>`
-//     case 'paragraph':
-//       return `<p>${children}</p>`
-//     case 'link':
-//       return `<a href="${escapeHtml(node.url)}">${children}</a>`
-//     default:
-//       return children
-//   }
-// }
-
+  
+  
   const generarContenido = nodo => {
 
     // let elementos = []
@@ -51,17 +31,21 @@
 
       switch(nodo.object) {
         case "block":
-          
+                    
           switch( nodo.type ) {
             case "paragraph":
               return {
                 componente: Parrafo,
-                contenido: generarContenido(nodo.nodes)
+                data: {
+                  contenido: generarContenido(nodo.nodes)
+                }
               };
             case "heading":
               return {
                 componente: Titulo,
-                contenido: generarContenido(nodo.nodes)
+                data: {
+                  contenido: generarContenido(nodo.nodes)
+                }
               };
           }
 

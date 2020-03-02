@@ -7,12 +7,12 @@
     export let data;
 
     $: atributos = typeof data == 'object' ? data : {};
-
+    
 </script>
 
 <p {...atributos}>
     {#if !! contenido}
-        <Bloque elementos={contenido}/>
+        <Bloque {contenido}/>
     {:else}
        {#if !! texto}
             {texto}

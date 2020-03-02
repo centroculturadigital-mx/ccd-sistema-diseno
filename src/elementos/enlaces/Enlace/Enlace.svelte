@@ -17,7 +17,7 @@
 
 <a href="..." {...atributos}>
     {#if !! contenido}
-        <Bloque elementos={contenido}/>
+        <Bloque {contenido}/>
     {:else}
         {texto}
     {/if}

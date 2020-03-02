@@ -1,7 +1,7 @@
 <script>
 
   export let contenido;
-
+  
 </script>
 
 {#if Array.isArray(contenido) }
@@ -12,7 +12,15 @@
   {/each}
           
 {:else}
+  
+  {#if typeof contenido == 'object' && !! contenido.componente }
 
-  {@html contenido}
+    <svelte:component this={contenido.componente} {...contenido.data}/>
 
+  {:else}
+
+    {@html contenido}
+
+  {/if}
+  
 {/if}
