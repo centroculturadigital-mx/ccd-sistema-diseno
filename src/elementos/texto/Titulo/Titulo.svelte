@@ -1,57 +1,44 @@
 <script>
 
-import generadorEtiquetas from "../../../funciones/generadorEtiquetas"
+    import Bloque from "../../../componentes/Bloque/Bloque";
+    import Titulo1 from "../../../elementos/texto/Titulo/Titulo1";
+    import Titulo2 from "../../../elementos/texto/Titulo/Titulo2";
+    import Titulo3 from "../../../elementos/texto/Titulo/Titulo3";
+    import Titulo4 from "../../../elementos/texto/Titulo/Titulo4";
+    import Titulo5 from "../../../elementos/texto/Titulo/Titulo5";
+    import Titulo6 from "../../../elementos/texto/Titulo/Titulo6";
 
-export let nivel;
-export let color="#000";
-export let texto;
-export let data;
 
-const generarTitulo = (nivelTitulo,texto,atributos) => {
+    export let nivel;
+    export let color="#000";
+    export let texto;
+    export let contenido;
+    export let data;
+
+    $: atributos = atributosGenerar(data,color);
+
+    const atributosGenerar = (data,color) => {
+     const nuevosAtributos = typeof data == 'object' ? { ...data } : {}
+     if( !! color ) {
+       nuevosAtributos["style"]=`color: ${color}`
+     }
+     return nuevosAtributos
+    }
+
+    const titulares = [ Titulo1, Titulo2, Titulo3, Titulo4, Titulo5, Titulo6 ]
+
+    $: elemento = (parseInt(nivel)>=1&&parseInt(nivel)<6) ? titulares[nivel-1] : Titulo3;
     
-  let html = ''  
-
-  if( ! (parseInt(nivelTitulo) >= 1 && parseInt(nivelTitulo) <= 6 )) {
-    nivel = 3
-  } else {
-    nivel = parseInt(nivelTitulo)
-  }
-
-  html += generadorEtiquetas.etiqueta(
-    'h'+nivel,
-    texto,
-    atributos
-  );
-
-  return html
-
-}
-
-
-$: tituloRenderear = generarTitulo(
-  nivel,
-  texto,
-  {
-      style: `color: ${color};`,
-      ...data
-  }
-)
-
+    
 </script>
 
-<style>
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #000;
-  }
-  /* .titulo-grande {
-    font-size: 2.7rem;
-    max-width: 19rem;
-  } */
-</style>
 
-{@html tituloRenderear}
+<svelte:component this={elemento} data={atributos}>
+  {#if !! contenido}
+      <Bloque elementos={contenido}/>
+  {:else}
+      {#if !! texto}
+          {texto}
+      {/if}
+  {/if}
+</svelte:component>

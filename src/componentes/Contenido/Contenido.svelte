@@ -12,9 +12,9 @@
 
 
   $: bloquesJSON = !! documento ? JSON.parse(documento).nodes : []
-  $: console.log(bloques)
   // $: bloques.forEach( b => console.log("bloque", b));
   $: bloques = bloquesJSON.map( bloque => generarContenido(bloque));
+  $: console.log(bloquesJSON)
 
 
 
@@ -52,7 +52,18 @@
       switch(nodo.object) {
         case "block":
           
-          return generarContenido(nodo.nodes)
+          switch( nodo.type ) {
+            case "paragraph":
+              return {
+                componente: Parrafo,
+                contenido: generarContenido(nodo.nodes)
+              };
+            case "heading":
+              return {
+                componente: Titulo,
+                contenido: generarContenido(nodo.nodes)
+              };
+          }
 
           break;
         case "text":
@@ -93,6 +104,6 @@
 
 {#if Array.isArray(bloques) }
   {#each bloques as bloque,i ("bloque_"+i) }
-    <Bloque elementos={bloque}/>
+    <Bloque contenido={bloque}/>
   {/each}
 {/if}

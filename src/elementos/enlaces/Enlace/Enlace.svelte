@@ -12,16 +12,12 @@
     }
 
     $: ((target) => { atributos["target"]=!!target })(blank)
-    
+
 </script>
 
 <a href="..." {...atributos}>
     {#if !! contenido}
-        {#if Array.isArray(contenido)}
-            <Bloque elementos={contenido}/>
-        {:else}
-            {@html contenido}
-        {/if}
+        <Bloque elementos={contenido}/>
     {:else}
         {texto}
     {/if}
