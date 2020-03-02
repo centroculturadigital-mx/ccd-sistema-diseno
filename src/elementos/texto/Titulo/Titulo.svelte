@@ -29,8 +29,6 @@
 
     $: elemento = (parseInt(nivel)>=1&&parseInt(nivel)<6) ? titulares[nivel-1] : Titulo3;
     
-    $:console.log(contenido);
-    
 </script>
 
 

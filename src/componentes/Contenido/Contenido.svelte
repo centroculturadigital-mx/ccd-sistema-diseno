@@ -8,6 +8,9 @@
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo"
   import Titulo from "../../elementos/texto/Titulo/Titulo"
   import Enlace from "../../elementos/enlaces/Enlace/Enlace"
+  import ListaElemento from "../../elementos/listas/ListaElemento/ListaElemento"
+  import ListaDesordenada from "../../elementos/listas/ListaDesordenada/ListaDesordenada"
+  import ListaOrdenada from "../../elementos/listas/ListaOrdenada/ListaOrdenada"
   
   export let documento;
 
@@ -16,7 +19,8 @@
 
   $: bloques = bloquesJSON.map( bloque => generarContenido(bloque));
   
-  
+  $: console.log(bloquesJSON)
+
   const generarContenido = nodo => {
 
     // let elementos = []
@@ -47,9 +51,32 @@
                   contenido: generarContenido(nodo.nodes)
                 }
               };
+            case "ordered-list":
+              return {
+                componente: ListaOrdenada,
+                data: {
+                  contenido: generarContenido(nodo.nodes)
+                }
+              };
+            case "unordered-list":
+              return {
+                componente: ListaDesordenada,
+                data: {
+                  contenido: generarContenido(nodo.nodes)
+                }
+              };
+            case "list-item":
+              return {
+                componente: ListaElemento,
+                data: {
+                  texto: nodo.text,
+                  contenido: generarContenido(nodo.nodes),
+                }
+              }
           }
 
           break;
+          
         case "text":
           return {
             componente: Texto,
@@ -58,6 +85,7 @@
               estilos: nodo.marks.map(m=>m.type)
             }
           }
+        
         case "inline":
           
           switch(nodo.type) {
@@ -73,7 +101,6 @@
               break;
           };
 
-          // console.log( "inline", generarContenido(nodo) )
           break;
 
             

@@ -48,10 +48,19 @@ const nombreGenerar = clave=>{
     
     switch(clave) {
         case "bold":
+        case "strong":
             etiquetaNombre = 'strong';
             break;
         case "italic":
+        case "em":
             etiquetaNombre = 'em';
+            break;
+        case "strikethrough":
+        case "delete":
+            etiquetaNombre = 'del';
+            break;
+        case "underline":
+            etiquetaNombre = 'u';
             break;
     }
 
