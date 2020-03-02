@@ -1,26 +1,38 @@
 <script>
 
   export let contenido;
+  export let texto;
   
 </script>
 
-{#if Array.isArray(contenido) }
-  {#each contenido as componente,j ("componente_"+j) }
+{#if !! contenido }
 
-    <svelte:component this={componente.componente} {...componente.data}/>
+  {#if Array.isArray(contenido) }
 
-  {/each}
-          
-{:else}
-  
-  {#if typeof contenido == 'object' && !! contenido.componente }
+    {#each contenido as componente,j ("componente_"+j) }
 
-    <svelte:component this={contenido.componente} {...contenido.data}/>
+      <svelte:component this={componente.componente} {...componente.data}/>
 
+    {/each}
+            
   {:else}
+    
+    {#if typeof contenido == 'object' && !! contenido.componente }
 
-    {@html contenido}
+      <svelte:component this={contenido.componente} {...contenido.data}/>
 
+    {:else}
+
+      {@html contenido}
+
+    {/if}
+    
   {/if}
-  
+
+{:else}
+
+  {#if !! texto}
+    {texto}
+  {/if}
+
 {/if}

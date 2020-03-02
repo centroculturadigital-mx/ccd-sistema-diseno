@@ -40,3 +40,36 @@ export const textoBoldItalic = () => ({
         ]
     },
 });
+
+export const textoSubrayado = () => ({
+    Component: Texto,
+    props: {
+        texto: 'Texto Subrayado',
+        estilos: [
+            "underline",
+        ]
+    },
+});
+
+export const textoTachado = () => ({
+    Component: Texto,
+    props: {
+        texto: 'Texto Tachado',
+        estilos: [
+            "strikethrough",
+        ]
+    },
+});
+
+export const textoTodos = () => ({
+    Component: Texto,
+    props: {
+        texto: 'Texto Todos',
+        estilos: [
+            "bold",
+            "italic",
+            "underline",
+            "strikethrough",
+        ]
+    },
+});

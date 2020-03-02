@@ -11,11 +11,5 @@
 </script>
 
 <ol {...atributos}>
-    {#if !! contenido}
-        <Bloque {contenido}/>
-    {:else}
-       {#if !! texto}
-            {texto}
-        {/if}
-    {/if}
+    <Bloque {contenido} {texto}/>
 </ol>

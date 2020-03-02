@@ -16,9 +16,5 @@
 </script>
 
 <a href="..." {...atributos}>
-    {#if !! contenido}
-        <Bloque {contenido}/>
-    {:else}
-        {texto}
-    {/if}
+    <Bloque {contenido} {texto}/>
 </a>

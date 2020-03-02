@@ -33,11 +33,5 @@
 
 
 <svelte:component this={elemento} data={atributos}>
-  {#if !! contenido}
-    <Bloque {contenido}/>
-  {:else}
-    {#if !! texto}
-      {texto}
-    {/if}
-  {/if}
+  <Bloque {contenido} {texto}/>
 </svelte:component>
