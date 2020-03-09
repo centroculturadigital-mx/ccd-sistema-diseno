@@ -9,7 +9,8 @@
 
   export let tipo
   export let nombre
-  $: inputName = !! nombre ? nombre : name;
+
+  $: inputName = !! nombre ? nombre : !! tipo ? tipo : name;
   
   $: seleccionarTipo(tipo)
 
