@@ -23,11 +23,13 @@
 
 <form on:submit|preventDefault={enviarFuncion}>
 
-    {#each campos as campo,i ("formulario_campo_"+i) }
-        
-        <Campo ...campo/>
+    {#if Array.isArray(campos)}
+        {#each campos as campo,i ("formulario_campo_"+i) }
+            
+            <Campo ...campo/>
 
-    {/each}
+        {/each}
+    {/if}
 
     <input type="submit"/>
 

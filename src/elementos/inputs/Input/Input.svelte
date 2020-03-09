@@ -3,9 +3,15 @@
   export let type = "text";
 
   let name = type;
-
+  let inputType = type
   let valor;
   let color;
+
+  $: seleccionarTipo(tipo)
+
+  const seleccionarTipo = (tipo) => {
+    
+  }
 
   const validaEntrada = e => {
     let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]"); //solo acepta guion medio y bajo
@@ -54,7 +60,8 @@
   on:keyup={validaEntrada}
   id="text"
   class={color}
-  {type}
+  type={inputType}
+  
   {name}
   {placeholder} />
 <div id="mensaje" class={color}>
