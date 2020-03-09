@@ -1,8 +1,8 @@
 <script>
   import Input from "../../elementos/inputs/Input/Input.svelte";
 
-  export let textoLabel;
-  export let type;
+  export let etiqueta;
+  export let tipo;
   export let placeholder;
 
 </script>
@@ -15,6 +15,6 @@
 </style>
 
 <label>
-  {#if !!textoLabel}{textoLabel}{/if}
-  <Input {type} {placeholder} on:keyup/>
+  {#if !!etiqueta}{etiqueta}{/if}
+  <Input {tipo} {placeholder} on:keyup/>
 </label>
