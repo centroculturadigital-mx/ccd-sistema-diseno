@@ -7,6 +7,8 @@
   let valor;
   let color;
 
+  export let tipo
+
   $: seleccionarTipo(tipo)
 
   const seleccionarTipo = (tipo) => {
