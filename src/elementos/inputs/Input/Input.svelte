@@ -8,7 +8,9 @@
   let color;
 
   export let tipo
-
+  export let nombre
+  $: inputName = !! nombre ? nombre : name;
+  
   $: seleccionarTipo(tipo)
 
   const seleccionarTipo = (tipo) => {
@@ -77,7 +79,7 @@
   class={color}
   type={inputType}
   
-  {name}
+  name={inputName}
   {placeholder} />
 <div id="mensaje" class={color}>
   {#if valor === true}

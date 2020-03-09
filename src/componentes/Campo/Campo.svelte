@@ -4,6 +4,7 @@
   export let etiqueta;
   export let tipo;
   export let placeholder;
+  export let nombre;
 
 </script>
 
@@ -17,6 +18,6 @@
 {#if !! tipo}
   <label>
     {#if !!etiqueta}{etiqueta}{/if}
-    <Input {tipo} {placeholder} on:keyup/>
+    <Input {tipo} {nombre} {placeholder} on:keyup/>
   </label>
 {/if}
