@@ -30,7 +30,7 @@
 
             {#each campos as campo,i ("formulario_campo_"+i) }
                 
-                <Campo ...campo/>
+                <Campo {...campo}/>
 
             {/each}
             
