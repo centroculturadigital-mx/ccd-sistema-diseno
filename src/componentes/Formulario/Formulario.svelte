@@ -20,17 +20,21 @@
   }
 </style>
 
+{#if Array.isArray(campos)}
+    {#if campos.length > 0}
 
-<form on:submit|preventDefault={enviarFuncion}>
 
-    {#if Array.isArray(campos)}
-        {#each campos as campo,i ("formulario_campo_"+i) }
+        <form on:submit|preventDefault={enviarFuncion}>
+
+            {#each campos as campo,i ("formulario_campo_"+i) }
+                
+                <Campo ...campo/>
+
+            {/each}
             
-            <Campo ...campo/>
+            <input type="submit"/>
 
-        {/each}
+        </form>
+
     {/if}
-
-    <input type="submit"/>
-
-</form>
+{/if}
