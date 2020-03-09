@@ -14,7 +14,9 @@
   }
 </style>
 
-<label>
-  {#if !!etiqueta}{etiqueta}{/if}
-  <Input {tipo} {placeholder} on:keyup/>
-</label>
+{#if !! tipo}
+  <label>
+    {#if !!etiqueta}{etiqueta}{/if}
+    <Input {tipo} {placeholder} on:keyup/>
+  </label>
+{/if}
