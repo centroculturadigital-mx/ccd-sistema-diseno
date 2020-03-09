@@ -12,7 +12,20 @@
   $: seleccionarTipo(tipo)
 
   const seleccionarTipo = (tipo) => {
-    
+    switch( tipo ) {
+      case "texto":
+        inputType = "text"
+        break;
+      case "numero":
+        inputType = "number"
+        break;
+      case "contrasenna":
+        inputType = "password"
+        break;
+      case "email":
+        inputType = "email"
+        break;
+    }
   }
 
   const validaEntrada = e => {
