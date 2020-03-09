@@ -4,10 +4,10 @@
   export let campos;
   export let enviar;
 
-  const enviarFuncion = () => {
+  const enviarFuncion = ( evento ) => {
       console.log("enviar");
       if( typeof enviar == "function" ) {
-          enviar()
+          enviar( evento )
       }
   }
 
@@ -26,7 +26,7 @@
     {#each campos as campo,i ("formulario_campo_"+i) }
         
         <Campo ...campo/>
-        
+
     {/each}
 
     <input type="submit"/>
