@@ -4,6 +4,8 @@
   export let campos;
   export let enviar;
 
+  $: console.log( campos  )
+    
   const enviarFuncion = ( evento ) => {
       console.log("enviar");
       if( typeof enviar == "function" ) {
