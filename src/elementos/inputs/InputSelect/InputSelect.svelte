@@ -1,6 +1,14 @@
 <script>
   export let textoPlaceholder;
   export let opciones;
+  export let accion;
+
+  const ejecutarAccion = e => {
+    if(typeof accion == "function") {
+      accion(e)
+    }
+  }
+  
 </script>
 
 <style>
@@ -15,7 +23,7 @@
   }
 </style>
 
-    <select>
+    <select on:change={ejecutarAccion}>
 
       {#if !!opciones}
         <!-- primer elemento de placeholder -->
