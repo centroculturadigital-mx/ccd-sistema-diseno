@@ -2,7 +2,20 @@ import InputSelect from '../../../elementos/inputs/InputSelect/InputSelect.svelt
 
 export default { title: "Elementos/Inputs/Input Select"}
 
-let objetos = ["Hola", "Mundo", "a", "punto", "de", "estallar"];
+let objetos = [
+    {
+        valor: 'AGU',
+        texto: 'Aguascalientes'
+    },
+    {
+        valor: 'BCN',
+        texto: 'Baja California'
+    },
+    {
+        valor: 'BCS',
+        texto: 'Baja California Sur'
+    }
+];
 
 export const inputSelectDefault = () => ({
     Component: InputSelect,
@@ -13,7 +26,7 @@ export const inputSelectDefault = () => ({
 export const inputSelectPlaceholder = () => ({
     Component: InputSelect,
     props: {
-        textoPlaceholder: "Placeholder",
+        textoPlaceholder: "Selecciona un estado",
         opciones: objetos,
     },
 });

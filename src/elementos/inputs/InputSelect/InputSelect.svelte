@@ -26,7 +26,7 @@
         {/if}
         <!-- Si elementos que monstrar se popula la lista de opciones -->
         {#each opciones as opcion}
-          <option value={opcion}>{opcion}</option>
+          <option value={opcion.valor}>{opcion.texto}</option>
         {/each}
       {/if}
 
