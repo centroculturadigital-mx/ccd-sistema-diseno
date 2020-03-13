@@ -20,6 +20,7 @@ let opciones = [
 
 const accion = e => console.log("una accion", e);
 
+const textoPlaceholder = "Selecciona un estado"
 
 export const inputSelectDefault = () => ({
     Component: InputSelect,
@@ -31,7 +32,7 @@ export const inputSelectDefault = () => ({
 export const inputSelectPlaceholder = () => ({
     Component: InputSelect,
     props: {
-        textoPlaceholder: "Selecciona un estado",
+        textoPlaceholder,
         opciones,
         accion
     },
