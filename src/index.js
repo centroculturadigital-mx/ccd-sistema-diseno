@@ -13,6 +13,7 @@ export { default as InputSelect } from "./elementos/inputs/InputSelect/InputSele
 export { default as TextArea } from "./elementos/inputs/TextArea/TextArea.svelte";
 
 //  Componentes
+export { default as Contenido } from "./componentes/Contenido/Contenido.svelte";
 export { default as Header } from "./componentes/Header/Header.svelte";
 export { default as Footer } from "./componentes/Footer/Footer.svelte";
 export { default as Label } from "./componentes/Label/Label.svelte";
