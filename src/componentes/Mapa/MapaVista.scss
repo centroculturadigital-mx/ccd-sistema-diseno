@@ -1,0 +1,28 @@
+.Mapa {
+    
+    background-color: #eee;
+    position: relative;
+    svg {
+        // position: absolute;
+        // left:0; top:0;
+        width:100%; height:100%;
+
+    }
+    path {
+        // fill: #ccc;
+        stroke: #bbb;
+        transition: fill 0.3s ease-in-out;
+        
+        fill: #ddd;
+        &:hover {
+            fill: #ccc;
+        }
+        &[active] {
+            position: absolute;
+            width: 100vw;
+            top: 0;
+            left: 0;
+            height: auto;
+        }
+    }
+}
