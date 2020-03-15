@@ -1,6 +1,7 @@
 <script>
 
   export let contenido;
+  export let tamanno;
   export let texto;
   
 </script>
@@ -11,7 +12,7 @@
 
     {#each contenido as componente,j ("componente_"+j) }
 
-      <svelte:component this={componente.componente} {...componente.data}/>
+      <svelte:component this={componente.componente} {...componente.data} {tamanno}/>
 
     {/each}
             
@@ -19,11 +20,12 @@
     
     {#if typeof contenido == 'object' && !! contenido.componente }
 
-      <svelte:component this={contenido.componente} {...contenido.data}/>
+      <svelte:component this={contenido.componente} {...contenido.data} {tamanno}/>
 
     {:else}
-
-      {@html contenido}
+      <span style={`font-size: ${tamanno}`}>
+        {@html contenido}
+      </span>
 
     {/if}
     
@@ -32,7 +34,10 @@
 {:else}
 
   {#if !! texto}
-    {texto}
+      <span style={`font-size: ${tamanno}`}>
+        {texto}
+      </span>
+
   {/if}
 
 {/if}

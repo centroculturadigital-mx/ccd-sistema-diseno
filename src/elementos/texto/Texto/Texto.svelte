@@ -6,6 +6,7 @@
 
     export let estilos;
     export let texto;
+    export let tamanno;
 
     let html = '';
 
@@ -15,7 +16,9 @@
         
         if(Array.isArray(estilos)){
             estilos.forEach(e=>{
-                html += generadorEtiquetas.abrir(generadorEtiquetas.nombreGenerar(e));
+                html += generadorEtiquetas.abrir(generadorEtiquetas.nombreGenerar(e),{
+                    "style": `font-size: ${tamanno}`
+                });
             })
         }
 

@@ -13,6 +13,7 @@
   import ListaOrdenada from "../../elementos/listas/ListaOrdenada/ListaOrdenada"
   
   export let documento;
+  export let tamanno;
 
 
   $: bloquesJSON = !! documento ? JSON.parse(documento).nodes : []
@@ -115,6 +116,6 @@
 
 {#if Array.isArray(bloques) }
   {#each bloques as bloque,i ("bloque_"+i) }
-    <Bloque contenido={bloque}/>
+    <Bloque contenido={bloque} {tamanno}/>
   {/each}
 {/if}
