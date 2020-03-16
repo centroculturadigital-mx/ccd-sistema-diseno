@@ -14,6 +14,10 @@
     let altoOriginal
 
     $: (seleccion=>{
+        if(!seleccion) {
+            regresar()
+            return
+        }
         if( !! paths ) {
             pathSeleccionado=paths.find(p=>p.getAttribute("name")==seleccion)
             if( !! pathSeleccionado ) {
