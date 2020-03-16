@@ -43,6 +43,7 @@
     const configurar = () => {
         
         svg = document.getElementsByTagName('svg')[0]
+console.log("configurar!");
 
         // containerHeight = svg.parentNode.clientHeight
 
@@ -56,6 +57,7 @@
             setTimeout(()=>svg.parentNode.classList.add("listo"),300)
 
             paths = obtenerPaths();
+            paths.forEach(p=>p.removeEventListener('click',clicarPath))
             paths.forEach(p=>p.addEventListener('click',clicarPath))
                         
             const habilitados = activarHabilitados()
