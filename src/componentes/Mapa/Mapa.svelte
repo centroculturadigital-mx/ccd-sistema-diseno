@@ -14,7 +14,9 @@
     let altoOriginal
 
     $: (seleccion=>{
-        if(!seleccion&& !!pathSeleccionado) {
+        console.log("checar",!seleccion, !!pathSeleccionado);
+        
+        if(!seleccion && !!pathSeleccionado) {
             regresar()
             return
         }
@@ -57,10 +59,12 @@ console.log("configurar!");
             setTimeout(()=>svg.parentNode.classList.add("listo"),300)
 
             paths = obtenerPaths();
-            paths.forEach(p=>p.removeEventListener('click',clicarPath))
+
+            const habilitados = activarHabilitados()
+
+            // paths.forEach(p=>p.removeEventListener('click',clicarPath))
             paths.forEach(p=>p.addEventListener('click',clicarPath))
                         
-            const habilitados = activarHabilitados()
             
         }
 

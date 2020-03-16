@@ -6,9 +6,10 @@
     export let contenido;
     export let data;
     export let tamanno;
+    export let color;
 
     $: atributos = typeof data == 'object' ? data : {
-        style: `font-size: ${tamanno}`
+        // style: `font-size: ${tamanno}`
     };
     
 </script>
@@ -20,5 +21,10 @@
 </style>
 
 <p {...atributos}>
-    <Bloque {contenido} {texto}/>
+    <Bloque
+    {contenido}
+    {texto}
+    {tamanno}
+    {color}
+    />
 </p>
