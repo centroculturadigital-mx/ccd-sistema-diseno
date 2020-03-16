@@ -16,7 +16,7 @@
     $: (seleccion=>{
         console.log("checar",!seleccion, !!pathSeleccionado);
         
-        if(!seleccion && !!pathSeleccionado) {
+        if(seleccion.trim()!="" && !!pathSeleccionado) {
             regresar()
             return
         }
