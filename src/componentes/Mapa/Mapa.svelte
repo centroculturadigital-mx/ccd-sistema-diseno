@@ -174,7 +174,10 @@
                                 p.removeEventListener('click',clicarPath)
                                 p.setAttribute('inhabilitado',true)
                             })
-                            habilitados.forEach(h=>h.setAttribute('inhabilitado',false))
+                            habilitados.forEach(p=>{
+                                p.setAttribute('inhabilitado',false)
+                                p.addEventListener('click',clicarPath)
+                            })
                             return habilitados
                         }
 
