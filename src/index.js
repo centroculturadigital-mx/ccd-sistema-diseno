@@ -21,4 +21,5 @@ export { default as Logo } from "./componentes/Logo/Logo.svelte";
 export { default as Tarjeta } from "./componentes/Tarjetas/Tarjeta/Tarjeta.svelte";
 export { default as TarjetaHorizontal } from "./componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal.svelte";
 export { default as TarjetaVertical } from "./componentes/Tarjetas/TarjetaVertical/TarjetaVertical.svelte";
+export { default as Mapa } from "./componentes/Mapa/Mapa.svelte";
 
