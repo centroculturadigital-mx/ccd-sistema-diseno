@@ -18,8 +18,10 @@
         containerWidth = svg.parentNode.clientWidth,
         containerHeight = svg.parentNode.clientHeight
         
-        let width = parseInt(svg.getAttribute('width'))
-        let height = parseInt(svg.getAttribute('height'))
+        // let width = parseInt(svg.getAttribute('width'))
+        // let height = parseInt(svg.getAttribute('height'))
+        let width = 300;
+        let height = 300;
         
         let nodos = Array.from(svg.childNodes)
         
@@ -36,7 +38,10 @@
             // height            
         );
 
-        svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
+        svg.setAttribute('width',width);
+        svg.setAttribute('height',height);
+        
+        svg.setAttribute('viewBox',`0 0 ${containerWidth} ${containerHeight}`)
         svg.setAttribute('preserveAspectRatio',"xMidYMid meet")
 
     })
