@@ -14,9 +14,9 @@
     let altoOriginal
 
     $: (seleccion=>{
-        console.log("checar",!seleccion, !!pathSeleccionado);
+        console.log("checar",seleccion);
         
-        if(seleccion.trim()!="" && !!pathSeleccionado) {
+        if(!seleccion) {
             regresar()
             return
         }
