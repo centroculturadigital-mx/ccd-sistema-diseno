@@ -16,7 +16,9 @@
     $: (seleccion=>{
         if( !! paths ) {
             pathSeleccionado=paths.find(p=>p.getAttribute("name")==seleccion)
-            setTimeout(()=>centrarPath(pathSeleccionado))
+            if( !! pathSeleccionado ) {
+                setTimeout(()=>centrarPath(pathSeleccionado))
+            }
         }
     })(seleccionado) 
 
