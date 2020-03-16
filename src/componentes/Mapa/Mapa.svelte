@@ -14,7 +14,7 @@
     let altoOriginal
 
     $: (seleccion=>{
-        if(!seleccion) {
+        if(!seleccion&& !!pathSeleccionado) {
             regresar()
             return
         }
