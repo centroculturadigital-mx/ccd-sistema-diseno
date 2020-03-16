@@ -13,7 +13,6 @@ export { default as InputSelect } from "./elementos/inputs/InputSelect/InputSele
 export { default as TextArea } from "./elementos/inputs/TextArea/TextArea.svelte";
 
 //  Componentes
-export { default as Contenido } from "./componentes/Contenido/Contenido.svelte";
 export { default as Header } from "./componentes/Header/Header.svelte";
 export { default as Footer } from "./componentes/Footer/Footer.svelte";
 export { default as Label } from "./componentes/Label/Label.svelte";
@@ -21,5 +20,6 @@ export { default as Logo } from "./componentes/Logo/Logo.svelte";
 export { default as Tarjeta } from "./componentes/Tarjetas/Tarjeta/Tarjeta.svelte";
 export { default as TarjetaHorizontal } from "./componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal.svelte";
 export { default as TarjetaVertical } from "./componentes/Tarjetas/TarjetaVertical/TarjetaVertical.svelte";
+export { default as Contenido } from "./componentes/Contenido/Contenido.svelte";
 export { default as Mapa } from "./componentes/Mapa/Mapa.svelte";
 

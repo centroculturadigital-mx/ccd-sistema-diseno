@@ -15,12 +15,23 @@ export const MapaDefault = () => ({
         mapa
     },
 });
+
 export const MapaAccion = () => ({
     Component: Mapa,
     props: {
         mapa,
         datos,
         seleccionar
+    },
+});
+
+
+export const MapaTamanno = () => ({
+    Component: Mapa,
+    props: {
+        mapa,
+        ancho:300,
+        alto:150,
     },
 });
 

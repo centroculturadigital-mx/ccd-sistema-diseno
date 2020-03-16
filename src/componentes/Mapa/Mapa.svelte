@@ -6,7 +6,8 @@
     // export let seleccionar = () => console.log("seleccionar");
     
     export let mapa    
-    export let datos
+    export let ancho = 300
+    export let alto = 300
     
     let pathSeleccionado = null
     let containerWidth;
@@ -35,11 +36,11 @@
         svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
         svg.setAttribute('preserveAspectRatio',"xMidYMid meet")
 
-        width = 300;
-        height = 300;
+        ancho = typeof ancho == "number" ? ancho : 300;
+        alto = typeof alto == "number" ? alto : 300;
 
-        svg.setAttribute('width',width);
-        svg.setAttribute('height',height);
+        svg.setAttribute('width',ancho);
+        svg.setAttribute('height',alto);
         
     })
 
@@ -117,8 +118,6 @@
 
     .mapa {
         background: #aaa;
-        width: 300px;
-        height: 300px;
     }
     :global(.mapa path) {
         fill: #bbb;
@@ -133,8 +132,6 @@
     }
 </style>
 
-<h1>Mapa</h1>
-
-<div class="mapa">
+<div class="mapa" style={`width: ${ancho}px; height: ${alto}px`}>
     {@html mapa }
 </div>
