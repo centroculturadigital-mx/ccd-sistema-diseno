@@ -43,7 +43,7 @@ export const MapaHabilitados = () => ({
         ancho:600,
         alto:450,
         datos: {
-            habilitados:['Chihuahua','Oaxaca','CDMX']
+            habilitados:['Chihuahua','Oaxaca','Ciudad de México']
         }
     },
 });

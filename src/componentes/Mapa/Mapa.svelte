@@ -40,16 +40,12 @@
             setTimeout(()=>svg.parentNode.classList.add("listo"),300)
 
             paths = obtenerPaths();
+            paths.forEach(p=>p.addEventListener('click',clicarPath))
                         
             const habilitados = activarHabilitados()
-
-            if( habilitados.length > 0 ) {
-                habilitados.forEach(p=>p.addEventListener('click',clicarPath))
-            } else {
-                paths.forEach(p=>p.addEventListener('click',clicarPath))
-            }
-
-
+            
+            console.log(habilitados);
+            
 
         }
 
