@@ -170,7 +170,8 @@
                         console.log("H", habilitados);
                         
                         if( habilitados.length > 0 ) {
-                            paths.forEach(h=>h.setAttribute('inhabilitado',true))
+                            paths.removeEventListener('click',clicarPath)
+                            paths.forEach(p=>p.setAttribute('inhabilitado',true))
                             habilitados.forEach(h=>h.setAttribute('inhabilitado',false))
                             return habilitados
                         }
