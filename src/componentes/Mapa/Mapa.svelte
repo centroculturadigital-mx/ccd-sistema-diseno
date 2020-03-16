@@ -87,7 +87,7 @@
 
     const clicarPath = (e) => {
         
-        const inhabilitado = e.target.getAttribute('inhabilitiado');
+        const inhabilitado = e.target.getAttribute('inhabilitado');
         console.log("inhabilitado",inhabilitado);
         
         if( inhabilitado !== false ) {
