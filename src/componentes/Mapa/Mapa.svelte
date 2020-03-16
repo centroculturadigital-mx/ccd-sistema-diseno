@@ -2,11 +2,13 @@
     import {onMount} from "svelte";
     
 
-    export let estadoSeleccionar = () => console.log("seleccionar");
+    export let seleccionar
+    // export let seleccionar = () => console.log("seleccionar");
     
-    import mapa from "../../../public/recursos/imagenes/vectores/mapamx.js";
+    export let mapa    
+    export let datos
     
-    let estadoSeleccionado = null
+    let pathSeleccionado = null
     let containerWidth;
     let containerHeight;
 
@@ -26,16 +28,10 @@
         nodos = nodos.filter(n=>n.tagName=='path');
 
         nodos.forEach(n=>{
-            n.addEventListener('click',seleccionarEstado)
+            n.addEventListener('click',clicarPath)
         })
-        console.log(
-            nodos,
-            // containerWidth,
-            // containerHeight,
-            // width,
-            // height            
-        );
-
+        
+        
         svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
         svg.setAttribute('preserveAspectRatio',"xMidYMid meet")
 
@@ -47,15 +43,12 @@
         
     })
 
-    const seleccionarEstado = (e) => {
-        
-        estadoSeleccionado = e.target.getAttribute('id');
-        const estadoNombre = e.target.getAttribute('name');
-        
-        
-        console.log(estadoNombre);
-        
 
+    const clicarPath = (e) => {
+        
+        pathSeleccionado = e.target.getAttribute('id');
+        const pathNombre = e.target.getAttribute('name');
+        
         let svg = e.target.parentNode;
 
         let x = e.target.getBBox().x
@@ -88,8 +81,8 @@
         // e.target.parentNode.setAttribute('viewBox',`${x} ${y} ${containerWidth} ${containerHeight}`)
     
                 
-        if( !! estadoSeleccionar ) {
-            estadoSeleccionar( estadoNombre )
+        if( typeof seleccionar == "function" ) {
+            seleccionar( pathNombre )
         }
         
 
@@ -115,7 +108,7 @@
         
         svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
 
-        estadoSeleccionar()
+        seleccionar()
     }
 
 </script>
