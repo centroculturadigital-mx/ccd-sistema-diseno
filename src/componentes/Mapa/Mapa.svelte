@@ -149,11 +149,14 @@
 
 
     const activarHabilitados = () => {
+
         if( typeof datos == "object" ) {
             if( Object.keys(datos).includes('habilitados') ) {
                 if(Array.isArray(datos.habilitados)){                                
 
                     const habilitados = paths.filter(p=>datos.habilitados.includes(p.getAttribute('name')))
+                    console.log("H", habilitados);
+                    
                     if( habilitados.length > 0 ) {
                         paths.forEach(h=>h.setAttribute('inhabilitado',true))
                         habilitados.forEach(h=>h.setAttribute('inhabilitado',false))
