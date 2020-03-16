@@ -35,3 +35,16 @@ export const MapaTamanno = () => ({
     },
 });
 
+
+export const MapaHabilitados = () => ({
+    Component: Mapa,
+    props: {
+        mapa,
+        ancho:600,
+        alto:450,
+        datos: {
+            habilitados:['Chihuahua','Oaxaca','CDMX']
+        }
+    },
+});
+
