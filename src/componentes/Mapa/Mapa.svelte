@@ -1,19 +1,43 @@
 <script>
     import {onMount} from "svelte";
     
+
     export let estadoSeleccionar = () => console.log("seleccionar");
     
+    import mapa from "../../../public/recursos/imagenes/vectores/mapamx.js";
     
     let estadoSeleccionado = null
+    let containerWidth;
+    let containerHeight;
+
 
     onMount(()=>{
 
         const svg = document.getElementsByTagName('svg')[0]
 
-        this.setState({
-            containerWidth: svg.parentNode.clientWidth,
-            containerHeight: svg.parentNode.clientHeight
+        containerWidth = svg.parentNode.clientWidth,
+        containerHeight = svg.parentNode.clientHeight
+        
+        let width = parseInt(svg.getAttribute('width'))
+        let height = parseInt(svg.getAttribute('height'))
+        
+        let nodos = Array.from(svg.childNodes)
+        
+        nodos = nodos.filter(n=>n.tagName=='path');
+
+        nodos.forEach(n=>{
+            n.addEventListener('click',seleccionarEstado)
         })
+        console.log(
+            nodos,
+            // containerWidth,
+            // containerHeight,
+            // width,
+            // height            
+        );
+
+        svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
+        svg.setAttribute('preserveAspectRatio',"xMidYMid meet")
 
     })
 
@@ -65,14 +89,7 @@
     }
 
 
-    const onSVGReady = (svg) => {
-        // svg.setAttribute('width',svg.clientWidth)
-        let width = svg.getAttribute('width')
-        let height = svg.getAttribute('height')
-        
-        svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
-        svg.setAttribute('preserveAspectRatio',"xMidYMid meet")
-    }
+
 
 
     const regresar = () => {
@@ -96,8 +113,12 @@
 
 </script>
 
-<style>
+<!-- <style>
 
-</style>
+</style> -->
 
 <h1>Mapa</h1>
+
+<div class="mapa">
+    {@html mapa }
+</div>

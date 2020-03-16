@@ -26,6 +26,7 @@
   "dependencies": {
     "escape-html": "^1.0.3",
     "sirv-cli": "^0.4.4",
-    "svelte-feather-icons": "^3.2.2"
+    "svelte-feather-icons": "^3.2.2",
+    "svg-inline-loader": "^0.8.2"
   }
 }
