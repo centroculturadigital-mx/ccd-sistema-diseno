@@ -18,10 +18,8 @@
         containerWidth = svg.parentNode.clientWidth,
         containerHeight = svg.parentNode.clientHeight
         
-        // let width = parseInt(svg.getAttribute('width'))
-        // let height = parseInt(svg.getAttribute('height'))
-        let width = 300;
-        let height = 300;
+        let width = parseInt(svg.getAttribute('width'))
+        let height = parseInt(svg.getAttribute('height'))
         
         let nodos = Array.from(svg.childNodes)
         
@@ -38,12 +36,15 @@
             // height            
         );
 
+        svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
+        svg.setAttribute('preserveAspectRatio',"xMidYMid meet")
+
+        width = 300;
+        height = 300;
+
         svg.setAttribute('width',width);
         svg.setAttribute('height',height);
         
-        svg.setAttribute('viewBox',`0 0 ${containerWidth} ${containerHeight}`)
-        svg.setAttribute('preserveAspectRatio',"xMidYMid meet")
-
     })
 
     const seleccionarEstado = (e) => {
@@ -80,6 +81,7 @@
             }
         }
 
+        e.target.setAttribute('active',true)
         e.target.setAttribute('active',true)
         
         e.target.parentNode.setAttribute('viewBox',`${x} ${y} ${w} ${h}`)
@@ -118,9 +120,25 @@
 
 </script>
 
-<!-- <style>
+<style>
 
-</style> -->
+    .mapa {
+        background: #aaa;
+        width: 300px;
+        height: 300px;
+    }
+    :global(.mapa path) {
+        fill: #bbb;
+        stroke: #aaa;
+        transition: fill 0.5s;
+    }
+    :global(.mapa path:hover) {
+        fill: #ccc  ;
+    }
+    :global(.mapa path[active="true"]) {
+        fill: #ddd  ;
+    }
+</style>
 
 <h1>Mapa</h1>
 
