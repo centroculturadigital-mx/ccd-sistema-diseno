@@ -16,7 +16,7 @@
     $: (seleccion=>{
         console.log("checar",seleccion);
         
-        if(!seleccion) {
+        if(!seleccion&&!!pathSeleccionado) {
             regresar()
             return
         }
@@ -254,7 +254,7 @@ console.log("configurar!");
 <div class="mapa" style={`width: ${ancho}px; height: ${alto}px`}>
     <header>
         {#if !! pathSeleccionado}
-            <button on:click={regresar}>
+            <button on:click={()=>seleccionar()}>
                 Regresar
             </button>
         {/if}
