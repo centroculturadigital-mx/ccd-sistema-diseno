@@ -197,6 +197,7 @@
 <style>
 
     .mapa {
+        position: relative;
         background: #aaa;
         transition:opacity 0.4s;
         opacity: 0;
