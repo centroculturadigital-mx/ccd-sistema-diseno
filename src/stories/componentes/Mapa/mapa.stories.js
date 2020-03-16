@@ -48,3 +48,13 @@ export const MapaHabilitados = () => ({
     },
 });
 
+export const MapaSeleccionado = () => ({
+    Component: Mapa,
+    props: {
+        mapa,
+        ancho:600,
+        alto:450,
+        seleccionado: 'Puebla'
+    },
+});
+
