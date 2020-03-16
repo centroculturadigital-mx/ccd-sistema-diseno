@@ -89,7 +89,7 @@
         
         const inhabilitado = e.target.getAttribute('inhabilitiado');
 
-        if( ! inhabilitado ) {
+        if( inhabilitado !== false ) {
 
             
             pathSeleccionado = e.target.getAttribute('id');
