@@ -181,12 +181,12 @@
                         
                         if( habilitados.length > 0 ) {
                             paths.forEach(p=>{
-                                p.removeEventListener('click',clicarPath)
+                                // p.removeEventListener('click',clicarPath)
                                 p.setAttribute('inhabilitado',true)
                             })
                             habilitados.forEach(p=>{
                                 p.setAttribute('inhabilitado',false)
-                                p.addEventListener('click',clicarPath)
+                                // p.addEventListener('click',clicarPath)
                             })
                             return habilitados
                         }
