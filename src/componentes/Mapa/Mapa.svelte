@@ -171,7 +171,7 @@ console.log("configurar!");
 
         pathSeleccionado = null
 
-        seleccionar()
+        // seleccionar()
 
 
     }
