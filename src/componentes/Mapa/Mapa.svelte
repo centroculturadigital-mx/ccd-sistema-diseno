@@ -21,6 +21,7 @@
 
 
     $: ancho && alto && !! svg && escalar(ancho,alto);
+    $: datos && activarHabilitados()
 
     
 
@@ -44,9 +45,6 @@
                         
             const habilitados = activarHabilitados()
             
-            console.log(habilitados);
-            
-
         }
 
         
