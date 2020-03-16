@@ -153,9 +153,10 @@
         if( typeof datos == "object" ) {
             if( Object.keys(datos).includes('habilitados') ) {
                 if(Array.isArray(datos.habilitados)){                                
-
-                    paths.forEach(p=>console.log(p.getAttribute('name')))
+                    console.log(datos.habilitados);
                     
+                    paths.forEach(p=>console.log(p.getAttribute('name')))
+
                     const habilitados = paths.filter(p=>datos.habilitados.includes(p.getAttribute('name')))
                     console.log("H", habilitados);
                     
