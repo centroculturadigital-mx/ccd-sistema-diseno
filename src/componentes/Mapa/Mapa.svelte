@@ -37,15 +37,20 @@
 
             escalar(contenedorAncho,contenedorAlto)
             
-            paths = obtenerPaths();
-            paths.forEach(p=>p.addEventListener('click',clicarPath))
-
             setTimeout(()=>svg.parentNode.classList.add("listo"),300)
-            
 
-            // console.log("datos?",datos);
-            
-            // activarHabilitados()
+            paths = obtenerPaths();
+                        
+            const habilitados = activarHabilitados()
+
+            if( habilitados.length > 0 ) {
+                habilitados.forEach(p=>p.addEventListener('click',clicarPath))
+            } else {
+                paths.forEach(p=>p.addEventListener('click',clicarPath))
+            }
+
+
+
         }
 
         
@@ -53,8 +58,6 @@
 
 
     const escalar = (w,h) => {
-
-        
 
         let wFinal = w;
         let hFinal = h;
@@ -152,21 +155,19 @@
     const activarHabilitados = () => {
         if( typeof datos == "object" ) {
             if( Object.keys(datos).includes('habilitados') ) {
-                if(Array.isArray(datos.habilitados)){
-                    
-                    const clavesDisponibles=paths.map(p=>p.value)
+                if(Array.isArray(datos.habilitados)){                                
 
-                    const habilitados = datos.habilitados.filter(dH=>(
-                        clavesDisponibles.includes(dH)
-                    ))
-
-                    if(habilitados.length>0){
-                        console.log("hay",habilitados);
-                        
+                    const habilitados = paths.filter(p=>datos.habilitados.includes(p.getAttribute('name')))
+                    if( habilitados.length > 0 ) {
+                        paths.forEach(h=>h.setAttribute('inhabilitado',true))
+                        habilitados.forEach(h=>h.setAttribute('inhabilitado',false))
+                        return habilitados
                     }
+
                 }
             }
         }
+        return []
     }
 
 </script>
@@ -192,6 +193,11 @@
     :global(.mapa path[active="true"]) {
         fill: #ddd  ;
     }
+    
+    :global(.mapa path[inhabilitado="true"]) {
+        fill: #9a9a9a  ;
+    }
+
 </style>
 
 <div class="mapa" style={`width: ${ancho}px; height: ${alto}px`}>
