@@ -87,41 +87,49 @@
 
     const clicarPath = (e) => {
         
-        pathSeleccionado = e.target.getAttribute('id');
-        const pathNombre = e.target.getAttribute('name');
-        
-        let x = e.target.getBBox().x
-        let y = e.target.getBBox().y
-        let w = e.target.getBBox().width * 1.618
-        let h = e.target.getBBox().height * 1.618
-        
-        
-        // const containerWidth = svg.parentNode.clientWidth
-        // const containerHeight = svg.parentNode.clientHeight
+        const inhabilitado = e.target.getAttribute('inhabilitiado');
+
+        if( ! inhabilitado ) {
+
+            
+            pathSeleccionado = e.target.getAttribute('id');
+            const pathNombre = e.target.getAttribute('name');
+            
+            let x = e.target.getBBox().x
+            let y = e.target.getBBox().y
+            let w = e.target.getBBox().width * 1.618
+            let h = e.target.getBBox().height * 1.618
+            
+            
+            // const containerWidth = svg.parentNode.clientWidth
+            // const containerHeight = svg.parentNode.clientHeight
 
 
 
-        x = x - e.target.getBBox().width / (1.618*2)
-        y = y - e.target.getBBox().height / (1.618*2)
-        
+            x = x - e.target.getBBox().width / (1.618*2)
+            y = y - e.target.getBBox().height / (1.618*2)
+            
 
-        for( let i in paths ) {
-            if(typeof(paths[i])=="object") {
-                paths[i].removeAttribute('active')
+            for( let i in paths ) {
+                if(typeof(paths[i])=="object") {
+                    paths[i].removeAttribute('active')
+                }
             }
-        }
 
-        e.target.setAttribute('active',true)
-        e.target.setAttribute('active',true)
+            e.target.setAttribute('active',true)
+            e.target.setAttribute('active',true)
+            
+            e.target.parentNode.setAttribute('viewBox',`${x} ${y} ${w} ${h}`)
+            // e.target.parentNode.setAttribute('viewBox',`${x} ${y} ${containerWidth} ${containerHeight}`)
         
-        e.target.parentNode.setAttribute('viewBox',`${x} ${y} ${w} ${h}`)
-        // e.target.parentNode.setAttribute('viewBox',`${x} ${y} ${containerWidth} ${containerHeight}`)
-    
-                
-        if( typeof seleccionar == "function" ) {
-            seleccionar( pathNombre )
+                    
+            if( typeof seleccionar == "function" ) {
+                seleccionar( pathNombre )
+            }
+            
+
+        
         }
-        
 
     }
 
