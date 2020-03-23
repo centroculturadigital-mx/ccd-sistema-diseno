@@ -1,8 +1,7 @@
 <script>
   import HeaderVista from "./HeaderVista.svelte";
 
-  export let logoTexto;
-  export let logoImagenUrl;
+  export let logos;
   export let objetosMenu;
   export let altura;
   export let colorFondo;
@@ -29,9 +28,8 @@
   {menuAlternar}
   {estadoMenu}
   {altura}
+  {logos}
   {objetosMenu}
-  {logoTexto}
-  {logoImagenUrl}
   {iconoBotonEstadoUnoUrl}
   {iconoBotonEstadoDosUrl}
   {iconoBotonAltura}
@@ -39,8 +37,7 @@
   {colorFondoMovil}
   {color}
   {sombra}
-  {fixed} 
+  {fixed}
   {alturaMenuMovil}
   {objetosMenuExtra}
-  {objetosAlineacion}
-/>
+  {objetosAlineacion} />
