@@ -11,7 +11,6 @@
 
   const alternarEstado = () => {
     estado = !estado;
-    console.log(estado);
   };
 
 </script>

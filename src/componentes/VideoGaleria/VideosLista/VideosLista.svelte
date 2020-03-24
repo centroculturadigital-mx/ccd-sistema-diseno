@@ -4,8 +4,12 @@
   export let videos;
 </script>
 
-<h1>VIDEOS LISTA</h1>
-
+<aside>
 {#each videos as video}
-  <VideoVistaPrevia />
+
+  <VideoVistaPrevia imagen={video.imagen} titulo={video.titulo}/>
+
+  <hr>
+
 {/each}
+</aside>
