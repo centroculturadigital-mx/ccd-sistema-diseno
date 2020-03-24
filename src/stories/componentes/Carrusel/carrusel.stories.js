@@ -2,15 +2,31 @@ import Carrusel from "../../../componentes/Carrusel/Carrusel.svelte";
 
 export default {title: "Componentes/Carrusel"}
 
+const elementos = [
+    {
+        a: "b"
+    },
+    {
+        a: "b"
+    },
+    {
+        a: "b"
+    },
+    {
+        a: "b"
+    },
+    {
+        a: "b"
+    },
+    {
+        a: "b"
+    },
+]
 
 export const carruselDefault = () => ({
     Component: Carrusel,
     props: {
-        elementos: [
-            {
-                a: "b"
-            }
-        ]
+        elementos
     }
 });
 
@@ -19,17 +35,7 @@ export const carruselTamanno = () => ({
     props: {
         ancho: 800,
         alto: 400,
-        elementos: [
-            {
-                a: "b"
-            },
-            {
-                a: "b"
-            },
-            {
-                a: "b"
-            },
-        ]
+        elementos
     }
 });
 
@@ -40,17 +46,7 @@ export const carruselVertical = () => ({
         ancho: 400,
         alto: 500,
         direccion: "vertical",
-        elementos: [
-            {
-                a: "b"
-            },
-            {
-                a: "b"
-            },
-            {
-                a: "b"
-            },
-        ]
+        elementos
     }
 });
 
