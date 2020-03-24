@@ -1,18 +1,26 @@
 <script>
-import VideoReproductor from "./VideoReproductor/VideoReproductor.svelte";
-import VideoTarjeta from "./VideoTarjeta/VideoTarjeta.svelte";
-import VideoVistaPrevia from "./VideoVistaPrevia/VideoVistaPrevia.svelte";
-import Video from "../../elementos/media/Video/Video.svelte"
+  import VideoReproductor from "./VideoReproductor/VideoReproductor.svelte";
+  import VideoTarjeta from "./VideoTarjeta/VideoTarjeta.svelte";
+  import VideosLista from "./VideosLista/VideosLista.svelte";
 
-const videos = []
-
+  let estado = false;
 </script>
 
+<style>
+.videoGaleria {
+    padding: 0;
 
+}
+</style>
 
+<section class="videoGaleria">
 
+  {#if estado}
+    <VideoReproductor />
+  {:else}
+    <VideoTarjeta />
+  {/if}
 
-<VideoReproductor/>
-<VideoTarjeta/>
-<VideoVistaPrevia />
+  <VideosLista />
 
+</section>
