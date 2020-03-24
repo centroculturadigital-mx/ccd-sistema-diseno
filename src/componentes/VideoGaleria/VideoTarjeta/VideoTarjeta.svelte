@@ -6,6 +6,7 @@ import BotonIcono from '../../../elementos/botones/BotonIcono/BotonIcono.svelte'
 export let url = "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png";
 export let titulo = "Video Tarjeta";
 
+
 let alturaImagen = '400px';
 
 </script>
@@ -20,7 +21,9 @@ let alturaImagen = '400px';
         altura={alturaImagen}
         />
 
+        <a href="#" on:click|preventDefault>
         <BotonIcono iconoBotonEstadoUnoUrl="play.svg"/>
+        </a>
 
     </div>
 
