@@ -1,5 +1,5 @@
 <script>
-  import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
+  import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import VideoReproductor from "./VideoReproductor/VideoReproductor.svelte";
   import VideoTarjeta from "./VideoTarjeta/VideoTarjeta.svelte";
   import VideosLista from "./VideosLista/VideosLista.svelte";
@@ -8,11 +8,11 @@
 
   const verReproductor = () => {
     console.log("Veo el reproductor");
-    let estado = true;
+    let estado = false;
   };
   const verTarjeta = () => {
       console.log("Veo la tarjeta");
-    let estado = false;
+    let estado = true;
   };
 </script>
 
@@ -34,9 +34,7 @@
       </header>
       <VideoReproductor />
     {:else}
-      <a href="#" on:click|preventDefault={verReproductor}>
-        <VideoTarjeta />
-      </a>
+        <VideoTarjeta abre={verReproductor} />
     {/if}
 
   </section>
