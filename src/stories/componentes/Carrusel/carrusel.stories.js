@@ -14,6 +14,25 @@ export const carruselDefault = () => ({
     }
 });
 
+export const carruselTamanno = () => ({
+    Component: Carrusel,
+    props: {
+        ancho: 800,
+        alto: 400,
+        elementos: [
+            {
+                a: "b"
+            },
+            {
+                a: "b"
+            },
+            {
+                a: "b"
+            },
+        ]
+    }
+});
+
 export const carruselArrayVacio = () => ({
     Component: Carrusel,
     props: {

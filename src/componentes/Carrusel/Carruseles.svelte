@@ -11,7 +11,7 @@
         }
     ]
 
-    let carruseles = new Array(10);
+    let carruseles = new Array(3);
 
 </script>
 
