@@ -5,7 +5,7 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook -s ./public -p 9001"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
