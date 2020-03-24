@@ -1,12 +1,12 @@
 <script>
 
-    import Bloque from "../../../componentes/Bloque/Bloque";
-    import Titulo1 from "../../../elementos/texto/Titulo/Titulo1";
-    import Titulo2 from "../../../elementos/texto/Titulo/Titulo2";
-    import Titulo3 from "../../../elementos/texto/Titulo/Titulo3";
-    import Titulo4 from "../../../elementos/texto/Titulo/Titulo4";
-    import Titulo5 from "../../../elementos/texto/Titulo/Titulo5";
-    import Titulo6 from "../../../elementos/texto/Titulo/Titulo6";
+    import Bloque from "../../../componentes/Bloque/Bloque.svelte";
+    import Titulo1 from "../../../elementos/texto/Titulo/Titulo1.svelte";
+    import Titulo2 from "../../../elementos/texto/Titulo/Titulo2.svelte";
+    import Titulo3 from "../../../elementos/texto/Titulo/Titulo3.svelte";
+    import Titulo4 from "../../../elementos/texto/Titulo/Titulo4.svelte";
+    import Titulo5 from "../../../elementos/texto/Titulo/Titulo5.svelte";
+    import Titulo6 from "../../../elementos/texto/Titulo/Titulo6.svelte";
 
 
     export let nivel;

@@ -2,15 +2,15 @@
 
   import escapeHtml from 'escape-html'
 
-  import Bloque from "../Bloque/Bloque"
+  import Bloque from "../Bloque/Bloque.svelte"
 
-  import Texto from "../../elementos/texto/Texto/Texto"
-  import Parrafo from "../../elementos/texto/Parrafo/Parrafo"
-  import Titulo from "../../elementos/texto/Titulo/Titulo"
-  import Enlace from "../../elementos/enlaces/Enlace/Enlace"
-  import ListaElemento from "../../elementos/listas/ListaElemento/ListaElemento"
-  import ListaDesordenada from "../../elementos/listas/ListaDesordenada/ListaDesordenada"
-  import ListaOrdenada from "../../elementos/listas/ListaOrdenada/ListaOrdenada"
+  import Texto from "../../elementos/texto/Texto/Texto.svelte"
+  import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte"
+  import Titulo from "../../elementos/texto/Titulo/Titulo.svelte"
+  import Enlace from "../../elementos/enlaces/Enlace/Enlace.svelte"
+  import ListaElemento from "../../elementos/listas/ListaElemento/ListaElemento.svelte"
+  import ListaDesordenada from "../../elementos/listas/ListaDesordenada/ListaDesordenada.svelte"
+  import ListaOrdenada from "../../elementos/listas/ListaOrdenada/ListaOrdenada.svelte"
   
   export let documento;
   export let tamanno;
