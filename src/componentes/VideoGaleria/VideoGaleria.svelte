@@ -4,16 +4,14 @@
   import VideoTarjeta from "./VideoTarjeta/VideoTarjeta.svelte";
   import VideosLista from "./VideosLista/VideosLista.svelte";
 
-  let estado;
+  export let videos;
+  let estado = false;
 
-  const verReproductor = () => {
-    console.log("Veo el reproductor");
-    let estado = false;
-  };
-  const verTarjeta = () => {
-      console.log("Veo la tarjeta");
-    let estado = true;
-  };
+  const alternarEstado = () => { estado = ! estado }
+
+  console.log(estado);
+  
+
 </script>
 
 <style>
@@ -28,20 +26,20 @@
 
     {#if estado == true}
       <header>
-        <a href="#" on:click|preventDefault={verTarjeta}>
+        <a href="#" on:click|preventDefault={alternarEstado}>
           <BotonIcono iconoBotonEstadoUnoUrl="cerrar_blanco.svg" />
         </a>
       </header>
-      <VideoReproductor />
+      <VideoReproductor url={videos[0].url}/>
     {:else}
-        <VideoTarjeta abre={verReproductor} />
+        <VideoTarjeta titulo={videos[0].titulo} imagen={videos[0].imagen} abrir={alternarEstado}/>
     {/if}
 
   </section>
 
   <section class="contenedorLista">
 
-    <VideosLista />
+    <VideosLista {videos}/>
 
   </section>
 

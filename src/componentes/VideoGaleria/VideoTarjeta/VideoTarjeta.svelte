@@ -1,11 +1,12 @@
 <script>
 import Imagen from '../../../elementos/media/Imagen/Imagen.svelte';
+import Titulo from '../../../elementos/texto/Titulo/Titulo.svelte';
 import BotonIcono from '../../../elementos/botones/BotonIcono/BotonIcono.svelte';
 
 
-export let url = "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png";
-export let titulo = "Video Tarjeta";
-export let abre;
+export let titulo;
+export let imagen;
+export let abrir;
 
 
 let alturaImagen = '400px';
@@ -16,20 +17,20 @@ let alturaImagen = '400px';
 
     <div class="imagen">
         <Imagen 
-        imagenUrl={url}
+        imagenUrl={imagen}
         altTexto={titulo}
         alineacion={"center"}
         altura={alturaImagen}
         />
 
-        <a href="#" on:click|preventDefault={abre}>
+        <a href="#" on:click|preventDefault={abrir}>
         <BotonIcono iconoBotonEstadoUnoUrl="play.svg"/>
         </a>
 
     </div>
 
 
-    <h1>{titulo}</h1>
+<Titulo nivel={1} texto={titulo}/>
 
 
 </article>
