@@ -1,6 +1,6 @@
 <script>
 
-    import Bloque from "../../../componentes/Bloque/Bloque";
+    import Bloque from "../../../componentes/Bloque/Bloque.svelte";
 
     export let href;
     export let texto;

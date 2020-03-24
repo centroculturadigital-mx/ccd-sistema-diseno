@@ -23,6 +23,7 @@
         }
 
         html += escapeHtml(texto)
+        // html += texto
 
         if(Array.isArray(estilos)){
             estilos.forEach(e=>{
