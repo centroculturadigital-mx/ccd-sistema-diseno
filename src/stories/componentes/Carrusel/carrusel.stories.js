@@ -33,6 +33,27 @@ export const carruselTamanno = () => ({
     }
 });
 
+
+export const carruselVertical = () => ({
+    Component: Carrusel,
+    props: {
+        ancho: 400,
+        alto: 500,
+        direccion: "vertical",
+        elementos: [
+            {
+                a: "b"
+            },
+            {
+                a: "b"
+            },
+            {
+                a: "b"
+            },
+        ]
+    }
+});
+
 export const carruselArrayVacio = () => ({
     Component: Carrusel,
     props: {
