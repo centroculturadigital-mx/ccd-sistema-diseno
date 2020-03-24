@@ -15,7 +15,7 @@
 
 <section class="videoGaleria">
 
-  {#if estado}
+  {#if estado == true}
     <VideoReproductor />
   {:else}
     <VideoTarjeta />

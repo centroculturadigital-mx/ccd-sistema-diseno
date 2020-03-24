@@ -1,6 +1,6 @@
 <script>
 
-    // import escapeHtml from "escape-html"
+    import escapeHtml from "escape-html"
     import { etiquetaNombreGenerar, etiquetaAbrir, etiquetaCerrar } from "../../../funciones/generadorEtiquetas"
     import generadorEtiquetas from "../../../funciones/generadorEtiquetas"
 
@@ -22,8 +22,8 @@
             })
         }
 
-        // html += escapeHtml(texto)
-        html += texto
+        html += escapeHtml(texto)
+        // html += texto
 
         if(Array.isArray(estilos)){
             estilos.forEach(e=>{
