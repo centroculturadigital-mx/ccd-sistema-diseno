@@ -4,7 +4,8 @@
   import VideoTarjeta from "./VideoTarjeta/VideoTarjeta.svelte";
   import VideosLista from "./VideosLista/VideosLista.svelte";
 
-  let estado;
+  export let estado;
+  export let videos;
 
   const verReproductor = () => {
     console.log("Veo el reproductor");
@@ -32,16 +33,16 @@
           <BotonIcono iconoBotonEstadoUnoUrl="cerrar_blanco.svg" />
         </a>
       </header>
-      <VideoReproductor />
+      <VideoReproductor url={videos[0].url}/>
     {:else}
-        <VideoTarjeta abre={verReproductor} />
+        <VideoTarjeta titulo={videos[0].titulo} imagen={videos[0].imagen} abrir={verReproductor}/>
     {/if}
 
   </section>
 
   <section class="contenedorLista">
 
-    <VideosLista />
+    <VideosLista {videos}/>
 
   </section>
 
