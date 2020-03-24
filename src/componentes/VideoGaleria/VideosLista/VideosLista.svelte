@@ -4,7 +4,8 @@
   export let videos;
 </script>
 
-<aside>
+<aside class="VideosLista">
+
 {#each videos as video}
 
   <VideoVistaPrevia imagen={video.imagen} titulo={video.titulo}/>
@@ -12,4 +13,5 @@
   <hr>
 
 {/each}
+
 </aside>

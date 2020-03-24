@@ -1,8 +1,8 @@
 <script>
 
-    import escapeHtml from "escape-html"
-    import { etiquetaNombreGenerar, etiquetaAbrir, etiquetaCerrar } from "../../../funciones/generadorEtiquetas"
-    import generadorEtiquetas from "../../../funciones/generadorEtiquetas"
+    import escapeHtml from "escape-html";
+    import { etiquetaNombreGenerar, etiquetaAbrir, etiquetaCerrar } from "../../../funciones/generadorEtiquetas";
+    import generadorEtiquetas from "../../../funciones/generadorEtiquetas";
 
     export let estilos;
     export let texto;
@@ -10,7 +10,7 @@
 
     let html = '';
 
-    $: generarTexto(estilos,texto)
+    $: generarTexto(estilos,texto);
     
     const generarTexto = (estilos,texto) => {
         

@@ -1,6 +1,5 @@
 <script>
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
-  import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
 
   import iconoPlay from "../../../../public/play.svg";
@@ -12,7 +11,7 @@
   let alturaImagen = "400px";
 </script>
 
-<article class="videoTarjeta">
+<article class="VideoTarjeta">
 
   <div class="imagen">
     <Imagen
@@ -26,7 +25,5 @@
     </a>
 
   </div>
-
-  <Titulo nivel={1} texto={titulo} />
 
 </article>
