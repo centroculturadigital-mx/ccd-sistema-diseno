@@ -60,42 +60,37 @@
     
     
     $ : scrollX = calcularScrollX(activo);
-
+    $ : console.log(scrollX);
+    
     $ : scrollY = calcularScrollY(activo);
+    $ : console.log(scrollY);
     
 
     $: estilosCarrusel = generarEstilosAnchoAlto(ancho,alto)
 
 
     const calcularScrollX = activo => {
-        let scroll = 0;
         if(direccion == "horizontal") {
-            scroll = (activo*anchoElemento);
-            if( ! centrado ) {
-                const totalElementos = (elementos.length-1) * anchoElemento;
-                
-                console.log(scroll, totalElementos-anchoCarrusel,Math.min( scroll, totalElementos-anchoCarrusel));
-                scroll = Math.min( scroll, totalElementos-anchoCarrusel);
-                
-            } else {
-                scroll -= (centrado ? (anchoCarrusel-anchoElemento)/2 : 0)
-            }
+            return calcularScroll(activo,anchoCarrusel,anchoElemento)
         }
-        return - parseInt(scroll)
+        return 0
     };
     const calcularScrollY = activo => {
-        let scroll = 0;
         if(direccion == "vertical") {
-            scroll = (activo*altoElemento);
-            if( ! centrado ) {
-                const totalElementos = (elementos.length-1) * altoElemento;
-                
-                console.log(scroll, totalElementos-altoCarrusel,Math.min( scroll, totalElementos-altoCarrusel));
-                scroll = Math.min( scroll, totalElementos-altoCarrusel);
-                
-            } else {
-                scroll -= (centrado ? (altoCarrusel-altoElemento)/2 : 0)
-            }
+            return calcularScroll(activo,altoCarrusel,altoElemento)
+        }
+        return 0
+    };
+    
+
+    
+    const calcularScroll = (activo,tamannoCarrusel,tamannoElemento) => {
+        let scroll = (activo*tamannoElemento);
+        if( ! centrado ) {
+            const totalElementos = (elementos.length) * tamannoElemento;
+            scroll = parseInt(Math.min( scroll, totalElementos-tamannoCarrusel));
+        } else {
+            scroll -= (centrado ? (tamannoCarrusel-tamannoElemento)/2 : 0)
         }
         return - parseInt(scroll)
     };
@@ -179,7 +174,7 @@
         ancho,
         alto
     ) => `
-        min-width: ${ancho ? `${parseInt(ancho)}px` : '100%' };
+        min-width: ${ancho ? `${parseInt(ancho)}px` : '100%' } !important;
         width: ${ancho ? `${parseInt(ancho)}px` : '100%' };
         height: ${alto ? `${parseInt(alto)}px` : '100%' };
     `
