@@ -18,7 +18,9 @@
   };
 
   const seleccionar = i => {
+    
     activo  = i;
+    
   };
 
 </script>
@@ -31,14 +33,25 @@
     box-sizing: border-box;
   }
   .ContenedorPrincipal {
-    min-height: 32rem;
-    border-bottom: #AAAAAA;
+    min-height: auto;
+    border-bottom: 1px solid #AAAAAA;
   }
   .ContenedorPrincipal :global(span) {
     color: #666666;
   }
   .ContenedorMedia {
     height: 22rem;
+    position: relative;
+  }
+  .ContenedorMedia header {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    width: auto;
+    transition: 0.5s;
+  }
+  .ContenedorMedia header a:hover {
+    filter: invert();
   }
 </style>
 

@@ -14,7 +14,6 @@
       titulo={video.titulo}
       {seleccionado} 
       indice={i}/>
-    <hr />
   {/each}
 
 </aside>
