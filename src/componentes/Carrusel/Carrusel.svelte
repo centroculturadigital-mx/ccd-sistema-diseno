@@ -8,6 +8,8 @@
     export let alto;
     export let direccion = "horizontal";
     export let pagina = 3;
+    
+    export let activo = 0;
 
     
     let carrusel;
@@ -37,6 +39,34 @@
 
 
 
+    $: anchoCarrusel = carrusel ? carrusel.clientWidth : 240
+    $: altoCarrusel = carrusel ? carrusel.clientHeight : 240
+    
+    $: anchoElemento = anchoCarrusel/Math.max(parseInt(pagina),1)
+    $: paginasNum = Math.ceil(elementos.length/Math.max(pagina,1))
+    $: paginasBotones = new Array( paginasNum )
+
+    $: paginaActiva = Math.floor(activo/paginasNum)
+    // $: console.log("paginasBotones",paginasBotones);
+    
+
+    $: scrollX = direccion == "horizontal" ? activo * anchoCarrusel : 0;
+    $: scrollY = direccion == "vertical" ? activo * altoCarrusel : 0;
+
+
+    $: estilosCarrusel = generarEstilos(ancho,alto)
+    $: estilosLista = generarEstilos(anchoElemento*elementos.length,alto,true,scrollX,scrollY)
+    $: estilosElemento = generarEstilos(anchoElemento,altoCarrusel)
+    
+
+    const ir = i => {
+        activo = i;
+        console.log("ir",i);
+    }
+    
+
+
+
     const obtenerIDsCarruseles = () => {
         
         let carruseles=Array.from(document.getElementsByClassName('carrusel_listo'))
@@ -56,26 +86,20 @@
     })
     
 
-    $: anchoCarrusel = carrusel ? carrusel.clientWidth : 240
-    $: altoCarrusel = carrusel ? carrusel.clientHeight : 240
-    $: console.log( carrusel? carrusel.getAttribute('id') : "",anchoCarrusel,altoCarrusel )
-    
-    $: anchoElemento = anchoCarrusel/Math.max(parseInt(pagina),1)
-    
-    $: estilosCarrusel = generarEstilos(ancho,alto)
-
-    $: estilosLista = generarEstilos(anchoElemento*elementos.length,alto,true)
-    
-    $: estilosElemento = generarEstilos(anchoElemento,altoCarrusel)
 
     const generarEstilos = (
         ancho,
         alto,
-        usarDireccion
+        usarDireccion,
+        scrollX,
+        scrollY
     ) => `
         width: ${ancho ? `${parseInt(ancho)}px` : '100%' };
         height: ${alto ? `${parseInt(alto)}px` : '100%' };
-        ${ usarDireccion ? `flex-direction: ${obtenerDireccionCarrusel(direccion)};` : '' }
+        ${ usarDireccion ? `
+            flex-direction: ${obtenerDireccionCarrusel(direccion)};
+            transform: translate( -${scrollX}px, -${scrollY}px);
+        ` : '' }
     `
 
 </script>
@@ -96,7 +120,7 @@
         padding: 0;
         margin: 0;
         
-        overflow: auto;
+        overflow: hidden;
 
     }
 
@@ -109,6 +133,7 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        transition: transform 0.4s ease-in-out;
     }
 </style>
 
@@ -130,5 +155,14 @@
         {/if}
 
     </div>
+
+
+    <ul class="paginasBotones">
+        {#each paginasBotones as boton, i ("boton_"+i)}
+            <button on:click={ir(i)}>
+                {i}
+            </button>
+        {/each}        
+    </ul>
 
 </div>

@@ -21,6 +21,12 @@ const elementos = [
     {
         a: "b"
     },
+    {
+        a: "b"
+    },
+    {
+        a: "b"
+    },
 ]
 
 export const carruselDefault = () => ({
