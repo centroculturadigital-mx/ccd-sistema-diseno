@@ -4,8 +4,8 @@
 
     export let elementos;
     
-    export let ancho=240;
-    export let alto=240;
+    export let ancho=288;
+    export let alto=288;
     export let direccion = "horizontal";
     export let pagina = 1;
     export let centrado = false;
@@ -145,6 +145,16 @@
     })
     
 
+    const generarClases = i => {
+        let clases = "elemento"
+        console.log(i,activo);
+        
+        if( i == activo ) {
+            clases += " activo"
+        }
+        return clases
+    }
+
 
     const generarEstilosAnchoAlto = (
         ancho,
@@ -193,13 +203,33 @@
     .elementos {
         min-width: 100%;
         min-height: 100%;
-        display: flex;
         width: auto;
-        flex-wrap: none;
-        flex-direction: row;
+        display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: none;
+        flex-direction: row;
+    }
+
+    .elementos,
+    .elemento {
         transition: transform 0.4s ease-in-out;
+    }
+
+    .elemento {
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transform: scale(1);
+        opacity: 1;
+        
+    }
+
+    .elemento:not(.activo) {
+        transform: scale(0.8);
+        opacity: 0.7;
     }
 
     .elemento:last-child {
@@ -249,10 +279,12 @@
         {#if Array.isArray(elementos) }
             {#each elementos as elemento, i ("elemento_"+i) }
 
-                <div class="elemento"  style={estilosElemento}>
-                    <h6>
-                        Hola Elemento!
-                    </h6>
+                <div class={ i==activo?"elemento activo":"elemento" }  style={estilosElemento} on:click={ir(i)}>
+                    <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
+                        <h6>
+                            Hola Elemento!
+                        </h6>
+                    </article>
                 </div>
 
 
