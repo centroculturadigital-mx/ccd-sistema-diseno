@@ -8,12 +8,41 @@
   export let imagen;
   export let abrir;
 
-  let alturaImagen = "400px";
+  let alturaImagen;
 </script>
+
+<style>
+  .VideoTarjeta {
+    height: 100%;
+  }
+  .VideoTarjetaImagen {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  a {
+    position: absolute;
+    height: auto;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  a :global(button),
+  a :global(button img) {
+    height: 5rem;
+    transition: 0.5s;
+  }
+  a :global(button img:hover) {
+    filter: invert();
+  }
+</style>
 
 <article class="VideoTarjeta">
 
-  <div class="imagen">
+  <div class="VideoTarjetaImagen">
     <Imagen
       imagenUrl={imagen}
       altTexto={titulo}

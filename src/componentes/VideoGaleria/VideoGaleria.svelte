@@ -19,13 +19,26 @@
 
   const seleccionar = i => {
     activo  = i;
-    console.log("Seleccionado", i);
   };
+
 </script>
 
 <style>
   .VideoGaleria {
-    padding: activo;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+  .ContenedorPrincipal {
+    min-height: 32rem;
+    border-bottom: #AAAAAA;
+  }
+  .ContenedorPrincipal :global(span) {
+    color: #666666;
+  }
+  .ContenedorMedia {
+    height: 22rem;
   }
 </style>
 
@@ -33,7 +46,7 @@
 
   <section class="ContenedorPrincipal">
 
-    <div class="ContenedorVideo">
+    <div class="ContenedorMedia">
       {#if estado == true}
         <header>
           <a href="#" on:click|preventDefault={alternarEstado}>
@@ -47,7 +60,7 @@
       {/if}
     </div>
 
-    <Titulo nivel={'2'} texto={videos[activo].titulo} />
+    <Titulo nivel={'4'} texto={videos[activo].titulo} />
 
   </section>
 
