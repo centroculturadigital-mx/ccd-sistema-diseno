@@ -3,34 +3,17 @@ import Prueba from "./Prueba.svelte";
 
 export default {title: "Componentes/Carrusel"}
 
-const componente = Prueba;
+const generarComponente = i=>({
+    componente: Prueba,
+    data: {
+        "nombre": `Prueba ${i+1}`
+    }
+})
 
-const elementos = [
-    {
-        componente
-    },
-    {
-        componente
-    },
-    {
-        componente
-    },
-    {
-        componente
-    },
-    {
-        componente
-    },
-    {
-        componente
-    },
-    {
-        componente
-    },
-    {
-        componente
-    },
-]
+const elementos = new Array(7).fill(0).map((e,i)=>generarComponente(i))
+
+console.log("elementos",elementos);
+
 
 export const carruselDefault = () => ({
     Component: Carrusel,
