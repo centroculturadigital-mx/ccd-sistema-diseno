@@ -1,6 +1,8 @@
 <script>
 
     import {onMount} from "svelte"
+    import IconoCaretIzquierda from "../../../public/recursos/iconos/caret-izquierda-64.png"
+    import IconoCaretDerecha from "../../../public/recursos/iconos/caret-derecha-64.png"
 
     export let elementos;
     
@@ -107,21 +109,25 @@
 
     $: estilosLista = direccion == "vertical" ? 
         generarEstilosAnchoAlto(anchoCarrusel,tamannoLista,alto)+generarEstilosLista(scrollX,scrollY)
-        + ` padding: 1rem 0;`
         :
         generarEstilosAnchoAlto(tamannoLista,altoCarrusel)+generarEstilosLista(scrollX,scrollY);
-        + ` padding: 0 1rem;`
 
     $: estilosVentana = `
-        ${ direccion == "horizontal" ? `width: calc( 100% - ${pieMargen}rem );`:`` }
-        ${ direccion == "vertical" ? `height: calc( 100% - ${pieMargen}rem );`:`` }
+        ${ direccion == "horizontal" ? `width: calc( 100% - ${0}rem );`:`` }
+        ${ direccion == "vertical" ? `height: calc( 100% - ${0}rem );`:`` }
     `
     // $: estilosLista = generarEstilosAnchoAlto(anchoElemento*elementos.length,alto)+generarEstilosLista(scrollX,scrollY)
 
     $: estilosElemento = generarEstilosAnchoAlto(anchoElemento,altoCarrusel)
     
     const ir = i => {
-        activo = i;
+        if(typeof i == "number") {
+            if(i<0) {
+                activo = elementos.length - 1
+            } else {
+                activo = (i)%elementos.length;
+            }
+        }
     }
     
 
@@ -149,6 +155,8 @@
     const generarClases = i => {
         let clases = "elemento"
         
+        clases += " " + direccion
+
         if( i == activo ) {
             clases += " activo"
         }
@@ -192,10 +200,8 @@
         min-width: 15rem;
         min-height: 15rem;
 
-        margin: 0;
         
-        overflow: hidden;
-
+        margin: 0 4rem;
     }
 
     .ventana {
@@ -217,6 +223,9 @@
         flex-direction: row;
     }
 
+    .horizontal .elementos {
+        margin-left: 1.5rem;
+    }
     .elementos,
     .elemento {
         box-sizing: border-box;
@@ -253,7 +262,7 @@
         position: absolute;
         margin: 0;
         padding: 0;
-        bottom: 0.3725rem;
+        bottom: 0.66rem;
         left: 0;
         right: 0;
         display: flex;
@@ -267,7 +276,7 @@
     }
 
     .elementosBotones li button {
-        background: #aaa;
+        background-color: rgba(0,0,0,0.1);
         color: transparent;
         border: none;
         outline: none;
@@ -275,51 +284,128 @@
         width: .75rem;
         height: .75rem;
         box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
+        transition: background-color 0.3s ease-in-out;
+    }
+    .elementosBotones li:hover button {
+        background-color: rgba(0,0,0,0.2);
     }
     .elementosBotones li.activo button {
-        background: #333;
+        background-color: rgba(0,0,0,0.4);
         color: transparent;
     }
 
 
+    .boton-flecha {
+        position: absolute;
+        bottom: calc( 50% - 1rem );
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        background-color: rgba(0,0,0,0.1);
+        border-radius: 50%;
+        transition: all 0.3s ease-in-out;
+        outline: none;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
+    }
+
+
+
+
+    .boton-flecha img {
+        height: 70%;
+        object-fit: contain;
+    }
+
+    .boton-flecha:hover,
+    .boton-flecha:active
+    {
+        transform: scale(1.025);
+        background-color: rgba(0,0,0,0.2);
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+
+    }
+
+
+
+
+    .boton-anterior { right: calc( 100% - 2rem ); }
+    .boton-siguiente { right: -2rem; }
+
+
+
+    .Carrusel.vertical .elementosBotones {
+        width: 2rem;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        bottom: 0.66rem;
+        left: 100%;
+        right: -2rem;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .Carrusel.vertical .boton-flecha {
+        right: -2rem;
+    }
+    .Carrusel.vertical .boton-anterior {
+        top: 0rem;
+    }
+    .Carrusel.vertical .boton-siguiente {
+        bottom: 2rem;
+    }
+
+
+
 </style>
 
-<div bind:this={carrusel} class="Carrusel" id={`carrusel_${id}`} style={estilosCarrusel}>
+<div bind:this={carrusel} class={`Carrusel ${direccion}`} id={`carrusel_${id}`} style={estilosCarrusel}>
+    {#if Array.isArray(elementos) }
 
-    <div class="ventana" style={estilosVentana}>
-        <div class="elementos" style={estilosLista}>
+        <div class="ventana" style={estilosVentana}>
+            <div class="elementos" style={estilosLista}>
 
-            {#if Array.isArray(elementos) }
-                {#each elementos as elemento, i ("elemento_"+i) }
+                    {#each elementos as elemento, i ("elemento_"+i) }
 
-                    <div class={ i==activo?"elemento activo":"elemento" }  style={estilosElemento} on:click={ir(i)}>
-                        <!-- <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
-                            <h6>
-                                Hola Elemento!
-                            </h6>
-                        </article> -->
+                        <div class={ i==activo?"elemento activo":"elemento" }  style={estilosElemento} on:click={ir(i)}>
+                            <!-- <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
+                                <h6>
+                                    Hola Elemento!
+                                </h6>
+                            </article> -->
 
-                        <svelte:component this={elemento.componente} data={elemento.data}/>
-
-
-                    </div>
+                            <svelte:component this={elemento.componente} data={elemento.data}/>
 
 
-                {/each}
-            {/if}
+                        </div>
 
+
+                    {/each}
+
+            </div>
         </div>
-    </div>
 
 
-    <ul class="elementosBotones">
-        {#each elementosBotones as boton, i ("boton_"+i)}
-            <li class={activo==i?'activo':''}>
-                <button on:click={ir(i)}>
-                    {i}
-                </button>
-            </li>
-        {/each}        
-    </ul>
+        <ul class="elementosBotones">
+            {#each elementosBotones as boton, i ("boton_"+i)}
+                <li class={activo==i?'activo':''}>
+                    <button on:click={ir(i)}>
+                        {i}
+                    </button>
+                </li>
+            {/each}        
+        </ul>
 
+        <button class="boton-flecha boton-anterior" on:click={ir(activo-1)}>
+            <img src={IconoCaretIzquierda} alt="Anterior"/>
+        </button>
+        <button class="boton-flecha boton-siguiente" on:click={ir(activo+1)}>
+            <img src={IconoCaretDerecha} alt="Siguiente"/>
+        </button>
+
+    {/if}
 </div>
