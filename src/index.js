@@ -47,3 +47,11 @@ export { default as Mapa }
 from "./componentes/Mapa/Mapa.svelte";
 export { default as VideoGaleria }
 from "./componentes/VideoGaleria/VideoGaleria.svelte";
+export { default as VideoReproductor }
+from "./componentes/VideoGaleria/VideoReproductor/VideoReproductor.svelte";
+export { default as VideosLista }
+from "./componentes/VideoGaleria/VideosLista/VideosLista.svelte";
+export { default as VideoTarjeta }
+from "./componentes/VideoGaleria/VideoTarjeta/VideoTarjeta.svelte";
+export { default as VideoVistaPrevia }
+from "./componentes/VideoGaleria/VideoVistaPrevia/VideoVistaPrevia.svelte";
