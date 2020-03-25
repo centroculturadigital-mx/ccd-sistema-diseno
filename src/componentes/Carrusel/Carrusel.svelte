@@ -8,6 +8,8 @@
     export let alto;
     export let direccion = "horizontal";
     export let pagina = 3;
+    export let margen = 32;
+    export let centrado = true;
     
     export let activo = 0;
 
@@ -42,23 +44,65 @@
     $: anchoCarrusel = carrusel ? carrusel.clientWidth : 240
     $: altoCarrusel = carrusel ? carrusel.clientHeight : 240
     
-    $: anchoElemento = anchoCarrusel/Math.max(parseInt(pagina),1)
+    $: anchoElemento = direccion == "horizontal" ? anchoCarrusel/Math.max(parseInt(pagina),1) : anchoCarrusel
+    $: altoElemento = direccion == "vertical" ? altoCarrusel/Math.max(parseInt(pagina),1) : altoCarrusel
+
     $: paginasNum = Math.ceil(elementos.length/Math.max(pagina,1))
-    $: paginasBotones = new Array( paginasNum )
+    $: elementosBotones = new Array( elementos.length )
 
-    $: paginaActiva = Math.floor(activo/paginasNum)
-    // $: console.log("paginasBotones",paginasBotones);
+    // $: console.log("elementosBotones",elementosBotones);
     
-
-    $: scrollX = direccion == "horizontal" ? activo * anchoCarrusel : 0;
-    $: scrollY = direccion == "vertical" ? activo * altoCarrusel : 0;
-
-
-    $: estilosCarrusel = generarEstilos(ancho,alto)
-    $: estilosLista = generarEstilos(anchoElemento*elementos.length,alto,true,scrollX,scrollY)
-    $: estilosElemento = generarEstilos(anchoElemento,altoCarrusel)
     
+    $: scrollX = direccion == "horizontal" ? -parseInt(
 
+        (activo*anchoElemento) + (activo*margen) - (centrado ? (anchoCarrusel-anchoElemento)/2 : 0)
+    ) : 0;
+
+    $ : scrollY = direccion == "vertical" ? -parseInt(
+        (activo*altoElemento) + (activo*margen) - (centrado ? (altoCarrusel-altoElemento)/2 : 0)
+    ) : 0;
+
+
+    $: estilosCarrusel = generarEstilosAnchoAlto(ancho,alto)
+
+    $: tamannoLista = (anchoCarrusel=>{
+        
+        let max = anchoCarrusel * paginasNum;
+
+        const totalMargen = (elementos.length -1) * margen;
+        let totalElementos;
+        
+        if(direccion == "vertical") {
+            totalElementos = elementos.length * anchoElemento;
+        } else {
+            totalElementos = elementos.length * altoElemento;
+        }
+
+        let tamanno = totalElementos + totalMargen;
+
+        if(centrado) {
+            if(direccion == "vertical") {
+                max += anchoCarrusel-anchoElemento
+            } else {
+                max += altoCarrusel-altoElemento
+            }
+        }
+
+        tamanno = Math.max(tamanno,max)
+
+        return tamanno
+
+    })(anchoCarrusel)
+
+    $: estilosLista = direccion == "vertical" ? 
+        generarEstilosAnchoAlto(anchoCarrusel,tamannoLista,alto)+generarEstilosLista(scrollX,scrollY)
+        :
+        generarEstilosAnchoAlto(tamannoLista,altoCarrusel)+generarEstilosLista(scrollX,scrollY);
+
+    // $: estilosLista = generarEstilosAnchoAlto(anchoElemento*elementos.length,alto)+generarEstilosLista(scrollX,scrollY)
+
+    $: estilosElemento = generarEstilosAnchoAlto(anchoElemento,altoCarrusel)+generarEstilosElemento()
+    
     const ir = i => {
         activo = i;
         console.log("ir",i);
@@ -87,19 +131,25 @@
     
 
 
-    const generarEstilos = (
+    const generarEstilosAnchoAlto = (
         ancho,
-        alto,
-        usarDireccion,
-        scrollX,
-        scrollY
+        alto
     ) => `
         width: ${ancho ? `${parseInt(ancho)}px` : '100%' };
         height: ${alto ? `${parseInt(alto)}px` : '100%' };
-        ${ usarDireccion ? `
-            flex-direction: ${obtenerDireccionCarrusel(direccion)};
-            transform: translate( -${scrollX}px, -${scrollY}px);
-        ` : '' }
+    `
+
+    const generarEstilosLista = (
+        scrollX,
+        scrollY
+    ) => `
+        flex-direction: ${obtenerDireccionCarrusel(direccion)};
+        transform: translate( ${scrollX}px, ${scrollY}px);
+        justify-content: ${ centrado ? 'center' : 'space-between' }
+    `
+
+    const generarEstilosElemento = () => `
+        ${ centrado ? `margin-right: ${margen}px;`: `` }
     `
 
 </script>
@@ -135,6 +185,11 @@
         align-items: center;
         transition: transform 0.4s ease-in-out;
     }
+
+    .elemento:last-child {
+        margin-right: 0 !important;
+    }
+
 </style>
 
 <div bind:this={carrusel} class="carrusel" id={`carrusel_${id}`} style={estilosCarrusel}>
@@ -157,8 +212,8 @@
     </div>
 
 
-    <ul class="paginasBotones">
-        {#each paginasBotones as boton, i ("boton_"+i)}
+    <ul class="elementosBotones">
+        {#each elementosBotones as boton, i ("boton_"+i)}
             <button on:click={ir(i)}>
                 {i}
             </button>
