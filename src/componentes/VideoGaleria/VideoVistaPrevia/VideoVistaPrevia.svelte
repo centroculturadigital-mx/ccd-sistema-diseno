@@ -34,15 +34,18 @@
     flex-shrink: 0;
   }
   @media screen and (min-width: 720px) {
+    .VideoVistaPrevia :global(h4) {
+      font-size: 0.75rem;
+    }
   }
   @media screen and (min-width: 1024px) {
     .VideoVistaPrevia :global(h4) {
-      font-size: 1rem;
+      font-size: 0.85rem;
     }
   }
   @media screen and (min-width: 1200px) {
     .VideoVistaPrevia :global(h4) {
-      font-size: 1.125rem;
+      font-size: 1rem;
     }
   }
   @media screen and (min-width: 1920px) {
@@ -59,7 +62,7 @@
 
   <div class="Imagen">
 
-    <Imagen imagenUrl={imagen} altTexto={titulo} altura={'8rem'} />
+    <Imagen imagenUrl={imagen} altTexto={titulo}  />
 
   </div>
 

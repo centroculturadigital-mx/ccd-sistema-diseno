@@ -70,7 +70,7 @@
   }
   @media screen and (min-width: 720px) {
     .VideoGaleria {
-      --altura: 20rem;
+      --altura: 18rem;
     }
     .VideoGaleria {
       display: flex;
