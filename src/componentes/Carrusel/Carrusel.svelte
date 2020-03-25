@@ -8,10 +8,9 @@
     export let alto;
     export let direccion = "horizontal";
     export let pagina = 3;
-    export let margen = 32;
     export let centrado = true;
     
-    export let activo = 0;
+    export let activo = -1;
 
     
     let carrusel;
@@ -25,7 +24,9 @@
     onMount(()=>{
 
         let carruselesIDs = obtenerIDsCarruseles()
-
+        
+        // si no hay valor desde fuera, inicializar en 0
+        activo = activo == -1 ? 0 : activo;
 
         while( carruselesIDs.includes(id) || id == undefined ) {
 
@@ -35,7 +36,6 @@
 
         carrusel.classList.add('carrusel_listo')
         
-        console.log("id generado",id);
         
     })
 
@@ -44,8 +44,12 @@
     $: anchoCarrusel = carrusel ? carrusel.clientWidth : 240
     $: altoCarrusel = carrusel ? carrusel.clientHeight : 240
     
-    $: anchoElemento = direccion == "horizontal" ? anchoCarrusel/Math.max(parseInt(pagina),1) : anchoCarrusel
-    $: altoElemento = direccion == "vertical" ? altoCarrusel/Math.max(parseInt(pagina),1) : altoCarrusel
+    $: anchoElemento = direccion == "horizontal" ? (
+        anchoCarrusel/Math.max(parseInt(pagina),1)
+    ) : anchoCarrusel
+    $: altoElemento = direccion == "vertical" ? (
+        altoCarrusel/Math.max(parseInt(pagina),1)
+    ) : altoCarrusel
 
     $: paginasNum = Math.ceil(elementos.length/Math.max(pagina,1))
     $: elementosBotones = new Array( elementos.length )
@@ -53,23 +57,47 @@
     // $: console.log("elementosBotones",elementosBotones);
     
     
-    $: scrollX = direccion == "horizontal" ? -parseInt(
+    $ : scrollX = calcularScrollX(activo);
 
-        (activo*anchoElemento) + (activo*margen) - (centrado ? (anchoCarrusel-anchoElemento)/2 : 0)
-    ) : 0;
-
-    $ : scrollY = direccion == "vertical" ? -parseInt(
-        (activo*altoElemento) + (activo*margen) - (centrado ? (altoCarrusel-altoElemento)/2 : 0)
-    ) : 0;
-
+    $ : scrollY = calcularScrollY(activo);
+    
 
     $: estilosCarrusel = generarEstilosAnchoAlto(ancho,alto)
 
+
+    const calcularScrollX = activo => {
+        let scroll = 0;
+        if(direccion == "horizontal") {
+            scroll = (activo*anchoElemento) - (centrado ? (anchoCarrusel-anchoElemento)/2 : 0);
+            if( ! centrado ) {
+                const totalElementos = (elementos.length-1) * anchoElemento;
+                
+                console.log(scroll, totalElementos-anchoCarrusel,Math.min( scroll, totalElementos-anchoCarrusel));
+                scroll = Math.min( scroll, totalElementos-anchoCarrusel);
+            }
+        }
+        return - parseInt(scroll)
+    };
+    const calcularScrollY = activo => {
+        let scroll = 0;
+        if(direccion == "vertical") {
+            scroll = (activo*altoElemento) - (centrado ? (altoCarrusel-altoElemento)/2 : 0);
+            if( ! centrado ) {
+                const totalElementos = (elementos.length-1) * altoElemento;
+                
+                console.log(scroll, totalElementos-altoCarrusel,Math.min( scroll, totalElementos-altoCarrusel));
+                scroll = Math.min( scroll, totalElementos-altoCarrusel);
+            }
+        }
+        return - parseInt(scroll)
+    };
+
+
+
     $: tamannoLista = (anchoCarrusel=>{
         
-        let max = anchoCarrusel * paginasNum;
+        let max = anchoElemento * elementos.length;
 
-        const totalMargen = (elementos.length -1) * margen;
         let totalElementos;
         
         if(direccion == "vertical") {
@@ -78,17 +106,25 @@
             totalElementos = elementos.length * altoElemento;
         }
 
-        let tamanno = totalElementos + totalMargen;
-
         if(centrado) {
             if(direccion == "vertical") {
-                max += anchoCarrusel-anchoElemento
+                totalElementos += anchoCarrusel-anchoElemento
             } else {
-                max += altoCarrusel-altoElemento
+                totalElementos += altoCarrusel-altoElemento
             }
-        }
+        } 
 
-        tamanno = Math.max(tamanno,max)
+        let tamanno = totalElementos;
+
+        // else {
+        //     if(direccion == "vertical") {
+        //         max -= anchoElemento
+        //     } else {
+        //         max -= altoElemento
+        //     }
+        // }
+
+        // tamanno = Math.min(tamanno,max)
 
         return tamanno
 
@@ -101,7 +137,7 @@
 
     // $: estilosLista = generarEstilosAnchoAlto(anchoElemento*elementos.length,alto)+generarEstilosLista(scrollX,scrollY)
 
-    $: estilosElemento = generarEstilosAnchoAlto(anchoElemento,altoCarrusel)+generarEstilosElemento()
+    $: estilosElemento = generarEstilosAnchoAlto(anchoElemento,altoCarrusel)
     
     const ir = i => {
         activo = i;
@@ -148,9 +184,6 @@
         justify-content: ${ centrado ? 'center' : 'space-between' }
     `
 
-    const generarEstilosElemento = () => `
-        ${ centrado ? `margin-right: ${margen}px;`: `` }
-    `
 
 </script>
 
@@ -160,6 +193,10 @@
     }
 
     .carrusel {
+        padding: 0;
+        padding-bottom: 2rem;
+        box-sizing: border-box;
+        position: relative;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
@@ -167,7 +204,6 @@
         min-width: 15rem;
         min-height: 15rem;
 
-        padding: 0;
         margin: 0;
         
         overflow: hidden;
@@ -189,6 +225,38 @@
     .elemento:last-child {
         margin-right: 0 !important;
     }
+
+    .elementosBotones {
+        width: 100%;
+        position: absolute;
+        margin: 0;
+        bottom: 0.3725rem;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 1rem;
+    }
+    .elementosBotones li {
+        list-style: none;
+        padding: 0 0.1225rem;
+    }
+
+    .elementosBotones li button {
+        background: #aaa;
+        color: transparent;
+        border: none;
+        outline: none;
+        border-radius: 50%;
+        width: .75rem;
+        height: .75rem;
+    }
+    .elementosBotones li.activo button {
+        background: #333;
+        color: transparent;
+    }
+
 
 </style>
 
@@ -214,9 +282,11 @@
 
     <ul class="elementosBotones">
         {#each elementosBotones as boton, i ("boton_"+i)}
-            <button on:click={ir(i)}>
-                {i}
-            </button>
+            <li class={activo==i?'activo':''}>
+                <button on:click={ir(i)}>
+                    {i}
+                </button>
+            </li>
         {/each}        
     </ul>
 

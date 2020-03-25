@@ -44,6 +44,22 @@ export const carruselNoCentrado = () => ({
     }
 });
 
+export const carruselMargenGrande = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        margen: 240
+    }
+});
+
+export const carruselEmpezarDesdeIndice = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        activo: 3
+    }
+});
+
 export const carruselTamanno = () => ({
     Component: Carrusel,
     props: {
