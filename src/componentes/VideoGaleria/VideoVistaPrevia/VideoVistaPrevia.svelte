@@ -4,11 +4,21 @@
 
   export let imagen;
   export let titulo;
+  export let indice;
+  export let seleccionado;
 </script>
 
-<article class="VideoVistaPrevia">
+<style>
+.VideoVistaPrevia {
+    cursor: pointer;
+}
+.VideoVistaPrevia:hover {
+    opacity: 0.75;
+}
+</style>
 
-  <div>
+<article class="VideoVistaPrevia" on:click={seleccionado(indice)}>
+  <div class="imagen">
     <Imagen imagenUrl={imagen} altTexto={titulo} altura={"4rem"}/>
   </div>
 

@@ -16,6 +16,11 @@
   const alternarEstado = () => {
     estado = !estado;
   };
+
+  const seleccionar = i => {
+    activo  = i;
+    console.log("Seleccionado", i);
+  };
 </script>
 
 <style>
@@ -43,12 +48,12 @@
     </div>
 
     <Titulo nivel={'2'} texto={videos[activo].titulo} />
-    
+
   </section>
 
   <section class="contenedorLista">
 
-    <VideosLista {videos} />
+    <VideosLista {videos} seleccionado={seleccionar}/>
 
   </section>
 
