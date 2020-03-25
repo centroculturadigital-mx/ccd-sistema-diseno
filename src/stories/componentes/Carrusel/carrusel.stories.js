@@ -48,6 +48,18 @@ export const carruselVerticalPorPaginaDos = () => ({
     }
 });
 
+export const carruselAutoplay = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        pagina: 3,
+        direccion: "vertical",
+        alto: 400,
+        autoplay: true
+    }
+});
+
+
 export const carruselVerticalPorPaginaTres = () => ({
     Component: Carrusel,
     props: {

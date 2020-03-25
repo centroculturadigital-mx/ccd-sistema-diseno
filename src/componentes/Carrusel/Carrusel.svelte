@@ -12,6 +12,8 @@
     export let pagina = 1;
     export let centrado = false;
     export let pieMargen = 3;
+    export let autoplay = false;
+    export let autoplayMs = 2500;
     
     export let activo = -1;
 
@@ -39,7 +41,11 @@
 
         carrusel.classList.add('carrusel_listo')
         
-        
+        if( autoplay ) {
+            setInterval(()=>{
+                ir( activo + 1 );
+            },autoplayMs)
+        }
     })
 
 
