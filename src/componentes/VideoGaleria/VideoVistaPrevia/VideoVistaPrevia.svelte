@@ -6,7 +6,6 @@
   export let titulo;
   export let indice;
   export let seleccionado;
-  export let activo;
 </script>
 
 <style>
@@ -56,7 +55,7 @@
 <article
   class="VideoVistaPrevia"
   on:click={seleccionado(indice)}
-  style={activo ? 'lightgray' : 'transparent'}>
+  >
 
   <div class="Imagen">
 
