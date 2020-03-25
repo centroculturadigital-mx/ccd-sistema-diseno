@@ -2,7 +2,9 @@
 
     import {onMount} from "svelte"
     import IconoCaretIzquierda from "../../../public/recursos/iconos/caret-izquierda-64.png"
+    import IconoCaretArriba from "../../../public/recursos/iconos/caret-arriba-64.png"
     import IconoCaretDerecha from "../../../public/recursos/iconos/caret-derecha-64.png"
+    import IconoCaretAbajo from "../../../public/recursos/iconos/caret-abajo-64.png"
 
     export let elementos;
     
@@ -407,10 +409,10 @@
         </ul>
 
         <button class="boton-flecha boton-anterior" on:click={ir(activo-1)}>
-            <img src={IconoCaretIzquierda} alt="Anterior"/>
+            <img src={direccion=="vertical" ? IconoCaretArriba:IconoCaretIzquierda} alt="Anterior"/>
         </button>
         <button class="boton-flecha boton-siguiente" on:click={ir(activo+1)}>
-            <img src={IconoCaretDerecha} alt="Siguiente"/>
+            <img src={direccion=="vertical" ? IconoCaretAbajo:IconoCaretDerecha} alt="Siguiente"/>
         </button>
 
     {/if}
