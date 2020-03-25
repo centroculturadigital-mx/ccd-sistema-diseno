@@ -42,11 +42,13 @@
 
 
     $: anchoCarrusel = carrusel ? carrusel.clientWidth : 240
+    $: console.log("anchoCarrusel",anchoCarrusel);
     $: altoCarrusel = carrusel ? carrusel.clientHeight : 240
     
     $: anchoElemento = direccion == "horizontal" ? (
         anchoCarrusel/Math.max(parseInt(pagina),1)
     ) : anchoCarrusel
+    $: console.log("anchoElemento",anchoElemento);
     $: altoElemento = direccion == "vertical" ? (
         altoCarrusel/Math.max(parseInt(pagina),1)
     ) : altoCarrusel
@@ -68,12 +70,15 @@
     const calcularScrollX = activo => {
         let scroll = 0;
         if(direccion == "horizontal") {
-            scroll = (activo*anchoElemento) - (centrado ? (anchoCarrusel-anchoElemento)/2 : 0);
+            scroll = (activo*anchoElemento);
             if( ! centrado ) {
                 const totalElementos = (elementos.length-1) * anchoElemento;
                 
                 console.log(scroll, totalElementos-anchoCarrusel,Math.min( scroll, totalElementos-anchoCarrusel));
                 scroll = Math.min( scroll, totalElementos-anchoCarrusel);
+                
+            } else {
+                scroll -= (centrado ? (anchoCarrusel-anchoElemento)/2 : 0)
             }
         }
         return - parseInt(scroll)
@@ -81,12 +86,15 @@
     const calcularScrollY = activo => {
         let scroll = 0;
         if(direccion == "vertical") {
-            scroll = (activo*altoElemento) - (centrado ? (altoCarrusel-altoElemento)/2 : 0);
+            scroll = (activo*altoElemento);
             if( ! centrado ) {
                 const totalElementos = (elementos.length-1) * altoElemento;
                 
                 console.log(scroll, totalElementos-altoCarrusel,Math.min( scroll, totalElementos-altoCarrusel));
                 scroll = Math.min( scroll, totalElementos-altoCarrusel);
+                
+            } else {
+                scroll -= (centrado ? (altoCarrusel-altoElemento)/2 : 0)
             }
         }
         return - parseInt(scroll)
@@ -171,6 +179,7 @@
         ancho,
         alto
     ) => `
+        min-width: ${ancho ? `${parseInt(ancho)}px` : '100%' };
         width: ${ancho ? `${parseInt(ancho)}px` : '100%' };
         height: ${alto ? `${parseInt(alto)}px` : '100%' };
     `
@@ -230,6 +239,7 @@
         width: 100%;
         position: absolute;
         margin: 0;
+        padding: 0;
         bottom: 0.3725rem;
         left: 0;
         right: 0;
@@ -251,6 +261,7 @@
         border-radius: 50%;
         width: .75rem;
         height: .75rem;
+        box-shadow: 2px 2px 2px rgba(0,0,0,0.25);
     }
     .elementosBotones li.activo button {
         background: #333;
