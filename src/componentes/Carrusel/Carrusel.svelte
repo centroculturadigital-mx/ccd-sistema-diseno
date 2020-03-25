@@ -9,6 +9,7 @@
     export let direccion = "horizontal";
     export let pagina = 1;
     export let centrado = false;
+    export let pieMargen = 3;
     
     export let activo = -1;
 
@@ -42,13 +43,11 @@
 
 
     $: anchoCarrusel = carrusel ? carrusel.clientWidth : 240
-    $: console.log("anchoCarrusel",anchoCarrusel);
     $: altoCarrusel = carrusel ? carrusel.clientHeight : 240
     
     $: anchoElemento = direccion == "horizontal" ? (
         anchoCarrusel/Math.max(parseInt(pagina),1)
     ) : anchoCarrusel
-    $: console.log("anchoElemento",anchoElemento);
     $: altoElemento = direccion == "vertical" ? (
         altoCarrusel/Math.max(parseInt(pagina),1)
     ) : altoCarrusel
@@ -56,14 +55,11 @@
     $: paginasNum = Array.isArray(elementos) ? Math.ceil(elementos.length/Math.max(pagina,1)) : 0
     $: elementosBotones = Array.isArray(elementos) ? new Array( elementos.length ) : 0
 
-    // $: console.log("elementosBotones",elementosBotones);
     
     
     $ : scrollX = calcularScrollX(activo);
-    $ : console.log(scrollX);
     
     $ : scrollY = calcularScrollY(activo);
-    $ : console.log(scrollY);
     
 
     $: estilosCarrusel = generarEstilosAnchoAlto(ancho,alto)
@@ -107,20 +103,25 @@
 
 
     $: tamannoElemento = direccion == "vertical" ? altoElemento : anchoElemento;
-    $: tamannoLista = Array.isArray(elementos) ? elementos.length * tamannoElemento : 0;
+    $: tamannoLista = Array.isArray(elementos) ? elementos.length * tamannoElemento - (pieMargen*16): 0;
 
     $: estilosLista = direccion == "vertical" ? 
         generarEstilosAnchoAlto(anchoCarrusel,tamannoLista,alto)+generarEstilosLista(scrollX,scrollY)
+        + ` padding: 1rem 0;`
         :
         generarEstilosAnchoAlto(tamannoLista,altoCarrusel)+generarEstilosLista(scrollX,scrollY);
+        + ` padding: 0 1rem;`
 
+    $: estilosVentana = `
+        ${ direccion == "horizontal" ? `width: calc( 100% - ${pieMargen}rem );`:`` }
+        ${ direccion == "vertical" ? `height: calc( 100% - ${pieMargen}rem );`:`` }
+    `
     // $: estilosLista = generarEstilosAnchoAlto(anchoElemento*elementos.length,alto)+generarEstilosLista(scrollX,scrollY)
 
     $: estilosElemento = generarEstilosAnchoAlto(anchoElemento,altoCarrusel)
     
     const ir = i => {
         activo = i;
-        console.log("ir",i);
     }
     
 
@@ -147,7 +148,6 @@
 
     const generarClases = i => {
         let clases = "elemento"
-        console.log(i,activo);
         
         if( i == activo ) {
             clases += " activo"
@@ -180,9 +180,9 @@
 <style>
    
 
-    .carrusel {
+    .Carrusel {
         padding: 0;
-        padding-bottom: 2rem;
+        /* padding-bottom: 3rem; */
         box-sizing: border-box;
         position: relative;
         width: 100%;
@@ -198,6 +198,14 @@
 
     }
 
+    .ventana {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow: hidden;
+    }
+
     .elementos {
         min-width: 100%;
         min-height: 100%;
@@ -211,6 +219,7 @@
 
     .elementos,
     .elemento {
+        box-sizing: border-box;
         transition: transform 0.4s ease-in-out;
     }
 
@@ -232,6 +241,11 @@
 
     .elemento:last-child {
         margin-right: 0 !important;
+    }
+
+    :global(.Carrusel .elemento > *) {
+        max-width:100% !important;
+        max-height:100% !important;
     }
 
     .elementosBotones {
@@ -270,29 +284,31 @@
 
 </style>
 
-<div bind:this={carrusel} class="carrusel" id={`carrusel_${id}`} style={estilosCarrusel}>
+<div bind:this={carrusel} class="Carrusel" id={`carrusel_${id}`} style={estilosCarrusel}>
 
-    <div class="elementos" style={estilosLista}>
+    <div class="ventana" style={estilosVentana}>
+        <div class="elementos" style={estilosLista}>
 
-        {#if Array.isArray(elementos) }
-            {#each elementos as elemento, i ("elemento_"+i) }
+            {#if Array.isArray(elementos) }
+                {#each elementos as elemento, i ("elemento_"+i) }
 
-                <div class={ i==activo?"elemento activo":"elemento" }  style={estilosElemento} on:click={ir(i)}>
-                    <!-- <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
-                        <h6>
-                            Hola Elemento!
-                        </h6>
-                    </article> -->
+                    <div class={ i==activo?"elemento activo":"elemento" }  style={estilosElemento} on:click={ir(i)}>
+                        <!-- <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
+                            <h6>
+                                Hola Elemento!
+                            </h6>
+                        </article> -->
 
-                    <svelte:component this={elemento.componente} data={elemento.data}/>
-
-
-                </div>
+                        <svelte:component this={elemento.componente} data={elemento.data}/>
 
 
-            {/each}
-        {/if}
+                    </div>
 
+
+                {/each}
+            {/if}
+
+        </div>
     </div>
 
 

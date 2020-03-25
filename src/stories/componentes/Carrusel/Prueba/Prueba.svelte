@@ -48,5 +48,5 @@
     <h4>
         { nombre }
     </h4>
-    <img src={ encendido ? IconoEncendido : IconoApagado }/>
+    <img src={ encendido ? IconoEncendido : IconoApagado } alt="Encender"/>
 </article>

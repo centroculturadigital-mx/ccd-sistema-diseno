@@ -12,8 +12,6 @@ const generarComponente = i=>({
 
 const elementos = new Array(7).fill(0).map((e,i)=>generarComponente(i))
 
-console.log("elementos",elementos);
-
 
 export const carruselDefault = () => ({
     Component: Carrusel,
@@ -27,7 +25,8 @@ export const carruselVertical = () => ({
     Component: Carrusel,
     props: {
         direccion: "vertical",
-        elementos
+        elementos,
+        alto: 400
     }
 });
 
@@ -44,7 +43,18 @@ export const carruselVerticalPorPaginaDos = () => ({
     props: {
         elementos,
         pagina: 2,
-        direccion: "vertical"
+        direccion: "vertical",
+        alto: 400
+    }
+});
+
+export const carruselVerticalPorPaginaTres = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        pagina: 3,
+        direccion: "vertical",
+        alto: 400
     }
 });
 export const carruselPorPaginaTres = () => ({
