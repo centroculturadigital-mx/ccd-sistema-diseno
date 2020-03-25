@@ -25,7 +25,7 @@
 
 <style>
   .VideoGaleria {
-    --altura: 22rem;
+    --altura: 18rem;
   }
   .VideoGaleria {
     width: 100%;
@@ -70,7 +70,7 @@
   }
   @media screen and (min-width: 720px) {
     .VideoGaleria {
-      --altura: 24rem;
+      --altura: 20rem;
     }
     .VideoGaleria {
       display: flex;
@@ -87,7 +87,7 @@
   }
   @media screen and (min-width: 1024px) {
     .VideoGaleria {
-      --altura: 26rem;
+      --altura: 22rem;
     }
     .ContenedorPrincipal {
       width: 70%;
@@ -101,13 +101,13 @@
   }
   @media screen and (min-width: 1200px) {
     .VideoGaleria {
-      --altura: 28rem;
+      --altura: 24rem;
     }
     .ContenedorPrincipal {
-      width: 75%;
+      width: 70%;
     }
     .ContenedorLista {
-      width: 25%;
+      width: 30%;
     }
     .ContenedorPrincipal :global(h4) {
       font-size: 1.25rem;
@@ -115,7 +115,7 @@
   }
   @media screen and (min-width: 1920px) {
     .VideoGaleria {
-      --altura: 38rem;
+      --altura: 34rem;
     }
     .ContenedorPrincipal :global(h4) {
       font-size: 1.5rem;
@@ -123,7 +123,7 @@
   }
   @media screen and (min-width: 2250px) {
     .VideoGaleria {
-      --altura: 52rem;
+      --altura: 48rem;
     }
     .ContenedorPrincipal :global(h4) {
       font-size: 1.75rem;
