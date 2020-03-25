@@ -1,31 +1,34 @@
 import Carrusel from "../../../componentes/Carrusel/Carrusel.svelte";
+import Prueba from "./Prueba.svelte";
 
 export default {title: "Componentes/Carrusel"}
 
+const componente = Prueba;
+
 const elementos = [
     {
-        a: "b"
+        componente
     },
     {
-        a: "b"
+        componente
     },
     {
-        a: "b"
+        componente
     },
     {
-        a: "b"
+        componente
     },
     {
-        a: "b"
+        componente
     },
     {
-        a: "b"
+        componente
     },
     {
-        a: "b"
+        componente
     },
     {
-        a: "b"
+        componente
     },
 ]
 
@@ -68,18 +71,22 @@ export const carruselPorPaginaTres = () => ({
         pagina: 3
     }
 });
-export const carruselPorPaginaCuatro = () => ({
+export const carruselPorPaginaSeis = () => ({
     Component: Carrusel,
     props: {
         elementos,
-        pagina: 4
+        pagina: 6,
+        ancho: 900
     }
 });
-export const carruselPorPaginaSiete = () => ({
+
+
+export const carruselTamanno = () => ({
     Component: Carrusel,
     props: {
-        elementos,
-        pagina: 6
+        ancho: 800,
+        alto: 400,
+        elementos
     }
 });
 
@@ -89,15 +96,6 @@ export const carruselEmpezarDesdeIndice = () => ({
     props: {
         elementos,
         activo: 3
-    }
-});
-
-export const carruselTamanno = () => ({
-    Component: Carrusel,
-    props: {
-        ancho: 800,
-        alto: 400,
-        elementos
     }
 });
 

@@ -178,9 +178,7 @@
 </script>
 
 <style>
-    .carrusel, .elemento {
-        outline: 1px solid #def;
-    }
+   
 
     .carrusel {
         padding: 0;
@@ -280,11 +278,15 @@
             {#each elementos as elemento, i ("elemento_"+i) }
 
                 <div class={ i==activo?"elemento activo":"elemento" }  style={estilosElemento} on:click={ir(i)}>
-                    <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
+                    <!-- <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
                         <h6>
                             Hola Elemento!
                         </h6>
-                    </article>
+                    </article> -->
+
+                    <svelte:component this={elemento.componente} data={elemento.data}/>
+
+
                 </div>
 
 
