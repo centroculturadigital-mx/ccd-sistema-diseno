@@ -36,6 +36,14 @@ export const carruselDefault = () => ({
     }
 });
 
+export const carruselNoCentrado = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        centrado: false
+    }
+});
+
 export const carruselTamanno = () => ({
     Component: Carrusel,
     props: {
