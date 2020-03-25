@@ -7,7 +7,6 @@
   export let indice;
   export let seleccionado;
   export let activo;
-
 </script>
 
 <style>
@@ -35,13 +34,33 @@
     width: 40%;
     flex-shrink: 0;
   }
+  @media screen and (min-width: 720px) {
+  }
+  @media screen and (min-width: 1024px) {
+    .VideoVistaPrevia :global(h4) {
+      font-size: 1rem;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .VideoVistaPrevia :global(h4) {
+      font-size: 1.125rem;
+    }
+  }
+  @media screen and (min-width: 1920px) {
+    .VideoVistaPrevia :global(h4) {
+      font-size: 1.25rem;
+    }
+  }
 </style>
 
-<article class="VideoVistaPrevia" on:click={seleccionado(indice)} style={activo?"lightgray":"transparent"}>
+<article
+  class="VideoVistaPrevia"
+  on:click={seleccionado(indice)}
+  style={activo ? 'lightgray' : 'transparent'}>
 
   <div class="Imagen">
 
-    <Imagen imagenUrl={imagen} altTexto={titulo} altura={'5rem'} />
+    <Imagen imagenUrl={imagen} altTexto={titulo} altura={'8rem'} />
 
   </div>
 

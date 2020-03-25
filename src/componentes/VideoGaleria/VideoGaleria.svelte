@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import Titulo from "../../elementos/texto/Titulo/Titulo.svelte";
   import VideoReproductor from "./VideoReproductor/VideoReproductor.svelte";
@@ -18,29 +19,35 @@
   };
 
   const seleccionar = i => {
-    
-    activo  = i;
-    
+    activo = i;
   };
-
 </script>
 
 <style>
+  .VideoGaleria {
+    --altura: 22rem;
+  }
   .VideoGaleria {
     width: 100%;
     height: auto;
     padding: 1rem;
     box-sizing: border-box;
+    display: block;
   }
   .ContenedorPrincipal {
     min-height: auto;
-    border-bottom: 1px solid #AAAAAA;
   }
   .ContenedorPrincipal :global(span) {
     color: #666666;
   }
+  .ContenedorPrincipal :global(h4) {
+    min-height: 5rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
   .ContenedorMedia {
-    height: 22rem;
+    height: var(--altura);
     position: relative;
   }
   .ContenedorMedia header {
@@ -53,13 +60,82 @@
   .ContenedorMedia header a:hover {
     filter: invert();
   }
+  .ContenedorLista {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    max-height: calc(var(--altura) + 5rem);
+    overflow-y: initial;
+    overflow-x: initial;
+  }
+  @media screen and (min-width: 720px) {
+    .VideoGaleria {
+      --altura: 24rem;
+    }
+    .VideoGaleria {
+      display: flex;
+    }
+    .ContenedorPrincipal {
+      width: 60%;
+      border-bottom: 1px solid #aaaaaa;
+    }
+    .ContenedorLista {
+      width: 40%;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .VideoGaleria {
+      --altura: 26rem;
+    }
+    .ContenedorPrincipal {
+      width: 70%;
+    }
+    .ContenedorLista {
+      width: 30%;
+    }
+    .ContenedorPrincipal :global(h4) {
+      font-size: 1.125rem;
+    }
+  }
+  @media screen and (min-width: 1200px) {
+    .VideoGaleria {
+      --altura: 28rem;
+    }
+    .ContenedorPrincipal {
+      width: 75%;
+    }
+    .ContenedorLista {
+      width: 25%;
+    }
+    .ContenedorPrincipal :global(h4) {
+      font-size: 1.25rem;
+    }
+  }
+  @media screen and (min-width: 1920px) {
+    .VideoGaleria {
+      --altura: 38rem;
+    }
+    .ContenedorPrincipal :global(h4) {
+      font-size: 1.5rem;
+    }
+  }
+  @media screen and (min-width: 2250px) {
+    .VideoGaleria {
+      --altura: 52rem;
+    }
+    .ContenedorPrincipal :global(h4) {
+      font-size: 1.75rem;
+    }
+  }
 </style>
 
 <section class="VideoGaleria">
 
   <section class="ContenedorPrincipal">
 
-    <div class="ContenedorMedia">
+    <div class="ContenedorMedia" transition:fade>
       {#if estado == true}
         <header>
           <a href="#" on:click|preventDefault={alternarEstado}>
@@ -77,9 +153,9 @@
 
   </section>
 
-  <section class="contenedorLista">
+  <section class="ContenedorLista">
 
-    <VideosLista {videos} seleccionado={seleccionar}/>
+    <VideosLista {videos} seleccionado={seleccionar} />
 
   </section>
 
