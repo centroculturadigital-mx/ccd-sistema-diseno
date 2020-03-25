@@ -4,11 +4,11 @@
 
     export let elementos;
     
-    export let ancho;
-    export let alto;
+    export let ancho=240;
+    export let alto=240;
     export let direccion = "horizontal";
-    export let pagina = 3;
-    export let centrado = true;
+    export let pagina = 1;
+    export let centrado = false;
     
     export let activo = -1;
 
@@ -53,8 +53,8 @@
         altoCarrusel/Math.max(parseInt(pagina),1)
     ) : altoCarrusel
 
-    $: paginasNum = Math.ceil(elementos.length/Math.max(pagina,1))
-    $: elementosBotones = new Array( elementos.length )
+    $: paginasNum = Array.isArray(elementos) ? Math.ceil(elementos.length/Math.max(pagina,1)) : 0
+    $: elementosBotones = Array.isArray(elementos) ? new Array( elementos.length ) : 0
 
     // $: console.log("elementosBotones",elementosBotones);
     
@@ -85,53 +85,29 @@
 
     
     const calcularScroll = (activo,tamannoCarrusel,tamannoElemento) => {
-        let scroll = (activo*tamannoElemento);
-        if( ! centrado ) {
-            const totalElementos = (elementos.length) * tamannoElemento;
-            scroll = parseInt(Math.min( scroll, totalElementos-tamannoCarrusel));
-        } else {
-            scroll -= (centrado ? (tamannoCarrusel-tamannoElemento)/2 : 0)
-        }
-        return - parseInt(scroll)
+        const mitad = (tamannoCarrusel-tamannoElemento)/2
+        let scroll = (activo*tamannoElemento)-mitad
+        // let scroll = (activo*tamannoElemento);
+        let minimo = 0
+        // if( ! centrado ) {
+            const totalElementos = Array.isArray(elementos) ? (elementos.length) * tamannoElemento : 0;
+            minimo = mitad/pagina
+            if( scroll > minimo ) {
+                scroll = Math.max( scroll, minimo);
+            } else {
+                scroll = 0
+            }
+            scroll = Math.min( scroll, totalElementos-tamannoCarrusel);
+        // } else {
+        // // implmentar centrado   
+        // }
+        return -parseInt(scroll)
     };
 
 
 
-    $: tamannoLista = (anchoCarrusel=>{
-        
-        let max = anchoElemento * elementos.length;
-
-        let totalElementos;
-        
-        if(direccion == "vertical") {
-            totalElementos = elementos.length * anchoElemento;
-        } else {
-            totalElementos = elementos.length * altoElemento;
-        }
-
-        if(centrado) {
-            if(direccion == "vertical") {
-                totalElementos += anchoCarrusel-anchoElemento
-            } else {
-                totalElementos += altoCarrusel-altoElemento
-            }
-        } 
-
-        let tamanno = totalElementos;
-
-        // else {
-        //     if(direccion == "vertical") {
-        //         max -= anchoElemento
-        //     } else {
-        //         max -= altoElemento
-        //     }
-        // }
-
-        // tamanno = Math.min(tamanno,max)
-
-        return tamanno
-
-    })(anchoCarrusel)
+    $: tamannoElemento = direccion == "vertical" ? altoElemento : anchoElemento;
+    $: tamannoLista = Array.isArray(elementos) ? elementos.length * tamannoElemento : 0;
 
     $: estilosLista = direccion == "vertical" ? 
         generarEstilosAnchoAlto(anchoCarrusel,tamannoLista,alto)+generarEstilosLista(scrollX,scrollY)
@@ -185,7 +161,7 @@
     ) => `
         flex-direction: ${obtenerDireccionCarrusel(direccion)};
         transform: translate( ${scrollX}px, ${scrollY}px);
-        justify-content: ${ centrado ? 'center' : 'space-between' }
+        justify-content: center;        
     `
 
 

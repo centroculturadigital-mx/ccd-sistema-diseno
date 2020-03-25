@@ -36,21 +36,53 @@ export const carruselDefault = () => ({
     }
 });
 
-export const carruselNoCentrado = () => ({
+
+export const carruselVertical = () => ({
     Component: Carrusel,
     props: {
-        elementos,
-        centrado: false
+        direccion: "vertical",
+        elementos
     }
 });
 
-export const carruselMargenGrande = () => ({
+export const carruselPorPaginaDos = () => ({
     Component: Carrusel,
     props: {
         elementos,
-        margen: 240
+        pagina: 2
     }
 });
+
+export const carruselVerticalPorPaginaDos = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        pagina: 2,
+        direccion: "vertical"
+    }
+});
+export const carruselPorPaginaTres = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        pagina: 3
+    }
+});
+export const carruselPorPaginaCuatro = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        pagina: 4
+    }
+});
+export const carruselPorPaginaSiete = () => ({
+    Component: Carrusel,
+    props: {
+        elementos,
+        pagina: 6
+    }
+});
+
 
 export const carruselEmpezarDesdeIndice = () => ({
     Component: Carrusel,
@@ -70,15 +102,17 @@ export const carruselTamanno = () => ({
 });
 
 
-export const carruselVertical = () => ({
-    Component: Carrusel,
-    props: {
-        ancho: 400,
-        alto: 500,
-        direccion: "vertical",
-        elementos
-    }
-});
+
+
+// export const carruselCentrado = () => ({
+//     Component: Carrusel,
+//     props: {
+//         elementos,
+//         centrado: true
+//     }
+// });
+
+
 
 export const carruselArrayVacio = () => ({
     Component: Carrusel,
