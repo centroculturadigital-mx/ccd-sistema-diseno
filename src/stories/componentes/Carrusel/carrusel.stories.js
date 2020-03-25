@@ -1,5 +1,5 @@
 import Carrusel from "../../../componentes/Carrusel/Carrusel.svelte";
-import Prueba from "./Prueba.svelte";
+import Prueba from "./Prueba/Prueba.svelte";
 
 export default {title: "Componentes/Carrusel"}
 
