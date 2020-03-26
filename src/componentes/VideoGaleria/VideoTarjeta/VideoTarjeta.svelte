@@ -3,7 +3,7 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
 
-  // import iconoPlay from "../../../../public/botonPlay.png";
+  import iconoPlay from "../../../../public/botonPlay.png";
 
   export let titulo;
   export let imagen;
@@ -39,6 +39,13 @@
   a :global(button img:hover) {
     filter: invert();
   }
+  a img {
+    height: 4rem;
+    transition: 0.5s;
+  }
+  a img:hover {
+    height: 4.25rem;
+  }
 </style>
 
 <article class="VideoTarjeta" tansition:fade>
@@ -52,7 +59,7 @@
 
     <a href="#" on:click|preventDefault={abrir}>
       <!-- <BotonIcono iconoBotonEstadoUnoUrl={iconoPlay} /> -->
-      <img src={iconoPlay} alt="play"/>
+      <img src={iconoPlay} alt="play" />
     </a>
 
   </div>
