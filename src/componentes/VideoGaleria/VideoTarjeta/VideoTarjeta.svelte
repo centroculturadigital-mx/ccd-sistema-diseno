@@ -2,7 +2,7 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
 
-  // import iconoPlay from "../../../../public/botonPlay.png";
+  import iconoPlay from "../../../../public/play.svg";
 
   export let titulo;
   export let imagen;
@@ -50,8 +50,7 @@
       altura={alturaImagen} />
 
     <a href="#" on:click|preventDefault={abrir}>
-      <!-- <BotonIcono iconoBotonEstadoUnoUrl={iconoPlay} /> -->
-      <img src={iconoPlay} alt="play"/>
+      <BotonIcono iconoBotonEstadoUnoUrl={iconoPlay} />
     </a>
 
   </div>
