@@ -5,7 +5,7 @@
   import VideoTarjeta from "./VideoTarjeta/VideoTarjeta.svelte";
   import VideosLista from "./VideosLista/VideosLista.svelte";
 
-  import iconoCierra from "../../../public/cerrar_blanco.svg";
+  import iconoCierra from "./cerrar_blanco.svg";
 
   export let videos;
 
