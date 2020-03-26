@@ -1,5 +1,4 @@
 <script>
-  import { fade } from "svelte/transition";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import Titulo from "../../elementos/texto/Titulo/Titulo.svelte";
   import VideoReproductor from "./VideoReproductor/VideoReproductor.svelte";
@@ -135,7 +134,7 @@
 
   <section class="ContenedorPrincipal">
 
-    <div class="ContenedorMedia" transition:fade>
+    <div class="ContenedorMedia">
       {#if estado == true}
         <header>
           <a href="#" on:click|preventDefault={alternarEstado}>
