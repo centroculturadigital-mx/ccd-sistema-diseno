@@ -1,4 +1,5 @@
 <script>
+  import { fade } from "svelte/transition";
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
 
@@ -40,7 +41,7 @@
   }
 </style>
 
-<article class="VideoTarjeta">
+<article class="VideoTarjeta" tansition:fade>
 
   <div class="VideoTarjetaImagen">
     <Imagen
