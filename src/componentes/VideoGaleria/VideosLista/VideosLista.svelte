@@ -8,12 +8,16 @@
 
 <aside class="VideosLista">
 
-  {#each videos as video, i ('video_' + i)}
-    <VideoVistaPrevia
-      imagen={video.imagen}
-      titulo={video.titulo}
-      {seleccionado} 
-      indice={i}/>
-  {/each}
+  {#if Array.isArray( videos )}
+    {#each videos as video, i ('video_' + i)}
+      {#if typeof video == "object" }
+          <VideoVistaPrevia
+            imagen={video.imagen}
+            titulo={video.titulo}
+            {seleccionado} 
+            indice={i}/>
+      {/if}
+    {/each}
+  {/if}
 
 </aside>

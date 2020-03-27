@@ -43,3 +43,18 @@ export const VideoGaleriaDefault = () => ({
         videos: videoGaleria.videos,
     }
 })
+
+export const VideoGaleriaVacia = () => ({
+    Component: VideoGaleria,
+    props: {
+        estado: false,
+    }
+})
+
+export const VideoGaleriaArregloVacio = () => ({
+    Component: VideoGaleria,
+    props: {
+        estado: false,
+        videos: []
+    }
+})

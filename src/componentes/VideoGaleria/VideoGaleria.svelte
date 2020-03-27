@@ -9,7 +9,10 @@
 
   export let videos;
 
-  export let activo = 0;
+  export let activo;
+
+  $: videoActivo = (parseInt(activo) === 0 || parseInt(activo) > 0 ) ? activo : null;
+  $: videoActual = !! videoActivo && Array.isArray(videos) ? videos[videoActivo] : null;
 
   let estado;
 
@@ -134,22 +137,24 @@
 
   <section class="ContenedorPrincipal">
 
-    <div class="ContenedorMedia">
-      {#if estado == true}
-        <header>
-          <a href="#" on:click|preventDefault={alternarEstado}>
-            <BotonIcono iconoBotonEstadoUnoUrl={iconoCierra} />
-          </a>
-        </header>
+    {#if videoActual}
+      <div class="ContenedorMedia">
+        {#if estado == true}
+          <header>
+            <a href="#" on:click|preventDefault={alternarEstado}>
+              <BotonIcono iconoBotonEstadoUnoUrl={iconoCierra} />
+            </a>
+          </header>
 
-        <VideoReproductor url={videos[activo].url} />
-      {:else}
-        <VideoTarjeta imagen={videos[activo].imagen} abrir={alternarEstado} />
+          <VideoReproductor url={videoActual.url} />
+        {:else}
+          <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
+        {/if}
+      </div>
+
+      <Titulo nivel={'4'} texto={videoActual.titulo} />
+
       {/if}
-    </div>
-
-    <Titulo nivel={'4'} texto={videos[activo].titulo} />
-
   </section>
 
   <section class="ContenedorLista">
