@@ -37,9 +37,9 @@
 <div style="width: {logoAncho};">
   {#each logos as logo}
     <a href={logo.enlace}>
-      {#if !!logo.imagen}
+      {#if !!logo.logotipo.publicUrl}
         <Imagen
-          imagenUrl={logo.imagen}
+          imagenUrl={logo.logotipo.publicUrl}
           altTexto={logo.nombre}
           altura="100%"
           ajuste="contain"
