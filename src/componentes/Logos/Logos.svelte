@@ -30,7 +30,7 @@
 </style>
 
 <div>
-  {#each logos as logo}
+  {#each logos as logo i ("logotipo_"+i )}
     <a href={logo.enlace}>
       {#if !!logo.logotipo.publicUrl}
         <Imagen

@@ -58,7 +58,7 @@
   class={!!fixed ? 'fixed' : ''}>
   <div>
 
-    {#if !!logos}
+    {#if Array.isArray(logos)}
       <Logos {logos} />
     {:else if !!logoImagenUrl}
       <Logo {logoTexto} {logoImagenUrl} logoAncho={'30%'} />
