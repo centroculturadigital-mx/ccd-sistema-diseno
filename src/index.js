@@ -35,6 +35,8 @@ export { default as Label }
 from "./componentes/Label/Label.svelte";
 export { default as Logo }
 from "./componentes/Logo/Logo.svelte";
+export { default as Logos }
+from "./componentes/Logos/Logos.svelte";
 export { default as Tarjeta }
 from "./componentes/Tarjetas/Tarjeta/Tarjeta.svelte";
 export { default as TarjetaHorizontal }
