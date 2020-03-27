@@ -1,19 +1,13 @@
 <script>
   import Imagen from "../../elementos/media/Imagen/Imagen.svelte";
-  import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte";
-
-  // export let imagen;
-  // export let enlace;
-  // export let nombre;
-  
-  export let logos;
+  export let logoTexto;
+  export let logoImagenUrl;
   export let logoAncho;
   export let alineacion;
 
   if (!alineacion) {
     alineacion = "left";
   }
-
 </script>
 
 <style>
@@ -24,7 +18,6 @@
     min-width: 12rem;
     align-items: center;
     justify-content: left;
-    
   }
   a {
     box-sizing: border-box;
@@ -32,21 +25,22 @@
     height: 100%;
     width: 100%;
   }
+  h4 {
+    margin: 0.25rem 0;
+  }
 </style>
 
-<div style="width: {logoAncho};">
-  {#each logos as logo}
-    <a href={logo.enlace}>
-      {#if !!logo.logotipo.publicUrl}
-        <Imagen
-          imagenUrl={logo.logotipo.publicUrl}
-          altTexto={logo.nombre}
-          altura="100%"
-          ajuste="contain"
-          {alineacion} />
-      {:else if !logo.imagen && !!logo.nombre}
-        <Parrafo texto={'Agrega un logotipo'} />
-      {/if}
-    </a>
-  {/each}
+<div style="width:{logoAncho};">
+  <a href=".">
+    {#if !!logoImagenUrl}
+      <Imagen
+        imagenUrl={logoImagenUrl}
+        altTexto={logoTexto}
+        altura="100%"
+        ajuste="contain"
+        {alineacion} />
+    {:else if !logoImagenUrl && !!logoTexto}
+      <h4>{logoTexto}</h4>
+    {/if}
+  </a>
 </div>

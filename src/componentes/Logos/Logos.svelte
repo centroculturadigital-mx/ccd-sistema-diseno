@@ -29,7 +29,7 @@
   }
 </style>
 
-<div style="width: auto">
+<div>
   {#each logos as logo}
     <a href={logo.enlace}>
       {#if !!logo.logotipo.publicUrl}

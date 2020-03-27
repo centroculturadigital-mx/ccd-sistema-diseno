@@ -1,16 +1,14 @@
 <script>
   import Logo from "../Logo/Logo.svelte";
+  import Logos from "../Logos/Logos.svelte";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
   import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
 
-// 
-  // export let imagen;
-  // export let enlace;
-  // export let nombre;
-// 
-  export let logos;
   export let menuAlternar;
+  export let logoTexto;
+  export let logos;
+  export let logoImagenUrl;
   export let objetosMenu;
   export let objetosAlineacion;
   export let altura;
@@ -29,7 +27,7 @@
 
   //  Responsivo
   let responsivo;
-  let breakpoint = 1024;
+  let breakpoint = 720;
 </script>
 
 <style>
@@ -59,7 +57,12 @@
   style="background-color:{colorFondo};height:{altura};{!!sombra ? 'box-shadow:0 1px 2px rgba(0,0,0,0.5)' : ''}"
   class={!!fixed ? 'fixed' : ''}>
   <div>
-    <Logo {logos} logoAncho={'30%'} />
+
+    {#if !!logos}
+      <Logos {logos} />
+    {:else if !!logoImagenUrl}
+      <Logo {logoTexto} {logoImagenUrl} logoAncho={'30%'} />
+    {/if}
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
@@ -89,8 +92,7 @@
         alturaObjetoMenu="3rem"
         {alturaMenuMovil}
         {objetosMenuExtra}
-        {objetosAlineacion}
- />
+        {objetosAlineacion} />
     {/if}
   {/if}
 
