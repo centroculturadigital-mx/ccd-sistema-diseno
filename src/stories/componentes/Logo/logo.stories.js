@@ -26,12 +26,22 @@ export const logoAnchoFila = () => ({
         logoTexto: 'Ancho de fila Custom',
     }
 });
-// export const logoAlineadoDerecha = () => ({
-//     Component: Logo,
-//     props: {
-//         logoAncho: '40%',
-//         alineacion: 'right',
-//         logoTexto: 'Logo sistema diseno',
-//         logoImagenUrl: ImagenFondo,
-//     }
-// });
+export const logoConEnlace = () => ({
+    Component: Logo,
+    props: {
+        logoAncho: '40%',
+        alineacion: 'right',
+        logoTexto: 'Logo sistema diseno',
+        logoImagenUrl: ImagenFondo,
+        enlace: "http://centroculturadigital.mx"
+    }
+});
+export const logoSinEnlace = () => ({
+    Component: Logo,
+    props: {
+        logoAncho: '40%',
+        alineacion: 'right',
+        logoTexto: 'Logo sistema diseno',
+        logoImagenUrl: ImagenFondo,
+    }
+});

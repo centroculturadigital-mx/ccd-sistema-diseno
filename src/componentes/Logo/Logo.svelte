@@ -4,6 +4,7 @@
   export let logoImagenUrl;
   export let logoAncho;
   export let alineacion;
+  export let enlace;
 
   if (!alineacion) {
     alineacion = "left";
@@ -18,6 +19,7 @@
     min-width: 12rem;
     align-items: center;
     justify-content: left;
+    box-sizing: border-box;
   }
   a {
     box-sizing: border-box;
@@ -30,17 +32,28 @@
   }
 </style>
 
-<div style="width:{logoAncho};">
-  <a href=".">
-    {#if !!logoImagenUrl}
-      <Imagen
-        imagenUrl={logoImagenUrl}
-        altTexto={logoTexto}
-        altura="100%"
-        ajuste="contain"
-        {alineacion} />
-    {:else if !logoImagenUrl && !!logoTexto}
-      <h4>{logoTexto}</h4>
-    {/if}
-  </a>
+<div style="width:{logoAncho};{!enlace?"padding:0.5rem":""}">
+
+  {#if !!enlace}
+    <a href={enlace}>
+      {#if !!logoImagenUrl}
+        <Imagen
+          imagenUrl={logoImagenUrl}
+          altTexto={logoTexto}
+          altura="100%"
+          ajuste="contain"
+          {alineacion} />
+      {:else if !logoImagenUrl && !!logoTexto}
+        <h4>{logoTexto}</h4>
+      {/if}
+    </a>
+  {:else if !enlace}
+    <Imagen
+      imagenUrl={logoImagenUrl}
+      altTexto={logoTexto}
+      altura="100%"
+      ajuste="contain"
+      {alineacion} />
+  {/if}
+
 </div>
