@@ -20,8 +20,6 @@
 
   $: bloques = bloquesJSON.map( bloque => generarContenido(bloque));
   
-  $: console.log(bloquesJSON)
-
   const generarContenido = nodo => {
 
     // let elementos = []

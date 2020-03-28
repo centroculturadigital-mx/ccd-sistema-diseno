@@ -137,9 +137,10 @@
 
   <section class="ContenedorPrincipal">
 
-    {#if videoActual}
+    {#if typeof videoActual == "object"}
+      
       <div class="ContenedorMedia">
-        {#if estado == true}
+        {#if estado }
           <header>
             <a href="#" on:click|preventDefault={alternarEstado}>
               <BotonIcono iconoBotonEstadoUnoUrl={iconoCierra} />
@@ -154,7 +155,7 @@
 
       <Titulo nivel={'4'} texto={videoActual.titulo} />
 
-      {/if}
+    {/if}
   </section>
 
   <section class="ContenedorLista">

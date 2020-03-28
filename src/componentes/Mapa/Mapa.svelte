@@ -14,7 +14,6 @@
     let altoOriginal
 
     $: (seleccion=>{
-        console.log("checar",seleccion);
         
         if(!seleccion&&!!pathSeleccionado) {
             regresar()
@@ -45,7 +44,6 @@
     const configurar = () => {
         
         svg = document.getElementsByTagName('svg')[0]
-console.log("configurar!");
 
         // containerHeight = svg.parentNode.clientHeight
 
