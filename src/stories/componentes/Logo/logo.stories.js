@@ -1,20 +1,45 @@
 import Logo from '../../../componentes/Logo/Logo.svelte';
 import ImagenFondo from '../../../../public/placeholder.jpg';
 
-export default { title: "Componentes/Logo/Logo" }
+export default { title: "Componentes/Logos/Logo" }
 
-export const logoTexto = () => ({
+export const logoDefault = () => ({
     Component: Logo,
     props: {
         alineacion: "center",
-        logoTexto: 'Texto si no hay imágen',
+        logoImagenUrl: ImagenFondo,
+        logoTexto: 'LOGO',
+        enlace: "http://centroculturadigital.mx"
+    }
+});
+export const logoSoloTexto = () => ({
+    Component: Logo,
+    props: {
+        logoTexto: 'LOGO',
+        alineacion: "center",
+    }
+});
+export const logoSinImagen = () => ({
+    Component: Logo,
+    props: {
+        logoTexto: 'LOGO',
+        alineacion: "center",
+        enlace: "http://centroculturadigital.mx"
+    }
+});
+export const logoSinEnlace = () => ({
+    Component: Logo,
+    props: {
+        logoTexto: 'LOGO',
+        alineacion: "center",
+        logoImagenUrl: ImagenFondo,
     }
 });
 export const logoImagen = () => ({
     Component: Logo,
     props: {
         logoAncho: '40%',
-        logoTexto: 'Logo sistema diseno',
+        logoTexto: 'LOGO',
         logoImagenUrl: ImagenFondo,
     }
 });
@@ -23,7 +48,7 @@ export const logoAnchoFila = () => ({
     props: {
         logoAncho: '33%',
         logoImagenUrl: ImagenFondo,
-        logoTexto: 'Ancho de fila Custom',
+        logoTexto: 'LOGO',
     }
 });
 export const logoConEnlace = () => ({
@@ -31,17 +56,8 @@ export const logoConEnlace = () => ({
     props: {
         logoAncho: '40%',
         alineacion: 'right',
-        logoTexto: 'Logo sistema diseno',
+        logoTexto: 'LOGO',
         logoImagenUrl: ImagenFondo,
         enlace: "http://centroculturadigital.mx"
-    }
-});
-export const logoSinEnlace = () => ({
-    Component: Logo,
-    props: {
-        logoAncho: '40%',
-        alineacion: 'right',
-        logoTexto: 'Logo sistema diseno',
-        logoImagenUrl: ImagenFondo,
     }
 });

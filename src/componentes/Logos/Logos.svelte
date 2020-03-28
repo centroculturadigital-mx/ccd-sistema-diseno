@@ -1,6 +1,5 @@
 <script>
-  import Imagen from "../../elementos/media/Imagen/Imagen.svelte";
-  import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte";
+  import Logo from '../Logo/Logo'
 
   export let logos;
   export let alineacion;
@@ -8,6 +7,7 @@
   if (!alineacion) {
     alineacion = "left";
   }
+
 
 </script>
 
@@ -30,18 +30,9 @@
 </style>
 
 <div>
-  {#each logos as logo, i ("logotipo_"+i )}
-    <a href={logo.enlace}>
-      {#if !!logo.logotipo.publicUrl}
-        <Imagen
-          imagenUrl={logo.logotipo.publicUrl}
-          altTexto={logo.nombre}
-          altura="100%"
-          ajuste="contain"
-          {alineacion} />
-      {:else if !logo.imagen && !!logo.nombre}
-        <Parrafo texto={'Agrega un logotipo'} />
-      {/if}
-    </a>
-  {/each}
+  {#if Array.isArray(logos)}
+    {#each logos as logo, i ("logo_"+i )}
+      <Logo {...logo}/>
+    {/each}
+  {/if}
 </div>

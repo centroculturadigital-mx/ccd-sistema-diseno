@@ -1,10 +1,11 @@
 <script>
   import Imagen from "../../elementos/media/Imagen/Imagen.svelte";
-  export let logoTexto;
-  export let logoImagenUrl;
+  export let logotipo;
+  export let enlace;
+  export let nombre;
+
   export let logoAncho;
   export let alineacion;
-  export let enlace;
 
   if (!alineacion) {
     alineacion = "left";
@@ -35,25 +36,29 @@
 <div style="width:{logoAncho};{!enlace?"padding:0.5rem":""}">
 
   {#if !!enlace}
-    <a href={enlace}>
-      {#if !!logoImagenUrl}
+    <a href={enlace} target="_blank">
+      {#if !!logotipo}
         <Imagen
-          imagenUrl={logoImagenUrl}
-          altTexto={logoTexto}
+          imagenUrl={logotipo}
+          altTexto={nombre}
           altura="100%"
           ajuste="contain"
           {alineacion} />
-      {:else if !logoImagenUrl && !!logoTexto}
-        <h4>{logoTexto}</h4>
+      {:else if !logotipo && !!nombre}
+        <h4>{nombre}</h4>
       {/if}
     </a>
   {:else if !enlace}
-    <Imagen
-      imagenUrl={logoImagenUrl}
-      altTexto={logoTexto}
-      altura="100%"
-      ajuste="contain"
-      {alineacion} />
+      {#if !!logotipo}
+        <Imagen
+          imagenUrl={logotipo}
+          altTexto={nombre}
+          altura="100%"
+          ajuste="contain"
+          {alineacion} />
+      {:else if !logotipo && !!nombre}
+        <h4>{nombre}</h4>
+      {/if}
   {/if}
 
 </div>
