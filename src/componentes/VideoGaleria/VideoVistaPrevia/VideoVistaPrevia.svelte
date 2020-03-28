@@ -3,7 +3,7 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
 
   export let imagen;
-  export let titulo;
+  export let nombre;
   export let indice;
   export let seleccionado;
 </script>
@@ -62,10 +62,10 @@
 
   <div class="Imagen">
 
-    <Imagen imagenUrl={imagen} altTexto={titulo}  />
+    <Imagen imagenUrl={imagen} altTexto={nombre}  />
 
   </div>
 
-  <Titulo nivel={'4'} texto={titulo} />
+  <Titulo nivel={'4'} texto={nombre} />
 
 </article>

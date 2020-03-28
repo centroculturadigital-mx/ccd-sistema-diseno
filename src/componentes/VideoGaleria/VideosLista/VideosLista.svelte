@@ -13,7 +13,7 @@
       {#if typeof video == "object" }
           <VideoVistaPrevia
             imagen={video.imagen}
-            titulo={video.titulo}
+            nombre={video.nombre}
             {seleccionado} 
             indice={i}/>
       {/if}
