@@ -12,24 +12,17 @@
 </script>
 
 <style>
-  div {
+  .Logotipos {
     display: flex;
     height: 100%;
-    width: 100%;
     min-width: 12rem;
     align-items: center;
     justify-content: flex-start;
     
   }
-  a {
-    box-sizing: border-box;
-    padding: 0.5rem;
-    height: 100%;
-    width: 100%;
-  }
 </style>
 
-<div>
+<div class="Logotipos">
   {#if Array.isArray(logos)}
     {#each logos as logo, i ("logo_"+i )}
       <Logo {...logo}/>
