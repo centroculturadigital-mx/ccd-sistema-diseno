@@ -153,7 +153,7 @@
         {/if}
       </div>
 
-      <Titulo nivel={'4'} texto={videoActual.titulo} />
+      <Titulo nivel={'4'} texto={videoActual.nombre} />
 
     {/if}
   </section>
