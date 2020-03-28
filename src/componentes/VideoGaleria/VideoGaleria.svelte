@@ -8,7 +8,6 @@
   import iconoCierra from "./cerrar_blanco.svg";
 
   export let videos;
-
   export let activo;
 
   $: videoActivo = (parseInt(activo) === 0 || parseInt(activo) > 0 ) ? activo : null;
@@ -147,13 +146,13 @@
             </a>
           </header>
 
-          <VideoReproductor url={videoActual.url} />
+          <VideoReproductor enlace={videoActual.enlace} />
         {:else}
-          <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
+          <VideoTarjeta imagen={videoActual.imagen.publicUrl} abrir={alternarEstado} />
         {/if}
       </div>
 
-      <Titulo nivel={'4'} texto={videoActual.titulo} />
+      <Titulo nivel={'4'} texto={videoActual.nombre} />
 
     {/if}
   </section>
