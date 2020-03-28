@@ -2,8 +2,7 @@
   import { slide } from "svelte/transition";
   import Insertar from "../../../elementos/media/Insertar/Insertar.svelte";
 
-  export let url;
-  export let titulo;
+  export let enlace;
   export let alto;
   export let ancho;
 </script>
@@ -21,6 +20,6 @@
 
 <article class="VideoReproductor">
 
-  <Insertar {url} {alto} {ancho} />
+  <Insertar {enlace} {alto} {ancho} />
 
 </article>
