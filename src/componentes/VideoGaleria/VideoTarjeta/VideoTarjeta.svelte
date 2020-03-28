@@ -5,7 +5,7 @@
   
   import iconoPlay from "./play.svg";
 
-  export let titulo;
+  export let nombre;
   export let imagen;
   export let abrir;
 
@@ -53,7 +53,7 @@
   <div class="VideoTarjetaImagen">
     <Imagen
       imagenUrl={imagen}
-      altTexto={titulo}
+      altTexto={nombre}
       alineacion={'center'}
       altura={alturaImagen} />
 

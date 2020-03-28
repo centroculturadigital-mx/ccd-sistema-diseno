@@ -12,8 +12,8 @@
     {#each videos as video, i ('video_' + i)}
       {#if typeof video == "object" }
           <VideoVistaPrevia
-            imagen={video.imagen.publicUrl}
-            titulo={video.nombre}
+            imagen={video.imagen}
+            nombre={video.nombre}
             {seleccionado} 
             indice={i}/>
       {/if}
