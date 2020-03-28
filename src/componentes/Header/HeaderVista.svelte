@@ -44,7 +44,7 @@
     width: 100%;
   }
   .fixed {
-    position: fixed;
+    position: fixed !important;
     width: 100%;
     top: 0;
     left: 0;
