@@ -136,7 +136,7 @@
 
   <section class="ContenedorPrincipal">
 
-    {#if typeof videoActual == "object"}
+    {#if !! videoActual && typeof videoActual == "object"}
       
       <div class="ContenedorMedia">
         {#if estado }
