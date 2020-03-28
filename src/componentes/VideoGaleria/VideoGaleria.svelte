@@ -181,7 +181,7 @@
 
           <VideoReproductor enlace={videoActual.enlace} />
         {:else}
-          <VideoTarjeta imagen={videoActual.imagen.publicUrl} abrir={alternarEstado} />
+          <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
         {/if}
       </div>
 
