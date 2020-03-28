@@ -13,7 +13,7 @@
 </script>
 
 <style>
-  div {
+  .Logo {
     display: flex;
     height: 100%;
     max-width: 100%;
@@ -32,7 +32,7 @@
   }
 </style>
 
-<div style="width:{logoAncho};{!enlace?"padding:0.5rem":""}">
+<div class="Logo" style="width:{logoAncho};{!enlace?"padding:0.5rem":""}">
 
   {#if !!enlace}
     <a href={enlace} target="_blank">
