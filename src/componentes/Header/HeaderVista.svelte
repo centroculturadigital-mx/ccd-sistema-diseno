@@ -28,7 +28,7 @@
   $: clases = `Header Cabecera ${!!fixed ? 'fixed' : ''}`
   //  Responsivo
   let responsivo;
-  let breakpoint = 720;
+  let breakpoint = 1024;
 </script>
 
 <style>
