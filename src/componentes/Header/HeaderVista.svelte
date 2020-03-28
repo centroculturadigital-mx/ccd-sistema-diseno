@@ -25,13 +25,14 @@
   export let objetosMenuExtra;
   export let segment;
 
+  $: clases = `Header ${!!fixed ? 'fixed' : ''}`
   //  Responsivo
   let responsivo;
   let breakpoint = 720;
 </script>
 
 <style>
-  header {
+  header.Header {
     position: relative;
   }
   header div:nth-child(1) {
@@ -55,7 +56,7 @@
 
 <header
   style="background-color:{colorFondo};height:{altura};{!!sombra ? 'box-shadow:0 1px 2px rgba(0,0,0,0.5)' : ''}"
-  class={!!fixed ? 'fixed' : ''}>
+  class={ clases }>
   <div>
 
     {#if Array.isArray(logos)}
