@@ -25,7 +25,7 @@
   export let objetosMenuExtra;
   export let segment;
 
-  $: clases = `Header ${!!fixed ? 'fixed' : ''}`
+  $: clases = `Header Cabecera ${!!fixed ? 'fixed' : ''}`
   //  Responsivo
   let responsivo;
   let breakpoint = 720;
