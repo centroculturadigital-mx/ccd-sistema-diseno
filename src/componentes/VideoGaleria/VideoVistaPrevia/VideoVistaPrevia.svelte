@@ -1,7 +1,7 @@
 <script>
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
-  import iconoPlay from "../VideoTarjeta/play.png";
+  import iconoPlay from "../VideoTarjeta/play.svg";
 
 
   export let imagen;
