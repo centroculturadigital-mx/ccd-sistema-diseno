@@ -18,7 +18,7 @@
     width: 100%;
     min-width: 12rem;
     align-items: center;
-    justify-content: left;
+    justify-content: flex-start;
     
   }
   a {

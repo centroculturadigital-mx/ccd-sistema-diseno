@@ -16,8 +16,7 @@
   div {
     display: flex;
     height: 100%;
-    width: 100%;
-    min-width: 12rem;
+    max-width: 100%;
     align-items: center;
     justify-content: left;
     box-sizing: border-box;
