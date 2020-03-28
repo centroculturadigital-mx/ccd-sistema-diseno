@@ -10,9 +10,42 @@
   export let videos;
 
   export let activo;
+  
+  let siguiente;
 
-  $: videoActivo = (parseInt(activo) === 0 || parseInt(activo) > 0 ) ? activo : null;
-  $: videoActual = !! videoActivo && Array.isArray(videos) ? videos[videoActivo] : null;
+  $: videoActivo = seleccionarActivo(activo,siguiente);
+  $: videoActual = activarVideo(videoActivo)
+  
+  $: activarGaleria(videos)
+  
+
+  const seleccionarActivo = (act,sig) => {
+    const activoInt = parseInt(act);
+    const siguienteInt = parseInt(sig);
+    
+    if( ( activoInt === 0 || activoInt > 0 ) ) {
+      return act
+    }
+    if( ( siguienteInt === 0 || siguienteInt > 0 ) ) {
+      return sig
+    }
+  }
+
+  const activarVideo = indice => {
+    return Array.isArray(videos) ? videos[indice] : null;
+  }
+
+  const activarGaleria = videos => {
+    if( Array.isArray(videos)) {
+      if( videos.length>0) {
+        if( ! siguiente ) { 
+          setTimeout(()=>{
+            siguiente = videos.findIndex(v=>(typeof v == "object"))
+          })
+        }
+      }
+    }
+  }
 
   let estado;
 
