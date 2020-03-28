@@ -3,7 +3,7 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
   
-  import iconoPlay from "./play.svg";
+  import iconoPlay from "./play.png";
 
   export let nombre;
   export let imagen;
