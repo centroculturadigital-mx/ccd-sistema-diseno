@@ -9,42 +9,41 @@
 
   export let videos;
   export let activo;
-  
+
   let siguiente;
 
-  $: videoActivo = seleccionarActivo(activo,siguiente);
-  $: videoActual = activarVideo(videoActivo)
-  
-  $: activarGaleria(videos)
-  
+  $: videoActivo = seleccionarActivo(activo, siguiente);
+  $: videoActual = activarVideo(videoActivo);
 
-  const seleccionarActivo = (act,sig) => {
+  $: activarGaleria(videos);
+
+  const seleccionarActivo = (act, sig) => {
     const activoInt = parseInt(act);
     const siguienteInt = parseInt(sig);
-    
-    if( ( activoInt === 0 || activoInt > 0 ) ) {
-      return act
+
+    if (activoInt === 0 || activoInt > 0) {
+      return act;
     }
-    if( ( siguienteInt === 0 || siguienteInt > 0 ) ) {
-      return sig
+    if (siguienteInt === 0 || siguienteInt > 0) {
+      return sig;
     }
-  }
+  };
 
   const activarVideo = indice => {
     return Array.isArray(videos) ? videos[indice] : null;
-  }
+  };
 
   const activarGaleria = videos => {
-    if( Array.isArray(videos)) {
-      if( videos.length>0) {
-        if( ! siguiente ) { 
-          setTimeout(()=>{
-            siguiente = videos.findIndex(v=>(typeof v == "object"))
-          })
+    if (Array.isArray(videos)) {
+      if (videos.length > 0) {
+        if (!siguiente) {
+          setTimeout(() => {
+            siguiente = videos.findIndex(v => typeof v == "object");
+          });
         }
       }
     }
-  }
+  };
 
   let estado;
 
@@ -55,6 +54,7 @@
   const seleccionar = i => {
     activo = i;
   };
+
 </script>
 
 <style>
@@ -98,7 +98,7 @@
     width: 100%;
     box-sizing: border-box;
     padding-left: 1rem;
-    max-height: calc(var(--altura) + 5rem);
+    max-height: auto;
     overflow-y: initial;
     overflow-x: initial;
   }
@@ -111,12 +111,15 @@
     }
     .ContenedorPrincipal {
       width: 60%;
-      border-bottom: 1px solid #aaaaaa;
+      /* border-bottom: 1px solid #aaaaaa; */
     }
     .ContenedorLista {
       width: 40%;
       overflow-y: scroll;
       overflow-x: hidden;
+    }
+    .ContenedorLista {
+      max-height: calc(var(--altura) + 5rem);
     }
   }
   @media screen and (min-width: 1024px) {
@@ -149,7 +152,7 @@
   }
   @media screen and (min-width: 1920px) {
     .VideoGaleria {
-      --altura: 34rem;
+      --altura: 30rem;
     }
     .ContenedorPrincipal :global(h4) {
       font-size: 1.5rem;
@@ -169,10 +172,9 @@
 
   <section class="ContenedorPrincipal">
 
-    {#if !! videoActual && typeof videoActual == "object"}
-      
+    {#if !!videoActual && typeof videoActual == 'object'}
       <div class="ContenedorMedia">
-        {#if estado }
+        {#if estado}
           <header>
             <a href="#" on:click|preventDefault={alternarEstado}>
               <BotonIcono iconoBotonEstadoUnoUrl={iconoCierra} />
@@ -186,7 +188,6 @@
       </div>
 
       <Titulo nivel={'4'} texto={videoActual.nombre} />
-
     {/if}
   </section>
 
