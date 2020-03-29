@@ -160,7 +160,7 @@
   }
   @media screen and (min-width: 2250px) {
     .VideoGaleria {
-      --altura: 48rem;
+      --altura: 32rem;
     }
     .ContenedorPrincipal :global(h4) {
       font-size: 1.75rem;
