@@ -58,6 +58,6 @@ from "./componentes/VideoGaleria/VideoTarjeta/VideoTarjeta.svelte";
 export { default as VideoVistaPrevia }
 from "./componentes/VideoGaleria/VideoVistaPrevia/VideoVistaPrevia.svelte";
 export { default as Carrusel }
-from "./componentes/Carrusel/Carrusel/Carrusel.svelte";
+from "./componentes/Carrusel/Carrusel.svelte";
 export { default as Carruseles }
-from "./componentes/Carrusel/Carruseles/Carruseles.svelte";
+from "./componentes/Carrusel/Carruseles.svelte";
