@@ -1,16 +1,75 @@
 import Carrusel from "../../../componentes/Carrusel/Carrusel.svelte";
+import Logo from "../../../componentes/Logo/Logo.svelte";
+import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
+import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
 import Prueba from "./Prueba/Prueba.svelte";
 
 export default {title: "Componentes/Carrusel"}
 
-const generarComponente = i=>({
-    componente: Prueba,
-    data: {
-        "nombre": `Prueba ${i+1}`
-    }
-})
+// const generarComponente = i=>()
 
-const elementos = new Array(7).fill(0).map((e,i)=>generarComponente(i))
+const elementos = [
+    {
+        componente: Prueba,
+        data: {
+            nombre: "Prueba"
+        }
+    },
+    {
+        componente: Logo,
+        data: {
+            logotipo: "http://fakeimg.pl/300x300",
+            enlace: "http://enlace.com",
+            nombre: "Un Logo"
+        }
+    },
+    {
+        componente: Parrafo,
+        data: {
+            texto: "Et aliqua nisi pariatur laboris aliquip mollit qui dolore enim anim est exercitation adipisicing pariatur."
+        }
+    },
+    {
+        componente: Imagen,
+        data: {
+            imagenUrl: "http://fakeimg.pl/400x400",
+            altTexto: "Una imagen",
+            altura: "10rem",
+        }
+    },
+    {
+        componente: Prueba,
+        data: {
+            nombre: "Prueba 1"
+        }
+    },
+    {
+        componente: Parrafo,
+        data: {
+            texto: "Eiusmod enim irure ea commodo. Sit dolore Lorem dolor exercitation irure reprehenderit veniam ad labore."
+        }
+    },
+    {
+        componente: Imagen,
+        data: {
+            imagenUrl: "http://fakeimg.pl/600x300",
+            altTexto: "Otra imagen",
+            altura: "6rem",
+        }
+    },
+    {
+        componente: Prueba,
+        data: {
+            nombre: "Prueba 2"
+        }
+    },
+    {
+        componente: Prueba,
+        data: {
+            nombre: "Prueba 3"
+        }
+    },
+]
 
 
 export const carruselDefault = () => ({

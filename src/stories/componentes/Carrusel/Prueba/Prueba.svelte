@@ -3,9 +3,10 @@
     import IconoApagado from "./prueba-off.png"
     import IconoEncendido from "./prueba-on.png"
 
-    export let data = {};
+    // export let data = {};
+    export let nombre = "Prueba"
     
-    $: nombre = typeof data == 'object' ? data.nombre : 'Prueba';
+    // $: nombre = typeof data == 'object' ? data.nombre : 'Prueba';
 
     let encendido = false;
 

@@ -386,7 +386,7 @@
                                 </h6>
                             </article> -->
 
-                            <svelte:component this={elemento.componente} data={elemento.data}/>
+                            <svelte:component this={elemento.componente} {...elemento.data}/>
 
 
                         </div>
