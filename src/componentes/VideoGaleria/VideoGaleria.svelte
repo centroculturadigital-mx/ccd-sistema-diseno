@@ -54,6 +54,7 @@
   const seleccionar = i => {
     activo = i;
   };
+
 </script>
 
 <style>
@@ -110,7 +111,7 @@
     }
     .ContenedorPrincipal {
       width: 60%;
-      border-bottom: 1px solid #aaaaaa;
+      /* border-bottom: 1px solid #aaaaaa; */
     }
     .ContenedorLista {
       width: 40%;
@@ -151,7 +152,7 @@
   }
   @media screen and (min-width: 1920px) {
     .VideoGaleria {
-      --altura: 34rem;
+      --altura: 30rem;
     }
     .ContenedorPrincipal :global(h4) {
       font-size: 1.5rem;
