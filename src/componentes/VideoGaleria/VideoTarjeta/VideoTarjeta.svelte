@@ -61,7 +61,6 @@
       altura={alturaImagen} />
 
     <a href="#" on:click|preventDefault={abrir}>
-      <!-- <BotonIcono iconoBotonEstadoUnoUrl={iconoPlay} /> -->
       <img src={iconoPlay} alt="play" />
     </a>
 

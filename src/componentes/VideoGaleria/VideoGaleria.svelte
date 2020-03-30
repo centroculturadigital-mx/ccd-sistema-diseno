@@ -51,7 +51,8 @@
     estado = !estado;
   };
 
-  const seleccionar = (i, elemento) => {
+  // const seleccionar = (i, elemento) => {
+  const seleccionar = (i, elemento = "") => {
     activo = i;
 
     // limpiaColorLista(elemento.parentElement.childNodes);
