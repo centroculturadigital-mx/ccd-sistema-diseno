@@ -54,7 +54,7 @@
   const seleccionar = (i, elemento) => {
     activo = i;
 
-    limpiaColorLista(elemento.parentElement.childNodes);
+    // limpiaColorLista(elemento.parentElement.childNodes);
 
     // Aplica color activo
     elemento.style.backgroundColor = "rgba(200,200,200,0.35)";
