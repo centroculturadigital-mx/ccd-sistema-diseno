@@ -57,7 +57,6 @@
 
     if (elemento != "") {
       // Aplica color activo + quita color activo anterior
-
       limpiaColorLista(elemento.parentElement.childNodes);
 
       elemento.style.backgroundColor = "rgba(200,200,200,0.35)";
@@ -76,7 +75,9 @@
   onMount(() => {
     // estilo video inicial
     let inicial = document.querySelector(".VideosLista").children[0];
-    seleccionar(0, inicial);
+    setTimeout(() => {
+      seleccionar(0, inicial);    
+    },2000)
     //
   });
 </script>
