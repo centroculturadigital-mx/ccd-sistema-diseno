@@ -1,5 +1,5 @@
 import Pie from '../../../componentes/Pie/Pie.svelte';
-import placeholder from '../../../../public/placeholder.jpg';
+// import placeholder from '../../../../public/placeholder.jpg';
 
 export default { title: 'Componentes/Pie/Pie' }
 
@@ -9,9 +9,6 @@ export default { title: 'Componentes/Pie/Pie' }
 // export let logoImagenUrl;
 // export let altura;
 // export let copyright;
-
-
-console.log("!!!::: ", placeholder);
 
 export const PieDefault = () => ({
     Component: Pie,

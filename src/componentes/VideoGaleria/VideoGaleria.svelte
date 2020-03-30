@@ -1,10 +1,10 @@
 <script>
+  import { onMount } from "svelte";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import Titulo from "../../elementos/texto/Titulo/Titulo.svelte";
   import VideoReproductor from "./VideoReproductor/VideoReproductor.svelte";
   import VideoTarjeta from "./VideoTarjeta/VideoTarjeta.svelte";
   import VideosLista from "./VideosLista/VideosLista.svelte";
-
   import iconoCierra from "./cerrar_blanco.svg";
 
   export let videos;
@@ -51,13 +51,36 @@
     estado = !estado;
   };
 
-  const seleccionar = i => {
+  const seleccionar = (i, elemento) => {
     activo = i;
+
+    limpiaColorLista(elemento.parentElement.childNodes);
+
+    // Aplica color activo
+    elemento.style.backgroundColor = "rgba(200,200,200,0.35)";
+    elemento.style.opacity = "opacity(0.85)";
   };
 
+  const limpiaColorLista = lista => {
+    // Elimina el color del elemento activo
+    lista.forEach(item => {
+      if (item.nodeName === "ARTICLE") {
+        item.style.backgroundColor = "#FFF";
+      }
+    });
+  };
+  onMount(() => {
+    // estilo video inicial
+    let inicial = document.querySelector(".VideosLista").children[0];
+    seleccionar(0,inicial)
+    // 
+  })
 </script>
 
 <style>
+  #VideoGaleria {
+    scroll-behavior: smooth;
+  }
   .VideoGaleria {
     --altura: 18rem;
   }
@@ -86,25 +109,30 @@
   }
   .ContenedorMedia header {
     position: absolute;
-    right: 1rem;
+    right: 0.25rem;
     top: 1rem;
     width: auto;
     transition: 0.5s;
   }
-  .ContenedorMedia header a:hover {
+  .ContenedorMedia header a button :global(img:hover) {
     filter: invert();
+    background: transparent;
+  }
+  .ContenedorMedia header a button:hover {
+    background-color: transparent;
+    box-shadow: 0;
   }
   .ContenedorLista {
     width: 100%;
     box-sizing: border-box;
-    padding-left: 1rem;
+    padding-left: 0rem;
     max-height: auto;
     overflow-y: initial;
     overflow-x: initial;
   }
   @media screen and (min-width: 720px) {
     .VideoGaleria {
-      --altura: 18rem;
+      --altura: 23rem;
     }
     .VideoGaleria {
       display: flex;
@@ -117,14 +145,13 @@
       width: 40%;
       overflow-y: scroll;
       overflow-x: hidden;
-    }
-    .ContenedorLista {
       max-height: calc(var(--altura) + 5rem);
+    padding-left: 1rem;
     }
   }
   @media screen and (min-width: 1024px) {
     .VideoGaleria {
-      --altura: 22rem;
+      --altura: 25rem;
     }
     .ContenedorPrincipal {
       width: 70%;
@@ -138,7 +165,7 @@
   }
   @media screen and (min-width: 1200px) {
     .VideoGaleria {
-      --altura: 24rem;
+      --altura: 29rem;
     }
     .ContenedorPrincipal {
       width: 70%;
@@ -168,7 +195,7 @@
   }
 </style>
 
-<section class="VideoGaleria">
+<section id="VideoGaleria" class="VideoGaleria">
 
   <section class="ContenedorPrincipal">
 

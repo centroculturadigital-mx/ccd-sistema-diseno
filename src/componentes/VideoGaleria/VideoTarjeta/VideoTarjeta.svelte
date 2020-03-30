@@ -23,6 +23,9 @@
     justify-content: center;
     align-items: center;
   }
+  .VideoTarjetaImagen :global(img) {
+    border-radius: 4px;
+  }
   a {
     position: absolute;
     height: auto;
