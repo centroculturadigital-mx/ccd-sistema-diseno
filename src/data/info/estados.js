@@ -20,7 +20,7 @@ export default [
         "nombre": "Chihuahua"
     },
     {
-        "clave": "CHP​",
+        "clave": "CHP",
         "nombre": "Chiapas"
     },
     {
