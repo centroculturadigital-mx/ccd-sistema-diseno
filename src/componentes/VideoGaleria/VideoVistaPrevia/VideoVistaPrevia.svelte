@@ -80,9 +80,9 @@
 </style>
 
 <article
-  class="VideoVistaPrevia"
+  bind:this={elementoActivo}
   on:click={seleccionado(indice, elementoActivo)}
-  bind:this={elementoActivo}>
+  class="VideoVistaPrevia">
 
   <div class="Imagen">
 

@@ -57,27 +57,27 @@
 
     if (elemento != "") {
       // Aplica color activo + quita color activo anterior
-      limpiaColorLista(elemento.parentElement.childNodes);
-
-      elemento.style.backgroundColor = "rgba(200,200,200,0.35)";
-      elemento.style.opacity = "opacity(0.85)";
+      // relestea color fondo lista
+      elemento.parentElement.childNodes.forEach(item => {
+        if (item.nodeName === "ARTICLE") {
+          item.classList.remove("seleccionado");
+          item.classList.add("fondoLista");
+          item.style.opacity = "1";
+        }
+      });
+      // actualiza elemento activo
+      elemento.classList.remove("fondoLista");
+      elemento.classList.add("seleccionado");
+      elemento.style.opacity = "0.75";
     }
   };
 
-  const limpiaColorLista = lista => {
-    // Elimina el color del elemento activo
-    lista.forEach(item => {
-      if (item.nodeName === "ARTICLE") {
-        item.style.backgroundColor = "#FFF";
-      }
-    });
-  };
   onMount(() => {
     // estilo video inicial
     setTimeout(() => {
-    let inicial = document.querySelector(".VideosLista").children[0];
-      seleccionar(0, inicial);    
-    },1000)
+      let inicial = document.querySelector(".VideosLista").children[0];
+      seleccionar(0, inicial);
+    }, 2000);
     //
   });
 </script>
@@ -198,6 +198,13 @@
       font-size: 1.75rem;
     }
   }
+  /*  */
+  :global(.fondoLista) {
+    background-color:#FFF;
+  }
+  :global(.seleccionado) {
+    background-color:lightgray;
+  }
 </style>
 
 <section id="VideoGaleria" class="VideoGaleria">
@@ -213,7 +220,8 @@
             </a>
           </header>
 
-          <VideoReproductor enlace={videoActual.enlace+"?autoplay=1"} />
+          <VideoReproductor
+            enlace={videoActual.enlace + '?autoplay=1&color=orange&modestbranding=1'} />
         {:else}
           <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
         {/if}
