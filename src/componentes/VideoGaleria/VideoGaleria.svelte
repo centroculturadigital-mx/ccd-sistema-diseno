@@ -55,11 +55,14 @@
   const seleccionar = (i, elemento = "") => {
     activo = i;
 
-    // limpiaColorLista(elemento.parentElement.childNodes);
+    if (elemento != "") {
+      // Aplica color activo + quita color activo anterior
 
-    // Aplica color activo
-    elemento.style.backgroundColor = "rgba(200,200,200,0.35)";
-    elemento.style.opacity = "opacity(0.85)";
+      limpiaColorLista(elemento.parentElement.childNodes);
+
+      elemento.style.backgroundColor = "rgba(200,200,200,0.35)";
+      elemento.style.opacity = "opacity(0.85)";
+    }
   };
 
   const limpiaColorLista = lista => {
@@ -73,9 +76,9 @@
   onMount(() => {
     // estilo video inicial
     let inicial = document.querySelector(".VideosLista").children[0];
-    seleccionar(0,inicial)
-    // 
-  })
+    seleccionar(0, inicial);
+    //
+  });
 </script>
 
 <style>
@@ -147,7 +150,7 @@
       overflow-y: scroll;
       overflow-x: hidden;
       max-height: calc(var(--altura) + 5rem);
-    padding-left: 1rem;
+      padding-left: 1rem;
     }
   }
   @media screen and (min-width: 1024px) {
