@@ -324,6 +324,7 @@
         object-fit: contain;
         transition: all 0.3s ease-in-out;
         opacity: 0.25;
+        cursor: pointer;
     }
 
     .boton-flecha:hover img,
@@ -370,10 +371,10 @@
 
 </style>
 
-<div bind:this={carrusel} class={`Carrusel ${direccion}`} id={`carrusel_${id}`} style={estilosCarrusel}>
+<div class={`Carrusel ${direccion}`} id={`carrusel_${id}`} style={estilosCarrusel}>
     {#if Array.isArray(elementos) }
 
-        <div class="ventana" style={estilosVentana}>
+        <div bind:this={carrusel} class="ventana" style={estilosVentana}>
             <div class="elementos" style={estilosLista}>
 
                     {#each elementos as elemento, i ("elemento_"+i) }
