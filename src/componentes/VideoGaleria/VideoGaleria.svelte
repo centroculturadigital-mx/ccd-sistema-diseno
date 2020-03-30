@@ -74,10 +74,10 @@
   };
   onMount(() => {
     // estilo video inicial
-    let inicial = document.querySelector(".VideosLista").children[0];
     setTimeout(() => {
+    let inicial = document.querySelector(".VideosLista").children[0];
       seleccionar(0, inicial);    
-    },2000)
+    },1000)
     //
   });
 </script>
@@ -148,7 +148,7 @@
     }
     .ContenedorLista {
       width: 40%;
-      overflow-y: scroll;
+      overflow-y: auto;
       overflow-x: hidden;
       max-height: calc(var(--altura) + 5rem);
       padding-left: 1rem;
@@ -213,7 +213,7 @@
             </a>
           </header>
 
-          <VideoReproductor enlace={videoActual.enlace} />
+          <VideoReproductor enlace={videoActual.enlace+"?autoplay=1"} />
         {:else}
           <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
         {/if}
