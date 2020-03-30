@@ -31,6 +31,8 @@ export { default as Header }
 from "./componentes/Header/Header.svelte";
 export { default as Footer }
 from "./componentes/Footer/Footer.svelte";
+export { default as Pie }
+from "./componentes/Pie/Pie.svelte";
 export { default as Label }
 from "./componentes/Label/Label.svelte";
 export { default as Logo }
