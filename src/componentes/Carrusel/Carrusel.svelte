@@ -340,7 +340,7 @@
 
 
 
-    .boton-anterior { right: calc( 100% - 2rem ); }
+    .boton-anterior { right: calc( 100% ); }
     .boton-siguiente { right: -2rem; }
 
 
