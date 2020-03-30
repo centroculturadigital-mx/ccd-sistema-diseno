@@ -1,10 +1,10 @@
 <script>
 
     import {onMount} from "svelte"
-    import IconoCaretIzquierda from "../../../public/recursos/iconos/caret-izquierda-64.png"
-    import IconoCaretArriba from "../../../public/recursos/iconos/caret-arriba-64.png"
-    import IconoCaretDerecha from "../../../public/recursos/iconos/caret-derecha-64.png"
-    import IconoCaretAbajo from "../../../public/recursos/iconos/caret-abajo-64.png"
+    import IconoCaretIzquierda from "../../../public/recursos/iconos/caret-izquierda-64-negro.png"
+    import IconoCaretArriba from "../../../public/recursos/iconos/caret-arriba-64-negro.png"
+    import IconoCaretDerecha from "../../../public/recursos/iconos/caret-derecha-64-negro.png"
+    import IconoCaretAbajo from "../../../public/recursos/iconos/caret-abajo-64-negro.png"
 
     export let elementos;
     
@@ -121,8 +121,8 @@
         generarEstilosAnchoAlto(tamannoLista,altoCarrusel)+generarEstilosLista(scrollX,scrollY);
 
     $: estilosVentana = `
-        ${ direccion == "horizontal" ? `width: calc( 100% - ${0}rem );`:`` }
-        ${ direccion == "vertical" ? `height: calc( 100% - ${0}rem );`:`` }
+        ${ direccion == "horizontal" ? `width: calc( 100% - ${4}rem );`:`` }
+        ${ direccion == "vertical" ? `height: calc( 100% - ${2}rem );`:`` }
     `
     // $: estilosLista = generarEstilosAnchoAlto(anchoElemento*elementos.length,alto)+generarEstilosLista(scrollX,scrollY)
 
@@ -207,14 +207,13 @@
 
         min-width: 15rem;
         min-height: 15rem;
-
         
-        margin: 0 4rem;
     }
 
     .ventana {
         box-sizing: border-box;
-        width: 100%;
+        width: calc( 100% - 4rem );
+        margin-left: 2rem;
         height: 100%;
         display: block;
         overflow: hidden;
@@ -311,13 +310,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: none;
+        background: none !important;
         border: none;
-        background-color: rgba(0,0,0,0.1);
         border-radius: 50%;
-        transition: all 0.3s ease-in-out;
         outline: none;
-        box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
     }
 
 
@@ -326,22 +322,25 @@
     .boton-flecha img {
         height: 70%;
         object-fit: contain;
+        transition: all 0.3s ease-in-out;
+        opacity: 0.25;
     }
 
-    .boton-flecha:hover,
-    .boton-flecha:active
+    .boton-flecha:hover img,
+    .boton-flecha:active img
     {
-        transform: scale(1.025);
-        background-color: rgba(0,0,0,0.2);
-        box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+        transform: scale(1.03);
+        opacity: 0.8;
+        /* background-color: rgba(0,0,0,0.2);
+        box-shadow: 3px 3px 3px rgba(0,0,0,0.1); */
 
     }
 
 
 
 
-    .boton-anterior { right: calc( 100% ); }
-    .boton-siguiente { right: -2rem; }
+    .boton-anterior { right: calc( 100% - 2rem ); }
+    .boton-siguiente { right: 0; }
 
 
 
