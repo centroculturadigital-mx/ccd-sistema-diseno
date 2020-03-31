@@ -9,7 +9,7 @@
   export let imagen;
   export let abrir;
 
-  let alturaImagen;
+  // let alturaImagen;
 </script>
 
 <style>
@@ -58,7 +58,7 @@
       imagenUrl={imagen}
       altTexto={nombre}
       alineacion={'center'}
-      altura={alturaImagen} />
+      />
 
     <a href="#" on:click|preventDefault={abrir}>
       <img src={iconoPlay} alt="play" />

@@ -1,10 +1,9 @@
 <script>
-  import { slide } from "svelte/transition";
   import Insertar from "../../../elementos/media/Insertar/Insertar.svelte";
 
   export let enlace;
-  export let alto;
-  export let ancho;
+  export let id;
+
 </script>
 
 <style>
@@ -20,6 +19,6 @@
 
 <article class="VideoReproductor">
 
-  <Insertar {enlace} {alto} {ancho} />
+  <Insertar {id} {enlace}/>
 
 </article>

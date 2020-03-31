@@ -45,19 +45,19 @@
     }
   };
 
-  let estado;
+  let estado; 
 
   const alternarEstado = () => {
     estado = !estado;
+    console.log("HAHAHAHAH",estado);
+    
   };
 
-  // const seleccionar = (i, elemento) => {
   const seleccionar = (i, elemento = "") => {
     activo = i;
 
     if (elemento != "") {
-      // Aplica color activo + quita color activo anterior
-      // relestea color fondo lista
+      // reset color activo
       elemento.parentElement.childNodes.forEach(item => {
         if (item.nodeName === "ARTICLE") {
           item.classList.remove("seleccionado");
@@ -65,21 +65,52 @@
           item.style.opacity = "1";
         }
       });
-      // actualiza elemento activo
+      // actualiza color activo
       elemento.classList.remove("fondoLista");
       elemento.classList.add("seleccionado");
       elemento.style.opacity = "0.75";
+      //
     }
+      onYouTubeIframeAPIReady();
   };
+
+  let player;
+  let id = "VideoReproductor";
 
   onMount(() => {
     // estilo video inicial
     setTimeout(() => {
       let inicial = document.querySelector(".VideosLista").children[0];
       seleccionar(0, inicial);
-    }, 2000);
+    }, 1500);
     //
   });
+
+  //Agrega tag con la api
+  var tag = document.createElement("script");
+  tag.id = "iframe-video";
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  //
+  const onYouTubeIframeAPIReady = () => {
+    player = new YT.Player(id, {
+      events: {
+        onStateChange: onPlayerStateChange
+      }
+    });
+  };
+  const onPlayerStateChange = (event) => {
+    if (event.data === 1) {
+      console.log("Video Playing", event);
+      // event.target.playVideo();
+    } else {
+      console.log("Video Paused", event);
+      // event.target.pauseVideo();
+    }
+  }
+
 </script>
 
 <style>
@@ -200,10 +231,10 @@
   }
   /*  */
   :global(.fondoLista) {
-    background-color:#FFF;
+    background-color: #fff;
   }
   :global(.seleccionado) {
-    background-color:lightgray;
+    background-color: lightgray;
   }
 </style>
 
@@ -221,7 +252,9 @@
           </header>
 
           <VideoReproductor
-            enlace={videoActual.enlace + '?autoplay=1&color=orange&modestbranding=1'} />
+            {id}
+            enlace={videoActual.enlace+'?enablejsapi=1&autoplay=1&color=white'} 
+            />
         {:else}
           <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
         {/if}
