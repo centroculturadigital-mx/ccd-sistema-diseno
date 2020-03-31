@@ -45,17 +45,16 @@
     }
   };
 
-  let estado; 
+  let estado;
 
   const alternarEstado = () => {
     estado = !estado;
-    console.log("HAHAHAHAH",estado);
-    
   };
 
   const seleccionar = (i, elemento = "") => {
     activo = i;
 
+    // limpia elementos que no son article
     if (elemento != "") {
       // reset color activo
       elemento.parentElement.childNodes.forEach(item => {
@@ -69,22 +68,14 @@
       elemento.classList.remove("fondoLista");
       elemento.classList.add("seleccionado");
       elemento.style.opacity = "0.75";
-      //
-    }
+      //conecta con el iframe
       onYouTubeIframeAPIReady();
+    }
   };
 
   let player;
+  let estadoVideo = 1;
   let id = "VideoReproductor";
-
-  onMount(() => {
-    // estilo video inicial
-    setTimeout(() => {
-      let inicial = document.querySelector(".VideosLista").children[0];
-      seleccionar(0, inicial);
-    }, 1500);
-    //
-  });
 
   //Agrega tag con la api
   var tag = document.createElement("script");
@@ -97,20 +88,35 @@
   const onYouTubeIframeAPIReady = () => {
     player = new YT.Player(id, {
       events: {
+        onReady: onPlayerReady,
         onStateChange: onPlayerStateChange
       }
     });
   };
-  const onPlayerStateChange = (event) => {
-    if (event.data === 1) {
-      console.log("Video Playing", event);
-      // event.target.playVideo();
-    } else {
-      console.log("Video Paused", event);
-      // event.target.pauseVideo();
+  const onPlayerReady = event => {
+    switch (estadoVideo) {
+      case 1:
+        event.target.playVideo();
+        console.log("Video inicia");
+        break;
+      case 2:
+        event.target.pauseVideo();
+        console.log("Video pausado");
+        break;
     }
-  }
+  };
+  const onPlayerStateChange = event => {
+    estadoVideo = event.data;
+  };
 
+  onMount(() => {
+    // estilos video inicial + evento inicial
+    let inicial = document.querySelector(".VideosLista").children[0];
+    setTimeout(() => {
+      seleccionar(0, inicial);
+    }, 1000);
+    //
+  });
 </script>
 
 <style>
@@ -253,8 +259,7 @@
 
           <VideoReproductor
             {id}
-            enlace={videoActual.enlace+'?enablejsapi=1&autoplay=1&color=white'} 
-            />
+            enlace={videoActual.enlace + '?enablejsapi=1&color=white'} />
         {:else}
           <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
         {/if}
