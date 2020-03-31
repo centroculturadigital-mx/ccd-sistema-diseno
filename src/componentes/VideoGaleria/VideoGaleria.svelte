@@ -56,7 +56,7 @@
 
     // limpia elementos que no son article
     if (elemento != "") {
-      // reset color activo
+      // reset color activo de sus hermanos
       elemento.parentElement.childNodes.forEach(item => {
         if (item.nodeName === "ARTICLE") {
           item.classList.remove("seleccionado");
@@ -64,28 +64,32 @@
           item.style.opacity = "1";
         }
       });
-      // actualiza color activo
+      // actualiza estilo activo
       elemento.classList.remove("fondoLista");
       elemento.classList.add("seleccionado");
       elemento.style.opacity = "0.75";
-      //conecta con el iframe
-      onYouTubeIframeAPIReady();
+            //conecta con el iframe al seleccionar elemento de la lista
+      setTimeout(
+        () => {
+          youtube(id);
+        },
+      1500)
     }
   };
 
   let player;
-  let estadoVideo = 1;
+  let estadoVideo = 1; // 1 = comienza en play
   let id = "VideoReproductor";
 
   //Agrega tag con la api
-  var tag = document.createElement("script");
+  let tag = document.createElement("script");
   tag.id = "iframe-video";
   tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
+  let firstScriptTag = document.getElementsByTagName("script")[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   //
-  const onYouTubeIframeAPIReady = () => {
+  const youtube = (id) => {
     player = new YT.Player(id, {
       events: {
         onReady: onPlayerReady,
@@ -94,14 +98,14 @@
     });
   };
   const onPlayerReady = event => {
+    console.log("onPlayerReady",event);
+    
     switch (estadoVideo) {
       case 1:
         event.target.playVideo();
-        console.log("Video inicia");
         break;
       case 2:
         event.target.pauseVideo();
-        console.log("Video pausado");
         break;
     }
   };
@@ -115,6 +119,7 @@
     setTimeout(() => {
       seleccionar(0, inicial);
     }, 1000);
+    
     //
   });
 </script>
