@@ -6,6 +6,8 @@
   import Imagen from "../media/Imagen/Imagen";
 
   export let icono;
+  export let tamanno = "2rem";
+  export let color = "#000";
 
   const iconos = {
     play,
@@ -15,9 +17,24 @@
 
   $: iconoMostrar = iconos[icono];
 </script>
-<style>
 
+<style>
+  .iconoContenedor {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  .iconoContenedor :global(*) {
+    fill: inherit;
+  }
 </style>
+
 {#if icono && Object.keys(iconos).includes(icono)}
-  <Imagen imagenUrl={iconoMostrar} altTexto={`Ícono ${icono}`} altura={"32px"}/>
+  <div class="iconoContenedor" style={`fill:${color};`}>
+    <Imagen
+      on:click
+      imagenUrl={iconoMostrar}
+      altTexto={`Ícono ${icono}`}
+      altura={tamanno} />
+  </div>
 {/if}

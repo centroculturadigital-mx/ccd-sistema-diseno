@@ -1,10 +1,9 @@
 import Header from '../../../componentes/Header/Header.svelte';
 import Placeholder from '../../../../public/placeholder.jpg';
 
-export default {title: 'Componentes/Header/Header'}
+export default { title: 'Componentes/Header/Header' }
 
-let rutas =  [
-    {
+let rutas = [{
         label: "Ruta",
         ruta: "una-ruta"
     },
@@ -32,6 +31,18 @@ export const headerDefault = () => ({
         objetosMenu: rutas,
         logoImagenUrl: Placeholder,
         logoTexto: 'Logo Sitio',
+    }
+});
+export const headerIconoDiccionario = () => ({
+    Component: Header,
+    props: {
+        objetosMenu: rutas,
+        logoImagenUrl: Placeholder,
+        logoTexto: 'Logo Sitio',
+        iconoMenu: {
+            abrir: 'menu',
+            cerrar: 'cerrar'
+        }
     }
 });
 export const headerColorBG = () => ({

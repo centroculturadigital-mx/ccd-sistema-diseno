@@ -4,6 +4,7 @@
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
   import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
+  import Icono from "../../elementos/Icono/Icono";
 
   export let menuAlternar;
   export let logoTexto;
@@ -18,14 +19,12 @@
   export let sombra;
   export let fixed;
   export let estadoMenu;
-  export let iconoBotonEstadoUnoUrl;
-  export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
   export let alturaMenuMovil;
   export let objetosMenuExtra;
   export let segment;
 
-  $: clases = `Header Cabecera ${!!fixed ? 'fixed' : ''}`
+  $: clases = `Header Cabecera ${!!fixed ? "fixed" : ""}`;
   //  Responsivo
   let responsivo;
   let breakpoint = 1024;
@@ -56,7 +55,7 @@
 
 <header
   style="background-color:{colorFondo};height:{altura};{!!sombra ? 'box-shadow:0 1px 2px rgba(0,0,0,0.5)' : ''}"
-  class={ clases }>
+  class={clases}>
   <div>
 
     {#if Array.isArray(logos)}
@@ -67,13 +66,7 @@
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
-      <BotonIcono
-        on:click={menuAlternar}
-        estado={estadoMenu}
-        {iconoBotonEstadoUnoUrl}
-        {iconoBotonEstadoDosUrl}
-        iconoAltura={iconoBotonAltura}
-        colorBG={colorFondo} />
+      <Icono on:click={menuAlternar} icono={!estadoMenu ? 'menu' : 'cerrar'} tamanno={iconoBotonAltura }/>
     {:else if !!objetosMenu}
       <MenuEscritorio {objetosMenu} {colorFondo} {color} />
     {/if}

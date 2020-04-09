@@ -5,7 +5,7 @@
   export let alineacion;
   export let altura;
 
-  $: clases = altura ? "width-auto":"";
+  $: clases = altura ? "width-auto" : "";
 </script>
 
 <style>
@@ -16,12 +16,13 @@
     width: 100%;
   }
   .width-auto {
-    width:auto;
+    width: auto;
   }
 </style>
 
 <img
-class={clases}
+  on:click
+  class={clases}
   src={imagenUrl}
   alt={altTexto}
   style="object-fit:{ajuste};object-position:{alineacion};height:{altura}" />

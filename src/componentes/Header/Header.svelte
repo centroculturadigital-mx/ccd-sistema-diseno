@@ -11,8 +11,6 @@
   export let color;
   export let sombra;
   export let fixed;
-  export let iconoBotonEstadoUnoUrl;
-  export let iconoBotonEstadoDosUrl;
   export let iconoBotonAltura;
   export let alturaMenuMovil;
   export let objetosMenuExtra;
@@ -34,8 +32,6 @@
   {logoTexto}
   {logoImagenUrl}
   {logos}
-  {iconoBotonEstadoUnoUrl}
-  {iconoBotonEstadoDosUrl}
   {iconoBotonAltura}
   {colorFondo}
   {colorFondoMovil}
