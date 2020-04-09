@@ -265,6 +265,8 @@
           <VideoReproductor
             {id}
             enlace={videoActual.enlace + '?enablejsapi=1&color=white'} />
+            <!-- enlace={videoActual.enlace + '?enablejsapi=1&color=white'} /> -->
+            <!-- enlace={videoActual.enlace + '?enablejsapi=1&color=white'} /> -->
         {:else}
           <VideoTarjeta imagen={videoActual.imagen} abrir={alternarEstado} />
         {/if}
