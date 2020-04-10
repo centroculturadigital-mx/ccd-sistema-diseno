@@ -25,6 +25,8 @@ export { default as TextArea }
 from "./elementos/inputs/TextArea/TextArea.svelte";
 export { default as Insertar }
 from "./elementos/media/Insertar/Insertar.svelte";
+export { default as Icono }
+from "./elementos/Icono/Icono.svelte";
 
 //  Componentes
 export { default as Header }
