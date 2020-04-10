@@ -21,7 +21,7 @@
   $: bloques = bloquesJSON.map( bloque => generarContenido(bloque));
   
   const generarContenido = nodo => {
-
+ 
     // let elementos = []
 
     if(Array.isArray(nodo)) {
@@ -77,6 +77,15 @@
           break;
           
         case "text":
+          return {
+            componente: Texto,
+            data: {
+              texto: nodo.text,
+              estilos: nodo.marks.map(m=>m.type)
+            }
+          }
+
+        case "blockquote":
           return {
             componente: Texto,
             data: {
