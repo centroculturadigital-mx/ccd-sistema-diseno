@@ -43,6 +43,13 @@
                   contenido: generarContenido(nodo.nodes)
                 }
               };
+            case "blockquote":
+              return {
+                componente: Cita,
+                data: {
+                  contenido: generarContenido(nodo.nodes)
+                }
+              };
             case "heading":
               return {
                 componente: Titulo,
@@ -85,14 +92,6 @@
             }
           }
 
-        case "blockquote":
-          return {
-            componente: Texto,
-            data: {
-              texto: nodo.text,
-              estilos: nodo.marks.map(m=>m.type)
-            }
-          }
         
         case "inline":
           
