@@ -61,7 +61,7 @@
     {#if Array.isArray(logos)}
       <Logos {logos} />
     {:else if !!logoImagenUrl}
-      <Logo {logoTexto} {logoImagenUrl} logoAncho={'30%'} />
+      <Logo {logoTexto} logotipo={logoImagenUrl} logoAncho={'30%'} />
     {/if}
 
     <!-- Menu Escritorio  -->
