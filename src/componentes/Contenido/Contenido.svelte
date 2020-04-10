@@ -6,6 +6,7 @@
 
   import Texto from "../../elementos/texto/Texto/Texto.svelte"
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte"
+  import Cita from "../../elementos/texto/Cita/Cita.svelte"
   import Titulo from "../../elementos/texto/Titulo/Titulo.svelte"
   import Enlace from "../../elementos/enlaces/Enlace/Enlace.svelte"
   import ListaElemento from "../../elementos/listas/ListaElemento/ListaElemento.svelte"
