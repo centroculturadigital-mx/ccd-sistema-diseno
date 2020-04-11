@@ -54,7 +54,7 @@
 
         {#if mensajeVacio }
             <div class="Aviso">
-                <Parrafo texto={mensajeVacio}/>`
+                <Parrafo texto={mensajeVacio}/>
             </div>
         {/if}
 
