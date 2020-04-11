@@ -9,13 +9,16 @@
 </script>
 
 <style>
-    div {
-        max-height: 80vh;
-        overflow-x: hidden;
-        overflow-y: auto;
+    .ListaComponentes {
+        height: auto;
     }
 
+    ul, ul li {
+        margin: 0;
+    }
+    
     ul li {
+        list-style-type: none;
         margin-bottom: 1rem;
     }
 

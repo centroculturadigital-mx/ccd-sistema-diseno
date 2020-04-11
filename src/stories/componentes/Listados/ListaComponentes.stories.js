@@ -7,15 +7,22 @@ const elementos = [
     {
         componente: TarjetaHorizontal,
         data: {
-            titulo: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
+            titulo: "Voluptate velit laborum voluptate excepteur consectetur cupidatat elit incididunt velit commodo aute.",
             imagenUrl: "http://fakeimg.pl/300x200?text=1"
         }
     },
     {
         componente: TarjetaHorizontal,
         data: {
-            titulo: "Laborum aliqua sit do in nostrud magna cupidatat ex fugiat enim ad aute elit cupidatat.",
+            titulo: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
             imagenUrl: "http://fakeimg.pl/300x200?text=2"
+        }
+    },
+    {
+        componente: TarjetaHorizontal,
+        data: {
+            titulo: "Laborum aliqua sit do in nostrud magna cupidatat ex fugiat enim ad aute elit cupidatat.",
+            imagenUrl: "http://fakeimg.pl/300x200?text=3"
         }
     },
 ]
