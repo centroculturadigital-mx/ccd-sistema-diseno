@@ -3,18 +3,19 @@
   import Paginacion from "../../Navegacion/Paginacion/Paginacion";
 
   export let elementos;
-  export let elementosPagina;
+  export let elementosPagina=10;
 
-  let pagina = 0;
+  export let pagina;
+  let paginaSeleccionada;
+  
+  $: paginaActual = pagina ? pagina : paginaSeleccionada;
 
   const seleccionar = i => {
-    
-    pagina = i;
-
+    paginaActual = i;
   };
 
 
-  $: elementoInicial = pagina*elementosPagina;
+  $: elementoInicial = paginaActual*elementosPagina;
 
   $: elementosMostrar = elementos.slice(elementoInicial,elementoInicial+elementosPagina);
 
@@ -24,5 +25,5 @@
 <Paginacion
   {elementos}
   {elementosPagina}
-  {pagina}
+  {paginaActual}
   {seleccionar} />
