@@ -6,12 +6,17 @@
   export let elementosPagina=10;
 
   export let pagina;
-  let paginaSeleccionada;
-  
+  export let seleccionar;
+  let paginaSeleccionada=0;
+
   $: paginaActual = pagina ? pagina : paginaSeleccionada;
 
-  const seleccionar = i => {
-    paginaActual = i;
+  const seleccionarPagina = i => {
+    paginaSeleccionada = i;
+    
+    if( typeof seleccionar == "function" ) {
+      seleccionar(i)
+    }
   };
 
 
@@ -25,5 +30,6 @@
 <Paginacion
   {elementos}
   {elementosPagina}
-  {paginaActual}
-  {seleccionar} />
+  pagina={paginaActual}
+  seleccionar={i=>seleccionarPagina(i)}
+  />

@@ -14,7 +14,7 @@
             elementos.length : null
 
     
-    $: mostrar = revisarNumero(elementosMostrar) && typeof seleccionar == "function"
+    $: mostrar = revisarNumero(elementosMostrar)
     
     $: paginasNum = Math.ceil( elementosMostrar / elementosPagina )
     $: paginas = Array(3).fill(0).map((e,i)=>i)

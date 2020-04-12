@@ -18,3 +18,17 @@ export const ListaPaginadaDefault = () => ({
         elementosPagina: 3
     },
 });
+
+let pagina = 0
+export const ListaPaginadaFuncion = () => ({
+    Component: ListaPaginada,
+    props: {
+        elementos,
+        elementosPagina: 3,
+        seleccionar: i => {
+            console.log("seleccionaste:", i);
+            pagina = i
+        },
+        pagina
+    },
+});
