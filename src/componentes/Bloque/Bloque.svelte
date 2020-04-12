@@ -3,6 +3,7 @@
   export let contenido;
   export let tamanno;
   export let texto;
+  export let color;
   
 </script>
 
@@ -23,7 +24,7 @@
       <svelte:component this={contenido.componente} {...contenido.data} {tamanno}/>
 
     {:else}
-      <span style={`font-size: ${tamanno}`}>
+      <span style={`font-size: ${tamanno};color: ${color};`}>
         {@html contenido}
       </span>
 
@@ -34,7 +35,7 @@
 {:else}
 
   {#if !! texto}
-      <span style={`font-size: ${tamanno}`}>
+      <span style={`font-size: ${tamanno};color: ${color};`}>
         {texto}
       </span>
 

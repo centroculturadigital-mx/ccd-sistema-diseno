@@ -65,3 +65,9 @@ export { default as Carrusel }
 from "./componentes/Carrusel/Carrusel.svelte";
 export { default as Carruseles }
 from "./componentes/Carrusel/Carruseles.svelte";
+export { default as ListaComponentes }
+from "./componentes/Listados/ListaComponentes/ListaComponentes.svelte";
+export { default as ListaPaginada }
+from "./componentes/Listados/ListaPaginada/ListaPaginada.svelte";
+export { default as Reticula }
+from "./componentes/Listados/Reticula/Reticula.svelte";
