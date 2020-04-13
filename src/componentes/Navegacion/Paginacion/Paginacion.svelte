@@ -20,6 +20,8 @@
     $: paginas = Array(3).fill(0).map((e,i)=>i)
         
     $: actual =  pagina ? pagina : paginaSeleccionada ? paginaSeleccionada : 0
+    $: console.log(pagina,actual);
+    
 
     let paginaSeleccionada
 
