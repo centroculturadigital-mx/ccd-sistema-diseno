@@ -29,7 +29,7 @@
 
 <ListaComponentes elementos={elementosMostrar} {elementosPagina} />
 <Paginacion
-  {elementos}
+  {elementosMostrar}
   {elementosPagina}
   pagina={pagina}
   seleccionar={i=>seleccionarPagina(i)}
