@@ -64,11 +64,11 @@
     
         <nav>
             <ul>
-                {#each paginas as pagina, i ("pagina_"+i)}
+                {#each paginas as p, i ("pagina_"+i)}
 
                     <li class={ i == actual ? "actual" : "" }>
                         <button on:click={e=>accion(e,i)}>
-                            {pagina}
+                            {p}
                         </button>
                     </li>
 
