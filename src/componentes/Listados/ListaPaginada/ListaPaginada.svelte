@@ -9,10 +9,11 @@
   export let seleccionar;
   let paginaSeleccionada=0;
 
-  $: paginaActual = pagina ? pagina : paginaSeleccionada;
+  $: paginaActual = ( pagina===0 || parseInt(pagina) > 0 ) ? pagina : paginaSeleccionada;
+  $: console.log("pa",paginaActual);
 
   const seleccionarPagina = i => {
-    paginaSeleccionada = i;
+    pagina = i;
     
     if( typeof seleccionar == "function" ) {
       seleccionar(i)
@@ -30,6 +31,6 @@
 <Paginacion
   {elementos}
   {elementosPagina}
-  pagina={paginaActual}
+  pagina={pagina}
   seleccionar={i=>seleccionarPagina(i)}
   />

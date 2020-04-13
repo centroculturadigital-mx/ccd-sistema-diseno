@@ -1,4 +1,5 @@
 import ListaPaginada from '../../../componentes/Listados/ListaPaginada/ListaPaginada.svelte';
+import ListaPaginadaTester from '../../../componentes/Listados/ListaPaginada/ListaPaginadaTester.svelte';
 import TarjetaHorizontal from '../../../componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal';
 
 export default { title: 'Componentes/Listado/ListaPaginada' }
@@ -26,9 +27,16 @@ export const ListaPaginadaFuncion = () => ({
         elementos,
         elementosPagina: 3,
         seleccionar: i => {
-            console.log("seleccionaste:", i);
             pagina = i
+            console.log("seleccionaste:", pagina);
         },
         pagina
+    },
+});
+
+export const ListaPaginadaAutomatico = () => ({
+    Component: ListaPaginadaTester,
+    props: {
+        elementos,
     },
 });

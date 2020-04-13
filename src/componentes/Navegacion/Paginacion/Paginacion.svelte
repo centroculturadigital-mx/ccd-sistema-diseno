@@ -17,10 +17,9 @@
     $: mostrar = revisarNumero(elementosMostrar)
     
     $: paginasNum = Math.ceil( elementosMostrar / elementosPagina )
-    $: paginas = Array(3).fill(0).map((e,i)=>i)
+    $: paginas = Array(3).fill(0).map((e,i)=>{ return i+1})
         
-    $: actual =  pagina ? pagina : paginaSeleccionada ? paginaSeleccionada : 0
-    $: console.log(pagina,actual);
+    $: actual =  (pagina===0 || parseInt(pagina)>0) ? pagina : paginaSeleccionada ? paginaSeleccionada : 0
     
 
     let paginaSeleccionada
@@ -69,7 +68,7 @@
 
                     <li class={ i == actual ? "actual" : "" }>
                         <button on:click={e=>accion(e,i)}>
-                            {i}
+                            {pagina}
                         </button>
                     </li>
 
