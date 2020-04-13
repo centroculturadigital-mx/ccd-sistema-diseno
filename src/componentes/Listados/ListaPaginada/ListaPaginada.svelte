@@ -12,7 +12,7 @@
   let paginaSeleccionada=0;
 
   $: paginaActual = ( pagina===0 || parseInt(pagina) > 0 ) ? pagina : paginaSeleccionada ? paginaSeleccionada : 0;
-  $: console.log("pa",paginaActual);
+  $: console.log("pa",pagina,paginaActual);
 
   const seleccionarPagina = i => {
     pagina = i;
@@ -27,7 +27,6 @@
 
   $: elementosCargados = elementos;
   $: elementosMostrar = elementosCargados.slice(elementoInicial,elementoInicial+elementosPaginaNum);
-  $: console.log(elementoInicial,elementosPaginaNum, elementosMostrar.length);
   
 
 </script>
