@@ -25,7 +25,8 @@
 
   $: elementoInicial = paginaActual*elementosPaginaNum;
 
-  $: elementosMostrar = elementos.slice(elementoInicial,elementoInicial+elementosPaginaNum);
+  $: elementosCargados = elementos;
+  $: elementosMostrar = elementosCargados.slice(elementoInicial,elementoInicial+elementosPaginaNum);
   $: console.log(elementoInicial,elementosPaginaNum, elementosMostrar.length);
   
 
@@ -33,7 +34,7 @@
 
 <ListaComponentes elementos={elementosMostrar} elementosPagina={elementosPaginaNum} />
 <Paginacion
-  {elementos}
+  elementos={elementosCargados}
   elementosPagina={elementosPaginaNum}
   pagina={pagina}
   seleccionar={i=>seleccionarPagina(i)}
