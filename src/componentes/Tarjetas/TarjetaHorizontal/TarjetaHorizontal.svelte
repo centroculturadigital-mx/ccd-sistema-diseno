@@ -14,6 +14,17 @@
   export let sombra;
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonAltura;
+  export let chica;
+
+  $: nivelTituloMostrar = chica ? 5 : nivelTitulo ? nivelTitulo :  4
+
+
+  $: clases = (
+    (!!sombra ? 'sombra' : '')
+    +
+    (!!chica ? 'chica' : '')
+  )
+
 </script>
 
 <style>
@@ -34,6 +45,8 @@
   }
   .tarjeta-texto {
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
     width: 50%;
     padding: 0.5rem 1rem;
   }
@@ -45,9 +58,14 @@
   .sombra {
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
   }
+
+  .chica .tarjeta-imagen {
+    height: 4rem;
+    width: 25%;
+  }
 </style>
 
-<article style="background-color:{colorBG};" class={!!sombra ? 'sombra' : ''}>
+<article style="background-color:{colorBG};" class={clases}>
 
   <div class="tarjeta-imagen">
     <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
@@ -56,7 +74,7 @@
   <div class="tarjeta-texto">
 
     {#if !!titulo}
-      <Titulo texto={titulo} nivel={nivelTitulo} color={colorTitulo} />
+      <Titulo texto={titulo} nivel={nivelTituloMostrar} color={colorTitulo} />
     {/if}
     <Parrafo {texto} {color} />
 

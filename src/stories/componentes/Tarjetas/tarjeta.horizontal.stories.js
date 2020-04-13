@@ -68,3 +68,15 @@ export const tarjetaHorizontalSombra = () => ({
         sombra: true,
     }
 });
+export const tarjetaHorizontalChica = () => ({
+    Component: TarjetaHorizontal,
+    props: {
+        imagenUrl: Placeholder,
+        titulo: 'Esto es un título.',
+        nivelTitulo: 'h3',
+        colorTitulo: 'gray',
+        color: 'gray',
+        colorBG: 'white',
+        chica: true,
+    }
+});
