@@ -19,7 +19,7 @@
     $: paginasNum = Math.ceil( elementosMostrar / elementosPagina )
     $: paginas = Array(3).fill(0).map((e,i)=>i)
         
-    $: actual = paginaSeleccionada ? paginaSeleccionada : pagina ? pagina : 0
+    $: actual =  pagina ? pagina : paginaSeleccionada ? paginaSeleccionada : 0
 
     let paginaSeleccionada
 
