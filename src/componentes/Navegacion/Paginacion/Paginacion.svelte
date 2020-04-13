@@ -5,10 +5,10 @@
 
     export let elementos
     export let elementosPagina=10
-    export let pagina=0
+    export let pagina
     export let seleccionar
 
-    
+
     $: elementosMostrar = revisarNumero(elementos) ?
         elementos : Array.isArray(elementos) ?
             elementos.length : null
