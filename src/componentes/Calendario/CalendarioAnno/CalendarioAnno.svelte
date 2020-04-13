@@ -4,6 +4,8 @@
 
     import diccionario from "../calendario.diccionario"
 
+    import Titulo from "../../../elementos/texto/Titulo/Titulo"
+
     
 
 
@@ -11,6 +13,9 @@
 
     export let fecha
     export let accion
+    export let eventos
+    
+    $: eventosMostrar = eventos
     
     $: anno = fecha ? fecha.year() : null
 
@@ -56,5 +61,19 @@
             </li>
         {/each}
     </ul>
-
 </nav>
+
+<section class="eventos">
+
+<ul>
+    {#each eventosMostrar as evento,i ("evento_"+i)}
+        <li>
+            
+            <Titulo nivel={5} texto={evento.nombre}/>
+            <Titulo nivel={6} texto={moment(evento.fecha).format("D/MMMM/YY")}/>
+
+        </li>
+    {/each}
+</ul>
+
+</section>

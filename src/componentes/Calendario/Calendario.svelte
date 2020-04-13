@@ -12,14 +12,19 @@ import CalendarioDia from "./CalendarioDia/CalendarioDia";
 
 let vistaActual = 0
 
+export let eventos
 export let seleccionarMes
 
 const vistaSeleccionar = i => { 
     vistaActual = i
+
+
+
 }
 
 
 $: vistaMostrar = vistas[vistaActual]
+
 
 
 
@@ -44,7 +49,8 @@ $: vistas = [
         componente: CalendarioAnno,
         data: {
             accion: seleccionarMesActual,
-            fecha
+            fecha,
+            eventos
         },
     },
     {
@@ -53,7 +59,8 @@ $: vistas = [
         componente: CalendarioMes,
         data: {
             accion: seleccionarSemanaActual,
-            fecha
+            fecha,
+            eventos
         }
     },
     {
@@ -62,7 +69,8 @@ $: vistas = [
         componente: CalendarioSemana,
         data: {
             accion: seleccionarDiaActual,
-            fecha
+            fecha,
+            eventos
         }
     },
     {
@@ -70,7 +78,8 @@ $: vistas = [
         nombre: "Dia",
         componente: CalendarioDia,
         data: {
-            fecha
+            fecha,
+            eventos
         }
     },
 ]
