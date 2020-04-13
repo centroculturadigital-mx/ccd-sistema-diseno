@@ -10,10 +10,10 @@ let pagina = 0
 setInterval(()=>{
 
     pagina++
-    pagina %= 3
-
-},500)
+    pagina %= Math.ceil(elementos.length/3)
+    
+},1000)
 
 </script>
 
-<ListaPaginada {elementos} elementosPagina="3" {pagina} {seleccionar}/>
+<ListaPaginada {elementos} elementosPagina={3} {pagina} {seleccionar}/>

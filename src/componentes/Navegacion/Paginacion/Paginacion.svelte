@@ -17,7 +17,7 @@
     $: mostrar = revisarNumero(elementosMostrar)
     
     $: paginasNum = Math.ceil( elementosMostrar / elementosPagina )
-    $: paginas = Array(3).fill(0).map((e,i)=>{ return i+1})
+    $: paginas = Array(paginasNum).fill(0).map((e,i)=>{ return i+1})
         
     $: actual =  (pagina===0 || parseInt(pagina)>0) ? pagina : paginaSeleccionada ? paginaSeleccionada : 0
     

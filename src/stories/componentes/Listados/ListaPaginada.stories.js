@@ -4,9 +4,10 @@ import TarjetaHorizontal from '../../../componentes/Tarjetas/TarjetaHorizontal/T
 
 export default { title: 'Componentes/Listado/ListaPaginada' }
 
-const elementos = new Array(12).fill(0).map((e, i) => ({
+const elementos = new Array(15).fill(0).map((e, i) => ({
     componente: TarjetaHorizontal,
     data: {
+        chica: true,
         titulo: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
         imagenUrl: "http://fakeimg.pl/300x200?text=" + i
     }
@@ -38,5 +39,6 @@ export const ListaPaginadaAutomatico = () => ({
     Component: ListaPaginadaTester,
     props: {
         elementos,
+        elementosPagina: 3
     },
 });
