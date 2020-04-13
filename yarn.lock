@@ -752,15 +752,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@centroculturadigital-mx/ccd-sistema-diseno@/home/josecaos/Documents/CCD-agenda.digital/proyectos/sistema.diseno/ccd-sistema-diseno":
-  version "0.1.6"
-  dependencies:
-    escape-html "^1.0.3"
-    rollup-plugin-svg-import "^1.4.0"
-    sirv-cli "^0.4.4"
-    svelte-feather-icons "^3.2.2"
-    svg-inline-loader "^0.8.2"
-
 "@emotion/cache@^10.0.27":
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.27.tgz#7895db204e2c1a991ae33d51262a3a44f6737303"
@@ -5096,6 +5087,11 @@ mkdirp@^0.5.1:
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
