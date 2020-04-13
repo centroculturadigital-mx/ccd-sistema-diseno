@@ -16,6 +16,7 @@
 
   const seleccionarPagina = i => {
     pagina = i;
+    paginaSeleccionada = i;
     
     if( typeof seleccionar == "function" ) {
       seleccionar(i)
