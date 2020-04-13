@@ -87,7 +87,11 @@
 
 {#if typeof fecha == "object"}
 
-    <h1>Semana {fecha.week()}</h1>
+    <h1>
+        {fecha.format("MMMM")}
+        {Math.max(1,fecha.date()-fecha.weekday())} - 
+        {Math.min(fecha.daysInMonth(),fecha.date()+7-fecha.weekday())}
+    </h1>
 
     <section class="dias">
     
