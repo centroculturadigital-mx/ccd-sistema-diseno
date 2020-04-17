@@ -1,53 +1,33 @@
 <script>
   export let placeholder;
-  export let type = "text";
+  export let tipo = "text";
 
-  let name = type;
-  let inputType = type
-  let valor;
-  let color;
+  export let valor;
+  export let validacion;
 
-  export let tipo
-  export let nombre
+  export let status;
 
-  $: inputName = !! nombre ? nombre : !! tipo ? tipo : name;
-  
+  $: clases = 'Input' + (status ? " " + status : '' );
+
   $: seleccionarTipo(tipo)
 
   const seleccionarTipo = (tipo) => {
     switch( tipo ) {
       case "texto":
-        inputType = "text"
+        tipo = "text"
         break;
       case "numero":
-        inputType = "number"
+        tipo = "number"
         break;
       case "contrasenna":
-        inputType = "password"
+        tipo = "password"
         break;
       case "email":
-        inputType = "email"
+        tipo = "email"
         break;
     }
   }
 
-  const validaEntrada = e => {
-    let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]"); //solo acepta guion medio y bajo
-    let evento = e.target.value;
-    let validado = caracteresEspeciales.test(evento);
-
-    if (validado != true) {
-      valor = false;
-      color = "ok";
-    } else {
-      valor = true;
-      color = "error";
-    }
-    if (evento == "") {
-      valor = false;
-      color = "";
-    }
-  };
 </script>
 
 <style>
@@ -74,16 +54,62 @@
   }
 </style>
 
-<input
-  on:keyup={validaEntrada}
-  id="text"
-  class={color}
-  type={inputType}
-  
-  name={inputName}
-  {placeholder} />
-<div id="mensaje" class={color}>
-  {#if valor === true}
-    <p>No acepta caracteres especiales.</p>
-  {/if}
-</div>
+
+{#if tipo == "text"}
+
+  <input
+    on:keyup={validacion}
+    class={clases}
+    type="text" 
+    {placeholder}
+    bind:value={valor}
+  />
+
+{/if}
+
+{#if tipo == "email"}
+
+  <input
+    on:keyup={validacion}
+    class={clases}
+    type="email" 
+    {placeholder}
+    bind:value={valor}
+  />
+
+{/if}
+
+{#if tipo == "textarea"}
+
+  <textarea
+    on:keyup={validacion}
+    class={clases}
+    {placeholder}
+    bind:value={valor}
+  />
+
+{/if}
+
+{#if tipo == "numero"}
+
+  <input
+    on:keyup={validacion}
+    class={clases}
+    type="number" 
+    {placeholder}
+    bind:value={valor}
+  />
+
+{/if}
+
+{#if tipo == "archivo"}
+
+  <input
+    on:keyup={validacion}
+    class={clases}
+    type="file" 
+    {placeholder}
+    bind:value={valor}
+  />
+
+{/if}
