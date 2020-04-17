@@ -1,7 +1,7 @@
-import Campo from '../../../componentes/Campo/Campo.svelte';
+import Campo from '../../../../componentes/formularios/Campo/Campo.svelte';
 
 export default {
-    title: 'Componentes/Campo/Campo'
+    title: 'Componentes/Formularios/Campo/Campo'
 }
 
 
@@ -36,7 +36,7 @@ export const campoDefault = () => ({
     Component: Campo,
     props: {
         etiqueta: 'Un campo',
-        tipo: 'text',
+        tipo: 'texto',
         placeholder: 'Un campo default',
     },
 });
@@ -45,7 +45,7 @@ export const campoConValor = () => ({
     Component: Campo,
     props: {
         etiqueta: 'Un campo con valor',
-        tipo: 'text',
+        tipo: 'texto',
         placeholder: 'Escribe algo',
         valor: 'Labore sint minim ex duis.',
     },
@@ -55,7 +55,7 @@ export const campoConError = () => ({
     Component: Campo,
     props: {
         etiqueta: 'Un campo con error',
-        tipo: 'text',
+        tipo: 'texto',
         placeholder: 'Un campo default',
         valor: "oh :(",
         error: new Error('Error: Labore sint minim ex duis.'),
@@ -67,7 +67,7 @@ export const campoConError = () => ({
 //     Component: Campo,
 //     props: {
 //         etiqueta: 'Un campo',
-//         tipo: 'text',
+//         tipo: 'texto',
 //         placeholder: 'Un campo default',
 //         valor: valorValidado.valor,
 //         validacion: e => {
@@ -81,7 +81,7 @@ export const campoConError = () => ({
 export const campoTexto = () => ({
     Component: Campo,
     props: {
-        tipo: 'text',
+        tipo: 'texto',
         etiqueta: 'Un campo texto',
         placeholder: "...",
     },

@@ -1,19 +1,16 @@
 <script>
-  import Input from "../../elementos/inputs/Input/Input.svelte";
-  import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte";
+  import Input from "../../../elementos/inputs/Input/Input.svelte";
+  import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let etiqueta;
+  export let nombre;
   export let tipo;
   export let placeholder;
   export let valor;
   export let error;
-  export let validacion;
+  export let cambiar;
   export let status;
 
-
-  $: console.log("valor",valor);
-  $: console.log("error_____?????",error);
-  
 
 
 </script>
@@ -38,9 +35,10 @@
     
     <Input
     {tipo}
+    {nombre}
     valor={valor}
     {placeholder} on:keyup
-    {validacion}
+    {cambiar}
     {status}
     />
     {#if error instanceof Error }

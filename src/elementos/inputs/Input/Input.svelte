@@ -1,20 +1,31 @@
 <script>
   export let placeholder;
-  export let tipo = "text";
+  export let tipo = "texto";
 
   export let valor;
-  export let validacion;
+  export let cambiar;
+  export let nombre;
 
   export let status;
+
+  let valorLocal
+
+  // $: (typeof cambiar == "function" && !! valorLocal) ? cambiar(valorLocal) : null
+  
+  // $: cambiarValorDesdeFuera( valor )
 
   $: clases = 'Input' + (status ? " " + status : '' );
 
   $: seleccionarTipo(tipo)
 
+  // const cambiarValorDesdeFuera = nuevoValor => {
+  //   valorLocal = nuevoValor
+  // }
+  
   const seleccionarTipo = (tipo) => {
     switch( tipo ) {
       case "texto":
-        tipo = "text"
+        tipo = "texto"
         break;
       case "numero":
         tipo = "number"
@@ -55,14 +66,15 @@
 </style>
 
 
-{#if tipo == "text"}
+{#if tipo == "texto"}
 
   <input
-    on:keyup={validacion}
     class={clases}
+    on:keyup={e=>cambiar(e.target.value)}
+    name={nombre}
     type="text" 
     {placeholder}
-    bind:value={valor}
+    bind:value={valorLocal}
   />
 
 {/if}
@@ -70,11 +82,12 @@
 {#if tipo == "email"}
 
   <input
-    on:keyup={validacion}
     class={clases}
+    on:keyup={e=>cambiar(e.target.value)}
+    name={nombre}
     type="email" 
     {placeholder}
-    bind:value={valor}
+    bind:value={valorLocal}
   />
 
 {/if}
@@ -82,22 +95,25 @@
 {#if tipo == "textarea"}
 
   <textarea
-    on:keyup={validacion}
     class={clases}
+    on:keyup={e=>cambiar(e.target.value)}
+    name={nombre}
     {placeholder}
-    bind:value={valor}
-  />
+    bind:value={valorLocal}
+  ></textarea>
+
 
 {/if}
 
 {#if tipo == "numero"}
 
   <input
-    on:keyup={validacion}
     class={clases}
+    on:keyup={e=>cambiar(e.target.value)}
+    name={nombre}
     type="number" 
     {placeholder}
-    bind:value={valor}
+    bind:value={valorLocal}
   />
 
 {/if}
@@ -105,11 +121,12 @@
 {#if tipo == "archivo"}
 
   <input
-    on:keyup={validacion}
     class={clases}
+    on:keyup={e=>cambiar(e.target.value)}
+    name={nombre}
     type="file" 
     {placeholder}
-    bind:value={valor}
+    bind:value={valorLocal}
   />
 
 {/if}

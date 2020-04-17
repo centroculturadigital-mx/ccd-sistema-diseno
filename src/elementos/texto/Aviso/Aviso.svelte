@@ -4,6 +4,9 @@ export let texto
 
 import Parrafo from "../Parrafo/Parrafo";
 
+$: color = texto instanceof Error ? '#f00' : '#000'
+$: textoMostrar = texto instanceof Error ? texto.message : texto
+
 </script>
 
 <style>
@@ -24,7 +27,7 @@ import Parrafo from "../Parrafo/Parrafo";
 
     <div class="Aviso">
 
-        <Parrafo {texto}/>
+        <Parrafo {texto} {color}/>
 
     </div>
     

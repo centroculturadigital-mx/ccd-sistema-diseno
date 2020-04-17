@@ -29,6 +29,8 @@ export { default as Icono }
 from "./elementos/Icono/Icono.svelte";
 
 //  Componentes
+export { default as Campo }
+from "./componentes/formularios/Campo/Campo.svelte";
 export { default as Header }
 from "./componentes/Header/Header.svelte";
 export { default as Footer }
