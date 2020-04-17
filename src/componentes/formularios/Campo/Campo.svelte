@@ -4,6 +4,7 @@
 
   export let etiqueta;
   export let nombre;
+  export let requerido;
   export let tipo;
   export let placeholder;
   export let valor;
@@ -32,6 +33,9 @@
   <label>
     
     {#if !!etiqueta}{etiqueta}{/if}
+    {#if requerido }
+      <span>*requerido</span>
+    {/if}
     
     <Input
     {tipo}

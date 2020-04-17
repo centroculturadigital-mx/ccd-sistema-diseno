@@ -9,6 +9,7 @@ let campos = [
     {
         tipo: 'texto',
         nombre: 'ccd-sd-texto',
+        requerido: true,
         etiqueta: 'un texto sin caracteres especiales',
         valorInicial: '...',
         validacion: (valor)=>{
@@ -30,6 +31,15 @@ let campos = [
         etiqueta: 'el numero de la bestia',
         valorInicial: '...',
         validacion: (valor)=>{
+            
+            if( ! typeof valor == "number" || valor === "" ) {
+                return {
+                    valido: false,
+                    status: "error",
+                    error: new Error("Números, por favor")
+                }
+            }
+            
             if( ! valor ) return {
                 valido: true,
                 status: ""
@@ -50,6 +60,7 @@ let campos = [
     {
         tipo: 'textarea',
         nombre: 'ccd-sd-textarea',
+        requerido: true,
         etiqueta: 'un textarea menor a 10 caracteres',
         valorInicial: '...',
         validacion: (valor)=>{

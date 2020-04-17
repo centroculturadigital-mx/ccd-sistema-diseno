@@ -9,7 +9,7 @@
   export let status;
 
   let valorLocal
-
+  
   // $: (typeof cambiar == "function" && !! valorLocal) ? cambiar(valorLocal) : null
   
   // $: cambiarValorDesdeFuera( valor )
@@ -101,7 +101,6 @@
     {placeholder}
     bind:value={valorLocal}
   ></textarea>
-
 
 {/if}
 

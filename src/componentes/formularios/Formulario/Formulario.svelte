@@ -37,17 +37,11 @@
         let resultadoValidacion = c.validacion( valor )
 
 
-        console.log("@wtfwerf",resultadoValidacion);
-        
-
-        
         const campoPreparado = {
           ...c,
           // valor,
           // valor: c.valorInicial ? c.valorInicial : null,
           cambiar: (valorLocal)=>{
-            console.log("va a cambioar", valorLocal);
-            
             cambiar(valorLocal,c)
           },
           error: resultadoValidacion.error,
@@ -69,25 +63,37 @@
 
 
   const cambiar = (valor,c) => {
-    if( typeof c.validacion == "function" ) {
-      if( c.validacion(valor).valido ) {
-        
-        console.log("??>",c.nombre,valor);
+    // if( typeof c.validacion == "function" ) {
+      // if( c.validacion(valor).valido ) {
         datos[c.nombre]=valor
-      } else {
-        console.log("mal!",valor);
-        datos[c.nombre] = valor
-      }
-    }
+      // } else {
+        // datos[c.nombre] = null
+      // }
+    // }
   }
 
     
+  $: hayErrores = ! camposMostrar || camposMostrar.filter(c=>!!c.error).length>0
+  
+
+  $: hayRequeridosVacios = camposMostrar
+    .filter(c=>!!c.requerido)
+    .filter(cR=>!datos[cR.nombre] )
+    .length > 0
+
   const enviarFuncion = () => {
-      console.log("enviar data:",datos);
-      if( typeof enviar == "function" ) {
+    
+    if( typeof enviar == "function" ) {
+      
+        console.log("enviar data:",datos);
+
+        if( ! hayErrores || ! hayRequeridosVacios() ) {
           enviar( datos )
+        }
+
       }
   }
+
 
 
   const validarCampo = c => {
@@ -129,7 +135,7 @@
 
               {/each}
               
-              <input type="submit"/>
+              <input disabled={(hayErrores||hayRequeridosVacios)} type="submit"/>
 
           </form>
 
