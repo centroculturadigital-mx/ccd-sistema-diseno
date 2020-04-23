@@ -32,11 +32,11 @@
     width: 5.2em;
     height: 10.2em;
     background-color:inherit;
-    border-radius: 10.2rem 0 0 10.2rem;
-    top: -0.1em;
-    left: -0.1em;
+    border-radius: 10.3rem 0 0 10.3rem;
+    top: -0.2em;
+    left: -0.2em;
     -webkit-transform-origin: 5.1em 5.1em;
-    transform-origin: 5.1em 5.1em;
+    transform-origin: 5em 5em;
     -webkit-animation: animaCarga 2s infinite ease 1.5s;
     animation: animaCarga 2s infinite ease 1.5s;
   }
@@ -45,7 +45,7 @@
     height: 10.2em;
     /* background: #0dc5c1; */
     background-color: inherit;
-    border-radius: 0 10.2em 10.2em 0;
+    border-radius: 0 10.3rem 10.3rem 0;
     top: -0.1em;
     left: 4.9em;
     -webkit-transform-origin: 0.1em 5.1em;
