@@ -2,28 +2,67 @@ import IndicadorCargaCircular from '../../../../elementos/IndicadoresCarga/Indic
 
 export default { title: 'Elementos/IndicadoresCarga/Circular' }
 
-export const CirculoDefault = () => ({
+export const circuloDefault = () => ({
     Component: IndicadorCargaCircular,
-    props: {},
 });
-export const CirculoColor = () => ({
+export const circuloColor = () => ({
     Component: IndicadorCargaCircular,
     props: {
         color: 'purple',
     },
 });
-export const CirculoColorFondo = () => ({
+export const circuloColorFondo = () => ({
+    Component: IndicadorCargaCircular,
+    props: {
+        color: '#000',
+        colorFondo: '#000'
+    },
+});
+export const circuloColorFondo2 = () => ({
+    Component: IndicadorCargaCircular,
+    props: {
+        color: '#FFF',
+        colorFondo: '#FFF'
+    },
+});
+export const circuloColorFondo3 = () => ({
     Component: IndicadorCargaCircular,
     props: {
         color: 'orange',
         colorFondo: '#000'
     },
 });
-export const CirculoColorTamanno = () => ({
+export const circuloGrande = () => ({
     Component: IndicadorCargaCircular,
     props: {
-        color: 'orange',
+        color: 'gray',
         colorFondo: '#000',
-        tamanno: '0.25rem'
+        tamanno: "6rem",
+    },
+});
+export const circuloChico = () => ({
+    Component: IndicadorCargaCircular,
+    props: {
+        color: 'gray',
+        colorFondo: '#000',
+        tamanno: "1rem"
+    },
+});
+export const circuloDelgado = () => ({
+    Component: IndicadorCargaCircular,
+    props: {
+        color: 'gray',
+        colorFondo: '#000',
+        tamanno: "4rem",
+        grosor: "0.05rem"
+    },
+});
+export const circuloGrueso = () => ({
+    Component: IndicadorCargaCircular,
+    props: {
+        color: 'blue',
+        colorFondo: '#000',
+        tamanno: "4rem",
+        grosor: "1rem"
     },
 });
