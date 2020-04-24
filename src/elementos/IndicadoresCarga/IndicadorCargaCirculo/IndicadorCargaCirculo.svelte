@@ -50,7 +50,7 @@
   <div class="IndicadorCargaCircular" 
   style="border: {grosor ? grosor : "0.25rem"} solid #f3f3f3;
   width:{tamanno ? tamanno : "3rem"}; height:{tamanno ? tamanno : "3rem"};
-  border-top: {grosor ? grosor : "0.25rem"} solid {color ? color : "#000"};
+  border-top: {grosor ? grosor : "0.25rem"} solid {color ? color : "rgba(0, 0, 0, 0.5)"};
   "/>
 
 </section>
