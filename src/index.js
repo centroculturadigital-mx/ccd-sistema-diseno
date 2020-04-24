@@ -27,8 +27,10 @@ export { default as Insertar }
 from "./elementos/media/Insertar/Insertar.svelte";
 export { default as Icono }
 from "./elementos/Icono/Icono.svelte";
-export { default as IndicadorCargaCircular }
-from "./elementos/IndicadoresCarga/IndicadorCargaCircular/IndicadorCargaCircular.svelte";
+export { default as IndicadorCargaCirculo }
+from "./elementos/IndicadoresCarga/IndicadorCargaCirculo/IndicadorCargaCirculo.svelte";
+export { default as IndicadorCargaLinea }
+from "./elementos/IndicadoresCarga/IndicadorCargaLinea/IndicadorCargaLinea.svelte";
 
 //  Componentes
 export { default as Campo }
