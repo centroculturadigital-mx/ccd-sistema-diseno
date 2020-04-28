@@ -7,7 +7,7 @@ export const logoDefault = () => ({
     Component: Logo,
     props: {
         alineacion: "center",
-        logoImagenUrl: ImagenFondo,
+        logotipo: ImagenFondo,
         logoTexto: 'LOGO',
         enlace: "http://centroculturadigital.mx"
     }
@@ -32,7 +32,7 @@ export const logoSinEnlace = () => ({
     props: {
         logoTexto: 'LOGO',
         alineacion: "center",
-        logoImagenUrl: ImagenFondo,
+        logotipo: ImagenFondo,
     }
 });
 export const logoImagen = () => ({
@@ -40,14 +40,14 @@ export const logoImagen = () => ({
     props: {
         logoAncho: '40%',
         logoTexto: 'LOGO',
-        logoImagenUrl: ImagenFondo,
+        logotipo: ImagenFondo,
     }
 });
 export const logoAnchoFila = () => ({
     Component: Logo,
     props: {
         logoAncho: '33%',
-        logoImagenUrl: ImagenFondo,
+        logotipo: ImagenFondo,
         logoTexto: 'LOGO',
     }
 });
@@ -57,7 +57,7 @@ export const logoConEnlace = () => ({
         logoAncho: '40%',
         alineacion: 'right',
         logoTexto: 'LOGO',
-        logoImagenUrl: ImagenFondo,
+        logotipo: ImagenFondo,
         enlace: "http://centroculturadigital.mx"
     }
 });
