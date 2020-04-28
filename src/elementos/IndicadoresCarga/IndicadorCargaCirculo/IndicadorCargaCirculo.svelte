@@ -1,6 +1,5 @@
 <script>
   export let color;
-  export let colorFondo;
   export let tamanno;
   export let grosor;
 </script>
@@ -17,6 +16,7 @@
     margin: 2rem;
   }
   .ContenedorIndicador {
+    background-color: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,8 +44,7 @@
 </style>
 
 <section
-  class="ContenedorIndicador"
-  style="background-color: {colorFondo ? colorFondo : "#FFF"};">
+  class="ContenedorIndicador">
 
   <div class="IndicadorCargaCircular" 
   style="border: {grosor ? grosor : "0.25rem"} solid #f3f3f3;
