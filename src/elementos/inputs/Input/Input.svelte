@@ -79,6 +79,19 @@
 
 {/if}
 
+{#if tipo == "contrasenna"}
+
+  <input
+    class={clases}
+    on:keyup={e=>cambiar(e.target.value)}
+    name={nombre}
+    type="password" 
+    {placeholder}
+    bind:value={valorLocal}
+  />
+
+{/if}
+
 {#if tipo == "email"}
 
   <input
@@ -92,17 +105,6 @@
 
 {/if}
 
-{#if tipo == "textarea"}
-
-  <textarea
-    class={clases}
-    on:keyup={e=>cambiar(e.target.value)}
-    name={nombre}
-    {placeholder}
-    bind:value={valorLocal}
-  ></textarea>
-
-{/if}
 
 {#if tipo == "numero"}
 
@@ -127,5 +129,17 @@
     {placeholder}
     bind:value={valorLocal}
   />
+
+{/if}
+
+{#if tipo == "textarea"}
+
+  <textarea
+    class={clases}
+    on:keyup={e=>cambiar(e.target.value)}
+    name={nombre}
+    {placeholder}
+    bind:value={valorLocal}
+  ></textarea>
 
 {/if}
