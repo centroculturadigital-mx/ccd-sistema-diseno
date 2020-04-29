@@ -27,7 +27,7 @@ $: textoMostrar = texto instanceof Error ? texto.message : texto
 
     <div class="Aviso">
 
-        <Parrafo {textoMostrar} {color}/>
+        <Parrafo texto={textoMostrar} {color}/>
 
     </div>
     
