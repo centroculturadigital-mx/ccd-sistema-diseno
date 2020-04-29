@@ -122,11 +122,16 @@
   }
 </style>
 
+
+TEST1
 {#if !respuesta}
 
+TEST2
   {#if Array.isArray(campos)}
+TEST3
       {#if campos.length > 0}
 
+TEST4
 
           <form on:submit|preventDefault={enviarFuncion}>
 
