@@ -13,6 +13,8 @@ export { default as MenuMovil }
 from "./elementos/menu/MenuMovil/MenuMovil.svelte";
 export { default as Titulo }
 from "./elementos/texto/Titulo/Titulo.svelte";
+export { default as Aviso }
+from "./elementos/texto/Aviso/Aviso.svelte";
 export { default as Parrafo }
 from "./elementos/texto/Parrafo/Parrafo.svelte";
 export { default as Input }
