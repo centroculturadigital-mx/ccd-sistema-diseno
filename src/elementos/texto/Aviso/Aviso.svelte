@@ -23,11 +23,11 @@ $: textoMostrar = texto instanceof Error ? texto.message : texto
 </style>
 
 
-{#if texto}
+{#if textoMostrar}
 
     <div class="Aviso">
 
-        <Parrafo {texto} {color}/>
+        <Parrafo texto={textoMostrar} {color}/>
 
     </div>
     
