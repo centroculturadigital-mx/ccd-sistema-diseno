@@ -4,19 +4,20 @@ import EntidadTarjeta from '../../../../componentes/CMS/EntidadTarjeta/EntidadTa
 export default { title: 'CMS/Componentes/EntidadesLista' }
 
 const elementos = new Array(12).fill(true).map((e, i) => ({
-    componente: EntidadTarjeta,
-    data: {
-        icono: "cerrar",
-        nombre: "Mi entidad " + i,
-        cantidad: "12" + i,
-        clave: "mi-entidad",
-        clave_plural: "mis-entidades"
-    }
+    icono: "cerrar",
+    nombre: "Mi entidad " + i,
+    cantidad: "12" + i,
+    clave: "mi-entidad",
+    clave_plural: "mis-entidades"
 }));
 
 
+
 export const EntidadesListaDefault = () => ({
-    Component: EntidadesLista
+    Component: EntidadesLista,
+    props: {
+        elementos
+    }
 });
 
 export const EntidadesListaVacia = () => ({
@@ -24,13 +25,5 @@ export const EntidadesListaVacia = () => ({
     props: {
         elementos: [],
         mensajeVacio: "Mensaje de lista vacia personalizado"
-    }
-});
-
-export const EntidadesListaLlena = () => ({
-    Component: EntidadesLista,
-    props: {
-        mensajeVacio: "Mensaje personalizado de lista entidades vacia",
-        elementos,
     }
 });

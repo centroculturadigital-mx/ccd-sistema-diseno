@@ -1,5 +1,6 @@
 <script>
   import ListaComponentes from "../../Listados/ListaComponentes/ListaComponentes.svelte";
+  import EntidadTarjeta from "../../../componentes/CMS/EntidadTarjeta/EntidadTarjeta.svelte";
 
   export let elementos;
   export let mensajeVacio = "No hay Entidades";
@@ -28,7 +29,6 @@
 
 <section id="EntidadesLista">
 
-  {#if Array.isArray(elementosMostrar)}
-    <ListaComponentes {elementosMostrar} {mensajeVacio} />
-  {/if}
+    <ListaComponentes elementos={elementosMostrar} {mensajeVacio} />
+
 </section>
