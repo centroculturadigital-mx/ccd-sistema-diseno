@@ -3,10 +3,14 @@
 
   export let elementos;
   export let mensajeVacio = "No hay Entidades";
+
+  $: elementosMostrar = elementos.map(data => ({
+    componente: EntidadTarjeta,
+    data
+  }));
 </script>
 
 <style>
-
   #EntidadesLista :global(.ListaComponentes ul) {
     margin: 0;
     padding: 0;
@@ -24,6 +28,7 @@
 
 <section id="EntidadesLista">
 
-  <ListaComponentes {elementos} {mensajeVacio} />
-
+  {#if Array.isArray(elementosMostrar)}
+    <ListaComponentes {elementosMostrar} {mensajeVacio} />
+  {/if}
 </section>

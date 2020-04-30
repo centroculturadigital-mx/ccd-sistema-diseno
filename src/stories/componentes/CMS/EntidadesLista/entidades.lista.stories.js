@@ -15,11 +15,11 @@ const elementos = new Array(12).fill(true).map((e, i) => ({
 }));
 
 
-export const EntidadTarjetaDefault = () => ({
+export const EntidadesListaDefault = () => ({
     Component: EntidadesLista
 });
 
-export const EntidadTarjetaVacia = () => ({
+export const EntidadesListaVacia = () => ({
     Component: EntidadesLista,
     props: {
         elementos: [],
@@ -27,7 +27,7 @@ export const EntidadTarjetaVacia = () => ({
     }
 });
 
-export const EntidadTarjetaLlena = () => ({
+export const EntidadesListaLlena = () => ({
     Component: EntidadesLista,
     props: {
         mensajeVacio: "Mensaje personalizado de lista entidades vacia",

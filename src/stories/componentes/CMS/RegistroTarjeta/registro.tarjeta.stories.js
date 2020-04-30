@@ -12,7 +12,7 @@ const datos = {
     },
 };
 
-export const EntidadTarjetaDefault = () => ({
+export const RegistroTarjetaDefault = () => ({
     Component: RegistroTarjeta,
     props: datos
 });

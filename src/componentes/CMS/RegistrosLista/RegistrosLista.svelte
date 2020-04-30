@@ -23,7 +23,7 @@
   }
   #RegistrosLista :global(.ListaComponentes ul li) {
     margin: 0;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
   }
 </style>
 
