@@ -2,6 +2,7 @@
   import play from "./iconos/play.svg";
   import menu from "./iconos/menu.svg";
   import cerrar from "./iconos/cerrar.svg";
+  import mas from "./iconos/mas.svg";
 
   import Imagen from "../media/Imagen/Imagen";
 
@@ -12,7 +13,8 @@
   const iconos = {
     play,
     menu,
-    cerrar
+    cerrar,
+    mas
   };
 
   $: iconoMostrar = iconos[icono];
