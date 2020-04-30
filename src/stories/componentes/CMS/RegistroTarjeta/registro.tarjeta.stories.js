@@ -7,8 +7,8 @@ const datos = {
     nombre: "Nombre de registro",
     imagen: "http://fakeimg.pl/200?text=Registro",
     entidad: "mi-entidad",
-    eliminar: () => {
-        console.log("eliminar");
+    eliminar: (e) => {
+        console.log("eliminar", e);
     },
 };
 

@@ -20,7 +20,6 @@
 
   const alternarMenu = () => {
     menuVisible = !menuVisible;
-    console.log("Alternar Menu", menuVisible);
   };
 </script>
 
@@ -29,35 +28,104 @@
     border: 0.5px solid lightgray;
     display: flex;
     flex-direction: row;
+    min-height: 4rem;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
   }
-
+  .imagen {
+    height: 4rem;
+  }
   .menu-lista {
     list-style-type: none;
     margin: 0;
+  }
+  .RegistroTarjeta div:first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .RegistroTarjeta :global(h3) {
+    padding: 0 1rem;
+    margin: 0;
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  nav.menu-acciones a :global(button) {
+    background-color: #f36957;
+  }
+  nav.botones a :global(button) {
+    background-color: #f36957;
+  }
+  .menu-acciones {
+    position: relative;
+  }
+  .menu-acciones .menu :global(button) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-acciones .menu :global(button:hover) {
+    opacity: 0.5;
+  }
+  .menu-lista {
+    position: absolute;
+    right: 0rem;
+    top: -1rem;
+    background-color: white;
+    cursor: pointer;
+    padding: 1rem 0.25rem 1rem;
+    display: flex;
+  }
+  .menu-lista .eliminar {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+  }
+  .menu-lista .eliminar:hover {
+    color: gray;
+  }
+  .menu-lista :global(p) {
+    color: #f36957;
+    margin: 0;
+  }
+  .menu-lista .cerrar-acciones :global(button) {
+    padding: 0.5rem 0.75rem;
   }
 </style>
 
 <section class="RegistroTarjeta">
 
-  <div class="imagen">
-    <Imagen imagenUrl={imagen} altTexto={nombre} />
+  <div>
+    <div class="imagen">
+      <Imagen imagenUrl={imagen} altTexto={nombre} />
+    </div>
+
+    <Titulo texto={nombre} nivel={3} />
+
   </div>
-
-  <Titulo texto={nombre} nivel={3} />
-
-  <nav class="menu-acciones">
+  <nav class="botones">
     <a href={abrir}>
       <Boton texto={'Abrir'} />
     </a>
 
     <div class="menu-acciones">
       <div class="menu" on:click={alternarMenu}>
-        <BotonIcono icono={'mas'} />
+        <BotonIcono icono={'mas'} texto={''} />
       </div>
 
       {#if menuVisible}
         <ul class="menu-lista" transition:fade>
-          <li class="eliminar" on:click={eliminar}>Eliminar</li>
+          <li class="eliminar" on:click={eliminar}>
+            <Parrafo texto={'Eliminar'} />
+          </li>
+          <li class="cerrar-acciones" on:click={alternarMenu}>
+            <BotonIcono texto={''} icono={'cerrar'} />
+          </li>
         </ul>
       {/if}
     </div>
