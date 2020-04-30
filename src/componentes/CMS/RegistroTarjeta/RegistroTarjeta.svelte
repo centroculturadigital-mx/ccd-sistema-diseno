@@ -78,8 +78,12 @@
     top: -1rem;
     background-color: white;
     cursor: pointer;
-    padding: 1rem 0.25rem 1rem;
+    padding: 1rem 0.25rem 1rem !important;
     display: flex;
+    width: auto !important;
+  }
+  .menu-lista li {
+    margin: 0 !important;
   }
   .menu-lista .eliminar {
     padding: 0 1rem;
