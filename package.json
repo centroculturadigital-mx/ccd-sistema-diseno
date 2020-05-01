@@ -24,6 +24,7 @@
         "svelte-loader": "^2.13.6"
     },
     "dependencies": {
+        "@centroculturadigital-mx/ccd-sistema-diseno": "^0.1.820",
         "escape-html": "^1.0.3",
         "moment": "^2.24.0",
         "rollup-plugin-svg-import": "^1.4.0",

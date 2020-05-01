@@ -752,6 +752,18 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@centroculturadigital-mx/ccd-sistema-diseno@^0.1.820":
+  version "0.1.820"
+  resolved "https://registry.yarnpkg.com/@centroculturadigital-mx/ccd-sistema-diseno/-/ccd-sistema-diseno-0.1.820.tgz#ad8f10c296204dfd43bf38aa3e2ab9d17f9a8858"
+  integrity sha512-vfVTNWZlshF92AIoJaL3pdF1UnH9zcLWu4GlQk/gqbk3pLXqvS599YSKy9ymbMrg/m+wGRDAV1a+AfO2PX80+w==
+  dependencies:
+    escape-html "^1.0.3"
+    moment "^2.24.0"
+    rollup-plugin-svg-import "^1.4.0"
+    sirv-cli "^0.4.4"
+    svelte-feather-icons "^3.2.2"
+    svg-inline-loader "^0.8.2"
+
 "@emotion/cache@^10.0.27":
   version "10.0.27"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.27.tgz#7895db204e2c1a991ae33d51262a3a44f6737303"
