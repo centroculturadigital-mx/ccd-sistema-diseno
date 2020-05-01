@@ -21,8 +21,8 @@ export { default as Input }
 from "./elementos/inputs/Input/Input.svelte";
 export { default as InputEmail }
 from "./elementos/inputs/InputEmail/InputEmail.svelte";
-export { default as InputSelect }
-from "./elementos/inputs/InputSelect/InputSelect.svelte";
+export { default as Selector }
+from "./elementos/inputs/Selector/Selector.svelte";
 export { default as TextArea }
 from "./elementos/inputs/TextArea/TextArea.svelte";
 export { default as Insertar }
@@ -81,3 +81,20 @@ export { default as ListaPaginada }
 from "./componentes/Listados/ListaPaginada/ListaPaginada.svelte";
 export { default as Reticula }
 from "./componentes/Listados/Reticula/Reticula.svelte";
+
+export { default as Reticula }
+from "./componentes/Listados/Reticula/Reticula.svelte";
+
+
+export { default as Editor } 
+from "./componentes/CMS/Editor/Editor.svelte";
+export { default as EntidadTarjeta } 
+from "./componentes/CMS/EntidadTarjeta/EntidadTarjeta.svelte";
+export { default as EntidadesLista } 
+from "./componentes/CMS/EntidadesLista/EntidadesLista.svelte";
+export { default as RegistroTarjeta } 
+from "./componentes/CMS/RegistroTarjeta/RegistroTarjeta.svelte";
+export { default as Registros } 
+from "./componentes/CMS/Registros/Registros.svelte";
+export { default as RegistrosLista } 
+from "./componentes/CMS/RegistrosLista/RegistrosLista.svelte";

@@ -10,7 +10,8 @@
     "textarea",
     "numero",
     "archivo",
-    "contrasenna"
+    "contrasenna",
+    "selector"
   ]
 
   let datos = {}

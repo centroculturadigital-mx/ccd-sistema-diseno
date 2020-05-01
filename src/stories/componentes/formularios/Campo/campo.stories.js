@@ -102,6 +102,25 @@ export const campoNumero = () => ({
         placeholder: "0",
     },
 });
+export const campoSelector = () => ({
+    Component: Campo,
+    props: {
+        tipo: 'selector',
+        etiqueta: 'Un campo selector',
+        placeholder: "...",
+        valor: 2,
+        opciones: [
+            {
+                valor: 1,
+                texto: "Hola",
+            },
+            {
+                valor: 2,
+                texto: "Mundo",
+            }
+        ]
+    },
+});
 export const campoArchivo = () => ({
     Component: Campo,
     props: {

@@ -1,6 +1,6 @@
-import InputSelect from '../../../elementos/inputs/InputSelect/InputSelect.svelte';
+import Selector from '../../../elementos/inputs/Selector/Selector.svelte';
 
-export default { title: "Elementos/Inputs/Input Select"}
+export default { title: "Elementos/Inputs/Selector"}
 
 let opciones = [
     {
@@ -23,14 +23,14 @@ const accion = e => console.log("una accion", e);
 const textoPlaceholder = "Selecciona un estado"
 
 export const inputSelectDefault = () => ({
-    Component: InputSelect,
+    Component: Selector,
     props: {
         opciones,
         accion
     },
 });
 export const inputSelectPlaceholder = () => ({
-    Component: InputSelect,
+    Component: Selector,
     props: {
         textoPlaceholder,
         opciones,

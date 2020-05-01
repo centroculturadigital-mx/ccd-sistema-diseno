@@ -1,14 +1,27 @@
 <script>
+
+  import Selector from "../Selector/Selector.svelte";
+
   export let placeholder;
   export let tipo = "texto";
 
   export let valor;
   export let cambiar;
   export let nombre;
+  export let opciones;
 
   export let status;
 
   let valorLocal
+
+  $: valorActualizar(valor)
+
+  const valorActualizar = v => {
+    valorLocal = v
+    console.log("valorLocal",valorLocal);
+    
+  }
+
   
   // $: (typeof cambiar == "function" && !! valorLocal) ? cambiar(valorLocal) : null
   
@@ -141,5 +154,17 @@
     {placeholder}
     bind:value={valorLocal}
   ></textarea>
+
+{/if}
+
+{#if tipo == "selector" && Array.isArray(opciones) }
+
+  <Selector
+    bind:value={valorLocal}
+    {nombre}
+    {opciones}
+    {status}
+    {cambiar}
+  />
 
 {/if}

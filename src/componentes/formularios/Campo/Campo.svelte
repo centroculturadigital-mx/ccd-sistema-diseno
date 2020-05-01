@@ -11,6 +11,7 @@
   export let error;
   export let cambiar;
   export let status;
+  export let opciones;
 
 
 
@@ -40,11 +41,13 @@
     <Input
     {tipo}
     {nombre}
-    valor={valor}
-    {placeholder} on:keyup
-    {cambiar}
+    {valor}
+    {placeholder}
     {status}
+    {cambiar}
+    {opciones}
     />
+    <!-- on:keyup= -->
     {#if error instanceof Error }
       <Parrafo texto={error.message} color="#f00"/>
     {/if}
