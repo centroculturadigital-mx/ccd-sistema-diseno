@@ -43,15 +43,13 @@
           ...c,
           // valor,
           // valor: c.valorInicial ? c.valorInicial : null,
-          cambiar: (valorLocal)=>{
-            cambiar(valorLocal,c)
+          cambiar: (v)=>{
+            cambiar(v,c)
           },
           error: resultadoValidacion.error,
           status: resultadoValidacion.status
         }
         
-        delete campoPreparado.valor
-
         return campoPreparado
       } 
 

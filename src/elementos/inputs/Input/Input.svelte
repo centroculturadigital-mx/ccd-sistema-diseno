@@ -18,8 +18,6 @@
 
   const valorActualizar = v => {
     valorLocal = v
-    console.log("valorLocal",valorLocal);
-    
   }
 
   
