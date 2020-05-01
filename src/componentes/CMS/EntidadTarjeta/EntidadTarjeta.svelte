@@ -10,7 +10,7 @@
   export let cantidad;
   export let clave;
 
-  $: abrir = `/${clave}s`;
+  $: abrir = `/${clave}`;
 
   $: crear = `/${clave}/nuevo`;
 </script>
