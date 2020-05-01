@@ -13,7 +13,6 @@
 
   export let estado = false;
 
-  console.log("BotonIcono", icono);
 </script>
 
 <style>

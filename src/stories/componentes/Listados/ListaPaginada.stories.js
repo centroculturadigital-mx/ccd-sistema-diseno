@@ -29,7 +29,6 @@ export const ListaPaginadaFuncion = () => ({
         elementosPagina: 3,
         seleccionar: i => {
             pagina = i
-            console.log("seleccionaste:", pagina);
         },
         pagina
     },

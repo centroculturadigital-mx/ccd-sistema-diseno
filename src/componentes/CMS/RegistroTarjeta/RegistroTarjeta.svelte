@@ -23,13 +23,6 @@
   };
 
 
-  $:console.log(
-    id,
-nombre,
-imagen,
-entidad,
-eliminar,
-  )
 </script>
 
 <style>

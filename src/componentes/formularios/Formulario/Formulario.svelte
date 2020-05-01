@@ -85,8 +85,6 @@
     
     if( typeof enviar == "function" ) {
       
-        console.log("enviar data:",datos);
-
         if( ! hayErrores || ! hayRequeridosVacios() ) {
           enviar( datos )
         }
