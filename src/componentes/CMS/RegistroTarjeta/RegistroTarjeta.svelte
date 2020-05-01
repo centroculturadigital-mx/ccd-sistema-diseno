@@ -21,6 +21,15 @@
   const alternarMenu = () => {
     menuVisible = !menuVisible;
   };
+
+
+  $:console.log(
+    id,
+nombre,
+imagen,
+entidad,
+eliminar,
+  )
 </script>
 
 <style>

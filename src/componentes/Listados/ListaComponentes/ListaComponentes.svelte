@@ -4,6 +4,7 @@
 
 
     export let elementos;
+    
     export let mensajeVacio
 
 </script>
@@ -37,7 +38,6 @@
                             Hola Elemento!
                         </h6>
                     </article> -->
-
                     <svelte:component this={elemento.componente} {...elemento.data}/>
 
 

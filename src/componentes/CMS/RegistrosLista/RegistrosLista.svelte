@@ -4,10 +4,14 @@
   export let elementos;
   export let mensajeVacio = "No hay Registros";
 
-  $: elementosMostrar = elementos.map(e => ({
+  $: console.log(elementosMostrar);
+  
+
+  $: elementosMostrar = elementos ? elementos.map(e => ({
     componente: RegistroTarjeta,
     data: e
-  }));
+  })) : [];
+
 </script>
 
 <style>
