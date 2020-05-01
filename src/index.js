@@ -82,9 +82,6 @@ from "./componentes/Listados/ListaPaginada/ListaPaginada.svelte";
 export { default as Reticula }
 from "./componentes/Listados/Reticula/Reticula.svelte";
 
-export { default as Reticula }
-from "./componentes/Listados/Reticula/Reticula.svelte";
-
 
 export { default as Editor } 
 from "./componentes/CMS/Editor/Editor.svelte";
