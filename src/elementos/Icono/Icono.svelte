@@ -3,6 +3,7 @@
   import menu from "./iconos/menu.svg";
   import cerrar from "./iconos/cerrar.svg";
   import mas from "./iconos/mas.svg";
+  import imagen from "./iconos/imagen.svg";
 
   import Imagen from "../media/Imagen/Imagen";
 
@@ -14,7 +15,8 @@
     play,
     menu,
     cerrar,
-    mas
+    mas,
+    imagen
   };
 
   $: iconoMostrar = iconos[icono];
