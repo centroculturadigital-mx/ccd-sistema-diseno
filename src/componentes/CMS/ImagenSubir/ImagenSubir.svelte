@@ -14,7 +14,6 @@
   export let opciones;
 
   $: props = {
-    etiqueta,
     nombre,
     requerido,
     placeholder,
@@ -25,7 +24,7 @@
     opciones
   };
 
-const subeImagen = () => {
+const seleccionaImagen = () => {
   console.log("Sube");
   
 }
@@ -40,7 +39,7 @@ const subeImagen = () => {
   visibility: hidden;
   height: 0;
 }
-.Mascara {
+.Contenedor {
   height: 100%;
   width: 100%;
   display: flex;
@@ -56,7 +55,7 @@ const subeImagen = () => {
   <div class="Campo">
     <Campo tipo={'archivo'} {...props} />
   </div>
-  <div class="Mascara" on:click={subeImagen}>
+  <div class="Contenedor" on:click={seleccionaImagen}>
     <Icono icono={'imagen'} tamanno={'2rem'}/>
     <Parrafo texto={etiqueta?etiqueta:"Agrega Fotos"}/>
   </div>

@@ -4,6 +4,9 @@ export default { title: 'CMS/Componentes/ImagenSubir' }
 
 export const imagenSubirInicial = () => ({
     Component: ImagenSubir,
+});
+export const imagenSubirEtiqueta = () => ({
+    Component: ImagenSubir,
     props: {
         etiqueta: "Sube una imagen",
     }
