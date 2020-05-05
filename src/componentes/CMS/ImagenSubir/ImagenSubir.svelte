@@ -45,7 +45,7 @@
 
   const abrir = () => input.click();
 
-  const eliminaImagen = () => {
+  const eliminarImagen = () => {
     imagen = null;
   };
 </script>
@@ -103,20 +103,21 @@
 </style>
 
 <section class="ImagenSubir">
-  <!-- <div class="Campo"> -->
+  
   <input type="file" on:change={seleccionarImagen} bind:this={input} />
-  <!-- </div> -->
+  
   {#if !imagen}
     <div class="Contenedor" on:click={abrir}>
       <Icono icono={'imagen'} tamanno={'2rem'} />
-      <Parrafo texto={etiqueta ? etiqueta : 'Agrega Fotos'} />
+      <Parrafo texto={etiqueta ? etiqueta : 'Agregar Imagen'} />
     </div>
   {:else}
     <div class="ImagenPreparada">
-      <div on:click={eliminaImagen}>
+      <div on:click={eliminarImagen}>
         <BotonIcono icono={'cerrar'} />
       </div>
-      <Imagen imagenUrl={imagen} ajuste={'cover'} altTexto={'Sube imagen'} />
+      <Imagen imagenUrl={imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
     </div>
   {/if}
+
 </section>
