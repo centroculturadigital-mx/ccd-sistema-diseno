@@ -5,6 +5,30 @@ export default {
 }
 
 
+
+let enviarConTiempo = e => {
+
+    respuesta = "Enviando..."
+
+    setTimeout(()=>{
+
+        if( error ) {
+            respuesta = new Error(error)
+        } else {
+            respuesta = "El formulario se ha enviado con éxito"
+        }
+
+    }, 400 )
+}
+
+
+const cambiar = datos => {
+
+    console.log( "cambiaron datos:", datos );
+    
+}
+
+
 let campos = [
     {
         tipo: 'texto',
@@ -108,6 +132,7 @@ export const formularioDefault = () => ({
     Component: FormularioTester,
     props: {
         campos: campos,
+        enviar: enviarConTiempo,
     },
 });
 
@@ -115,6 +140,7 @@ export const formularioValidacion = () => ({
     Component: FormularioTester,
     props: {
         campos: campos,
+        enviar: enviarConTiempo,
     },
 });
 
@@ -122,6 +148,16 @@ export const formularioError = () => ({
     Component: FormularioTester,
     props: {
         campos: campos,
+        enviar: enviarConTiempo,
         error: "Formulario con error"
+    },
+});
+
+export const formularioNoEnviar = () => ({
+    Component: FormularioTester,
+    props: {
+        campos: campos,
+        error: "Formulario con error",
+        cambiar
     },
 });

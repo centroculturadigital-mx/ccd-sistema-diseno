@@ -18,6 +18,7 @@
 
   export let campos;
   export let enviar;
+  export let cambiar;
   export let respuesta
 
   $: camposMostrar = Array.isArray(campos) ?
@@ -44,7 +45,7 @@
           // valor,
           // valor: c.valorInicial ? c.valorInicial : null,
           cambiar: (v)=>{
-            cambiar(v,c)
+            cambiarCampo(v,c)
           },
           error: resultadoValidacion.error,
           status: resultadoValidacion.status
@@ -62,7 +63,7 @@
   }
 
 
-  const cambiar = (valor,c) => {
+  const cambiarCampo = (valor,c) => {
     // if( typeof c.validacion == "function" ) {
       // if( c.validacion(valor).valido ) {
         datos[c.nombre]=valor
@@ -70,6 +71,14 @@
         // datos[c.nombre] = null
       // }
     // }
+
+
+    if( typeof cambiar == "function" ) {
+
+      cambiar(datos)
+      
+    }
+  
   }
 
     
@@ -132,8 +141,10 @@
                   <Campo {...campo}/>
 
               {/each}
-              
-              <input disabled={(hayErrores||hayRequeridosVacios)} type="submit"/>
+
+              {#if !! enviar }
+                <input disabled={(hayErrores||hayRequeridosVacios)} type="submit"/>
+              {/if}
 
           </form>
 
