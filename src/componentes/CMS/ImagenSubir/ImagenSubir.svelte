@@ -3,6 +3,7 @@
   import Icono from "../../../elementos/Icono/Icono.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
+  import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
 
   export let etiqueta;
   export let nombre;
@@ -43,6 +44,10 @@
   };
 
   const abrir = () => input.click();
+
+  const eliminaImagen = () => {
+    imagen = null;
+  };
 </script>
 
 <style>
@@ -66,6 +71,30 @@
     background-color: #b9b9b9;
     cursor: pointer;
   }
+  .ImagenPreparada {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    /* display: flex;
+    justify-content: flex-end; */
+  }
+  .ImagenPreparada div {
+    height: auto;
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+  .ImagenPreparada div :global(.iconoContenedor) {
+    transition: 0.5s;
+    background-color: rgba(255, 255, 255, 0.25);
+    padding: 0.25rem;
+  }
+  .ImagenPreparada div :global(.iconoContenedor:hover) {
+    filter: invert();
+  }
+  .ImagenPreparada div :global(button) {
+    padding: 0;
+  }
   .Contenedor {
     padding: 0.5rem;
     background-color: #b9b9b9;
@@ -77,12 +106,17 @@
   <!-- <div class="Campo"> -->
   <input type="file" on:change={seleccionarImagen} bind:this={input} />
   <!-- </div> -->
-  <div class="Contenedor" on:click={abrir}>
-    {#if !imagen}
+  {#if !imagen}
+    <div class="Contenedor" on:click={abrir}>
       <Icono icono={'imagen'} tamanno={'2rem'} />
       <Parrafo texto={etiqueta ? etiqueta : 'Agrega Fotos'} />
-    {:else}
-      <Imagen imagenUrl={imagen} ajuste={"contain"} altTexto={"Sube imagen"}/>
-    {/if}
-  </div>
+    </div>
+  {:else}
+    <div class="ImagenPreparada">
+      <div on:click={eliminaImagen}>
+        <BotonIcono icono={'cerrar'} />
+      </div>
+      <Imagen imagenUrl={imagen} ajuste={'cover'} altTexto={'Sube imagen'} />
+    </div>
+  {/if}
 </section>

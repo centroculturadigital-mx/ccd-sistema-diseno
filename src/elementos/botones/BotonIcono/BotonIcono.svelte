@@ -1,7 +1,7 @@
 <script>
   import Icono from "../../Icono/Icono.svelte";
  
-  export let texto = "Default";
+  export let texto;
   export let color;
   export let colorBG;
   export let paddingX;
