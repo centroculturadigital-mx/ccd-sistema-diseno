@@ -6,8 +6,10 @@
 
 <style>
   button{
-      padding: 2rem;
+      padding: 3rem;
       border-radius: 50%;
+      border-style: none;
+      margin-right: 1rem;
   }
   .activo {
  background-color: #000;
