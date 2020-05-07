@@ -12,7 +12,7 @@
       margin-right: 1rem;
   }
   .activo {
- background-color: #000;
+ background-color: rgb(47, 47, 47);
  color: #fff;
 
   }
