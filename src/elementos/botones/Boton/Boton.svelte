@@ -4,14 +4,13 @@
   export let colorBG;
   export let paddingX;
   export let radius;
-
 </script>
 
 <style>
   button {
     transition: 0.5s;
-    background-color: transparent;
-    color: #fff;
+    background-color: var(--theme-boton-colores-fondo);
+    color: var(--theme-boton-colores-texto);
     border: none;
     cursor: pointer;
     padding: 0.5rem 1rem;

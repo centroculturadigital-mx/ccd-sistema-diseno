@@ -1,12 +1,9 @@
 <script>
-
-    import themesLibrary from "../../themes/themes"
+    import temas from '../../temas/temas'
     import { ThemeWrapper, ThemeToggle } from 'svelte-themer'
 
-    $: themes = Object.values(themesLibrary)
-
-    export let component = null
-    export let data = {}
+    export let componente = null
+    export let datos = {}
 </script> 
  
 
@@ -27,22 +24,6 @@
         box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
     }
 
-    header nav ul {
-        display: flex;
-        justify-content: center;
-        padding: 1rem;
-    }
-    header nav ul, li {
-        margin: 0;
-    }
-    header nav li {
-        list-style: none;
-        padding: 1rem;
-        outline: 1px solid #666;
-        color: #666;
-    }
-
-
     .container {
 
         width: 100%;
@@ -60,7 +41,7 @@
 </style>
 
 <div class="ThemeTester">
-    <ThemeWrapper themes={themes}>
+    <ThemeWrapper themes={temas}>
 
         <header>
 
@@ -69,7 +50,7 @@
         </header>
 
         <div class="container">
-            <svelte:component this={component} {...data}/>
+            <svelte:component this={componente} {...datos}/>
         </div>
 
     </ThemeWrapper>
