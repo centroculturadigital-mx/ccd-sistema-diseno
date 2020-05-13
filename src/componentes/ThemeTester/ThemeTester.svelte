@@ -1,6 +1,6 @@
 <script>
     import temas from '../../temas/temas'
-    import { ThemeWrapper, ThemeToggle } from 'svelte-themer'
+    import { ThemeWrapper, ThemeToggle } from '@centroculturadigital-mx/svelte-themer'
 
     export let componente = null
     export let datos = {}

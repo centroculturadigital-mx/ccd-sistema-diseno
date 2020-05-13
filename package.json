@@ -12,6 +12,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.7.5",
+        "@centroculturadigital-mx/svelte-themer": "0.0.36",
         "@storybook/svelte": "^5.3.1",
         "babel-loader": "^8.0.6",
         "rollup": "^1.12.0",
@@ -24,13 +25,11 @@
         "svelte-loader": "^2.13.6"
     },
     "dependencies": {
-        "@centroculturadigital-mx/ccd-sistema-diseno": "^0.1.820",
         "escape-html": "^1.0.3",
         "moment": "^2.24.0",
         "rollup-plugin-svg-import": "^1.4.0",
         "sirv-cli": "^0.4.4",
         "svelte-feather-icons": "^3.2.2",
-        "svelte-themer": "^0.1.4",
         "svg-inline-loader": "^0.8.2"
     }
 }

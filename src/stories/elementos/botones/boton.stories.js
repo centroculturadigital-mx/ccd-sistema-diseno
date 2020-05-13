@@ -1,13 +1,15 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Boton from '../../../elementos/botones/Boton/Boton.svelte';
-// import temas from '../../../temas/temas';
 
 export default { title: 'Elementos/Botones/Botón' }
 
 export const botonDefault = () => ({
-    Component: Boton,
+    Component: ThemeTester,
     props: {
-        texto: 'Botón',
+        componente: Boton,
+        datos: {
+            texto: 'Botón',
+        }
     },
 });
 export const botonTemas = () => ({

@@ -9,20 +9,17 @@
 <style>
   button {
     transition: 0.5s;
-    background-color: var(--theme-boton-colores-fondo);
-    color: var(--theme-boton-colores-texto);
+    background-color: var(--theme-botones-fondo);
+    color: var(--theme-botones-color);
     border: none;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: var(--theme-botones-espacio);
     margin: 0;
   }
   button:hover {
     box-shadow: 1px 2px 2px #477751;
   }
-  img {
-    height: 2rem;
-    width: auto;
-  }
+
 </style>
 
 <button
