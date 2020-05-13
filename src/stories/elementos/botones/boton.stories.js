@@ -22,10 +22,13 @@ export const botonTemas = () => ({
     },
 });
 export const botonColorTexto = () => ({
-    Component: Boton,
+    Component:ThemeTester ,
     props: {
+        componente: Boton,
+    datos:{
         texto: 'Color de texto',
-        color: 'orange',
+        color: 'orange',}    
+        
     },
 });
 export const botonColorFondo = () => ({

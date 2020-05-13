@@ -1,10 +1,15 @@
 const variables = {
     colores: {
         texto: {
+            base: "#4C4CFF",
             claro: '#FFF',
             oscuro: '#282230',
         },
-        fondo: "#ddd",
+        fondo: {
+            base: "#4C4CFF",
+            claro: "#CDCCFF",
+            oscuro: "#2700CA",    
+        },
         primario: {
             base: "#4C4CFF",
             claro: "#CDCCFF",

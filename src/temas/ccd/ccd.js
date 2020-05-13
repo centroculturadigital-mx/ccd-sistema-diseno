@@ -12,13 +12,18 @@ const tema = {
             }
         },
         botones: {
+            primario: {
             fondo: variables.colores.primario.base,
             color: variables.colores.texto.claro,
             espacio: variables.espaciados.md,
-            tipografia: estilos.tipografia.parrafo,
+            tipografia: estilos.tipografia.parrafo,    
+            },
             secundario: {
-                // aqui otro tipo de boton
-            }
+            fondo: variables.colores.primario.oscuro,
+            color: variables.colores.texto.claro,
+            espacio: variables.espaciados.sm,
+            tipografia: estilos.tipografia.parrafo,
+            }          
         },
         espaciado: {
             padding: variables.espaciados.md,

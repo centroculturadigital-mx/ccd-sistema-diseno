@@ -9,11 +9,11 @@
 <style>
   button {
     transition: 0.5s;
-    background-color: var(--theme-botones-fondo);
-    color: var(--theme-botones-color);
+    background-color: var(--theme-botones-primario-fondo);
+    color: var(--theme-botones-primario-color);
     border: none;
     cursor: pointer;
-    padding: var(--theme-botones-espacio);
+    padding: var(--theme-botones-primario-espacio);
     margin: 0;
   }
   button:hover {
