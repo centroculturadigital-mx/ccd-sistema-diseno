@@ -27,9 +27,14 @@ const variables = {
         }
     },
     tipografia: {
+        familias: {
+            principal: "https://fonts.googleapis.com/css2?family=Lato&display=swap",
+            secundaria: "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
+            complementaria:"https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+            },
         fuentes: {
             principal: {
-                nombre: "Nunito Sans",
+                nombre: "Lato",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
@@ -37,6 +42,13 @@ const variables = {
             },
             secundaria: {
                 nombre: "Open Sans",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
+            complementaria: {
+                nombre: "Roboto",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,

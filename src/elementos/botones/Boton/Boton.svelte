@@ -15,6 +15,7 @@
     cursor: pointer;
     padding: var(--theme-botones-primario-espacio);
     margin: 0;
+    font-family: var(--theme-botones-primario-familia)
   }
   button:hover {
     box-shadow: 1px 2px 2px #477751;
