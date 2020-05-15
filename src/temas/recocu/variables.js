@@ -30,11 +30,10 @@ const variables = {
     tipografia: {
         familias: {
             principal: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap",
-            
             },
         fuentes: {
             principal: {
-                nombre: "Montserrat",
+                nombre: "Jost Sans",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
