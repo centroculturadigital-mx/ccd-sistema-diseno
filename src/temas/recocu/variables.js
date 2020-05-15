@@ -1,9 +1,9 @@
 const variables = {
     colores: {
         texto: {
-            base: "#4C4CFF",
+            base: "#000",
             claro: '#FFF',
-            oscuro: '#282230',
+            oscuro: '#5A5A5A',
         },
         fondo: {
             base: "#666666",
@@ -11,9 +11,9 @@ const variables = {
             oscuro: "#212121",    
         },
         primario: {
-            base: "#F36957",
-            claro: "#FF9A84",
-            oscuro: "#BB382D",
+            base: "#FFF",
+            claro: "#B9B9B9",
+            oscuro: "#000",
         },
         secundario_a: {
             base: "#3849C4",
@@ -29,32 +29,18 @@ const variables = {
     },
     tipografia: {
         familias: {
-            principal: "https://fonts.googleapis.com/css2?family=Jost&display=swap",
-            secundaria: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap",
-            complementaria:"https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap"
+            principal: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap",
+            
             },
         fuentes: {
             principal: {
-                nombre: "Jost Sans",
+                nombre: "Montserrat",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
-            secundaria: {
-                nombre: "Ubuntu Sans",
-                regular: 400,
-                ligero: 300,
-                negrita: 700,
-                grueso: 900
-            },
-            complementaria: {
-                nombre: "Frank Sans",
-                regular: 400,
-                ligero: 300,
-                negrita: 700,
-                grueso: 900
-            },
+
         },
         tamannos: {
             xs: "0.5rem",
