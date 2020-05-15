@@ -8,7 +8,7 @@ const variables = {
         fondo: {
             base: "#666666",
             claro: "#CCCCCC",
-            oscuro: "#212121",    
+            oscuro: "#212121",
         },
         primario: {
             base: "#FFF",
@@ -20,7 +20,7 @@ const variables = {
             claro: "#7374F8",
             oscuro: "#002192",
         },
-       
+
         complementario: {
             base: "#D9A5D6",
             claro: "#D9A5D6",
@@ -30,9 +30,23 @@ const variables = {
     tipografia: {
         familias: {
             principal: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap",
-            },
+        },
         fuentes: {
             principal: {
+                nombre: "Jost Sans",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
+            secundaria: {
+                nombre: "Jost Sans",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
+            complementaria: {
                 nombre: "Jost Sans",
                 regular: 400,
                 ligero: 300,
