@@ -11,9 +11,9 @@ const variables = {
             oscuro: "#212121",
         },
         primario: {
-            base: "#FFF",
-            claro: "#B9B9B9",
-            oscuro: "#000",
+            base: "#F36957",
+            claro: "#FF9A84",
+            oscuro: "#BB382D",
         },
         secundario_a: {
             base: "#3849C4",
