@@ -2,15 +2,19 @@
 
   import Selector from "../Selector/Selector.svelte";
 
-  export let placeholder;
+  export let ejemplo="Introduce un valor";
   export let tipo = "texto";
 
+  // propiedades
+  export let nombre="";
+  export let opciones=[];
+  export let estado="";
+
+  // propiedades para lógica
   export let valor;
   export let cambiar;
-  export let nombre;
-  export let opciones;
 
-  export let status;
+
 
   let valorLocal
 
@@ -25,7 +29,7 @@
   
   // $: cambiarValorDesdeFuera( valor )
 
-  $: clases = 'Input' + (status ? " " + status : '' );
+  $: clases = 'Input' + (estado ? " " + estado : '' );
 
   $: seleccionarTipo(tipo)
 
@@ -84,7 +88,7 @@
     on:keyup={e=>cambiar(e.target.value)}
     name={nombre}
     type="text" 
-    {placeholder}
+    placeholder={ejemplo}
     bind:value={valorLocal}
   />
 
@@ -97,7 +101,7 @@
     on:keyup={e=>cambiar(e.target.value)}
     name={nombre}
     type="password" 
-    {placeholder}
+    placeholder={ejemplo}
     bind:value={valorLocal}
   />
 
@@ -110,7 +114,7 @@
     on:keyup={e=>cambiar(e.target.value)}
     name={nombre}
     type="email" 
-    {placeholder}
+    placeholder={ejemplo}
     bind:value={valorLocal}
   />
 
@@ -124,7 +128,7 @@
     on:keyup={e=>cambiar(e.target.value)}
     name={nombre}
     type="number" 
-    {placeholder}
+    placeholder={ejemplo}
     bind:value={valorLocal}
   />
 
@@ -137,7 +141,7 @@
     on:keyup={e=>cambiar(e.target.value)}
     name={nombre}
     type="file" 
-    {placeholder}
+    placeholder={ejemplo}
     bind:value={valorLocal}
   />
 
@@ -149,7 +153,7 @@
     class={clases}
     on:keyup={e=>cambiar(e.target.value)}
     name={nombre}
-    {placeholder}
+    placeholder={ejemplo}
     bind:value={valorLocal}
   ></textarea>
 
@@ -161,7 +165,7 @@
     bind:value={valorLocal}
     {nombre}
     {opciones}
-    {status}
+    {estado}
     {cambiar}
   />
 

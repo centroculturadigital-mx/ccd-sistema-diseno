@@ -1,14 +1,14 @@
 <script>
-  export let textoPlaceholder;
+  export let ejemplo;
   export let opciones;
-  export let status;
+  export let estado;
   export let nombre;
   export let cambiar;
   export let vacioPermitido=true;
 
   export let value
 
-  $: clases = 'Selector' + (status ? " " + status : '' );
+  $: clases = 'Selector' + (estado ? " " + estado : '' );
 
   const actualizarValor = v => {
     value = v
@@ -58,8 +58,8 @@
           selected
           disabled={ vacioPermitido ? false : true }
           >
-            {#if !!textoPlaceholder}
-                {textoPlaceholder}
+            {#if !!ejemplo}
+                {ejemplo}
             {/if}
           </option>
         <!-- Si elementos que monstrar se popula la lista de opciones -->

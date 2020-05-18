@@ -12,7 +12,7 @@ export const inputEmail = () => ({
     Component: Input,
     props: {
         placeholder: 'Correo Electronico',
-        type: "email",
+        tipo: "email",
     },
 })
 
