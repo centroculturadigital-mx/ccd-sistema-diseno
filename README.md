@@ -2,4 +2,4 @@
 
 
 ![CCDSD](
-    https://github.com/centroculturadigital-mx/ccd-sistema-diseno/tree/master/ccdsd-1000px.png?raw=true)
+    https://github.com/centroculturadigital-mx/ccd-sistema-diseno/blob/master/ccdsd-1000px.png?raw=true)
