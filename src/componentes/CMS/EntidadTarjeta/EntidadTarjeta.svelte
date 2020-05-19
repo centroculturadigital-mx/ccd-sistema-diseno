@@ -41,11 +41,11 @@
   .botones a {
     text-decoration: none;
   }
-  .botones :global(button) {
+   .botones :global(button) {
     padding: 1rem 2rem;
     font-size: 1rem;
   }
-  .botones .abrir :global(button) {
+  /*.botones .abrir :global(button) {
     opacity: 0.85;
     background-color: #f36957;
     display: flex;
@@ -53,7 +53,7 @@
   .botones .abrir :global(button:hover) {
     opacity: 0.85;
     background-color: gray;
-  }
+  } */
   .botones .crear :global(button) {
     color: #f36957;
     background-color: transparent;

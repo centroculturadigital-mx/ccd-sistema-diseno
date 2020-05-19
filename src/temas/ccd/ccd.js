@@ -15,11 +15,12 @@ const tema = {
             primario: {
                 fondo: variables.colores.primario.base,
                 color: variables.colores.texto.claro,
-                espacio: variables.espaciados.md,
+                espacio: variables.espaciados.sm,
                 tipografia: estilos.tipografia.parrafo,
                 familia: variables.tipografia.fuentes.complementaria.nombre,
                 borde: variables.colores.secundario_a.claro,
                 activo: variables.colores.primario.claro,
+                esquinas: variables.espaciados.none,
             },
             secundario: {
                 fondo: variables.colores.primario.transparente,
@@ -29,6 +30,7 @@ const tema = {
                 familia: variables.tipografia.fuentes.complementaria.nombre,
                 borde: variables.colores.secundario_a.oscuro,
                 activo: variables.colores.secundario_a.claro,
+                esquinas: variables.espaciados.none,
             }
         },
         espaciado: {

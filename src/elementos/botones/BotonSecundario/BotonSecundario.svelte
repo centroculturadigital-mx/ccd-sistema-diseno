@@ -1,22 +1,18 @@
 <script>
   export let texto;
-  // export let color;
-  // export let colorBG;
-  // export let paddingX;
-  // export let radius;
 </script>
 
 <style>
   button {
-    transition: 0.5s;
     background-color: var(--theme-botones-secundario-fondo);
     color: var(--theme-botones-primario-color);
     border: 1px solid var(--theme-botones-secundario-color);
-    cursor: pointer;
     padding: var(--theme-botones-primario-espacio);
-    margin: 0;
     font-family: var(--theme-botones-primario-familia);
-    border-radius: var(--theme-botones-tamannos-sm);
+    border-radius: var(--theme-botones-primario-esquinas);
+    margin: 0;
+    cursor: pointer;
+    transition: 0.5s;
   }
   button:hover {
     border: 1px solid var(--theme-botones-secundario-hover);

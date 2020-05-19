@@ -13,7 +13,7 @@
     color: var(--theme-botones-primario-color);
     border: none;
     cursor: pointer;
-    padding: var(--theme-botones-primario-espacio);
+    padding: calc(var(--theme-botones-primario-espacio) * 2 ) calc(var(--theme-botones-primario-espacio) * 4);
     margin: 0;
     font-family: var(--theme-botones-primario-familia)
   }

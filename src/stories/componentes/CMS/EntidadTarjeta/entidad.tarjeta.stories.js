@@ -1,3 +1,4 @@
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import EntidadTarjeta from '../../../../componentes/CMS/EntidadTarjeta/EntidadTarjeta.svelte';
 
 
@@ -13,6 +14,13 @@ const datos = {
 export const EntidadTarjetaDefault = () => ({
     Component: EntidadTarjeta,
     props: datos
+});
+export const EntidadTarjetaThemeada = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: EntidadTarjeta,
+        datos
+    }
 });
 
 export const EntidadTarjetaIcono = () => ({
