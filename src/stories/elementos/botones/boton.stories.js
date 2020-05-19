@@ -52,3 +52,13 @@ export const botonRadius = () => ({
         radius: '10px',
     },
 });
+
+export const botonSecundario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Botón',
+        }
+    },
+});
