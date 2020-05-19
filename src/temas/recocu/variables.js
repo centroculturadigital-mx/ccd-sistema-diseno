@@ -4,27 +4,32 @@ const variables = {
             base: "#000",
             claro: '#FFF',
             oscuro: '#5A5A5A',
+            transparente: "transparent",
         },
         fondo: {
             base: "#666666",
             claro: "#CCCCCC",
             oscuro: "#212121",
+            transparente: "transparent",
         },
         primario: {
             base: "#F36957",
             claro: "#FF9A84",
             oscuro: "#BB382D",
+            transparente: "transparent",
         },
         secundario_a: {
             base: "#3849C4",
             claro: "#7374F8",
             oscuro: "#002192",
+            transparente: "transparent",
         },
 
         complementario: {
             base: "#D9A5D6",
             claro: "#D9A5D6",
             oscuro: "#A776A5",
+            transparente: "transparent",
         }
     },
     tipografia: {

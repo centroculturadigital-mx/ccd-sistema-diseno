@@ -18,7 +18,14 @@
     font-family: var(--theme-botones-primario-familia)
   }
   button:hover {
-    box-shadow: 1px 2px 2px #477751;
+    background-color: var(--theme-botones-primario-hover);
+    color: var(--theme-botones-secundario-color);
+  }
+  button:focus,
+  button:visited,
+  button:active {
+    background-color: var(--theme-botones-primario-activo);
+    color: var(--theme-botones-primario-claro);
   }
 
 </style>

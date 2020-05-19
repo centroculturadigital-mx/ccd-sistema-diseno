@@ -13,19 +13,25 @@ const tema = {
         },
         botones: {
             primario: {
-            fondo: variables.colores.primario.base,
-            color: variables.colores.texto.claro,
-            espacio: variables.espaciados.md,
-            tipografia: estilos.tipografia.parrafo,
-            familia: variables.tipografia.fuentes.complementaria.nombre    
+                fondo: variables.colores.primario.base,
+                color: variables.colores.texto.claro,
+                espacio: variables.espaciados.md,
+                tipografia: estilos.tipografia.parrafo,
+                familia: variables.tipografia.fuentes.complementaria.nombre,
+                borde: variables.colores.secundario_a.claro,
+                activo: variables.colores.primario.claro,
+                hover: variables.colores.primario.oscuro,
             },
             secundario: {
-            fondo: variables.colores.primario.oscuro,
-            color: variables.colores.texto.claro,
-            espacio: variables.espaciados.sm,
-            tipografia: estilos.tipografia.parrafo,
-            familia: variables.tipografia.fuentes.complementaria.nombre
-            }          
+                fondo: variables.colores.primario.transparente,
+                color: variables.colores.texto.claro,
+                espacio: variables.espaciados.sm,
+                tipografia: estilos.tipografia.parrafo,
+                familia: variables.tipografia.fuentes.complementaria.nombre,
+                borde: variables.colores.secundario_a.oscuro,
+                activo: variables.colores.secundario_a.claro,
+                hover: variables.colores.secundario_a.base,
+            }
         },
         espaciado: {
             padding: variables.espaciados.md,

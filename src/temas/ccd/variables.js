@@ -4,39 +4,45 @@ const variables = {
             base: "#4C4CFF",
             claro: '#FFF',
             oscuro: '#282230',
+            transparente: "transparent",
         },
         fondo: {
             base: "#666666",
             claro: "#CCCCCC",
-            oscuro: "#212121",    
+            oscuro: "#212121",
+            transparente: "transparent",
         },
         primario: {
             base: "#4C4CFF",
             claro: "#CDCCFF",
             oscuro: "#2700CA",
+            transparente: "transparent",
         },
         secundario_a: {
             base: "#FF4C4C",
             claro: "#FF8178",
             oscuro: "#C50023",
+            transparente: "transparent",
         },
         secundario_b: {
             base: "#4CA6FF",
             claro: "#89D7FF",
             oscuro: "#0078CB",
+            transparente: "transparent",
         },
         complementario: {
             base: "#FFFF4C",
             claro: "#FFFF81",
             oscuro: "#C8CC00",
+            transparente: "transparent",
         }
     },
     tipografia: {
         familias: {
             principal: "https://fonts.googleapis.com/css2?family=Jost&display=swap",
             secundaria: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap",
-            complementaria:"https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap"
-            },
+            complementaria: "https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap"
+        },
         fuentes: {
             principal: {
                 nombre: "Jost Sans",

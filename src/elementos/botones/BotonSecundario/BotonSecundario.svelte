@@ -1,9 +1,9 @@
 <script>
   export let texto;
-  export let color;
-  export let colorBG;
-  export let paddingX;
-  export let radius;
+  // export let color;
+  // export let colorBG;
+  // export let paddingX;
+  // export let radius;
 </script>
 
 <style>
@@ -11,21 +11,23 @@
     transition: 0.5s;
     background-color: var(--theme-botones-secundario-fondo);
     color: var(--theme-botones-primario-color);
-    border: none;
+    border: 1px solid var(--theme-botones-secundario-color);
     cursor: pointer;
     padding: var(--theme-botones-primario-espacio);
     margin: 0;
-    font-family: var(--theme-botones-primario-familia)
+    font-family: var(--theme-botones-primario-familia);
+    border-radius: var(--theme-botones-tamannos-sm);
   }
   button:hover {
-    box-shadow: 1px 2px 2px #477751;
+    border: 1px solid var(--theme-botones-secundario-hover);
+    color: var(--theme-botones-secundario-borde);
   }
-
+  button:focus,
+  button:visited,
+  button:active {
+    border: 1px solid var(--theme-botones-primario-activo);
+    color: var(--theme-botones-primario-activo);
+  }
 </style>
 
-<button
-  style="border-radius:{radius};background-color:{colorBG};color:{color};padding:
-  0.5rem {paddingX};"
-  on:click>
-  {!!texto ? texto : ''}
-</button>
+<button on:click>{!!texto ? texto : ''}</button>

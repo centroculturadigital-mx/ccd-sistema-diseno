@@ -1,6 +1,6 @@
 import BotonPaso from '../../../elementos/botones/BotonPaso/BotonPaso.svelte';
 
-export default { title: 'Elementos/Botones/Botón/Paso' }
+export default { title: 'Elementos/Botones/Paso' }
 
 export const botonPasoDefault = () => ({
     Component: BotonPaso,
