@@ -1,10 +1,10 @@
 import EntidadesLista from '../../../../componentes/CMS/EntidadesLista/EntidadesLista.svelte';
-import EntidadTarjeta from '../../../../componentes/CMS/EntidadTarjeta/EntidadTarjeta.svelte';
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 
 export default { title: 'CMS/Componentes/EntidadesLista' }
 
 const elementos = new Array(12).fill(true).map((e, i) => ({
-    icono: "cerrar",
+    icono: "avatar",
     nombre: "Mi entidad " + i,
     cantidad: "12" + i,
     clave: "mi-entidad",
@@ -14,16 +14,22 @@ const elementos = new Array(12).fill(true).map((e, i) => ({
 
 
 export const EntidadesListaDefault = () => ({
-    Component: EntidadesLista,
+    Component: ThemeTester,
     props: {
-        elementos
+        componente: EntidadesLista,
+        datos: {
+            elementos
+        }
     }
 });
 
 export const EntidadesListaVacia = () => ({
-    Component: EntidadesLista,
+    Component: ThemeTester,
     props: {
-        elementos: [],
-        mensajeVacio: "Mensaje de lista vacia personalizado"
+        componente: EntidadesLista,
+        datos: {
+            elementos: [],
+            mensajeVacio: "Mensaje de lista vacia personalizado"
+        }
     }
 });

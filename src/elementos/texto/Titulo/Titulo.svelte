@@ -31,6 +31,6 @@
       : Titulo3;
 </script>
 
-<svelte:component this={elemento} data={atributos}>
-  <Bloque {contenido} {texto} />
-</svelte:component>
+  <svelte:component this={elemento} data={atributos}>
+    <Bloque {contenido} {texto} />
+  </svelte:component>

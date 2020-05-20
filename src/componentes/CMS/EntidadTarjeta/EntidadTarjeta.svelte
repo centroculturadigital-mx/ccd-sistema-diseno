@@ -25,13 +25,18 @@
     display: flex;
     justify-content: center;
     margin: 1rem 0;
+  } 
+  .avatar :global(.iconoContenedor img) {
+    height: 3.5rem !important;
   }
-  .EntidadTarjeta :global(h3) {
+  .EntidadTarjeta :global(h2) {
     text-align: center;
+    margin-bottom: 0.5rem;
   }
   .EntidadTarjeta :global(p) {
     text-align: center;
     color: #b1b1b1;
+    margin-top: 0.2rem;
   }
   .botones {
     display: flex;
@@ -40,31 +45,6 @@
   }
   .botones a {
     text-decoration: none;
-  }
-   .botones :global(button) {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-  }
-  /*.botones .abrir :global(button) {
-    opacity: 0.85;
-    background-color: #f36957;
-    display: flex;
-  }
-  .botones .abrir :global(button:hover) {
-    opacity: 0.85;
-    background-color: gray;
-  } */
-  .botones .crear :global(button) {
-    color: #f36957;
-    background-color: transparent;
-    display: flex;
-  }
-  .botones .crear :global(button:hover) {
-    opacity: 0.85;
-    color: gray;
-  }
-  .botones .crear :global(button .iconoContenedor) {
-    padding: 0 0.5rem;
   }
   hr {
     border: 0.5px solid lightgray;
@@ -79,7 +59,7 @@
     </div>
   {/if}
   {#if !!nombre || nombre != null}
-    <Titulo texto={nombre} nivel={3} />
+    <Titulo texto={nombre} nivel={2} />
   {/if}
 
   {#if !!cantidad || cantidad != null}
@@ -93,6 +73,7 @@
     <a href={abrir} class="abrir">
       <Boton texto={'Abrir'} />
     </a>
+    &nbsp;
     <a href={crear} class="crear">
       <BotonIcono icono={'mas'} texto={'Crear nuevo'} />
     </a>

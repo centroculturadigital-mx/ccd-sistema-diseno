@@ -21,6 +21,7 @@
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+    box-sizing: border-box;
   }
   #EntidadesLista :global(.ListaComponentes ul li) {
     margin: 0;

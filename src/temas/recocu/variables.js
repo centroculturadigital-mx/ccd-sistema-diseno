@@ -37,6 +37,13 @@ const variables = {
             principal: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap",
         },
         fuentes: {
+            titulo: {
+                nombre: "Montserrat",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
             principal: {
                 nombre: "Montserrat",
                 regular: 400,
@@ -66,9 +73,12 @@ const variables = {
             md: "1rem",
             lg: "1.25rem",
             xl: "1.5rem",
+            xxl: "1.75rem",
+            xxxl: "2rem",
         }
     },
     espaciados: {
+        none: "0rem",
         xs: "0.25rem",
         sm: "0.5rem",
         md: "0.75rem",

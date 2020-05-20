@@ -11,6 +11,29 @@ const tema = {
                 tamanno: estilos.tipografia.parrafo.tamanno,
                 color: variables.colores.texto.oscuro,
                 peso: estilos.tipografia.parrafo.peso,
+            },
+            titulo: {
+                tipografia: estilos.tipografia.titulo.fuente,
+                color: variables.colores.texto.oscuro,
+                peso: estilos.tipografia.titulo.peso,
+                h1: {
+                    tamanno: estilos.tipografia.titulo.h1.tamanno,
+                },
+                h2: {
+                    tamanno: estilos.tipografia.titulo.h2.tamanno,
+                },
+                h3: {
+                    tamanno: estilos.tipografia.titulo.h3.tamanno,
+                },
+                h4: {
+                    tamanno: estilos.tipografia.titulo.h4.tamanno,
+                },
+                h5: {
+                    tamanno: estilos.tipografia.titulo.h5.tamanno,
+                },
+                h6: {
+                    tamanno: estilos.tipografia.titulo.h6.tamanno,
+                }
             }
         },
         botones: {
@@ -18,8 +41,7 @@ const tema = {
                 fondo: variables.colores.primario.base,
                 color: variables.colores.texto.claro,
                 espacio: variables.espaciados.sm,
-                tipografia: estilos.tipografia.parrafo,
-                familia: variables.tipografia.fuentes.complementaria.nombre,
+                familia: estilos.tipografia.parrafo.fuente,
                 borde: variables.colores.primario.base,
                 activo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
@@ -29,8 +51,7 @@ const tema = {
                 fondo: variables.colores.primario.transparente,
                 color: variables.colores.texto.claro,
                 espacio: variables.espaciados.sm,
-                tipografia: estilos.tipografia.parrafo,
-                familia: variables.tipografia.fuentes.complementaria.nombre,
+                familia: estilos.tipografia.parrafo,
                 borde: variables.colores.secundario_a.oscuro,
                 activo: variables.colores.secundario_a.claro,
                 hover: variables.colores.secundario_a.claro,

@@ -6,16 +6,12 @@ export default { title: 'CMS/Componentes/EntidadTarjeta' }
 const datos = {
     icono: "avatar",
     nombre: "Mi entidad",
-    cantidad: 302,
+    cantidad: 666,
     clave: "mi-entidad",
     clave_plural: "mis-entidades"
 };
 
 export const EntidadTarjetaDefault = () => ({
-    Component: EntidadTarjeta,
-    props: datos
-});
-export const EntidadTarjetaThemeada = () => ({
     Component: ThemeTester,
     props: {
         componente: EntidadTarjeta,
@@ -24,16 +20,32 @@ export const EntidadTarjetaThemeada = () => ({
 });
 
 export const EntidadTarjetaIcono = () => ({
-    Component: EntidadTarjeta,
+    Component: ThemeTester,
     props: {
-        icono: datos.icono,
+        componente: EntidadTarjeta,
+        // datos
+        datos: {
+            icono: datos.icono
+        },
     }
 });
 
 export const EntidadTarjetaTitulo = () => ({
-    Component: EntidadTarjeta,
+    Component: ThemeTester,
     props: {
-        nombre: datos.nombre,
-        icono: datos.icono,
+        componente: EntidadTarjeta,
+        datos: {
+            nombre: datos.nombre,
+        }
+    }
+});
+export const EntidadTarjetaCantidad = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: EntidadTarjeta,
+        datos: {
+            nombre: datos.nombre,
+            cantidad: datos.cantidad,
+        }
     }
 });

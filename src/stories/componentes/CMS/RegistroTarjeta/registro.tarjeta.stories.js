@@ -1,5 +1,5 @@
 import RegistroTarjeta from '../../../../componentes/CMS/RegistroTarjeta/RegistroTarjeta.svelte';
-
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 
 export default { title: 'CMS/Componentes/RegistroTarjeta' }
 const datos = {
@@ -13,13 +13,9 @@ const datos = {
 };
 
 export const RegistroTarjetaDefault = () => ({
-    Component: RegistroTarjeta,
-    props: datos
+    Component: ThemeTester,
+    props: {
+        componente: RegistroTarjeta,
+        datos
+    }
 });
-
-// export const EntidadTarjetaIcono = () => ({
-//     Component: RegistroTarjeta,
-//     props: {
-//         icono: datos.icono,
-//     }
-// });

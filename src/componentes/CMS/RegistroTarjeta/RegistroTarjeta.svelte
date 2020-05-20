@@ -28,6 +28,7 @@
 <style>
   .RegistroTarjeta {
     border: 0.5px solid lightgray;
+    background-color: #FFF;
     display: flex;
     flex-direction: row;
     min-height: 4rem;
@@ -56,12 +57,6 @@
     flex-direction: row;
     align-items: center;
   }
-  nav.menu-acciones a :global(button) {
-    background-color: #f36957;
-  }
-  nav.botones a :global(button) {
-    background-color: #f36957;
-  }
   .menu-acciones {
     position: relative;
   }
@@ -70,14 +65,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-  }
-  .menu-acciones .menu :global(button:hover) {
-    opacity: 0.5;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   .menu-lista {
     position: absolute;
-    right: 0rem;
-    top: -1rem;
+    right: -0.35rem;
+    top: -0.5rem;
     background-color: white;
     cursor: pointer;
     padding: 1rem 0.25rem 1rem !important;
@@ -130,7 +124,7 @@
             <Parrafo texto={'Eliminar'} />
           </li>
           <li class="cerrar-acciones" on:click={alternarMenu}>
-            <BotonIcono texto={''} icono={'cerrar'} />
+            <BotonIcono texto={''} icono={'cerrar'} borde={false}/>
           </li>
         </ul>
       {/if}

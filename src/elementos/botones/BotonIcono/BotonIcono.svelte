@@ -3,7 +3,7 @@
 
   export let texto;
   export let icono;
-  export let borde = true;
+  export let borde;
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let estado = false;
@@ -31,7 +31,7 @@
     color: var(--theme-botones-primario-activo);
   }
   .no-borde {
-    border: none;
+    border: 0;
   }
   .borde {
     border: 1px solid var(--theme-botones-primario-borde);

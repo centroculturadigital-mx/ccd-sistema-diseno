@@ -44,6 +44,13 @@ const variables = {
             complementaria: "https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap"
         },
         fuentes: {
+            titulo: {
+                nombre: "Ubuntu",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
             principal: {
                 nombre: "Jost",
                 regular: 400,
@@ -72,6 +79,8 @@ const variables = {
             md: "1rem",
             lg: "1.25rem",
             xl: "1.5rem",
+            xxl: "1.75rem",
+            xxxl: "2rem",
         }
     },
     espaciados: {

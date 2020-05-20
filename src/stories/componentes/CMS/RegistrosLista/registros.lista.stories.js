@@ -1,5 +1,6 @@
 import RegistrosLista from '../../../../componentes/CMS/RegistrosLista/RegistrosLista.svelte';
-import TarjetaRegistro from '../../../../componentes/CMS/RegistroTarjeta/RegistroTarjeta.svelte';
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
+
 export default { title: 'CMS/Componentes/RegistrosLista' }
 
 const elementos = new Array(12).fill(true).map((e, i) => ({
@@ -11,22 +12,31 @@ const elementos = new Array(12).fill(true).map((e, i) => ({
 }));
 
 export const RegistrosListaDefault = () => ({
-    Component: RegistrosLista, 
+    Component: ThemeTester,
     props: {
-        elementos
+        componente: RegistrosLista,
+        datos: {
+            elementos
+        }
     }
 });
 export const RegistrosListaVacia = () => ({
-    Component: RegistrosLista,
+    Component: ThemeTester,
     props: {
-        elementos: [],
-        mensajeVacio: "Aún no tienes registros en tu cuenta"
+        componente: RegistrosLista,
+        datos: {
+            elementos: [],
+            mensajeVacio: "Aún no tienes registros en tu cuenta"
+        }
     }
 });
 
 export const RegistrosListaNula = () => ({
-    Component: RegistrosLista,
+    Component: ThemeTester,
     props: {
-        mensajeVacio: "Aún no tienes registros en tu cuenta"
+        componente: RegistrosLista,
+        datos: {
+            mensajeVacio: "Aún no tienes registros en tu cuenta"
+        }
     }
 });
