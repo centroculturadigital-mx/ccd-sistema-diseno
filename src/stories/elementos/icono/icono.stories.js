@@ -33,3 +33,10 @@ export const iconoCerrar = () => ({
         icono: "cerrar",
     },
 });
+
+export const iconoAvatar = () => ({
+    Component: Icono,
+    props: {
+        icono: "avatar",
+    },
+});

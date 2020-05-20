@@ -4,7 +4,7 @@ import EntidadTarjeta from '../../../../componentes/CMS/EntidadTarjeta/EntidadTa
 
 export default { title: 'CMS/Componentes/EntidadTarjeta' }
 const datos = {
-    icono: "cerrar",
+    icono: "avatar",
     nombre: "Mi entidad",
     cantidad: 302,
     clave: "mi-entidad",
