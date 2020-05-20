@@ -1,35 +1,48 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Imagen from '../../../elementos/media/Imagen/Imagen.svelte';
 import ImagenArchivo from '../../../../public/placeholder.jpg';
 
 export default { title: "Elementos/Media/Imagen" }
 
 export const imagenDefault = () => ({
-    Component: Imagen,
+    Component: ThemeTester,
     props: {
-        imagenUrl: ImagenArchivo
+        componente: Imagen,
+        datos: {
+            imagen: ImagenArchivo
+        }
     },
 });
 export const imagenAltTexto = () => ({
-    Component: Imagen,
+    Component: ThemeTester,
     props: {
-        altTexto: "Aquí vá una imagen"
-    },
+        componente: Imagen,
+        datos: {
+            altTexto: "Aquí vá una imagen"
+        },
+    }
 });
 export const imagenAjuste = () => ({
-    Component: Imagen,
+    Component: ThemeTester,
     props: {
-        imagenUrl: ImagenArchivo,
-        altTexto: "Aquí va una imagen",
-        ajuste: 'cover',
-        altura: '200px',
-    },
+        componente: Imagen,
+        datos: {
+            imagen: ImagenArchivo,
+            altTexto: "Aquí va una imagen",
+            ajuste: 'cover',
+            altura: '200px',
+        },
+    }
 });
 export const imagenAltura = () => ({
-    Component: Imagen,
+    Component: ThemeTester,
     props: {
-        imagenUrl: ImagenArchivo,
-        altTexto: "Aquí va una imagen",
-        ajuste: 'fill',
-        altura: '320px',
-    },
+        componente: Imagen,
+        datos: {
+            imagenUrl: ImagenArchivo,
+            altTexto: "Aquí va una imagen",
+            ajuste: 'fill',
+            altura: '320px',
+        }
+    }
 });
