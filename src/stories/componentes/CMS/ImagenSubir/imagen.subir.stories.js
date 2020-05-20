@@ -1,13 +1,20 @@
 import ImagenSubir from '../../../../componentes/CMS/ImagenSubir/ImagenSubir.svelte';
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 
 export default { title: 'CMS/Componentes/ImagenSubir' }
 
 export const imagenSubirInicial = () => ({
-    Component: ImagenSubir,
+    Component: ThemeTester,
+    props: {
+        componente: ImagenSubir
+    }
 });
 export const imagenSubirEtiqueta = () => ({
-    Component: ImagenSubir,
+    Component: ThemeTester,
     props: {
-        etiqueta: "Sube una imagen",
+        componente: ImagenSubir,
+        datos: {
+            etiqueta: "Sube una imagen",
+        }
     }
 });

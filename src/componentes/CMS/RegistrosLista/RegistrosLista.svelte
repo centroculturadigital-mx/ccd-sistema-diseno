@@ -1,6 +1,7 @@
 <script>
   import ListaComponentes from "../../Listados/ListaComponentes/ListaComponentes.svelte";
   import RegistroTarjeta from "../RegistroTarjeta/RegistroTarjeta.svelte";
+  
   export let elementos;
   export let mensajeVacio = "No hay Registros";
 
