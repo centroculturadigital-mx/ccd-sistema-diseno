@@ -4,6 +4,7 @@
   import cerrar from "./iconos/cerrar.svg";
   import mas from "./iconos/mas.svg";
   import imagen from "./iconos/imagen.svg";
+  import avatar from "./iconos/avatar.svg";
 
   import Imagen from "../media/Imagen/Imagen";
 
@@ -16,7 +17,8 @@
     menu,
     cerrar,
     mas,
-    imagen
+    imagen,
+    avatar
   };
 
   $: iconoMostrar = iconos[icono];
