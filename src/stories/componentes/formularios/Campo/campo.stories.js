@@ -1,3 +1,4 @@
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import Campo from '../../../../componentes/formularios/Campo/Campo.svelte';
 
 export default {
@@ -32,6 +33,17 @@ export default {
 
 // };
 
+export const campoThemed = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Campo,
+        datos: {
+            etiqueta: 'Un campo',
+            tipo: 'texto',
+            placeholder: 'Un campo default',
+        }
+    },
+});
 export const campoDefault = () => ({
     Component: Campo,
     props: {
@@ -109,8 +121,7 @@ export const campoSelector = () => ({
         etiqueta: 'Un campo selector',
         placeholder: "...",
         valor: 2,
-        opciones: [
-            {
+        opciones: [{
                 valor: 1,
                 texto: "Hola",
             },

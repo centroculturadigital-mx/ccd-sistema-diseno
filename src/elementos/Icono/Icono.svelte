@@ -33,6 +33,9 @@
   .iconoContenedor :global(*) {
     fill: inherit;
   }
+  .iconoContenedor :global(img) {
+    object-fit: contain;
+  }
 </style>
 
 {#if icono && Object.keys(iconos).includes(icono)}

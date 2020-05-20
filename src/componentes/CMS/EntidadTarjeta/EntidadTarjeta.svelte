@@ -24,7 +24,7 @@
   .avatar :global(.iconoContenedor) {
     display: flex;
     justify-content: center;
-    margin: 1rem 0;
+    margin: 0.25rem 0;
   } 
   .avatar :global(.iconoContenedor img) {
     height: 3.5rem !important;
@@ -32,6 +32,7 @@
   .EntidadTarjeta :global(h2) {
     text-align: center;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
   }
   .EntidadTarjeta :global(p) {
     text-align: center;
