@@ -38,21 +38,21 @@ const variables = {
         },
         fuentes: {
             principal: {
-                nombre: "Jost Sans",
+                nombre: "Montserrat",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             secundaria: {
-                nombre: "Jost Sans",
+                nombre: "Montserrat",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             complementaria: {
-                nombre: "Jost Sans",
+                nombre: "Montserrat",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,

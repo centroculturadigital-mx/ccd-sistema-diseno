@@ -7,8 +7,10 @@ const tema = {
         colores: variables.colores,
         textos: {
             parrafo: {
-                tipografia: estilos.tipografia.parrafo,
-                color: variables.colores.texto.oscuro
+                tipografia: estilos.tipografia.parrafo.fuente,
+                tamanno: estilos.tipografia.parrafo.tamanno,
+                color: variables.colores.texto.oscuro,
+                peso: estilos.tipografia.parrafo.peso,
             }
         },
         botones: {

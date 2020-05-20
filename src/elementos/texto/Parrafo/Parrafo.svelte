@@ -1,30 +1,32 @@
 <script>
+  import Bloque from "../../../componentes/Bloque/Bloque.svelte";
 
-    import Bloque from "../../../componentes/Bloque/Bloque.svelte";
+  export let texto;
+  export let contenido;
+  export let data;
 
-    export let texto;
-    export let contenido;
-    export let data;
-    export let tamanno;
-    export let color;
+  export let estilos = {
+    tamanno: "",
+    color: ""
+  };
 
-    $: atributos = typeof data == 'object' ? data : {
-        // style: `font-size: ${tamanno}`
-    };
-    
+  $: atributos =
+    typeof data == "object"
+      ? data
+      : {
+          // style: `font-size: ${tamanno}`
+        };
 </script>
 
 <style>
-    p {
-        font-size: 1rem;
-    }
+  p :global(span) {
+    font-size: var(--theme-textos-parrafo-tamanno);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    color: var(--theme-textos-parrafo-color);
+    font-weight: var(--theme-textos-parrafo-peso);
+  }
 </style>
 
 <p {...atributos}>
-    <Bloque
-    {contenido}
-    {texto}
-    {tamanno}
-    {color}
-    />
+  <Bloque {contenido} {texto} tamanno={estilos.tamanno} color={estilos.color} />
 </p>

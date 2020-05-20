@@ -45,21 +45,21 @@ const variables = {
         },
         fuentes: {
             principal: {
-                nombre: "Jost Sans",
+                nombre: "Jost",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             secundaria: {
-                nombre: "Ubuntu Sans",
+                nombre: "Ubuntu",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             complementaria: {
-                nombre: "Frank Sans",
+                nombre: "Frank Ruhl Libre",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
