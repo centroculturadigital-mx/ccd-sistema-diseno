@@ -58,8 +58,9 @@ const tema = {
                 esquinas: variables.espaciados.none,
             }
         },
-        espaciado: {
+        espaciados: {
             padding: variables.espaciados.md,
+            margin: variables.espaciados.sm,
         },
         campos: {
             fondo: variables.campos.fondo,

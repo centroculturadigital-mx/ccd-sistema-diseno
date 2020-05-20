@@ -11,7 +11,6 @@
   export let minimo;
   export let maximo;
 
-
   let valorLocal;
 
   $: valorActualizar(valor);
@@ -62,7 +61,8 @@
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
     padding: var(--theme-campos-espacio);
-    margin-bottom: 0.5rem;
+    margin-top: var(--theme-espaciados-margin);
+    margin-bottom: var(--theme-espaciados-margin);
     min-height: 2rem;
   }
   textarea {
@@ -73,7 +73,8 @@
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
     padding: var(--theme-campos-espacio);
-    margin-bottom: 0.5rem;
+    margin-top: var(--theme-espaciados-margin);
+    margin-bottom: var(--theme-espaciados-margin);
     min-height: 2rem;
     min-height: 12rem;
   }
@@ -124,8 +125,8 @@
     on:keyup={e => cambiar(e.target.value)}
     name={nombre}
     type="number"
-    min={!!minimo ? minimo : ""} 
-    max={!!maximo ? maximo : ""}
+    min={!!minimo ? minimo : ''}
+    max={!!maximo ? maximo : ''}
     {placeholder}
     bind:value={valorLocal} />
 {/if}

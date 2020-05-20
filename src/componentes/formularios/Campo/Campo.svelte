@@ -12,44 +12,47 @@
   export let cambiar;
   export let status;
   export let opciones;
-
-
-
 </script>
 
 <style>
-  label, label > * {
-    
+  label,
+  label > * {
     width: 100%;
     max-width: 15rem;
     height: auto;
     display: flex;
     flex-direction: column;
-
+    /*  */
+    font-size: calc( var(--theme-textos-parrafo-tamanno) / 1.5);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    font-weight: var(--theme-textos-parrafo-peso);
+    color: var(--theme-campos-color);
+    padding: var(--theme-campos-espacio);
   }
-  
+  label :global(p span) {
+    color: var(--theme-alertas-error);
+  }
 </style>
 
-{#if !! tipo}
+{#if !!tipo}
   <label>
-    
+
     {#if !!etiqueta}{etiqueta}{/if}
-    {#if requerido }
+    {#if requerido}
       <span>*requerido</span>
     {/if}
-     
+
     <Input
-    {tipo}
-    {nombre}
-    {valor}
-    {placeholder}
-    {status}
-    {cambiar}
-    {opciones}
-    />
+      {tipo}
+      {nombre}
+      {valor}
+      {placeholder}
+      {status}
+      {cambiar}
+      {opciones} />
     <!-- on:keyup= -->
-    {#if error instanceof Error }
-      <Parrafo texto={error.message} color="#f00"/>
+    {#if error instanceof Error}
+      <Parrafo texto={error.message} />
     {/if}
 
   </label>

@@ -33,7 +33,7 @@ export default {
 
 // };
 
-export const campoThemed = () => ({
+export const campoDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: Campo,
@@ -41,38 +41,36 @@ export const campoThemed = () => ({
             etiqueta: 'Un campo',
             tipo: 'texto',
             placeholder: 'Un campo default',
-        }
-    },
-});
-export const campoDefault = () => ({
-    Component: Campo,
-    props: {
-        etiqueta: 'Un campo',
-        tipo: 'texto',
-        placeholder: 'Un campo default',
-    },
+        },
+    }
 });
 
 export const campoConValor = () => ({
-    Component: Campo,
+    Component: ThemeTester,
     props: {
-        etiqueta: 'Un campo con valor',
-        tipo: 'texto',
-        placeholder: 'Escribe algo',
-        valor: 'Labore sint minim ex duis.',
-    },
+        componente: Campo,
+        datos: {
+            etiqueta: 'Un campo con valor',
+            tipo: 'texto',
+            placeholder: 'Escribe algo',
+            valor: 'Labore sint minim ex duis.',
+        },
+    }
 });
 
 export const campoConError = () => ({
-    Component: Campo,
+    Component: ThemeTester,
     props: {
-        etiqueta: 'Un campo con error',
-        tipo: 'texto',
-        placeholder: 'Un campo default',
-        valor: "oh :(",
-        error: new Error('Error: Labore sint minim ex duis.'),
-        status: "error",
-    },
+        componente: Campo,
+        datos: {
+            etiqueta: 'Un campo con error',
+            tipo: 'texto',
+            placeholder: 'Un campo default',
+            valor: "oh :(",
+            error: new Error('Error: Labore sint minim ex duis.'),
+            status: "error",
+        },
+    }
 });
 
 // export const campoConValidacion = () => ({
@@ -91,52 +89,67 @@ export const campoConError = () => ({
 // });
 
 export const campoTexto = () => ({
-    Component: Campo,
+    Component: ThemeTester,
     props: {
-        tipo: 'texto',
-        etiqueta: 'Un campo texto',
-        placeholder: "...",
-    },
+        componente: Campo,
+        datos: {
+            tipo: 'texto',
+            etiqueta: 'Un campo texto',
+            placeholder: "...",
+        },
+    }
 });
 export const campoTextArea = () => ({
-    Component: Campo,
+    Component: ThemeTester,
     props: {
-        tipo: 'textarea',
-        etiqueta: 'Un campo textarea',
-        placeholder: "...",
-    },
+        componente: Campo,
+        datos: {
+            tipo: 'textarea',
+            etiqueta: 'Un campo textarea',
+            placeholder: "...",
+        },
+    }
 });
 export const campoNumero = () => ({
-    Component: Campo,
+    Component: ThemeTester,
     props: {
-        tipo: 'numero',
-        etiqueta: 'Un campo número',
-        placeholder: "0",
-    },
+        componente: Campo,
+        datos: {
+            tipo: 'numero',
+            etiqueta: 'Un campo número',
+            placeholder: "0",
+        },
+    }
 });
 export const campoSelector = () => ({
-    Component: Campo,
+    Component: ThemeTester,
     props: {
-        tipo: 'selector',
-        etiqueta: 'Un campo selector',
-        placeholder: "...",
-        valor: 2,
-        opciones: [{
-                valor: 1,
-                texto: "Hola",
-            },
-            {
-                valor: 2,
-                texto: "Mundo",
-            }
-        ]
-    },
+        componente: Campo,
+        datos: {
+            tipo: 'selector',
+            etiqueta: 'Un campo selector',
+            placeholder: "...",
+            valor: 2,
+            opciones: [{
+                    valor: 1,
+                    texto: "Hola",
+                },
+                {
+                    valor: 2,
+                    texto: "Mundo",
+                }
+            ]
+        },
+    }
 });
 export const campoArchivo = () => ({
-    Component: Campo,
+    Component: ThemeTester,
     props: {
-        tipo: 'archivo',
-        etiqueta: 'Un campo archivo',
-        placeholder: "...",
-    },
+        componente: Campo,
+        datos: {
+            tipo: 'archivo',
+            etiqueta: 'Un campo archivo',
+            placeholder: "...",
+        },
+    }
 });

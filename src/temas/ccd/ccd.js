@@ -38,7 +38,7 @@ const tema = {
         },
         botones: {
             primario: {
-                fondo: variables.colores.texto.claro,
+                fondo: variables.colores.texto.base,
                 color: variables.colores.texto.claro,
                 espacio: variables.espaciados.sm,
                 familia: estilos.tipografia.parrafo.fuente,
@@ -58,8 +58,9 @@ const tema = {
                 esquinas: variables.espaciados.none,
             }
         },
-        espaciado: {
+        espaciados: {
             padding: variables.espaciados.md,
+            margin: variables.espaciados.sm,
         },
         campos: {
             fondo: variables.campos.fondo,
