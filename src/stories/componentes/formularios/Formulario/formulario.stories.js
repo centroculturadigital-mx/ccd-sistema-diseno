@@ -1,7 +1,8 @@
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import FormularioTester from '../../../../componentes/formularios/Formulario/FormularioTester.svelte';
 
 export default {
-    title: 'Componentes/Formularios/Formulario/Formulario'
+    title: 'Componentes/Formularios/Formulario/Formulario' 
 }
 
 
@@ -30,6 +31,7 @@ const cambiar = datos => {
 
 
 let campos = [
+    
     {
         tipo: 'texto',
         nombre: 'ccd-sd-texto',
@@ -128,15 +130,17 @@ let campos = [
 ]
 
 
-export const formularioDefault = () => ({
-    Component: FormularioTester,
+export const formularioDefault = () => ({   
+    Component: ThemeTester,   
     props: {
+        Component: FormularioTester,
         campos: campos,
         enviar: enviarConTiempo,
     },
 });
 
 export const formularioValidacion = () => ({
+    Component: ThemeTester,
     Component: FormularioTester,
     props: {
         campos: campos,
@@ -145,6 +149,7 @@ export const formularioValidacion = () => ({
 });
 
 export const formularioError = () => ({
+    Component: ThemeTester,
     Component: FormularioTester,
     props: {
         campos: campos,
@@ -154,6 +159,7 @@ export const formularioError = () => ({
 });
 
 export const formularioNoEnviar = () => ({
+    Component: ThemeTester,
     Component: FormularioTester,
     props: {
         campos: campos,
