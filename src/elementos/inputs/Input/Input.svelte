@@ -46,6 +46,9 @@
       case "email":
         tipo = "email";
         break;
+      case "textarea":
+        tipo = "textarea";
+        break;
     }
   };
 </script>
@@ -61,6 +64,18 @@
     padding: var(--theme-campos-espacio);
     margin-bottom: 0.5rem;
     min-height: 2rem;
+  }
+  textarea {
+    font-size: var(--theme-textos-parrafo-tamanno);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    font-weight: var(--theme-textos-parrafo-peso);
+    color: var(--theme-campos-color);
+    border: 1px solid var(--theme-campos-borde);
+    border-radius: var(--theme-campos-esquinas);
+    padding: var(--theme-campos-espacio);
+    margin-bottom: 0.5rem;
+    min-height: 2rem;
+    min-height: 12rem;
   }
   .error {
     border: 1px solid var(--theme-alertas-error);

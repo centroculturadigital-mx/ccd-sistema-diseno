@@ -57,3 +57,14 @@ export const inputContrasenna = () => ({
         }
     },
 });
+
+export const inputTextArea = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Input,
+        datos: {
+            placeholder: 'Agrega tu contraseña',
+            tipo: "textarea",
+        }
+    },
+});
