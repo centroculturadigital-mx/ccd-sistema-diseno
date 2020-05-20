@@ -29,8 +29,10 @@ export const imagenAjuste = () => ({
         datos: {
             imagen: ImagenArchivo,
             altTexto: "Aquí va una imagen",
-            ajuste: 'cover',
-            altura: '200px',
+            estilos: {
+                ajuste: 'cover',
+                altura: '200px',
+            }
         },
     }
 });
@@ -39,10 +41,12 @@ export const imagenAltura = () => ({
     props: {
         componente: Imagen,
         datos: {
-            imagenUrl: ImagenArchivo,
+            imagenUrl: ImagenArchivo, //comprueba funcionalidad de prop obsoleta proxima a desaparecer
             altTexto: "Aquí va una imagen",
-            ajuste: 'fill',
-            altura: '320px',
+            estilos: {
+                ajuste: 'fill',
+                altura: '320px',
+            }
         }
     }
 });

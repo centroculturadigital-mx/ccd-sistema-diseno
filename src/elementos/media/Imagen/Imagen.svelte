@@ -2,13 +2,17 @@
   export let imagenUrl;
   export let imagen;
   export let altTexto;
-  export let ajuste;
-  export let alineacion;
-  export let altura;
 
-  $: clases = altura ? "width-auto" : "";
+  export let estilos = {
+    ajuste: "",
+    alineacion: "",
+    altura: ""
+  };
 
-  if (!imagen) {//
+  $: clases = estilos.altura ? "width-auto" : "";
+
+  if (!imagen) {
+    //
     imagen = imagenUrl;
   }
 </script>
@@ -30,4 +34,4 @@
   class={clases}
   src={imagen}
   alt={altTexto}
-  style="object-fit:{ajuste};object-position:{alineacion};height:{altura}" />
+  style="object-fit:{estilos.ajuste};object-position:{estilos.alineacion};height:{estilos.altura}" />
