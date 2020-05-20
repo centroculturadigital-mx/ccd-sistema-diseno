@@ -73,7 +73,7 @@
   {/if}
   <section class="botones">
     <a href={abrir} class="abrir">
-      <Boton texto={'Abrir'} />
+      <Boton texto={'Ver lista'} />
     </a>
     &nbsp;
     <a href={crear} class="crear">

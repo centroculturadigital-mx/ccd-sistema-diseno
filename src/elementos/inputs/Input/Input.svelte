@@ -3,13 +3,14 @@
 
   export let tipo = "texto";
   export let placeholder;
-  export let valor;
-  export let cambiar;
   export let nombre;
   export let opciones;
   export let status;
   export let minimo;
   export let maximo;
+
+  export let valor;
+  export let cambiar;
 
   let valorLocal;
 

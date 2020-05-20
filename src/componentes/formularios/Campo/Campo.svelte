@@ -7,11 +7,12 @@
   export let requerido;
   export let tipo;
   export let placeholder;
-  export let valor;
   export let error;
-  export let cambiar;
   export let status;
   export let opciones;
+
+  export let valor;
+  export let cambiar;
 </script>
 
 <style>

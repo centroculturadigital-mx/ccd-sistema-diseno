@@ -1,7 +1,6 @@
 <script>
-  export let imagenUrl;
   export let imagen;
-  export let altTexto;
+  export let alt;
 
   export let estilos = {
     ajuste: "",
@@ -11,10 +10,6 @@
 
   $: clases = estilos.altura ? "width-auto" : "";
 
-  if (!imagen) {
-    //
-    imagen = imagenUrl;
-  }
 </script>
 
 <style>
@@ -33,5 +28,5 @@
   on:click
   class={clases}
   src={imagen}
-  alt={altTexto}
+  alt={alt}
   style="object-fit:{estilos.ajuste};object-position:{estilos.alineacion};height:{estilos.altura}" />

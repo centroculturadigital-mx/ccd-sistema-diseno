@@ -1,5 +1,5 @@
 <script>
-  export let texto;
+  export let texto = "Presionar botón";
 
 </script>
 
