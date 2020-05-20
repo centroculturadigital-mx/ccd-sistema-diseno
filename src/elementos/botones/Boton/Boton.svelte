@@ -7,8 +7,7 @@
   button {
     background-color: var(--theme-botones-primario-fondo);
     color: var(--theme-botones-primario-color);
-    padding: calc(var(--theme-botones-primario-espacio) * 2)
-      calc(var(--theme-botones-primario-espacio) * 4);
+    padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
     font-family: var(--theme-botones-primario-familia);
     border-radius: var(--theme-botones-primario-esquinas);
     border: 1px solid var(--theme-botones-primario-borde);

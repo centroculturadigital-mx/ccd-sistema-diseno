@@ -1,5 +1,5 @@
 <script>
-  export let textoPlaceholder;
+  export let placeholder;
   export let opciones;
   export let status;
   export let nombre;
@@ -61,7 +61,7 @@
       class="placeholder"
       selected
       disabled={vacioPermitido ? false : true}>
-      {#if !!textoPlaceholder}{textoPlaceholder}{/if}
+      {#if !!placeholder}{placeholder}{/if}
     </option>
     <!-- Si elementos que monstrar se popula la lista de opciones -->
     {#each opciones as opcion}

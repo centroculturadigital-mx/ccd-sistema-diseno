@@ -23,25 +23,41 @@
     display: flex;
     flex-direction: column;
     /*  */
-    font-size: calc( var(--theme-textos-parrafo-tamanno) / 1.5);
+    font-size: calc(var(--theme-textos-parrafo-tamanno) / 1.5);
     font-family: var(--theme-textos-parrafo-tipografia);
     font-weight: var(--theme-textos-parrafo-peso);
     color: var(--theme-campos-color);
-    padding: var(--theme-campos-espacio);
+    padding: calc(var(--theme-campos-espacio) / 4);
   }
   label :global(p span) {
     color: var(--theme-alertas-error);
+    font-size: calc(var(--theme-textos-parrafo-tamanno) / 1.5);
+    font-family: inherit;
+    font-weight: inherit;
+  }
+  p {
+    margin: 0;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+  p span {
+    display: contents;
+    margin-left: calc(var(--theme-campos-espacio) / 2);
   }
 </style>
 
 {#if !!tipo}
   <label>
 
-    {#if !!etiqueta}{etiqueta}{/if}
-    {#if requerido}
-      <span>*requerido</span>
+    {#if !!etiqueta}
+      <p>
+        {etiqueta}
+        {#if requerido}
+          <span>*requerido</span>
+        {/if}
+      </p>
     {/if}
-
     <Input
       {tipo}
       {nombre}

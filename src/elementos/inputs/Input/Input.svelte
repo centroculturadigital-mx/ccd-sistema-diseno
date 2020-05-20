@@ -61,12 +61,12 @@
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
     padding: var(--theme-campos-espacio);
-    margin-top: var(--theme-espaciados-margin);
+    margin-top: calc(var(--theme-espaciados-margin) / 2 );
     margin-bottom: var(--theme-espaciados-margin);
     min-height: 2rem;
   }
   textarea {
-    min-height: 12rem;
+    min-height: 8rem;
   }
   .error {
     border: 1px solid var(--theme-alertas-error);
