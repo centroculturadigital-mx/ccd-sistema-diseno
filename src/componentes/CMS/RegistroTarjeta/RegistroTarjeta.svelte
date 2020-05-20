@@ -68,13 +68,16 @@
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
+  .menu-acciones .menu :global(button .iconoContenedor) {
+    height: 1.5rem; 
+  }
   .menu-lista {
     position: absolute;
     right: -0.35rem;
-    top: -0.5rem;
+    top: -0.75rem;
     background-color: white;
     cursor: pointer;
-    padding: 1rem 0.25rem 1rem !important;
+    padding: 1rem 0.25rem 1rem 0.5rem !important;
     display: flex;
     width: auto !important;
   }
@@ -95,6 +98,9 @@
   }
   .menu-lista .cerrar-acciones :global(button) {
     padding: 0.5rem 0.75rem;
+  }
+  .menu-lista .cerrar-acciones :global(button .iconoContenedor) {
+    width: 1.25rem;
   }
 </style>
 
