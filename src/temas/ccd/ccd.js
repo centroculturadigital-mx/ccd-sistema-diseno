@@ -14,12 +14,13 @@ const tema = {
         botones: {
             primario: {
                 fondo: variables.colores.primario.base,
-                color: variables.colores.texto.claro,
+                color: variables.colores.primario.base,
                 espacio: variables.espaciados.sm,
                 tipografia: estilos.tipografia.parrafo,
                 familia: variables.tipografia.fuentes.complementaria.nombre,
-                borde: variables.colores.secundario_a.claro,
+                borde: variables.colores.primario.base,
                 activo: variables.colores.primario.claro,
+                hover: variables.colores.primario.oscuro,
                 esquinas: variables.espaciados.none,
             },
             secundario: {
@@ -30,6 +31,7 @@ const tema = {
                 familia: variables.tipografia.fuentes.complementaria.nombre,
                 borde: variables.colores.secundario_a.oscuro,
                 activo: variables.colores.secundario_a.claro,
+                hover: variables.colores.primario.claro,
                 esquinas: variables.espaciados.none,
             }
         },

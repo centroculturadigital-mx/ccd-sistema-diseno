@@ -37,12 +37,3 @@ export const EntidadTarjetaTitulo = () => ({
         icono: datos.icono,
     }
 });
-
-// export const EntidadTarjetaRegistros = () => ({
-//     Component: EntidadTarjeta,
-//     props: {
-//         nombre: datos.nombre,
-//         icono: datos.icono,
-//         cantidad: 123
-//     }
-// });

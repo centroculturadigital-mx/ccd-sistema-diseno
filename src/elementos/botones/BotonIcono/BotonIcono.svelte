@@ -1,32 +1,55 @@
 <script>
   import Icono from "../../Icono/Icono.svelte";
- 
+
   export let texto;
-  export let color;
-  export let colorBG;
-  export let paddingX;
-  export let radius;
   export let icono;
+  export let borde = true;
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
-  export let iconoAltura;
-
   export let estado = false;
-
+  // export let iconoAltura;
+  // export let color;
+  // export let colorBG;
+  // export let paddingX;
+  // export let radius;
 </script>
 
 <style>
   button {
+    color: var(--theme-botones-primario-color);
+    padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
+    background-color: var(--theme-botones-secundario-fondo);
+    font-family: var(--theme-botones-primario-familia);
+    display: flex;
     transition: 0.5s;
-    background-color: transparent;
-    color: #fff;
-    border: none;
     cursor: pointer;
-    padding: 0.5rem 1rem;
     margin: 0;
   }
   button:hover {
-    box-shadow: 1px 2px 2px transparent;
+    /* background-color: var(--theme-botones-primario-hover); */
+    color: var(--theme-botones-primario-hover);
+  }
+  button:focus,
+  button:visited,
+  button:active {
+    color: var(--theme-botones-primario-activo);
+  }
+  .no-borde {
+    border: none;
+  }
+  .borde {
+    border: 1px solid var(--theme-botones-primario-borde);
+  }
+  .borde:hover {
+    border: 1px solid var(--theme-botones-primario-hover);
+  }
+  .borde:focus,
+  .borde:visited,
+  .borde:active {
+    border: 1px solid var(--theme-botones-primario-activo);
+  }
+  button :global(.iconoContenedor) {
+    margin: 0 0.5rem;
   }
   img {
     height: 2rem;
@@ -34,21 +57,18 @@
   }
 </style>
 
-<button
-  style="border-radius:{radius};background-color:{colorBG};color:{color};padding:
-  0.5rem {paddingX};"
-  on:click>
+<button on:click class={!!borde ? 'borde' : 'no-borde'}>
 
+  <!-- version iconos dos estados -->
   {#if !!iconoBotonEstadoUnoUrl}
     <img
       src={!!estado ? iconoBotonEstadoDosUrl : iconoBotonEstadoUnoUrl}
-      alt={!!texto ? texto : ''}
-      style="height:{iconoAltura};" />
+      alt={!!texto ? texto : ''} />
   {:else}{!!texto ? texto : ''}{/if}
 
-  <!-- nuevo prop icono -->
+  <!-- Version prop icono -->
   {#if !!icono}
-    <Icono {icono} tamanno={'1rem'}/>
+    <Icono {icono} tamanno={'1rem'} />
   {/if}
 
 </button>
