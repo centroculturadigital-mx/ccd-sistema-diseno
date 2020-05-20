@@ -5,18 +5,18 @@
 <style>
   button {
     background-color: var(--theme-botones-secundario-fondo);
-    color: var(--theme-botones-primario-color);
+    color: var(--theme-botones-secundario-color);
     border: 1px solid var(--theme-botones-secundario-color);
-    padding: var(--theme-botones-primario-espacio);
+    padding: calc(var(--theme-botones-primario-espacio) * 2 ) calc(var(--theme-botones-primario-espacio) * 4);
     font-family: var(--theme-botones-primario-familia);
     border-radius: var(--theme-botones-primario-esquinas);
     margin: 0;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.5s; 
   }
   button:hover {
     border: 1px solid var(--theme-botones-secundario-hover);
-    color: var(--theme-botones-secundario-borde);
+    color: var(--theme-botones-secundario-hover);
   }
   button:focus,
   button:visited,

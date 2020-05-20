@@ -14,7 +14,7 @@ const tema = {
         botones: {
             primario: {
                 fondo: variables.colores.primario.base,
-                color: variables.colores.primario.base,
+                color: variables.colores.texto.claro,
                 espacio: variables.espaciados.sm,
                 tipografia: estilos.tipografia.parrafo,
                 familia: variables.tipografia.fuentes.complementaria.nombre,

@@ -7,26 +7,22 @@
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let estado = false;
-  // export let iconoAltura;
-  // export let color;
-  // export let colorBG;
-  // export let paddingX;
-  // export let radius;
+
 </script>
 
 <style>
   button {
-    color: var(--theme-botones-primario-color);
+    color: var(--theme-botones-primario-borde);
     padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
     background-color: var(--theme-botones-secundario-fondo);
     font-family: var(--theme-botones-primario-familia);
+    border-radius: var(--theme-botones-primario-esquinas);
     display: flex;
     transition: 0.5s;
     cursor: pointer;
     margin: 0;
   }
   button:hover {
-    /* background-color: var(--theme-botones-primario-hover); */
     color: var(--theme-botones-primario-hover);
   }
   button:focus,

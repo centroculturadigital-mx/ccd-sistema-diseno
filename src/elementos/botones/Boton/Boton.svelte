@@ -8,14 +8,15 @@
 
 <style>
   button {
-    transition: 0.5s;
     background-color: var(--theme-botones-primario-fondo);
     color: var(--theme-botones-primario-color);
+    padding: calc(var(--theme-botones-primario-espacio) * 2 ) calc(var(--theme-botones-primario-espacio) * 4);
+    font-family: var(--theme-botones-primario-familia);
+    border-radius: var(--theme-botones-primario-esquinas);
     border: none;
     cursor: pointer;
-    padding: calc(var(--theme-botones-primario-espacio) * 2 ) calc(var(--theme-botones-primario-espacio) * 4);
     margin: 0;
-    font-family: var(--theme-botones-primario-familia)
+    transition: 0.5s;
   }
   button:hover {
     background-color: var(--theme-botones-primario-hover);
