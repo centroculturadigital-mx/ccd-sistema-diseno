@@ -27,8 +27,9 @@
 <style>
   .iconoContenedor {
     display: flex;
-    align-items: center;
+    align-items: center; 
     cursor: pointer;
+    height:2rem ;
   }
   .iconoContenedor :global(*) {
     fill: inherit;

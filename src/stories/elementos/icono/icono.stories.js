@@ -1,42 +1,61 @@
-import Icono from '../../../elementos/Icono/Icono.svelte';
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
+import Icono from '../../../elementos/Icono/Icono.svelte';   
 
 export default { title: 'Elementos/Icono' }
 
 export const iconoDefault = () => ({
-    Component: Icono,
+    Component: ThemeTester,
     props: {
+        componente: Icono,
+        datos: {
         icono: "play",
+        }
     },
 });
 export const iconoColor = () => ({
-    Component: Icono,
+    Component: ThemeTester,
     props: {
+        componente: Icono,
+        datos :{
         icono: "cerrar",
         color: "red"
+    }
     },
 });
 export const iconoPlay = () => ({
-    Component: Icono,
+    Component: ThemeTester,
     props: {
+        componente: Icono,
+        datos:{
         icono: "play",
+    }
     },
 });
 export const iconoMenu = () => ({
-    Component: Icono,
+    Component: ThemeTester,
     props: {
+        componente: Icono,
+        datos: {
         icono: "menu",
+    }
     },
 });
 export const iconoCerrar = () => ({
-    Component: Icono,
+    Component: ThemeTester,
     props: {
+        componente: Icono,
+        datos: {
         icono: "cerrar",
+    }
     },
 });
 
 export const iconoAvatar = () => ({
-    Component: Icono,
+    Component: ThemeTester,
     props: {
+        componente: Icono,
+        datos: {
         icono: "avatar",
+    }
     },
 });

@@ -1,5 +1,5 @@
 <script>
-  import Icono from "../../../elementos/Icono/Icono.svelte";
+  import Icono from "../../../elementos/Icono/Icono.svelte"; 
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
