@@ -37,7 +37,7 @@
     {#if requerido }
       <span>*requerido</span>
     {/if}
-    
+     
     <Input
     {tipo}
     {nombre}

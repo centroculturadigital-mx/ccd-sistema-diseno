@@ -1,168 +1,139 @@
 <script>
-
   import Selector from "../Selector/Selector.svelte";
 
-  export let placeholder;
   export let tipo = "texto";
-
+  export let placeholder;
   export let valor;
   export let cambiar;
   export let nombre;
   export let opciones;
-
   export let status;
+  export let minimo;
+  export let maximo;
 
-  let valorLocal
 
-  $: valorActualizar(valor)
+  let valorLocal;
+
+  $: valorActualizar(valor);
 
   const valorActualizar = v => {
-    valorLocal = v
-  }
+    valorLocal = v;
+  };
 
-  
   // $: (typeof cambiar == "function" && !! valorLocal) ? cambiar(valorLocal) : null
-  
+
   // $: cambiarValorDesdeFuera( valor )
 
-  $: clases = 'Input' + (status ? " " + status : '' );
+  $: clases = "Input" + (status ? " " + status : "");
 
-  $: seleccionarTipo(tipo)
+  $: seleccionarTipo(tipo);
 
   // const cambiarValorDesdeFuera = nuevoValor => {
   //   valorLocal = nuevoValor
   // }
-  
-  const seleccionarTipo = (tipo) => {
-    switch( tipo ) {
+
+  const seleccionarTipo = tipo => {
+    switch (tipo) {
       case "texto":
-        tipo = "texto"
+        tipo = "texto";
         break;
       case "numero":
-        tipo = "number"
+        tipo = "number";
         break;
       case "contrasenna":
-        tipo = "password"
+        tipo = "password";
         break;
       case "email":
-        tipo = "email"
+        tipo = "email";
         break;
     }
-  }
-
+  };
 </script>
 
 <style>
   input {
-    border: 1px solid gray;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
+    font-size: var(--theme-textos-parrafo-tamanno);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    font-weight: var(--theme-textos-parrafo-peso);
+    color: var(--theme-campos-color);
+    border: 1px solid var(--theme-campos-borde);
+    border-radius: var(--theme-campos-esquinas);
+    padding: var(--theme-campos-espacio);
     margin-bottom: 0.5rem;
     min-height: 2rem;
   }
   .error {
-    border: 1px solid red;
-    color: red;
+    border: 1px solid var(--theme-alertas-error);
+    color: rgb(250, 233, 233);
   }
   .ok {
-    border: 1px solid green;
-    color: green;
-  }
-  #mensaje {
-    border: none;
-  }
-  p {
-    font-size: 0.75rem;
+    border: 1px solid var(--theme-alertas-exito);
+    color: var(--theme-alertas-exito);
   }
 </style>
 
-
-{#if tipo == "texto"}
-
-  <input
-    class={clases}
-    on:keyup={e=>cambiar(e.target.value)}
-    name={nombre}
-    type="text" 
-    {placeholder}
-    bind:value={valorLocal}
-  />
-
-{/if}
-
-{#if tipo == "contrasenna"}
+{#if tipo == 'texto'}
 
   <input
     class={clases}
-    on:keyup={e=>cambiar(e.target.value)}
+    on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="password" 
+    type="text"
     {placeholder}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
-{#if tipo == "email"}
-
+{#if tipo == 'contrasenna'}
   <input
     class={clases}
-    on:keyup={e=>cambiar(e.target.value)}
+    on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="email" 
+    type="password"
     {placeholder}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
-
-{#if tipo == "numero"}
-
+{#if tipo == 'email'}
   <input
     class={clases}
-    on:keyup={e=>cambiar(e.target.value)}
+    on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="number" 
+    type="email"
     {placeholder}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
-{#if tipo == "archivo"}
-
+{#if tipo == 'numero'}
   <input
     class={clases}
-    on:keyup={e=>cambiar(e.target.value)}
+    on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="file" 
+    type="number"
+    min={!!minimo ? minimo : ""} 
+    max={!!maximo ? maximo : ""}
     {placeholder}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
-{#if tipo == "textarea"}
+{#if tipo == 'archivo'}
+  <input
+    class={clases}
+    on:keyup={e => cambiar(e.target.value)}
+    name={nombre}
+    type="file"
+    {placeholder}
+    bind:value={valorLocal} />
+{/if}
 
+{#if tipo == 'textarea'}
   <textarea
     class={clases}
-    on:keyup={e=>cambiar(e.target.value)}
+    on:keyup={e => cambiar(e.target.value)}
     name={nombre}
     {placeholder}
-    bind:value={valorLocal}
-  ></textarea>
-
+    bind:value={valorLocal} />
 {/if}
 
-{#if tipo == "selector" && Array.isArray(opciones) }
-
-  <Selector
-    bind:value={valorLocal}
-    {nombre}
-    {opciones}
-    {status}
-    {cambiar}
-  />
-
+{#if tipo == 'selector' && Array.isArray(opciones)}
+  <Selector bind:value={valorLocal} {nombre} {opciones} {status} {cambiar} />
 {/if}

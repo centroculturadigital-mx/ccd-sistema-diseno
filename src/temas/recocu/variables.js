@@ -30,6 +30,12 @@ const variables = {
             claro: "#D9A5D6",
             oscuro: "#A776A5",
             transparente: "transparent",
+        },
+        alerta: {
+            ok: "green",
+            error: "red",
+            aviso: "yellow",
+            informa: "orange"
         }
     },
     tipografia: {
@@ -76,6 +82,14 @@ const variables = {
             xxl: "1.75rem",
             xxxl: "2rem",
         }
+    },
+    campos: {
+        fondo: "#FFF",
+        color: "#5A5A5A",
+        espacio: "0.5rem",
+        borde: "#CCC",
+        activo: "#BBB",
+        esquinas: "0.25rem",
     },
     espaciados: {
         none: "0rem",

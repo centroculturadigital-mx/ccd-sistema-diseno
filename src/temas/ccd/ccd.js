@@ -38,7 +38,7 @@ const tema = {
         },
         botones: {
             primario: {
-                fondo: variables.colores.primario.base,
+                fondo: variables.colores.texto.claro,
                 color: variables.colores.texto.claro,
                 espacio: variables.espaciados.sm,
                 familia: estilos.tipografia.parrafo.fuente,
@@ -61,6 +61,20 @@ const tema = {
         espaciado: {
             padding: variables.espaciados.md,
         },
+        campos: {
+            fondo: variables.campos.fondo,
+            color: variables.campos.color,
+            espacio: variables.campos.espacio,
+            borde: variables.campos.borde,
+            activo: variables.campos.activo,
+            esquinas: variables.espaciados.none,
+        },
+        alertas: {
+            exito: variables.colores.alerta.ok,
+            error: variables.colores.alerta.error,
+            aviso: variables.colores.alerta.aviso,
+            informa: variables.colores.alerta.informa,
+        }
     },
     fontFamilies: {
         principal: variables.tipografia.familias.principal,
