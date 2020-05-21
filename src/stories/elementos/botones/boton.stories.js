@@ -5,7 +5,7 @@ export default { title: 'Elementos/Botones/Botón' }
 
 
 export const botonDefault = () => ({
-    Component: ThemeTester,
+    Component: ThemeTester, 
     props: {
         componente: Boton,
         datos: {
