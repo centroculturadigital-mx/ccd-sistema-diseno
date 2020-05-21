@@ -27,16 +27,28 @@ const variables = {
         }
     },
     tipografia: {
+        familias: {
+            principal: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap",
+            secundaria: "https://fonts.googleapis.com/css2?family=Oswald&display=swap",
+            complementaria:"https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+            },
         fuentes: {
             principal: {
-                nombre: "Nunito Sans",
+                nombre: "Montserrat",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             secundaria: {
-                nombre: "Open Sans",
+                nombre: "Oswald",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
+            complementaria: {
+                nombre: "Raleway",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,

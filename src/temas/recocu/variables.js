@@ -1,59 +1,59 @@
 const variables = {
     colores: {
         texto: {
+            base: "#000",
             claro: '#FFF',
-            oscuro: '#333',
+            oscuro: '#5A5A5A',
         },
-        fondo: "#F0F0F0",
+        fondo: {
+            base: "#666666",
+            claro: "#CCCCCC",
+            oscuro: "#212121",
+        },
         primario: {
-            base: "#ACABFF",
-            claro: "#CDCC88",
-            oscuro: "#2700CA",
+            base: "#F36957",
+            claro: "#FF9A84",
+            oscuro: "#BB382D",
         },
         secundario_a: {
-            base: "#AC4CFF",
-            claro: "#DDCCFF",
-            oscuro: "#6700CA",
+            base: "#3849C4",
+            claro: "#7374F8",
+            oscuro: "#002192",
         },
-        secundario_b: {
-            base: "#4C4AFF",
-            claro: "#CDDCFF",
-            oscuro: "#2760CA",
-        },
+
         complementario: {
-            base: "#4C4CAF",
-            claro: "#CDCCFF",
-            oscuro: "#2700CA",
+            base: "#D9A5D6",
+            claro: "#D9A5D6",
+            oscuro: "#A776A5",
         }
     },
     tipografia: {
         familias: {
-            principal: "https://fonts.googleapis.com/css2?family=Lato&display=swap",
-            secundaria: "https://fonts.googleapis.com/css2?family=Open+Sans&display=swap",
-            complementaria:"https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-            },
+            principal: "https://fonts.googleapis.com/css2?family=Montserrat&display=swap",
+        },
         fuentes: {
             principal: {
-                nombre: "Lato",
+                nombre: "Jost Sans",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             secundaria: {
-                nombre: "Open Sans",
+                nombre: "Jost Sans",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             complementaria: {
-                nombre: "Roboto",
+                nombre: "Jost Sans",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
+
         },
         tamannos: {
             xs: "0.5rem",

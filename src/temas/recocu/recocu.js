@@ -2,7 +2,7 @@ import variables from './variables';
 import estilos from './estilos';
 
 const tema = {
-    name: 'CCD',
+    name: 'Recocu',
     properties: {
         colores: variables.colores,
         textos: {

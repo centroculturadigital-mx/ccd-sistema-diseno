@@ -6,9 +6,9 @@ const variables = {
             oscuro: '#282230',
         },
         fondo: {
-            base: "#4C4CFF",
-            claro: "#CDCCFF",
-            oscuro: "#2700CA",    
+            base: "#666666",
+            claro: "#CCCCCC",
+            oscuro: "#212121",    
         },
         primario: {
             base: "#4C4CFF",
@@ -16,32 +16,44 @@ const variables = {
             oscuro: "#2700CA",
         },
         secundario_a: {
-            base: "#AC4CFF",
-            claro: "#DDCCFF",
-            oscuro: "#6700CA",
+            base: "#FF4C4C",
+            claro: "#FF8178",
+            oscuro: "#C50023",
         },
         secundario_b: {
-            base: "#4C4AFF",
-            claro: "#CDDCFF",
-            oscuro: "#2760CA",
+            base: "#4CA6FF",
+            claro: "#89D7FF",
+            oscuro: "#0078CB",
         },
         complementario: {
-            base: "#4C4CAF",
-            claro: "#CDCCFF",
-            oscuro: "#2700CA",
+            base: "#FFFF4C",
+            claro: "#FFFF81",
+            oscuro: "#C8CC00",
         }
     },
     tipografia: {
+        familias: {
+            principal: "https://fonts.googleapis.com/css2?family=Jost&display=swap",
+            secundaria: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap",
+            complementaria:"https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap"
+            },
         fuentes: {
             principal: {
-                nombre: "Nunito Sans",
+                nombre: "Jost Sans",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             secundaria: {
-                nombre: "Open Sans",
+                nombre: "Ubuntu Sans",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
+            complementaria: {
+                nombre: "Frank Sans",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
