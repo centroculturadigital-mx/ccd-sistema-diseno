@@ -1,12 +1,13 @@
 <script>
-  export let videoUrls;
+  import Insertar from "../Insertar/Insertar.svelte";
+
+  export let videos;
+  export let enlace;
   export let autoplay;
   export let loop;
   export let muted;
   export let controls;
-  export let ajuste;
-  export let alineacion;
-  export let altura;
+
 </script>
 
 <style>
@@ -16,18 +17,28 @@
     height: 100%;
     width: 100%;
   }
+  .videoIframe {
+    height: 100%;
+    width: 100%;
+  }
+
 </style>
 
-{#if !!videoUrls}
+{#if !!videos}
   <video
     {autoplay}
     {loop}
     {muted}
-    {controls}
-    style="object-fit:{ajuste};object-position:{alineacion};height:{altura}">
-    {#each videoUrls as videoUrl}
+    {controls}>
+    {#each videos as videoUrl}
       <source src={videoUrl} />
     {/each}
     Tu navegador no soporta HTML5 video.
   </video>
+{:else}
+  <div class="videoIframe">
+
+    <Insertar {enlace} />
+
+  </div>
 {/if}

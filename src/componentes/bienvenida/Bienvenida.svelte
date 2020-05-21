@@ -4,8 +4,8 @@ import Imagen from '../media/Imagen/Imagen.svelte';
 import Titulo from '../../elementos/texto/Titulo/Titulo.svelte';
 import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons/PlayCircleIcon.svelte";
 
-  export let videoUrls;
-  export let imagenUrl;
+  export let videos;
+  export let imagen;
   export let titulo;
   export let posicionTexto;
   export let overlay;
@@ -79,10 +79,10 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
 
 <section>
   <div class="fondo">
-    {#if !!imagenUrl}
-      <Imagen {imagenUrl} altTexto={titulo} />
-    {:else if !!videoUrls}
-      <Video {videoUrls} loop="true" autoplay="true"/>
+    {#if !!imagen}
+      <Imagen {imagen} altTexto={titulo} />
+    {:else if !!videos}
+      <Video {videos} loop="true" autoplay="true"/>
     {/if}
   </div>
   {#if !!overlay}
@@ -92,7 +92,7 @@ import PlayCircleIcon from "../../../node_modules/svelte-feather-icons/src/icons
     <div class="texto">
       <article style="justify-content:{posicionTexto};">
         <Titulo texto={titulo} />
-        {#if !!videoUrls}
+        {#if !!videos}
           <div>
             <PlayCircleIcon />
           </div>
