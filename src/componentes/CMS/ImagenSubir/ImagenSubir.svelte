@@ -116,7 +116,7 @@
       <div on:click={eliminarImagen}>
         <BotonIcono icono={'cerrar'} />
       </div>
-      <Imagen imagenUrl={imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
+      <Imagen imagen={imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
     </div>
   {/if}
 

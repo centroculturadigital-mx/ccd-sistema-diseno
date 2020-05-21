@@ -86,7 +86,7 @@
 
   <div class="Imagen">
 
-    <Imagen imagenUrl={imagen} altTexto={nombre} />
+    <Imagen imagen={imagen} altTexto={nombre} />
 
     <a href="#VideoGaleria" on:click>
       <img src={iconoPlay} alt="play" />

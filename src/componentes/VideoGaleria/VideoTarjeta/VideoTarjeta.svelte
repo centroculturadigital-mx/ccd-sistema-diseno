@@ -55,7 +55,7 @@
 
   <div class="VideoTarjetaImagen">
     <Imagen
-      imagenUrl={imagen}
+      imagen={imagen}
       altTexto={nombre}
       alineacion={'center'}
       />

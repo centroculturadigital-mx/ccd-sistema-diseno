@@ -18,7 +18,7 @@ export const imagenAltTexto = () => ({
     props: {
         componente: Imagen,
         datos: {
-            altTexto: "Aquí va una imágen"
+            alt: "Aquí va una imágen"
         },
     }
 });
@@ -28,7 +28,7 @@ export const imagenAjuste = () => ({
         componente: Imagen,
         datos: {
             imagen: ImagenArchivo,
-            altTexto: "Aquí va una imágen",
+            alt: "Aquí va una imágen",
             estilos: {
                 ajuste: 'cover',
                 altura: '200px',
@@ -41,8 +41,8 @@ export const imagenAltura = () => ({
     props: {
         componente: Imagen,
         datos: {
-            imagenUrl: ImagenArchivo, //comprueba funcionalidad de prop obsoleta proxima a desaparecer
-            altTexto: "Aquí va una imágen",
+            imagen: ImagenArchivo, //comprueba funcionalidad de prop obsoleta proxima a desaparecer
+            alt: "Aquí va una imágen",
             estilos: {
                 ajuste: 'fill',
                 altura: '320px',

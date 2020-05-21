@@ -38,7 +38,7 @@
     <a href={enlace} target="_blank">
       {#if !!logotipo}
         <Imagen
-          imagenUrl={logotipo}
+          imagen={logotipo}
           altTexto={nombre}
           altura="100%"
           ajuste="contain"
@@ -50,7 +50,7 @@
   {:else if !enlace}
       {#if !!logotipo}
         <Imagen
-          imagenUrl={logotipo}
+          imagen={logotipo}
           altTexto={nombre}
           altura="100%"
           ajuste="contain"

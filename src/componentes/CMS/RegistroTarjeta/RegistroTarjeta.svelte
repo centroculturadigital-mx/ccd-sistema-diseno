@@ -35,6 +35,7 @@
     padding: 0.5rem;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
   }
   .imagen {
     height: 4rem;
@@ -67,6 +68,8 @@
     justify-content: center;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    min-width: 3rem;
+    flex-shrink: 0;
   }
   .menu-acciones .menu :global(button .iconoContenedor) {
     height: 1.5rem; 
@@ -108,7 +111,7 @@
 
   <div>
     <div class="imagen">
-      <Imagen imagenUrl={imagen} altTexto={nombre} />
+      <Imagen imagen={imagen} altTexto={nombre} />
     </div>
 
     <Titulo texto={nombre} nivel={3} />

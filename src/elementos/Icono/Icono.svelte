@@ -43,7 +43,7 @@
   <div class="iconoContenedor" style={`fill:${color};`}>
     <Imagen
       on:click
-      imagenUrl={iconoMostrar}
+      imagen={iconoMostrar}
       altTexto={`Ícono ${icono}`}
       altura={tamanno} />
   </div>
