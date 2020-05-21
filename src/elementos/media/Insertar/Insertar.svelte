@@ -1,8 +1,11 @@
 <script>
   export let id;
   export let enlace;
-  export let alto;
-  export let ancho;
+
+  export let estilos = {
+    alto: "",
+    ancho: ""
+  }
 </script>
 
 <style>
@@ -14,8 +17,8 @@
 
 <iframe
   {id}
-  width={ancho}
-  height={alto}
+  width={estilos.ancho}
+  height={estilos.alto}
   src={enlace}
   frameborder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"

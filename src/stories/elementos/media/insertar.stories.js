@@ -28,3 +28,15 @@ export const iframeVimeo = () => ({
         },
     }
 });
+export const iframeVimeoAltura = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Insertar,
+        datos: {
+            enlace: "https://player.vimeo.com/video/139989023",
+            estilos: {
+                altura: "20rem",
+            }
+        },
+    }
+});
