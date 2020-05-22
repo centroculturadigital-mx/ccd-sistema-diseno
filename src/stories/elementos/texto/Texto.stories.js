@@ -1,75 +1,106 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Texto from '../../../elementos/texto/Texto/Texto.svelte';
 
 export default { title: 'Elementos/Texto/Texto' }
 
 
-export const textoDefault = () => ({
-    Component: Texto,
+export const textoThemed = () => ({
+    Component: ThemeTester,
     props: {
-        texto: 'Texto Default',
+        componente: Texto,
+        datos: {
+            texto: 'Texto Default',
+        }
+    },
+});
+export const textoDefault = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto Default',
+        },
     },
 });
 
 export const textoBold = () => ({
-    Component: Texto,
+    Component: ThemeTester,
     props: {
-        texto: 'Texto Bold',
-        estilos: [
-            "bold"
-        ]
-    },
+        componente: Texto,
+        datos: {
+            texto: 'Texto Bold',
+            estilos: [
+                "bold"
+            ]
+        },
+    }
 });
 
 export const textoItalic = () => ({
-    Component: Texto,
+    Component: ThemeTester,
     props: {
-        texto: 'Texto Italic',
-        estilos: [
-            "italic"
-        ]
+        componente: Texto,
+        datos: {
+            texto: 'Texto Italic',
+            estilos: [
+                "italic"
+            ]
+        },
     },
 });
 
 export const textoBoldItalic = () => ({
-    Component: Texto,
+    Component: ThemeTester,
     props: {
-        texto: 'Texto Bold Italic',
-        estilos: [
-            "bold",
-            "italic",
-        ]
-    },
+        componente: Texto,
+        datos: {
+            texto: 'Texto Bold Italic',
+            estilos: [
+                "bold",
+                "italic",
+            ]
+        },
+    }
 });
 
 export const textoSubrayado = () => ({
-    Component: Texto,
+    Component: ThemeTester,
     props: {
-        texto: 'Texto Subrayado',
-        estilos: [
-            "underline",
-        ]
-    },
+        componente: Texto,
+        datos: {
+            texto: 'Texto Subrayado',
+            estilos: [
+                "underline",
+            ]
+        },
+    }
 });
 
 export const textoTachado = () => ({
-    Component: Texto,
+    Component: ThemeTester,
     props: {
-        texto: 'Texto Tachado',
-        estilos: [
-            "strikethrough",
-        ]
-    },
+        componente: Texto,
+        datos: {
+            texto: 'Texto Tachado',
+            estilos: [
+                "strikethrough",
+            ]
+        },
+    }
 });
 
 export const textoTodos = () => ({
-    Component: Texto,
+    Component: ThemeTester,
     props: {
-        texto: 'Texto Todos',
-        estilos: [
-            "bold",
-            "italic",
-            "underline",
-            "strikethrough",
-        ]
-    },
+        componente: Texto,
+        datos: {
+            texto: 'Texto Todos',
+            estilos: [
+                "bold",
+                "italic",
+                "underline",
+                "strikethrough",
+            ]
+        },
+    }
 });
