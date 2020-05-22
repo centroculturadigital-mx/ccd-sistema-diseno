@@ -1,8 +1,11 @@
 <script>
   export let contenido;
-  export let tamanno;
   export let texto;
-  export let color;
+
+  export let estilos = {
+    tamanno: "",
+    color: "",
+  }
 </script>
 
 <style>
@@ -21,21 +24,21 @@
       <svelte:component
         this={componente.componente}
         {...componente.data}
-        {tamanno} />
+        tamanno={estilos.tamanno} />
     {/each}
   {:else if typeof contenido == 'object' && !!contenido.componente}
     <svelte:component
       this={contenido.componente}
       {...contenido.data}
-      {tamanno} />
+      tamanno={estilos.tamanno} />
   {:else}
-    <span style={`font-size: ${tamanno};color: ${color};`}>
+    <span style={`font-size: ${estilos.tamanno};color: ${estilos.color};`}>
       {@html contenido}
     </span>
   {/if}
 {:else}
 
   {#if !!texto}
-    <span style={`font-size: ${tamanno};color: ${color};`}>{texto}</span>
+    <span style={`font-size: ${estilos.tamanno};color: ${estilos.color};`}>{texto}</span>
   {/if}
 {/if}
