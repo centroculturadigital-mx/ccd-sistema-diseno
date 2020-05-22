@@ -25,7 +25,7 @@
     display: flex;
     justify-content: center;
     margin: 0.25rem 0;
-    height: 3rem;
+   /* height: 3rem;*/ 
   } 
   .EntidadTarjeta :global(h2) {
     text-align: center;

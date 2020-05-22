@@ -75,6 +75,17 @@ const tema = {
             error: variables.colores.alerta.error,
             aviso: variables.colores.alerta.aviso,
             informa: variables.colores.alerta.informa,
+        },
+        iconos: {
+            primario: {
+                color: variables.colores.icono.primario,
+                tamanno: variables.tipografia.tamannos.sm,
+            },
+            secundario: {
+                color: variables.colores.icono.primario,
+                tamanno: variables.tipografia.tamannos.sm,
+            }
+            
         }
     },
     fontFamilies: {

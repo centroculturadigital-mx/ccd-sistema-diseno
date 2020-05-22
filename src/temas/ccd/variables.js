@@ -41,7 +41,13 @@ const variables = {
             error: "red",
             aviso: "yellow",
             informa: "orange"
-        }
+        },
+        icono: {
+            base: "#4C4CFF",
+            claro: '#FFF',
+            oscuro: '#282230',
+            transparente: "transparent",
+        },
     },
     tipografia: {
         familias: {

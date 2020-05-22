@@ -25,18 +25,22 @@
 </script>
 
 <style>
-  .iconoContenedor {
+  .iconoContenedor { 
     display: flex;
     align-items: center; 
     cursor: pointer;
-    height:2rem ;
+    width: 100%;
+          
   }
   .iconoContenedor :global(*) {
     fill: inherit;
   }
   .iconoContenedor :global(img) {
     object-fit: contain;
+    height:  var(--theme-iconos-primario-tamanno); 
+  
   }
+
 </style>
 
 {#if icono && Object.keys(iconos).includes(icono)}
