@@ -1,4 +1,4 @@
-import variables from './variables';
+import variables from './variables'; 
 import estilos from './estilos';
 
 const tema = {
@@ -75,13 +75,25 @@ const tema = {
             error: variables.colores.alerta.error,
             aviso: variables.colores.alerta.aviso,
             informa: variables.colores.alerta.informa,
+        },
+        iconos: {
+            primario: {
+                color: variables.colores.icono.primario,
+                tamanno: variables.tipografia.tamannos.xxl,
+            },
+            secundario: {
+                color: variables.colores.icono.primario,
+                tamanno: variables.tipografia.tamannos.xxl,
+            }
+            
         }
     },
     fontFamilies: {
         principal: variables.tipografia.familias.principal,
         secundaria: variables.tipografia.familias.secundaria,
         complementaria: variables.tipografia.familias.complementaria
-    }
+    },
+    
 };
 
 export default tema;
