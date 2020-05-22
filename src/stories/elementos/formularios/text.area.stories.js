@@ -1,6 +1,6 @@
 import TextArea from '../../../elementos/formularios/TextArea/TextArea.svelte';
 
-export default { title: 'Elementos/Entradas/Text Area' }
+export default { title: 'Elementos/Formularios/Text Area' }
 
 export const textAreaDefault = () => ({
     Component:TextArea,

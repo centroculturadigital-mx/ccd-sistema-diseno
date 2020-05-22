@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Selector from '../../../elementos/formularios/Selector/Selector.svelte';
 
-export default { title: "Elementos/Entradas/Selector" }
+export default { title: "Elementos/Formularios/Selector" }
 
 let opciones = [{
         valor: 'AGU',
