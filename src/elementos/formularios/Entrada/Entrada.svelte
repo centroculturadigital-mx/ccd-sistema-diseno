@@ -1,16 +1,21 @@
 <script>
   import Selector from "../Selector/Selector.svelte";
 
-  export let tipo = "texto";
-  export let placeholder;
-  export let nombre;
-  export let opciones;
-  export let status;
-  export let minimo;
-  export let maximo;
 
+  // propiedades
+  export let tipo = "texto";
+  export let ejemplo="Introduce un valor";
+  export let opciones=[];
+  export let estado="";
+  export let minimo = 0;
+  export let maximo = 999;
+
+  // propiedades para lógica
+  export let nombre="";
   export let valor;
   export let cambiar;
+
+
 
   let valorLocal;
 
@@ -24,7 +29,7 @@
 
   // $: cambiarValorDesdeFuera( valor )
 
-  $: clases = "Input" + (status ? " " + status : "");
+  $: clases = 'Entrada' + (estado ? " " + estado : '' );
 
   $: seleccionarTipo(tipo);
 
@@ -85,9 +90,11 @@
     class={clases}
     on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="text"
-    {placeholder}
-    bind:value={valorLocal} />
+    type="text" 
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+  />
+
 {/if}
 
 {#if tipo == 'contrasenna'}
@@ -95,9 +102,11 @@
     class={clases}
     on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="password"
-    {placeholder}
-    bind:value={valorLocal} />
+    type="password" 
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+  />
+
 {/if}
 
 {#if tipo == 'email'}
@@ -105,9 +114,11 @@
     class={clases}
     on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="email"
-    {placeholder}
-    bind:value={valorLocal} />
+    type="email" 
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+  />
+
 {/if}
 
 {#if tipo == 'numero'}
@@ -118,8 +129,10 @@
     type="number"
     min={!!minimo ? minimo : ''}
     max={!!maximo ? maximo : ''}
-    {placeholder}
-    bind:value={valorLocal} />
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+  />
+
 {/if}
 
 {#if tipo == 'archivo'}
@@ -127,9 +140,11 @@
     class={clases}
     on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    type="file"
-    {placeholder}
-    bind:value={valorLocal} />
+    type="file" 
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+  />
+
 {/if}
 
 {#if tipo == 'textarea'}
@@ -137,10 +152,20 @@
     class={clases}
     on:keyup={e => cambiar(e.target.value)}
     name={nombre}
-    {placeholder}
-    bind:value={valorLocal} />
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+  ></textarea>
+
 {/if}
 
-{#if tipo == 'selector' && Array.isArray(opciones)}
-  <Selector bind:value={valorLocal} {nombre} {opciones} {status} {cambiar} />
+{#if tipo == "selector" && Array.isArray(opciones) }
+
+  <Selector
+    bind:value={valorLocal}
+    {nombre}
+    {opciones}
+    {estado}
+    {cambiar}
+  />
+
 {/if}

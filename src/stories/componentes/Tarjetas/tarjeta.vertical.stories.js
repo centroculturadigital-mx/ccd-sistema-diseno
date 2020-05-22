@@ -1,5 +1,5 @@
 import TarjetaVertical from "../../../componentes/Tarjetas/TarjetaVertical/TarjetaVertical.svelte";
-import Placeholder from '../../../../public/placeholder.jpg';
+import imagenEjemplo from '../../../../public/placeholder.jpg';
 
 export default {title: "Componentes/Tarjetas/Tarjeta Vertical"}
 
@@ -7,7 +7,7 @@ export default {title: "Componentes/Tarjetas/Tarjeta Vertical"}
 export const tarjetaVerticalDefault = () => ({
     Component: TarjetaVertical,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3'
@@ -16,7 +16,7 @@ export const tarjetaVerticalDefault = () => ({
 export const tarjetaVerticalTamanoTitulo = () => ({
     Component: TarjetaVertical,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h1'
@@ -25,7 +25,7 @@ export const tarjetaVerticalTamanoTitulo = () => ({
 export const tarjetaVerticalColorTitulo = () => ({
     Component: TarjetaVertical,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
@@ -35,7 +35,7 @@ export const tarjetaVerticalColorTitulo = () => ({
 export const tarjetaVerticalColorTexto = () => ({
     Component: TarjetaVertical,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
@@ -46,7 +46,7 @@ export const tarjetaVerticalColorTexto = () => ({
 export const tarjetaVerticalColorFondo = () => ({
     Component: TarjetaVertical,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
@@ -58,7 +58,7 @@ export const tarjetaVerticalColorFondo = () => ({
 export const tarjetaVerticalSombra = () => ({
     Component: TarjetaVertical,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',

@@ -1,14 +1,14 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import Input from '../../../elementos/inputs/Input/Input.svelte';
+import Entrada from '../../../elementos/formularios/Entrada/Entrada.svelte';
 
-export default { title: 'Elementos/inputs/Input' }
+export default { title: 'Elementos/Formularios/Entrada' }
 
 export const inputDefault = () => ({
     Component: ThemeTester,
     props: {
-        componente: Input,
+        componente: Entrada,
         datos: {
-            placeholder: 'Introduce Texto',
+            ejemplo: 'Introduce Texto',
         }
     },
 });
@@ -16,9 +16,9 @@ export const inputDefault = () => ({
 export const inputCorreo = () => ({
     Component: ThemeTester,
     props: {
-        componente: Input,
+        componente: Entrada,
         datos: {
-            placeholder: 'Correo Electronico',
+            ejemplo: 'Correo Electronico',
             tipo: "email",
         }
     },
@@ -26,9 +26,9 @@ export const inputCorreo = () => ({
 export const inputNumero = () => ({
     Component: ThemeTester,
     props: {
-        componente: Input,
+        componente: Entrada,
         datos: {
-            placeholder: 'Agrega un numero',
+            ejemplo: 'Agrega un numero',
             tipo: "numero",
         }
     },
@@ -37,9 +37,9 @@ export const inputNumero = () => ({
 export const inputNumeroMinMax = () => ({
     Component: ThemeTester,
     props: {
-        componente: Input,
+        componente: Entrada,
         datos: {
-            placeholder: 'Agrega minimo 1 + maximo 10',
+            ejemplo: 'Agrega minimo 1 + maximo 10',
             tipo: "numero",
             minimo: 1,
             maximo: 10
@@ -50,9 +50,9 @@ export const inputNumeroMinMax = () => ({
 export const inputContrasenna = () => ({
     Component: ThemeTester,
     props: {
-        componente: Input,
+        componente: Entrada,
         datos: {
-            placeholder: 'Agrega tu contrasenna',
+            ejemplo: 'Agrega tu contrasenna',
             tipo: "contrasenna",
         }
     },
@@ -61,9 +61,9 @@ export const inputContrasenna = () => ({
 export const inputTextArea = () => ({
     Component: ThemeTester,
     props: {
-        componente: Input,
+        componente: Entrada,
         datos: {
-            placeholder: 'Agrega tu contraseña',
+            ejemplo: 'Agrega tu contraseña',
             tipo: "textarea",
         }
     },

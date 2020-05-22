@@ -45,7 +45,7 @@ let campos = [
                 valido: !caracteresEspeciales.test(valor),
                 error: caracteresEspeciales.test(valor) ?
                     new Error("No cars. espec.") : null,
-                status: caracteresEspeciales.test(valor) ?
+                estado: caracteresEspeciales.test(valor) ?
                     "error" : !valor ? "" : "ok"
             }
         }
@@ -60,24 +60,24 @@ let campos = [
             if (!typeof valor == "number" || valor === "") {
                 return {
                     valido: false,
-                    status: "error",
+                    estado: "error",
                     error: new Error("Números, por favor")
                 }
             }
 
             if (!valor) return {
                 valido: true,
-                status: ""
+                estado: ""
             }
 
             if (parseInt(valor) === 666) return {
                 valido: true,
-                status: "ok"
+                estado: "ok"
             }
 
             return {
                 valido: false,
-                status: "error",
+                estado: "error",
                 error: new Error("Anim sint aliquip voluptate culpa excepteur aliquip.")
             }
         }
@@ -92,18 +92,18 @@ let campos = [
 
             if (!valor) return {
                 valido: true,
-                status: ""
+                estado: ""
             }
 
             if (valor.length < 10) return {
                 valido: true,
-                status: "ok"
+                estado: "ok"
             }
 
             return {
                 valido: false,
                 error: new Error("Mayor a 10 caracteres"),
-                status: "error"
+                estado: "error"
             }
 
         }

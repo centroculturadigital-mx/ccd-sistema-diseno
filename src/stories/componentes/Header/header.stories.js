@@ -1,5 +1,5 @@
 import Header from '../../../componentes/Header/Header.svelte';
-import Placeholder from '../../../../public/placeholder.jpg';
+import imagenEjemplo from '../../../../public/placeholder.jpg';
 
 export default { title: 'Componentes/Header/Header' }
 
@@ -29,7 +29,7 @@ export const headerDefault = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logoTexto: 'Logo Sitio',
     }
 });
@@ -37,7 +37,7 @@ export const headerIconoDiccionario = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logoTexto: 'Logo Sitio',
         iconoMenu: {
             abrir: 'menu',
@@ -49,7 +49,7 @@ export const headerColorBG = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logoTexto: 'Logo Sitio',
         colorFondo: 'lightgray',
         altura: '100px',
@@ -59,7 +59,7 @@ export const headerColorTexto = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logoTexto: 'Logo Sitio',
         colorFondo: 'lightgray',
         altura: '100px',
@@ -70,7 +70,7 @@ export const headerAltura = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logoTexto: 'Logo Sitio',
         colorFondo: 'lightgray',
         altura: '200px',
@@ -80,7 +80,7 @@ export const headerSombra = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logoTexto: 'Logo Sitio',
         colorFondo: 'white',
         altura: '70px',
@@ -91,7 +91,7 @@ export const headerFixed = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logoTexto: 'Logo Sitio',
         colorFondo: 'white',
         altura: '70px',
@@ -103,7 +103,7 @@ export const headerLogoImagen = () => ({
     Component: Header,
     props: {
         objetosMenu: rutas,
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         colorFondo: 'white',
         logoTexto: 'Logo Sitio',
         altura: '70px',

@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import Selector from '../../../elementos/inputs/Selector/Selector.svelte';
+import Selector from '../../../elementos/formularios/Selector/Selector.svelte';
 
-export default { title: "Elementos/Inputs/Selector" }
+export default { title: "Elementos/Entradas/Selector" }
 
 let opciones = [{
         valor: 'AGU',
@@ -20,7 +20,7 @@ let opciones = [{
 
 const accion = e => console.log("una accion", e);
 
-const textoPlaceholder = "Selecciona un estado"
+const ejemplo = "Selecciona un estado"
 
 export const inputSelectDefault = () => ({
     Component: ThemeTester,
@@ -37,7 +37,7 @@ export const inputSelectPlaceholder = () => ({
     props: {
         componente: Selector,
         datos: {
-            textoPlaceholder,
+            ejemplo,
             opciones,
             accion
         }

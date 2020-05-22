@@ -17,14 +17,12 @@ export { default as Aviso }
 from "./elementos/texto/Aviso/Aviso.svelte";
 export { default as Parrafo }
 from "./elementos/texto/Parrafo/Parrafo.svelte";
-export { default as Input }
-from "./elementos/inputs/Input/Input.svelte";
-export { default as InputEmail }
-from "./elementos/inputs/InputEmail/InputEmail.svelte";
+export { default as Entrada }
+from "./elementos/formularios/Entrada/Entrada.svelte";
 export { default as Selector }
-from "./elementos/inputs/Selector/Selector.svelte";
+from "./elementos/formularios/Selector/Selector.svelte";
 export { default as TextArea }
-from "./elementos/inputs/TextArea/TextArea.svelte";
+from "./elementos/formularios/TextArea/TextArea.svelte";
 export { default as Insertar }
 from "./elementos/media/Insertar/Insertar.svelte";
 export { default as Icono }

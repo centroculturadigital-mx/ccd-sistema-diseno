@@ -1,14 +1,14 @@
 <script>
-  import Input from "../../../elementos/inputs/Input/Input.svelte";
+  import Entrada from "../../../elementos/formularios/Entrada/Entrada.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let etiqueta;
   export let nombre;
   export let requerido;
   export let tipo;
-  export let placeholder;
+  export let ejemplo;
   export let error;
-  export let status;
+  export let estado;
   export let opciones;
 
   export let valor;
@@ -59,15 +59,17 @@
         {/if}
       </p>
     {/if}
-    <Input
-      {tipo}
-      {nombre}
-      {valor}
-      {placeholder}
-      {status}
-      {cambiar}
-      {opciones} />
-    <!-- on:keyup= -->
+
+    <Entrada
+    {tipo}
+    {nombre}
+    {valor}
+    {ejemplo}
+    {estado}
+    {cambiar}
+    {opciones}
+    />
+
     {#if error instanceof Error}
       <Parrafo texto={error.message} />
     {/if}

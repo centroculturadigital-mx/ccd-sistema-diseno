@@ -8,21 +8,21 @@
   export let etiqueta;
   export let nombre;
   export let requerido;
-  export let placeholder;
+  export let ejemplo;
   export let valor;
   export let error;
   export let cambiar;
-  export let status;
+  export let estado;
   export let opciones;
 
   $: props = {
     nombre,
     requerido,
-    placeholder,
+    ejemplo,
     valor,
     error,
     cambiar,
-    status,
+    estado,
     opciones
   };
 

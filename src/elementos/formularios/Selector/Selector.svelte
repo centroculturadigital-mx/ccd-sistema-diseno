@@ -1,14 +1,14 @@
 <script>
-  export let placeholder;
+  export let ejemplo;
   export let opciones;
-  export let status;
+  export let estado;
   export let nombre;
   export let cambiar;
   export let vacioPermitido = true;
 
   export let value;
 
-  $: clases = "Selector" + (status ? " " + status : "");
+  $: clases = 'Selector' + (estado ? " " + estado : '' );
 
   const actualizarValor = v => {
     value = v;
@@ -55,20 +55,25 @@
   on:change={e => cambiar(e.target.value)}
   bind:value={valorLocal}>
 
-  {#if !!opciones}
-    <!-- primer elemento de placeholder -->
-    <option
-      class="placeholder"
-      selected
-      disabled={vacioPermitido ? false : true}>
-      {#if !!placeholder}{placeholder}{/if}
-    </option>
-    <!-- Si elementos que monstrar se popula la lista de opciones -->
-    {#each opciones as opcion}
-      <option value={opcion.valor} selected={opcion.valor === value}>
-        {opcion.texto}
-      </option>
-    {/each}
-  {/if}
+      {#if !!opciones}
+        <!-- primer elemento de ejemplo -->
+          <option
+          class="ejemplo"
+          selected
+          disabled={ vacioPermitido ? false : true }
+          >
+            {#if !!ejemplo}
+                {ejemplo}
+            {/if}
+          </option>
+        <!-- Si elementos que monstrar se popula la lista de opciones -->
+        {#each opciones as opcion}
+          <option
+          value={opcion.valor}
+          selected={ opcion.valor === value }>
+            {opcion.texto}
+          </option>
+        {/each}
+      {/if}
 
 </select>

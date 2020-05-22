@@ -37,7 +37,7 @@
               cambiarCampo(v, c);
             },
             error: resultadoValidacion.error,
-            status: resultadoValidacion.status
+            estado: resultadoValidacion.estado
           };
 
           return campoPreparado;

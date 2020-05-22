@@ -1,5 +1,5 @@
 <script>
-  export let textoPlaceholder;
+  export let ejemplo;
   export let ancho;
   export let altura;
   let valor;
@@ -33,7 +33,7 @@ const validaEntrada = e => {
 <textarea
   name="text-area"
   on:keyup={validaEntrada}
-  placeholder={textoPlaceholder}
+  placeholder={ejemplo}
   style="width:{ancho};height:{altura};"></textarea>
 
 

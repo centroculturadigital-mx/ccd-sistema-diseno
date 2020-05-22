@@ -6,7 +6,7 @@ export default {
 }
 
 
-// let status = ""
+// let estado = ""
 // let valorValidado = {}
 
 // const validarEntrada = e => {
@@ -14,20 +14,20 @@ export default {
 //     let valor = e.target.value;
 //     let validado = !caracteresEspeciales.test(valor);
 
-//     let status = ""
+//     let estado = ""
 
 //     if (validado) {
-//         status = "ok";
+//         estado = "ok";
 //         if (valor == "") {
-//             status = "";
+//             estado = "";
 //         }
 //     } else {
 //         valor = new Error("Este campo no acepta caracteres especiales");
-//         status = "error";
+//         estado = "error";
 //     }
 
 //     return {
-//         status,
+//         estado,
 //         valor
 //     }
 
@@ -40,7 +40,7 @@ export const campoDefault = () => ({
         datos: {
             etiqueta: 'Un campo',
             tipo: 'texto',
-            placeholder: 'Un campo default',
+            ejemplo: 'Un campo default',
         },
     }
 });
@@ -52,7 +52,7 @@ export const campoConValor = () => ({
         datos: {
             etiqueta: 'Un campo con valor',
             tipo: 'texto',
-            placeholder: 'Escribe algo',
+            ejemplo: 'Escribe algo',
             valor: 'Labore sint minim ex duis.',
         },
     }
@@ -65,10 +65,10 @@ export const campoConError = () => ({
         datos: {
             etiqueta: 'Un campo con error',
             tipo: 'texto',
-            placeholder: 'Un campo default',
+            ejemplo: 'Un campo default',
             valor: "oh :(",
             error: new Error('Error: Labore sint minim ex duis.'),
-            status: "error",
+            estado: "error",
         },
     }
 });
@@ -78,13 +78,13 @@ export const campoConError = () => ({
 //     props: {
 //         etiqueta: 'Un campo',
 //         tipo: 'texto',
-//         placeholder: 'Un campo default',
+//         ejemplo: 'Un campo default',
 //         valor: valorValidado.valor,
 //         validacion: e => {
 //             valorValidado = validarEntrada(e).valor
-//             status = validarEntrada(e).status            
+//             estado = validarEntrada(e).estado            
 //         },
-//         status: valorValidado.status
+//         estado: valorValidado.estado
 //     },
 // });
 
@@ -95,7 +95,7 @@ export const campoTexto = () => ({
         datos: {
             tipo: 'texto',
             etiqueta: 'Un campo texto',
-            placeholder: "...",
+            ejemplo: "...",
         },
     }
 });
@@ -106,7 +106,7 @@ export const campoTextArea = () => ({
         datos: {
             tipo: 'textarea',
             etiqueta: 'Un campo textarea',
-            placeholder: "...",
+            ejemplo: "...",
         },
     }
 });
@@ -117,7 +117,7 @@ export const campoNumero = () => ({
         datos: {
             tipo: 'numero',
             etiqueta: 'Un campo número',
-            placeholder: "0",
+            ejemplo: "0",
         },
     }
 });
@@ -128,7 +128,7 @@ export const campoSelector = () => ({
         datos: {
             tipo: 'selector',
             etiqueta: 'Un campo selector',
-            placeholder: "...",
+            ejemplo: "...",
             valor: 2,
             opciones: [{
                     valor: 1,
@@ -149,7 +149,7 @@ export const campoArchivo = () => ({
         datos: {
             tipo: 'archivo',
             etiqueta: 'Un campo archivo',
-            placeholder: "...",
+            ejemplo: "...",
         },
     }
 });

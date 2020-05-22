@@ -1,5 +1,5 @@
 import Footer from '../../../componentes/Footer/Footer.svelte';
-import Placeholder from '../../../../public/placeholder.jpg';
+import imagenEjemplo from '../../../../public/placeholder.jpg';
 
 
 export default {title: 'Componentes/Footer/Footer'}
@@ -11,7 +11,7 @@ export const footerDefault = () => ({
     props: {
         logosPleca: itemsLogos,
         logoTexto: 'Logo Sitio',
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         colorFondo: 'white',
         altura: '70px',
         
@@ -21,7 +21,7 @@ export const footerDefault = () => ({
 export const footerLogoImagen = () => ({
     Component: Footer,
     props: {
-        logoImagenUrl: Placeholder,
+        logoImagenUrl: imagenEjemplo,
         logosPleca: itemsLogos,
         colorFondo: 'white',
         logoTexto: 'Logo Sitio',

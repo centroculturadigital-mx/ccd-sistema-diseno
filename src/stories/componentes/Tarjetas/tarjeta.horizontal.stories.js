@@ -1,5 +1,5 @@
 import TarjetaHorizontal from "../../../componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal.svelte";
-import Placeholder from '../../../../public/placeholder.jpg';
+import imagenEjemplo from '../../../../public/placeholder.jpg';
 
 export default {title: "Componentes/Tarjetas/Tarjeta Horizontal"}
 
@@ -7,7 +7,7 @@ export default {title: "Componentes/Tarjetas/Tarjeta Horizontal"}
 export const tarjetaHorizontalDefault = () => ({
     Component: TarjetaHorizontal,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3'
@@ -16,7 +16,7 @@ export const tarjetaHorizontalDefault = () => ({
 export const tarjetaHorizontalTamanoTitulo = () => ({
     Component: TarjetaHorizontal,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h1'
@@ -25,7 +25,7 @@ export const tarjetaHorizontalTamanoTitulo = () => ({
 export const tarjetaHorizontalColorTitulo = () => ({
     Component: TarjetaHorizontal,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
@@ -35,7 +35,7 @@ export const tarjetaHorizontalColorTitulo = () => ({
 export const tarjetaHorizontalColorTexto = () => ({
     Component: TarjetaHorizontal,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
@@ -46,7 +46,7 @@ export const tarjetaHorizontalColorTexto = () => ({
 export const tarjetaHorizontalColorFondo = () => ({
     Component: TarjetaHorizontal,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
@@ -58,7 +58,7 @@ export const tarjetaHorizontalColorFondo = () => ({
 export const tarjetaHorizontalSombra = () => ({
     Component: TarjetaHorizontal,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
@@ -71,7 +71,7 @@ export const tarjetaHorizontalSombra = () => ({
 export const tarjetaHorizontalChica = () => ({
     Component: TarjetaHorizontal,
     props: {
-        imagenUrl: Placeholder,
+        imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
         nivelTitulo: 'h3',
         colorTitulo: 'gray',
