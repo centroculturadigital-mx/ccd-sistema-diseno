@@ -1,3 +1,4 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import VideoGaleria from '../../../componentes/VideoGaleria/VideoGaleria.svelte';
 
 const videoGaleria = {
@@ -36,25 +37,44 @@ const videoGaleria = {
 
 export default { title: 'Componentes/Media/VideoGaleria' }
 
-export const VideoGaleriaDefault = () => ({
-    Component: VideoGaleria,
+export const VideoGaleriaThemed = () => ({
+    Component: ThemeTester,
     props: {
-        estado: false,
-        videos: videoGaleria.videos,
+        componente: VideoGaleria,
+        datos: {
+            estado: false,
+            videos: videoGaleria.videos,
+        }
     }
-})
+});
+export const VideoGaleriaDefault = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: VideoGaleria,
+        datos: {
+            estado: false,
+            videos: videoGaleria.videos,
+        }
+    }
+});
 
 export const VideoGaleriaVacia = () => ({
-    Component: VideoGaleria,
+    Component: ThemeTester,
     props: {
-        estado: false,
+        componente: VideoGaleria,
+        datos: {
+            estado: false,
+        }
     }
 })
 
 export const VideoGaleriaArregloVacio = () => ({
-    Component: VideoGaleria,
+    Component: ThemeTester,
     props: {
-        estado: false,
-        videos: []
+        componente: VideoGaleria,
+        datos: {
+            estado: false,
+            videos: []
+        }
     }
 })

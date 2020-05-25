@@ -9,7 +9,6 @@
   export let imagen;
   export let abrir;
 
-  // let alturaImagen;
 </script>
 
 <style>
@@ -33,22 +32,19 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
-  a :global(button),
-  a :global(button img) {
-    height: 5rem;
+  a :global(button) {
     transition: 0.5s;
   }
-  a :global(button img:hover) {
+  a :global(button:hover) {
     filter: invert();
   }
-  a img {
-    height: 4rem;
-    transition: 0.5s;
+  a :global(button .iconoContenedor img) {
+  height: calc( var(--theme-iconos-primario-tamanno) * 2.5);
   }
-  a img:hover {
-    height: 4.25rem;
-  }
+
 </style>
 
 <article class="VideoTarjeta" tansition:fade>
@@ -61,7 +57,7 @@
       />
 
     <a href="#" on:click|preventDefault={abrir}>
-      <img src={iconoPlay} alt="play" />
+      <BotonIcono icono={"play"} alt={"play"}/>
     </a>
 
   </div>

@@ -24,7 +24,7 @@ export const BloqueChico = () => ({
         datos: {
             texto: "Hola Mundo",
             estilos: {
-                tamanno: ".8rem",
+                tamanno: ".75rem",
             }
         },
     },

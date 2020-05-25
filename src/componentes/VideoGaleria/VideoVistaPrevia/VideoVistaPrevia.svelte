@@ -1,9 +1,8 @@
 <script>
+  import { onMount } from "svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
-  import iconoPlay from "../VideoTarjeta/play.svg";
-
-  import { onMount } from "svelte";
+  import BotonIcono from '../../../elementos/botones/BotonIcono/BotonIcono.svelte';
 
   export let imagen;
   export let nombre;
@@ -55,6 +54,8 @@
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flex;
+    justify-content: center;
   }
 
   @media screen and (min-width: 720px) {
@@ -89,7 +90,7 @@
     <Imagen imagen={imagen} altTexto={nombre} />
 
     <a href="#VideoGaleria" on:click>
-      <img src={iconoPlay} alt="play" />
+      <BotonIcono icono={"play"}/>
     </a>
 
   </div>
