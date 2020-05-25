@@ -1,28 +1,21 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import TextArea from '../../../elementos/formularios/TextArea/TextArea.svelte';
 
 export default { title: 'Elementos/Formularios/Text Area' }
 
 export const textAreaDefault = () => ({
-    Component:TextArea,
+    Component: ThemeTester,
     props: {
-        texto: 'Nombre: ',
-        ejemplo: 'Proident laborum',
-    },
+        componente: TextArea,
+        datos: {},
+    }
 });
-export const textAreaTamanoY = () => ({
-    Component:TextArea,
+export const textAreaPlaceholder = () => ({
+    Component: ThemeTester,
     props: {
-        texto: 'Nombre: ',
-        ejemplo: 'Proident laborum',
-        altura: "25rem",
-    },
-});
-export const textAreaTamanoX = () => ({
-    Component:TextArea,
-    props: {
-        texto: 'Nombre: ',
-        ejemplo: 'Proident laborum',
-        ancho: "25rem",
-        altura: "25rem"
-    },
+        componente: TextArea,
+        datos: {
+            ejemplo: 'Proident laborum',
+        },
+    }
 });

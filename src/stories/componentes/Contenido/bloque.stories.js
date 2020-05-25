@@ -1,6 +1,5 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Bloque from '../../../componentes/Bloque/Bloque.svelte';
-import { aquamarine } from 'color-name';
 
 export default { title: 'Componentes/Bloque/Bloque' }
 
@@ -35,6 +34,19 @@ export const BloqueColor = () => ({
         componente: Bloque,
         datos: {
             texto: "Hola Mundo",
+            estilos: {
+                tamanno: "4.8rem",
+                color: "aquamarine"
+            }
+        },
+    },
+});
+export const BloqueContenido = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Bloque,
+        datos: {
+            contenido: "Hola Mundo",
             estilos: {
                 tamanno: "4.8rem",
                 color: "aquamarine"

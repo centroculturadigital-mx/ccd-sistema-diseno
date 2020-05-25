@@ -1,7 +1,6 @@
 <script>
   export let ejemplo;
-  export let ancho;
-  export let altura;
+
   let valor;
 
 const validaEntrada = e => {
@@ -15,26 +14,25 @@ const validaEntrada = e => {
 </script>
 
 <style>
- textarea {
-    width: 18.5rem;
-    height: 10.5rem;
-    border: 1px solid gray;
-    border-radius: 0.5rem;
-    padding: 0.75rem;
-    resize: none;
-  }
-  label {
-    display: flex;
-    justify-content: flex-start;
-    padding: 0.25rem 0.5rem;
+  textarea {
+    font-size: var(--theme-textos-parrafo-tamanno);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    font-weight: var(--theme-textos-parrafo-peso);
+    color: var(--theme-campos-color);
+    border: 1px solid var(--theme-campos-borde);
+    border-radius: var(--theme-campos-esquinas);
+    padding: var(--theme-campos-espacio);
+    margin-top: calc(var(--theme-espaciados-margin) / 2 );
+    margin-bottom: var(--theme-espaciados-margin);
+    min-height: 8rem;
   }
 </style>
 
 <textarea
   name="text-area"
   on:keyup={validaEntrada}
-  placeholder={ejemplo}
-  style="width:{ancho};height:{altura};"></textarea>
+  placeholder={ejemplo}>
+  </textarea>
 
 
 
