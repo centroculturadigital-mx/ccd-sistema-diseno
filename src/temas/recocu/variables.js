@@ -105,6 +105,15 @@ const variables = {
         lg: "1rem",
         xl: "1.25rem",
     },
+    tamannos: {
+        xs: "0.5rem",
+        sm: "0.75rem",
+        md: "1rem",
+        lg: "1.25rem",
+        xl: "1.5rem",
+        xxl: "1.75rem",
+        xxxl: "2rem",
+    },
     transiciones: {
         lenta: "1s",
         normal: "0.5s",

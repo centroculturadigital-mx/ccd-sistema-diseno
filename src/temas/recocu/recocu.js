@@ -93,10 +93,19 @@ const tema = {
             inferiorDerecha: variables.espaciados.xs,
             inferiorIzquierda: variables.espaciados.xs
         },
-        transicion: {
+        transiciones: {
             lenta: variables.transiciones.lenta,
             normal: variables.transiciones.normal,
             rapida: variables.transiciones.rapida,
+        },
+        tamannos: {
+            xs: variables.tamannos.xs,
+            sm: variables.tamannos.sm,
+            md: variables.tamannos.md,
+            lg: variables.tamannos.lg,
+            xl: variables.tamannos.xl,
+            xxl: variables.tamannos.xxl,
+            xxxl: variables.tamannos.xxxl,
         }
     },
     fontFamilies: {

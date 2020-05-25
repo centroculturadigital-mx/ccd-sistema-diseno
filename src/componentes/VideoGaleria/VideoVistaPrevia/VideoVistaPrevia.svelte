@@ -15,10 +15,10 @@
 <style>
   .VideoVistaPrevia {
     cursor: pointer;
-    border-bottom: 1px solid #aaaaaa;
+    border-bottom: 1px solid var(--theme-campos-borde);
     display: flex;
     box-sizing: border-box;
-    padding: 0.25rem 0;
+    padding: var(--theme-espaciados-padding) 0;
   }
   .VideoVistaPrevia:hover {
     opacity: 0.75;
@@ -28,10 +28,10 @@
     margin: 0;
     display: flex;
     align-items: center;
-    padding-left: 0.5rem;
+    padding-left: calc(var(--theme-espaciados-padding) - 0.25rem);
   }
   .VideoVistaPrevia :global(h4 span) {
-    color: #666666;
+    color: var(--theme-textos-parrafo-color);
   }
   .Imagen {
     width: 40%;
@@ -41,7 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem;
+    padding: calc(var(--theme-espaciados-padding) - 0.25rem);
     box-sizing: border-box;
   }
   .Imagen :global(img) {
