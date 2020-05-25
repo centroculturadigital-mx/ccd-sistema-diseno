@@ -1,41 +1,47 @@
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import IndicadorCargaLinea from '../../../../elementos/IndicadoresCarga/IndicadorCargaLinea/IndicadorCargaLinea.svelte';
 
 export default { title: 'Elementos/IndicadoresCarga/Linea' }
 
 export const lineaDefault = () => ({
-    Component: IndicadorCargaLinea,
+    Component: ThemeTester,
+    props: {
+        componente: IndicadorCargaLinea,
+    }
 });
 export const lineaColor = () => ({
-    Component: IndicadorCargaLinea,
+    Component: ThemeTester,
     props: {
-        color: 'purple',
+        componente: IndicadorCargaLinea,
+        datos: {
+            estilos: {
+                color: 'purple',
+            }
+        },
     },
 });
-export const lineaTamannoGrande = () => ({
-    Component: IndicadorCargaLinea,
+export const lineaTamanno = () => ({
+    Component: ThemeTester,
     props: {
-        color: 'gray',
-        tamanno: "21rem",
+        componente: IndicadorCargaLinea,
+        datos: {
+            estilos: {
+                color: 'gray',
+                tamanno: "21rem",
+            },
+        },
     },
 });
-export const lineaTamannoChico = () => ({
-    Component: IndicadorCargaLinea,
-    props: {
-        color: 'gray',
-        tamanno: "1rem"
-    },
-});
+
 export const lineaTamannoDelgado = () => ({
-    Component: IndicadorCargaLinea,
+    Component: ThemeTester,
     props: {
-        color: 'gray',
-        grosor: "0.1rem"
-    },
-});
-export const lineaGrueso = () => ({
-    Component: IndicadorCargaLinea,
-    props: {
-        color: 'gray',
-        grosor: "1rem"
+        componente: IndicadorCargaLinea,
+        datos: {
+            estilos: {
+                color: 'gray',
+                grosor: "0.1rem"
+            },
+        },
     },
 });
