@@ -1,43 +1,39 @@
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import IndicadorCargaCirculo from '../../../../elementos/IndicadoresCarga/IndicadorCargaCirculo/IndicadorCargaCirculo.svelte';
 
 export default { title: 'Elementos/IndicadoresCarga/Circulo' }
 
 export const circuloDefault = () => ({
-    Component: IndicadorCargaCirculo,
+    Component: ThemeTester,
+    props: {
+        componente: IndicadorCargaCirculo,
+    }
 });
 export const circuloColor = () => ({
-    Component: IndicadorCargaCirculo,
+    Component: ThemeTester,
     props: {
-        color: 'purple',
+        componente: IndicadorCargaCirculo,
+        estilos: {
+            color: 'orange',
+        }
     },
 });
-export const circuloTamannoGrande = () => ({
-    Component: IndicadorCargaCirculo,
+
+export const circuloTamanno = () => ({
+    Component: ThemeTester,
     props: {
-        color: 'gray',
-        tamanno: "6rem",
+        componente: IndicadorCargaCirculo,
+        estilos: {
+            tamanno: "6rem",
+        },
     },
 });
-export const circuloTamannoChico = () => ({
-    Component: IndicadorCargaCirculo,
+export const circuloGrosor = () => ({
+    Component: ThemeTester,
     props: {
-        color: 'gray',
-        tamanno: "1rem"
-    },
-});
-export const circuloTamannoDelgado = () => ({
-    Component: IndicadorCargaCirculo,
-    props: {
-        color: 'gray',
-        tamanno: "4rem",
-        grosor: "0.05rem"
-    },
-});
-export const circuloTamannoGrueso = () => ({
-    Component: IndicadorCargaCirculo,
-    props: {
-        color: 'blue',
-        tamanno: "4rem",
-        grosor: "1rem"
+        componente: IndicadorCargaCirculo,
+        estilos: {
+            grosor: "1rem"
+        },
     },
 });

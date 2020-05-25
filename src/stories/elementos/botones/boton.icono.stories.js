@@ -31,14 +31,14 @@ export const botonIconoSinIcono = () => ({
         }
     },
 });
-export const botonIconoSinBorde = () => ({
+export const botonIconoBorde = () => ({
     Component: ThemeTester,
     props: {
         componente: BotonIcono,
         datos: {
             texto: 'Boton solo texto',
             icono: 'cerrar',
-            borde: false
+            borde: true
         }
     },
 });

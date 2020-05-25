@@ -18,6 +18,15 @@
         };
 </script>
 
+<style>
+  p :global(span) {
+    font-size: var(--theme-textos-parrafo-tamanno);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    color: var(--theme-textos-parrafo-color);
+    font-weight: var(--theme-textos-parrafo-peso);
+  } 
+</style>
+
 <p {...atributos}>
   <Bloque {contenido} {texto} tamanno={estilos.tamanno} color={estilos.color} />
 </p>

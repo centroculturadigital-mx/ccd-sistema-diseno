@@ -21,6 +21,7 @@
     transition: 0.5s;
     cursor: pointer;
     margin: 0;
+    align-items: center;
   }
   button:hover {
     color: var(--theme-botones-primario-hover);

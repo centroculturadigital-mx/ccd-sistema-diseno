@@ -29,7 +29,7 @@
     display: flex;
     align-items: center; 
     cursor: pointer;
-    width: 100%;
+    width: auto;
           
   }
   .iconoContenedor :global(*) {

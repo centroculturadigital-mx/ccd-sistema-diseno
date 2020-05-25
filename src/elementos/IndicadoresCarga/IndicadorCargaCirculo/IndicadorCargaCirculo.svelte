@@ -1,7 +1,9 @@
 <script>
-  export let color;
-  export let tamanno;
-  export let grosor;
+export let estilos = {
+  color: "",
+  tamanno: "",
+  grosor: "",
+}
 </script>
 
 <style>
@@ -47,9 +49,9 @@
   class="ContenedorIndicador">
 
   <div class="IndicadorCargaCircular" 
-  style="border: {grosor ? grosor : "0.25rem"} solid #f3f3f3;
-  width:{tamanno ? tamanno : "3rem"}; height:{tamanno ? tamanno : "3rem"};
-  border-top: {grosor ? grosor : "0.25rem"} solid {color ? color : "rgba(0, 0, 0, 0.5)"};
+  style="border: {estilos.grosor ? estilos.grosor : "0.25rem"} solid #f3f3f3;
+  width:{estilos.tamanno ? estilos.tamanno : "3rem"}; height:{estilos.tamanno ? estilos.tamanno : "3rem"};
+  border-top: {estilos.grosor ? estilos.grosor : "0.25rem"} solid {estilos.color ? estilos.color : "rgba(0, 0, 0, 0.5)"};
   "/>
 
 </section>
