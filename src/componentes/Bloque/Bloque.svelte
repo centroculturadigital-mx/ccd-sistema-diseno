@@ -9,12 +9,12 @@
 </script>
 
 <style>
-  span {
+  /* span {
     font-size: var(--theme-textos-parrafo-tamanno);
     font-family: var(--theme-textos-parrafo-tipografia);
     color: var(--theme-textos-parrafo-color);
     font-weight: var(--theme-textos-parrafo-peso);
-  }
+  } */
 </style>
 
 {#if !!contenido}

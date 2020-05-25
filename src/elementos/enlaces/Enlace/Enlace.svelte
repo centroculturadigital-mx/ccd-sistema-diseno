@@ -15,6 +15,11 @@
 
 </script>
 
+<style>
+button {
+    color: red;
+}
+</style>
 <a href="..." {...atributos}>
     <Bloque {contenido} {texto}/>
 </a>
