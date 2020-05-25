@@ -85,7 +85,18 @@ const tema = {
                 color: variables.colores.icono.primario,
                 tamanno: variables.tipografia.tamannos.sm,
             }
-            
+        },
+        esquinas: {
+            todas: variables.espaciados.xs,
+            superiorIzquierda: variables.espaciados.xs,
+            superiroDerecha: variables.espaciados.xs,
+            inferiorDerecha: variables.espaciados.xs,
+            inferiorIzquierda: variables.espaciados.xs
+        },
+        transicion: {
+            lenta: variables.transiciones.lenta,
+            normal: variables.transiciones.normal,
+            rapida: variables.transiciones.rapida,
         }
     },
     fontFamilies: {

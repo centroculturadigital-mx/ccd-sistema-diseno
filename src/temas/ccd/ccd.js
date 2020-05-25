@@ -1,4 +1,4 @@
-import variables from './variables'; 
+import variables from './variables';
 import estilos from './estilos';
 
 const tema = {
@@ -85,7 +85,19 @@ const tema = {
                 color: variables.colores.icono.primario,
                 tamanno: variables.tipografia.tamannos.xxl,
             }
-            
+
+        },
+        esquinas: {
+            todas: variables.espaciados.none,
+            superiorIzquierda: variables.espaciados.none,
+            superiroDerecha: variables.espaciados.none,
+            inferiorDerecha: variables.espaciados.none,
+            inferiorIzquierda: variables.espaciados.none
+        },
+        transicion: {
+            lenta: variables.transiciones.lenta,
+            normal: variables.transiciones.normal,
+            rapida: variables.transiciones.rapida,
         }
     },
     fontFamilies: {
@@ -93,7 +105,7 @@ const tema = {
         secundaria: variables.tipografia.familias.secundaria,
         complementaria: variables.tipografia.familias.complementaria
     },
-    
+
 };
 
 export default tema;

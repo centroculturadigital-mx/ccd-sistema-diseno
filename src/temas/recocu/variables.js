@@ -104,6 +104,11 @@ const variables = {
         md: "0.75rem",
         lg: "1rem",
         xl: "1.25rem",
+    },
+    transiciones: {
+        lenta: "1s",
+        normal: "0.5s",
+        rapida: "0.125s",
     }
 }
 

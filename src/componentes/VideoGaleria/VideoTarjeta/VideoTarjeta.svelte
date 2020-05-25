@@ -23,7 +23,7 @@
     align-items: center;
   }
   .VideoTarjetaImagen :global(img) {
-    border-radius: 4px;
+    border-radius: var(--theme-esequinas-todas);
   }
   a {
     position: absolute;
@@ -36,7 +36,7 @@
     justify-content: center;
   }
   a :global(button) {
-    transition: 0.5s;
+    transition: var(--theme-transicion-normal);
   }
   a :global(button:hover) {
     filter: invert();
