@@ -60,17 +60,17 @@
 
   @media screen and (min-width: 720px) {
     .VideoVistaPrevia :global(h4) {
-      font-size: 0.75rem;
+      font-size: 0.65rem;
     }
   }
   @media screen and (min-width: 1024px) {
     .VideoVistaPrevia :global(h4) {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
     }
   }
   @media screen and (min-width: 1200px) {
     .VideoVistaPrevia :global(h4) {
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
   }
   @media screen and (min-width: 1920px) {
