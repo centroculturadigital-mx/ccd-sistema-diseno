@@ -31,6 +31,7 @@ const estilos = {
         }
     },
     colores: {
+        fondo: variables.colores.fondo.claro,
         primario: variables.colores.primario.base,
         secundario_a: variables.colores.secundario_a.base,
         secundario_b: variables.colores.secundario_b.base,

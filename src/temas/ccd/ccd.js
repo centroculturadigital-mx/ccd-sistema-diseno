@@ -1,5 +1,5 @@
-import variables from './variables';  
-import estilos from './estilos'; 
+import variables from './variables';
+import estilos from './estilos';
 
 const tema = {
     name: 'CCD',
@@ -83,6 +83,10 @@ const tema = {
             activo: variables.campos.activo,
             esquinas: variables.espaciados.none,
         },
+        tarjetas: {
+            fondo: estilos.colores.fondo,
+            esquina: variables.tamannos.none
+        },
         alertas: {
             exito: variables.colores.alerta.ok,
             error: variables.colores.alerta.error,
@@ -97,20 +101,20 @@ const tema = {
             secundario: {
                 color: variables.colores.icono.primario,
                 tamanno: variables.tipografia.tamannos.xxl,
-            }                        
+            }
         },
-        enlaces: {        
-                color: variables.colores.enlace,
-                tamanno: variables.tipografia.tamannos.sm,
-                familia: estilos.tipografia.parrafo,                                
-        }    
+        enlaces: {
+            color: variables.colores.enlace,
+            tamanno: variables.tipografia.tamannos.sm,
+            familia: estilos.tipografia.parrafo,
+        }
     },
     fontFamilies: {
         principal: variables.tipografia.familias.principal,
         secundaria: variables.tipografia.familias.secundaria,
         complementaria: variables.tipografia.familias.complementaria
     },
-    
+
 };
 
 export default tema;

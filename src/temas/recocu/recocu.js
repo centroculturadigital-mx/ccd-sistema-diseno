@@ -69,7 +69,7 @@ const tema = {
                 activo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
                 tamanno: variables.tipografia.tamannos.xxl,
-            }    
+            }
         },
         espaciados: {
             padding: variables.espaciados.md,
@@ -82,6 +82,10 @@ const tema = {
             borde: variables.campos.borde,
             activo: variables.campos.activo,
             esquinas: variables.espaciados.xs,
+        },
+        tarjetas: {
+            fondo: estilos.colores.fondo,
+            esquina: variables.tamannos.sm
         },
         alertas: {
             exito: variables.colores.alerta.ok,

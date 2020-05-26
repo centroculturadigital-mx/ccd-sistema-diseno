@@ -8,7 +8,7 @@ const variables = {
         },
         fondo: {
             base: "#666666",
-            claro: "#CCCCCC",
+            claro: "#FFF",
             oscuro: "#212121",
             transparente: "transparent",
         },
@@ -118,6 +118,7 @@ const variables = {
         xl: "1.25rem",
     },
     tamannos: {
+        none: "0rem",
         xs: "0.5rem",
         sm: "0.75rem",
         md: "1rem",

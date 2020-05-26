@@ -1,19 +1,14 @@
-<script>
+<script> 
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 
-  export let imagenUrl;
+  export let imagen;
   export let titulo;
   export let nivelTitulo;
-  export let colorTitulo;
   export let texto;
-  export let color;
-  export let colorBG;
   export let sombra;
-  export let iconoBotonEstadoUnoUrl;
-  export let iconoBotonAltura;
   export let chica;
 
   $: nivelTituloMostrar = chica ? 5 : nivelTitulo ? nivelTitulo :  4
@@ -32,12 +27,12 @@
     max-width: 100%;
     height: auto;
     display: flex;
-    flex-direction: unset;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 0.25rem;
-    background-color: rgb(255);
-    color: rgb(0, 0, 0);
+    border-radius: var(--theme-tarjetas-esquina);
+    background-color: var(--theme-tarjetas-fondo);
+    color:var(--theme-textos-parrafo-color);
   }
   .tarjeta-imagen {
     width: 50%;
@@ -48,7 +43,7 @@
     display: flex;
     align-items: center;
     width: 50%;
-    padding: 0.5rem 1rem;
+    padding: var(--theme-espaciados-padding) 1rem;
   }
   .tarjeta-boton {
     display: flex;
@@ -65,26 +60,25 @@
   }
 </style>
 
-<article style="background-color:{colorBG};" class={clases}>
+<article class={clases}>
 
   <div class="tarjeta-imagen">
-    <Imagen {imagenUrl} altTexto={titulo} ajuste="cover" />
+    <Imagen {imagen} altTexto={titulo} ajuste="cover" />
   </div>
 
   <div class="tarjeta-texto">
 
     {#if !!titulo}
-      <Titulo texto={titulo} nivel={nivelTituloMostrar} color={colorTitulo} />
+      <Titulo texto={titulo} nivel={nivelTituloMostrar}/>
     {/if}
-    <Parrafo {texto} {color} />
+    <Parrafo {texto} />
 
     <div class="tarjeta-boton">
       <Boton
         on:click
         radius="15px"
         texto="Saber más"
-        {iconoBotonEstadoUnoUrl}
-        {iconoBotonAltura} />
+         />
     </div>
 
   </div>
