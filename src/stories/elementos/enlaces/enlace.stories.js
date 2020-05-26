@@ -1,4 +1,4 @@
-import Enlace from '../../../elementos/enlaces/Enlace/Enlace.svelte';
+import Enlace from '../../../elementos/enlaces/Enlace/Enlace.svelte'; 
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Titulo from '../../../elementos/texto/Titulo/Titulo';
 
