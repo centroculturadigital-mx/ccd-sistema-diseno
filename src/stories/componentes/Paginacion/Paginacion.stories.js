@@ -1,44 +1,51 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Paginacion from '../../../componentes/Navegacion/Paginacion/Paginacion.svelte';
 
 export default { title: 'Componentes/Navegacion/Paginacion' }
 
 export const PaginacionDefault = () => ({
-    Component: Paginacion,
+    Component: ThemeTester,
     props: {
-        elementos: 24, // total de elementos a representar
-        elementosPagina: 4, // cuantos se muestran por pag.
-        pagina: 0, // el índice de pag actual
-        seleccionar: i => console.log(i) // función que consume el índice
+        componente: Paginacion,
+        datos: {
+            elementos: 24, // total de elementos a representar
+            elementosPagina: 4, // cuantos se muestran por pag.
+            pagina: 0, // el índice de pag actual
+            seleccionar: i => console.log(i) // función que consume el índice
+        },
     },
 });
-
-
-
 
 export const PaginacionArreglo = () => ({
-    Component: Paginacion,
+    Component: ThemeTester,
     props: {
-        elementos: ["hola", "soy", "un", "array"], // total de elementos a representar
-        elementosPagina: 4, // cuantos se muestran por pag.
-        pagina: 0, // el índice de pag actual
-        seleccionar: i => console.log(i) // función que consume el índice
+        componente: Paginacion,
+        datos: {
+            elementos: ["hola", "soy", "un", "array"], // total de elementos a representar
+            elementosPagina: 4, // cuantos se muestran por pag.
+            pagina: 0, // el índice de pag actual
+            seleccionar: i => console.log(i) // función que consume el índice
+        },
     },
 });
 
-
-
 // errores
-
 export const PaginacionNoMostrar = () => ({
-    Component: Paginacion,
+    Component: ThemeTester,
     props: {
-        seleccionar: i => console.log(i) // función que consume el índice
+        componente: Paginacion,
+        datos: {
+            seleccionar: i => console.log(i) // función que consume el índice
+        },
     },
 });
 
 export const PaginacionNoMostrar2 = () => ({
-    Component: Paginacion,
+    Component: ThemeTester,
     props: {
-        elementos: 10,
+        componente: Paginacion,
+        datos: {
+            elementos: 10,
+        },
     },
 });
