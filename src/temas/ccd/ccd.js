@@ -49,12 +49,12 @@ const tema = {
             },
             secundario: {
                 fondo: variables.colores.primario.transparente,
-                color: variables.colores.texto.claro,
+                color: variables.colores.texto.base,
                 espacio: variables.espaciados.sm,
                 familia: estilos.tipografia.parrafo,
-                borde: variables.colores.secundario_a.oscuro,
-                activo: variables.colores.secundario_a.claro,
-                hover: variables.colores.secundario_a.oscuro,
+                borde: variables.colores.primario.oscuro,
+                activo: variables.colores.primario.claro,
+                hover: variables.colores.primario.oscuro,
                 esquinas: variables.espaciados.none,
             }
         },
@@ -88,7 +88,8 @@ const tema = {
         },
         enlaces: {        
                 color: variables.colores.enlace,
-                tamanno: variables.tipografia.tamannos.sm,                                
+                tamanno: variables.tipografia.tamannos.sm,
+                familia: estilos.tipografia.parrafo,                                
         }    
     },
     fontFamilies: {

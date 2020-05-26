@@ -1,4 +1,4 @@
-const variables = {
+const variables = { 
     colores: {
         texto: {
             base: "#000",
