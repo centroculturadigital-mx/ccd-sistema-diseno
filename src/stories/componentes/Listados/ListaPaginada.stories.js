@@ -1,10 +1,11 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import ListaPaginada from '../../../componentes/Listados/ListaPaginada/ListaPaginada.svelte';
 import ListaPaginadaTester from '../../../componentes/Listados/ListaPaginada/ListaPaginadaTester.svelte';
 import TarjetaHorizontal from '../../../componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal';
 
 export default { title: 'Componentes/Listado/ListaPaginada' }
 
-const elementos = new Array(15).fill(0).map((e, i) => ({
+const elementos = new Array(11).fill(0).map((e, i) => ({
     componente: TarjetaHorizontal,
     data: {
         chica: true,
@@ -14,30 +15,39 @@ const elementos = new Array(15).fill(0).map((e, i) => ({
 }))
 
 export const ListaPaginadaDefault = () => ({
-    Component: ListaPaginada,
+    Component: ThemeTester,
     props: {
-        elementos,
-        elementosPagina: 3
+        componente: ListaPaginada,
+        datos: {
+            elementos,
+            elementosPagina: 3
+        }
     },
 });
 
 let pagina = 0
 export const ListaPaginadaFuncion = () => ({
-    Component: ListaPaginada,
+    Component: ThemeTester,
     props: {
-        elementos,
-        elementosPagina: 3,
-        seleccionar: i => {
-            pagina = i
+        componente: ListaPaginada,
+        datos: {
+            elementos,
+            elementosPagina: 3,
+            seleccionar: i => {
+                pagina = i
+            },
+            pagina
         },
-        pagina
     },
 });
 
 export const ListaPaginadaAutomatico = () => ({
-    Component: ListaPaginadaTester,
+    Component: ThemeTester,
     props: {
-        elementos,
-        elementosPagina: 3
-    },
+        componente: ListaPaginada,
+        datos: {
+            elementos,
+            elementosPagina: 3
+        },
+    }
 });

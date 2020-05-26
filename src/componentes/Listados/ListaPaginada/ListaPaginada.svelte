@@ -31,6 +31,12 @@
 
 </script>
 
+<style>
+.ListaPaginada {
+  padding: 1rem
+}
+</style>
+<section class="ListaPaginada">
 <ListaComponentes elementos={elementosMostrar} elementosPagina={elementosPaginaNum} />
 <Paginacion
   elementos={elementosCargados}
@@ -38,3 +44,4 @@
   pagina={pagina}
   seleccionar={i=>seleccionarPagina(i)}
   />
+</section>
