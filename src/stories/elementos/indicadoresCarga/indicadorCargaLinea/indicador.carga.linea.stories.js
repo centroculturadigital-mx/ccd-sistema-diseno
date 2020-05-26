@@ -26,7 +26,6 @@ export const lineaTamanno = () => ({
         componente: IndicadorCargaLinea,
         datos: {
             estilos: {
-                color: 'gray',
                 tamanno: "21rem",
             },
         },
@@ -39,7 +38,6 @@ export const lineaTamannoDelgado = () => ({
         componente: IndicadorCargaLinea,
         datos: {
             estilos: {
-                color: 'gray',
                 grosor: "0.1rem"
             },
         },

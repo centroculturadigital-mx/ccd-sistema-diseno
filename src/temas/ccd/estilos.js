@@ -30,6 +30,12 @@ const estilos = {
             },
         }
     },
+    colores: {
+        primario: variables.colores.primario.base,
+        secundario_a: variables.colores.secundario_a.base,
+        secundario_b: variables.colores.secundario_b.base,
+        complementario: variables.colores.complementario.base
+    }
 };
 
 export default estilos

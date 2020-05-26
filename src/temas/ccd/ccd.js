@@ -4,7 +4,12 @@ import estilos from './estilos';
 const tema = {
     name: 'CCD',
     properties: {
-        colores: variables.colores,
+        colores: {
+            primario: estilos.colores.primario,
+            secundario_a: estilos.colores.secundario_a,
+            secundario_b: estilos.colores.secundario_b,
+            complementario: estilos.colores.complementario
+        },
         textos: {
             parrafo: {
                 tipografia: estilos.tipografia.parrafo.fuente,

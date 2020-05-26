@@ -11,7 +11,7 @@
     position: relative;
     background-color: #f3f3f3;
     width: 10rem;
-    height: var(--theme-tamannos-md);
+    height: var(--theme-tamannos-xs);
     overflow: hidden;
     border-radius: 0.5rem;
     margin: 2rem 0;
@@ -20,7 +20,7 @@
     content: "";
     position: absolute;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--theme-colores-primario);
     animation: primero 1.5s infinite ease-out;
   }
   .ContenedorIndicador {
@@ -46,10 +46,10 @@
 <section class="ContenedorIndicador">
   <div
     class="IndicadorCargaLinea"
-    style="width: {estilos.tamanno ? estilos.tamanno : '10rem'};height: {estilos.grosor ? estilos.grosor : '0.25rem'}">
+    style="width: {estilos.tamanno ? estilos.tamanno : ''};height: {estilos.grosor ? estilos.grosor : ''}">
     <div
       class="Linea"
-      style="background-color: {estilos.color ? estilos.color : 'rgba(0, 0, 0, 0.5)'};" />
+      style="background-color: {estilos.color ? estilos.color : ''};" />
   </div>
 
 </section>

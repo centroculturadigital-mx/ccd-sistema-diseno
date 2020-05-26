@@ -13,8 +13,10 @@ export const circuloColor = () => ({
     Component: ThemeTester,
     props: {
         componente: IndicadorCargaCirculo,
-        estilos: {
-            color: 'orange',
+        datos: {
+            estilos: {
+                color: 'orange',
+            }
         }
     },
 });
@@ -23,8 +25,10 @@ export const circuloTamanno = () => ({
     Component: ThemeTester,
     props: {
         componente: IndicadorCargaCirculo,
-        estilos: {
-            tamanno: "6rem",
+        datos: {
+            estilos: {
+                tamanno: "6rem",
+            },
         },
     },
 });
@@ -32,8 +36,10 @@ export const circuloGrosor = () => ({
     Component: ThemeTester,
     props: {
         componente: IndicadorCargaCirculo,
-        estilos: {
-            grosor: "1rem"
+        datos: {
+            estilos: {
+                grosor: "1rem"
+            },
         },
     },
 });

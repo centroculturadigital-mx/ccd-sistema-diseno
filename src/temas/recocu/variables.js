@@ -24,7 +24,12 @@ const variables = {
             oscuro: "#002192",
             transparente: "transparent",
         },
-
+        secundario_b: {
+            base: "#4CA6FF",
+            claro: "#89D7FF",
+            oscuro: "#0078CB",
+            transparente: "transparent",
+        },
         complementario: {
             base: "#D9A5D6",
             claro: "#D9A5D6",
