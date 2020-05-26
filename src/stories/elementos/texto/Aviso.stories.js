@@ -1,18 +1,24 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Aviso from '../../../elementos/texto/Aviso/Aviso.svelte';
 
 export default { title: 'Elementos/Texto/Aviso' }
 
-
 export const avisoDefault = () => ({
-    Component: Aviso,
+    Component: ThemeTester,
     props: {
-        texto: 'Un mensaje de aviso',
+        componente: Aviso,
+        datos: {
+            texto: 'Un mensaje de aviso',
+        }
     },
 });
 
 export const avisoError = () => ({
-    Component: Aviso,
+    Component: ThemeTester,
     props: {
-        texto: new Error('Un mensaje de error'),
-    },
+        componente: Aviso,
+        datos: {
+            texto: new Error('Un mensaje de error'),
+        },
+    }
 });

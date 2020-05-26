@@ -28,5 +28,5 @@
 </style>
 
 <p {...atributos}>
-  <Bloque {contenido} {texto} tamanno={estilos.tamanno} color={estilos.color} />
+  <Bloque {contenido} {texto} tamanno={estilos.tamanno} estilos={{color:estilos.color}} />
 </p>

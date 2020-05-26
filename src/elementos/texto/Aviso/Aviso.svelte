@@ -1,5 +1,4 @@
 <script>
-
 export let texto 
 
 import Parrafo from "../Parrafo/Parrafo";
@@ -19,7 +18,6 @@ $: textoMostrar = texto instanceof Error ? texto.message : texto
         align-items: center;        
     }
 
-    
 </style>
 
 
@@ -27,7 +25,7 @@ $: textoMostrar = texto instanceof Error ? texto.message : texto
 
     <div class="Aviso">
 
-        <Parrafo texto={textoMostrar} {color}/>
+        <Parrafo texto={textoMostrar} estilos={{color:color}}/>
 
     </div>
     
