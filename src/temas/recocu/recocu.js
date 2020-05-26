@@ -39,6 +39,22 @@ const tema = {
                 h6: {
                     tamanno: estilos.tipografia.titulo.h6.tamanno,
                 }
+            },
+            menu: {
+                movil: {
+                    tipografia: estilos.tipografia.menu.movil.fuente,
+                    tamanno: estilos.tipografia.menu.movil.tamanno,
+                    color: estilos.tipografia.menu.movil.color,
+                    hover: estilos.tipografia.menu.movil.hover,
+                    peso: estilos.tipografia.menu.movil.peso,
+                },
+                escritorio: {
+                    tipografia: estilos.tipografia.menu.escritorio.fuente,
+                    tamanno: estilos.tipografia.menu.escritorio.tamanno,
+                    color: estilos.tipografia.menu.escritorio.color,
+                    hover: estilos.tipografia.menu.movil.hover,
+                    peso: estilos.tipografia.menu.escritorio.peso,
+                }
             }
         },
         botones: {

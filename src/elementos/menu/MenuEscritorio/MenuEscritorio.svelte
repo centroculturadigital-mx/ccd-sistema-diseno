@@ -1,7 +1,6 @@
 <script>
   export let segment;
   export let objetosMenu;
-  export let color;
 </script>
 
 <style>
@@ -27,9 +26,14 @@
   }
   a {
     text-decoration: none;
+    font-size: var(--theme-textos-menu-escritorio-tamanno);
+    font-family: var(--theme-textos-menu-escritorio-tipografia);
+    color: var(--theme-textos-menu-escritorio-color);
+    font-weight: var(--theme-textos-menu-escritorio-peso);
+    text-transform: uppercase;
   }
   a:hover {
-    opacity: 0.75;
+    color: var(--theme-textos-menu-escritorio-hover);
   }
 </style>
 
@@ -37,10 +41,7 @@
 
   {#each objetosMenu as objeto}
     <li>
-      <a
-        class:selected={segment === objeto.ruta}
-        href={objeto.ruta}
-        style="color:{color}">
+      <a class:selected={segment === objeto.ruta} href={objeto.ruta}>
         {objeto.label}
       </a>
     </li>
