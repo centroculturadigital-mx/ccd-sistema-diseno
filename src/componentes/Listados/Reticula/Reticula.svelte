@@ -1,5 +1,4 @@
 <script>
-
     import ListaComponentes from '../ListaComponentes/ListaComponentes'
     import Parrafo from '../../../elementos/texto/Parrafo/Parrafo'
 
