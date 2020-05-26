@@ -61,7 +61,15 @@ const tema = {
                 activo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
                 esquinas: variables.espaciados.none,
-            }
+            },
+            paso: {
+                fondo: variables.colores.primario.transparente,
+                color: variables.colores.texto.base,
+                familia: estilos.tipografia.parrafo,
+                activo: variables.colores.primario.claro,
+                hover: variables.colores.primario.oscuro,
+                tamanno: variables.tipografia.tamannos.xxl,
+            }    
         },
         espaciados: {
             padding: variables.espaciados.md,
