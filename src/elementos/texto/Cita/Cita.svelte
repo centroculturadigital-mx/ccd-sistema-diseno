@@ -1,12 +1,11 @@
-<script>
+<script> 
 
     import Bloque from "../../../componentes/Bloque/Bloque.svelte";
 
     export let texto;
     export let contenido;
     export let data;
-    export let tamanno;
-    export let color;
+   
 
     $: atributos = typeof data == 'object' ? data : {
         // style: `font-size: ${tamanno}`
@@ -16,11 +15,10 @@
 
 <style>
     blockquote {
-        font-size: 1rem;
-        font-size: larger;
+        font-size: var(--theme-textos-citas-tamanno);
+        color: var(--theme-textos-citas-color);
         line-height: 1.5;
-        font-style: italic;
-        color: #666;
+        font-style: italic;       
         padding-left: 2rem;
         border-left: .25rem solid #666;
         margin-left: 0;
@@ -31,7 +29,6 @@
     <Bloque
     {contenido}
     {texto}
-    {tamanno}
-    {color}
+   
     />
 </blockquote>

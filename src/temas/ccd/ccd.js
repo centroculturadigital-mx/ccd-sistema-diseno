@@ -17,6 +17,12 @@ const tema = {
                 color: variables.colores.texto.oscuro,
                 peso: estilos.tipografia.parrafo.peso,
             },
+            citas: {
+                tipografia: estilos.tipografia.parrafo.fuente,
+                tamanno: estilos.tipografia.citas.tamanno,
+                color: variables.colores.texto.base,
+                
+            },
             titulo: {
                 tipografia: estilos.tipografia.titulo.fuente,
                 color: variables.colores.texto.oscuro,

@@ -7,6 +7,11 @@ const estilos = {
             tamanno: variables.tipografia.tamannos.md,
             peso: variables.tipografia.fuentes.principal.regular
         },
+        citas: {
+            fuente: variables.tipografia.fuentes.secundaria.nombre,
+            tamanno: variables.tipografia.tamannos.xxl,
+           
+        },
         titulo: {
             fuente: variables.tipografia.fuentes.titulo.nombre,
             peso: variables.tipografia.fuentes.titulo.negrita,
