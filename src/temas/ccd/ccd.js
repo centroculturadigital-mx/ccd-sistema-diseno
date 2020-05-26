@@ -1,5 +1,5 @@
 import variables from './variables';  
-import estilos from './estilos';
+import estilos from './estilos'; 
 
 const tema = {
     name: 'CCD',
@@ -61,6 +61,14 @@ const tema = {
                 activo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
                 esquinas: variables.espaciados.none,
+            },
+            paso: {
+                fondo: variables.colores.primario.transparente,
+                color: variables.colores.texto.base,
+                familia: estilos.tipografia.parrafo,
+                activo: variables.colores.primario.claro,
+                hover: variables.colores.primario.oscuro,
+                tamanno: variables.tipografia.tamannos.xxl,
             }
         },
         espaciados: {
