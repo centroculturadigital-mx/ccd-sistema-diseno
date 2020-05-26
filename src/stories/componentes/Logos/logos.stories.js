@@ -1,8 +1,8 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Logos from '../../../componentes/Logos/Logos.svelte';
 import ImagenFondo from '../../../../public/placeholder.jpg';
 
 export default { title: "Componentes/Logos/Logos" }
-
 
 const logo1 = {
     logotipo: ImagenFondo,
@@ -14,25 +14,38 @@ const logo2 = {
     nombre: 'Nombre Enlace 2',
     enlace: "http://otroenlace2.org"
 }
+const logo3 = {
+    logotipo: ImagenFondo,
+    nombre: 'Nombre Enlace 3',
+    enlace: "http://otroenlace3.org"
+}
 
-const logos = [ logo1, logo2 ]
+const logos = [logo1, logo2, logo3]
 
-
-export const logosDefault = () => ({
-    Component: Logos,
+export const logosVacio = () => ({
+    Component: ThemeTester,
     props: {
-        logos
+        componente: Logos,
+        datos: {}
     }
 });
 
-export const logosVacio = () => ({
-    Component: Logos,
-    props: {}
+export const logosArregloVacio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Logos,
+        datos: {
+            logos: []
+        }
+    }
 });
 
-export const logosArregloVacio = () => ({
-    Component: Logos,
+export const logosImagen = () => ({
+    Component: ThemeTester,
     props: {
-        logos: []
+        componente: Logos,
+        datos: {
+            logos
+        }
     }
 });

@@ -2,12 +2,6 @@
   import Logo from '../Logo/Logo'
 
   export let logos;
-  export let alineacion;
-
-  if (!alineacion) {
-    alineacion = "left";
-  }
-
 
 </script>
 
@@ -18,7 +12,6 @@
     min-width: 12rem;
     align-items: center;
     justify-content: flex-start;
-    
   }
 </style>
 

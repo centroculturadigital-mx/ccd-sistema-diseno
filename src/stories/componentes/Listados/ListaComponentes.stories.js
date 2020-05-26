@@ -1,50 +1,59 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import ListaComponentes from '../../../componentes/Listados/ListaComponentes/ListaComponentes.svelte';
-import TarjetaHorizontal from '../../../componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal';
+import Tarjeta from '../../../componentes/Tarjetas/Tarjeta/Tarjeta';
 
-export default {title: 'Componentes/Listado/ListaComponentes'}
+export default { title: 'Componentes/Listado/ListaComponentes' }
 
-const elementos = [
-    {
-        componente: TarjetaHorizontal,
+const elementos = [{
+        componente: Tarjeta,
         data: {
-            titulo: "Voluptate velit laborum voluptate excepteur consectetur cupidatat elit incididunt velit commodo aute.",
+            titulo: "Voluptate velit laborum voluptate excepteur velit commodo aute.",
             imagenUrl: "http://fakeimg.pl/300x200?text=1"
         }
     },
     {
-        componente: TarjetaHorizontal,
+        componente: Tarjeta,
         data: {
-            titulo: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
+            titulo: "Est consectetur aliqua ipsum et consectetur duis est dolor.",
             imagenUrl: "http://fakeimg.pl/300x200?text=2"
         }
     },
     {
-        componente: TarjetaHorizontal,
+        componente: Tarjeta,
         data: {
-            titulo: "Laborum aliqua sit do in nostrud magna cupidatat ex fugiat enim ad aute elit cupidatat.",
+            titulo: "Laborum magna cupidatat exd aute elit cupidatat.",
             imagenUrl: "http://fakeimg.pl/300x200?text=3"
         }
     },
 ]
 
 export const ListaDefault = () => ({
-    Component: ListaComponentes,
+    Component: ThemeTester,
     props: {
-        elementos
+        componente: ListaComponentes,
+        datos: {
+            elementos
+        }
     },
 });
 
 export const ListaMensajeVacio = () => ({
-    Component: ListaComponentes,
+    Component: ThemeTester,
     props: {
-        elementos: [],
-        mensajeVacio: "No hay elementos"
+        componente: ListaComponentes,
+        datos: {
+            elementos: [],
+            mensajeVacio: "No hay elementos"
+        },
     },
 });
 
 export const ListaVacio = () => ({
-    Component: ListaComponentes,
+    Component: ThemeTester,
     props: {
-        elementos: [],
+        componente: ListaComponentes,
+        datos: {
+            elementos: [],
+        },
     },
 });

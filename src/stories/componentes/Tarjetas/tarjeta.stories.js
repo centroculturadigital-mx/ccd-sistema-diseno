@@ -1,7 +1,7 @@
 import Tarjeta from "../../../componentes/Tarjetas/Tarjeta/Tarjeta.svelte";
 import imagenEjemplo from '../../../../public/placeholder.jpg';
 
-export default {title: "Componentes/Tarjetas/Tarjeta"}
+export default { title: "Componentes/Tarjetas/Tarjeta" }
 
 
 export const tarjetaDefault = () => ({
@@ -9,7 +9,7 @@ export const tarjetaDefault = () => ({
     props: {
         imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
-        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3'
     }
 });
@@ -18,7 +18,7 @@ export const tarjetaTamanoTitulo = () => ({
     props: {
         imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
-        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h1'
     }
 });
@@ -27,7 +27,7 @@ export const tarjetaColorTitulo = () => ({
     props: {
         imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
-        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
         colorTitulo: 'gray',
     }
@@ -37,7 +37,7 @@ export const tarjetaColorTexto = () => ({
     props: {
         imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
-        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
         colorTitulo: 'gray',
         color: 'gray',
@@ -48,7 +48,7 @@ export const tarjetaColorFondo = () => ({
     props: {
         imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
-        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
         colorTitulo: 'gray',
         color: 'gray',
@@ -60,7 +60,7 @@ export const tarjetaSombra = () => ({
     props: {
         imagenUrl: imagenEjemplo,
         titulo: 'Esto es un título.',
-        texto:'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
         nivelTitulo: 'h3',
         colorTitulo: 'gray',
         color: 'gray',

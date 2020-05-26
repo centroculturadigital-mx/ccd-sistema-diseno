@@ -1,10 +1,7 @@
 <script>
-
     import Parrafo from '../../../elementos/texto/Parrafo/Parrafo'
 
-
-    export let elementos;
-    
+    export let elementos;    
     export let mensajeVacio
 
 </script>
@@ -12,15 +9,22 @@
 <style>
     .ListaComponentes {
         height: auto;
+        width: 100%;
     }
-
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     ul, ul li {
         margin: 0;
+        padding: 0;
     }
     
     ul li {
         list-style-type: none;
-        margin-bottom: 1rem;
+        margin-bottom: var(--theme-tamannos-xl);
     }
 
 </style>
