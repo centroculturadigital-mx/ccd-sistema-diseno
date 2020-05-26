@@ -1,14 +1,18 @@
 <script>
   import Imagen from "../../elementos/media/Imagen/Imagen.svelte";
+  import Titulo from '../../elementos/texto/Titulo/Titulo.svelte';
+
   export let logotipo;
   export let enlace;
   export let nombre;
 
-  export let logoAncho;
-  export let alineacion;
+  export let estilos = {
+    ancho: "",
+    alineacion: ""
+  };
 
-  if (!alineacion) {
-    alineacion = "left";
+  if (!estilos.alineacion) {
+    estilos.alineacion = "left";
   }
 </script>
 
@@ -32,7 +36,9 @@
   }
 </style>
 
-<div class="Logo" style="width:{logoAncho};{!enlace?"padding:0.5rem":""}">
+<div
+  class="Logo"
+  style="width:{estilos.ancho};{!enlace ? 'padding:0.5rem' : ''}">
 
   {#if !!enlace}
     <a href={enlace} target="_blank">
@@ -42,22 +48,22 @@
           altTexto={nombre}
           altura="100%"
           ajuste="contain"
-          {alineacion} />
+          alineacion={estilos.alineacion} />
       {:else if !logotipo && !!nombre}
-        <h4>{nombre}</h4>
+        <Titulo texto={nombre} nivel={4}/>
       {/if}
     </a>
   {:else if !enlace}
-      {#if !!logotipo}
-        <Imagen
-          imagen={logotipo}
-          altTexto={nombre}
-          altura="100%"
-          ajuste="contain"
-          {alineacion} />
-      {:else if !logotipo && !!nombre}
-        <h4>{nombre}</h4>
-      {/if}
+    {#if !!logotipo}
+      <Imagen
+        imagen={logotipo}
+        altTexto={nombre}
+        altura="100%"
+        ajuste="contain"
+        alineacion={estilos.alineacion} />
+    {:else if !logotipo && !!nombre}
+        <Titulo texto={nombre} nivel={4}/>
+    {/if}
   {/if}
 
 </div>

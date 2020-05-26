@@ -1,63 +1,99 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Logo from '../../../componentes/Logo/Logo.svelte';
 import ImagenFondo from '../../../../public/placeholder.jpg';
 
 export default { title: "Componentes/Logos/Logo" }
 
+
 export const logoDefault = () => ({
-    Component: Logo,
+    Component: ThemeTester,
     props: {
-        alineacion: "center",
-        logotipo: ImagenFondo,
-        logoTexto: 'LOGO',
-        enlace: "http://centroculturadigital.mx"
+        componente: Logo,
+        datos: {}
     }
 });
 export const logoSoloTexto = () => ({
-    Component: Logo,
+    Component: ThemeTester,
     props: {
-        logoTexto: 'LOGO',
-        alineacion: "center",
+        componente: Logo,
+        datos: {
+            nombre: 'LOGO',
+            estilos: {
+                alineacion: "center",
+            }
+        }
     }
 });
 export const logoSinImagen = () => ({
-    Component: Logo,
+    Component: ThemeTester,
     props: {
-        logoTexto: 'LOGO',
-        alineacion: "center",
-        enlace: "http://centroculturadigital.mx"
+        componente: Logo,
+        datos: {
+            componente: Logo,
+            nombre: 'LOGO',
+            enlace: "http://centroculturadigital.mx",
+            estilos: {
+                alineacion: "center",
+            }
+        }
     }
 });
-export const logoSinEnlace = () => ({
-    Component: Logo,
-    props: {
-        logoTexto: 'LOGO',
-        alineacion: "center",
-        logotipo: ImagenFondo,
-    }
-});
+
 export const logoImagen = () => ({
-    Component: Logo,
+    Component: ThemeTester,
     props: {
-        logoAncho: '40%',
-        logoTexto: 'LOGO',
-        logotipo: ImagenFondo,
+        componente: Logo,
+        datos: {
+            componente: Logo,
+            nombre: 'LOGO',
+            logotipo: ImagenFondo,
+            estilos: {
+                ancho: '40%',
+            }
+        }
     }
 });
 export const logoAnchoFila = () => ({
-    Component: Logo,
+    Component: ThemeTester,
     props: {
-        logoAncho: '33%',
-        logotipo: ImagenFondo,
-        logoTexto: 'LOGO',
+        componente: Logo,
+        datos: {
+            componente: Logo,
+            logotipo: ImagenFondo,
+            nombre: 'LOGO',
+            estilos: {
+                ancho: '33%',
+            }
+        }
+    }
+});
+export const logoSinEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Logo,
+        datos: {
+            componente: Logo,
+            nombre: 'LOGO',
+            logotipo: ImagenFondo,
+            estilos: {
+                ancho: '40%',
+                alineacion: "center",
+            }
+        }
     }
 });
 export const logoConEnlace = () => ({
-    Component: Logo,
+    Component: ThemeTester,
     props: {
-        logoAncho: '40%',
-        alineacion: 'right',
-        logoTexto: 'LOGO',
-        logotipo: ImagenFondo,
-        enlace: "http://centroculturadigital.mx"
+        componente: Logo,
+        datos: {
+            nombre: 'LOGO',
+            logotipo: ImagenFondo,
+            enlace: "http://centroculturadigital.mx",
+            estilos: {
+                ancho: '40%',
+                alineacion: 'right',
+            }
+        }
     }
 });
