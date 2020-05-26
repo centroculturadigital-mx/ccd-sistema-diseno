@@ -1,4 +1,4 @@
-<script>
+<script> 
 import BotonPaso from "../../../elementos/botones/BotonPaso/BotonPaso"
 
 export let pasos
@@ -23,6 +23,7 @@ ul {
 }
 li {
     list-style: none;
+    margin-right:1rem;
 }
 
 </style>
