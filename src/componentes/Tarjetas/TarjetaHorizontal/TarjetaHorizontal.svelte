@@ -43,7 +43,7 @@
     display: flex;
     align-items: center;
     width: 50%;
-    padding: var(--theme-espaciados-padding) 1rem;
+    padding: var(--theme-espaciados-padding) calc(var(--theme-espaciados-padding) * 2);
   }
   .tarjeta-boton {
     display: flex;
@@ -63,7 +63,7 @@
 <article class={clases}>
 
   <div class="tarjeta-imagen">
-    <Imagen {imagen} altTexto={titulo} ajuste="cover" />
+    <Imagen {imagen} alt={titulo} ajuste="cover" />
   </div>
 
   <div class="tarjeta-texto">
