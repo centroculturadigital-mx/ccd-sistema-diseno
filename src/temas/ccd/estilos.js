@@ -33,6 +33,22 @@ const estilos = {
             h6: {
                 tamanno: variables.tipografia.tamannos.sm,
             },
+        },
+        menu: {
+            movil: {
+                color: variables.colores.texto.oscuro,
+                hover: variables.colores.primario.base,
+                fuente: variables.tipografia.fuentes.secundaria.nombre,
+                tamanno: variables.tipografia.tamannos.md,
+                peso: variables.tipografia.fuentes.principal.regular
+            },
+            escritorio: {
+                color: variables.colores.texto.oscuro,
+                hover: variables.colores.primario.base,
+                fuente: variables.tipografia.fuentes.secundaria.nombre,
+                tamanno: variables.tipografia.tamannos.md,
+                peso: variables.tipografia.fuentes.principal.regular
+            }
         }
     },
     colores: {

@@ -1,9 +1,9 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import MenuEscritorio from '../../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte';
 
 export default { title: 'Elementos/Menú/Menú Escritorio' }
 
-let rutas =  [
-    {
+let rutas = [{
         label: "Ruta",
         ruta: "una-ruta"
     },
@@ -27,17 +27,11 @@ let rutas =  [
 
 
 export const menuEscritorioDefault = () => ({
-    Component: MenuEscritorio,
+    Component: ThemeTester,
     props: {
-        objetosMenu: rutas,
-    }
-});
-
-export const menuEscritorioColorTexto = () => ({
-    Component: MenuEscritorio,
-    props: {
-        objetosMenu: rutas,
-        colorFondo: 'lightblue',
-        color: 'orange',
+        componente: MenuEscritorio,
+        datos: {
+            objetosMenu: rutas,
+        }
     }
 });

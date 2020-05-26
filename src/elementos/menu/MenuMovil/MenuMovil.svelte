@@ -2,15 +2,12 @@
   import { slide } from "svelte/transition";
 
   export let segment;
-  export let alturaMenuMovil;
   export let estadoMenu;
   export let objetosMenu;
   export let objetosMenuExtra;
-  export let objetosAlineacion;
-  export let colorFondo;
-  export let color;
-  export let alturaObjetoMenu;
   export let sombra;
+
+  export let alturaMenuMovil;
 </script>
 
 <style>
@@ -24,7 +21,6 @@
     position: absolute;
     z-index: 1000;
     box-sizing: border-box;
-
   }
   li {
     padding: 0.5rem;
@@ -34,26 +30,31 @@
   }
   a {
     text-decoration: none;
+    font-size: var(--theme-textos-menu-escritorio-tamanno);
+    font-family: var(--theme-textos-menu-escritorio-tipografia);
+    color: var(--theme-textos-menu-escritorio-color);
+    font-weight: var(--theme-textos-menu-escritorio-peso);
+    text-transform: uppercase;
   }
   a:hover {
-    opacity: 0.75;
+    color: var(--theme-textos-menu-escritorio-hover);
   }
   hr {
     width: 100%;
+  }
+  .sombra {
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   }
 </style>
 
 {#if estadoMenu === true}
   <ul
-    style="background-color:{colorFondo};{!!sombra ? 'box-shadow: 0 1px 1px rgba(0,0,0,0.5)' : ''};height:{alturaMenuMovil}"
+    class={!!sombra ? 'sombra' : ''}
     transition:slide>
 
     {#each objetosMenu as objeto, i}
-      <li style="height:{alturaObjetoMenu};color:{color};justify-content:{objetosAlineacion};}">
-        <a
-          class:selected={segment === objeto.ruta}
-          href={objeto.ruta}
-          style="color:{color}">
+      <li>
+        <a class:selected={segment === objeto.ruta} href={objeto.ruta}>
           {objeto.label}
         </a>
       </li>
@@ -61,11 +62,8 @@
     {#if !!objetosMenuExtra}
       <hr />
       {#each objetosMenuExtra as objeto, i}
-        <li style="height:{alturaObjetoMenu};color={color}">
-          <a
-            class:selected={segment === objeto.ruta}
-            href={objeto.ruta}
-            style="color:{color}">
+        <li>
+          <a class:selected={segment === objeto.ruta} href={objeto.ruta}>
             {objeto.label}
           </a>
         </li>

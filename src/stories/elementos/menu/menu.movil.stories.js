@@ -1,9 +1,9 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import MenuMovil from '../../../elementos/menu/MenuMovil/MenuMovil.svelte';
 
 export default { title: 'Elementos/Menú/Menú Movil' }
 
-let rutas =  [
-    {
+let rutas = [{
         label: "Ruta",
         ruta: "una-ruta"
     },
@@ -25,37 +25,44 @@ let rutas =  [
     }
 ];
 
-export const menuMovilDefault = () => ({
-    Component: MenuMovil,
+export const menuMovilAbierto = () => ({
+    Component: ThemeTester,
     props: {
-        estadoMenu: true,
-        objetosMenu: rutas,
+        componente: MenuMovil,
+        datos: {
+            estadoMenu: true,
+            objetosMenu: rutas,
+        }
     }
 });
-export const menuMovilColorFondo = () => ({
-    Component: MenuMovil,
+export const menuMovilSombra = () => ({
+    Component: ThemeTester,
     props: {
-        estadoMenu: true,
-        objetosMenu: rutas,
-        colorFondo: 'lightblue',
+        componente: MenuMovil,
+        datos: {
+            estadoMenu: true,
+            objetosMenu: rutas,
+            sombra: true
+        }
     }
 });
-export const menuMovilAlturaObjetoMenu = () => ({
-    Component: MenuMovil,
+export const menuMovilCerrado = () => ({
+    Component: ThemeTester,
     props: {
-        estadoMenu: true,
-        objetosMenu: rutas,
-        colorFondo: 'lightblue',
-        alturaObjetoMenu: '2rem',
+        componente: MenuMovil,
+        datos: {
+            estadoMenu: false,
+            objetosMenu: rutas,
+        }
     }
 });
-export const menuMovilColorTexto = () => ({
-    Component: MenuMovil,
+export const menuMovilVacio = () => ({
+    Component: ThemeTester,
     props: {
-        estadoMenu: true,
-        objetosMenu: rutas,
-        colorFondo: 'lightblue',
-        alturaObjetoMenu: '2rem',
-        color: 'orange',
+        componente: MenuMovil,
+        datos: {
+            estadoMenu: true,
+            objetosMenu: [],
+        }
     }
 });

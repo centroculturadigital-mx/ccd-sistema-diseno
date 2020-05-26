@@ -41,14 +41,17 @@
   .tarjeta-texto {
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 50%;
-    padding: var(--theme-espaciados-padding) 1rem;
+    padding: var(--theme-espaciados-padding) calc(var(--theme-espaciados-padding) * 2);
   }
   .tarjeta-boton {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: var(--theme-esapaciados-margen)
   }
   .sombra {
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
@@ -63,7 +66,7 @@
 <article class={clases}>
 
   <div class="tarjeta-imagen">
-    <Imagen {imagen} altTexto={titulo} ajuste="cover" />
+    <Imagen {imagen} alt={titulo} ajuste="cover" />
   </div>
 
   <div class="tarjeta-texto">
