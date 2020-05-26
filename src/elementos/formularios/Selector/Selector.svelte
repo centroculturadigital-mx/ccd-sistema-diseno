@@ -29,8 +29,8 @@
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
     padding: calc(var(--theme-campos-espacio) * 1.67);
-    margin-top: var(--theme-espaciados-margin);
-    margin-bottom: var(--theme-espaciados-margin);
+    margin-top: var(--theme-espaciados-margen);
+    margin-bottom: var(--theme-espaciados-margen);
     min-height: 2rem;
   }
 

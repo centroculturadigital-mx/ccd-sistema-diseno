@@ -1,70 +1,44 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Tarjeta from "../../../componentes/Tarjetas/Tarjeta/Tarjeta.svelte";
 import imagenEjemplo from '../../../../public/placeholder.jpg';
 
 export default { title: "Componentes/Tarjetas/Tarjeta" }
 
-
 export const tarjetaDefault = () => ({
-    Component: Tarjeta,
+    Component: ThemeTester,
     props: {
-        imagenUrl: imagenEjemplo,
-        titulo: 'Esto es un título.',
-        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-        nivelTitulo: 'h3'
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3'
+        }
     }
 });
 export const tarjetaTamanoTitulo = () => ({
-    Component: Tarjeta,
+    Component: ThemeTester,
     props: {
-        imagenUrl: imagenEjemplo,
-        titulo: 'Esto es un título.',
-        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-        nivelTitulo: 'h1'
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h1'
+        }
     }
 });
-export const tarjetaColorTitulo = () => ({
-    Component: Tarjeta,
-    props: {
-        imagenUrl: imagenEjemplo,
-        titulo: 'Esto es un título.',
-        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-        nivelTitulo: 'h3',
-        colorTitulo: 'gray',
-    }
-});
-export const tarjetaColorTexto = () => ({
-    Component: Tarjeta,
-    props: {
-        imagenUrl: imagenEjemplo,
-        titulo: 'Esto es un título.',
-        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-        nivelTitulo: 'h3',
-        colorTitulo: 'gray',
-        color: 'gray',
-    }
-});
-export const tarjetaColorFondo = () => ({
-    Component: Tarjeta,
-    props: {
-        imagenUrl: imagenEjemplo,
-        titulo: 'Esto es un título.',
-        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-        nivelTitulo: 'h3',
-        colorTitulo: 'gray',
-        color: 'gray',
-        colorBG: 'lightgray'
-    }
-});
+
 export const tarjetaSombra = () => ({
-    Component: Tarjeta,
+    Component: ThemeTester,
     props: {
-        imagenUrl: imagenEjemplo,
-        titulo: 'Esto es un título.',
-        texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-        nivelTitulo: 'h3',
-        colorTitulo: 'gray',
-        color: 'gray',
-        colorBG: 'white',
-        sombra: true,
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            sombra: true,
+        }
     }
 });

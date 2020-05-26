@@ -41,7 +41,9 @@
   .tarjeta-texto {
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 50%;
     padding: var(--theme-espaciados-padding) calc(var(--theme-espaciados-padding) * 2);
   }
@@ -49,6 +51,7 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-top: var(--theme-esapaciados-margen)
   }
   .sombra {
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);

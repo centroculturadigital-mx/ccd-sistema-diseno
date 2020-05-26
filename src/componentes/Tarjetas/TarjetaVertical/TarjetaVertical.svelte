@@ -36,8 +36,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: calc(var(--theme-espaciados-margin) * 4);
-    margin-bottom: calc(var(--theme-espaciados-margin) * 2);
+    margin-top: calc(var(--theme-espaciados-margen) * 4);
+    margin-bottom: calc(var(--theme-espaciados-margen) * 2);
   }
   .sombra {
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);

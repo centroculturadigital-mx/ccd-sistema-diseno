@@ -67,8 +67,8 @@
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
     padding: var(--theme-campos-espacio);
-    margin-top: calc(var(--theme-espaciados-margin) / 2 );
-    margin-bottom: var(--theme-espaciados-margin);
+    margin-top: calc(var(--theme-espaciados-margen) / 2 );
+    margin-bottom: var(--theme-espaciados-margen);
     min-height: 2rem;
   }
   textarea {

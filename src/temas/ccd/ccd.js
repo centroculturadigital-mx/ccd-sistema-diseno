@@ -73,7 +73,7 @@ const tema = {
         },
         espaciados: {
             padding: variables.espaciados.md,
-            margin: variables.espaciados.sm,
+            margen: variables.espaciados.sm,
         },
         campos: {
             fondo: variables.campos.fondo,
