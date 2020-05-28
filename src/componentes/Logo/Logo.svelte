@@ -34,6 +34,11 @@
   h4 {
     margin: 0.25rem 0;
   }
+  .Logo :global(img) {
+    object-fit: contain;
+    object-position: left;
+    width: auto;
+  }
 </style>
 
 <div
