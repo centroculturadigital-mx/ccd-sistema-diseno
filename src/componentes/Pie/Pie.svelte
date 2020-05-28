@@ -1,4 +1,4 @@
-<script>
+<script> 
   import Logo from "../Logo/Logo.svelte";
   import Logos from "../Logos/Logos.svelte";
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte";
@@ -14,7 +14,7 @@
 
 <style>
   footer {
-    background-color: lightgray;
+    background-color: #8e8e8e;
     position: relative;
     display: flex;
     justify-content: space-between;
