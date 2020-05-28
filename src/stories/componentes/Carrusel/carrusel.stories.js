@@ -4,12 +4,13 @@ import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
 import Prueba from "./Prueba/Prueba.svelte";
 
-export default {title: "Componentes/Carrusel"}
+import ImagenArchivo from '../../../../public/placeholder.jpg';
+
+export default { title: "Componentes/Carrusel" }
 
 // const generarComponente = i=>()
 
-const elementos = [
-    {
+const elementos = [{
         componente: Prueba,
         data: {
             nombre: "Prueba"
@@ -18,7 +19,7 @@ const elementos = [
     {
         componente: Logo,
         data: {
-            logotipo: "http://fakeimg.pl/300x300",
+            logotipo: ImagenArchivo,
             enlace: "http://enlace.com",
             nombre: "Un Logo"
         }
@@ -32,7 +33,7 @@ const elementos = [
     {
         componente: Imagen,
         data: {
-            imagenUrl: "http://fakeimg.pl/400x400",
+            imagenUrl: ImagenArchivo,
             altTexto: "Una imagen",
             altura: "10rem",
         }
@@ -52,7 +53,7 @@ const elementos = [
     {
         componente: Imagen,
         data: {
-            imagenUrl: "http://fakeimg.pl/600x300",
+            imagenUrl: ImagenArchivo,
             altTexto: "Otra imagen",
             altura: "6rem",
         }
@@ -162,18 +163,6 @@ export const carruselEmpezarDesdeIndice = () => ({
         activo: 3
     }
 });
-
-
-
-
-// export const carruselCentrado = () => ({
-//     Component: Carrusel,
-//     props: {
-//         elementos,
-//         centrado: true
-//     }
-// });
-
 
 
 export const carruselArrayVacio = () => ({

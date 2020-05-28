@@ -2,27 +2,29 @@ import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import ListaComponentes from '../../../componentes/Listados/ListaComponentes/ListaComponentes.svelte';
 import Tarjeta from '../../../componentes/Tarjetas/Tarjeta/Tarjeta';
 
+import ImagenArchivo from '../../../../public/placeholder.jpg';
+
 export default { title: 'Componentes/Listado/ListaComponentes' }
 
 const elementos = [{
         componente: Tarjeta,
         data: {
             titulo: "Voluptate velit laborum voluptate excepteur velit commodo aute.",
-            imagenUrl: "http://fakeimg.pl/300x200?text=1"
+            imagen: ImagenArchivo
         }
     },
     {
         componente: Tarjeta,
         data: {
             titulo: "Est consectetur aliqua ipsum et consectetur duis est dolor.",
-            imagenUrl: "http://fakeimg.pl/300x200?text=2"
+            imagen: ImagenArchivo
         }
     },
     {
         componente: Tarjeta,
         data: {
             titulo: "Laborum magna cupidatat exd aute elit cupidatat.",
-            imagenUrl: "http://fakeimg.pl/300x200?text=3"
+            imagen: ImagenArchivo
         }
     },
 ]

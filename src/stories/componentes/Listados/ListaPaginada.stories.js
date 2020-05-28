@@ -1,7 +1,8 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import ListaPaginada from '../../../componentes/Listados/ListaPaginada/ListaPaginada.svelte';
-import ListaPaginadaTester from '../../../componentes/Listados/ListaPaginada/ListaPaginadaTester.svelte';
 import TarjetaHorizontal from '../../../componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal';
+
+import ImagenArchivo from '../../../../public/placeholder.jpg';
 
 export default { title: 'Componentes/Listado/ListaPaginada' }
 
@@ -10,7 +11,7 @@ const elementos = new Array(11).fill(0).map((e, i) => ({
     data: {
         chica: true,
         titulo: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
-        imagenUrl: "http://fakeimg.pl/300x200?text=" + i
+        imagen: ImagenArchivo
     }
 }))
 

@@ -1,13 +1,15 @@
 import RegistrosLista from '../../../../componentes/CMS/RegistrosLista/RegistrosLista.svelte';
 import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 
+import ImagenArchivo from '../../../../../public/placeholder.jpg';
+
 export default { title: 'CMS/Componentes/RegistrosLista' }
 
 const elementos = new Array(12).fill(true).map((e, i) => ({
     "id": "mi-id",
     "nombre": "Nombre de registro",
     "entidad": "mi-entidad",
-    "imagen": "https://fakeimg.pl/100x100?texto=registro-" + i,
+    "imagen": ImagenArchivo,
     "eliminar": () => { confirm("Quieres eliminar el registro " + i + " ?") },
 }));
 
