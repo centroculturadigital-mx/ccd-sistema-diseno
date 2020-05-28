@@ -14,7 +14,7 @@
     justify-content: flex-start;
   }
   .Logotipos :global(.Logo)  {
-    width: 33%;
+    /* width: 33%; */
   }
 </style>
 

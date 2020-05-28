@@ -1,5 +1,6 @@
-import Header from '../../../componentes/Cabecera/Cabecera.svelte';
-import imagenEjemplo from '../../../../public/placeholder.jpg';
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
+import Cabecera from '../../../componentes/Cabecera/Cabecera.svelte';
+import ImagenArchivo from '../../../../public/placeholder.jpg';
 
 export default { title: 'Componentes/Cabecera/Cabecera' }
 
@@ -25,89 +26,71 @@ let rutas = [{
     }
 ];
 
-export const headerDefault = () => ({
-    Component: Header,
+let logo = [{
+    logotipo: ImagenArchivo,
+    enlace: "#",
+    nombre: "Storybook"
+}, ];
+let logos = [{
+        logotipo: ImagenArchivo,
+        enlace: "#",
+        nombre: "Storybook"
+    },
+    {
+        logotipo: ImagenArchivo,
+        enlace: "#",
+        nombre: "Storybook"
+    }
+];
+
+export const cabeceraDefault = () => ({
+    Component: ThemeTester,
     props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        logoTexto: 'Logo Sitio',
+        componente: Cabecera,
+        datos: {}
     }
 });
-export const headerIconoDiccionario = () => ({
-    Component: Header,
+export const cabeceraLogo = () => ({
+    Component: ThemeTester,
     props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        logoTexto: 'Logo Sitio',
-        iconoMenu: {
-            abrir: 'menu',
-            cerrar: 'cerrar'
+        componente: Cabecera,
+        datos: {
+            objetosMenu: rutas,
+            logotipos: logo,
         }
     }
 });
-export const headerColorBG = () => ({
-    Component: Header,
+export const cabeceraLogos = () => ({
+    Component: ThemeTester,
     props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        logoTexto: 'Logo Sitio',
-        colorFondo: 'lightgray',
-        altura: '100px',
+        componente: Cabecera,
+        datos: {
+            objetosMenu: rutas,
+            logotipos: logos,
+        }
     }
 });
-export const headerColorTexto = () => ({
-    Component: Header,
+
+export const cabeceraSombra = () => ({
+    Component: ThemeTester,
     props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        logoTexto: 'Logo Sitio',
-        colorFondo: 'lightgray',
-        altura: '100px',
-        color: 'orange'
+        componente: Cabecera,
+        datos: {
+            objetosMenu: rutas,
+            logotipos: logo,
+            sombra: true,
+        }
     }
 });
-export const headerAltura = () => ({
-    Component: Header,
+export const cabeceraFixed = () => ({
+    Component: ThemeTester,
     props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        logoTexto: 'Logo Sitio',
-        colorFondo: 'lightgray',
-        altura: '200px',
-    }
-});
-export const headerSombra = () => ({
-    Component: Header,
-    props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        logoTexto: 'Logo Sitio',
-        colorFondo: 'white',
-        altura: '70px',
-        sombra: true,
-    }
-});
-export const headerFixed = () => ({
-    Component: Header,
-    props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        logoTexto: 'Logo Sitio',
-        colorFondo: 'white',
-        altura: '70px',
-        sombra: true,
-        fixed: true,
-    }
-});
-export const headerLogoImagen = () => ({
-    Component: Header,
-    props: {
-        objetosMenu: rutas,
-        logoImagenUrl: imagenEjemplo,
-        colorFondo: 'white',
-        logoTexto: 'Logo Sitio',
-        altura: '70px',
-        sombra: true,
-        fixed: true,
+        componente: Cabecera,
+        datos: {
+            objetosMenu: rutas,
+            logotipos: logo,
+            sombra: true,
+            fixed: true,
+        }
     }
 });

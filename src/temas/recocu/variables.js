@@ -42,6 +42,10 @@ const variables = {
             aviso: "yellow",
             informa: "orange"
         },
+        cabecera: {
+            fondo: "#FFF",
+            oscuro: "#2700CA",
+        },
         pie: {
             oscuro: "#BB382D",
         },
@@ -127,6 +131,9 @@ const variables = {
         lenta: "1s",
         normal: "0.5s",
         rapida: "0.125s",
+    },
+    alturas: {
+        cabecera: "4rem"
     }
 }
 

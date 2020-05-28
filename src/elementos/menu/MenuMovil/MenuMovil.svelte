@@ -7,7 +7,6 @@
   export let objetosMenuExtra;
   export let sombra;
 
-  export let alturaMenuMovil;
 </script>
 
 <style>
@@ -21,6 +20,7 @@
     position: absolute;
     z-index: 1000;
     box-sizing: border-box;
+    background-color: var(--theme-cabeceras-principal-fondo);
   }
   li {
     padding: 0.5rem;
@@ -43,7 +43,7 @@
     width: 100%;
   }
   .sombra {
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    box-shadow: 0px 4px 3px rgba(0,0,0,0.5);
   }
 </style>
 
