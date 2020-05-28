@@ -10,11 +10,6 @@ const tema = {
             secundario_b: estilos.colores.secundario_b,
             complementario: estilos.colores.complementario
         },
-        pies: {
-            fondo: variables.colores.pie.oscuro,
-            texto: variables.colores.texto.claro,
-
-        },
         textos: {
             parrafo: {
                 tipografia: estilos.tipografia.parrafo.fuente,
@@ -138,8 +133,38 @@ const tema = {
             color: variables.colores.enlace,
             tamanno: variables.tipografia.tamannos.sm,
             familia: estilos.tipografia.parrafo,
+        },
+        cabeceras: {
+            principal: {
+                fondo: estilos.cabecera.principal.fondo,
+                altura: estilos.cabecera.principal.altura
+            }
+        },
+        pies: {
+            fondo: variables.colores.pie.oscuro,
+            texto: variables.colores.texto.claro,
+        },
+        esquinas: {
+            todas: variables.espaciados.xs,
+            superiorIzquierda: variables.espaciados.xs,
+            superiroDerecha: variables.espaciados.xs,
+            inferiorDerecha: variables.espaciados.xs,
+            inferiorIzquierda: variables.espaciados.xs
+        },
+        transiciones: {
+            lenta: variables.transiciones.lenta,
+            normal: variables.transiciones.normal,
+            rapida: variables.transiciones.rapida,
+        },
+        tamannos: {
+            xs: variables.tamannos.xs,
+            sm: variables.tamannos.sm,
+            md: variables.tamannos.md,
+            lg: variables.tamannos.lg,
+            xl: variables.tamannos.xl,
+            xxl: variables.tamannos.xxl,
+            xxxl: variables.tamannos.xxxl,
         }
-
     },
     fontFamilies: {
         principal: variables.tipografia.familias.principal,

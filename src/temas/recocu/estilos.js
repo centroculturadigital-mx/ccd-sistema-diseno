@@ -10,7 +10,7 @@ const estilos = {
         citas: {
             fuente: variables.tipografia.fuentes.secundaria.nombre,
             tamanno: variables.tipografia.tamannos.md,
-           
+
         },
         titulo: {
             fuente: variables.tipografia.fuentes.titulo.nombre,
@@ -49,6 +49,12 @@ const estilos = {
                 tamanno: variables.tipografia.tamannos.md,
                 peso: variables.tipografia.fuentes.principal.regular
             }
+        }
+    },
+    cabecera: {
+        principal: {
+            fondo: variables.colores.fondo.claro,
+            altura: variables.alturas.cabecera,
         }
     },
     colores: {

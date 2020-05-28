@@ -10,11 +10,6 @@ const tema = {
             secundario_b: estilos.colores.secundario_b,
             complementario: estilos.colores.complementario
         },
-        pies: {
-            fondo: variables.colores.pie.oscuro,
-            texto: variables.colores.texto.claro,
-
-        },
         textos: {
             parrafo: {
                 tipografia: estilos.tipografia.parrafo.fuente,
@@ -133,6 +128,22 @@ const tema = {
                 color: variables.colores.icono.primario,
                 tamanno: variables.tipografia.tamannos.sm,
             }
+        },
+        enlaces: {
+            color: variables.colores.enlace,
+            tamanno: variables.tipografia.tamannos.sm,
+            familia: estilos.tipografia.parrafo,
+        },
+        cabeceras: {
+            principal: {
+                fondo: estilos.cabecera.principal.fondo,
+                altura: estilos.cabecera.principal.altura
+            }
+        },
+        pies: {
+            fondo: variables.colores.pie.oscuro,
+            texto: variables.colores.texto.claro,
+
         },
         esquinas: {
             todas: variables.espaciados.xs,
