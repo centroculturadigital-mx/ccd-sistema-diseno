@@ -10,6 +10,11 @@ const tema = {
             secundario_b: estilos.colores.secundario_b,
             complementario: estilos.colores.complementario
         },
+        pies: {
+            fondo: variables.colores.pie.oscuro,
+            texto: variables.colores.texto.claro,
+    
+        },
         textos: {
             parrafo: {
                 tipografia: estilos.tipografia.parrafo.fuente,

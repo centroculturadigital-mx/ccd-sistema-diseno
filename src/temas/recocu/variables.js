@@ -42,6 +42,9 @@ const variables = {
             aviso: "yellow",
             informa: "orange"
         },
+        pie: {
+            oscuro: "#BB382D",
+        },
         icono: {
             base: "#4C4CFF",
             claro: '#FFF',

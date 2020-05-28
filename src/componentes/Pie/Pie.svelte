@@ -1,12 +1,12 @@
 <script> 
-  import Logo from "../Logo/Logo.svelte";
+  import Logo from "../Logo/Logo.svelte"; 
   import Logos from "../Logos/Logos.svelte";
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let fixed;
   export let logos;
-  export let logoTexto;
-  export let logoImagenUrl;
+  export let nombre;
+  export let logotipo;
   export let altura;
   export let copyright;
   
@@ -14,7 +14,7 @@
 
 <style>
   footer {
-    background-color: #8e8e8e;
+    background-color: var(--theme-pies-fondo);    
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -35,6 +35,8 @@
   }
   .copyright :global(p span) {
     font-size: 0.75rem;
+    color: var(--theme-pies-texto);
+    font-family: var(--theme-botones-primario-familia);
   } 
 </style>
 
@@ -44,8 +46,8 @@
 
     {#if Array.isArray(logos)}
       <Logos {logos} />
-    {:else if !!logoImagenUrl}
-      <Logo {logoTexto} {logoImagenUrl} logoAncho={'30%'} />
+    {:else if !!logotipo}
+       <Logo {nombre} {logotipo} estilos={{ancho: '30%'}} />
     {/if}
 
   </div>
