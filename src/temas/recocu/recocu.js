@@ -26,7 +26,7 @@ const tema = {
                 tipografia: estilos.tipografia.parrafo.fuente,
                 tamanno: estilos.tipografia.citas.tamanno,
                 color: variables.colores.texto.base,
-                
+
             },
             titulo: {
                 tipografia: estilos.tipografia.titulo.fuente,
@@ -76,6 +76,7 @@ const tema = {
                 familia: estilos.tipografia.parrafo.fuente,
                 borde: variables.colores.primario.base,
                 activo: variables.colores.primario.claro,
+                inactivo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
                 esquinas: variables.espaciados.none,
             },
@@ -86,6 +87,7 @@ const tema = {
                 familia: estilos.tipografia.parrafo,
                 borde: variables.colores.primario.oscuro,
                 activo: variables.colores.primario.claro,
+                inactivo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
                 esquinas: variables.espaciados.none,
             },
@@ -94,6 +96,7 @@ const tema = {
                 color: variables.colores.texto.base,
                 familia: estilos.tipografia.parrafo,
                 activo: variables.colores.primario.claro,
+                inactivo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
                 tamanno: variables.tipografia.tamannos.xxl,
             }
