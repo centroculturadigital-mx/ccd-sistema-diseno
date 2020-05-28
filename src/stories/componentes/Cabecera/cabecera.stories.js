@@ -1,7 +1,7 @@
 import Header from '../../../componentes/Cabecera/Cabecera.svelte';
 import imagenEjemplo from '../../../../public/placeholder.jpg';
 
-export default { title: 'Componentes/Header/Header' }
+export default { title: 'Componentes/Cabecera/Cabecera' }
 
 let rutas = [{
         label: "Ruta",
