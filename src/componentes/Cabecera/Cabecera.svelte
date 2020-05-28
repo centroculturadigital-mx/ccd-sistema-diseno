@@ -23,7 +23,7 @@
   };
 </script>
 
-<HeaderVista
+<CabeceraVista
   {segment}
   {menuAlternar}
   {estadoMenu}
