@@ -13,13 +13,14 @@ const tema = {
         pies: {
             fondo: variables.colores.pie.oscuro,
             texto: variables.colores.texto.claro,
-    
+
         },
         textos: {
             parrafo: {
                 tipografia: estilos.tipografia.parrafo.fuente,
                 tamanno: estilos.tipografia.parrafo.tamanno,
                 color: variables.colores.texto.oscuro,
+                enlace: variables.colores.texto.claro,
                 peso: estilos.tipografia.parrafo.peso,
             },
             citas: {

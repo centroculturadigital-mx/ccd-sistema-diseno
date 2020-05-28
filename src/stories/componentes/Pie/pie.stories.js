@@ -1,16 +1,28 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Pie from '../../../componentes/Pie/Pie.svelte';
-// import placeholder from '../../../../public/placeholder.jpg';
+import ImagenArchivo from '../../../../public/placeholder.jpg';
 
 export default { title: 'Componentes/Pie/Pie' }
+
+let rutas = [{
+        label: "Ruta",
+        ruta: "una-ruta"
+    },
+    {
+        label: "Ruta",
+        ruta: "una-ruta"
+    }
+]
 
 export const PieDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: Pie,
         datos: {
-            altura: '3rem',
-            logImagenUrl: "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png",
+            logotipo: ImagenArchivo,
+            estilos: {
+                altura: '4rem',
+            }
         }
     }
 })
@@ -19,8 +31,10 @@ export const PieLogo = () => ({
     props: {
         componente: Pie,
         datos: {
-            altura: '3rem',
-            logImagenUrl: "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png",
+            logotipo: ImagenArchivo,
+            estilos: {
+                altura: '4rem',
+            }
         }
     }
 })
@@ -29,9 +43,25 @@ export const PieCopyright = () => ({
     props: {
         componente: Pie,
         datos: {
-            altura: '3rem',
-            logImagenUrl: "https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder-300x200.png",
-            copyright: "CCD Mexico | 2020"
+            logotipo: ImagenArchivo,
+            copyright: "CCD Mexico | 2020",
+            estilos: {
+                altura: '4rem',
+            }
+        }
+    }
+})
+export const PieConMenu = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Pie,
+        datos: {
+            logotipo: ImagenArchivo,
+            copyright: "CCD Mexico | 2020",
+            menu: rutas,
+            estilos: {
+                altura: '4rem',
+            }
         }
     }
 })

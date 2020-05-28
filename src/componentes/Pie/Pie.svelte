@@ -2,13 +2,18 @@
   import Logo from "../Logo/Logo.svelte"; 
   import Logos from "../Logos/Logos.svelte";
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte";
+  import MenuEscritorio from '../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte';
 
-  export let fixed;
-  export let logos;
-  export let nombre;
   export let logotipo;
-  export let altura;
+  export let logotipos;
+  export let nombre;
+  export let menu;
   export let copyright;
+  export let fixed;
+
+   export let estilos = {
+     altura: ""
+   }
   
 </script>
 
@@ -20,7 +25,8 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 0.5rem 1rem;
+    padding: calc(var(--theme-espaciados-padding) / 2)  var(--theme-espaciados-padding);
+    width: 100%;
   }
 
   .fixed {
@@ -30,25 +36,42 @@
     left: 0;
     z-index: 1000;
   }
-  .logos {
+  .logotipos {
     width: auto;
+    height: 100%;
   }
   .copyright :global(p span) {
     font-size: 0.75rem;
     color: var(--theme-pies-texto);
-    font-family: var(--theme-botones-primario-familia);
   } 
+  .menu :global(a) {
+    transition: var(--theme-transicion);
+    text-transform: capitalize;
+    color: var(--theme-textos-parrafo-enlace);
+  }
+  .menu :global(a:hover) {
+    text-transform: capitalize;
+    color: var(--theme-textos-parrafo-color);
+  }
 </style>
 
-<footer style="height:{!!altura ? altura : ''};" class={!!fixed ? 'fixed' : ''}>
+<footer style="height:{!!estilos.altura ? estilos.altura : ''};" class={!!fixed ? 'fixed' : ''}>
   
-  <div class="logos">
+  <div class="logotipos">
 
-    {#if Array.isArray(logos)}
-      <Logos {logos} />
+    {#if Array.isArray(logotipos)}
+      <Logos {logotipos} />
     {:else if !!logotipo}
-       <Logo {nombre} {logotipo} estilos={{ancho: '30%'}} />
+       <Logo {nombre} {logotipo} />
     {/if}
+
+  </div>
+  <div class="menu">
+
+    {#if Array.isArray(menu)}
+      <MenuEscritorio objetosMenu={menu} />
+    {/if}
+
 
   </div>
   <div class="copyright">

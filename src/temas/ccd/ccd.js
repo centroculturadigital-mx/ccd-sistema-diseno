@@ -1,4 +1,4 @@
-import variables from './variables'; 
+import variables from './variables';
 import estilos from './estilos';
 
 const tema = {
@@ -13,13 +13,14 @@ const tema = {
         pies: {
             fondo: variables.colores.pie.oscuro,
             texto: variables.colores.texto.claro,
-    
+
         },
         textos: {
             parrafo: {
                 tipografia: estilos.tipografia.parrafo.fuente,
                 tamanno: estilos.tipografia.parrafo.tamanno,
                 color: variables.colores.texto.oscuro,
+                enlace: variables.colores.texto.claro,
                 peso: estilos.tipografia.parrafo.peso,
             },
             citas: {
@@ -102,7 +103,7 @@ const tema = {
             }
         },
         espaciados: {
-            padding: variables.espaciados.md,
+            padding: variables.espaciados.sm,
             margen: variables.espaciados.sm,
         },
         campos: {
@@ -138,7 +139,7 @@ const tema = {
             tamanno: variables.tipografia.tamannos.sm,
             familia: estilos.tipografia.parrafo,
         }
-        
+
     },
     fontFamilies: {
         principal: variables.tipografia.familias.principal,

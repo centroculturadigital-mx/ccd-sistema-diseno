@@ -52,7 +52,7 @@ const variables = {
             transparente: "transparent",
         },
         enlace: {
-            base: "#FF4C4C", 
+            base: "#FF4C4C",
             claro: "#FF8178",
             oscuro: "#C50023",
             transparente: "transparent",
