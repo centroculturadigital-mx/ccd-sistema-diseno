@@ -1,8 +1,8 @@
-<script> 
-  import Logo from "../Logo/Logo.svelte"; 
+<script>
+  import Logo from "../Logo/Logo.svelte";
   import Logos from "../Logos/Logos.svelte";
   import Parrafo from "../../elementos/texto/Parrafo/Parrafo.svelte";
-  import MenuEscritorio from '../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte';
+  import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
 
   export let logotipo;
   export let logotipos;
@@ -11,21 +11,21 @@
   export let copyright;
   export let fixed;
 
-   export let estilos = {
-     altura: ""
-   }
-  
+  export let estilos = {
+    altura: ""
+  };
 </script>
 
 <style>
   footer {
-    background-color: var(--theme-pies-fondo);    
+    background-color: var(--theme-pies-fondo);
     position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: calc(var(--theme-espaciados-padding) / 2)  var(--theme-espaciados-padding);
+    padding: calc(var(--theme-espaciados-padding) / 2)
+      var(--theme-espaciados-padding);
     width: 100%;
   }
 
@@ -43,7 +43,7 @@
   .copyright :global(p span) {
     font-size: 0.75rem;
     color: var(--theme-pies-texto);
-  } 
+  }
   .menu :global(a) {
     transition: var(--theme-transicion);
     text-transform: capitalize;
@@ -53,16 +53,19 @@
     text-transform: capitalize;
     color: var(--theme-textos-parrafo-color);
   }
+
 </style>
 
-<footer style="height:{!!estilos.altura ? estilos.altura : ''};" class={!!fixed ? 'fixed' : ''}>
-  
+<footer
+  style="height:{!!estilos.altura ? estilos.altura : ''};"
+  class={!!fixed ? 'fixed' : ''}>
+
   <div class="logotipos">
 
     {#if Array.isArray(logotipos)}
       <Logos {logotipos} />
     {:else if !!logotipo}
-       <Logo {nombre} {logotipo} />
+      <Logo {nombre} {logotipo} />
     {/if}
 
   </div>
@@ -72,10 +75,11 @@
       <MenuEscritorio objetosMenu={menu} />
     {/if}
 
-
   </div>
-  <div class="copyright">
-    <Parrafo texto={copyright} />
-  </div>
+  {#if !!copyright}
+    <div class="copyright">
+      <Parrafo texto={copyright} />
+    </div>
+  {/if}
 
 </footer>

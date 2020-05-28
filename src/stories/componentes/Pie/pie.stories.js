@@ -12,6 +12,22 @@ let rutas = [{
         label: "Ruta",
         ruta: "una-ruta"
     }
+];
+let logos = [{
+        logotipo: ImagenArchivo,
+        enlace: "#",
+        nombre: "Storybook"
+    },
+    {
+        logotipo: ImagenArchivo,
+        enlace: "#",
+        nombre: "Storybook"
+    },
+    {
+        logotipo: ImagenArchivo,
+        enlace: "#",
+        nombre: "Storybook"
+    }
 ]
 
 export const PieDefault = () => ({
@@ -19,7 +35,6 @@ export const PieDefault = () => ({
     props: {
         componente: Pie,
         datos: {
-            logotipo: ImagenArchivo,
             estilos: {
                 altura: '4rem',
             }
@@ -32,6 +47,18 @@ export const PieLogo = () => ({
         componente: Pie,
         datos: {
             logotipo: ImagenArchivo,
+            estilos: {
+                altura: '4rem',
+            }
+        }
+    }
+})
+export const PieLogos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Pie,
+        datos: {
+            logotipos: logos,
             estilos: {
                 altura: '4rem',
             }
@@ -52,6 +79,19 @@ export const PieCopyright = () => ({
     }
 })
 export const PieConMenu = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Pie,
+        datos: {
+            logotipo: ImagenArchivo,
+            menu: rutas,
+            estilos: {
+                altura: '4rem',
+            }
+        }
+    }
+})
+export const PieConMenuYCopyright = () => ({
     Component: ThemeTester,
     props: {
         componente: Pie,

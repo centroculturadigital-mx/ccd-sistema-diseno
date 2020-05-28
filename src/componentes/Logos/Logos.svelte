@@ -1,7 +1,7 @@
 <script>
   import Logo from '../Logo/Logo'
 
-  export let logos;
+  export let logotipos;
 
 </script>
 
@@ -13,11 +13,14 @@
     align-items: center;
     justify-content: flex-start;
   }
+  .Logotipos :global(.Logo)  {
+    width: 33%;
+  }
 </style>
 
 <div class="Logotipos">
-  {#if Array.isArray(logos)}
-    {#each logos as logo, i ("logo_"+i )}
+  {#if Array.isArray(logotipos)}
+    {#each logotipos as logo, i ("logo_"+i )}
       <Logo {...logo}/>
     {/each}
   {/if}
