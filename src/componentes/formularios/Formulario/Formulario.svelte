@@ -129,8 +129,8 @@
     color: var(--theme-botones-primario-claro);
   }
   form input[type="submit"].inactivo {
-    background-color: var(--theme-botones-primario-activo);
-    border-color: var(--theme-botones-primario-activo);
+    background-color: var(--theme-botones-primario-inactivo);
+    border-color: var(--theme-botones-primario-inactivo);
     color: var(--theme-botones-primario-claro);
   }
   form input[type="submit"].activo {

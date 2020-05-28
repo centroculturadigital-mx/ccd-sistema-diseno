@@ -1,3 +1,4 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Carrusel from "../../../componentes/Carrusel/Carrusel.svelte";
 import Logo from "../../../componentes/Logo/Logo.svelte";
 import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
@@ -33,8 +34,8 @@ const elementos = [{
     {
         componente: Imagen,
         data: {
-            imagenUrl: ImagenArchivo,
-            altTexto: "Una imagen",
+            imagen: ImagenArchivo,
+            alt: "Una imagen",
             altura: "10rem",
         }
     },
@@ -53,8 +54,8 @@ const elementos = [{
     {
         componente: Imagen,
         data: {
-            imagenUrl: ImagenArchivo,
-            altTexto: "Otra imagen",
+            imagen: ImagenArchivo,
+            alt: "Otra imagen",
             altura: "6rem",
         }
     },
@@ -74,105 +75,155 @@ const elementos = [{
 
 
 export const carruselDefault = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos
+        componente: Carrusel,
+        datos: {
+            elementos
+        }
     }
 });
 
 
 export const carruselVertical = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        direccion: "vertical",
-        elementos,
-        alto: 400
+        componente: Carrusel,
+        datos: {
+            elementos,
+            estilos: {
+                direccion: "vertical",
+                alto: 400
+            }
+        }
     }
 });
 
 export const carruselPorPaginaDos = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos,
-        pagina: 2
+        componente: Carrusel,
+        datos: {
+            elementos,
+            pagina: 2
+        }
     }
 });
 
 export const carruselVerticalPorPaginaDos = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos,
-        pagina: 2,
-        direccion: "vertical",
-        alto: 400
+        componente: Carrusel,
+        datos: {
+            elementos,
+            pagina: 2,
+            estilos: {
+                alto: 400,
+                direccion: "vertical",
+            }
+        }
     }
 });
 
 export const carruselAutoplay = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos,
-        pagina: 3,
-        direccion: "vertical",
-        alto: 400,
-        autoplay: true
+        componente: Carrusel,
+        datos: {
+            elementos,
+            pagina: 3,
+            autoplay: true,
+            estilos: {
+                alto: 400,
+                direccion: "vertical",
+            }
+        }
     }
 });
 
 
 export const carruselVerticalPorPaginaTres = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos,
-        pagina: 3,
-        direccion: "vertical",
-        alto: 400
+        componente: Carrusel,
+        datos: {
+            elementos,
+            pagina: 3,
+            estilos: {
+                direccion: "vertical",
+                alto: 400
+            }
+        }
     }
 });
 export const carruselPorPaginaTres = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos,
-        pagina: 3
+        componente: Carrusel,
+        datos: {
+            elementos,
+            pagina: 3
+        }
     }
 });
 export const carruselPorPaginaSeis = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos,
-        pagina: 6,
-        ancho: 900
+        componente: Carrusel,
+        datos: {
+            elementos,
+            pagina: 6,
+            estilos: {
+                ancho: 900
+            }
+        }
     }
 });
 
 
 export const carruselTamanno = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        ancho: 800,
-        alto: 400,
-        elementos
+        componente: Carrusel,
+        datos: {
+            elementos,
+            estilos: {
+                ancho: 800,
+                alto: 400,
+            }
+        }
     }
 });
 
 
 export const carruselEmpezarDesdeIndice = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos,
-        activo: 3
+        componente: Carrusel,
+        datos: {
+            elementos,
+            activo: 3
+        }
     }
 });
 
 
 export const carruselArrayVacio = () => ({
-    Component: Carrusel,
+    Component: ThemeTester,
     props: {
-        elementos: []
+        componente: Carrusel,
+        datos: {
+            elementos: []
+        }
     }
 });
 
 export const carruselVacio = () => ({
-    Component: Carrusel,
-    props: {}
+    Component: ThemeTester,
+    props: {
+        componente: Carrusel,
+        datos: {
+
+        }
+    }
 });
