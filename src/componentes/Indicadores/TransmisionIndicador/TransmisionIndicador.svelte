@@ -3,7 +3,10 @@
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
-  export let eventos;
+  export let estado = false;
+  export let eventos = [];
+
+  let fecha = eventos.fechaInicio;
 </script>
 
 <style>
@@ -17,20 +20,20 @@
     padding: 0;
     margin: 0;
   }
-  li {
+  li.EventoEnCurso {
     list-style-type: none;
-    padding: var(--theme-espaciados-padding);
-    border-bottom: 2px solid gray;
+    padding: var(--theme-espaciados-padding) 0;
+    border-bottom: 2px solid lightgray;
     position: relative;
   }
   li:before {
-  content:'';
-  position:absolute;
-  right:0%; 
-  left:0;
-  height: 70%;
-  border-right: 2px solid gray;
-}
+    content: "";
+    position: absolute;
+    right: 0%;
+    left: 0;
+    height: 70%;
+    border-right: 2px solid lightgray;
+  }
   .EstadoIndicador {
     display: flex;
     justify-content: space-between;
@@ -49,31 +52,46 @@
     border-radius: 50%;
     height: 0.75rem;
     width: 0.75rem;
-    background-color: var(--theme-alertas-error);
   }
-  .TransmisionEnCurso :global(h5) {
+  .EventoEnCurso :global(h5) {
     margin: 0;
+  }
+  .Espera {
+    background-color: var(--theme-alertas-inactivo);
+  }
+  .EnVivo {
+    background-color: var(--theme-alertas-transmitiendo);
   }
 </style>
 
-{#if Array.isArray(eventos)}
-  <section class="TransmisionIndicador">
-    <ul>
-      {#each eventos as evento}
-        <li class="TransmisionEnCurso">
-          <div class="EstadoIndicador">
-            <Parrafo texto={'En Vivo'} />
-            <div class="Led">
-              <span />
-            </div>
-          </div>
-          <Titulo texto={'Nombre de evento'} nivel={5} />
-
-          <Enlace
-            href={`evento/${evento.partes.tipo}/${evento.partes.nombre}`}
-            texto={'Ir ->'} />
-        </li>
-      {/each}
-    </ul>
-  </section>
-{/if}
+<section class="TransmisionIndicador">
+  {#if Array.isArray(eventos)}
+    <div class="EstadoIndicador">
+      {#if !!estado}
+        <Parrafo texto={'En Vivo'} />
+        <div class="Led">
+          <span class="EnVivo" />
+        </div>
+      {:else}
+        <Parrafo texto={'En Espera'} />
+        <div class="Led">
+          <span class="Espera" />
+        </div>
+      {/if}
+    </div>
+    <!--  -->
+    {#if !!estado}
+      <ul>
+        {#each eventos as evento}
+          <li class="EventoEnCurso">
+            <Titulo texto={evento.titulo} nivel={5} />
+            <Enlace
+              href={`evento/${evento.titulo}`}
+              texto={'Ir ->'} />
+          </li>
+        {/each}
+        <!--  -->
+      </ul>
+    {/if}
+  {/if}
+</section>

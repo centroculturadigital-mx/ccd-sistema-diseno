@@ -40,7 +40,9 @@ const variables = {
             ok: "green",
             error: "red",
             aviso: "yellow",
-            informa: "orange"
+            informa: "orange",
+            inactivo: "gray",
+            transmitiendo: "red"
         },
         cabecera: {
             fondo: "#FFF",

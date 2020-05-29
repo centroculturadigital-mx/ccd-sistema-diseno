@@ -124,6 +124,8 @@ const tema = {
             error: variables.colores.alerta.error,
             aviso: variables.colores.alerta.aviso,
             informa: variables.colores.alerta.informa,
+            inactivo: variables.colores.alerta.inactivo,
+            transmitiendo: variables.colores.alerta.transmitiendo
         },
         iconos: {
             primario: {
