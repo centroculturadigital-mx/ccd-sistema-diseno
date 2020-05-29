@@ -183,16 +183,30 @@ const seleccionarDiaActual = i => {
 
     ul {
         display: flex;
+        font-family: var(--theme-textos-parrafo-tipografia);
     }
 
     li {
-        list-style: none
+        list-style: none;
+        font-family: var(--theme-textos-parrafo-tipografia);
     }
 
     button {
         background: none;
         border: none;
+        font-family: var(--theme-textos-parrafo-tipografia);     
     }
+    .Vista{
+        font-family: var(--theme-textos-parrafo-tipografia);
+    }
+    h1 {
+       font-family: var(--theme-textos-parrafo-tipografia);  
+    }
+    nav {
+        font-family: var(--theme-textos-parrafo-tipografia);
+    }
+
+
 </style>
 
 <h1>Calendario</h1>

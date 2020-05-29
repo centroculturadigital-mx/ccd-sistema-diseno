@@ -3,7 +3,7 @@ import estilos from './estilos';
 
 const tema = {
     name: 'CCD',
-    properties: {
+    properties: { 
         colores: {
             primario: estilos.colores.primario,
             secundario_a: estilos.colores.secundario_a,

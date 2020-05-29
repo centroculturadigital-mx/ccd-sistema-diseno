@@ -1,6 +1,7 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Calendario from '../../../componentes/Calendario/Calendario.svelte';
 
-import moment from "moment"
+import moment from "moment" 
 
 import fechas from "../../../data/info/fechas.json"
 
@@ -21,9 +22,12 @@ const seleccionarMes=(mes)=>{
 
 
 export const FieldDefault = () => ({
-    Component: Calendario,
+    Component: ThemeTester,
     props: {
+        componente: Calendario,
+        datos: {
         eventos,
         seleccionarMes
+    }
     },
 });
