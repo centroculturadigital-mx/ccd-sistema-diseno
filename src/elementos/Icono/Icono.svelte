@@ -5,8 +5,11 @@
   import mas from "./iconos/mas.svg";
   import imagen from "./iconos/imagen.svg";
   import avatar from "./iconos/avatar.svg";
-
   import Imagen from "../media/Imagen/Imagen";
+  import facebook from "./iconos/facebook.svg";
+  import twitter from "./iconos/twitter.svg";
+  import instagram from "./iconos/instagram.svg";
+  import agregar from "./iconos/agregar.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -18,7 +21,11 @@
     cerrar,
     mas,
     imagen,
-    avatar
+    avatar,
+    facebook,
+    twitter,
+    instagram,
+    agregar,
   };
 
   $: iconoMostrar = iconos[icono];
