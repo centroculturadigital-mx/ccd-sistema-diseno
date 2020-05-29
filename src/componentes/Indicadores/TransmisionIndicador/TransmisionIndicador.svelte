@@ -3,10 +3,22 @@
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
+  import moment from "moment";
+
   export let estado = false;
   export let eventos = [];
 
-  let fecha = eventos.fechaInicio;
+  let fechaInicio = eventos.fechaInicio;
+
+  const adquiereFechas = e => {
+    let fechaActual = moment();
+    let fechaEvento = moment(fechaInicio);
+    let diferencia = fechaActual.diff(fechaActual.format());
+
+    // console.log("Fecha Actual", fechaActual);
+    // console.log("Fecha Evento", fechaEvento);
+    console.log("Diferencia", diferencia);
+  };
 </script>
 
 <style>
@@ -83,11 +95,9 @@
     {#if !!estado}
       <ul>
         {#each eventos as evento}
-          <li class="EventoEnCurso">
+          <li class="EventoEnCurso" use:adquiereFechas>
             <Titulo texto={evento.titulo} nivel={5} />
-            <Enlace
-              href={`evento/${evento.titulo}`}
-              texto={'Ir ->'} />
+            <Enlace href={`evento/${evento.titulo}`} texto={'Ir ->'} />
           </li>
         {/each}
         <!--  -->
