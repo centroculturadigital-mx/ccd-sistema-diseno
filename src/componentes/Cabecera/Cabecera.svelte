@@ -53,6 +53,9 @@
     padding: 0;
     margin-right: 0.5rem;
   }
+  .Cabecera :global(.iconoContenedor img) {
+    object-position: right;
+  }
 </style>
 
 <svelte:window bind:innerWidth={responsivo} />
