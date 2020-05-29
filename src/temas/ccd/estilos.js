@@ -49,6 +49,11 @@ const estilos = {
                 tamanno: variables.tipografia.tamannos.md,
                 peso: variables.tipografia.fuentes.principal.regular
             }
+        },
+        enlaces: {
+            familia: variables.tipografia.fuentes.principal.nombre,
+            color: variables.colores.primario.base,
+            hover: variables.colores.primario.claro,
         }
     },
     cabecera: {

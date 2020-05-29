@@ -24,6 +24,12 @@ const tema = {
                 color: variables.colores.texto.base,
 
             },
+            enlaces: {
+                color: estilos.tipografia.enlaces.color,
+                hover: estilos.tipografia.enlaces.hover,
+                tamanno: variables.tipografia.tamannos.sm,
+                familia: estilos.tipografia.enlaces.familia,
+            },
             titulo: {
                 tipografia: estilos.tipografia.titulo.fuente,
                 color: variables.colores.texto.oscuro,
@@ -128,11 +134,6 @@ const tema = {
                 color: variables.colores.icono.primario,
                 tamanno: variables.tipografia.tamannos.sm,
             }
-        },
-        enlaces: {
-            color: variables.colores.enlace,
-            tamanno: variables.tipografia.tamannos.sm,
-            familia: estilos.tipografia.parrafo,
         },
         cabeceras: {
             principal: {

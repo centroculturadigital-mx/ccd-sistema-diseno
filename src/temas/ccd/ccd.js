@@ -3,7 +3,7 @@ import estilos from './estilos';
 
 const tema = {
     name: 'CCD',
-    properties: { 
+    properties: {
         colores: {
             primario: estilos.colores.primario,
             secundario_a: estilos.colores.secundario_a,
@@ -23,6 +23,12 @@ const tema = {
                 tamanno: estilos.tipografia.citas.tamanno,
                 color: variables.colores.texto.base,
 
+            },
+            enlaces: {
+                color: estilos.tipografia.enlaces.color,
+                hover: estilos.tipografia.enlaces.hover,
+                tamanno: variables.tipografia.tamannos.sm,
+                familia: estilos.tipografia.enlaces.familia,
             },
             titulo: {
                 tipografia: estilos.tipografia.titulo.fuente,
@@ -128,11 +134,6 @@ const tema = {
                 color: variables.colores.icono.secundario,
                 tamanno: variables.tipografia.tamannos.xxl,
             }
-        },
-        enlaces: {
-            color: variables.colores.enlace,
-            tamanno: variables.tipografia.tamannos.sm,
-            familia: estilos.tipografia.parrafo,
         },
         cabeceras: {
             principal: {

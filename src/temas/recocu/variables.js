@@ -55,6 +55,12 @@ const variables = {
             oscuro: '#282230',
             transparente: "transparent",
         },
+        enlace: {
+            base: "#FF4C4C",
+            claro: "#FF8178",
+            oscuro: "#C50023",
+            transparente: "transparent",
+        },
     },
     tipografia: {
         familias: {
