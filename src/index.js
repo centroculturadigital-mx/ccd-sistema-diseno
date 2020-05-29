@@ -39,8 +39,8 @@ export { default as Formulario }
 from "./componentes/formularios/Formulario/Formulario.svelte";
 export { default as Header }
 from "./componentes/Header/Header.svelte";
-export { default as Footer }
-from "./componentes/Footer/Footer.svelte";
+export { default as Cabecera }
+from "./componentes/Cabecera/Cabecera.svelte";
 export { default as Pie }
 from "./componentes/Pie/Pie.svelte";
 export { default as Label }
@@ -80,16 +80,18 @@ from "./componentes/Listados/ListaPaginada/ListaPaginada.svelte";
 export { default as Reticula }
 from "./componentes/Listados/Reticula/Reticula.svelte";
 
-
-export { default as Editor } 
+// CMS
+export { default as Editor }
 from "./componentes/CMS/Editor/Editor.svelte";
-export { default as EntidadTarjeta } 
+export { default as EntidadTarjeta }
 from "./componentes/CMS/EntidadTarjeta/EntidadTarjeta.svelte";
-export { default as EntidadesLista } 
+export { default as EntidadesLista }
 from "./componentes/CMS/EntidadesLista/EntidadesLista.svelte";
-export { default as RegistroTarjeta } 
+export { default as RegistroTarjeta }
 from "./componentes/CMS/RegistroTarjeta/RegistroTarjeta.svelte";
-export { default as Registros } 
+export { default as Registros }
 from "./componentes/CMS/Registros/Registros.svelte";
-export { default as RegistrosLista } 
+export { default as RegistrosLista }
 from "./componentes/CMS/RegistrosLista/RegistrosLista.svelte";
+export { default as ImagenSubir }
+from "./componentes/CMS/ImagenSubir/ImagenSubir.svelte";
