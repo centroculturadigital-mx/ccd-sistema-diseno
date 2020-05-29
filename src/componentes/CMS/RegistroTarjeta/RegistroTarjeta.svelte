@@ -124,7 +124,7 @@
 
     <div class="menu-acciones">
       <div class="menu" on:click={alternarMenu}>
-        <BotonIcono icono={'mas'} texto={''} />
+        <BotonIcono icono={'agregar'} texto={''} />
       </div>
 
       {#if menuVisible}
