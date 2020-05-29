@@ -197,22 +197,15 @@ const seleccionarDiaActual = i => {
         font-family: var(--theme-textos-parrafo-tipografia);     
     }
     .Vista{
-        background-color: var(--theme-colores-primario);
-        color: var(--theme-pies-texto);
         font-family: var(--theme-textos-parrafo-tipografia);
-        padding: 2rem;
     }
     h1 {
        font-family: var(--theme-textos-parrafo-tipografia);  
     }
     nav {
         font-family: var(--theme-textos-parrafo-tipografia);
-        color: var(--theme-pies-texto);
     }
-    header {
-        font-family: var(--theme-textos-parrafo-tipografia);
-        color: var(--theme-pies-texto);
-    }
+
 
 </style>
 
