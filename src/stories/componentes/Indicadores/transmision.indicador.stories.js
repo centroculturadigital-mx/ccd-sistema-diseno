@@ -3,18 +3,21 @@ import TransmisionIndicador from '../../../componentes/Indicadores/TransmisionIn
 
 let eventos = [{
         id: "ID",
-        titulo: "Nombre de Evento",
+        titulo: "Cinco Meses",
         fechaInicio: "2020-10-29T15:24:31.2311892-06:00",
+        slug: "nombre-de-evento",
     },
     {
         id: "ID",
-        titulo: "Segundo evento",
+        titulo: "Seis Meses",
         fechaInicio: "2020-11-29T15:24:31.2311892-06:00",
+        slug: "segundo-evento",
     },
     {
         id: "ID",
-        titulo: "Nombre de evento largo en tiempo real",
+        titulo: "A un año del evento",
         fechaInicio: "2021-09-29T15:24:31.2311892-06:00",
+        slug: "nombre-de-evento-largo-en-stream",
     },
 ]
 
@@ -37,7 +40,7 @@ export const transmisionEventoEnCurso = () => ({
         datos: {
             eventos: [{
                 id: "ID",
-                titulo: "Nombre de Evento",
+                titulo: "A un Mes",
                 fechaInicio: "2020-06-29T15:24:31.2311892-06:00",
             }],
             estado: true,

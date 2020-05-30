@@ -9,20 +9,39 @@
   export let estado = false;
   export let eventos = [];
 
-  const adquiereFechas = fecha => {
+  let dif;
+  $: contador = {
+    dias: "",
+    horas: "",
+    minutos: "",
+    segundos: "",
+  };
+
+  const obtieneFechas = fecha => {
     let fechaActual = moment();
-    let fechaEvento = fecha;
+    let fechaEvento = moment(fecha);
     let diferencia = fechaActual.diff(fechaEvento, "seconds");
 
-    console.log("Fecha Actual", fechaActual);
-    console.log("Fecha Evento", fechaEvento);
-    return console.log("Diferencia", diferencia);
+    let falta = moment.duration(diferencia, "seconds");
+
+    setInterval(() => {
+      
+      contador.dias = falta.get('d');
+      contador.horas = falta.get('h');
+      contador.minutos = falta.get('m');
+      contador.segundos = falta.get('s');
+      
+      console.log("Duration",falta.get('Y'),falta.get('M'),falta.get('d'),falta.get('h'),falta.get('m'),falta.get('s'));
+
+    }, 1000);
   };
 
   let caja;
 
   onMount(() => {
-    adquiereFechas(eventos[0].fechaInicio);
+    eventos.forEach(evento => {
+      obtieneFechas(evento.fechaInicio);
+    });
   });
 </script>
 
@@ -102,7 +121,13 @@
         {#each eventos as evento}
           <li class="EventoEnCurso" bind:this={caja}>
             <Titulo texto={evento.titulo} nivel={5} />
-            <Enlace href={`evento/${evento.titulo}`} texto={'Ir ->'} />
+            <div>
+              {#if dif > 0}
+                <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
+              {:else}
+                <Parrafo texto={contador.dias} />
+              {/if}
+            </div>
           </li>
         {/each}
         <!--  -->

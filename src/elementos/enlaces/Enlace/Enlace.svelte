@@ -18,14 +18,23 @@
 <style>
   a {
     text-decoration: none;
-  }
-  a :global(span) {
-    color: var(--theme-textos-enlaces-color);
-    font-family: var(--theme-textos-enlaces-familia);
+    display: block;
     cursor: pointer;
   }
-  a :global(span:hover) {
+  a :global(span) {
+    cursor: pointer;
+    color: var(--theme-textos-enlaces-color);
+    font-family: var(--theme-textos-enlaces-familia);
+    size: calc(var(--theme-textos-enlaces-tamannos) / 1.5);
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+  }
+  a:hover {
     color: var(--theme-textos-enlaces-hover);
+  }
+  a :global(span:hover) {
+    color: inherit;
   }
 </style>
 
