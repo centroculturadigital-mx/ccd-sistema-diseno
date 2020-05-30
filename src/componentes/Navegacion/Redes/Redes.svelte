@@ -9,33 +9,37 @@ import Icono from "../../../elementos/Icono/Icono"
     display: flex;
 }
 .rotar{
-      transform: rotate(-90deg);
+      transform: rotate(-90deg); 
+      position: absolute;
+      margin-top: 30px   
 }
+nav {
+   padding-left: 1rem;
+}
+
 li {
     list-style: none;
-    margin-right:1rem;
-
 }
 </style>
 
-<section class="alinear" > 
+<section class="alinear"> 
 <div class="rotar">
     <Parrafo texto={'Comparte en:'} />
 </div>
-<div>
-<nav>
-    <ul>
-        <li>
-        <Icono icono={"facebook"}/>
-        </li>
-        <li>
-        <Icono icono={"twitter"}/>
-        </li>
-        <li>
-        <Icono icono={"instagram"}/>
-        </li>
+
+    <nav>
+        <ul>
+            <li>
+                <Icono icono={"facebook"}/>
+            </li>
+            <li>
+                <Icono icono={"twitter"}/>
+            </li>
+            <li>
+                <Icono icono={"instagram"}/>
+            </li>
     
-    </ul>
+        </ul>
 </nav>
-</div>
+
 </section>
