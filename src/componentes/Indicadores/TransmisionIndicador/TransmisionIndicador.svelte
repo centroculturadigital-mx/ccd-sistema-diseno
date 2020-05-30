@@ -9,31 +9,32 @@
   export let estado = false;
   export let eventos = [];
 
-  let dif;
   $: contador = {
     dias: "",
     horas: "",
     minutos: "",
-    segundos: "",
+    segundos: ""
   };
+
+  let dif;
 
   const obtieneFechas = fecha => {
     let fechaActual = moment();
     let fechaEvento = moment(fecha);
-    let diferencia = fechaActual.diff(fechaEvento, "seconds");
+    let diferencia = fechaActual.diff(fechaEvento, "milliseconds");
+    let intervalo = 1000;
 
-    let falta = moment.duration(diferencia, "seconds");
+    let falta = moment.duration(diferencia, "milliseconds");
 
     setInterval(() => {
+      falta = moment.duration(falta + intervalo, "milliseconds");
+      dif = falta ;
       
-      contador.dias = falta.get('d');
-      contador.horas = falta.get('h');
-      contador.minutos = falta.get('m');
-      contador.segundos = falta.get('s');
-      
-      console.log("Duration",falta.get('Y'),falta.get('M'),falta.get('d'),falta.get('h'),falta.get('m'),falta.get('s'));
-
-    }, 1000);
+      contador.dias = falta.days();
+      contador.horas = falta.hours();
+      contador.minutos = falta.minutes();
+      contador.segundos = falta.seconds();
+    }, intervalo);
   };
 
   let caja;
@@ -48,7 +49,7 @@
 <style>
   .TransmisionIndicador {
     height: auto;
-    width: 9rem;
+    width: 10rem;
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding);
   }
@@ -92,6 +93,9 @@
   .EventoEnCurso :global(h5) {
     margin: 0;
   }
+  .EventoEnCurso :global(p) {
+    font-weight: bolder;
+  }
   .Espera {
     background-color: var(--theme-alertas-inactivo);
   }
@@ -125,7 +129,8 @@
               {#if dif > 0}
                 <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
               {:else}
-                <Parrafo texto={contador.dias} />
+                <Parrafo
+                  texto={`${contador.dias}d: ${contador.horas}h: ${contador.minutos}m: ${contador.segundos}s`} />
               {/if}
             </div>
           </li>
