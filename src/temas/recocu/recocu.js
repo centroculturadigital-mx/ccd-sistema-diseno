@@ -127,14 +127,14 @@ const tema = {
             inactivo: variables.colores.alerta.inactivo,
             transmitiendo: variables.colores.alerta.transmitiendo
         },
-        iconos: {
+        iconos: { 
             primario: {
                 color: variables.colores.icono.primario,
-                tamanno: variables.tipografia.tamannos.sm,
+                tamanno: variables.tipografia.tamannos.xxl,
             },
             secundario: {
                 color: variables.colores.icono.primario,
-                tamanno: variables.tipografia.tamannos.sm,
+                tamanno: variables.tipografia.tamannos.xxl,
             }
         },
         cabeceras: {
