@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
@@ -8,17 +9,21 @@
   export let estado = false;
   export let eventos = [];
 
-  let fechaInicio = eventos.fechaInicio;
-
-  const adquiereFechas = e => {
+  const adquiereFechas = fecha => {
     let fechaActual = moment();
-    let fechaEvento = moment(fechaInicio);
-    let diferencia = fechaActual.diff(fechaActual.format());
+    let fechaEvento = fecha;
+    let diferencia = fechaActual.diff(fechaEvento, "seconds");
 
-    // console.log("Fecha Actual", fechaActual);
-    // console.log("Fecha Evento", fechaEvento);
-    console.log("Diferencia", diferencia);
+    console.log("Fecha Actual", fechaActual);
+    console.log("Fecha Evento", fechaEvento);
+    return console.log("Diferencia", diferencia);
   };
+
+  let caja;
+
+  onMount(() => {
+    adquiereFechas(eventos[0].fechaInicio);
+  });
 </script>
 
 <style>
@@ -95,7 +100,7 @@
     {#if !!estado}
       <ul>
         {#each eventos as evento}
-          <li class="EventoEnCurso" use:adquiereFechas>
+          <li class="EventoEnCurso" bind:this={caja}>
             <Titulo texto={evento.titulo} nivel={5} />
             <Enlace href={`evento/${evento.titulo}`} texto={'Ir ->'} />
           </li>

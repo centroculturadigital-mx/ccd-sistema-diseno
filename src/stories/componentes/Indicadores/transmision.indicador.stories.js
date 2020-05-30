@@ -38,7 +38,7 @@ export const transmisionEventoEnCurso = () => ({
             eventos: [{
                 id: "ID",
                 titulo: "Nombre de Evento",
-                fechaInicio: "2020-09-29T15:24:31.2311892-06:00",
+                fechaInicio: "2020-06-29T15:24:31.2311892-06:00",
             }],
             estado: true,
         }
