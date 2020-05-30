@@ -44,12 +44,13 @@
   }
   .botones a {
     text-decoration: none;
+    flex-shrink: 0;
   }
   hr {
     border: 0.5px solid lightgray;
   }
-  .crear :global(.iconoContenedor) {
-    height: 1.1rem;
+  .crear :global(.iconoContenedor img) {
+    height: var(--theme-tamannos-md);
   }
 </style>
 

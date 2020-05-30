@@ -49,7 +49,7 @@
 <style>
   .TransmisionIndicador {
     height: auto;
-    width: 10rem;
+    width: 11rem;
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding);
   }
