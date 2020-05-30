@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Paginacion from '../../../componentes/Navegacion/Paginacion/Paginacion.svelte';
 
-export default { title: 'Componentes/Navegacion/Paginacion' }
+export default { title: 'Componentes/Navegacion/Paginacion' } 
 
 export const PaginacionDefault = () => ({
     Component: ThemeTester,

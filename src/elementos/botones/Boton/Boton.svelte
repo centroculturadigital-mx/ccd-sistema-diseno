@@ -23,7 +23,7 @@
   }
   button:focus,
   button:visited,
-  button:active {
+  button:active { 
     background-color: var(--theme-botones-primario-activo);
     border-color:  var(--theme-botones-primario-activo);
     color: var(--theme-botones-primario-claro);
