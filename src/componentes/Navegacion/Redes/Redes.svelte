@@ -1,6 +1,10 @@
 <script> 
-import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
-import Icono from "../../../elementos/Icono/Icono" 
+ import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
+ import Icono from "../../../elementos/Icono/Icono" 
+
+ export let enlaceFb;
+ export let enlaceTw;
+ export let enlaceIg;
 
 </script>
 
@@ -18,7 +22,7 @@ nav {
 }
 
 li {
-    list-style: none;
+    list-style: none; 
 }
 </style>
 
@@ -30,13 +34,17 @@ li {
     <nav>
         <ul>
             <li>
-                <Icono icono={"facebook"}/>
+            <a href={enlaceFb} target="_blank">
+             <Icono icono={"facebook"}/></a>
+               
             </li>
             <li>
-                <Icono icono={"twitter"}/>
+            <a href={enlaceTw} target="_blank">
+                <Icono icono={"twitter"}/></a>
             </li>
             <li>
-                <Icono icono={"instagram"}/>
+            <a href={enlaceTw} target="_blank">
+                <Icono icono={"instagram"}/></a>
             </li>
     
         </ul>
