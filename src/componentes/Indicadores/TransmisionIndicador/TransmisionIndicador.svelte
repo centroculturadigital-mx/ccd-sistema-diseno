@@ -16,7 +16,7 @@
     segundos: ""
   };
 
-  let dif;
+  let falta;
 
   const obtieneFechas = fecha => {
     let fechaActual = moment();
@@ -24,12 +24,11 @@
     let diferencia = fechaActual.diff(fechaEvento, "milliseconds");
     let intervalo = 1000;
 
-    let falta = moment.duration(diferencia, "milliseconds");
+    falta = moment.duration(diferencia, "milliseconds");
 
     setInterval(() => {
       falta = moment.duration(falta + intervalo, "milliseconds");
-      dif = falta ;
-      
+
       contador.dias = falta.days();
       contador.horas = falta.hours();
       contador.minutos = falta.minutes();
@@ -41,6 +40,8 @@
 
   onMount(() => {
     eventos.forEach(evento => {
+      console.log("fecha:::", evento.fechaInicio);
+
       obtieneFechas(evento.fechaInicio);
     });
   });
@@ -49,7 +50,8 @@
 <style>
   .TransmisionIndicador {
     height: auto;
-    width: 11rem;
+    width: auto;
+    max-width: 16rem;
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding);
   }
@@ -62,6 +64,8 @@
     padding: var(--theme-espaciados-padding) 0;
     border-bottom: 2px solid lightgray;
     position: relative;
+    padding: 0.5rem;
+    box-sizing: border-box;
   }
   li:before {
     content: "";
@@ -81,24 +85,26 @@
   }
   .Led {
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     width: 100%;
+    padding-left: 2rem;
   }
   .Led span {
     border-radius: 50%;
     height: 0.75rem;
     width: 0.75rem;
   }
-  .EventoEnCurso :global(h5) {
-    margin: 0;
+  .EventoEnCurso :global(h4) {
+    margin: 0.25rem 0;
   }
   .EventoEnCurso :global(p) {
     font-weight: bolder;
+    margin: 0.25rem 0;
   }
-  .Espera {
+  /* .Espera {
     background-color: var(--theme-alertas-inactivo);
-  }
+  } */
   .EnVivo {
     background-color: var(--theme-alertas-transmitiendo);
   }
@@ -106,37 +112,29 @@
 
 <section class="TransmisionIndicador">
   {#if Array.isArray(eventos)}
-    <div class="EstadoIndicador">
-      {#if !!estado}
-        <Parrafo texto={'En Vivo'} />
-        <div class="Led">
-          <span class="EnVivo" />
-        </div>
-      {:else}
-        <Parrafo texto={'En Espera'} />
-        <div class="Led">
-          <span class="Espera" />
-        </div>
-      {/if}
-    </div>
-    <!--  -->
-    {#if !!estado}
-      <ul>
-        {#each eventos as evento}
-          <li class="EventoEnCurso" bind:this={caja}>
-            <Titulo texto={evento.titulo} nivel={5} />
-            <div>
-              {#if dif > 0}
-                <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
-              {:else}
-                <Parrafo
-                  texto={`${contador.dias}d: ${contador.horas}h: ${contador.minutos}m: ${contador.segundos}s`} />
-              {/if}
+    <ul>
+      {#each eventos as evento}
+        <li class="EventoEnCurso" bind:this={caja}>
+          {#if falta < 0}
+            <Parrafo texto={evento.titulo + ' comenza en'} />
+            <Titulo
+              texto={`${contador.dias}d : ${contador.horas}h : ${contador.minutos}m : ${contador.segundos}s`}
+              nivel={4} />
+            <Enlace
+              href={`evento/${evento.slug}`}
+              texto={'Ver más detalles ->'} />
+          {:else}
+            <div class="EstadoIndicador">
+              <Parrafo texto={'En Vivo'} />
+              <div class="Led">
+                <span class="EnVivo" />
+              </div>
             </div>
-          </li>
-        {/each}
-        <!--  -->
-      </ul>
-    {/if}
+            <Titulo texto={evento.titulo} nivel={4} />
+            <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
+          {/if}
+        </li>
+      {/each}
+    </ul>
   {/if}
 </section>
