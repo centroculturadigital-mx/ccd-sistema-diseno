@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import { slide, fade } from "svelte/transition";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
@@ -7,7 +8,7 @@
   import moment from "moment";
 
   export let estado = false;
-  export let evento;
+  export let evento = {};
 
   $: contador = {
     dias: "",
@@ -29,41 +30,27 @@
     setInterval(() => {
       falta = moment.duration(falta + intervalo, "milliseconds");
 
-      contador.dias = falta.days();
-      contador.horas = falta.hours();
-      contador.minutos = falta.minutes();
-      contador.segundos = falta.seconds();
+      contador.dias = falta.days()*1;
+      contador.horas = falta.hours()*1;
+      contador.minutos = falta.minutes()*1;
+      contador.segundos = falta.seconds()*1;
     }, intervalo);
   };
 
-  let caja;
-
   onMount(() => {
-      console.log("Mexico");
-      
-      calculaFechas(evento.fechaInicio);
-
+    calculaFechas(evento.fechaInicio);
   });
 </script>
 
 <style>
-  .TransmisionIndicador {
+  li.EventoEnCurso {
     height: auto;
     width: auto;
-    max-width: 16rem;
-    box-sizing: border-box;
-    padding: var(--theme-espaciados-padding);
-  }
-  ul {
-    padding: 0;
-    margin: 0;
-  }
-  li.EventoEnCurso {
+    /* max-width: calc(var(--theme-tamannos-lg) * 18 ); */
     list-style-type: none;
-    padding: var(--theme-espaciados-padding) 0;
+    padding: var(--theme-espaciados-padding);
     border-bottom: 2px solid lightgray;
     position: relative;
-    padding: 0.5rem;
     box-sizing: border-box;
   }
   li:before {
@@ -94,44 +81,42 @@
     height: 0.75rem;
     width: 0.75rem;
   }
-  .EventoEnCurso :global(h4) {
+  .EventoEnCurso :global(h3) {
     margin: 0.25rem 0;
   }
   .EventoEnCurso :global(p) {
     font-weight: bolder;
     margin: 0.25rem 0;
   }
-  /* .Espera {
-    background-color: var(--theme-alertas-inactivo);
-  } */
   .EnVivo {
     background-color: var(--theme-alertas-transmitiendo);
   }
+  /* .Espera {
+    background-color: var(--theme-alertas-inactivo);
+  } */
 </style>
 
 {#if !!estado}
-  <section class="TransmisionIndicador">
-    <ul>
-        <li class="EventoEnCurso" bind:this={caja}>
-          {#if falta < 0}
-            <Parrafo texto={evento.titulo + ' comenza en'} />
-            <Titulo
-              texto={`${contador.dias}d : ${contador.horas}h : ${contador.minutos}m : ${contador.segundos}s`}
-              nivel={4} />
-            <Enlace
-              href={`evento/${evento.slug}`}
-              texto={'Ver más detalles ->'} />
-          {:else}
-            <div class="EstadoIndicador">
-              <Parrafo texto={'En Vivo'} />
-              <div class="Led">
-                <span class="EnVivo" />
-              </div>
-            </div>
-            <Titulo texto={evento.titulo} nivel={4} />
-            <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
-          {/if}
-        </li>
-    </ul>
-  </section>
+  <li class="EventoEnCurso">
+    {#if falta < 0}
+      <div transition:slide>
+        <Parrafo texto={evento.titulo + ' comienza en'} />
+        <Titulo
+          texto={`${contador.dias}d : ${contador.horas}h : ${contador.minutos}m : ${contador.segundos}s`}
+          nivel={3} />
+        <Enlace href={`evento/${evento.slug}`} texto={'Ver más detalles ->'} />
+      </div>
+    {:else}
+      <div transition:slide>
+        <div class="EstadoIndicador" transition:fade>
+          <Parrafo texto={'En Vivo'} />
+          <div class="Led">
+            <span class="EnVivo" />
+          </div>
+        </div>
+        <Titulo texto={evento.titulo} nivel={3} />
+        <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
+      </div>
+    {/if}
+  </li>
 {/if}

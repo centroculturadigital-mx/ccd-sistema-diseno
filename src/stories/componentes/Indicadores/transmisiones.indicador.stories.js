@@ -1,41 +1,63 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import TransmisionIndicador from '../../../componentes/Indicadores/TransmisionIndicador/TransmisionIndicador.svelte';
+import TransmisionesIndicador from '../../../componentes/Indicadores/TransmisionesIndicador/TransmisionesIndicador.svelte';
 import moment from 'moment';
 
-let fecha_pasada = moment().subtract(1, "minutes");
+let fecha_pasada = moment().subtract(1, "seconds");
 let fecha_1 = moment().add(15, 'seconds');
-let fecha_2 = moment().add(1, 'days');
-let fecha_3 = moment().add(15, 'days');
+let fecha_2 = moment().add(30, 'seconds');
+let fecha_3 = moment().add(1, 'days');
+let fecha_4 = moment().add(15, 'days');
 
 let eventos = [{
         id: "ID",
-        titulo: "Evento a quince segundos",
+        titulo: "Yami Ichi",
+        fechaInicio: fecha_pasada,
+        slug: "nombre-de-evento",
+    },
+    {
+        id: "ID",
+        titulo: "Nombre evento quince segundos",
         fechaInicio: fecha_1,
         slug: "nombre-de-evento",
     },
     {
         id: "ID",
-        titulo: "Evento a un día",
+        titulo: "Algorave",
         fechaInicio: fecha_2,
         slug: "segundo-evento",
     },
     {
         id: "ID",
-        titulo: "Evento a quince dias",
+        titulo: "Yami Ichi",
         fechaInicio: fecha_3,
+        slug: "nombre-de-evento-largo-en-stream",
+    },
+    {
+        id: "ID",
+        titulo: "Nombre de evento",
+        fechaInicio: fecha_4,
         slug: "nombre-de-evento-largo-en-stream",
     },
 ]
 
 export default { title: "Componentes/Indicadores/TransmisionesIndicador" }
 
-export const transmisionVariosEventosEnCurso = () => ({
+export const transmisionesNoExistentes = () => ({
     Component: ThemeTester,
     props: {
-        componente: TransmisionIndicador,
+        componente: TransmisionesIndicador,
         datos: {
-            eventos,
+            estado: false,
+        }
+    }
+});
+export const transmisionesVariosEventosEnCurso = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TransmisionesIndicador,
+        datos: {
             estado: true,
+            eventos,
         }
     }
 });
