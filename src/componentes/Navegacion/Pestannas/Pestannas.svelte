@@ -20,8 +20,10 @@
   li {
     background-color: var(--theme-pestannas-fondo-color);
     padding: calc(var(--theme-espaciados-padding) * 1.5);
-    cursor: pointer;
     border-bottom: 3px solid var(--theme-pestannas-borde-color);
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
   }
   li:hover,
   li:active,
@@ -54,7 +56,7 @@
 {#if !!opciones}
   <ul>
     {#each opciones as opcion, i ('pestana_' + i)}
-      <li on:click={accion(i)} class={i == actual ? "actual": ""}>
+      <li on:click={accion(i)} class={i == actual ? 'actual' : ''}>
         <Parrafo texto={opcion} />
       </li>
     {/each}
