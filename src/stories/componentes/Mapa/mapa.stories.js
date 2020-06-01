@@ -1,60 +1,75 @@
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Mapa from '../../../componentes/Mapa/Mapa.svelte';
 
-export default {title: 'Componentes/Mapa/Mapa'}
+export default { title: 'Componentes/Mapa/Mapa' }
 
 import mapa from "../../../../public/recursos/imagenes/vectores/mapamx.js";
 import datos from "../../../data/info/estados.js";
-    
-const encontrarClave = seleccion => datos.find(d=>d.nombre==seleccion).clave
 
-const seleccionar = seleccion => console.log("Nombre:",seleccion,"Clave",encontrarClave(seleccion))
+const encontrarClave = seleccion => datos.find(d => d.nombre == seleccion).clave
+
+const seleccionar = seleccion => console.log("Nombre:", seleccion, "Clave", encontrarClave(seleccion))
 
 export const MapaDefault = () => ({
-    Component: Mapa,
+    Component: ThemeTester,
     props: {
-        mapa
+        componente: Mapa,
+        datos: {
+            mapa
+        }
     },
 });
 
 export const MapaAccion = () => ({
-    Component: Mapa,
+    Component: ThemeTester,
     props: {
-        mapa,
-        datos,
-        seleccionar
+        componente: Mapa,
+        datos: {
+            mapa,
+            datos,
+            seleccionar
+        },
     },
 });
 
 
 export const MapaTamanno = () => ({
-    Component: Mapa,
+    Component: ThemeTester,
     props: {
-        mapa,
-        ancho:300,
-        alto:150,
+        componente: Mapa,
+        datos: {
+            mapa,
+            ancho: 300,
+            alto: 150,
+        },
     },
 });
 
 
 export const MapaHabilitados = () => ({
-    Component: Mapa,
+    Component: ThemeTester,
     props: {
-        mapa,
-        ancho:600,
-        alto:450,
+        componente: Mapa,
         datos: {
-            habilitados:['Chihuahua','Oaxaca','Ciudad de México']
+            mapa,
+            ancho: 600,
+            alto: 450,
+            datos: {
+                habilitados: ['Chihuahua', 'Oaxaca', 'Ciudad de México']
+            }
         }
     },
 });
 
 export const MapaSeleccionado = () => ({
-    Component: Mapa,
+    Component: ThemeTester,
     props: {
-        mapa,
-        ancho:600,
-        alto:450,
-        seleccionado: 'Puebla'
+        componente: Mapa,
+        datos: {
+            mapa,
+            ancho: 600,
+            alto: 450,
+            seleccionado: 'Puebla'
+        },
     },
 });
-

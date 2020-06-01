@@ -21,7 +21,8 @@
     align-items: center;
     border-radius: var(--theme-tarjetas-esquina);
     background-color: var(--theme-tarjetas-fondo);
-    color:var(--theme-textos-parrafo-color);;
+    color:var(--theme-textos-parrafo-color);
+    overflow: hidden;
   }
   .tarjeta-imagen {
     width: 100%;

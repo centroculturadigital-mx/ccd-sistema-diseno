@@ -25,7 +25,7 @@
 
   .container {
     width: 100%;
-    min-height: 20rem;
+    min-height: 27rem;
     height: auto;
     display: flex;
     align-items: center;

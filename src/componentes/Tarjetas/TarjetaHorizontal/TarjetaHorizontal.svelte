@@ -33,6 +33,7 @@
     border-radius: var(--theme-tarjetas-esquina);
     background-color: var(--theme-tarjetas-fondo);
     color:var(--theme-textos-parrafo-color);
+    overflow: hidden;
   }
   .tarjeta-imagen {
     width: 50%;
