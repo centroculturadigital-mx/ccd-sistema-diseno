@@ -19,7 +19,7 @@
 
   let falta;
 
-  const calculaFechas = fecha => {
+  const calculaFecha = fecha => {
     let fechaActual = moment();
     let fechaEvento = moment(fecha);
     let diferencia = fechaActual.diff(fechaEvento, "milliseconds");
@@ -30,15 +30,15 @@
     setInterval(() => {
       falta = moment.duration(falta + intervalo, "milliseconds");
 
-      contador.dias = falta.days()*1;
-      contador.horas = falta.hours()*1;
-      contador.minutos = falta.minutes()*1;
-      contador.segundos = falta.seconds()*1;
+      contador.dias = Math.abs(falta.days());
+      contador.horas = Math.abs(falta.hours());
+      contador.minutos = Math.abs(falta.minutes());
+      contador.segundos = Math.abs(falta.seconds());
     }, intervalo);
   };
 
   onMount(() => {
-    calculaFechas(evento.fechaInicio);
+    calculaFecha(evento.fechaInicio);
   });
 </script>
 
@@ -48,7 +48,7 @@
     width: auto;
     /* max-width: calc(var(--theme-tamannos-lg) * 18 ); */
     list-style-type: none;
-    padding: var(--theme-espaciados-padding);
+    padding: calc(var(--theme-espaciados-padding) * 2.5) calc(var(--theme-espaciados-padding) * 2.5) var(--theme-espaciados-padding) calc(var(--theme-espaciados-padding) * 2.5) ;
     border-bottom: 2px solid lightgray;
     position: relative;
     box-sizing: border-box;
@@ -58,7 +58,7 @@
     position: absolute;
     right: 0%;
     left: 0;
-    height: 70%;
+    height: 57%;
     border-right: 2px solid lightgray;
   }
   .EstadoIndicador {

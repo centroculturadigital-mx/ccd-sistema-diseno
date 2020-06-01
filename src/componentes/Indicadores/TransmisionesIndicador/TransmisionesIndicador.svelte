@@ -8,7 +8,7 @@
   .TransmisionesIndicador {
     height: auto;
     width: 100%;
-    max-width: calc(var(--theme-tamannos-lg) * 16.75 );
+    max-width: calc(var(--theme-tamannos-lg) * 17 );
     padding: var(--theme-espaciados-padding);
     box-sizing: border-box;
   }
