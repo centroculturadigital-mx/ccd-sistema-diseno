@@ -21,7 +21,7 @@
 {#if Array.isArray(eventos)}
   <section class="TransmisionesIndicador">
     <ul>
-      {#each eventos as evento}
+      {#each eventos as evento, i ('evento_envivo' + i)}
         <TransmisionIndicador evento={evento} estado={true} />
       {/each}
     </ul>

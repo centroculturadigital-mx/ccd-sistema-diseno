@@ -5,7 +5,7 @@ import moment from 'moment';
 let fecha_pasada = moment().subtract(1, "seconds");
 let fecha_1 = moment().add(15, 'seconds');
 let fecha_2 = moment().add(30, 'seconds');
-let fecha_3 = moment().add(1, 'days');
+let fecha_3 = moment().add(1, 'days').add(15, "seconds");
 let fecha_4 = moment().add(15, 'days');
 
 let eventos = [{
