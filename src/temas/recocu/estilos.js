@@ -62,8 +62,16 @@ const estilos = {
             altura: variables.alturas.cabecera,
         }
     },
-    colores: {
+    pestannas: {
         fondo: variables.colores.fondo.claro,
+        fondoHover: variables.colores.primario.claro,
+        borde: variables.colores.fondo.claro,
+        bordeHover: variables.colores.primario.base,
+        texto: variables.colores.texto.oscuro,
+        textoHover: variables.colores.primario.base,
+    },
+    colores: {
+        fondo: variables.colores.fondo.base,
         primario: variables.colores.primario.base,
         secundario_a: variables.colores.secundario_a.base,
         secundario_b: variables.colores.secundario_b.base,

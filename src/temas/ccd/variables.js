@@ -7,7 +7,7 @@ const variables = {
             transparente: "transparent",
         },
         fondo: {
-            base: "#666666",
+            base: "#CDCCFF",
             claro: "#FFF",
             oscuro: "#212121",
             transparente: "transparent",

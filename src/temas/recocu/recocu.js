@@ -8,7 +8,8 @@ const tema = {
             primario: estilos.colores.primario,
             secundario_a: estilos.colores.secundario_a,
             secundario_b: estilos.colores.secundario_b,
-            complementario: estilos.colores.complementario
+            complementario: estilos.colores.complementario,
+            fondo: estilos.colores.fondo,
         },
         textos: {
             parrafo: {
@@ -127,7 +128,7 @@ const tema = {
             inactivo: variables.colores.alerta.inactivo,
             transmitiendo: variables.colores.alerta.transmitiendo
         },
-        iconos: { 
+        iconos: {
             primario: {
                 color: variables.colores.icono.primario,
                 tamanno: variables.tipografia.tamannos.xxl,
@@ -154,6 +155,20 @@ const tema = {
             superiroDerecha: variables.espaciados.xs,
             inferiorDerecha: variables.espaciados.xs,
             inferiorIzquierda: variables.espaciados.xs
+        },
+        pestannas: {
+            fondo: {
+                color: estilos.pestannas.fondo,
+                hover: estilos.pestannas.fondoHover,
+            },
+            texto: {
+                color: estilos.pestannas.texto,
+                hover: estilos.pestannas.textoHover,
+            },
+            borde: {
+                color: estilos.pestannas.borde,
+                hover: estilos.pestannas.bordeHover
+            }
         },
         transiciones: {
             lenta: variables.transiciones.lenta,
