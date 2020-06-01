@@ -3,7 +3,9 @@
 
   export let opciones = [];
   export let actual = 0;
-  export let accion = console.log("accion", i);
+  export let accion = console.log("Función");
+
+
 </script>
 
 <style>
@@ -39,11 +41,11 @@
   li :global(p) {
     margin: calc(var(--theme-espaciados-margen) / 2);
   }
-  .activa {
+  .actual {
     background-color: var(--theme-pestannas-fondo-hover);
     border-bottom: 3px solid var(--theme-pestannas-borde-hover);
   }
-  .activa :global(p span) {
+  .actual :global(p span) {
     color: var(--theme-pestannas-texto-hover);
     font-weight: 900;
   }
@@ -52,8 +54,8 @@
 {#if !!opciones}
   <ul>
     {#each opciones as opcion, i ('pestana_' + i)}
-      <li on:click={accion} class={i == actual ? "activa": ""}>
-        <Parrafo texto={opcion.nombre} />
+      <li on:click={accion(i)} class={i == actual ? "actual": ""}>
+        <Parrafo texto={opcion} />
       </li>
     {/each}
   </ul>
