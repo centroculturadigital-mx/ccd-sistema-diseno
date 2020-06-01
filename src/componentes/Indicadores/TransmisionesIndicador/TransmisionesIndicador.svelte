@@ -7,7 +7,7 @@
   import moment from "moment";
 
   export let estado = false;
-  export let evento;
+  export let eventos;
 
   $: contador = {
     dias: "",
@@ -39,10 +39,11 @@
   let caja;
 
   onMount(() => {
-      console.log("Mexico");
-      
-      calculaFechas(evento.fechaInicio);
+    eventos.forEach(evento => {
+      console.log("fecha:::", evento.fechaInicio);
 
+      calculaFechas(evento.fechaInicio);
+    });
   });
 </script>
 
@@ -109,9 +110,10 @@
   }
 </style>
 
-{#if !!estado}
-  <section class="TransmisionIndicador">
+<section class="TransmisionIndicador">
+  {#if Array.isArray(eventos)}
     <ul>
+      {#each eventos as evento}
         <li class="EventoEnCurso" bind:this={caja}>
           {#if falta < 0}
             <Parrafo texto={evento.titulo + ' comenza en'} />
@@ -132,6 +134,7 @@
             <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
           {/if}
         </li>
+      {/each}
     </ul>
-  </section>
-{/if}
+  {/if}
+</section>

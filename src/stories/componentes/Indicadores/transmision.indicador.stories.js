@@ -7,26 +7,6 @@ let fecha_1 = moment().add(15, 'seconds');
 let fecha_2 = moment().add(1, 'days');
 let fecha_3 = moment().add(15, 'days');
 
-let eventos = [{
-        id: "ID",
-        titulo: "Evento a quince segundos",
-        fechaInicio: fecha_1,
-        slug: "nombre-de-evento",
-    },
-    {
-        id: "ID",
-        titulo: "Evento a un día",
-        fechaInicio: fecha_2,
-        slug: "segundo-evento",
-    },
-    {
-        id: "ID",
-        titulo: "Evento a quince dias",
-        fechaInicio: fecha_3,
-        slug: "nombre-de-evento-largo-en-stream",
-    },
-]
-
 export default { title: "Componentes/Indicadores/TransmisionIndicador" }
 
 
@@ -44,23 +24,28 @@ export const transmisionEnCurso = () => ({
     props: {
         componente: TransmisionIndicador,
         datos: {
-            estado: false,
-            eventos: [{
+            estado: true,
+            evento: {
                 id: "ID",
                 titulo: "Nombre de evento",
                 fechaInicio: fecha_pasada,
                 slug: "nombre-de-evento",
-            }]
+            }
         }
     }
 });
-export const transmisionEventoADiezSegundos = () => ({
+export const transmisionEventoAQuinceSegundos = () => ({
     Component: ThemeTester,
     props: {
         componente: TransmisionIndicador,
         datos: {
-            eventos: [eventos[0]],
             estado: true,
+            evento: {
+                id: "ID",
+                titulo: "Nombre de evento",
+                fechaInicio: fecha_1,
+                slug: "nombre-de-evento",
+            },
         }
     }
 });
@@ -69,8 +54,13 @@ export const transmisionEventoAUnDia = () => ({
     props: {
         componente: TransmisionIndicador,
         datos: {
-            eventos: [eventos[1]],
             estado: true,
+            evento: {
+                id: "ID",
+                titulo: "Nombre de evento",
+                fechaInicio: fecha_2,
+                slug: "nombre-de-evento",
+            }
         }
     }
 });
@@ -79,19 +69,13 @@ export const transmisionEventoAQuinceDias = () => ({
     props: {
         componente: TransmisionIndicador,
         datos: {
-            eventos: [eventos[2]],
             estado: true,
+            evento: {
+                id: "ID",
+                titulo: "Nombre de evento",
+                fechaInicio: fecha_3,
+                slug: "nombre-de-evento",
+            },
         }
     }
 });
-
-// export const transmisionVariosEventosEnCurso = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: TransmisionIndicador,
-//         datos: {
-//             eventos,
-//             estado: true,
-//         }
-//     }
-// });
