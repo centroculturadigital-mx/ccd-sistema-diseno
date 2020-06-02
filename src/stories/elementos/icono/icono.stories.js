@@ -105,3 +105,58 @@ export const iconoAgregar = () => ({
     
 });
 
+export const iconoAlerta = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "alerta",
+    }
+    },
+    
+});
+
+export const iconoAviso = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "aviso",
+    }
+    },
+    
+});
+
+export const iconoExito = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "exito",
+    }
+    },
+    
+});
+
+export const iconoInformacion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "informacion",
+    }
+    },
+    
+});
+
+export const iconoPregunta = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "pregunta",
+    }
+    },
+    
+});
+

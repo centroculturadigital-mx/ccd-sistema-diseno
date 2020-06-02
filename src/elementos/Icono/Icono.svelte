@@ -10,6 +10,11 @@
   import twitter from "./iconos/twitter.svg";
   import instagram from "./iconos/instagram.svg";
   import agregar from "./iconos/agregar.svg";
+  import alerta from "./iconos/alerta.svg";
+  import aviso from "./iconos/aviso.svg";
+  import exito from "./iconos/exito.svg";
+  import informacion from "./iconos/informacion.svg";
+  import pregunta from "./iconos/pregunta.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -26,6 +31,11 @@
     twitter,
     instagram,
     agregar,
+    alerta,
+    aviso,
+    exito,
+    informacion,
+    pregunta,
   };
 
   $: iconoMostrar = iconos[icono];
