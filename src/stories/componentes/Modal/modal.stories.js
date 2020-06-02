@@ -1,17 +1,17 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Modal from '../../../componentes/Modal/Modal.svelte';
+import ModalEjemplo from '../../../componentes/Modal/ModalEjemplo.svelte';
 import Tarjeta from '../../../componentes/Tarjetas/Tarjeta/Tarjeta.svelte';
 
 import placeholder from '../../../../public/placeholder.jpg'
 
 export default { title: 'Componentes/Modal' }
 
-export const modalAbierto = () => ({
+export const modalAbrir = () => ({
     Component: ThemeTester,
     props: {
-        componente: Modal,
+        componente: ModalEjemplo,
         datos: {
-            estado: true,
             componente: Tarjeta,
             datos: {
                 imagen: placeholder,
@@ -20,8 +20,27 @@ export const modalAbierto = () => ({
                 // texto: "Nam in timeam commodo numquam, eu sed dolore vivendum reprimique. Cibo referrentur id pri, ei sea placerat adipisci.",
                 sombra: true,
             }
-        }
+        },
+        estado: false,
 
+    },
+});
+
+export const modalAbierto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ModalEjemplo,
+        datos: {
+            componente: Tarjeta,
+            datos: {
+                imagen: placeholder,
+                titulo: "Titulo de tarjeta",
+                nivelTitulo: 3,
+                // texto: "Nam in timeam commodo numquam, eu sed dolore vivendum reprimique. Cibo referrentur id pri, ei sea placerat adipisci.",
+                sombra: true,
+            }
+        },
+        estado: true,
     },
 });
 
