@@ -10,6 +10,7 @@ export default { title: 'Componentes/Modal' }
 export const modalAbrir = () => ({
     Component: ThemeTester,
     props: {
+        estado: false,
         componente: ModalEjemplo,
         datos: {
             componente: Tarjeta,
@@ -21,8 +22,6 @@ export const modalAbrir = () => ({
                 sombra: true,
             }
         },
-        estado: false,
-
     },
 });
 
@@ -31,6 +30,7 @@ export const modalAbierto = () => ({
     props: {
         componente: ModalEjemplo,
         datos: {
+            estado: true,
             componente: Tarjeta,
             datos: {
                 imagen: placeholder,
@@ -40,7 +40,6 @@ export const modalAbierto = () => ({
                 sombra: true,
             }
         },
-        estado: true,
     },
 });
 
