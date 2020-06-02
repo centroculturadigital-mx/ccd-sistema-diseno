@@ -31,6 +31,11 @@
     twitter,
     instagram,
     agregar,
+    alerta,
+    aviso,
+    exito,
+    informacion,
+    pregunta,
   };
 
   $: iconoMostrar = iconos[icono];
