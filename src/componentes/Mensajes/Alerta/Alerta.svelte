@@ -15,20 +15,33 @@
 
   let tipos = ["informacion", "exito", "aviso", "alerta", "accion"];
 
-  $: claseTipo =
-    tipo === tipos[0]
-      ? tipos[0]
-      : tipo === tipos[1]
-      ? tipo[1]
-      : tipo === tipos[2]
-      ? tipo[2]
-      : tipo === tipos[2]
-      ? tipo[2]
-      : tipo === tipos[3]
-      ? tipo[3]
-      : tipo === tipos[4]
-      ? tipo[4]
-      : "";
+  let clases = `Alerta ${
+    tipo == tipos[0]
+      ? "informacion"
+      : tipo == tipos[1]
+      ? "exito"
+      : tipo == tipos[2]
+      ? "aviso"
+      : tipo == tipos[3]
+      ? "alerta"
+      : tipo == tipos[4]
+      ? "accion"
+      : "informacion"
+  }`;
+
+  let icono = `${
+    tipo == tipos[0]
+      ? "informacion"
+      : tipo == tipos[1]
+      ? "exito"
+      : tipo == tipos[2]
+      ? "aviso"
+      : tipo == tipos[3]
+      ? "alerta"
+      : tipo == tipos[4]
+      ? "pregunta"
+      : "informacion"
+  }`;
 
   let cerrar = () => {
     estado = false;
@@ -49,6 +62,9 @@
     filter: invert();
     min-width: 2rem;
   }
+  .Cerrar :global(.iconoContenedor img) {
+    height: 1.25rem;
+  }
   .Alerta :global(button) {
     padding: var(--theme-espaciados-padding);
   }
@@ -64,12 +80,14 @@
   }
   .Textos :global(h4) {
     margin-top: 0;
-    margin-bottom: calc(var(--theme-espaciados-margen) / 2);
+    padding: calc(var(--theme-espaciados-margen) / 2) 0;
+    margin-bottom: 0;
     color: inherit !important;
   }
   .Textos :global(p) {
     margin-bottom: 0;
-    margin-top: calc(var(--theme-espaciados-margen) / 2);
+    padding: calc(var(--theme-espaciados-margen) / 2) 0;
+    margin-top: 0;
   }
   .Textos :global(span) {
     color: inherit !important;
@@ -119,13 +137,17 @@
 </style>
 
 {#if !!estado}
-  <section class={'Alerta ' + claseTipo} transition:slide>
+  <section class={clases} transition:slide>
 
-    <Icono icono={'avatar'} />
+    <Icono {icono} />
 
     <div class="Textos">
-      <Titulo texto={titulo} nivel={4} />
-      <Parrafo {contenido} />
+      {#if !!titulo}
+        <Titulo texto={titulo} nivel={4} />
+      {/if}
+      {#if !!contenido}
+        <Parrafo {contenido} />
+      {/if}
     </div>
 
     {#if !!accion_1}
@@ -134,9 +156,9 @@
       </div>
     {/if}
     {#if !!accion_2}
-    <div class="BotonAccion2">
-      <Boton texto={'Alerta 2'} click={accion_2} />
-    </div>
+      <div class="BotonAccion2">
+        <Boton texto={'Alerta 2'} click={accion_2} />
+      </div>
     {/if}
 
     <div class="Cerrar" on:click={cerrar}>
