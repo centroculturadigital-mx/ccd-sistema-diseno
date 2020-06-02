@@ -74,18 +74,6 @@ export const alertaAccion = () => ({
         }
     }
 });
-export const alertaSinAcciones = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Alerta,
-        datos: {
-            estado: true,
-            tipo: "accion",
-            titulo: "Titulo de alerta sin botones",
-            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
-        }
-    }
-});
 export const alertaSinAccionUno = () => ({
     Component: ThemeTester,
     props: {
@@ -110,6 +98,18 @@ export const alertaSinAccionDos = () => ({
             titulo: "Titulo de alerta sin botones",
             contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
             accion_1: () => { console.log("Accion 1") },
+        }
+    }
+});
+export const alertaSinAcciones = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Alerta,
+        datos: {
+            estado: true,
+            tipo: "accion",
+            titulo: "Titulo de alerta sin botones",
+            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
         }
     }
 });
@@ -145,7 +145,7 @@ export const alertaSinTextos = () => ({
         }
     }
 });
-export const alertaDebug = () => ({
+export const alertaDefaul = () => ({
     Component: ThemeTester,
     props: {
         componente: Alerta,

@@ -1,5 +1,5 @@
 <script>
-  import { slide } from "svelte/transition";
+  import { slide, fade } from "svelte/transition";
   import Icono from "../../../elementos/Icono/Icono";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
@@ -26,7 +26,7 @@
       ? "alerta"
       : tipo == tipos[4]
       ? "accion"
-      : "informacion"
+      : "informacion"//default
   }`;
 
   let icono = `${
@@ -40,7 +40,7 @@
       ? "alerta"
       : tipo == tipos[4]
       ? "pregunta"
-      : "informacion"
+      : "informacion"//default
   }`;
 
   let cerrar = () => {
@@ -62,17 +62,21 @@
     filter: invert();
     min-width: 2rem;
   }
+  .Alerta :global(.iconoContenedor) {
+    justify-content: center;
+  }
   .Cerrar :global(.iconoContenedor img) {
     height: 1.25rem;
+    width: auto;
   }
   .Alerta :global(button) {
     padding: var(--theme-espaciados-padding);
   }
   .Textos {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
-    flex-shrink: 0;
+    flex-flow: wrap;
     flex-direction: column;
     color: var(--theme-textos-alerta-color);
     padding: 0 calc(var(--theme-espaciados-padding) * 2) 0
@@ -80,13 +84,13 @@
   }
   .Textos :global(h4) {
     margin-top: 0;
-    padding: calc(var(--theme-espaciados-margen) / 2) 0;
+    padding: calc(var(--theme-espaciados-margen) / 3) 0;
     margin-bottom: 0;
     color: inherit !important;
   }
   .Textos :global(p) {
     margin-bottom: 0;
-    padding: calc(var(--theme-espaciados-margen) / 2) 0;
+    padding: calc(var(--theme-espaciados-margen) / 3) 0;
     margin-top: 0;
   }
   .Textos :global(span) {
@@ -106,6 +110,7 @@
   .BotonAccion1,
   .BotonAccion2 {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
     margin: 0 var(--theme-espaciados-margen);
   }
@@ -137,7 +142,7 @@
 </style>
 
 {#if !!estado}
-  <section class={clases} transition:slide>
+  <section class={clases} transition:fade>
 
     <Icono {icono} />
 
@@ -151,12 +156,12 @@
     </div>
 
     {#if !!accion_1}
-      <div class="BotonAccion1">
+      <div class="BotonAccion1" transition:fade>
         <BotonSecundario texto={'Alerta 1'} click={accion_1} />
       </div>
     {/if}
     {#if !!accion_2}
-      <div class="BotonAccion2">
+      <div class="BotonAccion2" transition:fade>
         <Boton texto={'Alerta 2'} click={accion_2} />
       </div>
     {/if}
