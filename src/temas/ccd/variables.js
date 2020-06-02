@@ -39,10 +39,13 @@ const variables = {
         alerta: {
             ok: "green",
             error: "red",
-            aviso: "yellow",
-            informa: "orange",
             inactivo: "gray",
-            transmitiendo: "red"
+            transmitiendo: "red",
+            informacion: "#4C4CFF",
+            exito: "#009900",
+            aviso: "#C8CC00",
+            alerta: "#C50023",
+            accion: "#212121",
         },
         cabecera: {
             fondo: "#FFF",

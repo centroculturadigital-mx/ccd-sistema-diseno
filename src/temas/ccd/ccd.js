@@ -121,12 +121,14 @@ const tema = {
             esquina: variables.tamannos.none
         },
         alertas: {
-            exito: variables.colores.alerta.ok,
             error: variables.colores.alerta.error,
-            aviso: variables.colores.alerta.aviso,
-            informa: variables.colores.alerta.informa,
             inactivo: variables.colores.alerta.inactivo,
-            transmitiendo: variables.colores.alerta.transmitiendo
+            transmitiendo: variables.colores.alerta.transmitiendo,
+            informacion: estilos.alertas.informacion,
+            exito: estilos.alertas.exito,
+            aviso: estilos.alertas.aviso,
+            alerta: estilos.alertas.alerta,
+            accion: estilos.alertas.accion,
         },
         iconos: {
             primario: {

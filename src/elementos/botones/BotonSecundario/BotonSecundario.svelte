@@ -1,5 +1,6 @@
 <script>
   export let texto;
+  export let click;
 </script>
 
 <style>
@@ -26,4 +27,4 @@
   }
 </style>
 
-<button on:click>{!!texto ? texto : ''}</button>
+<button on:click={click}>{!!texto ? texto : ''}</button>

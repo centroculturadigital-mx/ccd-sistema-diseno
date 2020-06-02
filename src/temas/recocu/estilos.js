@@ -76,6 +76,13 @@ const estilos = {
         secundario_a: variables.colores.secundario_a.base,
         secundario_b: variables.colores.secundario_b.base,
         complementario: variables.colores.complementario.base
+    },
+    alertas: {
+        informacion: variables.colores.alerta.informacion,
+        exito: variables.colores.alerta.exito,
+        aviso: variables.colores.alerta.aviso,
+        alerta: variables.colores.alerta.alerta,
+        accion: variables.colores.alerta.accion,
     }
 };
 
