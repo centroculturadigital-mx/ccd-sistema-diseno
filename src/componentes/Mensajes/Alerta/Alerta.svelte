@@ -26,7 +26,7 @@
       ? "alerta"
       : tipo == tipos[4]
       ? "accion"
-      : "informacion"//default
+      : "informacion" //default
   }`;
 
   let icono = `${
@@ -40,7 +40,7 @@
       ? "alerta"
       : tipo == tipos[4]
       ? "pregunta"
-      : "informacion"//default
+      : "informacion" //default
   }`;
 
   let cerrar = () => {
@@ -52,10 +52,10 @@
   .Alerta {
     padding: var(--theme-espaciados-padding);
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-direction: row;
     height: auto;
-    width: auto;
+    width: 100%;
   }
   .Alerta :global(.iconoContenedor) {
     padding: 0 var(--theme-espaciados-padding);
@@ -65,12 +65,18 @@
   .Alerta :global(.iconoContenedor) {
     justify-content: center;
   }
-  .Cerrar :global(.iconoContenedor img) {
-    height: 1.25rem;
-    width: auto;
-  }
   .Alerta :global(button) {
     padding: var(--theme-espaciados-padding);
+  }
+  .Info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .Acciones {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
   }
   .Textos {
     display: flex;
@@ -106,6 +112,10 @@
   .Cerrar {
     display: flex;
     align-items: center;
+  }
+  .Cerrar :global(.iconoContenedor img) {
+    height: 1.25rem;
+    width: auto;
   }
   .BotonAccion1,
   .BotonAccion2 {
@@ -144,30 +154,34 @@
 {#if !!estado}
   <section class={clases} transition:fade>
 
-    <Icono {icono} />
+    <div class="Info">
+      <Icono {icono} />
 
-    <div class="Textos">
-      {#if !!titulo}
-        <Titulo texto={titulo} nivel={4} />
-      {/if}
-      {#if !!contenido}
-        <Parrafo {contenido} />
-      {/if}
+      <div class="Textos">
+        {#if !!titulo}
+          <Titulo texto={titulo} nivel={4} />
+        {/if}
+        {#if !!contenido}
+          <Parrafo {contenido} />
+        {/if}
+      </div>
     </div>
 
-    {#if !!accion_1}
-      <div class="BotonAccion1" transition:fade>
-        <BotonSecundario texto={'Alerta 1'} click={accion_1} />
-      </div>
-    {/if}
-    {#if !!accion_2}
-      <div class="BotonAccion2" transition:fade>
-        <Boton texto={'Alerta 2'} click={accion_2} />
-      </div>
-    {/if}
+    <div class="Acciones">
+      {#if !!accion_1}
+        <div class="BotonAccion1" transition:fade>
+          <BotonSecundario texto={'Alerta 1'} click={accion_1} />
+        </div>
+      {/if}
+      {#if !!accion_2}
+        <div class="BotonAccion2" transition:fade>
+          <Boton texto={'Alerta 2'} click={accion_2} />
+        </div>
+      {/if}
 
-    <div class="Cerrar" on:click={cerrar}>
-      <Icono icono={'cerrar'} />
+      <div class="Cerrar" on:click={cerrar}>
+        <Icono icono={'cerrar'} />
+      </div>
     </div>
   </section>
 {/if}
