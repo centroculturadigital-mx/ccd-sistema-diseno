@@ -10,7 +10,11 @@ export const alertaInformacion = () => ({
         componente: Alerta,
         datos: {
             estado: true,
-            tipo: "informacion"
+            tipo: "informacion",
+            titulo: "Titulo de alerta información",
+            contenido: 'Texto con un <a href="#">link información</a> entre el texto',
+            accion_1: () => { console.log("Accion 1") },
+            accion_2: () => { console.log("Accion 2") }
         }
     }
 });
@@ -20,7 +24,11 @@ export const alertaExito = () => ({
         componente: Alerta,
         datos: {
             estado: true,
-            tipo: "exito"
+            tipo: "exito",
+            titulo: "Titulo de alerta éxito",
+            contenido: 'Texto con un <a href="#">link éxito</a> entre el texto',
+            accion_1: () => { console.log("Accion 1") },
+            accion_2: () => { console.log("Accion 2") }
         }
     }
 });
@@ -30,7 +38,11 @@ export const alertaAviso = () => ({
         componente: Alerta,
         datos: {
             estado: true,
-            tipo: "aviso"
+            tipo: "aviso",
+            titulo: "Titulo de alerta aviso",
+            contenido: 'Texto con un <a href="#">link aviso</a> entre el texto',
+            accion_1: () => { console.log("Accion 1") },
+            accion_2: () => { console.log("Accion 2") }
         }
     }
 });
@@ -40,7 +52,11 @@ export const alertaAlerta = () => ({
         componente: Alerta,
         datos: {
             estado: true,
-            tipo: "alerta"
+            tipo: "alerta",
+            titulo: "Titulo de alerta alerta",
+            contenido: 'Texto con un <a href="#">link alerta</a> entre el texto',
+            accion_1: () => { console.log("Accion 1") },
+            accion_2: () => { console.log("Accion 2") }
         }
     }
 });
@@ -50,7 +66,11 @@ export const alertaAccion = () => ({
         componente: Alerta,
         datos: {
             estado: true,
-            tipo: "alerta"
+            tipo: "alerta",
+            titulo: "Titulo de alerta acción",
+            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
+            accion_1: () => { console.log("Accion 1") },
+            accion_2: () => { console.log("Accion 2") }
         }
     }
 });

@@ -69,6 +69,10 @@ const tema = {
                     hover: estilos.tipografia.menu.movil.hover,
                     peso: estilos.tipografia.menu.escritorio.peso,
                 }
+            },
+            alerta: {
+                color: variables.colores.texto.claro,
+                enlace: variables.colores.texto.oscuro,
             }
         },
         botones: {
@@ -102,6 +106,18 @@ const tema = {
                 inactivo: variables.colores.primario.claro,
                 hover: variables.colores.primario.oscuro,
                 tamanno: variables.tipografia.tamannos.xxl,
+            },
+            alerta: {
+                uno: {
+                    texto: variables.colores.texto.claro,
+                    fondo: variables.colores.fondo.transparente,
+                    borde: variables.colores.borde.claro,
+                },
+                dos: {
+                    texto: variables.colores.texto.oscuro,
+                    fondo: variables.colores.fondo.claro,
+                    borde: variables.colores.borde.claro,
+                }
             }
         },
         espaciados: {

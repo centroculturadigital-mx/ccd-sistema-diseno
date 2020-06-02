@@ -12,6 +12,12 @@ const variables = {
             oscuro: "#212121",
             transparente: "transparent",
         },
+        borde: {
+            base: "#FF9A84",
+            claro: "#FFF",
+            oscuro: "#212121",
+            transparente: "transparent",
+        },
         primario: {
             base: "#F36957",
             claro: "#FF9A84",
