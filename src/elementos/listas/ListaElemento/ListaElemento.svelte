@@ -1,15 +1,26 @@
 <script>
+  import Bloque from "../../../componentes/Bloque/Bloque.svelte";
 
-    import Bloque from "../../../componentes/Bloque/Bloque.svelte";
+  export let elemento = {
+    enlace: "",
+    texto: "",
+    elementos: [] //subElemento
+  };
 
-    export let texto;
-    export let contenido;
-    export let data;
+      $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : []
 
-    $: atributos = typeof data == 'object' ? data : {};
-    
 </script>
 
-<li {...atributos}>
-    <Bloque {contenido} {texto}/>
+<li>
+  {#if Array.isArray(subElementos) && subElementos.length > 0}
+    <button>></button>
+  {/if}
+  <a href={elemento.enlace}>{elemento}</a>
+  {#if Array.isArray(subElementos) && subElementos.length > 0}
+    <ul>
+      {#each subElementos as subElemento}
+        <svelte:self elemento={subElemento} />
+      {/each}
+    </ul>
+  {/if}
 </li>
