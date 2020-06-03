@@ -3,7 +3,7 @@ import Icono from '../../../elementos/Icono/Icono.svelte';
 
 export default { title: 'Elementos/Icono' } 
 
-export const iconoDefault = () => ({
+export const iconoDefault = () => ({ 
     Component: ThemeTester,
     props: {
         componente: Icono,
@@ -160,3 +160,24 @@ export const iconoPregunta = () => ({
     
 });
 
+export const iconoDerecha = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "derecha",
+    }
+    },
+    
+});
+
+export const iconoAbajo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "abajo",
+    }
+    },
+    
+});
