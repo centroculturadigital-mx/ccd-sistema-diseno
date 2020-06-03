@@ -1,13 +1,8 @@
 <script>
   import Bloque from "../../../componentes/Bloque/Bloque.svelte";
+  export let elemento;
 
-  export let elemento = {
-    enlace: "",
-    texto: "",
-    elementos: [] //subElemento
-  };
-
-      $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : []
+  $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : [];
 
 </script>
 
@@ -15,7 +10,7 @@
   {#if Array.isArray(subElementos) && subElementos.length > 0}
     <button>></button>
   {/if}
-  <a href={elemento.enlace}>{elemento}</a>
+  <a href={elemento.enlace}>{elemento.texto}</a>
   {#if Array.isArray(subElementos) && subElementos.length > 0}
     <ul>
       {#each subElementos as subElemento}
