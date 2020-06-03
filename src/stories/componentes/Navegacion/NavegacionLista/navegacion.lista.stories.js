@@ -35,12 +35,19 @@ let elementos = [{
     },
 ]
 
-export const ListaDefault = () => ({
+export const navegacionListaDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: NavegacionLista,
         datos: {
             elementos: elementos
         }
+    },
+});
+export const navegacionListaVacia = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: NavegacionLista,
+        datos: {}
     },
 });

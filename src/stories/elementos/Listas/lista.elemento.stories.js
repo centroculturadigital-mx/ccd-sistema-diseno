@@ -9,9 +9,10 @@ export const ListaSimple = () => ({
     props: {
         componente: ListaElemento,
         datos: {
-            texto: "Texto lista elemento",
-            contenido: "Contenido lsita elemento ",
-            data: {},
+            elemento: {
+                texto: "Texto lista elemento",
+                contenido: "Contenido lsita elemento ",
+            }
         }
 
     },
