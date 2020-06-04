@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { fade, slide, fly, draw } from "svelte/transition";
+  import { fade } from "svelte/transition";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
@@ -9,39 +9,44 @@
   export let partes = [];
 
   let cinta;
+  let icono = "derecha";
 
   onMount(() => {
-    const velocidad = 1000 / 60;
-    let pasosX = 1;
-    let posX = 0;
-
-    setInterval(() => {
-      posX = posX + pasosX;
-      if (posX < 0) {
-        pasosX = pasosX * -1;
-      }
-      // cinta.style.left = posX + "px";
-      // console.log("Animacion", posX);
-    }, velocidad);
+    // let pasosX = -1;
+    // let posX = 0;
+    // const movimiento = () => {
+    //   posX = posX + pasosX;
+    //   if (posX < 0) {
+    //     pasosX = pasosX * 1;
+    //   }
+    //   cinta.style.left = posX + "px";
+    //   window.requestAnimationFrame(movimiento);
+    // };
+    // window.requestAnimationFrame(movimiento);
   });
 
   const ocultar = () => {
-    estado = !estado
+    estado = !estado;
+    !!estado ? (icono = "derecha") : (icono = "mas");
   };
 </script>
 
 <style>
   .Marquesina {
+    position: fixed;
+    top: 0;
+    right: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
-    max-height: 3rem;
+    max-width: 100%;
+    height: 2rem;
     background-color: whitesmoke;
+    z-index: 100;
   }
   .Titulo {
     border-right: 1px solid #000;
-    padding: var(--theme-espaciados-padding);
+    padding: 0 var(--theme-espaciados-padding);
   }
   .Titulo :global(h5) {
     margin: 0;
@@ -53,6 +58,7 @@
   }
   .Cinta {
     display: flex;
+    position: relative;
   }
   .Aviso {
     padding: 0 var(--theme-espaciados-padding);
@@ -66,26 +72,39 @@
     background-color: var(--theme-colores-fondo);
     padding: 0.25rem;
     box-sizing: border-box;
+    height: 100%
   }
   .Avanza {
-    /* animation: bandaTransportadora 5s infinite; */
-    animation-timing-function: linear;
+    -moz-transform: translate3d(150%, 0, 0);
+    -webkit-transform: translate3d(150%, 0, 0);
+    transform: translate3d(150%, 0, 0);
+    -moz-animation: bandaTransportadora 20s linear infinite;
+    -webkit-animation: bandaTransportadora 20s linear infinite;
+    animation: bandaTransportadora 20s linear infinite;
   }
 
   @-webkit-keyframes bandaTransportadora {
     0% {
-      transform: translate3d(-100vw, 0, 0);
+      -moz-transform: translate3d(100%, 0, 0);
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
     }
     100% {
-      transform: translate3d(100vw, 0, 0);
+      -moz-transform: translate3d(-100%, 0, 0);
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-200%, 0, 0);
     }
   }
   @keyframes bandaTransportadora {
     0% {
-      transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(100%, 0, 0);
+      -webkit-transform: translate3d(100%, 0, 0);
+      transform: translate3d(100%, 0, 0);
     }
     100% {
-      transform: translate3d(-10vw, 0, 0);
+      -moz-transform: translate3d(-100%, 0, 0);
+      -webkit-transform: translate3d(-100%, 0, 0);
+      transform: translate3d(-200%, 0, 0);
     }
   }
 </style>
@@ -97,7 +116,7 @@
   </section>
 
   {#if !!estado}
-    <section class="Banda" transition:slide>
+    <section class="Banda" transition:fade>
 
       <div class="Cinta Avanza" bind:this={cinta}>
 
@@ -115,7 +134,7 @@
   {/if}
 
   <section class="Oculta" on:click={ocultar}>
-    <Icono icono={'cerrar'} />
+    <Icono {icono} />
   </section>
 
 </section>

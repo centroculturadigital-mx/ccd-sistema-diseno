@@ -10,6 +10,14 @@ const partes = [{
     {
         texto: "adios mundo ipsum",
         enlace: "http://linkexterno.cmo"
+    },
+    {
+        texto: "Hola de nuevo mundo ipsum",
+        enlace: "http://linkexterno.cmo"
+    },
+    {
+        texto: "adios otra vez mundo ipsum",
+        enlace: "http://linkexterno.cmo"
     }
 ]
 
