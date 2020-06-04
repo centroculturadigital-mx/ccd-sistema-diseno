@@ -12,17 +12,19 @@
   let icono = "derecha";
 
   onMount(() => {
-    // let pasosX = -1;
-    // let posX = 0;
-    // const movimiento = () => {
-    //   posX = posX + pasosX;
-    //   if (posX < 0) {
-    //     pasosX = pasosX * 1;
-    //   }
-    //   cinta.style.left = posX + "px";
-    //   window.requestAnimationFrame(movimiento);
-    // };
-    // window.requestAnimationFrame(movimiento);
+    let ventana = window.innerWidth * -1;
+    let pasosX = -1;
+    let posX = Math.abs(ventana);
+    const movimiento = () => {
+      if (posX < ventana) {
+        posX = Math.abs(ventana);
+      } else {
+        posX = posX + pasosX;
+      }
+      cinta.style.left = posX + "px";
+      window.requestAnimationFrame(movimiento);
+    };
+    window.requestAnimationFrame(movimiento);
   });
 
   const ocultar = () => {
@@ -72,15 +74,22 @@
     background-color: var(--theme-colores-fondo);
     padding: 0.25rem;
     box-sizing: border-box;
-    height: 100%
+    height: 100%;
+  }
+  .Oculta :global(.iconoContenedor) {
+    width: 1.25rem;
+    height: 100%;
+  }
+  .Oculta :global(.iconoContenedor img) {
+    height: 1rem;
   }
   .Avanza {
-    -moz-transform: translate3d(150%, 0, 0);
+    /* -moz-transform: translate3d(150%, 0, 0);
     -webkit-transform: translate3d(150%, 0, 0);
     transform: translate3d(150%, 0, 0);
     -moz-animation: bandaTransportadora 20s linear infinite;
     -webkit-animation: bandaTransportadora 20s linear infinite;
-    animation: bandaTransportadora 20s linear infinite;
+    animation: bandaTransportadora 20s linear infinite; */
   }
 
   @-webkit-keyframes bandaTransportadora {
