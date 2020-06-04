@@ -5,7 +5,7 @@ import Tarjeta from '../../../componentes/Tarjetas/Tarjeta/Tarjeta.svelte';
 
 import placeholder from '../../../../public/placeholder.jpg'
 
-export default { title: 'Componentes/Modal' }
+export default { title: 'Componentes/Ventanas/Modal' }
 
 export const modalAbrir = () => ({
     Component: ThemeTester,

@@ -61,6 +61,7 @@
   .Cinta {
     display: flex;
     position: relative;
+    transition: left 0.3s
   }
   .Aviso {
     padding: 0 var(--theme-espaciados-padding);
@@ -127,7 +128,7 @@
   {#if !!estado}
     <section class="Banda" transition:fade>
 
-      <div class="Cinta Avanza" bind:this={cinta}>
+      <div class="Cinta Avanza" bind:this={cinta} transition:fade>
 
         {#each partes as parte}
           <div class="Aviso">

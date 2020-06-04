@@ -1,7 +1,7 @@
 import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import NavegacionLista from '../../../../componentes/Navegacion/NavegacionLista/NavegacionLista.svelte';
 
-export default { title: 'Elementos/Listas/NavegacionLista' }
+export default { title: 'Componentes/Navegacion/NavegacionLista/NavegacionLista' }
 
 let elementos = [{
         enlace: "http://hola.com",

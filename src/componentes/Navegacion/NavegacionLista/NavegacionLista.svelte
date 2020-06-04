@@ -2,7 +2,7 @@
   import NavegacionListaElemento from "../NavegacionListaElemento/NavegacionListaElemento.svelte";
 
   export let elementos = [];
-  
+   
 </script>
 
 <style>
