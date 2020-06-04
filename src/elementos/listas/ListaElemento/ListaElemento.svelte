@@ -2,7 +2,7 @@
   import Bloque from "../../../componentes/Bloque/Bloque.svelte"; 
   import Icono from "../../../elementos/Icono/Icono"; 
   export let elemento;
-  export let icono;
+
 
   $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : [];
 
@@ -13,12 +13,11 @@
 button{
  
   background-color: var(--theme-tarjetas-fondo);
-  border-style: none; 
-  width: var(--theme-tamannos-lg);
+ /* border-style: none;
+  width: var(--theme-tamannos-lg);*/ 
 }
 li {
   list-style: none;
- 
 }
 
 a {
@@ -30,9 +29,7 @@ a {
 
 <li>
   {#if Array.isArray(subElementos) && subElementos.length > 0}
-    <button> 
-      <Icono icono= {'derecha'} />
-    </button>
+    <button>></button>
   {/if}
   <a href={elemento.enlace}>{elemento.texto}</a>
   {#if Array.isArray(subElementos) && subElementos.length > 0}
