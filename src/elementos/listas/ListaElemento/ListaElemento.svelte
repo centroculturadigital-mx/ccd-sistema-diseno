@@ -2,6 +2,7 @@
   import Bloque from "../../../componentes/Bloque/Bloque.svelte"; 
   import Icono from "../../../elementos/Icono/Icono"; 
   export let elemento;
+  export let icono;
 
 
   $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : [];
@@ -17,6 +18,7 @@ button{
   width: var(--theme-tamannos-lg);*/ 
 }
 li {
+  
   list-style: none;
 }
 
@@ -25,11 +27,22 @@ a {
   color: var(--theme-textos-parrafo-color);
 }
 
+.elementoLista :global(.iconoContenedor img){
+  height: 0.9rem ;
+  
+}
+
+span
+{
+  display: inline-block;
+}
+
 </style>
 
-<li>
+<li class="elementoLista">
   {#if Array.isArray(subElementos) && subElementos.length > 0}
-    <button>></button>
+  <span ><Icono icono= {'derecha'} /></span>
+
   {/if}
   <a href={elemento.enlace}>{elemento.texto}</a>
   {#if Array.isArray(subElementos) && subElementos.length > 0}
