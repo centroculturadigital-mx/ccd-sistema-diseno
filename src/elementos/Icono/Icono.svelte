@@ -15,6 +15,8 @@
   import exito from "./iconos/exito.svg";
   import informacion from "./iconos/informacion.svg";
   import pregunta from "./iconos/pregunta.svg";
+   import derecha from "./iconos/flecha.derecha.svg";
+  import abajo from "./iconos/flecha.abajo.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -36,6 +38,8 @@
     exito,
     informacion,
     pregunta,
+    derecha,
+    abajo,
   };
 
   $: iconoMostrar = iconos[icono];
