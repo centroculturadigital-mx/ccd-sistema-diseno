@@ -3,6 +3,20 @@ import Alerta from '../../../componentes/Mensajes/Alerta/Alerta.svelte';
 
 export default { title: "Componentes/Mensajes/Alerta" }
 
+export const alertaDefault = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Alerta,
+        datos: {
+            estado: true,
+            // tipo: "accion",
+            titulo: "Titulo de alerta acción",
+            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
+            accion_1: () => { console.log("Accion 1") },
+            accion_2: () => { console.log("Accion 2") }
+        }
+    }
+});
 
 export const alertaInformacion = () => ({
     Component: ThemeTester,
@@ -145,20 +159,7 @@ export const alertaSinTextos = () => ({
         }
     }
 });
-export const alertaDefaul = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Alerta,
-        datos: {
-            estado: true,
-            // tipo: "accion",
-            titulo: "Titulo de alerta acción",
-            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
-        }
-    }
-});
+
 export const alertaNoExiste = () => ({
     Component: ThemeTester,
     props: {
