@@ -1,6 +1,6 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import Modal from '../../../componentes/Modal/Modal.svelte';
-import ModalEjemplo from '../../../componentes/Modal/ModalEjemplo.svelte';
+import Modal from '../../../componentes/Ventanas/Modal/Modal.svelte';
+import ModalEjemplo from '../../../componentes/Ventanas/Modal/ModalEjemplo.svelte';
 import Tarjeta from '../../../componentes/Tarjetas/Tarjeta/Tarjeta.svelte';
 
 import placeholder from '../../../../public/placeholder.jpg'

@@ -1,7 +1,7 @@
 <script>
-  import Boton from "../../elementos/botones/Boton/Boton.svelte";
-  import Modal from "../../componentes/Modal/Modal.svelte";
-  import Tarjeta from "../../componentes/Tarjetas/Tarjeta/Tarjeta.svelte";
+  import Boton from "../../../elementos/botones/Boton/Boton.svelte";
+  import Modal from "../../../componentes/Ventanas/Modal/Modal.svelte";
+  import Tarjeta from "../../../componentes/Tarjetas/Tarjeta/Tarjeta.svelte";
 
   export let estado;
   export let componente;

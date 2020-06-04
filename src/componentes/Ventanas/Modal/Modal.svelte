@@ -1,6 +1,6 @@
 <script>
   import { fade } from "svelte/transition";
-  import Icono from "../../elementos/Icono/Icono.svelte";
+  import Icono from "../../../elementos/Icono/Icono.svelte";
 
   export let estado = false;
   export let componente = null;
