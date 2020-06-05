@@ -45,6 +45,6 @@
   }
 </style>
 
-<span>
+<span on:click>
   {@html html}
 </span>
