@@ -3,7 +3,7 @@
   import Icono from "../../../elementos/Icono/Icono"; 
   export let elemento={};
   export let colapsado=false;
-  export let accion=console.log("una accion");
+  export let accion=()=>console.log("una accion");
   let iconoExpandido="derecha";
   let iconoColapsado="abajo";
 
@@ -60,7 +60,7 @@ span
   {#if !colapsado && Array.isArray(subElementos) && subElementos.length > 0}
     <ul>
       {#each subElementos as subElemento}
-        <svelte:self elemento={subElemento} />
+        <svelte:self elemento={subElemento} {accion}/>
       {/each}
     </ul>
   {/if}

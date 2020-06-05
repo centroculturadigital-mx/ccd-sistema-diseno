@@ -2,6 +2,7 @@
   import NavegacionListaElemento from "../NavegacionListaElemento/NavegacionListaElemento.svelte";
 
   export let elementos = [];
+  export let accion;
    
 </script>
 
@@ -17,5 +18,7 @@
 </style>
 
 <section class="NavegacionLista"> 
-  <NavegacionListaElemento {elementos} />
+  {#each elementos as elemento}
+    <NavegacionListaElemento {elemento} {accion}/>
+  {/each}
 </section>
