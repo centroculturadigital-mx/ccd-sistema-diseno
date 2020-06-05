@@ -3,22 +3,53 @@ import Marquesina from '../../../componentes/Mensajes/Marquesina/Marquesina.svel
 
 export default { title: 'Componentes/Navegacion/Marquesina' }
 
-const partes = [{
-        texto: "hola mundo ipsum dolor sit amet",
-        enlace: "/link-interno"
+
+const obtenerHorario = (d1,d2) => {
+    return (
+        new Date(d1).getHours() + ":" + new Date(d1).getMinutes()
+        + " - " +
+        new Date(d2).getHours() + ":" + new Date(d2).getMinutes()
+    )
+}
+
+let partesEvento = [
+    {
+        nombre: "adios mundo ipsum",
+        id: "1",
+        fechaInicio: "2020-06-04T00:00:00.000Z",
+        fechaFinal: "2020-06-04T00:00:30.000Z",
     },
     {
-        texto: "adios mundo ipsum",
-        enlace: "http://linkexterno.cmo"
+        nombre: "Hola de nuevo mundo ipsum",
+        id: "2",
+        fechaInicio: "2020-06-04T00:30:00.000Z",
+        fechaFinal: "2020-06-04T01:00:00.000Z",
     },
     {
-        texto: "Hola de nuevo mundo ipsum",
-        enlace: "http://linkexterno.cmo"
-    },
-    {
-        texto: "adios otra vez mundo ipsum",
-        enlace: "http://linkexterno.cmo"
+        nombre: "adios otra vez mundo ipsum",
+        id: "3",
+        fechaInicio: "2020-06-04T01:00:00.000Z",
+        fechaFinal: "2020-06-04T01:30:00.000Z",
     }
+].map(pE=>({
+    texto: pE.nombre + ": " + obtenerHorario(pE.fechaInicio,pE.fechaFinal),
+    id: pE.id
+}))
+
+
+console.log(partesEvento);
+
+
+const partes = [
+    {
+        texto: "Labore elit sit et duis in Lorem commodo minim voluptate nisi."
+    },
+    {
+        texto: "Quis laborum mollit exercitation est laborum anim fugiat nisi exercitation culpa ut occaecat sunt."
+    },
+    {
+        texto: "Veniam incididunt amet aute adipisicing ipsum est minim magna excepteur veniam."
+    },
 ]
 
 export const MarquesinaDefault = () => ({
@@ -28,6 +59,17 @@ export const MarquesinaDefault = () => ({
         datos: {
             partes
             // accion: i => console.log("Marquesina:::", i)
+        }
+    },
+});
+
+export const MarquesinaPartesEvento = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Marquesina,
+        datos: {
+            partes: partesEvento,
+            accion: id => console.log("Marquesina activo elemento:::", id)
         }
     },
 });

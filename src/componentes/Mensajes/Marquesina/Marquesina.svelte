@@ -1,12 +1,14 @@
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
-  import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
+  import Texto from "../../../elementos/texto/Texto/Texto.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
 
   export let estado = true;
   export let partes = [];
+  export let accion;
+  
 
   let cinta;
   let icono = "derecha";
@@ -31,6 +33,13 @@
     estado = !estado;
     !!estado ? (icono = "derecha") : (icono = "mas");
   };
+  
+  const activar = id => {
+    if( typeof accion == "function" ) {
+      accion(id)
+    }
+  };
+
 </script>
 
 <style>
@@ -61,7 +70,7 @@
   .Cinta {
     display: flex;
     position: relative;
-    transition: left 0.3s
+    /* transition: left 0.3s */
   }
   .Aviso {
     padding: 0 var(--theme-espaciados-padding);
@@ -132,9 +141,9 @@
 
         {#each partes as parte}
           <div class="Aviso">
-            <a href={parte.enlace}>
-              <Parrafo texto={parte.texto} />
-            </a>
+            <!-- <a href={parte.enlace}> -->
+              <Texto texto={parte.texto} on:click={()=>activar(parte.id)}/>
+            <!-- </a> -->
           </div>
         {/each}
 
