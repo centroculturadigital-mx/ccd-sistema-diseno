@@ -13,7 +13,7 @@
     border-radius: var(--theme-botones-primario-esquinas);
     margin: 0;
     cursor: pointer;
-    transition: 0.5s; 
+    transition: var(--theme-transiciones-normal); 
   }
   button:hover {
     border: 1px solid var(--theme-botones-secundario-hover);
