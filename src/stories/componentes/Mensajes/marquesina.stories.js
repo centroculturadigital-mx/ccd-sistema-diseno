@@ -8,7 +8,7 @@ const obtenerHorario = (d1,d2) => {
     return (
         new Date(d1).getHours() + ":" + ('0'+new Date(d1).getMinutes()).slice(-2)
         + " - " +
-        new Date(d2).getHours() + ":" + ('0'+new Date(d1).getMinutes()).slice(-2)
+        new Date(d2).getHours() + ":" + ('0'+new Date(d2).getMinutes()).slice(-2)
     )
 }
 
