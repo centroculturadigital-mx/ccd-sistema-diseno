@@ -6,9 +6,9 @@ export default { title: 'Componentes/Navegacion/Marquesina' }
 
 const obtenerHorario = (d1,d2) => {
     return (
-        new Date(d1).getHours() + ":" + new Date(d1).getMinutes()
+        new Date(d1).getHours() + ":" + ('0'+new Date(d1).getMinutes()).slice(-2)
         + " - " +
-        new Date(d2).getHours() + ":" + new Date(d2).getMinutes()
+        new Date(d2).getHours() + ":" + ('0'+new Date(d1).getMinutes()).slice(-2)
     )
 }
 
@@ -17,7 +17,7 @@ let partesEvento = [
         nombre: "adios mundo ipsum",
         id: "1",
         fechaInicio: "2020-06-04T00:00:00.000Z",
-        fechaFinal: "2020-06-04T00:00:30.000Z",
+        fechaFinal: "2020-06-04T00:30:00.000Z",
     },
     {
         nombre: "Hola de nuevo mundo ipsum",
