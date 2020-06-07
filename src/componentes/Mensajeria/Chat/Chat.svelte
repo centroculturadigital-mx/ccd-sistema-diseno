@@ -1,7 +1,8 @@
 <script>
   import ChatMensaje from "./ChatMensaje/ChatMensaje.svelte";
   import ChatEntrada from "./ChatEntrada/ChatEntrada.svelte";
-  import ChatObjeto from "./ChatObjeto/ChatObjeto.svelte";
+ 
+  export let usuario;
 
 </script>
 
@@ -24,8 +25,10 @@ hr {
 <section class="Chat">
   
   <section class="ChatMensajes">
-    <ChatMensaje />
-    <ChatObjeto />
+
+  {#if !! usuario}
+    <ChatMensaje {usuario}/>
+  {/if}
   </section>
   <hr>
   <section class="ChatEnviar">

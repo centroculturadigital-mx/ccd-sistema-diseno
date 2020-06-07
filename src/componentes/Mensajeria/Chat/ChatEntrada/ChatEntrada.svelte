@@ -1,30 +1,26 @@
 <script>
   import Formulario from "../../../formularios/Formulario/Formulario.svelte";
 
-  export let campos = [
-    {
-      tipo: "texto",
-      nombre: "ccd-sd-texto",
-      requerido: true,
-      ejemplo: "Escribe mensaje",
+  export let campos = [{
+    tipo: "texto",
+    nombre: "ccd-sd-texto",
+    requerido: true,
+    ejemplo: "Escribe mensaje",
     //   etiqueta: "Sin caracteres especiales ",
-      valorInicial: "",
-      validacion: valor => {
-        let noPermitido = new RegExp("/"); //solo acepta guion medio y bajo
+    valorInicial: "",
+    validacion: valor => {
+        let noPermitido = new RegExp("/");
         return {
-          valido: !noPermitido.test(valor),
-          error: noPermitido.test(valor)
-            ? new Error("No /")
-            : null,
-          estado: noPermitido.test(valor)
-            ? "error"
-            : !valor
-            ? ""
-            : "ok"
+            valido: !noPermitido.test(valor),
+            error: noPermitido.test(valor) ?
+                new Error("No /") : null,
+            estado: noPermitido.test(valor) ?
+                "error" :
+                !valor ?
+                "" : "ok"
         };
-      }
     }
-  ];
+}];
   export let enviar = true;
   export let cambiar;
   export let respuesta;
@@ -51,9 +47,13 @@
     padding: 0;
 }
 .ChatEntrada :global(form input[type="submit"]) {
-    padding: calc( var(--theme-espaciados-padding) * 1.65);
+    padding: calc( var(--theme-espaciados-padding) * 1.65) !important;
     background-color: lightgray !important;
     border: none;
+    color: gray !important;
+}
+.ChatEntrada :global(form input[type="submit"]:hover) {
+    color: blue !important;
 }
 </style>
 

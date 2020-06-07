@@ -2,22 +2,16 @@
   import Imagen from "../../../../elementos/media/Imagen/Imagen.svelte";
   import Texto from "../../../../elementos/texto/Texto/Texto.svelte";
   import Parrafo from "../../../../elementos/texto/Parrafo/Parrafo.svelte";
+  import ChatObjeto from "../../../../componentes/Mensajeria/Chat/ChatObjeto/ChatObjeto.svelte";
 
-  export let usuario = {
-    id: "id_usuario",
-    nombre: "Nobre usuario",
-    avatar: "https://fakeimg.pl/100?text=CCD",
-    mensaje: "Soy un mensaje de <a href='#'>texto</a> para el chat"
-  };
-  export let objeto = null;
-  export let datos = {};
+  export let usuario;
 </script>
 
 <style>
   .ChatMensaje {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     padding: var(--theme-espaciados-padding);
     margin: var(--theme-espaciados-margen) 0;
     height: auto;
@@ -27,7 +21,7 @@
     display: flex;
   }
   .ChatTexto :global(p) {
-    margin: 0;
+    margin: 0 0 var(--theme-espaciados-padding) 0;
   }
   .ChatAvatar {
     flex-shrink: 0;
@@ -43,12 +37,16 @@
   <div class="ChatAvatar">
     <Imagen imagen={usuario.avatar} />
   </div>
-  <div class="ChatTexto">
-    <Parrafo contenido={usuario.nombre + ':&nbsp; ' + usuario.mensaje} />
+  <div>
+    <div class="ChatTexto">
+      <Parrafo contenido={usuario.nombre + ':&nbsp; ' + usuario.mensaje} />
+    </div>
+    {#if Array.isArray(usuario.ofertas) || usuario.ofertas > 0}
+      <div class="ChatMensajeObjetos">
+        {#each usuario.ofertas as oferta}
+          <ChatObjeto datos={oferta} />
+        {/each}
+      </div>
+    {/if}
   </div>
-  {#if !!objeto}
-  <div class="ChatMensajeObjeto">
-    <svelte:component this={objeto} {...datos} />
-  </div>
-  {/if}
 </section>

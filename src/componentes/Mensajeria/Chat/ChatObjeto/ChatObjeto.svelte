@@ -3,11 +3,7 @@
   import Titulo from "../../../../elementos/texto/Titulo/Titulo.svelte";
   import Parrafo from "../../../../elementos/texto/Parrafo/Parrafo.svelte";
 
-  export let datos = {
-    imagen: "https://fakeimg.pl/300?text=Oferta",
-    titulo: "#01 - Titulo de objeto ofertado",
-    contenido: "Breve descripción objeto oferta en tiempo real..."
-  };
+  export let datos;
 </script>
 
 <style>
@@ -45,12 +41,14 @@
   }
 </style>
 
-<section class="ChatObjeto">
-  <div class="ChatObjetoImagen">
-    <Imagen imagen={datos.imagen} />
-  </div>
-  <div class="ChatObjetoTexto">
-    <Titulo texto={datos.titulo} nivel={5} />
-    <Parrafo contenido={datos.contenido} />
-  </div>
-</section>
+{#if !! datos}
+  <section class="ChatObjeto">
+    <div class="ChatObjetoImagen">
+      <Imagen imagen={datos.imagen} />
+    </div>
+    <div class="ChatObjetoTexto">
+      <Titulo texto={datos.titulo} nivel={5} />
+      <Parrafo contenido={datos.contenido} />
+    </div>
+  </section>
+{/if}
