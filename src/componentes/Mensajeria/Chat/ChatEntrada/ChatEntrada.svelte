@@ -36,11 +36,24 @@
     box-sizing: border-box;
 }
 .ChatEntrada :global(form) {
-    display: flex;
-    flex-direction: row;
+    flex-direction: row !important;
 }
 .ChatEntrada :global(input) {
     margin: 0;
+}
+.ChatEntrada :global(form input) {
+    padding: calc( var(--theme-espaciados-padding) * 0.75);
+    background-color: lightgray;
+    border: none;
+    width: 100%;
+}
+.ChatEntrada :global(form label) {
+    padding: 0;
+}
+.ChatEntrada :global(form input[type="submit"]) {
+    padding: calc( var(--theme-espaciados-padding) * 1.65);
+    background-color: lightgray !important;
+    border: none;
 }
 </style>
 
