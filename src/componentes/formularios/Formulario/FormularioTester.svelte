@@ -6,12 +6,10 @@
     export let enviar
     export let cambiar
     
-
-
+    export let campos
 
     let respuesta
 
-    export let campos
 
 </script>
 

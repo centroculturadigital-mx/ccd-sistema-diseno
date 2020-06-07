@@ -29,6 +29,7 @@
     font-weight: var(--theme-textos-parrafo-peso);
     color: var(--theme-campos-color);
     padding: calc(var(--theme-campos-espacio) / 4);
+    box-sizing: border-box;
   }
   label :global(p span) {
     color: var(--theme-alertas-error);

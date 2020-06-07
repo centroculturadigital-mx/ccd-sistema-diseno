@@ -5,8 +5,6 @@ export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
 }
 
-
-
 let enviarConTiempo = e => {
 
     respuesta = "Enviando..."
