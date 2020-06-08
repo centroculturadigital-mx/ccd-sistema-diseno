@@ -144,7 +144,12 @@
   form input[type="submit"].activo {
     background-color: var(--theme-botones-primario-hover);
     border-color: var(--theme-botones-primario-hover);
-    color: var(--theme-botones-secundario-color);
+    color: var(--theme-botones-primario-color);
+  }
+  form input[type="submit"].activo:hover {
+    background-color: var(--theme-botones-primario-hover);
+    border-color: var(--theme-botones-primario-hover);
+    color: var(--theme-botones-primario-inactivo);
   }
 </style>
 

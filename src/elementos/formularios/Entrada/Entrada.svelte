@@ -76,7 +76,7 @@
   }
   .error {
     border: 1px solid var(--theme-alertas-error);
-    color: rgb(250, 233, 233);
+    color: var(--theme-alertas-error);
   }
   .ok {
     border: 1px solid var(--theme-alertas-exito);
@@ -88,7 +88,7 @@
 
   <input
     class={clases}
-    on:keyup={e => cambiar(e.target.value)}
+    on:focusout={e => cambiar(e.target.value)}
     name={nombre}
     type="text" 
     placeholder={ejemplo}
@@ -100,7 +100,7 @@
 {#if tipo == 'contrasenna'}
   <input
     class={clases}
-    on:keyup={e => cambiar(e.target.value)}
+    on:focusout={e => cambiar(e.target.value)}
     name={nombre}
     type="password" 
     placeholder={ejemplo}
@@ -112,7 +112,7 @@
 {#if tipo == 'email'}
   <input
     class={clases}
-    on:keyup={e => cambiar(e.target.value)}
+    on:focusout={e => cambiar(e.target.value)}
     name={nombre}
     type="email" 
     placeholder={ejemplo}
@@ -124,7 +124,7 @@
 {#if tipo == 'numero'}
   <input
     class={clases}
-    on:keyup={e => cambiar(e.target.value)}
+    on:focusout={e => cambiar(e.target.value)}
     name={nombre}
     type="number"
     min={!!minimo ? minimo : ''}
@@ -138,7 +138,7 @@
 {#if tipo == 'archivo'}
   <input
     class={clases}
-    on:keyup={e => cambiar(e.target.value)}
+    on:focusout={e => cambiar(e.target.value)}
     name={nombre}
     type="file" 
     placeholder={ejemplo}
@@ -150,7 +150,7 @@
 {#if tipo == 'textarea'}
   <textarea
     class={clases}
-    on:keyup={e => cambiar(e.target.value)}
+    on:focusout={e => cambiar(e.target.value)}
     name={nombre}
     placeholder={ejemplo}
     bind:value={valorLocal}
