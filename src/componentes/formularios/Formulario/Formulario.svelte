@@ -18,27 +18,38 @@
   export let enviar;
   export let cambiar;
   export let respuesta;
+  export let config = {
+      textos: {
+        enviar: "Enviar",
+      }
+  };
 
   $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
 
   const computarCampos = (campos, datos) => {
     const camposPreparados = campos
       .map(c => {
-        if (validarCampo(c)) {
+        if (revisarCampo(c)) {
           let valor = datos[c.nombre];
 
-          let resultadoValidacion = c.validacion(valor);
-
-          const campoPreparado = {
+          let campoPreparado = {
             ...c,
             // valor,
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => {
               cambiarCampo(v, c);
-            },
-            error: resultadoValidacion.error,
-            estado: resultadoValidacion.estado
+            }
           };
+
+          if (!! valor && typeof c.validacion == "function") {
+
+            let resultadoValidacion = c.validacion(valor);
+            campoPreparado = {
+              ...campoPreparado,
+              error: resultadoValidacion.error,
+              estado: resultadoValidacion.estado
+            };
+          }
 
           return campoPreparado;
         }
@@ -79,11 +90,8 @@
     }
   };
 
-  const validarCampo = c => {
+  const revisarCampo = c => {
     if (!c.nombre) {
-      return false;
-    }
-    if (typeof c.validacion != "function") {
       return false;
     }
 
@@ -106,7 +114,7 @@
   }
   form input[type="submit"] {
     background-color: var(--theme-botones-primario-fondo);
-    color: var(--theme-botones-primario-color); 
+    color: var(--theme-botones-primario-color);
     padding: calc(var(--theme-botones-primario-espacio) * 2)
       calc(var(--theme-botones-primario-espacio) * 4);
     font-family: var(--theme-botones-primario-familia);
@@ -151,7 +159,11 @@
         {/each}
 
         {#if !!enviar}
-          <input disabled={hayErrores || hayRequeridosVacios} type="submit" class={hayErrores || hayRequeridosVacios ? "inactivo":"activo"}/>
+          <input
+            disabled={hayErrores || hayRequeridosVacios}
+            type="submit"
+            class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'} 
+            value={config.textos.enviar}/>
         {/if}
 
       </form>

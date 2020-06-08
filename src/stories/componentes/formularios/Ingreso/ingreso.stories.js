@@ -2,27 +2,29 @@ import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte'
 import Ingreso from '../../../../componentes/formularios/Ingreso/Ingreso.svelte';
 
 const enviar = () => console.log("Ingreso enviado");
-let respuesta = false;
 
 export default {
     title: 'Componentes/Formularios/Ingreso'
 }
 
 let campos = [{
-        tipo: 'email',
+        tipo: 'texto',
         nombre: 'ccd-sd-texto',
         requerido: true,
         etiqueta: 'Correo electrónico',
         valorInicial: '',
         ejemplo: 'correo@gmail.com',
         validacion: (valor) => {
-            let soloCorreo = new RegExp("/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/"); //solo acepta guion medio y bajo
+
+            let soloCorreo = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+
+            console.log("Valor", valor, soloCorreo.test(valor));
 
             return {
                 valido: soloCorreo.test(valor),
-                error: soloCorreo.test(valor) ?
-                    new Error("No cars. espec.") : null,
-                estado: soloCorreo.test(valor) ?
+                error: !soloCorreo.test(valor) ?
+                    new Error("No es un correo electrónico") : null,
+                estado: !soloCorreo.test(valor) ?
                     "error" : !valor ? "" : "ok"
             }
         }
@@ -34,20 +36,6 @@ let campos = [{
         etiqueta: 'Correo electrónico',
         valorInicial: '',
         ejemplo: '***********',
-        validacion: (valor) => {
-            let valorMax = 7;
-            let validacion;
-
-            if (valor > valorMax) {
-                validacion = valor
-            }
-            return {
-                valido: validacion,
-                error: validacion ? new Error("No cars. espec.") : null,
-                estado: validacion ?
-                    "error" : !valor ? "" : "ok"
-            }
-        }
     },
 ]
 
@@ -58,7 +46,6 @@ export const ingresoDefault = () => ({
         datos: {
             campos: campos,
             enviar: enviar,
-            respuesta
         }
     },
 });

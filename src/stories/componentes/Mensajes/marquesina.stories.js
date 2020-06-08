@@ -4,16 +4,15 @@ import Marquesina from '../../../componentes/Mensajes/Marquesina/Marquesina.svel
 export default { title: 'Componentes/Navegacion/Marquesina' }
 
 
-const obtenerHorario = (d1,d2) => {
+const obtenerHorario = (d1, d2) => {
     return (
-        new Date(d1).getHours() + ":" + ('0'+new Date(d1).getMinutes()).slice(-2)
-        + " - " +
-        new Date(d2).getHours() + ":" + ('0'+new Date(d2).getMinutes()).slice(-2)
+        new Date(d1).getHours() + ":" + ('0' + new Date(d1).getMinutes()).slice(-2) +
+        " - " +
+        new Date(d2).getHours() + ":" + ('0' + new Date(d2).getMinutes()).slice(-2)
     )
 }
 
-let partesEvento = [
-    {
+let partesEvento = [{
         nombre: "adios mundo ipsum",
         id: "1",
         fechaInicio: "2020-06-04T00:00:00.000Z",
@@ -31,17 +30,12 @@ let partesEvento = [
         fechaInicio: "2020-06-04T01:00:00.000Z",
         fechaFinal: "2020-06-04T01:30:00.000Z",
     }
-].map(pE=>({
-    texto: pE.nombre + ": " + obtenerHorario(pE.fechaInicio,pE.fechaFinal),
+].map(pE => ({
+    texto: pE.nombre + ": " + obtenerHorario(pE.fechaInicio, pE.fechaFinal),
     id: pE.id
-}))
+}));
 
-
-console.log(partesEvento);
-
-
-const partes = [
-    {
+const partes = [{
         texto: "Labore elit sit et duis in Lorem commodo minim voluptate nisi."
     },
     {

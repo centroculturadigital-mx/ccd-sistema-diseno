@@ -8,7 +8,26 @@ let videos = [VideoFondoMp4, VideoFondoWebm];
 
 export default { title: "Elementos/Media/Video" }
 
-export const VideoDefault = () => ({
+export const VideoURLYoutube = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Video,
+        datos: {
+            enlace: "https://www.youtube.com/embed/nkd5WXMOMJM",
+        },
+    }
+});
+export const VideoURLVimeo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Video,
+        datos: {
+            enlace: "https://player.vimeo.com/video/139989023",
+        },
+    }
+});
+
+export const VideoHTML5 = () => ({
     Component: ThemeTester,
     props: {
         componente: Video,
@@ -17,7 +36,7 @@ export const VideoDefault = () => ({
         }
     }
 });
-export const VideoAutoPlay = () => ({
+export const VideoHTML5AutoPlay = () => ({
     Component: ThemeTester,
     props: {
         componente: Video,
@@ -27,7 +46,7 @@ export const VideoAutoPlay = () => ({
         },
     }
 });
-export const VideoControles = () => ({
+export const VideoHTML5Controles = () => ({
     Component: ThemeTester,
     props: {
         componente: Video,
@@ -38,7 +57,7 @@ export const VideoControles = () => ({
         },
     }
 });
-export const VideoLoop = () => ({
+export const VideoHTML5Loop = () => ({
     Component: ThemeTester,
     props: {
         componente: Video,
@@ -47,25 +66,6 @@ export const VideoLoop = () => ({
             loop: true,
             autoplay: false,
             controls: true,
-        },
-    }
-});
-
-export const VideoYoutube = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Video,
-        datos: {
-            enlace: "https://www.youtube.com/embed/nkd5WXMOMJM",
-        },
-    }
-});
-export const VideoVimeo = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Video,
-        datos: {
-            enlace: "https://player.vimeo.com/video/139989023",
         },
     }
 });

@@ -1,44 +1,45 @@
 <script>
   import Embebido from "../Embebido/Embebido.svelte";
 
-  export let videos;
   export let enlace;
+  export let videos;
   export let autoplay;
   export let loop;
   export let muted;
   export let controls;
-
 </script>
 
 <style>
+  .Video {
+    height: 100%;
+    width: 100%;
+  }
   video {
     object-fit: cover;
     object-position: center;
     height: 100%;
     width: 100%;
   }
-  .videoIframe {
+  .Iframe {
     height: 100%;
     width: 100%;
   }
-
 </style>
 
-{#if !!videos}
-  <video
-    {autoplay}
-    {loop}
-    {muted}
-    {controls}>
-    {#each videos as videoUrl}
-      <source src={videoUrl} />
-    {/each}
-    Tu navegador no soporta HTML5 video.
-  </video>
-{:else}
-  <div class="videoIframe">
+<section class="Video">
+  {#if !!enlace}
+    <div class="Iframe">
 
-    <Embebido {enlace} />
+      <Embebido {enlace} />
 
-  </div>
-{/if}
+    </div>
+  {:else if !!videos}
+    <video {autoplay} {loop} {muted} {controls}>
+
+      {#each videos as videoUrl}
+        <source src={videoUrl} />
+      {/each}
+      Tu navegador no soporta HTML5 video.
+    </video>
+  {/if}
+</section>
