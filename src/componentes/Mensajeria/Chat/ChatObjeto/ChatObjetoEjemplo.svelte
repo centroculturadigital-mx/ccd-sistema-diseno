@@ -6,10 +6,12 @@
   export let imagen;
   export let titulo;
   export let texto;
-
 </script>
 
 <style>
+  .ChatObjetoEjemplo {
+    display: flex;
+  }
   .Imagen {
     width: 5rem;
     height: 100%;
@@ -37,12 +39,12 @@
   }
 </style>
 
-  <article class="ChatObjetoEjemplo">
-    <div class="Imagen">
-      <Imagen imagen={imagen} />
-    </div>
-    <div class="Texto">
-      <Titulo texto={titulo} nivel={5} />
-      <Parrafo {texto} />
-    </div>
-  </article>
+<article class="ChatObjetoEjemplo">
+  <div class="Imagen">
+    <Imagen {imagen} />
+  </div>
+  <div class="Texto">
+    <Titulo texto={titulo} nivel={5} />
+    <Parrafo {texto} />
+  </div>
+</article>

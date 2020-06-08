@@ -33,7 +33,7 @@
   }
   .Avatar {
     flex-shrink: 0;
-    width: auto;
+    width: 1.75rem;
     height: 1.75rem;
     border-radius: 10rem;
     overflow: hidden;
