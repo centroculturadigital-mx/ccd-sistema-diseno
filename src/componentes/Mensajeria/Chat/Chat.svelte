@@ -1,38 +1,39 @@
 <script>
   import ChatMensaje from "./ChatMensaje/ChatMensaje.svelte";
   import ChatEntrada from "./ChatEntrada/ChatEntrada.svelte";
- 
-  export let usuario;
 
+  export let mensajes = [];
+  export let enviar;
 </script>
 
 <style>
-.Chat {
-  background-color: var(--theme-colores-fondo);
-  padding: calc( var(--theme-espaciados-padding) * 2);
-  height: 100%;
-  width: 100%;
-}
-.ChatMensajes {
-  padding: var(--theme-espaciados-padding);
-
-}
-hr {
-  border-color: lightgray;
-}
+  .Chat {
+    background-color: var(--theme-colores-fondo);
+    padding: calc(var(--theme-espaciados-padding) * 2);
+    height: 100%;
+    width: 100%;
+  }
+  .ChatMensajes {
+    padding: var(--theme-espaciados-padding);
+  }
+  hr {
+    border-color: lightgray;
+  }
 </style>
 
 <section class="Chat">
-  
+
   <section class="ChatMensajes">
 
-  {#if !! usuario}
-    <ChatMensaje {usuario}/>
-  {/if}
+    {#if !!mensajes}
+      {#each mensajes as mensaje}
+        <ChatMensaje {mensaje} />
+      {/each}
+    {/if}
   </section>
-  <hr>
+  <hr />
   <section class="ChatEnviar">
-  <ChatEntrada/>  
+    <ChatEntrada {enviar} />
   </section>
 
 </section>

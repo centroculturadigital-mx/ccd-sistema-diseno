@@ -15,8 +15,9 @@
   import exito from "./iconos/exito.svg";
   import informacion from "./iconos/informacion.svg";
   import pregunta from "./iconos/pregunta.svg";
-   import derecha from "./iconos/flecha.derecha.svg";
+  import derecha from "./iconos/flecha.derecha.svg";
   import abajo from "./iconos/flecha.abajo.svg";
+  import enviar from "./iconos/enviar.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -40,28 +41,26 @@
     pregunta,
     derecha,
     abajo,
+    enviar
   };
 
   $: iconoMostrar = iconos[icono];
 </script>
 
 <style>
-  .iconoContenedor { 
+  .iconoContenedor {
     display: flex;
-    align-items: center; 
+    align-items: center;
     cursor: pointer;
     width: auto;
-          
   }
   .iconoContenedor :global(*) {
     fill: inherit;
   }
   .iconoContenedor :global(img) {
     object-fit: contain;
-    height:  var(--theme-iconos-primario-tamanno); 
-  
+    height: var(--theme-iconos-primario-tamanno);
   }
-
 </style>
 
 {#if icono && Object.keys(iconos).includes(icono)}

@@ -1,5 +1,5 @@
 <script>
-  import Insertar from "../../../elementos/media/Insertar/Insertar.svelte";
+  import Embebido from "../../../elementos/media/Embebido/Embebido.svelte";
 
   export let enlace;
   export let id;
@@ -15,6 +15,6 @@
 
 <article class="VideoReproductor">
 
-  <Insertar {id} {enlace}/>
+  <Embebido {id} {enlace}/>
 
 </article>

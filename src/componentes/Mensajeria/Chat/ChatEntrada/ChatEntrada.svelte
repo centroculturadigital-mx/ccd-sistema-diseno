@@ -1,64 +1,42 @@
 <script>
-  import Formulario from "../../../formularios/Formulario/Formulario.svelte";
+  import Formulario from "../../../formularios/Formulario/Formulario";
+  import BotonIcono from "../../../../elementos/botones/BotonIcono/BotonIcono";
 
-  export let campos = [{
-    tipo: "texto",
-    nombre: "ccd-sd-texto",
-    requerido: true,
-    ejemplo: "Escribe mensaje",
-    //   etiqueta: "Sin caracteres especiales ",
-    valorInicial: "",
-    validacion: valor => {
-        let noPermitido = new RegExp("/");
-        return {
-            valido: !noPermitido.test(valor),
-            error: noPermitido.test(valor) ?
-                new Error("No /") : null,
-            estado: noPermitido.test(valor) ?
-                "error" :
-                !valor ?
-                "" : "ok"
-        };
+  export let enviar;
+
+  let mensaje = "";
+
+  const enviarMensaje = () => {
+    if (typeof enviar == "function") {
+      enviar(mensaje);
     }
-}];
-  export let enviar = true;
-  export let cambiar;
-  export let respuesta;
+  };
 </script>
 
 <style>
-.ChatEntrada {
+  .ChatEntrada {
+    display: flex;
     padding: var(--theme-espaciados-padding);
     box-sizing: border-box;
-}
-.ChatEntrada :global(form) {
-    flex-direction: row !important;
-}
-.ChatEntrada :global(input) {
-    margin: 0;
-}
-.ChatEntrada :global(form input) {
-    padding: calc( var(--theme-espaciados-padding) * 0.75);
+  }
+  input {
+    padding: calc(var(--theme-espaciados-padding) * 0.75);
     background-color: lightgray;
+    /* border-left-top-radius: 0.5rem;
+    border-left-bottom-radius: 0.5rem; */
     border: none;
+    margin: 0;
     width: 100%;
-}
-.ChatEntrada :global(form label) {
-    padding: 0;
-}
-.ChatEntrada :global(form input[type="submit"]) {
-    padding: calc( var(--theme-espaciados-padding) * 1.65) !important;
-    background-color: lightgray !important;
-    border: none;
-    color: gray !important;
-}
-.ChatEntrada :global(form input[type="submit"]:hover) {
-    color: blue !important;
-}
+  }
+    .ChatEntrada :global(button) {
+        background-color: lightgray;
+    }
+    .ChatEntrada :global(button img) {
+        height: 2.5rem;
+    }
 </style>
 
-<section class="ChatEntrada">
-
-  <Formulario {campos} {enviar} {cambiar} {respuesta} />
-
-</section>
+<div class="ChatEntrada">
+  <input type="text" bind:value={mensaje} placeholder="Enviar mensaje"/>
+  <BotonIcono icono={'enviar'} on:click={enviarMensaje}/>
+</div>

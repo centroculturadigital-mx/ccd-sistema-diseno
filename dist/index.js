@@ -1,235 +1,261 @@
-(function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define(['exports'], factory) :
-    (global = global || self, factory(global['ccd-sistema-disenio'] = {}));
-}(this, (function (exports) { 'use strict';
+(function(global, factory) {
+        typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+            typeof define === 'function' && define.amd ? define(['exports'], factory) :
+            (global = global || self, factory(global['ccd-sistema-disenio'] = {}));
+    }(this, (function(exports) {
+                'use strict';
 
-    function noop() { }
-    const identity = x => x;
-    function assign(tar, src) {
-        // @ts-ignore
-        for (const k in src)
-            tar[k] = src[k];
-        return tar;
-    }
-    function run(fn) {
-        return fn();
-    }
-    function blank_object() {
-        return Object.create(null);
-    }
-    function run_all(fns) {
-        fns.forEach(run);
-    }
-    function is_function(thing) {
-        return typeof thing === 'function';
-    }
-    function safe_not_equal(a, b) {
-        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
-    }
-    function create_slot(definition, ctx, $$scope, fn) {
-        if (definition) {
-            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
-            return definition[0](slot_ctx);
-        }
-    }
-    function get_slot_context(definition, ctx, $$scope, fn) {
-        return definition[1] && fn
-            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
-            : $$scope.ctx;
-    }
-    function get_slot_changes(definition, $$scope, dirty, fn) {
-        if (definition[2] && fn) {
-            const lets = definition[2](fn(dirty));
-            if (typeof $$scope.dirty === 'object') {
-                const merged = [];
-                const len = Math.max($$scope.dirty.length, lets.length);
-                for (let i = 0; i < len; i += 1) {
-                    merged[i] = $$scope.dirty[i] | lets[i];
+                function noop() {}
+                const identity = x => x;
+
+                function assign(tar, src) {
+                    // @ts-ignore
+                    for (const k in src)
+                        tar[k] = src[k];
+                    return tar;
                 }
-                return merged;
-            }
-            return $$scope.dirty | lets;
-        }
-        return $$scope.dirty;
-    }
-    function null_to_empty(value) {
-        return value == null ? '' : value;
-    }
 
-    const is_client = typeof window !== 'undefined';
-    let now = is_client
-        ? () => window.performance.now()
-        : () => Date.now();
-    let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+                function run(fn) {
+                    return fn();
+                }
 
-    const tasks = new Set();
-    function run_tasks(now) {
-        tasks.forEach(task => {
-            if (!task.c(now)) {
-                tasks.delete(task);
-                task.f();
-            }
-        });
-        if (tasks.size !== 0)
-            raf(run_tasks);
-    }
-    /**
-     * Creates a new task that runs on each raf frame
-     * until it returns a falsy value or is aborted
-     */
-    function loop(callback) {
-        let task;
-        if (tasks.size === 0)
-            raf(run_tasks);
-        return {
-            promise: new Promise(fulfill => {
-                tasks.add(task = { c: callback, f: fulfill });
-            }),
-            abort() {
-                tasks.delete(task);
-            }
-        };
-    }
+                function blank_object() {
+                    return Object.create(null);
+                }
 
-    function append(target, node) {
-        target.appendChild(node);
-    }
-    function insert(target, node, anchor) {
-        target.insertBefore(node, anchor || null);
-    }
-    function detach(node) {
-        node.parentNode.removeChild(node);
-    }
-    function destroy_each(iterations, detaching) {
-        for (let i = 0; i < iterations.length; i += 1) {
-            if (iterations[i])
-                iterations[i].d(detaching);
-        }
-    }
-    function element(name) {
-        return document.createElement(name);
-    }
-    function text(data) {
-        return document.createTextNode(data);
-    }
-    function space() {
-        return text(' ');
-    }
-    function empty() {
-        return text('');
-    }
-    function listen(node, event, handler, options) {
-        node.addEventListener(event, handler, options);
-        return () => node.removeEventListener(event, handler, options);
-    }
-    function prevent_default(fn) {
-        return function (event) {
-            event.preventDefault();
-            // @ts-ignore
-            return fn.call(this, event);
-        };
-    }
-    function attr(node, attribute, value) {
-        if (value == null)
-            node.removeAttribute(attribute);
-        else if (node.getAttribute(attribute) !== value)
-            node.setAttribute(attribute, value);
-    }
-    function set_attributes(node, attributes) {
-        // @ts-ignore
-        const descriptors = Object.getOwnPropertyDescriptors(node.__proto__);
-        for (const key in attributes) {
-            if (attributes[key] == null) {
-                node.removeAttribute(key);
-            }
-            else if (key === 'style') {
-                node.style.cssText = attributes[key];
-            }
-            else if (key === '__value' || descriptors[key] && descriptors[key].set) {
-                node[key] = attributes[key];
-            }
-            else {
-                attr(node, key, attributes[key]);
-            }
-        }
-    }
-    function children(element) {
-        return Array.from(element.childNodes);
-    }
-    function set_data(text, data) {
-        data = '' + data;
-        if (text.data !== data)
-            text.data = data;
-    }
-    function set_style(node, key, value, important) {
-        node.style.setProperty(key, value, important ? 'important' : '');
-    }
-    function toggle_class(element, name, toggle) {
-        element.classList[toggle ? 'add' : 'remove'](name);
-    }
-    function custom_event(type, detail) {
-        const e = document.createEvent('CustomEvent');
-        e.initCustomEvent(type, false, false, detail);
-        return e;
-    }
-    class HtmlTag {
-        constructor(html, anchor = null) {
-            this.e = element('div');
-            this.a = anchor;
-            this.u(html);
-        }
-        m(target, anchor = null) {
-            for (let i = 0; i < this.n.length; i += 1) {
-                insert(target, this.n[i], anchor);
-            }
-            this.t = target;
-        }
-        u(html) {
-            this.e.innerHTML = html;
-            this.n = Array.from(this.e.childNodes);
-        }
-        p(html) {
-            this.d();
-            this.u(html);
-            this.m(this.t, this.a);
-        }
-        d() {
-            this.n.forEach(detach);
-        }
-    }
+                function run_all(fns) {
+                    fns.forEach(run);
+                }
 
-    let stylesheet;
-    let active = 0;
-    let current_rules = {};
-    // https://github.com/darkskyapp/string-hash/blob/master/index.js
-    function hash(str) {
-        let hash = 5381;
-        let i = str.length;
-        while (i--)
-            hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
-        return hash >>> 0;
-    }
-    function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
-        const step = 16.666 / duration;
-        let keyframes = '{\n';
-        for (let p = 0; p <= 1; p += step) {
-            const t = a + (b - a) * ease(p);
-            keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
-        }
-        const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
-        const name = `__svelte_${hash(rule)}_${uid}`;
-        if (!current_rules[name]) {
-            if (!stylesheet) {
-                const style = element('style');
-                document.head.appendChild(style);
-                stylesheet = style.sheet;
-            }
-            current_rules[name] = true;
-            stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
-        }
-        const animation = node.style.animation || '';
-        node.style.animation = `${animation ? `${animation}, ` : ``}${name} ${duration}ms linear ${delay}ms 1 both`;
+                function is_function(thing) {
+                    return typeof thing === 'function';
+                }
+
+                function safe_not_equal(a, b) {
+                    return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+                }
+
+                function create_slot(definition, ctx, $$scope, fn) {
+                    if (definition) {
+                        const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+                        return definition[0](slot_ctx);
+                    }
+                }
+
+                function get_slot_context(definition, ctx, $$scope, fn) {
+                    return definition[1] && fn ?
+                        assign($$scope.ctx.slice(), definition[1](fn(ctx))) :
+                        $$scope.ctx;
+                }
+
+                function get_slot_changes(definition, $$scope, dirty, fn) {
+                    if (definition[2] && fn) {
+                        const lets = definition[2](fn(dirty));
+                        if (typeof $$scope.dirty === 'object') {
+                            const merged = [];
+                            const len = Math.max($$scope.dirty.length, lets.length);
+                            for (let i = 0; i < len; i += 1) {
+                                merged[i] = $$scope.dirty[i] | lets[i];
+                            }
+                            return merged;
+                        }
+                        return $$scope.dirty | lets;
+                    }
+                    return $$scope.dirty;
+                }
+
+                function null_to_empty(value) {
+                    return value == null ? '' : value;
+                }
+
+                const is_client = typeof window !== 'undefined';
+                let now = is_client ?
+                    () => window.performance.now() :
+                    () => Date.now();
+                let raf = is_client ? cb => requestAnimationFrame(cb) : noop;
+
+                const tasks = new Set();
+
+                function run_tasks(now) {
+                    tasks.forEach(task => {
+                        if (!task.c(now)) {
+                            tasks.delete(task);
+                            task.f();
+                        }
+                    });
+                    if (tasks.size !== 0)
+                        raf(run_tasks);
+                }
+                /**
+                 * Creates a new task that runs on each raf frame
+                 * until it returns a falsy value or is aborted
+                 */
+                function loop(callback) {
+                    let task;
+                    if (tasks.size === 0)
+                        raf(run_tasks);
+                    return {
+                        promise: new Promise(fulfill => {
+                            tasks.add(task = { c: callback, f: fulfill });
+                        }),
+                        abort() {
+                            tasks.delete(task);
+                        }
+                    };
+                }
+
+                function append(target, node) {
+                    target.appendChild(node);
+                }
+
+                function insert(target, node, anchor) {
+                    target.insertBefore(node, anchor || null);
+                }
+
+                function detach(node) {
+                    node.parentNode.removeChild(node);
+                }
+
+                function destroy_each(iterations, detaching) {
+                    for (let i = 0; i < iterations.length; i += 1) {
+                        if (iterations[i])
+                            iterations[i].d(detaching);
+                    }
+                }
+
+                function element(name) {
+                    return document.createElement(name);
+                }
+
+                function text(data) {
+                    return document.createTextNode(data);
+                }
+
+                function space() {
+                    return text(' ');
+                }
+
+                function empty() {
+                    return text('');
+                }
+
+                function listen(node, event, handler, options) {
+                    node.addEventListener(event, handler, options);
+                    return () => node.removeEventListener(event, handler, options);
+                }
+
+                function prevent_default(fn) {
+                    return function(event) {
+                        event.preventDefault();
+                        // @ts-ignore
+                        return fn.call(this, event);
+                    };
+                }
+
+                function attr(node, attribute, value) {
+                    if (value == null)
+                        node.removeAttribute(attribute);
+                    else if (node.getAttribute(attribute) !== value)
+                        node.setAttribute(attribute, value);
+                }
+
+                function set_attributes(node, attributes) {
+                    // @ts-ignore
+                    const descriptors = Object.getOwnPropertyDescriptors(node.__proto__);
+                    for (const key in attributes) {
+                        if (attributes[key] == null) {
+                            node.removeAttribute(key);
+                        } else if (key === 'style') {
+                            node.style.cssText = attributes[key];
+                        } else if (key === '__value' || descriptors[key] && descriptors[key].set) {
+                            node[key] = attributes[key];
+                        } else {
+                            attr(node, key, attributes[key]);
+                        }
+                    }
+                }
+
+                function children(element) {
+                    return Array.from(element.childNodes);
+                }
+
+                function set_data(text, data) {
+                    data = '' + data;
+                    if (text.data !== data)
+                        text.data = data;
+                }
+
+                function set_style(node, key, value, important) {
+                    node.style.setProperty(key, value, important ? 'important' : '');
+                }
+
+                function toggle_class(element, name, toggle) {
+                    element.classList[toggle ? 'add' : 'remove'](name);
+                }
+
+                function custom_event(type, detail) {
+                    const e = document.createEvent('CustomEvent');
+                    e.initCustomEvent(type, false, false, detail);
+                    return e;
+                }
+                class HtmlTag {
+                    constructor(html, anchor = null) {
+                        this.e = element('div');
+                        this.a = anchor;
+                        this.u(html);
+                    }
+                    m(target, anchor = null) {
+                        for (let i = 0; i < this.n.length; i += 1) {
+                            insert(target, this.n[i], anchor);
+                        }
+                        this.t = target;
+                    }
+                    u(html) {
+                        this.e.innerHTML = html;
+                        this.n = Array.from(this.e.childNodes);
+                    }
+                    p(html) {
+                        this.d();
+                        this.u(html);
+                        this.m(this.t, this.a);
+                    }
+                    d() {
+                        this.n.forEach(detach);
+                    }
+                }
+
+                let stylesheet;
+                let active = 0;
+                let current_rules = {};
+                // https://github.com/darkskyapp/string-hash/blob/master/index.js
+                function hash(str) {
+                    let hash = 5381;
+                    let i = str.length;
+                    while (i--)
+                        hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
+                    return hash >>> 0;
+                }
+
+                function create_rule(node, a, b, duration, delay, ease, fn, uid = 0) {
+                    const step = 16.666 / duration;
+                    let keyframes = '{\n';
+                    for (let p = 0; p <= 1; p += step) {
+                        const t = a + (b - a) * ease(p);
+                        keyframes += p * 100 + `%{${fn(t, 1 - t)}}\n`;
+                    }
+                    const rule = keyframes + `100% {${fn(b, 1 - b)}}\n}`;
+                    const name = `__svelte_${hash(rule)}_${uid}`;
+                    if (!current_rules[name]) {
+                        if (!stylesheet) {
+                            const style = element('style');
+                            document.head.appendChild(style);
+                            stylesheet = style.sheet;
+                        }
+                        current_rules[name] = true;
+                        stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+                    }
+                    const animation = node.style.animation || '';
+                    node.style.animation = `${animation ? `${animation}, ` : ``}${name} ${duration}ms linear ${delay}ms 1 both`;
         active += 1;
         return name;
     }
@@ -3768,7 +3794,7 @@
     	}
     }
 
-    /* src/elementos/media/Insertar/Insertar.svelte generated by Svelte v3.19.1 */
+    /* src/elementos/media/Embebido/Embebido.svelte generated by Svelte v3.19.1 */
 
     function create_fragment$j(ctx) {
     	let iframe;
@@ -3822,7 +3848,7 @@
     	return [url, alto, ancho];
     }
 
-    class Insertar extends SvelteComponent {
+    class Embebido extends SvelteComponent {
     	constructor(options) {
     		super();
     		init(this, options, instance$j, create_fragment$j, safe_not_equal, { url: 0, alto: 1, ancho: 2 });
@@ -6974,7 +7000,7 @@
     	let article;
     	let current;
 
-    	const insertar = new Insertar({
+    	const insertar = new Embebido({
     			props: {
     				url: /*url*/ ctx[0],
     				alto: /*alto*/ ctx[1],
@@ -7671,7 +7697,7 @@
     exports.Entrada = Entrada;
     exports.EntradaEmail = EntradaEmail;
     exports.Selector = Selector;
-    exports.Insertar = Insertar;
+    exports.Embebido = Embebido;
     exports.Label = Label;
     exports.Logo = Logo;
     exports.Mapa = Mapa;

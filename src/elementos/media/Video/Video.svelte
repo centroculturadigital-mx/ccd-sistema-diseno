@@ -1,5 +1,5 @@
 <script>
-  import Insertar from "../Insertar/Insertar.svelte";
+  import Embebido from "../Embebido/Embebido.svelte";
 
   export let videos;
   export let enlace;
@@ -38,7 +38,7 @@
 {:else}
   <div class="videoIframe">
 
-    <Insertar {enlace} />
+    <Embebido {enlace} />
 
   </div>
 {/if}

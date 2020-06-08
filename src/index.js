@@ -23,8 +23,8 @@ export { default as Selector }
 from "./elementos/formularios/Selector/Selector.svelte";
 export { default as TextArea }
 from "./elementos/formularios/TextArea/TextArea.svelte";
-export { default as Insertar }
-from "./elementos/media/Insertar/Insertar.svelte";
+export { default as Embebido }
+from "./elementos/media/Embebido/Embebido.svelte";
 export { default as Icono }
 from "./elementos/Icono/Icono.svelte";
 export { default as IndicadorCargaCirculo }
