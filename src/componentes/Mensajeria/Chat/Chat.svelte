@@ -10,8 +10,8 @@
   .Chat {
     background-color: var(--theme-colores-fondo);
     padding: calc(var(--theme-espaciados-padding) * 2);
-    height: 100%;
-    width: 100%;
+    height: 22.8rem;
+    width: 30rem;
   }
   .ChatMensajes {
     padding: var(--theme-espaciados-padding);
