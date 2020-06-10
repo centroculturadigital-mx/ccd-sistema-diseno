@@ -19,12 +19,21 @@
     margin: var(--theme-espaciados-margen) 0;
     height: auto;
     width: 100%;
+
   }
   .Texto {
     margin-bottom: var(--theme-espaciados-margen);
   }
+  .Texto a {  
+    text-decoration: none;
+    color:#666;
+  }
   .Texto :global(p) {
     margin: 0 0 var(--theme-espaciados-padding) 0;
+  }
+   .Texto :global(span) {
+    color: unset !important;
+    font-size: 0.875rem;
   }
   .Avatar {
     flex-shrink: 0;
