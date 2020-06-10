@@ -21,12 +21,7 @@
     width: 100%;
   }
   .Texto {
-    /* display: flex;
-    flex-direction: column; */
     margin-bottom: var(--theme-espaciados-margen);
-  }
-  .Texto span {
-
   }
   .Texto :global(p) {
     margin: 0 0 var(--theme-espaciados-padding) 0;

@@ -79,6 +79,34 @@ export { default as ListaPaginada }
 from "./componentes/Listados/ListaPaginada/ListaPaginada.svelte";
 export { default as Reticula }
 from "./componentes/Listados/Reticula/Reticula.svelte";
+export { default as Pestannas }
+from "./componentes/Navegacion/Pestannas/Pestannas.svelte";
+export { default as TransmisionIndicador }
+from "./componentes/Indicadores/TransmisionIndicador/TransmisionIndicador.svelte";
+export { default as TransmisionesIndicador }
+from "./componentes/Indicadores/TransmisionesIndicador/TransmisionesIndicador.svelte";
+export { default as Modal }
+from "./componentes/Ventanas/Modal/Modal.svelte";
+export { default as Alerta }
+from "./componentes/Mensajes/Alerta/Alerta.svelte";
+export { default as NavegacionLista }
+from "./componentes/Navegacion/NavegacionLista/NavegacionLista.svelte";
+export { default as NavegacionListaElemento }
+from "./componentes/Navegacion/NavegacionListaElemento/NavegacionListaElemento.svelte";
+export { default as Marquesina }
+from "./componentes/Mensajes/Marquesina/Marquesina.svelte";
+export { default as Dialogo }
+from "./componentes/Mensajes/Dialogo/Dialogo.svelte";
+export { default as Chat }
+from "./componentes/Mensajeria/Chat/Chat.svelte";
+export { default as ChatMensaje }
+from "./componentes/Mensajeria/Chat/ChatMensaje/ChatMensaje.svelte";
+export { default as ChatEntrada }
+from "./componentes/Mensajeria/Chat/ChatEntrada/ChatEntrada.svelte";
+export { default as ChatObjeto }
+from "./componentes/Mensajeria/Chat/ChatObjeto/ChatObjeto.svelte";
+export { default as Ingreso }
+from "./componentes/formularios/Chat/Ingreso/Ingreso.svelte";
 
 // CMS
 export { default as Editor }
