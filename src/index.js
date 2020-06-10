@@ -104,7 +104,7 @@ from "./componentes/Mensajeria/Chat/ChatEntrada/ChatEntrada.svelte";
 export { default as ChatObjeto }
 from "./componentes/Mensajeria/Chat/ChatObjeto/ChatObjeto.svelte";
 export { default as Ingreso }
-from "./componentes/formularios/Chat/Ingreso/Ingreso.svelte";
+from "./componentes/formularios/Ingreso/Ingreso.svelte";
 
 // CMS
 export { default as Editor }
