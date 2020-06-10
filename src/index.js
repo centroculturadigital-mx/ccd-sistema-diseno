@@ -43,8 +43,6 @@ export { default as Cabecera }
 from "./componentes/Cabecera/Cabecera.svelte";
 export { default as Pie }
 from "./componentes/Pie/Pie.svelte";
-export { default as Label }
-from "./componentes/Label/Label.svelte";
 export { default as Logo }
 from "./componentes/Logo/Logo.svelte";
 export { default as Logos }
