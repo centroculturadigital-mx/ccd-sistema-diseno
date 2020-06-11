@@ -3,7 +3,7 @@ import PestannasEjemplo from '../../../componentes/Navegacion/Pestannas/Pestanna
 
 export default { title: 'Componentes/Navegacion/PestannasEjemplo' }
 
-const opciones = ["Ejemplo", "Ejemplo", "Ejemplo"]
+const opciones = ["Pestaña 1", "Pestaña 2", "Pestaña 3"]
 
 export const PestanasEjemplo = () => ({
     Component: ThemeTester,
