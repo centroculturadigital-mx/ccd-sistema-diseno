@@ -27,13 +27,17 @@
     width: 100%;
     height: auto;
 }
+.ContenedorTextos {
+  height: 10rem;
+  overflow-y: scroll;
+}
 </style>
 
 <section class="PestannasEjemplo">
   <div class="Pestannas">
     <Pestannas {opciones} {actual} {accion} />
   </div>
-  <section class="contenedorTextos">
+  <section class="ContenedorTextos">
 
     <Parrafo {texto} />
 
