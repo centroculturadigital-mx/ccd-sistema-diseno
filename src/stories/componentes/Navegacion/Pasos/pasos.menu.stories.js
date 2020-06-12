@@ -1,5 +1,5 @@
-import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import PasosMenu from '../../../componentes/Navegacion/PasosMenu/PasosMenu.svelte';
+import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
+import PasosMenu from '../../../../componentes/Navegacion/PasosMenu/PasosMenu.svelte';
 
 export default { title: 'Componentes/Navegacion/PasosMenu' } 
 

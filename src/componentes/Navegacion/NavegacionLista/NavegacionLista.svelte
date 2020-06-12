@@ -9,10 +9,7 @@
 <style>
 .NavegacionLista{
  background-color: var(--theme-tarjetas-fondo);
- padding: 0rem 2rem 0rem 2rem;
- font-family: var(--theme-textos-parrafo-tipografia);
- color: var(--theme-textos-parrafo-color);
-
+ padding: var(--theme-tamannos-md);
 }
 
 </style>
