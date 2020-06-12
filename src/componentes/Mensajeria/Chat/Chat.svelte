@@ -8,17 +8,21 @@
 
 <style>
   .Chat {
-    background-color: var(--theme-colores-fondo);
-    padding: calc(var(--theme-espaciados-padding) * 2);
-    height: 22.8rem;
+    background-color: var(--theme-colores-fondo); 
+    /*padding: calc(var(--theme-espaciados-padding) * 2);*/
+    border-width: 0.05rem;
+    border-color:var(--theme-bordes-neutro); 
+    border-style: solid;
+    border-radius: 0.2rem;
+    height: auto;
     width: 30rem;
   }
   .ChatMensajes {
     padding: var(--theme-espaciados-padding);
   }
-  hr {
+  /*hr {
     border-color: lightgray;
-  }
+  }*/
 </style>
 
 <section class="Chat">
@@ -31,7 +35,6 @@
       {/each}
     {/if}
   </section>
-  <hr />
   <section class="ChatEnviar">
     <ChatEntrada {enviar} />
   </section>

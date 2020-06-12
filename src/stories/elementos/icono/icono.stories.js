@@ -181,3 +181,14 @@ export const iconoAbajo = () => ({
     },
     
 });
+
+export const iconoFeliz = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "feliz",
+    }
+    },
+    
+});
