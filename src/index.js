@@ -4,7 +4,7 @@ from "./elementos/botones/Boton/Boton.svelte";
 export { default as BotonIcono }
 from "./elementos/botones/BotonIcono/BotonIcono.svelte";
 export { default as Enlace }
-from "./elementos/enlaces/enlace.svelte";
+from "./elementos/enlaces/Enlace/Enlace.svelte";
 export { default as Imagen }
 from "./elementos/media/Imagen/Imagen.svelte";
 export { default as Video }
