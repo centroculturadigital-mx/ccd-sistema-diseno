@@ -16,6 +16,7 @@ const tema = {
                 tipografia: estilos.tipografia.parrafo.fuente,
                 tamanno: estilos.tipografia.parrafo.tamanno,
                 color: variables.colores.texto.oscuro,
+                colorNeutro: variables.colores.texto.neutro,
                 enlace: variables.colores.texto.claro,
                 peso: estilos.tipografia.parrafo.peso,
             },

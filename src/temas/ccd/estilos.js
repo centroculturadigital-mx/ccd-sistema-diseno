@@ -15,7 +15,7 @@ const estilos = {
         titulo: {
             fuente: variables.tipografia.fuentes.titulo.nombre,
             peso: variables.tipografia.fuentes.titulo.negrita,
-            h1: {
+            h1: { 
                 tamanno: variables.tipografia.tamannos.xxxl,
             },
             h2: {
@@ -46,7 +46,7 @@ const estilos = {
                 color: variables.colores.texto.oscuro,
                 hover: variables.colores.primario.base,
                 fuente: variables.tipografia.fuentes.secundaria.nombre,
-                tamanno: variables.tipografia.tamannos.md,
+                tamanno: variables.tipografia.tamannos.md, 
                 peso: variables.tipografia.fuentes.principal.regular
             }
         },

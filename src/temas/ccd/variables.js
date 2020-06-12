@@ -5,6 +5,7 @@ const variables = {
             claro: '#FFF',
             oscuro: '#282230',
             transparente: "transparent",
+            neutro: "#666666",
         },
         fondo: {
             base: "#CDCCFF",
@@ -94,7 +95,7 @@ const variables = {
                 negrita: 700,
                 grueso: 900
             },
-            secundaria: {
+            secundaria: { 
                 nombre: "Ubuntu",
                 regular: 400,
                 ligero: 300,
