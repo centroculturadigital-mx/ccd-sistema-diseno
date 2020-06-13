@@ -54,3 +54,28 @@ export const tarjetaHorizontalChica = () => ({
         }
     }
 });
+export const tarjetaHorizontalSubtitulo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaHorizontal,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            nivelTitulo: 'h3',
+        }
+    }
+});
+export const tarjetaHorizontalLeyenda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaHorizontal,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            leyenda: "Fechas",
+            nivelTitulo: 'h3',
+        }
+    }
+});

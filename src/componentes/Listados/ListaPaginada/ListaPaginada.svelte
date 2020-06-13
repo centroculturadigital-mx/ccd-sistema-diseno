@@ -6,7 +6,6 @@
   export let elementosPagina=10;
   $: elementosPaginaNum = parseInt(elementosPagina);
   
-
   export let pagina;
   export let seleccionar;
   let paginaSeleccionada=0;
