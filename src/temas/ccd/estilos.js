@@ -83,6 +83,11 @@ const estilos = {
         aviso: variables.colores.alerta.aviso,
         alerta: variables.colores.alerta.alerta,
         accion: variables.colores.alerta.accion,
+    },
+
+    bordes: {
+        neutro: variables.colores.borde.neutro,
+        oscuro: variables.colores.borde.oscuro,
     }
 };
 

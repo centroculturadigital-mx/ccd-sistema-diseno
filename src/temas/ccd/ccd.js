@@ -201,6 +201,10 @@ const tema = {
             xl: variables.tamannos.xl,
             xxl: variables.tamannos.xxl,
             xxxl: variables.tamannos.xxxl,
+        },
+        bordes: {
+            neutro: variables.colores.borde.neutro,
+            oscuro: variables.colores.borde.oscuro,
         }
     },
     fontFamilies: {
