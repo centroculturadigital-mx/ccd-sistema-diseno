@@ -13,6 +13,8 @@ export { default as MenuEscritorio }
 from "./elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
 export { default as MenuMovil }
 from "./elementos/menu/MenuMovil/MenuMovil.svelte";
+export { default as MenuLocal }
+from "./elementos/menu/MenuLocal/MenuLocal.svelte";
 export { default as Titulo }
 from "./elementos/texto/Titulo/Titulo.svelte";
 export { default as Texto }
