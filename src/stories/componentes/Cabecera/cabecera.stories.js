@@ -55,7 +55,7 @@ export const cabeceraLogo = () => ({
     props: {
         componente: Cabecera,
         datos: {
-            objetosMenu: rutas,
+            elementos: rutas,
             logotipos: logo,
         }
     }
@@ -65,7 +65,7 @@ export const cabeceraLogos = () => ({
     props: {
         componente: Cabecera,
         datos: {
-            objetosMenu: rutas,
+            elementos: rutas,
             logotipos: logos,
         }
     }
@@ -76,7 +76,7 @@ export const cabeceraSombra = () => ({
     props: {
         componente: Cabecera,
         datos: {
-            objetosMenu: rutas,
+            elementos: rutas,
             logotipos: logo,
             sombra: true,
         }
@@ -87,7 +87,7 @@ export const cabeceraFixed = () => ({
     props: {
         componente: Cabecera,
         datos: {
-            objetosMenu: rutas,
+            elementos: rutas,
             logotipos: logo,
             sombra: true,
             fixed: true,

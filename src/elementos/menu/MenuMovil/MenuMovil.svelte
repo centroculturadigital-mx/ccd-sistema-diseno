@@ -2,15 +2,13 @@
   import { slide } from "svelte/transition";
 
   export let segment;
-  export let estadoMenu;
-  export let objetosMenu;
-  export let objetosMenuExtra;
+  export let estado;
+  export let elementos;
   export let sombra;
-
 </script>
 
 <style>
-  ul {
+  nav {
     height: auto;
     margin: 0;
     padding: 1rem 4rem;
@@ -22,6 +20,10 @@
     box-sizing: border-box;
     background-color: var(--theme-cabeceras-principal-fondo);
   }
+  ul {
+    height: auto;
+    margin: 0;
+    }
   li {
     padding: 0.5rem;
     display: flex;
@@ -43,32 +45,21 @@
     width: 100%;
   }
   .sombra {
-    box-shadow: 0px 4px 3px rgba(0,0,0,0.5);
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
   }
 </style>
 
-{#if estadoMenu === true}
-  <ul
-    class={!!sombra ? 'sombra' : ''}
-    transition:slide>
+{#if estado === true}
+  <nav class={!!sombra ? 'sombra' : ''} transition:slide>
+    <ul>
 
-    {#each objetosMenu as objeto, i}
-      <li>
-        <a class:selected={segment === objeto.ruta} href={objeto.ruta}>
-          {objeto.label}
-        </a>
-      </li>
-    {/each}
-    {#if !!objetosMenuExtra}
-      <hr />
-      {#each objetosMenuExtra as objeto, i}
+      {#each elementos as elemento, i ('elemento_' + i)}
         <li>
-          <a class:selected={segment === objeto.ruta} href={objeto.ruta}>
-            {objeto.label}
+          <a class:selected={segment === elemento.ruta} href={elemento.ruta}>
+            {elemento.label}
           </a>
         </li>
       {/each}
-    {/if}
-
-  </ul>
+    </ul>
+  </nav>
 {/if}

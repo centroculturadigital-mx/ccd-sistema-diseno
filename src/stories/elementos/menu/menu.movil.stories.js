@@ -30,8 +30,8 @@ export const menuMovilAbierto = () => ({
     props: {
         componente: MenuMovil,
         datos: {
-            estadoMenu: true,
-            objetosMenu: rutas,
+            estado: true,
+            elementos: rutas,
         }
     }
 });
@@ -40,8 +40,8 @@ export const menuMovilSombra = () => ({
     props: {
         componente: MenuMovil,
         datos: {
-            estadoMenu: true,
-            objetosMenu: rutas,
+            estado: true,
+            elementos: rutas,
             sombra: true
         }
     }
@@ -51,8 +51,8 @@ export const menuMovilCerrado = () => ({
     props: {
         componente: MenuMovil,
         datos: {
-            estadoMenu: false,
-            objetosMenu: rutas,
+            estado: false,
+            elementos: rutas,
         }
     }
 });
@@ -61,8 +61,8 @@ export const menuMovilVacio = () => ({
     props: {
         componente: MenuMovil,
         datos: {
-            estadoMenu: true,
-            objetosMenu: [],
+            estado: true,
+            elementos: [],
         }
     }
 });

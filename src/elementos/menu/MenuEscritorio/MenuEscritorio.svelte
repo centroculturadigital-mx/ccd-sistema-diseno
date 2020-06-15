@@ -1,6 +1,6 @@
 <script>
   export let segment;
-  export let objetosMenu;
+  export let elementos;
 </script>
 
 <style>
@@ -37,14 +37,16 @@
   }
 </style>
 
-<ul>
+<nav>
+  <ul>
 
-  {#each objetosMenu as objeto}
-    <li>
-      <a class:selected={segment === objeto.ruta} href={objeto.ruta}>
-        {objeto.label}
-      </a>
-    </li>
-  {/each}
+    {#each elementos as elemento}
+      <li>
+        <a class:selected={segment === elemento.ruta} href={elemento.ruta}>
+          {elemento.label}
+        </a>
+      </li>
+    {/each}
 
-</ul>
+  </ul>
+</nav>

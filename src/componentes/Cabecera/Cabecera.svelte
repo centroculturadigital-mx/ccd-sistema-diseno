@@ -8,19 +8,18 @@
 
   export let segment;
   export let logotipos;
-  export let objetosMenu;
-  export let objetosMenuExtra;
+  export let elementos;
   export let fixed;
   export let sombra;
-  export let estadoMenu;
+  export let estado;
 
   $: clases = `Cabecera ${!!fixed ? "fixed" : ""}`;
 
   let responsivo;
   let breakpoint = 1024;
 
-  const menuAlterna = () => {
-    estadoMenu = !estadoMenu;
+  const menuAlternar = () => {
+    estado = !estado;
   };
 </script>
 
@@ -71,23 +70,22 @@
 
     <!-- Menu Escritorio  -->
     {#if responsivo < breakpoint}
-      {#if !!objetosMenu}
-        <Icono on:click={menuAlterna} icono={!estadoMenu ? 'menu' : 'cerrar'} />
+      {#if !!elementos}
+        <Icono on:click={menuAlternar} icono={!estado ? 'menu' : 'cerrar'} />
       {/if}
-    {:else if !!objetosMenu}
-      <MenuEscritorio {objetosMenu} {segment} />
+    {:else if !!elementos}
+      <MenuEscritorio {elementos} {segment} />
     {/if}
 
   </div>
 
   <!-- Menu Movil  -->
   {#if responsivo < breakpoint}
-    {#if !!objetosMenu}
+    {#if !!elementos}
       <MenuMovil
         on:eventoEstadoMenu
-        {estadoMenu}
-        {objetosMenu}
-        {objetosMenuExtra}
+        {estado}
+        {elementos}
         {sombra}
         {segment} />
     {/if}

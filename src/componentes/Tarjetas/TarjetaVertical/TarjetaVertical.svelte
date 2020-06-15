@@ -38,7 +38,7 @@
       calc(var(--theme-espaciados-padding) * 2);
     width: 100%;
   }
-  .tarjeta-boton {
+  .Boton {
     display: flex;
     justify-content: center;
     width: 100%;

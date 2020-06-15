@@ -31,7 +31,7 @@ export const menuEscritorioDefault = () => ({
     props: {
         componente: MenuEscritorio,
         datos: {
-            objetosMenu: rutas,
+            elementos: rutas,
         }
     }
 });
