@@ -17,6 +17,7 @@ const variables = {
             claro: "#FFF",
             oscuro: "#212121",
             transparente: "transparent",
+            neutro: "#AAAAAA",
         },
         primario: {
             base: "#F36957",
