@@ -1,6 +1,6 @@
 <script>
   import Icono from "../../../elementos/Icono/Icono";
-  import ReaccionesLista from "";
+//   import ReaccionesLista from "";
 
   export let reacciones = [
     {
