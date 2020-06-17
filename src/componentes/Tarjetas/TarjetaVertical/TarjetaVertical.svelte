@@ -2,6 +2,7 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
+  import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
@@ -11,8 +12,9 @@
   export let subtitulo;
   export let texto;
   export let sombra;
-  export let enlaces = [];
   export let leyenda;
+  export let enlaces = [];
+  export let acciones = [];
 </script>
 
 <style>
@@ -32,18 +34,22 @@
     width: 100%;
     height: 10rem;
   }
-  .Textos {
+  .Contenido {
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding)
       calc(var(--theme-espaciados-padding) * 2);
     width: 100%;
   }
-  .Boton {
+  .Acciones {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
-    margin-top: calc(var(--theme-espaciados-margen) * 4);
-    margin-bottom: calc(var(--theme-espaciados-margen) * 2);
+    /* margin-top: var(--theme-espaciados-margen);
+    margin-bottom: var(--theme-espaciados-margen); */
+  }
+  .Acciones :global(button) {
+    border: none;
+    padding: var(--theme-espaciados-padding);
   }
   .sombra {
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
@@ -53,13 +59,16 @@
   }
   .Leyenda :global(h5) {
     text-align: center;
-    margin: 0.5rem 0
+    margin: 0.5rem 0;
   }
   .Leyenda :global(h5 span) {
-    color: #AAA;
+    color: #aaa;
     font-weight: 100;
     font-size: 0.75rem;
     text-align: center;
+  }
+  hr {
+    border-color: lightgray;
   }
 </style>
 
@@ -69,14 +78,14 @@
     <Imagen {imagen} alt={titulo} ajuste="cover" />
   </div>
 
-  <div class="Textos">
+  <div class="Contenido">
 
     {#if !!titulo}
       <Titulo texto={titulo} nivel={nivelTitulo} />
     {/if}
     {#if !!subtitulo}
       <div class="Subtitulo">
-      <Titulo texto={subtitulo} nivel={4} />
+        <Titulo texto={subtitulo} nivel={4} />
       </div>
     {/if}
     {#if !!leyenda}
@@ -88,10 +97,19 @@
       <Parrafo {texto} />
     {/if}
 
-    <div class="Boton">
-      <Boton on:click radius="15px" texto="Ver más" />
-    </div>
-
+    {#if Array.isArray(acciones) && acciones.length > 0}
+      <footer>
+      <hr>
+        <div class="Acciones">
+          {#each acciones as accion, i ('enlace_' + i)}
+            <BotonSecundario
+              click={accion.accion}
+              radius="15px"
+              texto={accion.texto} />
+          {/each}
+        </div>
+      </footer>
+    {/if}
   </div>
 
 </article>
