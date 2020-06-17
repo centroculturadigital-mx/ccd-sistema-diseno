@@ -14,15 +14,6 @@
 </script>
 
 <style>
-  .ChatEntrada {
-    display: flex;
-    padding: var(--theme-espaciados-padding);
-    box-sizing: border-box;
-    background-color: var(--theme-tarjetas-fondo);
-    border-top-width: thin;
-    border-top-color:var(--theme-bordes-neutro); 
-    border-top-style: solid;
-  }
   input {
     padding: calc(var(--theme-espaciados-padding) * 1);
     background-color: var(--theme-colores-fondo-transparente);
@@ -33,14 +24,22 @@
     margin: 0;
     width: 100%;
   }
-
-    .ChatEntrada :global(button) {
+  .ChatEntrada {
+    display: flex;
+    padding: var(--theme-espaciados-padding);
+    box-sizing: border-box;
+    background-color: var(--theme-tarjetas-fondo);
+    border-top-width: thin;
+    border-top-color:var(--theme-bordes-neutro); 
+    border-top-style: solid;
+  } 
+  .ChatEntrada :global(button) {
       background-color: var(--theme-colores-fondo-transparente);
     }
 
-    .ChatEntrada :global(.iconoContenedor button img) {
-    height:var(--theme-tamannos-xs);
-    color: red !important;
+  .ChatEntrada :global(.iconoContenedor img) {
+    height: var(--theme-tamannos-lg);
+    color: var(--theme-textos-parrafo-colorNeutro); 
 }
 
 </style>

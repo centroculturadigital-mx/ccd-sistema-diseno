@@ -159,7 +159,7 @@ const tema = {
         cabeceras: {
             principal: {
                 fondo: estilos.cabecera.principal.fondo,
-                altura: estilos.cabecera.principal.altura
+                altura: estilos.cabecera.principal.altura,
             }
         },
         pies: {
@@ -185,7 +185,7 @@ const tema = {
             },
             borde: {
                 color: estilos.pestannas.borde,
-                hover: estilos.pestannas.bordeHover
+                hover: estilos.pestannas.bordeHover,
             }
         },
         transiciones: {
@@ -201,12 +201,17 @@ const tema = {
             xl: variables.tamannos.xl,
             xxl: variables.tamannos.xxl,
             xxxl: variables.tamannos.xxxl,
-        }
+        },
+
+        bordes: {
+            neutro: variables.colores.borde.neutro,
+            oscuro: variables.colores.borde.oscuro,
+        },
     },
     fontFamilies: {
         principal: variables.tipografia.familias.principal,
         secundaria: variables.tipografia.familias.secundaria,
-        complementaria: variables.tipografia.familias.complementaria
+        complementaria: variables.tipografia.familias.complementaria,
     }
 };
 
