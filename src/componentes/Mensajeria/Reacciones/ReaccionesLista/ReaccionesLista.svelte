@@ -13,14 +13,15 @@
 <style>
 .ReaccionesLista {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: var(--theme-tarjetas-fondo);
+    top: 2rem;
+    right: 0rem;
     list-style-type: none;
     display: flex;
     justify-content: flex-start;
+    background-color: var(--theme-tarjetas-fondo);
     padding: var(--theme-espaciados-padding);
     margin: 0;
+    box-sizing: border-box;
 }
 li {
     margin: 0 var(--theme-espaciados-margen);
@@ -28,6 +29,9 @@ li {
 li :global(img) {
    height: 1.5rem;
    width: 1.5rem;
+}
+li:hover {
+    opacity: 0.75;
 }
 
 </style>

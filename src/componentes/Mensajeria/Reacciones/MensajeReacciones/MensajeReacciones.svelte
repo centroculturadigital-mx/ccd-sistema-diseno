@@ -1,10 +1,13 @@
 <script>
+  import Icono from "../../../../elementos/Icono/Icono";
 
-
-export let reacciones = []
+  export let reacciones = [];
 </script>
 
-
-{#each reacciones as reaccions, i ('reaccion_' + i)}
-Hola soy mensaje reacciones
-{/each}
+<ul>
+  {#each reacciones as reaccion, i ('reaccion_' + i)}
+    <li>
+      <span><Icono/>&nbsp;{reacciones.usuarios.length}<span>
+    </li>
+  {/each}
+</ul>
