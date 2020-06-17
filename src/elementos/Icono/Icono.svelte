@@ -19,6 +19,7 @@
   import abajo from "./iconos/flecha.abajo.svg";
   import enviar from "./iconos/enviar.svg";
   import feliz from "./iconos/feliz.svg";
+  import reaccion from "./iconos/reaccion.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -43,7 +44,8 @@
     derecha,
     abajo,
     enviar,
-    feliz
+    feliz,
+    reaccion,
   };
 
   $: iconoMostrar = iconos[icono];
