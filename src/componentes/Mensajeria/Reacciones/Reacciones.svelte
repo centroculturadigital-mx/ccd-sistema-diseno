@@ -1,26 +1,26 @@
 <script>
   import Icono from "../../../elementos/Icono/Icono";
-//   import ReaccionesLista from "";
+  import ReaccionesLista from "./ReaccionesLista/ReaccionesLista";
 
-  export let reacciones = [
-    {
-      id: "id0",
-      nombre: "me-gusta",
-      texto: "Me Gusta",
-      icono: ""
-    }
-  ];
-  export let accion = e => console.log(e);
+  export let reacciones = [];
+
+  let estado = false;
+
+  let accion = () => {
+    estado ? (estado = false) : "";//forza estado
+    estado = !estado;
+  };
 </script>
 
 <style>
   .Reacciones {
+    position: relative;
     height: auto;
     width: auto;
   }
 </style>
 
 <div class="Reacciones">
-  <Icono icono={'reaccion'} on:click={accion}/>
-  <!-- <ReaccionesLista {reacciones}/> -->
+  <Icono icono={'reaccion'} on:click={accion} />
+  <ReaccionesLista {reacciones} {estado} />
 </div>

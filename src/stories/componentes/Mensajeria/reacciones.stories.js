@@ -1,17 +1,36 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Reacciones from '../../../componentes/Mensajeria/Reacciones/Reacciones.svelte';
 
-// import imagen from '../../../data/recursos/placeholder.png';
-// import avatar from '../../../data/recursos/avatar.png';
-
 export default { title: "Componentes/Mensajeria/Reacciones" }
 
-export const chatDefault = () => ({
+let reacciones = [{
+    id: "id0",
+    nombre: "me-gusta",
+    texto: "Me Gusta",
+    icono: "feliz"
+}, {
+    id: "id1",
+    nombre: "me-gusta",
+    texto: "Me Gusta",
+    icono: "feliz"
+}, {
+    id: "id2",
+    nombre: "me-gusta",
+    texto: "Me Gusta",
+    icono: "feliz"
+}, {
+    id: "id3",
+    nombre: "me-gusta",
+    texto: "Me Gusta",
+    icono: "feliz"
+}]
+
+export const reaccionesDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: Reacciones,
         datos: {
-
+            reacciones
         }
     }
 });
