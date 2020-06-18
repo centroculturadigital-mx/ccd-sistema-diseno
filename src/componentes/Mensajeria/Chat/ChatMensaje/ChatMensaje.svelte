@@ -51,9 +51,9 @@
   </div>
   <div>
     <div class="Texto">
-    <a href={usuario.enlace}>
-      <Texto texto={usuario.nombre}/>
-    </a>
+      <a href={usuario.enlace}>
+        <Texto texto={usuario.nombre}/>
+      </a>
 
       <Texto texto={mensajeTexto}/>
     </div>
