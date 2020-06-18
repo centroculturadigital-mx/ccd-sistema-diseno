@@ -13,7 +13,8 @@ const mensajes = new Array(100).fill(true).map((e, i) => ({
     usuario: {
         id: "abc",
         nombre: "Nombre usuario",
-        imagen: avatar
+        imagen: avatar,
+        enlace: "/usuarios/nombre-usuario"
     },
     mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
 }));

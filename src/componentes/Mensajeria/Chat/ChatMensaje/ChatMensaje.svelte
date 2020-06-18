@@ -51,7 +51,7 @@
   </div>
   <div>
     <div class="Texto">
-    <a href={`/usuarios/${usuario.id}`}>
+    <a href={usuario.enlace}>
       <Texto texto={usuario.nombre}/>
     </a>
 

@@ -11,7 +11,8 @@ const mensaje = {
     usuario: {
         id: "abc",
         nombre: "Nombre usuario",
-        imagen: avatar
+        imagen: avatar,
+        enlace: "/usuarios/nombre-usuario"
     },
     mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
 }
