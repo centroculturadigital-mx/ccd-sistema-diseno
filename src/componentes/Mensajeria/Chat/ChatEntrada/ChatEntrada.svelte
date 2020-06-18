@@ -1,9 +1,12 @@
 <script>
+  import getEventsAction from "../../../../funciones/getEventsAction";
+
   import Formulario from "../../../formularios/Formulario/Formulario";
   import BotonIcono from "../../../../elementos/botones/BotonIcono/BotonIcono";
 
-  export let enviar;
-
+  export let enviar = () => console.log("enviado");
+  export let enfocar = () => console.log("enfocado");
+  
   let mensaje = "";
 
   const enviarMensaje = () => {
@@ -11,6 +14,8 @@
       enviar(mensaje);
     }
   };
+
+  const eventos = getEventsAction();
 </script>
 
 <style>
@@ -30,21 +35,27 @@
     box-sizing: border-box;
     background-color: var(--theme-tarjetas-fondo);
     border-top-width: thin;
-    border-top-color:var(--theme-bordes-neutro); 
+    border-top-color: var(--theme-bordes-neutro);
     border-top-style: solid;
-  } 
+  }
   .ChatEntrada :global(button) {
-      background-color: var(--theme-colores-fondo-transparente);
-    }
+    background-color: var(--theme-colores-fondo-transparente);
+  }
 
   .ChatEntrada :global(.iconoContenedor img) {
     height: var(--theme-tamannos-lg);
-    color: var(--theme-textos-parrafo-colorNeutro); 
-}
-
+    color: var(--theme-textos-parrafo-colorNeutro);
+  }
 </style>
 
 <div class="ChatEntrada">
-  <input type="text" bind:value={mensaje} placeholder="Enviar mensaje"/>
-  <BotonIcono icono={'feliz'} on:click={enviarMensaje}/>
+  <input
+    type="text"
+    bind:value={mensaje}
+    placeholder="Enviar mensaje"
+    use:eventos
+    on:focus={enfocar} 
+    />
+
+  <BotonIcono icono={'enviar'} on:click={enviarMensaje} />
 </div>
