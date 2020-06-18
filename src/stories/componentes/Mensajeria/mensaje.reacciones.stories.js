@@ -36,7 +36,8 @@ let reacciones = [{
         },
         {
             id: "id3"
-        } {
+        },
+        {
             id: "id4"
         }
     ]
