@@ -5,7 +5,7 @@ export default { title: "Componentes/Mensajeria/MensajeReacciones" }
 
 let reaccion = [{
     id: "id0",
-    icono: "feliz",
+    imagen: "https://placeimg.com/32/32/reactions",
     usuarios: [{
             id: "id1"
         },
@@ -17,7 +17,7 @@ let reaccion = [{
 
 let reacciones = [{
     id: "id0",
-    icono: "feliz",
+    imagen: "https://placeimg.com/32/32/reactions",
     usuarios: [{
             id: "id1"
         },
@@ -27,7 +27,7 @@ let reacciones = [{
     ]
 }, {
     id: "id0",
-    icono: "triste",
+    imagen: "https://placeimg.com/32/32/reactions",
     usuarios: [{ //cantidad de usuarios que reaccionaron 
             id: "id1"
         },

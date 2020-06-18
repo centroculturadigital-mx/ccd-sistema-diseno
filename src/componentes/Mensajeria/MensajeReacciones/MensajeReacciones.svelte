@@ -4,12 +4,14 @@
 
   export let reacciones = [];
 
+
+
 </script>
 
 <ul>
   {#each reacciones as reaccion, i ('reaccion_' + i)}
     <li>
-      <Imagen/><span>{reacciones.usuarios.length}<span>
+      <Imagen imagen={reaccion.imagen}/><span>{reaccion.usuarios.length}<span>
     </li>
   {/each}
 </ul>
