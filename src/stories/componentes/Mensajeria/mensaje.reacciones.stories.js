@@ -1,5 +1,5 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import MensajeReacciones from '../../../componentes/Mensajeria/Reacciones/MensajeReacciones/MensajeReacciones.svelte';
+import MensajeReacciones from '../../../componentes/Mensajeria/MensajeReacciones/MensajeReacciones.svelte';
 
 export default { title: "Componentes/Mensajeria/MensajeReacciones" }
 

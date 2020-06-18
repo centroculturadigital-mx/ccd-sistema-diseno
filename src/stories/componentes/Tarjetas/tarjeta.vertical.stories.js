@@ -1,6 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import TarjetaVertical from "../../../componentes/Tarjetas/TarjetaVertical/TarjetaVertical.svelte";
-import imagenEjemplo from '../../../../public/placeholder.jpg';
+
+import imagenEjemplo from '../../../data/recursos/placeholder.png';
 
 export default { title: "Componentes/Tarjetas/Tarjeta Vertical" }
 

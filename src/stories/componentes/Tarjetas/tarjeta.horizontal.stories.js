@@ -1,6 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import TarjetaHorizontal from "../../../componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal.svelte";
-import imagenEjemplo from '../../../../public/placeholder.jpg';
+
+import imagenEjemplo from '../../../data/recursos/placeholder.png';
 
 export default { title: "Componentes/Tarjetas/Tarjeta Horizontal" }
 
