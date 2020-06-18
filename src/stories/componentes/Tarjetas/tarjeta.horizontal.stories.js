@@ -1,8 +1,26 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import TarjetaHorizontal from "../../../componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal.svelte";
-import imagenEjemplo from '../../../../public/placeholder.jpg';
+
+import imagenEjemplo from '../../../data/recursos/placeholder.png';
 
 export default { title: "Componentes/Tarjetas/Tarjeta Horizontal" }
+
+let acciones = [{
+        texto: "Guardar",
+        accion: () => console.log("Guardado"),
+        //boton: "primario" // default. este campo es opcional
+    },
+    {
+        texto: "Eliminar",
+        accion: () => confirm("Eliminar"),
+        boton: "peligro"
+    },
+    {
+        texto: "Aceptar",
+        accion: () => confirm("Aceptar"),
+        boton: "aceptar"
+    }
+];
 
 export const tarjetaHorizontalDefault = () => ({
     Component: ThemeTester,
@@ -28,7 +46,38 @@ export const tarjetaHorizontalTamanoTitulo = () => ({
         }
     }
 });
-
+export const tarjetaHorizontalAccion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaHorizontal,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            leyenda: "Fechas",
+            nivelTitulo: 'h3',
+            acciones: [{
+                texto: "Guardar",
+                accion: () => console.log("Guardado"),
+                //boton: "primario" // default. este campo es opcional
+            }],
+        }
+    }
+});
+export const tarjetaHorizontalAcciones = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaHorizontal,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            leyenda: "Fechas",
+            nivelTitulo: 'h3',
+            acciones,
+        }
+    }
+});
 export const tarjetaHorizontalSombra = () => ({
     Component: ThemeTester,
     props: {
