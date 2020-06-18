@@ -13,7 +13,7 @@ const mensaje = {
         nombre: "Nombre usuario",
         imagen: avatar
     },
-    texto: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+    mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
 }
 
 export const chatMensajeDefault = () => ({

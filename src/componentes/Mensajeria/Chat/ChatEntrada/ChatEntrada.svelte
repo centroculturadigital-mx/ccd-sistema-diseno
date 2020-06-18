@@ -6,10 +6,30 @@
 
   export let enviar = () => console.log("enviado");
   export let enfocar = () => console.log("enfocar");
+  export let numMaxCaracteres = 140;
+
+  const contieneSoloEspacios = (str) => !str.replace(/\s/g, '').length;
   
+  const excedeExtension = (str) => str.length > 140;
+
   let mensaje = "";
 
   const enviarMensaje = () => {
+
+    if(contieneSoloEspacios(mensaje)) {
+
+      alert("No puedes mandar un mensaje vacío");
+      
+      return 
+    };
+
+    if(excedeExtension(mensaje)) {
+
+      alert("No puedes mandar un mensaje mayor a " + numMaxCaracteres);
+      
+      return 
+    };
+
     if (typeof enviar == "function") {
       enviar(mensaje);
     }
@@ -55,8 +75,7 @@
     bind:value={mensaje}
     placeholder="Enviar mensaje"
     use:eventos
-    on:focus={enfocar} 
-    />
+    on:focus={enfocar} />
 
   <BotonIcono icono={'enviar'} on:click={enviarMensaje} />
 </div>
