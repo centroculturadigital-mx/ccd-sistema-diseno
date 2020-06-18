@@ -9,12 +9,10 @@
   $: Array.isArray(mensajes) && mensajes.length > 0 ? console.log("ultimo mensaje", mensajes[0].mensaje) : null
   
 
-  let mensaje = "";
 
   const enviarAccion = () => {
     if (mensaje && typeof enviar == "function") {
       enviar(mensaje);
-      mensaje = "";
     }
   };
 </script>

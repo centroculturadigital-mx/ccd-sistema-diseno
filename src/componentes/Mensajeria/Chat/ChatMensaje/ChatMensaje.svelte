@@ -7,6 +7,9 @@
   export let mensaje;
   export let objeto;
 
+  $: console.log("nm", mensaje);
+  
+
   const { usuario, mensaje: mensajeTexto, fechaCreacion } = mensaje;
 </script>
 
