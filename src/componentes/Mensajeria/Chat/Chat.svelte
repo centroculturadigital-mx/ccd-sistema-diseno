@@ -48,7 +48,7 @@
   <section class="ChatMensajes">
 
     {#if !!mensajes}
-      {#each mensajes as mensaje}
+      {#each mensajes as mensaje,i ("mensaje"+i)}
         <ChatMensaje {mensaje} />
       {/each}
     {/if}
