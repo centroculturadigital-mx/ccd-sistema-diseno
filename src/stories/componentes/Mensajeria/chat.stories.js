@@ -9,13 +9,14 @@ import avatar from '../../../data/recursos/avatar.png';
 
 export default { title: "Componentes/Mensajeria/Chat" }
 
-const mensajes = new Array(6).fill(true).map((e, i) => ({
+const mensajes = new Array(100).fill(true).map((e, i) => ({
     usuario: {
         id: "abc",
         nombre: "Nombre usuario",
-        imagen: avatar
+        imagen: avatar,
+        enlace: "/usuarios/nombre-usuario"
     },
-    texto: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+    mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
 }));
 
 export const chatDefault = () => ({

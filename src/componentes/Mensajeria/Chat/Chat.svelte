@@ -14,22 +14,26 @@
       mensaje = "";
     }
   };
-
 </script>
 
 <style>
   .Chat {
+    display: flex;
+    flex-direction: column;
     background-color: var(--theme-colores-fondo);
     /*padding: calc(var(--theme-espaciados-padding) * 2);*/
     border-width: 0.05rem;
     border-color: var(--theme-bordes-neutro);
     border-style: solid;
     border-radius: 0.2rem;
-    height: auto;
-    width: 30rem;
+    height: 100%;
+    width: 100%;
   }
   .ChatMensajes {
     padding: var(--theme-espaciados-padding);
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
   /*hr {
     border-color: lightgray;
@@ -47,7 +51,7 @@
     {/if}
   </section>
   <section class="ChatEnviar">
-    <ChatEntrada {enviar} {enfocar}  />
+    <ChatEntrada {enviar} {enfocar} />
   </section>
 
 </section>

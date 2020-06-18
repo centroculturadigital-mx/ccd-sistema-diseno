@@ -7,7 +7,7 @@
   export let mensaje;
   export let objeto;
 
-  const { usuario, texto, fechaCreacion } = mensaje;
+  const { usuario, mensaje: mensajeTexto, fechaCreacion } = mensaje;
 </script>
 
 <style>
@@ -51,11 +51,11 @@
   </div>
   <div>
     <div class="Texto">
-    <a href={`/usuarios/${usuario.id}`}>
+    <a href={usuario.enlace}>
       <Texto texto={usuario.nombre}/>
     </a>
 
-      <Texto {texto}/>
+      <Texto texto={mensajeTexto}/>
     </div>
     {#if  !!objeto}
       <div class="ChatMensajeObjeto">

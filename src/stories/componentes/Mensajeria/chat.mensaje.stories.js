@@ -11,9 +11,10 @@ const mensaje = {
     usuario: {
         id: "abc",
         nombre: "Nombre usuario",
-        imagen: avatar
+        imagen: avatar,
+        enlace: "/usuarios/nombre-usuario"
     },
-    texto: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+    mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
 }
 
 export const chatMensajeDefault = () => ({
