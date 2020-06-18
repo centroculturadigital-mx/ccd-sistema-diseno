@@ -6,6 +6,9 @@
   export let enviar = () => console.log("enviando");
   export let enfocar = () => console.log("enfocar");
 
+  $: mensajes ? console.log("ultimo mensaje", mensajes[0].mensaje) : null
+  
+
   let mensaje = "";
 
   const enviarAccion = () => {
