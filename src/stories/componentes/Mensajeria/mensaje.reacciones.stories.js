@@ -36,6 +36,8 @@ let reacciones = [{
         },
         {
             id: "id3"
+        } {
+            id: "id4"
         }
     ]
 }];
@@ -47,6 +49,16 @@ export const mensajeReaccionesDefault = () => ({
         componente: MensajeReacciones,
         datos: {
             reacciones: reaccion
+        }
+    }
+});
+
+export const mensajeReaccionesVarias = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: MensajeReacciones,
+        datos: {
+            reacciones
         }
     }
 });
