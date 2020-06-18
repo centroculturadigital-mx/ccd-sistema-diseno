@@ -2,6 +2,7 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
+  import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let imagen;
@@ -11,8 +12,9 @@
   export let texto;
   export let sombra;
   export let chica;
-  export let enlaces = [];
   export let leyenda;
+  export let enlaces = [];
+  export let acciones = [];
 
   $: nivelTituloMostrar = chica ? 5 : nivelTitulo ? nivelTitulo : 4;
 
@@ -36,7 +38,7 @@
     width: 50%;
     height: 21rem;
   }
-  .Textos {
+  .Texto {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -46,11 +48,18 @@
     padding: var(--theme-espaciados-padding)
       calc(var(--theme-espaciados-padding) * 2);
   }
-  .Boton {
+  .Acciones {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     width: 100%;
     margin-top: var(--theme-esapaciados-margen);
+  }
+  .Acciones :global(button) {
+    border: none;
+    padding: var(--theme-espaciados-padding);
+  }
+  .Acciones :global(button:hover) {
+    border: none;
   }
   .sombra {
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
@@ -74,6 +83,12 @@
     font-size: 0.75rem;
     text-align: center;
   }
+  footer {
+    width: 100%;
+  }
+  hr {
+    border-color: lightgray;
+  }
 </style>
 
 <article class={clases}>
@@ -82,7 +97,7 @@
     <Imagen {imagen} alt={titulo} ajuste="cover" />
   </div>
 
-  <div class="Textos">
+  <div class="Texto">
 
     {#if !!titulo}
       <Titulo texto={titulo} nivel={nivelTituloMostrar} />
@@ -100,9 +115,20 @@
     {#if !!texto}
       <Parrafo {texto} />
     {/if}
-    <div class="Boton">
-      <Boton on:click radius="15px" texto="Ver más" />
-    </div>
+
+    {#if Array.isArray(acciones) && acciones.length > 0}
+      <footer>
+        <hr />
+        <div class="Acciones">
+          {#each acciones as accion, i ('enlace_' + i)}
+            <BotonSecundario
+              click={accion.accion}
+              radius="15px"
+              texto={accion.texto} />
+          {/each}
+        </div>
+      </footer>
+    {/if}
 
   </div>
 

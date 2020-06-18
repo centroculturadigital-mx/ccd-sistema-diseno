@@ -3,15 +3,25 @@
   import ChatEntrada from "./ChatEntrada/ChatEntrada.svelte";
 
   export let mensajes = [];
-  export let enviar;
+  export let enviar = () => console.log("enviando");
+
+  let mensaje = "";
+
+  const enviarAccion = () => {
+    if (mensaje && typeof enviar == "function") {
+      enviar(mensaje);
+      mensaje = "";
+    }
+  };
+
 </script>
 
 <style>
   .Chat {
-    background-color: var(--theme-colores-fondo); 
+    background-color: var(--theme-colores-fondo);
     /*padding: calc(var(--theme-espaciados-padding) * 2);*/
     border-width: 0.05rem;
-    border-color:var(--theme-bordes-neutro); 
+    border-color: var(--theme-bordes-neutro);
     border-style: solid;
     border-radius: 0.2rem;
     height: auto;
