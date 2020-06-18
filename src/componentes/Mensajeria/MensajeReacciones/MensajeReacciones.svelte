@@ -62,18 +62,18 @@
 
 <ul class="MensajeReacciones">
   {#each reacciones as reaccion, i ('reaccion_' + i)}
-    <li on:click={listaUsuarios(i)} on:tap={listaUsuarios(i)}>
+    <li on:click|self={listaUsuarios(i)} on:tap={listaUsuarios(i)}>
       <Imagen imagen={reaccion.imagen} />
       <span>
         <Texto texto={reaccion.usuarios.length} />
-        {#if !!estadoLista}
+        <!-- {#if !!estadoLista}
           <div class="UsuariosLista">
             {#each reaccion.usuarios as usuario}
               <Texto texto={usuario.nombre + ", "} />
             {/each}
             <Texto texto={'Reaccionaron'} />
           </div>
-        {/if}
+        {/if} -->
       </span>
     </li>
   {/each}
