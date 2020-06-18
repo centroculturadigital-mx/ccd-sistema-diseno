@@ -4,6 +4,7 @@
 
   export let mensajes = [];
   export let enviar = () => console.log("enviando");
+  export let enfocar = () => console.log("enfocar");
 
   let mensaje = "";
 
@@ -46,7 +47,7 @@
     {/if}
   </section>
   <section class="ChatEnviar">
-    <ChatEntrada {enviar} />
+    <ChatEntrada {enviar} {enfocar}  />
   </section>
 
 </section>

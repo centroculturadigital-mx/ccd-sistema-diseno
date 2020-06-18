@@ -5,7 +5,7 @@
   import BotonIcono from "../../../../elementos/botones/BotonIcono/BotonIcono";
 
   export let enviar = () => console.log("enviado");
-  export let enfocar = () => console.log("enfocado");
+  export let enfocar = () => console.log("enfocar");
   
   let mensaje = "";
 
