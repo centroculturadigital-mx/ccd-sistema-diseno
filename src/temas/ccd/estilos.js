@@ -85,7 +85,7 @@ const estilos = {
         accion: variables.colores.alerta.accion,
     },
 
-    bordes: {
+    bordes: { 
         neutro: variables.colores.borde.neutro,
         oscuro: variables.colores.borde.oscuro,
     }

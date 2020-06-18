@@ -4,7 +4,7 @@ import estilos from './estilos';
 const tema = {
     name: 'CCD',
     properties: {
-        colores: {
+        colores: { 
             primario: estilos.colores.primario,
             secundario_a: estilos.colores.secundario_a,
             secundario_b: estilos.colores.secundario_b,
@@ -78,7 +78,7 @@ const tema = {
         },
         botones: {
             primario: {
-                fondo: variables.colores.texto.base,
+                fondo: variables.colores.primario.base,
                 color: variables.colores.texto.claro,
                 espacio: variables.espaciados.sm,
                 familia: estilos.tipografia.parrafo.fuente,
