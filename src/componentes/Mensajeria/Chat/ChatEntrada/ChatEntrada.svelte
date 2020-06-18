@@ -40,6 +40,7 @@
   }
   .ChatEntrada :global(button) {
     background-color: var(--theme-colores-fondo-transparente);
+    padding: 0;
   }
 
   .ChatEntrada :global(.iconoContenedor img) {
