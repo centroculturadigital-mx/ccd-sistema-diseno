@@ -8,7 +8,9 @@ const variables = {
             neutro: "#666666",
         },
         fondo: {
-            base: "#CDCCFF",
+            base: "#CCCCCC",
+            base2: "#AAAAAA",
+            base3: "#666666",
             claro: "#FFF",
             oscuro: "#212121",
             transparente: "transparent",
@@ -26,19 +28,19 @@ const variables = {
             oscuro: "#221042",
             transparente: "transparent",
         },
-        primario_2: {
+        primario2: {
             base: "#57C2BB",
             claro: "#8CF5ED",
             oscuro: "#15918B",
             transparente: "transparent",
         },
-        primario_3: {
+        primario13: {
             base: "#EAC00F",
             claro: "#FFF052",
             oscuro: "#B38E00",
             transparente: "transparent",
         },
-        primario_4: {
+        primario4: {
             base: "#EF4B48",
             claro: "#FF7F74",
             oscuro: "#B60220",
@@ -50,37 +52,37 @@ const variables = {
             oscuro: "#0049AF",
             transparente: "transparent",
         },
-        secundario_b: {
+        secundario1: {
             base: "#0A1699",
             claro: "#5540CB",
             oscuro: "#00006A",
             transparente: "transparent",
         },
-        secundario_3: {
+        secundario2: {
             base: "#F752A1",
             claro: "#FF87D3",
             oscuro: "#C00973",
             transparente: "transparent",
         },
-        secundario_4: {
+        secundario4: {
             base: "#ADD30F",
             claro: "#E1FF53",
             oscuro: "#B60220",
             transparente: "transparent",
         },
-        secundario_5: {
+        secundario5: {
             base: "#2371E2",
             claro: "#6BA1FF",
             oscuro: "#0049AF",
             transparente: "transparent",
         },
-        secundario_6: {
+        secundario6: {
             base: "#765ECC",
             claro: "#5540CB",
             oscuro: "#00006A",
             transparente: "transparent",
         },
-        secundario_7: {
+        secundario7: {
             base: "#20C9E0",
             claro: "#6EFDFF",
             oscuro: "#0099AE",
@@ -125,33 +127,41 @@ const variables = {
     },
     tipografia: {
         familias: {
-            principal: "https://fonts.googleapis.com/css2?family=Jost&display=swap",
-            secundaria: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap",
-            complementaria: "https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap"
+            principal: "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
+            secundaria: "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap",
+            complementaria: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap",
+            complementaria2: "https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap",
         },
         fuentes: {
             titulo: {
-                nombre: "Ubuntu",
+                nombre: "Roboto Condensed",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             principal: {
-                nombre: "Jost",
+                nombre: "Roboto",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             secundaria: { 
-                nombre: "Ubuntu",
+                nombre: "Roboto Condensed",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             complementaria: {
+                nombre: "Ubuntu",
+                regular: 400,
+                ligero: 300,
+                negrita: 700,
+                grueso: 900
+            },
+            complementaria2: { 
                 nombre: "Frank Ruhl Libre",
                 regular: 400,
                 ligero: 300,

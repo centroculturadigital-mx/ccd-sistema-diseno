@@ -3,12 +3,12 @@ import variables from './variables';
 const estilos = {
     tipografia: {
         parrafo: {
-            fuente: variables.tipografia.fuentes.secundaria.nombre,
+            fuente: variables.tipografia.fuentes.principal.nombre,
             tamanno: variables.tipografia.tamannos.md,
             peso: variables.tipografia.fuentes.principal.regular
         },
         citas: {
-            fuente: variables.tipografia.fuentes.secundaria.nombre,
+            fuente: variables.tipografia.fuentes.complementaria2.nombre,
             tamanno: variables.tipografia.tamannos.xxl,
 
         },
@@ -73,8 +73,8 @@ const estilos = {
     colores: {
         fondo: variables.colores.fondo.claro,
         primario: variables.colores.primario.base,
-        secundario_a: variables.colores.secundario_a.base,
-        secundario_b: variables.colores.secundario_b.base,
+        secundario1: variables.colores.secundario1.base,
+        secundario2: variables.colores.secundario2.base,
         complementario: variables.colores.complementario.base
     },
     alertas: {

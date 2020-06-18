@@ -6,8 +6,8 @@ const tema = {
     properties: {
         colores: { 
             primario: estilos.colores.primario,
-            secundario_a: estilos.colores.secundario_a,
-            secundario_b: estilos.colores.secundario_b,
+            secundario1: estilos.colores.secundario1,
+            secundario2: estilos.colores.secundario2,
             complementario: estilos.colores.complementario,
             fondo: estilos.colores.fondo
         },
@@ -16,7 +16,7 @@ const tema = {
                 tipografia: estilos.tipografia.parrafo.fuente,
                 tamanno: estilos.tipografia.parrafo.tamanno,
                 color: variables.colores.texto.oscuro,
-                colorNeutro: variables.colores.texto.neutro,
+                neutro: variables.colores.texto.neutro,
                 enlace: variables.colores.texto.claro,
                 peso: estilos.tipografia.parrafo.peso,
             },

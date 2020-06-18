@@ -44,7 +44,7 @@
 
   .ChatEntrada :global(.iconoContenedor img) {
     height: var(--theme-tamannos-lg);
-    color: var(--theme-textos-parrafo-colorNeutro);
+    color: var(--theme-textos-parrafo-neutro);
   }
 </style>
 
