@@ -36,6 +36,15 @@
   };
 
   const eventos = getEventsAction();
+
+  const enter = (e) => {
+      
+      if (e.keyCode == 13) {
+        enviar(mensaje);
+        e.target.value = '';
+      }
+
+  }
 </script>
 
 <style>
@@ -75,7 +84,8 @@
     bind:value={mensaje}
     placeholder="Enviar mensaje"
     use:eventos
-    on:focus={enfocar} />
+    on:focus={enfocar}
+    on:keyup={enter} />
 
   <BotonIcono icono={'enviar'} on:click={enviarMensaje} />
 </div>
