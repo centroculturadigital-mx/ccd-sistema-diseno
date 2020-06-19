@@ -8,6 +8,10 @@
 
   export let mensaje;
   export let objeto;
+
+
+  console.log("Reacciones", mensaje.reacciones );
+  
 </script>
 
 <style>
@@ -86,9 +90,7 @@
       </div>
     {/if}
 
-    {#if !!mensaje.reacciones.usuarios && Array.isArray(mensaje.reacciones.usuarios)}
       <MensajeReacciones reacciones={mensaje.reacciones} />
-    {/if}
 
   </div>
 </article>

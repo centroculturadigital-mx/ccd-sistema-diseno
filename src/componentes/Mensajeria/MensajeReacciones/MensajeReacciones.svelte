@@ -7,7 +7,7 @@
 
   let estadoLista = false;
 
-  const listaUsuarios = (i) => {
+  const listaUsuarios = i => {
     estadoLista = !estadoLista;
   };
 </script>
@@ -47,11 +47,13 @@
 
 <ul class="MensajeReacciones">
   {#each reacciones as reaccion, i ('reaccion_' + i)}
-    <li on:click|self={listaUsuarios(i)} on:tap={listaUsuarios(i)}>
-      <Imagen imagen={reaccion.imagen} />
-      <span>
-        <Texto texto={reaccion.usuarios.length} />
-      </span>
-    </li>
+    {#if Array.isArray(reaccion.usuarios) && reaccion.usuarios.length > 0}
+      <li on:click={listaUsuarios(i)} on:tap={listaUsuarios(i)}>
+        <Imagen imagen={reaccion.imagen} />
+        <span>
+          <Texto texto={reaccion.usuarios.length} />
+        </span>
+      </li>
+    {/if}
   {/each}
 </ul>
