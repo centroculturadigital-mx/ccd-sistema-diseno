@@ -43,8 +43,6 @@ export { default as Campo }
 from "./componentes/formularios/Campo/Campo.svelte";
 export { default as Formulario }
 from "./componentes/formularios/Formulario/Formulario.svelte";
-export { default as Header }
-from "./componentes/Header/Header.svelte";
 export { default as Cabecera }
 from "./componentes/Cabecera/Cabecera.svelte";
 export { default as Pie }
