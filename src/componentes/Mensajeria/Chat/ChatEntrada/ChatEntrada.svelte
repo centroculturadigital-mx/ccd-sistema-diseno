@@ -40,7 +40,7 @@
   const enter = (e) => {
       
       if (e.keyCode == 13) {
-        enviar(mensaje);
+        enviarMensaje();
         e.target.value = '';
       }
 
