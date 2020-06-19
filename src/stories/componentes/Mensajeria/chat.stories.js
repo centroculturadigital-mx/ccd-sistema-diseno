@@ -16,7 +16,7 @@ const mensajes = new Array(100).fill(true).map((e, i) => ({
         imagen: avatar,
         enlace: "/usuarios/nombre-usuario"
     },
-    mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+    mensaje: "Mensaje "+i+": Lorem ipsum dolor sit amet consectetur adipisicing.",
 }));
 
 export const chatDefault = () => ({
