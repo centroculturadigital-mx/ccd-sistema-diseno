@@ -47,14 +47,15 @@
     display: flex;
   }
   .Boton {
+    padding: var(--theme-espaciados-padding);
     display: flex;
     align-items: center;
     flex-shrink: 0;
   }
-  .Boton :global(img) {
+  .Boton :global(.Reacciones .iconoCOntenedor img) {
     padding: calc(var(--theme-espaciados-padding) / 2);
-    /* height:1.5rem;
-    width:1.5rem; */
+    height: 1rem;
+    width: 1rem;
     box-sizing: border-box;
   }
 </style>
@@ -85,7 +86,7 @@
       </div>
     {/if}
 
-    {#if !!mensaje.reacciones && Array.isArray(mensaje.reacciones)}
+    {#if !!mensaje.reacciones.usuarios && Array.isArray(mensaje.reacciones.usuarios)}
       <MensajeReacciones reacciones={mensaje.reacciones} />
     {/if}
 

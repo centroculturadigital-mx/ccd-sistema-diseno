@@ -10,10 +10,10 @@
   let accion = () => {
     estado = !estado;
   };
-  const reacciona = (i) => {
-      console.log("Reaccionaste",i);
-      estado = !estado
-  }
+  const reacciona = i => {
+    console.log("Reaccionaste", i);
+    estado = !estado;
+  };
 </script>
 
 <style>
@@ -58,7 +58,6 @@
 
 <div class="Reacciones">
   <Icono icono={'reaccion'} on:click={accion} />
-  <!-- <ReaccionesLista {reacciones} {estado} /> -->
 
   {#if !!estado}
     <ul class="ReaccionesLista" transition:fade>

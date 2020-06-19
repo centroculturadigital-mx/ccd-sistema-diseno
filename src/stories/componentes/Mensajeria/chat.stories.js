@@ -18,6 +18,17 @@ const mensajes = new Array(100).fill(true).map((e, i) => ({
     },
     mensaje: "Lorem ipsum dolor sit amet consectetur adipisicingSed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.",
     fechaCreacion: moment().format('h:m'),
+    reacciones: [{
+            id: "id0",
+            imagen: "https://placeimg.com/32/32/reactions",
+            usuarios: []
+        },
+        {
+            id: "id2",
+            imagen: "https://placeimg.com/32/32/reactions",
+            usuarios: []
+        }
+    ]
 }));
 
 export const chatDefault = () => ({
