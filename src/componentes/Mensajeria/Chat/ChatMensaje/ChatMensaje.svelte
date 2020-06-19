@@ -46,9 +46,16 @@
   .Mensaje {
     display: flex;
   }
-  .Reacciones {
+  .Boton {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
+  }
+  .Boton :global(img) {
+    padding: calc(var(--theme-espaciados-padding) / 2);
+    /* height:1.5rem;
+    width:1.5rem; */
+    box-sizing: border-box;
   }
 </style>
 
@@ -56,19 +63,21 @@
   <div class="Avatar">
     <Imagen imagen={mensaje.usuario.imagen} />
   </div>
-  <div class="Mensaje">
-    <div class="Texto">
-      <a href={mensaje.usuario.enlace}>
-        <Texto texto={mensaje.usuario.nombre} />
-      </a>
+  <div>
+    <div class="Mensaje">
+      <div class="Texto">
+        <a href={mensaje.usuario.enlace}>
+          <Texto texto={mensaje.usuario.nombre} />
+        </a>
 
-      <Texto texto={mensaje.mensaje} />
+        <Texto texto={mensaje.mensaje} />
 
-      <Texto texto={mensaje.fechaCreacion} />
+        <Texto texto={mensaje.fechaCreacion} />
 
-    </div>
-    <div class="Reacciones">
-      <Reacciones reacciones={mensaje.reacciones} />
+      </div>
+      <div class="Boton">
+        <Reacciones reacciones={mensaje.reacciones} />
+      </div>
     </div>
     {#if typeof objeto == 'object'}
       <div class="ChatMensajeObjeto">
