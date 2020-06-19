@@ -5,19 +5,28 @@ import ChatObjetoEjemplo from '../../../componentes/Mensajeria/Chat/ChatObjeto/C
 import imagen from '../../../data/recursos/placeholder.png';
 import avatar from '../../../data/recursos/avatar.png';
 
+import mensaje from '../../../data/chatMensaje';
+
 export default { title: "Componentes/Mensajeria/ChatMensaje" }
 
-const mensaje = {
-    usuario: {
-        id: "abc",
-        nombre: "Nombre usuario",
-        imagen: avatar,
-        enlace: "/usuarios/nombre-usuario"
-    },
-    mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-}
-
 export const chatMensajeDefault = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ChatMensaje,
+        datos: {
+            mensaje: {
+                usuario: {
+                    id: "abc",
+                    nombre: "Nombre usuario",
+                    imagen: avatar,
+                    enlace: "/usuarios/nombre-usuario"
+                },
+                mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+            }
+        }
+    }
+});
+export const chatMensajeConReacciones = () => ({
     Component: ThemeTester,
     props: {
         componente: ChatMensaje,

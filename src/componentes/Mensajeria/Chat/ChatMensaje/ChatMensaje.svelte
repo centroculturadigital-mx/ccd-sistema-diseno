@@ -3,13 +3,14 @@
   import Texto from "../../../../elementos/texto/Texto/Texto.svelte";
   import Parrafo from "../../../../elementos/texto/Parrafo/Parrafo.svelte";
   import ChatObjeto from "../../../../componentes/Mensajeria/Chat/ChatObjeto/ChatObjeto.svelte";
+  import MensajeReacciones from '../../MensajeReacciones/MensajeReacciones';
 
   export let mensaje;
   export let objeto;
 
   $: console.log("nm", mensaje);
   
-
+  
   const { usuario, mensaje: mensajeTexto, fechaCreacion } = mensaje;
 </script>
 
@@ -25,6 +26,7 @@
 
   }
   .Texto {
+    margin-top: calc(var(--theme-espaciados-margen) / 2);
     margin-bottom: var(--theme-espaciados-margen);
   }
   .Texto a {  
@@ -65,5 +67,10 @@
         <ChatObjeto {...objeto}/>
       </div>
     {/if}
+
+    {#if !!mensaje.reacciones && Array.isArray(mensaje.reacciones)}
+      <MensajeReacciones reacciones={mensaje.reacciones}/>
+    {/if}
+
   </div>
 </section>

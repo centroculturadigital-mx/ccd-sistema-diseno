@@ -9,14 +9,12 @@
 
   const listaUsuarios = (i) => {
     estadoLista = !estadoLista;
-
-    console.log("ListaUsuarios", i);
   };
 </script>
 
 <style>
   .MensajeReacciones {
-    padding: calc(var(--theme-espaciados-padding) / 2);
+    padding: calc(var(--theme-espaciados-padding) / 2) 0;
     margin: 0;
     list-style-type: none;
     display: flex;
@@ -45,19 +43,6 @@
     height: 1.5rem;
     width: 1.5rem;
   }
-  .UsuariosLista {
-    position: absolute;
-    top: 2.25rem;
-    left: 0;
-    padding: var(--theme-espaciados-padding);
-    background-color: #000;
-    border-radius: 0.25rem;
-    box-sizing: border-box;
-  }
-  .UsuariosLista :global(span) {
-    font-size: 0.75rem;
-    color: #FFF;
-  }
 </style>
 
 <ul class="MensajeReacciones">
@@ -66,14 +51,6 @@
       <Imagen imagen={reaccion.imagen} />
       <span>
         <Texto texto={reaccion.usuarios.length} />
-        <!-- {#if !!estadoLista}
-          <div class="UsuariosLista">
-            {#each reaccion.usuarios as usuario}
-              <Texto texto={usuario.nombre + ", "} />
-            {/each}
-            <Texto texto={'Reaccionaron'} />
-          </div>
-        {/if} -->
       </span>
     </li>
   {/each}
