@@ -24,10 +24,10 @@
     box-sizing: border-box;
   }
   .Texto :global(h5) {
-    margin: 0 0 var(--theme-espaciados-margin) 0;
+    margin: 0 0 var(--theme-espaciados-margen) 0;
   }
   .Texto :global(h5 span) {
-    margin: 0 0 var(--theme-espaciados-margin) 0;
+    margin: 0 0 var(--theme-espaciados-margen) 0;
     color: #fff;
   }
   .Texto :global(p) {

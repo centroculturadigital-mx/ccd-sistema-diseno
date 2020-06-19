@@ -40,7 +40,7 @@ span{
   display: inline-block;
   font-size: var(--theme-tamannos-md);
   font-family: var(--theme-botones-primario-familia);
-  color: var(--theme-textos-parrafo-colorNeutro); 
+  color: var(--theme-textos-parrafo-neutro); 
 }
 
 li {

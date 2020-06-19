@@ -34,7 +34,7 @@ const variables = {
             oscuro: "#15918B",
             transparente: "transparent",
         },
-        primario13: {
+        primario3: {
             base: "#EAC00F",
             claro: "#FFF052",
             oscuro: "#B38E00",
@@ -46,19 +46,19 @@ const variables = {
             oscuro: "#B60220",
             transparente: "transparent",
         },
-        secundario_a: {
+        secundario1: {
             base: "#2371E2",
             claro: "#6BA1FF",
             oscuro: "#0049AF",
             transparente: "transparent",
         },
-        secundario1: {
+        secundario2: {
             base: "#0A1699",
             claro: "#5540CB",
             oscuro: "#00006A",
             transparente: "transparent",
         },
-        secundario2: {
+        secundario3: {
             base: "#F752A1",
             claro: "#FF87D3",
             oscuro: "#C00973",

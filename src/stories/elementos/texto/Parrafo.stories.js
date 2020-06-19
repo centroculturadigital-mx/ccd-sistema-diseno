@@ -20,7 +20,7 @@ export const parrafoColor = () => ({
         datos: {
             texto: 'Ad do officia ex amet excepteur cupidatat labore anim cillum dolore sunt voluptate sint. Proident aute ut officia veniam nisi aliqua aliquip Lorem in. Pariatur pariatur consequat aliqua ex exercitation sint mollit ipsum sit. Labore eiusmod occaecat culpa ad. Dolor esse enim laborum consequat eiusmod ea ex quis sit excepteur aliqua.',
             estilos: {
-                color: 'orange',
+                color: '#EF4B48',
             }
         }
     },
@@ -33,7 +33,7 @@ export const parrafoTamanno = () => ({
         datos: {
             texto: 'Ad do officia ex amet excepteur cupidatat labore anim cillum dolore sunt voluptate sint. Proident aute ut officia veniam nisi aliqua aliquip Lorem in. Pariatur pariatur consequat aliqua ex exercitation sint mollit ipsum sit. Labore eiusmod occaecat culpa ad. Dolor esse enim laborum consequat eiusmod ea ex quis sit excepteur aliqua.',
             estilos: {
-                color: 'orange',
+                color: '#EF4B48',
                 tamanno: '2rem'
             }
         }

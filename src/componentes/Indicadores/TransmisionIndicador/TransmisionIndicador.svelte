@@ -67,7 +67,7 @@
   }
   .EstadoIndicador :global(p) {
     flex-shrink: 0;
-    margin: calc(var(--theme-espaciados-margin) / 2) 0;
+    margin: calc(var(--theme-espaciados-margen) / 2) 0;
   }
   .Led {
     display: flex;
