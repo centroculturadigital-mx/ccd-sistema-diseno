@@ -8,8 +8,8 @@ export default {
         imagen: avatar,
         enlace: "/usuarios/nombre-usuario"
     },
-    mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-    fechaCreacion: moment().format('h:m'),
+    mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing, Lorem ipsum dolor sit amet consectetur adipisicing.",
+    fechaCreacion: moment().format('hh:mm'),
     reacciones: [{
         id: "id0",
         imagen: "https://placeimg.com/32/32/reactions",
