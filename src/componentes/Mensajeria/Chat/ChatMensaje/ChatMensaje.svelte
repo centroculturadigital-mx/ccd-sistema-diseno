@@ -8,11 +8,6 @@
   export let mensaje;
   export let objeto;
   
-<<<<<<< HEAD
-  
-  const { usuario, mensaje: mensajeTexto, fechaCreacion } = mensaje;
-=======
->>>>>>> a5abe5917074aafa78c4d5084cf5ceb04fe937dd
 </script>
 
 <style>
