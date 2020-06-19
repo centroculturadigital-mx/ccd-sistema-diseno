@@ -43,7 +43,7 @@ export const chatMensajeConReacciones = () => ({
         }
     }
 });
-export const chatMensajeObjeto = () => ({
+export const chatMensajeObjetoConReacciones = () => ({
     Component: ThemeTester,
     props: {
         componente: ChatMensaje,
