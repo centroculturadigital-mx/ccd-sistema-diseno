@@ -2,6 +2,8 @@ import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import ChatMensaje from '../../../componentes/Mensajeria/Chat/ChatMensaje/ChatMensaje.svelte';
 import ChatObjetoEjemplo from '../../../componentes/Mensajeria/Chat/ChatObjeto/ChatObjetoEjemplo.svelte';
 
+import moment from 'moment';
+
 import imagen from '../../../data/recursos/placeholder.png';
 import avatar from '../../../data/recursos/avatar.png';
 
@@ -22,6 +24,7 @@ export const chatMensajeDefault = () => ({
                     enlace: "/usuarios/nombre-usuario"
                 },
                 mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+                fechaCreacion: moment().format('h:m'),
             }
         }
     }

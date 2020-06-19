@@ -1,4 +1,5 @@
 import avatar from './recursos/avatar.png';
+import moment from 'moment';
 
 export default {
     usuario: {
@@ -8,6 +9,7 @@ export default {
         enlace: "/usuarios/nombre-usuario"
     },
     mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+    fechaCreacion: moment().format('h:m'),
     reacciones: [{
         id: "id0",
         imagen: "https://placeimg.com/32/32/reactions",

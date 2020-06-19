@@ -7,7 +7,7 @@
 
   export let mensaje;
   export let objeto;
-  
+   
 </script>
 
 <style>
@@ -57,6 +57,8 @@
       </a>
 
       <Texto texto={mensaje.mensaje}/>
+
+      <Texto texto={mensaje.fechaCreacion}/>
     </div>
     {#if  typeof objeto == "object" }
       <div class="ChatMensajeObjeto">
