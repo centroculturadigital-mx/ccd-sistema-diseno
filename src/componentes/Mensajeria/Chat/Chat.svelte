@@ -15,7 +15,7 @@
       enviar(mensaje);
     }
   };
-  
+
 </script>
 
 <style>
@@ -46,8 +46,8 @@
 
   <section class="ChatMensajes">
 
-    {#if !!mensajes}
-      {#each mensajes as mensaje (mensaje.id)}
+    {#if Array.isArray(mensajes)}
+      {#each mensajes as mensaje (mensaje)}
         <ChatMensaje {mensaje} />
       {/each}
     {/if}
