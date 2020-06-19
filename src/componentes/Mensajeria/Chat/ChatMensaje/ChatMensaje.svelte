@@ -7,11 +7,12 @@
 
   export let mensaje;
   export let objeto;
-
-  $: console.log("nm", mensaje);
   
+<<<<<<< HEAD
   
   const { usuario, mensaje: mensajeTexto, fechaCreacion } = mensaje;
+=======
+>>>>>>> a5abe5917074aafa78c4d5084cf5ceb04fe937dd
 </script>
 
 <style>
@@ -50,19 +51,19 @@
   }
 </style>
 
-<section class="ChatMensaje">
+<article class="ChatMensaje">
   <div class="Avatar">
-    <Imagen imagen={usuario.imagen} />
+    <Imagen imagen={mensaje.usuario.imagen} />
   </div>
   <div>
     <div class="Texto">
-      <a href={usuario.enlace}>
-        <Texto texto={usuario.nombre}/>
+      <a href={mensaje.usuario.enlace}>
+        <Texto texto={mensaje.usuario.nombre}/>
       </a>
 
-      <Texto texto={mensajeTexto}/>
+      <Texto texto={mensaje.mensaje}/>
     </div>
-    {#if  !!objeto}
+    {#if  typeof objeto == "object" }
       <div class="ChatMensajeObjeto">
         <ChatObjeto {...objeto}/>
       </div>
@@ -73,4 +74,4 @@
     {/if}
 
   </div>
-</section>
+</article>

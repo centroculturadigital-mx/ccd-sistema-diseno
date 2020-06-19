@@ -6,15 +6,12 @@
   export let enviar = () => console.log("enviando");
   export let enfocar = () => console.log("enfocar");
 
-  $: Array.isArray(mensajes) && mensajes.length > 0 ? console.log("ultimo mensaje", mensajes[0].mensaje) : null
-  
-
-
   const enviarAccion = () => {
     if (mensaje && typeof enviar == "function") {
       enviar(mensaje);
     }
   };
+
 </script>
 
 <style>
@@ -45,8 +42,8 @@
 
   <section class="ChatMensajes">
 
-    {#if !!mensajes}
-      {#each mensajes as mensaje,i ("mensaje"+i)}
+    {#if Array.isArray(mensajes)}
+      {#each mensajes as mensaje (mensaje)}
         <ChatMensaje {mensaje} />
       {/each}
     {/if}
