@@ -8,9 +8,7 @@
 
   export let mensaje;
   export let objeto;
-
-
-  console.log("Reacciones", mensaje.reacciones );
+  export let reaccionar;
   
 </script>
 
@@ -81,7 +79,7 @@
 
       </div>
       <div class="Boton">
-        <Reacciones reacciones={mensaje.reacciones} />
+        <Reacciones {reaccionar} reacciones={mensaje.reacciones} />
       </div>
     </div>
     {#if typeof objeto == 'object'}

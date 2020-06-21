@@ -43,7 +43,7 @@
     {#each elementos as elemento}
       <li>
         <a class:selected={segment === elemento.ruta} href={elemento.ruta}>
-          {elemento.label}
+          {elemento.texto}
         </a>
       </li>
     {/each}

@@ -4,23 +4,23 @@ import MenuMovil from '../../../elementos/menu/MenuMovil/MenuMovil.svelte';
 export default { title: 'Elementos/Menú/Menú Movil' }
 
 let rutas = [{
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     }
 ];

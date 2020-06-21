@@ -5,6 +5,7 @@
   export let mensajes = [];
   export let enviar = () => console.log("enviando");
   export let enfocar = () => console.log("enfocar");
+  export let reaccionar = () => console.log("reaccionar");
 
   const enviarAccion = () => {
     if (mensaje && typeof enviar == "function") {
@@ -49,7 +50,7 @@
     {/if}
   </section>
   <section class="ChatEnviar">
-    <ChatEntrada {enviar} {enfocar} />
+    <ChatEntrada {enviar} {enfocar}/>
   </section>
 
 </section>

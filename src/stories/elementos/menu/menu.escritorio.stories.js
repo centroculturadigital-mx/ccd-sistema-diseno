@@ -4,23 +4,23 @@ import MenuEscritorio from '../../../elementos/menu/MenuEscritorio/MenuEscritori
 export default { title: 'Elementos/Menú/Menú Escritorio' }
 
 let rutas = [{
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     }
 ]

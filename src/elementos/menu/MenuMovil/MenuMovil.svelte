@@ -56,7 +56,7 @@
       {#each elementos as elemento, i ('elemento_' + i)}
         <li>
           <a class:selected={segment === elemento.ruta} href={elemento.ruta}>
-            {elemento.label}
+            {elemento.texto}
           </a>
         </li>
       {/each}

@@ -5,23 +5,23 @@ import ImagenArchivo from '../../../../public/placeholder.jpg';
 export default { title: 'Componentes/Cabecera/Cabecera' }
 
 let rutas = [{
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     },
     {
-        label: "Ruta",
+        texto: "Ruta",
         ruta: "una-ruta"
     }
 ];

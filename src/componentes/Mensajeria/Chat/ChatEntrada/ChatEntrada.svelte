@@ -14,7 +14,7 @@
 
   let mensaje = "";
 
-  const enviarMensaje = () => {
+  const enviarMensaje = (e) => {
 
     if(contieneSoloEspacios(mensaje)) {
 
@@ -33,6 +33,8 @@
     if (typeof enviar == "function") {
       enviar(mensaje);
     }
+
+    mensaje = '';
   };
 
   const eventos = getEventsAction();
@@ -41,7 +43,7 @@
       
       if (e.keyCode == 13) {
         enviarMensaje();
-        e.target.value = '';
+        // e.target.value = '';
       }
 
   }
@@ -77,7 +79,7 @@
     color: var(--theme-textos-parrafo-neutro);
   }
 </style>
-
+ 
 <div class="ChatEntrada">
   <input
     type="text"

@@ -4,15 +4,21 @@
   import Imagen from "../../../elementos/media/Imagen/Imagen";
 
   export let reacciones = [];
+  export let reaccionar;
 
   let estado = false;
 
   let accion = () => {
     estado = !estado;
   };
-  const reacciona = i => {
+  const reaccionarAccion = i => {
     console.log("Reaccionaste", i);
     estado = !estado;
+
+    if (typeof reaccionar == 'function') {
+      reaccionar(i)
+    }
+    
   };
 </script>
 
@@ -63,7 +69,7 @@
     <ul class="ReaccionesLista" transition:fade>
 
       {#each reacciones as reaccion, i ('reaccion_' + i)}
-        <li on:click={reacciona(i)}>
+        <li on:click={reaccionarAccion(i)}>
           <Imagen imagen={reaccion.imagen} />
         </li>
       {/each}
