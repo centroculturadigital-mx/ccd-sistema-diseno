@@ -6,6 +6,8 @@
   import Reacciones from "../../Reacciones/Reacciones";
   import MensajeReacciones from "../../MensajeReacciones/MensajeReacciones";
 
+  export let reacciones;
+  export let reaccionar;
   export let mensaje;
   export let objeto;
 
@@ -81,7 +83,7 @@
 
       </div>
       <div class="Boton">
-        <Reacciones reacciones={mensaje.reacciones} />
+        <Reacciones {reacciones} {reaccionar}/>
       </div>
     </div>
     {#if typeof objeto == 'object'}
