@@ -12,6 +12,13 @@
   export let objeto;
 
 
+  const reaccionarAccion = reaccion => {
+    if(typeof reaccionar == "function") {
+      reaccionar({...reaccion, mensaje})
+    }
+  }
+
+
   console.log("Reacciones", mensaje.reacciones );
   
 </script>
@@ -83,7 +90,7 @@
 
       </div>
       <div class="Boton">
-        <Reacciones {reacciones} {reaccionar}/>
+        <Reacciones {reacciones} reaccionar={reaccionarAccion}/>
       </div>
     </div>
     {#if typeof objeto == 'object'}
