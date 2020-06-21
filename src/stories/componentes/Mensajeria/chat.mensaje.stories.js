@@ -27,7 +27,7 @@ export const chatMensajeDefault = () => ({
                 fechaCreacion: moment().format('hh:mm'),
                 reacciones: [{
                     id: "id0",
-                    icono: "https://placeimg.com/32/32/reactions",
+                    imagen: "https://placeimg.com/32/32/reactions",
                     usuarios: []
                 }]
             }

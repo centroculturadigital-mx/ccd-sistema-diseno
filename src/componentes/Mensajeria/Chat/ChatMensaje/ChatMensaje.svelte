@@ -8,14 +8,7 @@
 
   export let mensaje;
   export let objeto;
-  export let reaccion;
-  export let reacciones;
 
-  const reaccionarAccion = reaccion => {
-    if(typeof reaccionar == 'function' ) {
-      reaccionar(reaccion)
-    }
-  }
 
   console.log("Reacciones", mensaje.reacciones );
   
@@ -72,15 +65,11 @@
 </style>
 
 <article class="ChatMensaje">
-  
   <div class="Avatar">
     <Imagen imagen={mensaje.usuario.imagen} />
   </div>
-
   <div>
-  
     <div class="Mensaje">
-
       <div class="Texto">
         <a href={mensaje.usuario.enlace}>
           <Texto texto={mensaje.usuario.nombre} />
@@ -91,20 +80,17 @@
         <Texto texto={mensaje.fechaCreacion} />
 
       </div>
-
       <div class="Boton">
-        <Reacciones reacciones={reacciones} reaccionar={reaccionarAccion} />
+        <Reacciones reacciones={mensaje.reacciones} />
       </div>
-
     </div>
-
     {#if typeof objeto == 'object'}
       <div class="ChatMensajeObjeto">
         <ChatObjeto {...objeto} />
       </div>
     {/if}
 
-    <MensajeReacciones reacciones={mensaje.reacciones} />
+      <MensajeReacciones reacciones={mensaje.reacciones} />
 
   </div>
 </article>
