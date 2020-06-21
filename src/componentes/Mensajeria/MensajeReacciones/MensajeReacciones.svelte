@@ -49,7 +49,7 @@
   {#each reacciones as reaccion, i ('reaccion_' + i)}
     {#if Array.isArray(reaccion.usuarios) && reaccion.usuarios.length > 0}
       <li on:click={listaUsuarios(i)} on:tap={listaUsuarios(i)}>
-        <Imagen imagen={reaccion.imagen} />
+        <Imagen imagen={reaccion.icono} />
         <span>
           <Texto texto={reaccion.usuarios.length} />
         </span>

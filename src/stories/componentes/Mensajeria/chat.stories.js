@@ -20,12 +20,12 @@ const mensajes = new Array(25).fill(true).map((e, i) => ({
     fechaCreacion: moment().format('h:m'),
     reacciones: [{
             id: "id0",
-            imagen: "https://placeimg.com/32/32/reactions",
+            icono: "https://placeimg.com/32/32/reactions",
             usuarios: []
         },
         {
             id: "id2",
-            imagen: "https://placeimg.com/32/32/reactions",
+            icono: "https://placeimg.com/32/32/reactions",
             usuarios: []
         }
     ]
