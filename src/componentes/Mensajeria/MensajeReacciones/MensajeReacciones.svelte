@@ -5,11 +5,12 @@
 
   export let reacciones = [];
 
-  let estadoLista = false;
+  // let estadoLista = false;
 
-  const listaUsuarios = () => {
-    estadoLista = !estadoLista;
-  };
+  // const listaUsuarios = i => {
+  //   estadoLista = !estadoLista;
+  // };
+
 </script>
 
 <style>
@@ -46,14 +47,19 @@
 </style>
 
 <ul class="MensajeReacciones">
+<<<<<<< HEAD
   {#each reacciones as reaccion, i ('reaccion_' + i)}
     {#if Array.isArray(reaccion.usuarios) && reaccion.usuarios.length > 0}
       <li on:click={listaUsuarios} on:tap={listaUsuarios}>
+=======
+  {#each reacciones as reaccion (reaccion)}
+      <li>
+      <!-- <li on:click={listaUsuarios(i)} on:tap={listaUsuarios(i)}> -->
+>>>>>>> 77f1e5a8a05e293c2d20ec9f2f6c1334e828a285
         <Imagen imagen={reaccion.imagen} />
         <span>
-          <Texto texto={reaccion.usuarios.length} />
+          <Texto texto={reaccion.usuarios} />
         </span>
       </li>
-    {/if}
   {/each}
 </ul>

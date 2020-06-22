@@ -9,6 +9,21 @@ import avatar from '../../../data/recursos/avatar.png';
 
 export default { title: "Componentes/Mensajeria/Chat" }
 
+
+const reacciones = [{
+    id: "id0",
+    imagen: "https://placeimg.com/32/32/reactions",
+    texto: "Reacción 2",
+    nombre: "reaccion-2",
+},
+{
+    id: "id2",
+    imagen: "https://placeimg.com/32/32/reactions",
+    texto: "Reacción 1",
+    nombre: "reaccion-1",
+
+}]
+
 const mensajes = new Array(25).fill(true).map((e, i) => ({
     usuario: {
         id: "abc",
@@ -21,12 +36,16 @@ const mensajes = new Array(25).fill(true).map((e, i) => ({
     reacciones: [{
             id: "id0",
             imagen: "https://placeimg.com/32/32/reactions",
-            usuarios: []
+            texto: "Reacción 2",
+            nombre: "reaccion-2",
+            usuarios: Math.ceil(Math.random()*6)
         },
         {
             id: "id2",
             imagen: "https://placeimg.com/32/32/reactions",
-            usuarios: []
+            texto: "Reacción 1",
+            nombre: "reaccion-1",
+            usuarios: Math.ceil(Math.random()*6)
         }
     ]
 }));
@@ -37,6 +56,7 @@ export const chatDefault = () => ({
         componente: Chat,
         datos: {
             mensajes,
+            reacciones,
             enviar: mensaje => console.log("Enviaste mensaje", mensaje)
 
         }

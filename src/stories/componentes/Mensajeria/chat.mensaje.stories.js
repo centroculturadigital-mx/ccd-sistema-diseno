@@ -16,6 +16,20 @@ export const chatMensajeDefault = () => ({
     props: {
         componente: ChatMensaje,
         datos: {
+            reacciones: [
+                {
+                    id: "id0",
+                    imagen: "https://placeimg.com/32/32/reactions",
+                    nombre: "nombre-reaccion",
+                    texto: "Reacción 1",
+                },
+                {
+                    id: "id1",
+                    imagen: "https://placeimg.com/32/32/reactions",
+                    nombre: "nombre-reaccion",
+                    texto: "Reacción 3",
+                }
+            ],
             mensaje: {
                 usuario: {
                     id: "abc",
@@ -24,12 +38,16 @@ export const chatMensajeDefault = () => ({
                     enlace: "/usuarios/nombre-usuario"
                 },
                 mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing, Lorem ipsum dolor sit amet consectetur adipisicing.",
-                fechaCreacion: moment().format('hh:mm'),
-                reacciones: [{
-                    id: "id0",
-                    imagen: "https://placeimg.com/32/32/reactions",
-                    usuarios: []
-                }]
+                fechaCreacion: moment().format('hh:mm'),                
+                reacciones: [
+                    {                    
+                        id: "id0",
+                        imagen: "https://placeimg.com/32/32/reactions",
+                        nombre: "nombre-reaccion",
+                        texto: "Reacción 1",
+                        usuarios: 3
+                    }
+                ]
             }
         }
     }

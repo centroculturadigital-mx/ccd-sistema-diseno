@@ -1,6 +1,7 @@
 <script>
   import { fade } from "svelte/transition";
   import Icono from "../../../elementos/Icono/Icono";
+  import Texto from "../../../elementos/texto/Texto/Texto";
   import Imagen from "../../../elementos/media/Imagen/Imagen";
 
   export let reacciones = [];
@@ -11,8 +12,11 @@
   let accion = () => {
     estado = !estado;
   };
-  const reaccionarAccion = i => {
-    console.log("Reaccionaste", i);
+  const reaccionarAccion = reaccion => {
+    if(typeof reaccionar == "function") {
+      reaccionar(reaccion)
+      console.log("Reaccionaste", reaccion);
+    }
     estado = !estado;
 
     if (typeof reaccionar == 'function') {
@@ -68,9 +72,15 @@
   {#if !!estado}
     <ul class="ReaccionesLista" transition:fade>
 
+<<<<<<< HEAD
       {#each reacciones as reaccion, i ('reaccion_' + i)}
         <li on:click={reaccionarAccion(i)}>
+=======
+      {#each reacciones as reaccion (reaccion)}
+        <li on:click={reaccionarAccion(reaccion)}>
+>>>>>>> 77f1e5a8a05e293c2d20ec9f2f6c1334e828a285
           <Imagen imagen={reaccion.imagen} />
+          <Texto texto={reaccion.texto} />
         </li>
       {/each}
     </ul>

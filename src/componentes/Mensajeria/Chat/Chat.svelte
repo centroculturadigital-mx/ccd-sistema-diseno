@@ -2,11 +2,17 @@
   import ChatMensaje from "./ChatMensaje/ChatMensaje.svelte";
   import ChatEntrada from "./ChatEntrada/ChatEntrada.svelte";
 
+  export let reacciones = [];
   export let mensajes = [];
-  export let enviar = () => console.log("enviando");
+  export let enviar = () => console.log("enviar");
   export let enfocar = () => console.log("enfocar");
   export let reaccionar = () => console.log("reaccionar");
 
+  const reaccionarAccion = () => {
+    if (mensaje && typeof reaccionar == "function") {
+      reaccionar(mensaje);
+    }
+  };
   const enviarAccion = () => {
     if (mensaje && typeof enviar == "function") {
       enviar(mensaje);
@@ -45,7 +51,7 @@
 
     {#if Array.isArray(mensajes)}
       {#each mensajes as mensaje (mensaje)}
-        <ChatMensaje {mensaje} />
+        <ChatMensaje {mensaje} {reacciones} {reaccionar}/>
       {/each}
     {/if}
   </section>
