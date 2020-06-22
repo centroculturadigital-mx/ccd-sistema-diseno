@@ -10,9 +10,6 @@
   export let reaccionar;
   export let mensaje;
   export let objeto;
-<<<<<<< HEAD
-  export let reaccionar;
-=======
 
 
   const reaccionarAccion = reaccion => {
@@ -23,7 +20,6 @@
 
 
   console.log("Reacciones", mensaje.reacciones );
->>>>>>> 77f1e5a8a05e293c2d20ec9f2f6c1334e828a285
   
 </script>
 
@@ -94,11 +90,7 @@
 
       </div>
       <div class="Boton">
-<<<<<<< HEAD
-        <Reacciones {reaccionar} reacciones={mensaje.reacciones} />
-=======
         <Reacciones {reacciones} reaccionar={reaccionarAccion}/>
->>>>>>> 77f1e5a8a05e293c2d20ec9f2f6c1334e828a285
       </div>
     </div>
     {#if typeof objeto == 'object'}
