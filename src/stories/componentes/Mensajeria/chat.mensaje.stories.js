@@ -2,12 +2,13 @@ import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import ChatMensaje from '../../../componentes/Mensajeria/Chat/ChatMensaje/ChatMensaje.svelte';
 import ChatObjetoEjemplo from '../../../componentes/Mensajeria/Chat/ChatObjeto/ChatObjetoEjemplo.svelte';
 
-import moment from 'moment';
 
 import imagen from '../../../data/recursos/placeholder.png';
-import avatar from '../../../data/recursos/avatar.png';
 
-import mensaje from '../../../data/chatMensaje';
+import reacciones from '../../../data/reacciones';
+import mensajes from '../../../data/mensajes';
+
+const mensaje = mensajes[0]
 
 export default { title: "Componentes/Mensajeria/ChatMensaje" }
 
@@ -16,38 +17,10 @@ export const chatMensajeDefault = () => ({
     props: {
         componente: ChatMensaje,
         datos: {
-            reacciones: [
-                {
-                    id: "id0",
-                    imagen: "https://placeimg.com/32/32/reactions",
-                    nombre: "nombre-reaccion",
-                    texto: "Reacción 1",
-                },
-                {
-                    id: "id1",
-                    imagen: "https://placeimg.com/32/32/reactions",
-                    nombre: "nombre-reaccion",
-                    texto: "Reacción 3",
-                }
-            ],
+            reacciones,
             mensaje: {
-                usuario: {
-                    id: "abc",
-                    nombre: "Nombre usuario",
-                    imagen: avatar,
-                    enlace: "/usuarios/nombre-usuario"
-                },
-                mensaje: "Lorem ipsum dolor sit amet consectetur adipisicing, Lorem ipsum dolor sit amet consectetur adipisicing.",
-                fechaCreacion: moment().format('hh:mm'),                
-                reacciones: [
-                    {                    
-                        id: "id0",
-                        imagen: "https://placeimg.com/32/32/reactions",
-                        nombre: "nombre-reaccion",
-                        texto: "Reacción 1",
-                        usuarios: 3
-                    }
-                ]
+                ...mensaje,
+                reacciones: []
             }
         }
     }
