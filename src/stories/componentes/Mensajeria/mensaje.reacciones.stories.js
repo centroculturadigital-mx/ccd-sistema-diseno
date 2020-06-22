@@ -3,53 +3,10 @@ import MensajeReacciones from '../../../componentes/Mensajeria/MensajeReacciones
 
 export default { title: "Componentes/Mensajeria/MensajeReacciones" }
 
-let reaccion = [{
-    id: "id0",
-    imagen: "https://placeimg.com/32/32/reactions",
-    usuarios: [{
-            id: "id1",
-            nombre: "Nombre"
-        },
-        {
-            id: "id2",
-            nombre: "Nombre"
-        }
-    ]
-}];
+import mensajes from '../../../data/mensajes';
 
-let reacciones = [{
-    id: "id0",
-    imagen: "https://placeimg.com/32/32/reactions",
-    usuarios: [{
-            id: "id1",
-            nombre: "Nombre",
-        },
-        {
-            id: "id2",
-            nombre: "Nombre",
-        }
-    ]
-}, {
-    id: "id0",
-    imagen: "https://placeimg.com/32/32/meme",
-    usuarios: [{ //cantidad de usuarios que reaccionaron 
-            id: "id1",
-            nombre: "Nombre"
-        },
-        {
-            id: "id2",
-            nombre: "Nombre"
-        },
-        {
-            id: "id3",
-            nombre: "Nombre"
-        },
-        {
-            id: "id4",
-            nombre: "Nombre"
-        }
-    ]
-}];
+const mensaje = mensajes[0]
+
 
 
 export const mensajeReaccionesDefault = () => ({
@@ -57,7 +14,7 @@ export const mensajeReaccionesDefault = () => ({
     props: {
         componente: MensajeReacciones,
         datos: {
-            reacciones: reaccion
+            reacciones: [mensaje.reacciones[0]]
         }
     }
 });
@@ -67,7 +24,7 @@ export const mensajeReaccionesVarias = () => ({
     props: {
         componente: MensajeReacciones,
         datos: {
-            reacciones
+            reacciones: mensaje.reacciones
         }
     }
 });
