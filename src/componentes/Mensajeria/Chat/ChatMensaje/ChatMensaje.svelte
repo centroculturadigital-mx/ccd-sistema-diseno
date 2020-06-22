@@ -86,7 +86,7 @@
 
         <Texto texto={mensaje.mensaje} />
 
-        <Texto texto={mensaje.fechaCreacion} />
+        <Texto texto={mensaje.fechaCreacion} estilos={["italic","small"]}/>
 
       </div>
       <div class="Boton">
