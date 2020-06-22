@@ -3,10 +3,14 @@
   import TarjetaVertical from "../TarjetaVertical/TarjetaVertical.svelte";
  
   export let imagen;
-  export let titulo;
+  export let nombre;
+  export let subtitulo;
   export let nivelTitulo;
-  export let texto;
+  export let descripcion;
   export let sombra;
+  export let leyenda;
+  export let enlaces = [];
+  export let acciones = [];
 
   let ventana;
   let breakpoint = 720;
@@ -21,16 +25,24 @@
 {#if ventana > breakpoint}
   <TarjetaHorizontal
     {imagen}
-    {titulo}
+    {nombre}
+    {subtitulo}
     {nivelTitulo}
-    {texto}
-    {sombra} />
+    {descripcion}
+    {sombra}
+    {leyenda}
+    {enlaces}
+    {acciones} />
 {:else}
   <TarjetaVertical
     {imagen}
-    {titulo}
+    {nombre}
+    {subtitulo}
     {nivelTitulo}
-    {texto}
-    {sombra} />
+    {descripcion}
+    {sombra}
+    {leyenda}
+    {enlaces}
+    {acciones} />
 
 {/if}

@@ -13,18 +13,19 @@
     }
     ul {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
     }
     ul, ul li {
-        margin: 0;
         padding: 0;
+        margin: 0;
     }
     
     ul li {
         list-style-type: none;
-        margin-bottom: var(--theme-tamannos-xl);
+        margin: var(--theme-espaciados-margen);
     }
 
 </style>
@@ -37,14 +38,7 @@
             {#each elementos as elemento, i ("elemento_"+i) }
 
                 <li>
-                    <!-- <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
-                        <h6>
-                            Hola Elemento!
-                        </h6>
-                    </article> -->
                     <svelte:component this={elemento.componente} {...elemento.data}/>
-
-
                 </li>
 
 

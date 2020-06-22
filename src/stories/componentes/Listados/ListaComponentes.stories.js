@@ -9,21 +9,21 @@ export default { title: 'Componentes/Listado/ListaComponentes' }
 const elementos = [{
         componente: Tarjeta,
         data: {
-            titulo: "Voluptate velit laborum voluptate excepteur velit commodo aute.",
+            nombre: "Voluptate velit laborum voluptate excepteur velit commodo aute.",
             imagen: ImagenArchivo
         }
     },
     {
         componente: Tarjeta,
         data: {
-            titulo: "Est consectetur aliqua ipsum et consectetur duis est dolor.",
+            nombre: "Est consectetur aliqua ipsum et consectetur duis est dolor.",
             imagen: ImagenArchivo
         }
     },
     {
         componente: Tarjeta,
         data: {
-            titulo: "Laborum magna cupidatat exd aute elit cupidatat.",
+            nombre: "Laborum magna cupidatat exd aute elit cupidatat.",
             imagen: ImagenArchivo
         }
     },

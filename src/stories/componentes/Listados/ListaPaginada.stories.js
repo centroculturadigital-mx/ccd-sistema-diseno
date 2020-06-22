@@ -10,7 +10,7 @@ const elementos = new Array(11).fill(0).map((e, i) => ({
     componente: TarjetaHorizontal,
     data: {
         // chica: true,
-        titulo: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
+        nombre: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
         imagen: ImagenArchivo
     }
 }))
