@@ -72,13 +72,8 @@
   {#if !!estado}
     <ul class="ReaccionesLista" transition:fade>
 
-<<<<<<< HEAD
-      {#each reacciones as reaccion, i ('reaccion_' + i)}
-        <li on:click={reaccionarAccion(i)}>
-=======
       {#each reacciones as reaccion (reaccion)}
         <li on:click={reaccionarAccion(reaccion)}>
->>>>>>> 77f1e5a8a05e293c2d20ec9f2f6c1334e828a285
           <Imagen imagen={reaccion.imagen} />
           <Texto texto={reaccion.texto} />
         </li>
