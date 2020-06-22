@@ -100,7 +100,7 @@
   <li class="EventoEnCurso">
     {#if falta < 0}
       <div transition:slide>
-        <Parrafo texto={evento.titulo + ' comienza en'} />
+        <Parrafo texto={evento.nombre + ' comienza en'} />
         <Titulo
           texto={`${contador.dias}d : ${contador.horas}h : ${contador.minutos}m : ${contador.segundos}s`}
           nivel={3} />
@@ -114,7 +114,7 @@
             <span class="EnVivo" />
           </div>
         </div>
-        <Titulo texto={evento.titulo} nivel={3} />
+        <Titulo texto={evento.nombre} nivel={3} />
         <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
       </div>
     {/if}
