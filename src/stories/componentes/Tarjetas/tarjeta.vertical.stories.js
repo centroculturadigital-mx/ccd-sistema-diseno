@@ -17,6 +17,23 @@ let acciones = [{
     }
 ];
 
+let enlaces = [{
+        enlace: "#",
+        texto: "Enlace mediano"
+    },
+    {
+        enlace: "#",
+        texto: "Enlace un poco mas largo"
+    }, {
+        enlace: "#",
+        texto: "Enlace 3"
+    },
+    {
+        enlace: "#",
+        texto: "Enlace 4"
+    },
+];
+
 export const tarjetaVerticalDefault = () => ({
     Component: ThemeTester,
     props: {
@@ -98,6 +115,22 @@ export const tarjetaVerticalLeyenda = () => ({
         }
     }
 });
+export const tarjetaVerticalEnlaces = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            sombra: true,
+            acciones,
+            enlaces,
+        }
+    }
+});
 export const tarjetaVerticalTodo = () => ({
     Component: ThemeTester,
     props: {
@@ -111,6 +144,7 @@ export const tarjetaVerticalTodo = () => ({
             leyenda: "17 junio 2020",
             sombra: true,
             acciones,
+            enlaces
         }
     }
 });

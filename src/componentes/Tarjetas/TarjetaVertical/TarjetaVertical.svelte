@@ -70,6 +70,14 @@
     font-size: 0.75rem;
     text-align: center;
   }
+  .Enlaces {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+  .Enlaces :global(a) {
+    
+    padding: var(--theme-espaciados-padding) var(--theme-espaciados-padding) var(--theme-espaciados-padding) 0;
+  }
   hr {
     border-color: lightgray;
   }
@@ -96,6 +104,21 @@
         <Titulo texto={leyenda} nivel={5} />
       </div>
     {/if}
+<!--  -->
+
+    {#if Array.isArray(enlaces) && enlaces.length > 0}
+      <footer>
+      <hr>
+        <div class="Enlaces">
+          {#each enlaces as enlace, i ('enlace_' + i)}
+              <Enlace enlace={enlace.enlace} texto={enlace.texto}/>
+          {/each}
+        </div>
+      </footer>
+    {/if}
+
+
+<!--  -->
     {#if !!texto}
       <Parrafo {texto} />
     {/if}
