@@ -3,6 +3,8 @@ import TarjetaVertical from "../../../componentes/Tarjetas/TarjetaVertical/Tarje
 
 import imagenEjemplo from '../../../data/recursos/placeholder.png';
 
+import moment from 'moment';
+
 export default { title: "Componentes/Tarjetas/Tarjeta Vertical" }
 
 let acciones = [{
@@ -40,8 +42,8 @@ export const tarjetaVerticalDefault = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Esto es un título.',
-            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nombre: 'Esto es un título.',
+            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3'
         }
     }
@@ -52,10 +54,10 @@ export const tarjetaVerticalAccion = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Tarjeta con una acción.',
+            nombre: 'Tarjeta con una acción.',
             nivelTitulo: 'h3',
             acciones: [{
-                texto: "Guardar",
+                descripcion: "Guardar",
                 accion: () => console.log("Guardado"),
             }],
         }
@@ -67,7 +69,7 @@ export const tarjetaVerticalAcciones = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Tarjeta con varias mas de una acción',
+            nombre: 'Tarjeta con varias mas de una acción',
             nivelTitulo: 'h3',
             acciones,
         }
@@ -80,8 +82,8 @@ export const tarjetaVerticalSombra = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Esto es un título.',
-            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nombre: 'Esto es un título.',
+            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             sombra: true,
         }
@@ -93,9 +95,9 @@ export const tarjetaVerticalSubtitulo = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Esto es un título.',
+            nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtitulo",
-            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             sombra: true,
         }
@@ -107,9 +109,9 @@ export const tarjetaVerticalLeyenda = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Esto es un título.',
+            nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtitulo",
-            leyenda: "fechas",
+            leyenda: moment().format("DD/MMMM/YYYY"),
             nivelTitulo: 'h3',
             sombra: true,
         }
@@ -121,9 +123,9 @@ export const tarjetaVerticalEnlaces = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Esto es un título.',
+            nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtitulo",
-            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             sombra: true,
             acciones,
@@ -137,11 +139,11 @@ export const tarjetaVerticalTodo = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            titulo: 'Esto es un título.',
+            nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtitulo",
-            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
-            leyenda: "17 junio 2020",
+            leyenda: moment().format("DD/MMMM/YYYY"),
             sombra: true,
             acciones,
             enlaces

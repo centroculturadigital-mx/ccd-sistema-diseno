@@ -7,10 +7,10 @@
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
   export let imagen;
-  export let titulo;
+  export let nombre;
   export let nivelTitulo;
   export let subtitulo;
-  export let texto;
+  export let descripcion;
   export let sombra;
   export let chica;
   export let leyenda;
@@ -103,13 +103,13 @@
 <article class={clases}>
 
   <div class="Imagen">
-    <Imagen {imagen} alt={titulo} ajuste="cover" />
+    <Imagen {imagen} alt={nombre} ajuste="cover" />
   </div>
 
   <div class="Texto">
 
-    {#if !!titulo}
-      <Titulo texto={titulo} nivel={nivelTituloMostrar} />
+    {#if !!nombre}
+      <Titulo texto={nombre} nivel={nivelTituloMostrar} />
     {/if}
     {#if !!subtitulo}
       <div class="Subtitulo">
@@ -133,8 +133,8 @@
       </section>
     {/if}
     <!--  -->
-    {#if !!texto}
-      <Parrafo {texto} />
+    {#if !!descripcion}
+      <Parrafo {descripcion} />
     {/if}
 
     {#if Array.isArray(acciones) && acciones.length > 0}

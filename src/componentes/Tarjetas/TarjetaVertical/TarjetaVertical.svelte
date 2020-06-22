@@ -7,10 +7,10 @@
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
   export let imagen;
-  export let titulo;
+  export let nombre;
   export let nivelTitulo;
   export let subtitulo;
-  export let texto;
+  export let descripcion;
   export let sombra;
   export let leyenda;
   export let enlaces = [];
@@ -86,13 +86,13 @@
 <article class={!!sombra ? 'sombra' : ''}>
 
   <div class="Imagen">
-    <Imagen {imagen} alt={titulo} ajuste="cover" />
+    <Imagen {imagen} alt={nombre} ajuste="cover" />
   </div>
 
   <div class="Contenido">
 
-    {#if !!titulo}
-      <Titulo texto={titulo} nivel={nivelTitulo} />
+    {#if !!nombre}
+      <Titulo texto={nombre} nivel={nivelTitulo} />
     {/if}
     {#if !!subtitulo}
       <div class="Subtitulo">
@@ -116,8 +116,8 @@
       </section>
     {/if}
 
-    {#if !!texto}
-      <Parrafo {texto} />
+    {#if !!descripcion}
+      <Parrafo texto={descripcion} />
     {/if}
 
     {#if Array.isArray(acciones) && acciones.length > 0}
