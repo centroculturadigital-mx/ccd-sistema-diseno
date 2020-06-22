@@ -4,6 +4,7 @@
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
+  import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
   export let imagen;
   export let titulo;
@@ -86,6 +87,14 @@
   footer {
     width: 100%;
   }
+  .Enlaces {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+  }
+  .Enlaces :global(a) {
+    padding: var(--theme-espaciados-padding) var(--theme-espaciados-padding)
+      var(--theme-espaciados-padding) 0;
+  }
   hr {
     border-color: lightgray;
   }
@@ -112,6 +121,18 @@
         <Titulo texto={leyenda} nivel={5} />
       </div>
     {/if}
+    <!--  -->
+    {#if Array.isArray(enlaces) && enlaces.length > 0}
+      <section>
+        <hr />
+        <div class="Enlaces">
+          {#each enlaces as enlace, i ('enlace_' + i)}
+            <Enlace enlace={enlace.enlace} texto={enlace.texto} />
+          {/each}
+        </div>
+      </section>
+    {/if}
+    <!--  -->
     {#if !!texto}
       <Parrafo {texto} />
     {/if}

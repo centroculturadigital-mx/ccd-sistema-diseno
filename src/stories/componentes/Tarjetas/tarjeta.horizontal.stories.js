@@ -22,6 +22,23 @@ let acciones = [{
     }
 ];
 
+let enlaces = [{
+        enlace: "#",
+        texto: "Enlace mediano"
+    },
+    {
+        enlace: "#",
+        texto: "Enlace un poco mas largo"
+    }, {
+        enlace: "#",
+        texto: "Enlace 3"
+    },
+    {
+        enlace: "#",
+        texto: "Enlace 4"
+    },
+];
+
 export const tarjetaHorizontalDefault = () => ({
     Component: ThemeTester,
     props: {
@@ -125,6 +142,21 @@ export const tarjetaHorizontalLeyenda = () => ({
             subtitulo: "Esto es un subtitulo",
             leyenda: "Fechas",
             nivelTitulo: 'h3',
+        }
+    }
+});
+export const tarjetaHorizontalEnlaces = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaHorizontal,
+        datos: {
+            imagen: imagenEjemplo,
+            titulo: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            leyenda: "Fechas",
+            nivelTitulo: 'h3',
+            texto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            enlaces,
         }
     }
 });

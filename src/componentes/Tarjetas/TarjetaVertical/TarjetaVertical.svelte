@@ -104,21 +104,18 @@
         <Titulo texto={leyenda} nivel={5} />
       </div>
     {/if}
-<!--  -->
 
     {#if Array.isArray(enlaces) && enlaces.length > 0}
-      <footer>
+      <section>
       <hr>
         <div class="Enlaces">
           {#each enlaces as enlace, i ('enlace_' + i)}
               <Enlace enlace={enlace.enlace} texto={enlace.texto}/>
           {/each}
         </div>
-      </footer>
+      </section>
     {/if}
 
-
-<!--  -->
     {#if !!texto}
       <Parrafo {texto} />
     {/if}
