@@ -9,7 +9,7 @@ export default { title: 'Componentes/Listado/ListaPaginada' }
 const elementos = new Array(11).fill(0).map((e, i) => ({
     componente: TarjetaHorizontal,
     data: {
-        chica: true,
+        // chica: true,
         titulo: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
         imagen: ImagenArchivo
     }
