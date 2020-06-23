@@ -20,6 +20,12 @@
   import enviar from "./iconos/enviar.svg";
   import feliz from "./iconos/feliz.svg";
   import reaccion from "./iconos/reaccion.svg";
+  import adjuntar from "./iconos/adjuntar.svg";
+  import sumar from "./iconos/sumar.svg";
+  import hamburguesa from "./iconos/hamburguesa.svg";
+  import confirma from "./iconos/confirma.svg";
+  import irIzquierda from "./iconos/ir.izquierda.svg";
+  import irDerecha from "./iconos/ir.derecha.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -46,6 +52,12 @@
     enviar,
     feliz,
     reaccion,
+    adjuntar,
+    sumar,
+    hamburguesa,
+    confirma,
+    irIzquierda,
+    irDerecha,
   };
 
   $: iconoMostrar = iconos[icono];

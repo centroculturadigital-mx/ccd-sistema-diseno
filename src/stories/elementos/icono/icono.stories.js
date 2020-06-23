@@ -81,7 +81,7 @@ export const iconoTwitter = () => ({
     }
     },
     
-});
+}); 
 
 export const iconoInstagram = () => ({
     Component: ThemeTester,
@@ -188,6 +188,72 @@ export const iconoFeliz = () => ({
         componente: Icono,
         datos: {
         icono: "feliz",
+    }
+    },
+    
+});
+
+export const iconoAdjuntar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "adjuntar",
+    }
+    },
+    
+});
+
+export const iconoSumar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "sumar",
+    }
+    },
+    
+});
+
+export const iconoHamburguesa = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "hamburguesa",
+    }
+    },
+    
+});
+
+export const iconoConfirma = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "confirma",
+    }
+    },
+    
+});
+
+export const iconoIrIzquierda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "irIzquierda",
+    }
+    },
+    
+});
+
+export const iconoIrDerecha = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "irDerecha",
     }
     },
     
