@@ -1,13 +1,13 @@
 <script>
   import Bloque from "../../../componentes/Bloque/Bloque.svelte";
 
-  export let href;
+  export let enlace;
   export let texto;
   export let contenido;
   export let blank;
 
   const atributos = {
-    href
+    enlace
   };
 
   $: (target => {
@@ -38,6 +38,6 @@
   }
 </style>
 
-<a href="..." {...atributos}>
+<a href={enlace} {...atributos}>
   <Bloque {contenido} {texto} />
 </a>

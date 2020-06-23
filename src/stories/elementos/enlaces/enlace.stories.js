@@ -10,7 +10,7 @@ export const EnlaceDefault = () => ({
         componente: Enlace,
         datos:{
         texto:"Hola Mundo",
-        href: "http://wikipedia.org",
+        enlace: "http://wikipedia.org",
         blank: true,
     }
     }
@@ -22,7 +22,7 @@ export const EnlaceContenidoHTML = () => ({
         componente: Enlace,
         datos: {
         contenido:"<button>contenido HTML</button>",
-        href: "http://wikipedia.org",
+        enlace: "http://wikipedia.org",
         blank: true,
     }
     }
@@ -39,7 +39,7 @@ export const EnlaceContenidoBloques = () => ({
                 texto: "Hola Mundo",
             }
         }],
-        href: "http://wikipedia.org",
+        enlace: "http://wikipedia.org",
         blank: true,
     }
     }

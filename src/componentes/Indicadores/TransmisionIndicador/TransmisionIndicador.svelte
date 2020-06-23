@@ -104,7 +104,7 @@
         <Titulo
           texto={`${contador.dias}d : ${contador.horas}h : ${contador.minutos}m : ${contador.segundos}s`}
           nivel={3} />
-        <Enlace href={`evento/${evento.slug}`} texto={'Ver más detalles ->'} />
+        <Enlace enlace={`evento/${evento.slug}`} texto={'Ver más detalles ->'} />
       </div>
     {:else}
       <div transition:slide>
@@ -115,7 +115,7 @@
           </div>
         </div>
         <Titulo texto={evento.nombre} nivel={3} />
-        <Enlace href={`evento/${evento.slug}`} texto={'Ir ->'} />
+        <Enlace enlace={`evento/${evento.slug}`} texto={'Ir ->'} />
       </div>
     {/if}
   </li>
