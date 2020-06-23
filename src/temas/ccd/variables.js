@@ -94,6 +94,13 @@ const variables = {
             oscuro: "#C8CC00",
             transparente: "transparent",
         },
+        gradiente1: {
+            fondo: `rgb(34,16,66);`,
+            degradado: `linear-gradient(125deg, rgba(34,16,66,1) 35%, rgba(128,103,163,1) 100%);`,
+            degradado_moz: `-moz-linear-gradient(125deg, rgba(34,16,66,1) 35%, rgba(128,103,163,1) 100%);`,
+            degradado_webkit: `-webkit-linear-gradient(125deg, rgba(34,16,66,1) 35%, rgba(128,103,163,1) 100%);`,
+            degradado_ie: `progid:DXImageTransform.Microsoft.gradient(startColorstr="#221042",endColorstr="#8067A3",GradientType=1);`,
+        },
         alerta: {
             ok: "green",
             error: "red",
