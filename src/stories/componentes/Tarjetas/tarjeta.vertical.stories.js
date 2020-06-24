@@ -149,6 +149,19 @@ export const tarjetaVerticalEnlaces = () => ({
         }
     }
 });
+export const tarjetaVerticalAccionesConEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Tarjeta con varias mas de una acción',
+            nivelTitulo: 'h3',
+            acciones,
+            enlace: "#"
+        }
+    }
+});
 export const tarjetaVerticalTodo = () => ({
     Component: ThemeTester,
     props: {
