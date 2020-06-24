@@ -57,7 +57,7 @@ export const tarjetaVerticalAccion = () => ({
             nombre: 'Tarjeta con una acción.',
             nivelTitulo: 'h3',
             acciones: [{
-                descripcion: "Guardar",
+                texto: "Guardar",
                 accion: () => console.log("Guardado"),
             }],
         }
@@ -147,6 +147,23 @@ export const tarjetaVerticalTodo = () => ({
             sombra: true,
             acciones,
             enlaces
+        }
+    }
+});
+export const tarjetaVerticalConEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            leyenda: moment().format("DD/MMMM/YYYY"),
+            sombra: true,
+            // enlaces, 
+            enlace: "#"
         }
     }
 });
