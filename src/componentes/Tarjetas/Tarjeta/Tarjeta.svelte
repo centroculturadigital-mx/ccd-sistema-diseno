@@ -2,6 +2,7 @@
   import TarjetaHorizontal from "../TarjetaHorizontal/TarjetaHorizontal.svelte";
   import TarjetaVertical from "../TarjetaVertical/TarjetaVertical.svelte";
  
+  export let enlace;
   export let imagen;
   export let nombre;
   export let subtitulo;
@@ -24,6 +25,7 @@
 
 {#if ventana > breakpoint}
   <TarjetaHorizontal
+    {enlace}
     {imagen}
     {nombre}
     {subtitulo}
@@ -35,6 +37,7 @@
     {acciones} />
 {:else}
   <TarjetaVertical
+    {enlace}
     {imagen}
     {nombre}
     {subtitulo}

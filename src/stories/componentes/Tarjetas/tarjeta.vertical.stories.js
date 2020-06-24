@@ -117,6 +117,23 @@ export const tarjetaVerticalLeyenda = () => ({
         }
     }
 });
+export const tarjetaVerticalConEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            leyenda: moment().format("DD/MMMM/YYYY"),
+            sombra: true,
+            // enlaces, 
+            enlace: "#"
+        }
+    }
+});
 export const tarjetaVerticalEnlaces = () => ({
     Component: ThemeTester,
     props: {
@@ -128,7 +145,6 @@ export const tarjetaVerticalEnlaces = () => ({
             descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             sombra: true,
-            acciones,
             enlaces,
         }
     }
@@ -147,23 +163,6 @@ export const tarjetaVerticalTodo = () => ({
             sombra: true,
             acciones,
             enlaces
-        }
-    }
-});
-export const tarjetaVerticalConEnlace = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: TarjetaVertical,
-        datos: {
-            imagen: imagenEjemplo,
-            nombre: 'Esto es un título.',
-            subtitulo: "Esto es un subtitulo",
-            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-            nivelTitulo: 'h3',
-            leyenda: moment().format("DD/MMMM/YYYY"),
-            sombra: true,
-            // enlaces, 
-            enlace: "#"
         }
     }
 });
