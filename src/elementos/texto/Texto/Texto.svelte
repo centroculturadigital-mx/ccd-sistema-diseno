@@ -13,9 +13,9 @@
 
   export let estilos;
   export let tamanno;
+  export let color;
 
   let html = "";
-  let color;
 
   if (!!variante) {
     switch (variante) {
