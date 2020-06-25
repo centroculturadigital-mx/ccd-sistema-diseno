@@ -7,15 +7,23 @@ import moment from 'moment';
 
 export default { title: "Componentes/Tarjetas/Tarjeta Vertical" }
 
-let acciones = [{
+let accionesFunciones = [{
         texto: "Guardar",
         accion: () => console.log("Guardado"),
-        //boton: "primario" // default. este campo es opcional
     },
     {
         texto: "Eliminar",
         accion: () => confirm("Eliminar"),
         boton: "peligro"
+    }
+];
+let accionesEnlaces = [{
+        texto: "Enlace 1",
+        enlace: "/enlace/1"
+    },
+    {
+        texto: "Enlace 2",
+        enlace: "/enlace/2"
     }
 ];
 
@@ -56,10 +64,7 @@ export const tarjetaVerticalAccion = () => ({
             imagen: imagenEjemplo,
             nombre: 'Tarjeta con una acción.',
             nivelTitulo: 'h3',
-            acciones: [{
-                texto: "Guardar",
-                accion: () => console.log("Guardado"),
-            }],
+            acciones: accionesFunciones.slice(0,1),
         }
     }
 });
@@ -71,7 +76,20 @@ export const tarjetaVerticalAcciones = () => ({
             imagen: imagenEjemplo,
             nombre: 'Tarjeta con varias mas de una acción',
             nivelTitulo: 'h3',
-            acciones,
+            acciones: accionesFunciones,
+        }
+    }
+});
+
+export const tarjetaVerticalAccionEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Tarjeta con enlaces.',
+            nivelTitulo: 'h3',
+            acciones: accionesEnlaces,
         }
     }
 });

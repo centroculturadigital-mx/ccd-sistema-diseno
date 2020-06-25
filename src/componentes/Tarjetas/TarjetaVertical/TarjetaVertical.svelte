@@ -152,11 +152,16 @@
     <footer>
       <hr />
       <div class="Acciones">
-        {#each acciones as accion, i ('enlace_' + i)}
-          <BotonSecundario
-            click={accion.accion}
-            radius="15px"
-            texto={accion.texto} />
+        {#each acciones as accion (accion)}
+          {#if accion.enlace }
+            <Enlace enlace={accion.enlace} texto={accion.texto}/>
+          {/if}
+          {#if typeof accion.accion == 'function' }
+            <BotonSecundario
+              click={accion.accion}
+              radius="15px"
+              texto={accion.texto} />
+          {/if}
         {/each}
       </div>
     </footer>
