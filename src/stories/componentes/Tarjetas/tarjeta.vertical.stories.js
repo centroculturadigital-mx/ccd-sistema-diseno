@@ -56,12 +56,16 @@ export const tarjetaVerticalDefault = () => ({
                 externo: true
             },
             nombre: 'Esto es un título.',
-            subtitulo: "Esto es un subtitulo",
+            subtitulo: "Esto es un subtítulo",
             descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
-            leyenda: moment().format("DD/MMMM/YYYY"),
+            leyenda: "Un texto configurable",
             sombra: true,
             acciones: [accionesFunciones[0],accionesEnlaces[0]],
+            pleca: {
+                texto: "Un texto",
+                icono: "mas"
+            },
             enlaces
         }
     }
