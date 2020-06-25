@@ -8,16 +8,17 @@ import moment from 'moment';
 export default { title: "Componentes/Tarjetas/Tarjeta Vertical" }
 
 let accionesFunciones = [{
-        texto: "Guardar",
-        accion: () => console.log("Guardado"),
+        texto: "Acción 1",
+        accion: () => console.log("Acción 1"),
     },
     {
-        texto: "Eliminar",
-        accion: () => confirm("Eliminar"),
-        boton: "peligro"
+        texto: "Acción 2",
+        accion: () => confirm("Acción 2"),
+        // variante: "PELIGRO"
     }
 ];
-let accionesEnlaces = [{
+let accionesEnlaces = [
+    {
         texto: "Enlace 1",
         enlace: "/enlace/1"
     },
@@ -50,9 +51,18 @@ export const tarjetaVerticalDefault = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
+            enlace: {
+                url: "http://un-enlace.com",
+                externo: true
+            },
             nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
             descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-            nivelTitulo: 'h3'
+            nivelTitulo: 'h3',
+            leyenda: moment().format("DD/MMMM/YYYY"),
+            sombra: true,
+            acciones: [accionesFunciones[0],accionesEnlaces[0]],
+            enlaces
         }
     }
 });
@@ -177,23 +187,6 @@ export const tarjetaVerticalAccionesConEnlace = () => ({
             nivelTitulo: 'h3',
             acciones: accionesFunciones,
             enlace: "#"
-        }
-    }
-});
-export const tarjetaVerticalTodo = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: TarjetaVertical,
-        datos: {
-            imagen: imagenEjemplo,
-            nombre: 'Esto es un título.',
-            subtitulo: "Esto es un subtitulo",
-            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-            nivelTitulo: 'h3',
-            leyenda: moment().format("DD/MMMM/YYYY"),
-            sombra: true,
-            acciones,
-            enlaces
         }
     }
 });

@@ -16,6 +16,9 @@
   export let leyenda;
   export let enlaces = [];
   export let acciones = [];
+
+  $: linkTarget = enlace ? enlace.externo ? { target : "_blank" } : {} : {}
+
 </script>
 
 <style>
@@ -41,13 +44,13 @@
     box-sizing: border-box;
     width: 100%;
   }
-  .Contenido a {
+  /* .Contenido a {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
-  }
+  } */
   .Textos {
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding)
@@ -112,32 +115,59 @@
     padding: 0.5rem 1rem;
     box-sizing: border-box;
   }
+
+  .enlazado {
+    text-decoration: none;
+    width: 100%;
+    height: auto;
+  }
 </style>
 
-<article class={!!sombra ? 'sombra' : ''}>
+<article class={ "TarjetaVertical" + !!sombra ? ' sombra' : ''}>
   <div class="Contenido">
-    {#if !!enlace}
-      <a href={enlace} />
-    {/if}
     <div class="Imagen">
-      <Imagen {imagen} alt={nombre} ajuste="cover" />
+      {#if !!enlace}
+        <a class="enlazado" {...linkTarget} href={enlace}>
+          <Imagen {imagen} alt={nombre} ajuste="cover" />
+        </a>
+      {:else}
+        <Imagen {imagen} alt={nombre} ajuste="cover" />
+      {/if}
     </div>
 
     <div class="Textos">
-
-      {#if !!nombre}
-        <Titulo texto={nombre} nivel={nivelTitulo} />
+      {#if !!enlace}
+      <a class="enlazado" {...linkTarget} href={enlace}>
+        {#if !!nombre}
+          <Titulo texto={nombre} nivel={nivelTitulo} />
+        {/if}
+        {#if !!subtitulo}
+          <div class="Subtitulo">
+            <Titulo texto={subtitulo} nivel={4} />
+          </div>
+        {/if}
+        {#if !!leyenda}
+          <div class="Leyenda">
+            <Titulo texto={leyenda} nivel={5} />
+          </div>
+        {/if}
+      </a>
+      {:else}
+        {#if !!nombre}
+          <Titulo texto={nombre} nivel={nivelTitulo} />
+        {/if}
+        {#if !!subtitulo}
+          <div class="Subtitulo">
+            <Titulo texto={subtitulo} nivel={4} />
+          </div>
+        {/if}
+        {#if !!leyenda}
+          <div class="Leyenda">
+            <Titulo texto={leyenda} nivel={5} />
+          </div>
+        {/if}
       {/if}
-      {#if !!subtitulo}
-        <div class="Subtitulo">
-          <Titulo texto={subtitulo} nivel={4} />
-        </div>
-      {/if}
-      {#if !!leyenda}
-        <div class="Leyenda">
-          <Titulo texto={leyenda} nivel={5} />
-        </div>
-      {/if}
+            
 
       {#if Array.isArray(enlaces) && enlaces.length > 0}
         <section>
@@ -151,7 +181,15 @@
       {/if}
 
       {#if !!descripcion}
+        
+      {#if !!enlace}
+        <a class="enlazado" {...linkTarget} href={enlace}>
+          <Parrafo texto={descripcion} />
+        </a>
+      {:else}
         <Parrafo texto={descripcion} />
+      {/if}
+    
       {/if}
 
     </div>
