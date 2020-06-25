@@ -33,29 +33,19 @@
 <div class="ListaComponentes">
     {#if Array.isArray(elementos) && elementos.length > 0 }
         <ul>
-
-
             {#each elementos as elemento (elemento) }
-
                 <li>
                     <svelte:component this={elemento.componente} {...elemento.data}/>
                 </li>
-
-
             {/each}
-
         </ul>
-
-
     {:else}
-
 
         {#if mensajeVacio }
             <div class="Aviso">
                 <Parrafo texto={mensajeVacio}/>
             </div>
         {/if}
-
 
     {/if}
 </div>

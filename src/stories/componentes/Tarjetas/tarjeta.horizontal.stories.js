@@ -147,6 +147,20 @@ export const tarjetaHorizontalLeyenda = () => ({
         }
     }
 });
+export const tarjetaHorizontalConEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaHorizontal,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtitulo",
+            leyenda: "Fechas",
+            nivelTitulo: 'h3  sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            enlace: "#",
+        }
+    }
+});
 export const tarjetaHorizontalEnlaces = () => ({
     Component: ThemeTester,
     props: {

@@ -1,22 +1,22 @@
-const generar = (etiqueta,cerrar=false,atributos) => {
+const generar = (etiqueta, cerrar = false, atributos) => {
 
     let atributosHtml = ''
 
-    if( typeof atributos == 'object' ) {
-        
-        Object.keys(atributos).forEach((k,i)=>{
+    if (typeof atributos == 'object') {
+
+        Object.keys(atributos).forEach((k, i) => {
             atributosHtml += `${k}="${atributos[k]}"`
-            if( i<atributos.length-1) {
+            if (i < atributos.length - 1) {
                 atributosHtml += `${k}="${atributos[k]}"`
             }
         })
     }
 
     return `<${ cerrar ? '/' : '' }${etiqueta}${atributosHtml? " " + atributosHtml : ""}>`;
-    
+
 }
 
-const etiqueta = (etiqueta,texto,atributos) => {
+const etiqueta = (etiqueta, texto, atributos) => {
 
 
     let html = abrir(
@@ -31,25 +31,28 @@ const etiqueta = (etiqueta,texto,atributos) => {
     );
 
     return html;
-    
+
 }
 
 const abrir = (etiqueta, atributos) => {
-    return generar(etiqueta,false,atributos)
+    return generar(etiqueta, false, atributos)
 }
 
 
 const cerrar = (etiqueta) => {
-    return generar(etiqueta,true)
+    return generar(etiqueta, true)
 }
 
-const nombreGenerar = clave=>{
+const nombreGenerar = clave => {
     let etiquetaNombre;
-    
-    switch(clave) {
+
+    switch (clave) {
         case "bold":
         case "strong":
             etiquetaNombre = 'strong';
+            break;
+        case "small":
+            etiquetaNombre = 'small';
             break;
         case "italic":
         case "em":

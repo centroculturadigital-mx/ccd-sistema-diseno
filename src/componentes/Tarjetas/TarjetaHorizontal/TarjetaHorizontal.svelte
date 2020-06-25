@@ -6,6 +6,7 @@
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
+  export let enlace;
   export let imagen;
   export let nombre;
   export let nivelTitulo;
@@ -36,18 +37,36 @@
     overflow: hidden;
   }
   .Imagen {
-    width: 50%;
+    /* width: 50%; */
     height: 21rem;
   }
-  .Texto {
+  .Contenido {
+    position: relative;
     box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .Contenido a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .Texto {
+    /* 
+    padding: var(--theme-espaciados-padding)
+      calc(var(--theme-espaciados-padding) * 2); */
+    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 50%;
-    padding: var(--theme-espaciados-padding)
-      calc(var(--theme-espaciados-padding) * 2);
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
   }
   .Acciones {
     display: flex;
@@ -98,59 +117,67 @@
   hr {
     border-color: lightgray;
   }
+  footer {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+  }
 </style>
 
 <article class={clases}>
 
-  <div class="Imagen">
-    <Imagen {imagen} alt={nombre} ajuste="cover" />
-  </div>
+  <div class="Contenido">
+    {#if !!enlace}
+      <a href={enlace} />
+    {/if}
+    <div class="Imagen">
+      <Imagen {imagen} alt={nombre} ajuste="cover" />
+    </div>
+    <div class="Texto">
 
-  <div class="Texto">
-
-    {#if !!nombre}
-      <Titulo texto={nombre} nivel={nivelTituloMostrar} />
-    {/if}
-    {#if !!subtitulo}
-      <div class="Subtitulo">
-        <Titulo texto={subtitulo} nivel={4} />
-      </div>
-    {/if}
-    {#if !!leyenda}
-      <div class="Leyenda">
-        <Titulo texto={leyenda} nivel={5} />
-      </div>
-    {/if}
-    <!--  -->
-    {#if Array.isArray(enlaces) && enlaces.length > 0}
-      <section>
-        <hr />
-        <div class="Enlaces">
-          {#each enlaces as enlace, i ('enlace_' + i)}
-            <Enlace enlace={enlace.enlace} texto={enlace.texto} />
-          {/each}
+      {#if !!nombre}
+        <Titulo texto={nombre} nivel={nivelTituloMostrar} />
+      {/if}
+      {#if !!subtitulo}
+        <div class="Subtitulo">
+          <Titulo texto={subtitulo} nivel={4} />
         </div>
-      </section>
-    {/if}
-    <!--  -->
-    {#if !!descripcion}
-      <Parrafo {descripcion} />
-    {/if}
-
-    {#if Array.isArray(acciones) && acciones.length > 0}
-      <footer>
-        <hr />
-        <div class="Acciones">
-          {#each acciones as accion, i ('enlace_' + i)}
-            <BotonSecundario
-              click={accion.accion}
-              radius="15px"
-              texto={accion.texto} />
-          {/each}
+      {/if}
+      {#if !!leyenda}
+        <div class="Leyenda">
+          <Titulo texto={leyenda} nivel={5} />
         </div>
-      </footer>
-    {/if}
+      {/if}
+      <!--  -->
+      {#if Array.isArray(enlaces) && enlaces.length > 0}
+        <section>
+          <hr />
+          <div class="Enlaces">
+            {#each enlaces as enlace, i ('enlace_' + i)}
+              <Enlace enlace={enlace.enlace} texto={enlace.texto} />
+            {/each}
+          </div>
+        </section>
+      {/if}
+      <!--  -->
+      {#if !!descripcion}
+        <Parrafo {descripcion} />
+      {/if}
 
+
+  {#if Array.isArray(acciones) && acciones.length > 0}
+    <footer>
+      <hr />
+      <div class="Acciones">
+        {#each acciones as accion, i ('enlace_' + i)}
+          <BotonSecundario
+            click={accion.accion}
+            radius="15px"
+            texto={accion.texto} />
+        {/each}
+      </div>
+    </footer>
+  {/if}
+    </div>
   </div>
-
 </article>

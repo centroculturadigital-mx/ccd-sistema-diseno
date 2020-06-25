@@ -5,13 +5,32 @@
     abrir,
     cerrar
   } from "../../../funciones/generadorEtiquetas";
+
   import generadorEtiquetas from "../../../funciones/generadorEtiquetas";
 
-  export let estilos;
   export let texto;
+  export let variante;
+
+  export let estilos;
   export let tamanno;
+  export let color;
 
   let html = "";
+
+  if (!!variante) {
+    switch (variante) {
+      case "NORMAL":
+        estilos = [];
+        break;
+      case "SECUNDARIO":
+        estilos = ["small"];
+        break;
+      case "AUXILIAR":
+        color = "gray";
+        estilos = ["small", "italic"];
+        break;
+    }
+  }
 
   $: generarTexto(estilos, texto);
 
@@ -19,7 +38,7 @@
     if (Array.isArray(estilos)) {
       estilos.forEach(e => {
         html += generadorEtiquetas.abrir(generadorEtiquetas.nombreGenerar(e), {
-          style: `font-size: ${tamanno}`
+          style: `font-size: ${tamanno}; ${!!color ? "color:" + color: ""}`
         });
       });
     }

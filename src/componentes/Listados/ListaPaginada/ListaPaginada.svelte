@@ -33,6 +33,9 @@
     elementoInicial,
     elementoInicial + elementosPaginaNum
   );
+
+  console.log("elementosMostrar",elementosMostrar);
+  
 </script>
 
 <style>

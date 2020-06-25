@@ -3,16 +3,6 @@ import Texto from '../../../elementos/texto/Texto/Texto.svelte';
 
 export default { title: 'Elementos/Texto/Texto' }
 
-
-export const textoThemed = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Texto,
-        datos: {
-            texto: 'Texto Default',
-        }
-    },
-});
 export const textoDefault = () => ({
     Component: ThemeTester,
     props: {
@@ -85,6 +75,38 @@ export const textoTachado = () => ({
             estilos: [
                 "strikethrough",
             ]
+        },
+    }
+});
+
+export const textoVarianteNormal = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto con variante',
+            variante: "NORMAL",
+        },
+    }
+});
+export const textoVarianteAuxiliar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto con variante',
+            variante: "AUXILIAR",
+            // variante: "SECUNDARIO",
+        },
+    }
+});
+export const textoVarianteSecundario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto con variante',
+            variante: "SECUNDARIO",
         },
     }
 });
