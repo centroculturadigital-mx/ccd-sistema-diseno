@@ -25,7 +25,7 @@
     cursor: pointer;
     color: var(--theme-textos-enlaces-color);
     font-family: var(--theme-textos-enlaces-familia);
-    font-size: calc(var(--theme-textos-enlaces-tamannos) / 1.5);
+    font-size: var(--theme-textos-enlaces-tamanno);
     display: inline-block;
     width: 100%;
     height: 100%;

@@ -64,7 +64,7 @@ export const tarjetaVerticalAccion = () => ({
             imagen: imagenEjemplo,
             nombre: 'Tarjeta con una acción.',
             nivelTitulo: 'h3',
-            acciones: accionesFunciones.slice(0,1),
+            acciones: accionesFunciones.slice(0, 1),
         }
     }
 });
@@ -74,7 +74,7 @@ export const tarjetaVerticalAcciones = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            nombre: 'Tarjeta con varias mas de una acción',
+            nombre: 'Tarjeta con varias acciones',
             nivelTitulo: 'h3',
             acciones: accionesFunciones,
         }
@@ -87,7 +87,7 @@ export const tarjetaVerticalAccionEnlace = () => ({
         componente: TarjetaVertical,
         datos: {
             imagen: imagenEjemplo,
-            nombre: 'Tarjeta con enlaces.',
+            nombre: 'Tarjeta con enlaces acción',
             nivelTitulo: 'h3',
             acciones: accionesEnlaces,
         }
@@ -175,7 +175,7 @@ export const tarjetaVerticalAccionesConEnlace = () => ({
             imagen: imagenEjemplo,
             nombre: 'Tarjeta con varias mas de una acción',
             nivelTitulo: 'h3',
-            acciones,
+            acciones: accionesFunciones,
             enlace: "#"
         }
     }

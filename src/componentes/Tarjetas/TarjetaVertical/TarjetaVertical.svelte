@@ -68,6 +68,18 @@
   .Acciones :global(button:hover) {
     border: none;
   }
+  .Acciones :global(a) {
+    border: none;
+    padding: var(--theme-espaciados-padding);
+    background-color: var(--theme-botones-secundario-fondo);
+    color: var(--theme-botones-secundario-color);
+  }
+  .Acciones :global(a span) {
+    font-size: calc(var(--theme-textos-enlaces-tamanno) / 1.125);
+  }
+  .Acciones :global(a:hover) {
+    border: none;
+  }
   .sombra {
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
   }
@@ -144,19 +156,16 @@
 
     </div>
   </div>
-  <!-- {#if !!enlace }
-    </a>
-  {/if} -->
-  <!-- acciones -->
+
   {#if Array.isArray(acciones) && acciones.length > 0}
     <footer>
       <hr />
       <div class="Acciones">
         {#each acciones as accion (accion)}
-          {#if accion.enlace }
-            <Enlace enlace={accion.enlace} texto={accion.texto}/>
+          {#if accion.enlace}
+            <Enlace enlace={accion.enlace} texto={accion.texto} />
           {/if}
-          {#if typeof accion.accion == 'function' }
+          {#if typeof accion.accion == 'function'}
             <BotonSecundario
               click={accion.accion}
               radius="15px"
@@ -166,6 +175,5 @@
       </div>
     </footer>
   {/if}
-  <!--  -->
 
 </article>
