@@ -258,3 +258,25 @@ export const iconoIrDerecha = () => ({
     },
     
 });
+
+export const iconoOjoAbierto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "ojoAbierto",
+    }
+    },
+    
+});
+
+export const iconoOjoCerrado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "ojoCerrado",
+    }
+    },
+    
+});

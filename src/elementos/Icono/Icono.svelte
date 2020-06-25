@@ -26,6 +26,8 @@
   import confirma from "./iconos/confirma.svg";
   import irIzquierda from "./iconos/ir.izquierda.svg";
   import irDerecha from "./iconos/ir.derecha.svg";
+  import ojoAbierto from "./iconos/ojo.abierto.svg";
+  import ojoCerrado from "./iconos/ojo.cerrado.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -58,6 +60,8 @@
     confirma,
     irIzquierda,
     irDerecha,
+    ojoAbierto,
+    ojoCerrado,
   };
 
   $: iconoMostrar = iconos[icono];
