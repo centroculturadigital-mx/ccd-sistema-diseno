@@ -6,11 +6,11 @@ export default { title: 'Componentes/Pie/Pie' }
 
 let rutas = [{
         label: "Ruta",
-        ruta: "una-ruta"
+        enlace: "una-ruta"
     },
     {
         label: "Ruta",
-        ruta: "una-ruta"
+        enlace: "una-ruta"
     }
 ];
 let logos = [{

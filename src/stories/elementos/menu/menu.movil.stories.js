@@ -5,23 +5,23 @@ export default { title: 'Elementos/Menú/Menú Movil' }
 
 let rutas = [{
         texto: "Ruta",
-        ruta: "una-ruta"
+        enlace: "una-ruta"
     },
     {
         texto: "Ruta",
-        ruta: "una-ruta"
+        enlace: "una-ruta"
     },
     {
         texto: "Ruta",
-        ruta: "una-ruta"
+        enlace: "una-ruta"
     },
     {
         texto: "Ruta",
-        ruta: "una-ruta"
+        enlace: "una-ruta"
     },
     {
         texto: "Ruta",
-        ruta: "una-ruta"
+        enlace: "una-ruta"
     }
 ];
 

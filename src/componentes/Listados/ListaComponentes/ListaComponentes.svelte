@@ -35,7 +35,7 @@
         <ul>
 
 
-            {#each elementos as elemento, i ("elemento_"+i) }
+            {#each elementos as elemento (elemento) }
 
                 <li>
                     <svelte:component this={elemento.componente} {...elemento.data}/>

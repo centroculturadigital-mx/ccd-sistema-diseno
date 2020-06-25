@@ -72,7 +72,7 @@
   <div class="menu">
 
     {#if Array.isArray(menu)}
-      <MenuEscritorio objetosMenu={menu} />
+      <MenuEscritorio elementos={menu} />
     {/if}
 
   </div>

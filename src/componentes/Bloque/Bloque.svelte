@@ -6,6 +6,19 @@
     tamanno: "",
     color: "",
   }
+
+  $: estilosCalculados = calcularEstilos()
+
+  const calcularEstilos = () => {
+    let str = ''
+    if( estilos.tamanno ) {
+      str += `font-size: ${estilos.tamanno};`
+    }
+    if( estilos.color ) {
+      str += `color: ${estilos.color};`
+    }
+  }
+
 </script>
 
 <style>
@@ -20,7 +33,7 @@
 {#if !!contenido}
 
   {#if Array.isArray(contenido)}
-    {#each contenido as componente, j ('componente_' + j)}
+    {#each contenido as componente (componente)}
       <svelte:component
         this={componente.componente}
         {...componente.data}
@@ -32,13 +45,13 @@
       {...contenido.data}
       tamanno={estilos.tamanno} />
   {:else}
-    <span style={`font-size: ${estilos.tamanno};color: ${estilos.color};`}>
+    <span style={estilosCalculados}>
       {@html contenido}
     </span>
   {/if}
 {:else}
 
   {#if !!texto}
-    <span style={`font-size: ${estilos.tamanno};color: ${estilos.color};`}>{texto}</span>
+    <span style={estilosCalculados}>{texto}</span>
   {/if}
 {/if}
