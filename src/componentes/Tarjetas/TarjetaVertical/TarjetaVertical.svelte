@@ -54,7 +54,7 @@
   .Textos {
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding)
-      calc(var(--theme-espaciados-padding) * 2);
+      calc(var(--theme-espaciados-padding) * 4);
     width: 100%;
   }
   .Acciones {
@@ -88,6 +88,7 @@
   }
   .Subtitulo :global(h4) {
     margin: 0.5rem 0;
+    text-align: center;
   }
   .Leyenda  {
     text-align: center;
@@ -101,7 +102,6 @@
     color: var(--theme-textos-parrafo-color); 
     font-weight: var(--theme-textos-parrafo-peso);
     font-size: var(--theme-tamannos-sm);
-    text-align: center;
   }
   .Enlaces {
     display: grid;
