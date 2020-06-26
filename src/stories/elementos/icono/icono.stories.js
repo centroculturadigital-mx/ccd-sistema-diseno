@@ -280,3 +280,14 @@ export const iconoOjoCerrado = () => ({
     },
     
 });
+
+export const iconoCompartir = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "compartir",
+    }
+    },
+    
+});

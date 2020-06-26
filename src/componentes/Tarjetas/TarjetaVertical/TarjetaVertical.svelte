@@ -89,14 +89,18 @@
   .Subtitulo :global(h4) {
     margin: 0.5rem 0;
   }
-  .Leyenda :global(h5) {
+  .Leyenda  {
     text-align: center;
     margin: 0.5rem 0;
+    color: var(--theme-textos-parrafo-color); 
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-tamannos-sm);
+    text-align: center;
   }
-  .Leyenda :global(h5 span) {
-    color: #aaa;
-    font-weight: 100;
-    font-size: 0.75rem;
+  .Leyenda :global( span) {
+    color: var(--theme-textos-parrafo-color); 
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-tamannos-sm);
     text-align: center;
   }
   .Enlaces {
@@ -148,7 +152,7 @@
         {/if}
         {#if !!leyenda}
           <div class="Leyenda">
-            <Titulo texto={leyenda} nivel={5} />
+            <Parrafo texto={leyenda} nivel={5} />
           </div>
         {/if}
       </a>

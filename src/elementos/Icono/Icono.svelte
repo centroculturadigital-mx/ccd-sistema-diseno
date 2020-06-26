@@ -28,6 +28,7 @@
   import irDerecha from "./iconos/ir.derecha.svg";
   import ojoAbierto from "./iconos/ojo.abierto.svg";
   import ojoCerrado from "./iconos/ojo.cerrado.svg";
+  import compartir from "./iconos/compartir.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -62,6 +63,7 @@
     irDerecha,
     ojoAbierto,
     ojoCerrado,
+    compartir,
   };
 
   $: iconoMostrar = iconos[icono];
