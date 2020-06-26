@@ -30,6 +30,9 @@
   import ojoCerrado from "./iconos/ojo.cerrado.svg";
   import compartir from "./iconos/compartir.svg";
   import google from "./iconos/google.svg";
+  import charla from "./iconos/charla.svg";
+  import adjuntarFoto from "./iconos/adjuntar.foto.svg";
+  import mano from "./iconos/mano.svg";
 
   export let icono;
   export let tamanno = "2rem";
@@ -66,6 +69,9 @@
     ojoCerrado,
     compartir,
     google,
+    charla,
+    adjuntarFoto,
+    mano,
   };
 
   $: iconoMostrar = iconos[icono];

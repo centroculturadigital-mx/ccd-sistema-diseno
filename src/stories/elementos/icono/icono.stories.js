@@ -302,3 +302,36 @@ export const iconoGoogle = () => ({
     },
     
 });
+
+export const iconoCharla = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "charla",
+    }
+    },
+    
+});
+
+export const iconoAdjuntarFoto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "adjuntarFoto",
+    }
+    },
+    
+});
+
+export const iconoMano = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "mano",
+    }
+    },
+    
+});
