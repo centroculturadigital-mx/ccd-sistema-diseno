@@ -291,3 +291,14 @@ export const iconoCompartir = () => ({
     },
     
 });
+
+export const iconoGoogle = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "google",
+    }
+    },
+    
+});
