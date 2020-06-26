@@ -84,7 +84,7 @@
     border: none;
   }
   .sombra {
-    box-shadow: -1px 2px 3px rgba(0, 0, 0, 5);
+    box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.1);
   }
   .Subtitulo :global(h4) {
     margin: 0.5rem 0;
