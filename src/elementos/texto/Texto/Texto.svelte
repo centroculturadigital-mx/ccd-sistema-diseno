@@ -14,6 +14,7 @@
   export let estilos;
   export let tamanno;
   export let color;
+  export let css = {};
 
   let html = "";
 
@@ -24,6 +25,10 @@
         break;
       case "SECUNDARIO":
         estilos = ["small"];
+        break;
+      case "COMPACTO":
+        estilos = ["small", "uppercase"];
+        tamanno = "0.65rem"
         break;
       case "AUXILIAR":
         color = "gray";
@@ -53,6 +58,11 @@
       });
     }
   };
+
+
+  $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
+
+
 </script>
 
 <style>
@@ -64,6 +74,6 @@
   }
 </style>
 
-<span on:click>
+<span on:click style={cssString}>
   {@html html}
 </span>

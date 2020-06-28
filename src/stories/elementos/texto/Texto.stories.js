@@ -26,6 +26,21 @@ export const textoBold = () => ({
     }
 });
 
+export const textoCss = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto Bold',
+            css: {
+                'text-transform': 'uppercase',
+                'font-size': '0.5rem',
+                'letter-spacing': '3px',
+            }
+        },
+    }
+});
+
 export const textoItalic = () => ({
     Component: ThemeTester,
     props: {
