@@ -26,6 +26,13 @@
       case "SECUNDARIO":
         estilos = ["small"];
         break;
+      case "COMPACTO":
+        css = {
+          "font-size": "0.6rem",
+          "text-transform": "uppercase",
+          "letter-spacing": "1px",
+        };
+        break;
       case "AUXILIAR":
         color = "gray";
         estilos = ["small", "italic"];
