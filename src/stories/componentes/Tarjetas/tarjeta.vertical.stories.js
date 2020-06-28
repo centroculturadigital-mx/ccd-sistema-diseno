@@ -17,8 +17,7 @@ let accionesFunciones = [{
         // variante: "PELIGRO"
     }
 ];
-let accionesEnlaces = [
-    {
+let accionesEnlaces = [{
         texto: "Enlace 1",
         enlace: "/enlace/1"
     },
@@ -61,7 +60,7 @@ export const tarjetaVerticalDefault = () => ({
             nivelTitulo: 'h3',
             leyenda: "Un texto configurable",
             sombra: true,
-            acciones: [accionesFunciones[0],accionesEnlaces[0]],
+            acciones: [accionesFunciones[0], accionesEnlaces[0]],
             pleca: {
                 texto: "Un texto",
                 icono: "mas"

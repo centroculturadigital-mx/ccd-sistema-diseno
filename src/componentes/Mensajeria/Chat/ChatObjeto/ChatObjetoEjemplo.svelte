@@ -4,8 +4,9 @@
   import Parrafo from "../../../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let imagen;
-  export let titulo;
-  export let texto;
+  export let titulo = "";
+  export let texto = "";
+  export let textoSecundario = "";
 </script>
 
 <style>
@@ -46,5 +47,6 @@
   <div class="Texto">
     <Titulo texto={titulo} nivel={5} />
     <Parrafo {texto} />
+    <Parrafo texto={textoSecundario} nivel={4} />
   </div>
 </article>
