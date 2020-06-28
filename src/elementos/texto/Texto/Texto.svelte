@@ -26,10 +26,6 @@
       case "SECUNDARIO":
         estilos = ["small"];
         break;
-      case "COMPACTO":
-        estilos = ["small", "uppercase"];
-        tamanno = "0.65rem"
-        break;
       case "AUXILIAR":
         color = "gray";
         estilos = ["small", "italic"];
