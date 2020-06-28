@@ -87,39 +87,55 @@
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.1);
   }
   .Subtitulo :global(h4) {
-    margin: 0.5rem 0;
+    /*margin: 0.5rem 0;*/
+    margin: var(--theme-espaciados-margen)0; 
   }
-  .Leyenda :global(h5) {
-    text-align: center;
+  .Leyenda  {
     margin: 0.5rem 0;
+    color: var(--theme-textos-parrafo-color); 
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-tamannos-sm); 
   }
-  .Leyenda :global(h5 span) {
-    color: #aaa;
-    font-weight: 100;
-    font-size: 0.75rem;
-    text-align: center;
+  .Leyenda :global( span) {
+    color: var(--theme-textos-parrafo-color); 
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-tamannos-sm);
   }
   .Enlaces {
     display: grid;
     grid-template-columns: repeat(2, 50%);
   }
-  .Enlaces :global(a) {
+  .Enlaces :global(a span) {
     padding: var(--theme-espaciados-padding) var(--theme-espaciados-padding)
       var(--theme-espaciados-padding) 0;
+    font-size: var(--theme-tamannos-sm);
+    font-weight: 700;
+    color: var(--theme-textos-enlaces-color);
   }
   hr {
-    border-color: lightgray;
+    border-color:var(--theme-bordes-neutro);
+    border-style: solid;
+    border-width:  thin;
+    opacity: 0.25;
   }
   footer {
     width: 100%;
     padding: 0.5rem 1rem;
     box-sizing: border-box;
   }
-
   .enlazado {
     text-decoration: none;
     width: 100%;
     height: auto;
+  }
+  .Titulo :global(h3) {
+    /*margin: 0.5rem 0;*/
+    margin: var(--theme-espaciados-margen)0; 
+  }
+  .Descripcion :global(p) {
+    margin: var(--theme-espaciados-margen)0;
+    height: 4rem;
+    margin-bottom:2rem;
   }
 </style>
 
@@ -134,27 +150,30 @@
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
     </div>
-
     <div class="Textos">
+      {#if !!leyenda}
+          <div class="Leyenda">
+            <Parrafo texto={leyenda} nivel={5} />
+          </div>
+        {/if}  
       {#if !!enlace}
       <a class="enlazado" {...linkTarget} href={enlace}>
         {#if !!nombre}
-          <Titulo texto={nombre} nivel={nivelTitulo} />
+          <div class="Titulo">
+           <Titulo texto={nombre} nivel={nivelTitulo} />
+          </div>
         {/if}
         {#if !!subtitulo}
           <div class="Subtitulo">
             <Titulo texto={subtitulo} nivel={4} />
           </div>
         {/if}
-        {#if !!leyenda}
-          <div class="Leyenda">
-            <Titulo texto={leyenda} nivel={5} />
-          </div>
-        {/if}
       </a>
       {:else}
         {#if !!nombre}
-          <Titulo texto={nombre} nivel={nivelTitulo} />
+          <div class="Titulo">
+           <Titulo texto={nombre} nivel={nivelTitulo} />
+          </div>
         {/if}
         {#if !!subtitulo}
           <div class="Subtitulo">
@@ -184,10 +203,14 @@
         
       {#if !!enlace}
         <a class="enlazado" {...linkTarget} href={enlace}>
+        <div class="Descripcion">
           <Parrafo texto={descripcion} />
+          </div>
         </a>
       {:else}
+      <div class="Descripcion">
         <Parrafo texto={descripcion} />
+        </div>
       {/if}
     
       {/if}

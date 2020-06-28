@@ -52,12 +52,12 @@ const estilos = {
         },
         enlaces: {
             familia: variables.tipografia.fuentes.principal.nombre,
-            color: variables.colores.primario.base,
-            hover: variables.colores.primario.claro,
+            color: variables.colores.primario4.base,
+            hover: variables.colores.primario4.claro,
         }
     },
     cabecera: {
-        principal: {
+        principal: { 
             fondo: variables.colores.fondo.claro,
             altura: variables.alturas.cabecera,
         }

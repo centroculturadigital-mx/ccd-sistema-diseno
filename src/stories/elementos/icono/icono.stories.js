@@ -280,3 +280,58 @@ export const iconoOjoCerrado = () => ({
     },
     
 });
+
+export const iconoCompartir = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "compartir",
+    }
+    },
+    
+});
+
+export const iconoGoogle = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "google",
+    }
+    },
+    
+});
+
+export const iconoCharla = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "charla",
+    }
+    },
+    
+});
+
+export const iconoAdjuntarFoto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "adjuntarFoto",
+    }
+    },
+    
+});
+
+export const iconoMano = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "mano",
+    }
+    },
+    
+});
