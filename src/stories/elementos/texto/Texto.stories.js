@@ -13,6 +13,41 @@ export const textoDefault = () => ({
     },
 });
 
+
+
+export const textoAuxiliar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto auxiliar',
+            variante: "AUXILIAR",
+            // variante: "SECUNDARIO",
+        },
+    }
+});
+export const textoSecundario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto secundario',
+            variante: "SECUNDARIO",
+        },
+    }
+});
+export const textoCompacto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto compacto',
+            variante: "COMPACTO",
+        },
+    }
+});
+
+
 export const textoBold = () => ({
     Component: ThemeTester,
     props: {
@@ -22,6 +57,21 @@ export const textoBold = () => ({
             estilos: [
                 "bold"
             ]
+        },
+    }
+});
+
+export const textoCss = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Texto,
+        datos: {
+            texto: 'Texto Bold',
+            css: {
+                'text-transform': 'uppercase',
+                'font-size': '0.5rem',
+                'letter-spacing': '3px',
+            }
         },
     }
 });
@@ -79,37 +129,6 @@ export const textoTachado = () => ({
     }
 });
 
-export const textoVarianteNormal = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Texto,
-        datos: {
-            texto: 'Texto con variante',
-            variante: "NORMAL",
-        },
-    }
-});
-export const textoVarianteAuxiliar = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Texto,
-        datos: {
-            texto: 'Texto con variante',
-            variante: "AUXILIAR",
-            // variante: "SECUNDARIO",
-        },
-    }
-});
-export const textoVarianteSecundario = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Texto,
-        datos: {
-            texto: 'Texto con variante',
-            variante: "SECUNDARIO",
-        },
-    }
-});
 
 export const textoTodos = () => ({
     Component: ThemeTester,

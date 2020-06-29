@@ -57,6 +57,8 @@ export { default as TarjetaHorizontal }
 from "./componentes/Tarjetas/TarjetaHorizontal/TarjetaHorizontal.svelte";
 export { default as TarjetaVertical }
 from "./componentes/Tarjetas/TarjetaVertical/TarjetaVertical.svelte";
+export { default as TarjetaHorizontalChica }
+from "./componentes/Tarjetas/TarjetaHorizontalChica/TarjetaHorizontalChica.svelte";
 export { default as Contenido }
 from "./componentes/Contenido/Contenido.svelte";
 export { default as Mapa }

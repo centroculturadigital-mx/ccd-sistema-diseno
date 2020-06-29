@@ -134,7 +134,7 @@
   }
   .Descripcion :global(p) {
     margin: var(--theme-espaciados-margen)0;
-    height: 5rem;
+    height: 6rem;
     margin-bottom:2rem;
   }
 </style>
