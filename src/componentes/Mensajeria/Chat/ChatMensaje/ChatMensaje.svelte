@@ -2,7 +2,6 @@
   import Imagen from "../../../../elementos/media/Imagen/Imagen.svelte";
   import Texto from "../../../../elementos/texto/Texto/Texto.svelte";
   import Parrafo from "../../../../elementos/texto/Parrafo/Parrafo.svelte";
-  import ChatObjeto from "../../../../componentes/Mensajeria/Chat/ChatObjeto/ChatObjeto.svelte";
   import Reacciones from "../../Reacciones/Reacciones";
   import MensajeReacciones from "../../MensajeReacciones/MensajeReacciones";
 
@@ -18,9 +17,6 @@
     }
   }
 
-
-  console.log("Reacciones", mensaje.reacciones );
-  
 </script>
 
 <style>
@@ -95,7 +91,7 @@
     </div>
     {#if typeof objeto == 'object'}
       <div class="ChatMensajeObjeto">
-        <ChatObjeto {...objeto} />
+        <svelte:component this={objeto.componente} {...objeto.datos} />
       </div>
     {/if}
 

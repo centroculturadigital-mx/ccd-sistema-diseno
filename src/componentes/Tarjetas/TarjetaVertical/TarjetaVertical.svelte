@@ -161,7 +161,7 @@
       {:else}
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
-      {#if !!pleca && Object.keys(pleca).length > 0}
+      {#if !!pleca && typeof pleca == 'object'}
         <div class="Pleca" style={estilosPleca}>
           <Texto texto={pleca.texto} css={{'color': textoPleca}} />
           {#if !!pleca.icono}

@@ -26,7 +26,6 @@
     display: flex;
     flex-direction: column;
     background-color: var(--theme-colores-fondo);
-    /*padding: calc(var(--theme-espaciados-padding) * 2);*/
     border-width: 0.05rem;
     border-color: var(--theme-bordes-neutro);
     border-style: solid;
@@ -40,9 +39,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
   }
-  /*hr {
-    border-color: lightgray;
-  }*/
+
 </style>
 
 <section class="Chat">
