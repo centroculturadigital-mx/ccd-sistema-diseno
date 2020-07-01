@@ -21,6 +21,7 @@
   const menuAlternar = () => {
     estado = !estado;
   };
+
 </script>
 
 <style>
@@ -87,7 +88,8 @@
         {estado}
         {elementos}
         {sombra}
-        {segment} />
+        {segment} 
+        on:click={menuAlternar}/>
     {/if}
   {/if}
 

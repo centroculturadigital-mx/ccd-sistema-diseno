@@ -5,7 +5,12 @@
   import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
+  import Texto from "../../../elementos/texto/Texto/Texto.svelte";
+  import Icono from "../../../elementos/Icono/Icono.svelte";
 
+  import extracto from "../../../funciones/limitaTexto";
+
+  export let pleca;
   export let enlace;
   export let imagen;
   export let nombre;
@@ -17,8 +22,22 @@
   export let enlaces = [];
   export let acciones = [];
 
-  $: linkTarget = enlace ? enlace.externo ? { target : "_blank" } : {} : {}
+  $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
+  let colorFondoPleca = !!pleca
+    ? pleca.colores.fondo
+      ? `background-color: ${pleca.colores.fondo}; `
+      : ""
+    : "";
+
+  let colorTextoPleca = !!pleca
+    ? pleca.colores.texto
+      ? `${pleca.colores.texto}`
+      : ""
+    : "";
+
+  $: console.log("EXTRACTO", extracto(descripcion, 12, " ..."));
+    
 </script>
 
 <style>
@@ -88,16 +107,16 @@
   }
   .Subtitulo :global(h4) {
     /*margin: 0.5rem 0;*/
-    margin: var(--theme-espaciados-margen)0; 
+    margin: var(--theme-espaciados-margen) 0;
   }
-  .Leyenda  {
+  .Leyenda {
     margin: 0.5rem 0;
-    color: var(--theme-textos-parrafo-color); 
+    color: var(--theme-textos-parrafo-color);
     font-weight: var(--theme-textos-parrafo-peso);
-    font-size: var(--theme-tamannos-sm); 
+    font-size: var(--theme-tamannos-sm);
   }
-  .Leyenda :global( span) {
-    color: var(--theme-textos-parrafo-color); 
+  .Leyenda :global(span) {
+    color: var(--theme-textos-parrafo-color);
     font-weight: var(--theme-textos-parrafo-peso);
     font-size: var(--theme-tamannos-sm);
   }
@@ -106,21 +125,22 @@
     grid-template-columns: repeat(2, 50%);
   }
   .Enlaces :global(a span) {
-    padding: var(--theme-espaciados-padding) var(--theme-espaciados-padding)
-      var(--theme-espaciados-padding) 0;
+    padding: calc(var(--theme-espaciados-padding) / 2);
+    padding-left: 0;
     font-size: var(--theme-tamannos-sm);
     font-weight: 700;
     color: var(--theme-textos-enlaces-color);
+    height: auto;
   }
   hr {
-    border-color:var(--theme-bordes-neutro);
+    border-color: var(--theme-bordes-neutro);
     border-style: solid;
-    border-width:  thin;
+    border-width: thin;
     opacity: 0.25;
   }
   footer {
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem 0.5rem 1rem;
     box-sizing: border-box;
   }
   .enlazado {
@@ -130,16 +150,33 @@
   }
   .Titulo :global(h3) {
     /*margin: 0.5rem 0;*/
-    margin: var(--theme-espaciados-margen)0; 
+    margin: var(--theme-espaciados-margen) 0;
   }
   .Descripcion :global(p) {
-    margin: var(--theme-espaciados-margen)0;
-    height: 6rem;
-    margin-bottom:2rem;
+    margin: var(--theme-espaciados-margen) 0;
+    height: 7rem;
+    margin-bottom: 0;
+  }
+  .Pleca {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    min-width: 45%;
+    padding: var(--theme-espaciados-padding);
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .Pleca :global(.iconoContenedor img) {
+    height: 1rem;
+    width: 1rem;
+    margin-left: 0.5rem;
   }
 </style>
 
-<article class={ "TarjetaVertical" + !!sombra ? ' sombra' : ''}>
+<article class={'TarjetaVertical' + !!sombra ? ' sombra' : ''}>
   <div class="Contenido">
     <div class="Imagen">
       {#if !!enlace}
@@ -149,30 +186,38 @@
       {:else}
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
+      {#if !!pleca && typeof pleca == 'object'}
+        <div class="Pleca" style={colorFondoPleca}>
+          <Texto texto={pleca.texto} css={{ color: colorTextoPleca }} />
+          {#if !!pleca.icono}
+            <Icono icono={pleca.icono} />
+          {/if}
+        </div>
+      {/if}
     </div>
     <div class="Textos">
       {#if !!leyenda}
-          <div class="Leyenda">
-            <Parrafo texto={leyenda} nivel={5} />
-          </div>
-        {/if}  
+        <div class="Leyenda">
+          <Parrafo texto={leyenda} nivel={5} />
+        </div>
+      {/if}
       {#if !!enlace}
-      <a class="enlazado" {...linkTarget} href={enlace}>
-        {#if !!nombre}
-          <div class="Titulo">
-           <Titulo texto={nombre} nivel={nivelTitulo} />
-          </div>
-        {/if}
-        {#if !!subtitulo}
-          <div class="Subtitulo">
-            <Titulo texto={subtitulo} nivel={4} />
-          </div>
-        {/if}
-      </a>
+        <a class="enlazado" {...linkTarget} href={enlace}>
+          {#if !!nombre}
+            <div class="Titulo">
+              <Titulo texto={nombre} nivel={nivelTitulo} />
+            </div>
+          {/if}
+          {#if !!subtitulo}
+            <div class="Subtitulo">
+              <Titulo texto={subtitulo} nivel={4} />
+            </div>
+          {/if}
+        </a>
       {:else}
         {#if !!nombre}
           <div class="Titulo">
-           <Titulo texto={nombre} nivel={nivelTitulo} />
+            <Titulo texto={nombre} nivel={nivelTitulo} />
           </div>
         {/if}
         {#if !!subtitulo}
@@ -186,7 +231,6 @@
           </div>
         {/if}
       {/if}
-            
 
       {#if Array.isArray(enlaces) && enlaces.length > 0}
         <section>
@@ -200,19 +244,17 @@
       {/if}
 
       {#if !!descripcion}
-        
-      {#if !!enlace}
-        <a class="enlazado" {...linkTarget} href={enlace}>
-        <div class="Descripcion">
-          <Parrafo texto={descripcion} />
+        {#if !!enlace}
+          <a class="enlazado" {...linkTarget} href={enlace}>
+            <div class="Descripcion">
+              <Parrafo texto={extracto(descripcion, 22, " ...")} />
+            </div>
+          </a>
+        {:else}
+          <div class="Descripcion">
+            <Parrafo texto={descripcion} />
           </div>
-        </a>
-      {:else}
-      <div class="Descripcion">
-        <Parrafo texto={descripcion} />
-        </div>
-      {/if}
-    
+        {/if}
       {/if}
 
     </div>

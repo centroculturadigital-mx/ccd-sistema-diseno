@@ -70,7 +70,7 @@
     // } else {
     // datos[c.nombre] = null
     // }
-    // }
+    // } 
 
     if (typeof cambiar == "function") {
       cambiar(datos);

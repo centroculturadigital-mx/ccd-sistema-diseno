@@ -5,6 +5,7 @@
   export let estado;
   export let elementos;
   export let sombra;
+
 </script>
 
 <style>
@@ -41,9 +42,6 @@
   a:hover {
     color: var(--theme-textos-menu-escritorio-hover);
   }
-  hr {
-    width: 100%;
-  }
   .sombra {
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
   }
@@ -55,7 +53,7 @@
 
       {#each elementos as elemento, i ('elemento_' + i)}
         <li>
-          <a class:selected={segment === elemento.enlace} href={elemento.enlace}>
+          <a class:selected={segment === elemento.enlace} href={elemento.enlace} on:click>
             {elemento.texto}
           </a>
         </li>

@@ -8,6 +8,7 @@
   export let titulo = "";
   export let texto = "";
   export let textoSecundario = "";
+
 </script>
 
 <style>

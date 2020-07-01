@@ -24,8 +24,6 @@ export const tarjetaHorizontalChicaTitulo = () => ({
         datos: {
             imagen: imagen,
             titulo: "Titulo de tarjeta vertical chica",
-            // texto: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque ...",
-            // textoSecundario: "Sed ut perspiciatis: unde omnis",
         }
     }
 });
