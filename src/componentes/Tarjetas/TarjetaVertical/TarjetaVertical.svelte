@@ -22,11 +22,11 @@
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
-  let colorFondoPleca = pleca.colores.fondo
+  let colorFondoPleca = !!pleca ? pleca.colores.fondo
     ? `background-color: ${pleca.colores.fondo}; `
-    : "";
+    : "" : "";
 
-  let colorTextoPleca = pleca.colores.texto ? `${pleca.colores.texto}` : "";
+  let colorTextoPleca = !!pleca ? pleca.colores.texto ? `${pleca.colores.texto}` : "" : "";
 </script>
 
 <style>
@@ -114,11 +114,12 @@
     grid-template-columns: repeat(2, 50%);
   }
   .Enlaces :global(a span) {
-    padding: var(--theme-espaciados-padding) var(--theme-espaciados-padding)
-      var(--theme-espaciados-padding) 0;
+    padding: calc(var(--theme-espaciados-padding) / 2);
+    padding-left: 0;
     font-size: var(--theme-tamannos-sm);
     font-weight: 700;
     color: var(--theme-textos-enlaces-color);
+    height: auto;
   }
   hr {
     border-color: var(--theme-bordes-neutro);
