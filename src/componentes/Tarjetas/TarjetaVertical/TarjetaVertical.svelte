@@ -8,6 +8,8 @@
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
 
+  import extracto from "../../../funciones/limitaTexto";
+
   export let pleca;
   export let enlace;
   export let imagen;
@@ -22,11 +24,20 @@
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
-  let colorFondoPleca = !!pleca ? pleca.colores.fondo
-    ? `background-color: ${pleca.colores.fondo}; `
-    : "" : "";
+  let colorFondoPleca = !!pleca
+    ? pleca.colores.fondo
+      ? `background-color: ${pleca.colores.fondo}; `
+      : ""
+    : "";
 
-  let colorTextoPleca = !!pleca ? pleca.colores.texto ? `${pleca.colores.texto}` : "" : "";
+  let colorTextoPleca = !!pleca
+    ? pleca.colores.texto
+      ? `${pleca.colores.texto}`
+      : ""
+    : "";
+
+  $: console.log("EXTRACTO", extracto(descripcion, 12, " ..."));
+    
 </script>
 
 <style>
@@ -236,7 +247,7 @@
         {#if !!enlace}
           <a class="enlazado" {...linkTarget} href={enlace}>
             <div class="Descripcion">
-              <Parrafo texto={descripcion} />
+              <Parrafo texto={extracto(descripcion, 22, " ...")} />
             </div>
           </a>
         {:else}
