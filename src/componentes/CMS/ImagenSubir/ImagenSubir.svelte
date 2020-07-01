@@ -39,6 +39,7 @@
       
       fr.onload = async () => {
         const blob = fr.result;
+        imagen = blob// e.target.files[0].name;
         if( typeof cambiar == "function" ) {
           cambiar(blob)
         }
@@ -47,7 +48,6 @@
       fr.readAsDataURL(files[0]);
 
     }
-    // imagen = e.target.value;
   };
 
   const abrir = () => input.click();
