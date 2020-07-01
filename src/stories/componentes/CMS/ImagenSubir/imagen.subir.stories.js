@@ -8,7 +8,7 @@ export const imagenSubirInicial = () => ({
     props: {
         componente: ImagenSubir,
         datos: {
-            cambiar: datos => console.log("IMAGEN CAMBIAR",datos.stream())            
+            cambiar: datos => console.log("IMAGEN CAMBIAR",datos)
         }
     }
 });

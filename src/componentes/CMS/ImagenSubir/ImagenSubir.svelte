@@ -34,22 +34,19 @@
   const seleccionarImagen = async e => {
     let files = e.target.files;
     
-    if( typeof cambiar == "function" ) {
-      cambiar(files[0])
-    }
-    // if (FileReader && files && files.length) {
-    //   let fr = new FileReader();
+    if (FileReader && files && files.length) {
+      let fr = new FileReader();
       
-    //   fr.onload = async () => {
-    //     const imageStr = fr.result;
-    //     if( typeof cambiar == "function" ) {
-    //       cambiar(imageStr)
-    //     }
-    //   };
+      fr.onload = async () => {
+        const blob = fr.result;
+        if( typeof cambiar == "function" ) {
+          cambiar(blob)
+        }
+      };
       
-    //   fr.readAsDataURL(files[0]);
+      fr.readAsDataURL(files[0]);
 
-    // }
+    }
     // imagen = e.target.value;
   };
 
