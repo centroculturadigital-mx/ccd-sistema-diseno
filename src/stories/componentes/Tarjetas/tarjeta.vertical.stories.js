@@ -17,8 +17,7 @@ let accionesFunciones = [{
         // variante: "PELIGRO"
     }
 ];
-let accionesEnlaces = [
-    {
+let accionesEnlaces = [{
         texto: "Enlace 1",
         enlace: "/enlace/1"
     },
@@ -45,6 +44,15 @@ let enlaces = [{
     },
 ];
 
+let pleca = {
+    colores: {
+        fondo: "#FF0000",
+        texto: "#FFF"
+    },
+    texto: "En vivo ahora!",
+    icono: "play"
+};
+
 export const tarjetaVerticalDefault = () => ({
     Component: ThemeTester,
     props: {
@@ -61,11 +69,8 @@ export const tarjetaVerticalDefault = () => ({
             nivelTitulo: 'h3',
             leyenda: "Un texto configurable",
             sombra: true,
-            acciones: [accionesFunciones[0],accionesEnlaces[0]],
-            pleca: {
-                texto: "Un texto",
-                icono: "mas"
-            },
+            acciones: [accionesFunciones[0], accionesEnlaces[0]],
+            pleca,
             enlaces
         }
     }
@@ -191,6 +196,18 @@ export const tarjetaVerticalAccionesConEnlace = () => ({
             nivelTitulo: 'h3',
             acciones: accionesFunciones,
             enlace: "#"
+        }
+    }
+});
+export const tarjetaVerticalConPleca = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Tarjeta con una pleca de aviso',
+            acciones: accionesFunciones,
+            pleca,
         }
     }
 });
