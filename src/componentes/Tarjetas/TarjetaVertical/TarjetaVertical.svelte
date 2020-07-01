@@ -5,9 +5,10 @@
   import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
-  import Icono from "../../../elementos/Icono/Icono";
-  import Texto from "../../../elementos/texto/Texto/Texto";
+  import Texto from "../../../elementos/texto/Texto/Texto.svelte";
+  import Icono from "../../../elementos/enlaces/Enlace/Enlace.svelte";
 
+  export let pleca;
   export let enlace;
   export let imagen;
   export let nombre;
@@ -18,14 +19,14 @@
   export let leyenda;
   export let enlaces = [];
   export let acciones = [];
-  export let pleca;
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
-  $: estilosPleca = !pleca ? "" : pleca.colores.fondo ? `background-color: ${pleca.colores.fondo};`: " ";
+  let colorFondoPleca = pleca.colores.fondo
+    ? `background-color: ${pleca.colores.fondo}; `
+    : "";
 
-  let textoPleca = !pleca ? "" : pleca.colores.texto;
-  
+  let colorTextoPleca = pleca.colores.texto ? `${pleca.colores.texto}` : "";
 </script>
 
 <style>
@@ -43,30 +44,21 @@
     overflow: hidden;
   }
   .Imagen {
-    position: relative;
     width: 100%;
-    height: 12rem;
-  }
-  .Pleca {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: var(--theme-espaciados-padding) 0;
-    position: absolute;
-    top: 3.5rem;
-    left: 0;
-    height: auto;
-    min-width: 45%;
-  }
-  .Pleca :global(.iconoContenedor) {
-    margin: 0 var(--theme-espaciados-margen);
-    width: 0.75rem;
+    height: 10rem;
   }
   .Contenido {
     position: relative;
     box-sizing: border-box;
     width: 100%;
   }
+  /* .Contenido a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  } */
   .Textos {
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding)
@@ -77,6 +69,8 @@
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    /* margin-top: var(--theme-espaciados-margen);
+    margin-bottom: var(--theme-espaciados-margen); */
   }
   .Acciones :global(button) {
     border: none;
@@ -101,6 +95,7 @@
     box-shadow: -1px 2px 3px rgba(0, 0, 0, 0.1);
   }
   .Subtitulo :global(h4) {
+    /*margin: 0.5rem 0;*/
     margin: var(--theme-espaciados-margen) 0;
   }
   .Leyenda {
@@ -119,8 +114,8 @@
     grid-template-columns: repeat(2, 50%);
   }
   .Enlaces :global(a span) {
-    padding: calc(var(--theme-espaciados-padding) / 2);
-    padding-left: 0;
+    padding: var(--theme-espaciados-padding) var(--theme-espaciados-padding)
+      var(--theme-espaciados-padding) 0;
     font-size: var(--theme-tamannos-sm);
     font-weight: 700;
     color: var(--theme-textos-enlaces-color);
@@ -142,12 +137,23 @@
     height: auto;
   }
   .Titulo :global(h3) {
+    /*margin: 0.5rem 0;*/
     margin: var(--theme-espaciados-margen) 0;
   }
   .Descripcion :global(p) {
     margin: var(--theme-espaciados-margen) 0;
-    height: 4rem;
+    height: 6rem;
     margin-bottom: 2rem;
+  }
+  .Pleca {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    min-width: 45%;
+    text-align: right;
+    padding: var(--theme-espaciados-padding);
+    max-width: 100%;
+    box-sizing: border-box;
   }
 </style>
 
@@ -162,8 +168,8 @@
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
       {#if !!pleca && typeof pleca == 'object'}
-        <div class="Pleca" style={estilosPleca}>
-          <Texto texto={pleca.texto} css={{'color': textoPleca}} />
+        <div class="Pleca" style={colorFondoPleca}>
+          <Texto texto={pleca.texto} css={{ color: colorTextoPleca }} />
           {#if !!pleca.icono}
             <Icono icono={pleca.icono} />
           {/if}
