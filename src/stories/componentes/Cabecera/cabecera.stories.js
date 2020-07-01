@@ -6,7 +6,7 @@ export default { title: 'Componentes/Cabecera/Cabecera' }
 
 let rutas = [{
         texto: "Ruta",
-        enlace: "una-ruta"
+        enlace: "#"
     },
     {
         texto: "Ruta",
