@@ -6,7 +6,7 @@
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
-  import Icono from "../../../elementos/enlaces/Enlace/Enlace.svelte";
+  import Icono from "../../../elementos/Icono/Icono.svelte";
 
   export let pleca;
   export let enlace;
@@ -129,7 +129,7 @@
   }
   footer {
     width: 100%;
-    padding: 0.5rem 1rem;
+    padding: 0 1rem 0.5rem 1rem;
     box-sizing: border-box;
   }
   .enlazado {
@@ -143,18 +143,25 @@
   }
   .Descripcion :global(p) {
     margin: var(--theme-espaciados-margen) 0;
-    height: 6rem;
-    margin-bottom: 2rem;
+    height: 7rem;
+    margin-bottom: 0;
   }
   .Pleca {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     position: absolute;
     top: 2rem;
     left: 0;
     min-width: 45%;
-    text-align: right;
     padding: var(--theme-espaciados-padding);
     max-width: 100%;
     box-sizing: border-box;
+  }
+  .Pleca :global(.iconoContenedor img) {
+    height: 1rem;
+    width: 1rem;
+    margin-left: 0.5rem;
   }
 </style>
 
