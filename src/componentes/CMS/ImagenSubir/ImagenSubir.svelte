@@ -29,18 +29,25 @@
   let imagen;
   let input;
 
+
+
   const seleccionarImagen = async e => {
     let files = e.target.files;
-
+    
     if (FileReader && files && files.length) {
-      var fr = new FileReader();
-      fr.onload = function() {
-        imagen = fr.result;
-        console.log("string", imagen);
+      let fr = new FileReader();
+      
+      fr.onload = async () => {
+        const blob = fr.result;
+        imagen = blob// e.target.files[0].name;
       };
+      
+      if( typeof cambiar == "function" ) {
+        cambiar(files[0])
+      }
       fr.readAsDataURL(files[0]);
+
     }
-    // imagen = e.target.value;
   };
 
   const abrir = () => input.click();
