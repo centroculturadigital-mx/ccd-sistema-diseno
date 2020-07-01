@@ -11,7 +11,9 @@ export const reaccionesDefault = () => ({
     props: {
         componente: Reacciones,
         datos: {
-            reacciones
+            reacciones,
+            reaccionar: reaccion => console.log('reaccionaste', reaccion)
+            
         }
     }
 });

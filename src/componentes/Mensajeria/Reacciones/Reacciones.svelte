@@ -9,19 +9,17 @@
 
   let estado = false;
 
-  let accion = () => {
+  let abrir = () => {
     estado = !estado;
   };
+
   const reaccionarAccion = reaccion => {
+
     if(typeof reaccionar == "function") {
       reaccionar(reaccion)
-      console.log("Reaccionaste", reaccion);
     }
     estado = !estado;
 
-    if (typeof reaccionar == 'function') {
-      reaccionar(i)
-    }
     
   };
 </script>
@@ -67,7 +65,7 @@
 </style>
 
 <div class="Reacciones">
-  <Icono icono={'reaccion'} on:click={accion} />
+  <Icono icono={'reaccion'} on:click={abrir} />
 
   {#if !!estado}
     <ul class="ReaccionesLista" transition:fade>

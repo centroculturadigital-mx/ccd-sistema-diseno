@@ -19,8 +19,6 @@
   }
 
 
-  console.log("Reacciones", mensaje.reacciones );
-  
 </script>
 
 <style>
