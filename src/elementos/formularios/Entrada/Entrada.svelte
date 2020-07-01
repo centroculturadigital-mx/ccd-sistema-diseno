@@ -30,8 +30,6 @@
   const realizarCambio = () => {
 
     if(typeof cambiar == "function") {
-      console.log("cambiar", valorLocal);
-      
       cambiar(valorLocal)
     }
     

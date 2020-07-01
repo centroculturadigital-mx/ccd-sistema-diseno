@@ -64,7 +64,7 @@
   const cambiarCampo = (valor, c) => {
     // if( typeof c.validacion == "function" ) {
     // if( c.validacion(valor).valido ) {
-      console.log(valor, c);
+    console.log(valor);
       
     datos[c.nombre] = valor;
     // } else {
