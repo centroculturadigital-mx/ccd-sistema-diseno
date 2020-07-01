@@ -40,11 +40,11 @@
       fr.onload = async () => {
         const blob = fr.result;
         imagen = blob// e.target.files[0].name;
-        if( typeof cambiar == "function" ) {
-          cambiar(blob)
-        }
       };
       
+      if( typeof cambiar == "function" ) {
+        cambiar(files[0])
+      }
       fr.readAsDataURL(files[0]);
 
     }
