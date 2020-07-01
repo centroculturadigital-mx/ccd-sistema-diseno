@@ -29,17 +29,27 @@
   let imagen;
   let input;
 
+
+
   const seleccionarImagen = async e => {
     let files = e.target.files;
-
-    if (FileReader && files && files.length) {
-      var fr = new FileReader();
-      fr.onload = function() {
-        imagen = fr.result;
-        console.log("string", imagen);
-      };
-      fr.readAsDataURL(files[0]);
+    
+    if( typeof cambiar == "function" ) {
+      cambiar(files[0])
     }
+    // if (FileReader && files && files.length) {
+    //   let fr = new FileReader();
+      
+    //   fr.onload = async () => {
+    //     const imageStr = fr.result;
+    //     if( typeof cambiar == "function" ) {
+    //       cambiar(imageStr)
+    //     }
+    //   };
+      
+    //   fr.readAsDataURL(files[0]);
+
+    // }
     // imagen = e.target.value;
   };
 

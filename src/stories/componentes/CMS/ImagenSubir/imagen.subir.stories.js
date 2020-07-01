@@ -6,7 +6,10 @@ export default { title: 'CMS/Componentes/ImagenSubir' }
 export const imagenSubirInicial = () => ({
     Component: ThemeTester,
     props: {
-        componente: ImagenSubir
+        componente: ImagenSubir,
+        datos: {
+            cambiar: datos => console.log("IMAGEN CAMBIAR",datos.stream())            
+        }
     }
 });
 export const imagenSubirEtiqueta = () => ({
