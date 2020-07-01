@@ -13,24 +13,29 @@
   export let cancelar = () => {
     console.log("Cancelado");
   };
-  // Acción
 </script>
 
 <style>
-.Dialogo {
+  .Dialogo {
     background-color: var(--theme-colores-fondo);
-    padding: calc(var(--theme-espaciados-padding) * 3 );
-}
+    padding: calc(var(--theme-espaciados-padding) * 3);
+  }
 </style>
 
 <section class="Dialogo">
   <Titulo texto={titulo} nivel={4} />
   <Parrafo {texto} />
   {#if tipo == 'alerta'}
-    <Boton texto={'Entendido'} click={confirmar} />
+    {#if !!confirmar}
+      <Boton texto={'Entendido'} click={confirmar} />
+    {/if}
   {:else if tipo == 'confirmacion'}
-    <BotonSecundario texto={'Cancelar'} click={cancelar} borde={false} />
-    <Boton texto={'Confirmar'} click={confirmar} />
+    {#if !!cancelar}
+      <BotonSecundario texto={'Cancelar'} click={cancelar} borde={false} />
+    {/if}
+    {#if !!confirmar}
+      <Boton texto={'Confirmar'} click={confirmar} />
+    {/if}
   {/if}
 
 </section>
