@@ -43,6 +43,9 @@
   $: generarTexto(estilos, texto);
 
   const generarTexto = (estilos, texto) => {
+
+    html = ""
+    
     if (Array.isArray(estilos)) {
       estilos.forEach(e => {
         html += generadorEtiquetas.abrir(generadorEtiquetas.nombreGenerar(e), {
