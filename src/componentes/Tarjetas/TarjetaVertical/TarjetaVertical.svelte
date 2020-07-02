@@ -8,7 +8,7 @@
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
 
-  import limitaTexto from "../../../funciones/limitaTexto";
+  import limitaTexto from "../../../extractoExtensionciones/limitaTexto";
 
   export let pleca;
   export let enlace;
@@ -21,6 +21,7 @@
   export let leyenda;
   export let enlaces = [];
   export let acciones = [];
+  export let extractoExtension = 12;
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
@@ -246,7 +247,7 @@
         {#if !!enlace}
           <a class="enlazado" {...linkTarget} href={enlace}>
             <div class="Extracto">
-              <Parrafo texto={limitaTexto(extracto, 22, " ...")} />
+              <Parrafo texto={limitaTexto(extracto, extractoExtension, " ...")} />
             </div>
           </a>
         {/if}
