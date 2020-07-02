@@ -12,6 +12,29 @@ export const iconoDefault = () => ({
         }
     },
 });
+
+export const iconoTamanno = () => ({ 
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "play",
+            tamanno: ".5rem"
+        }
+    },
+});
+
+export const iconoTamanno2 = () => ({ 
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "play",
+            tamanno: "3rem"
+        }
+    },
+});
+
 export const iconoColor = () => ({
     Component: ThemeTester,
     props: {
