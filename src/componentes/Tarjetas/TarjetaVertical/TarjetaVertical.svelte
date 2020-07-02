@@ -252,7 +252,7 @@
           </a>
         {:else}
             <div class="Extracto">
-              <Parrafo texto={limitaTexto(extracto, extractoExtension, " ...")} />
+              <Parrafo texto={limitaTexto(extracto, extractoExtension, "...")} />
             </div>
         {/if}
       {/if}
