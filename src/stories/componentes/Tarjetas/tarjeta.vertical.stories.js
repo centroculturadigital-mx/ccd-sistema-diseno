@@ -65,7 +65,31 @@ export const tarjetaVerticalDefault = () => ({
             },
             nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtítulo",
-            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            leyenda: "Un texto configurable",
+            sombra: true,
+            acciones: [accionesFunciones[0], accionesEnlaces[0]],
+            pleca,
+            enlaces
+        }
+    }
+});
+
+export const tarjetaVerticalExtractoCorto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            enlace: {
+                url: "http://un-enlace.com",
+                externo: true
+            },
+            nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtítulo",
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            extractoExtension: 12,
             nivelTitulo: 'h3',
             leyenda: "Un texto configurable",
             sombra: true,
@@ -120,7 +144,7 @@ export const tarjetaVerticalSombra = () => ({
         datos: {
             imagen: imagenEjemplo,
             nombre: 'Esto es un título.',
-            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             sombra: true,
         }
@@ -134,7 +158,7 @@ export const tarjetaVerticalSubtitulo = () => ({
             imagen: imagenEjemplo,
             nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtitulo",
-            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             sombra: true,
         }
@@ -162,7 +186,7 @@ export const tarjetaVerticalConEnlace = () => ({
             imagen: imagenEjemplo,
             nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtitulo",
-            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             leyenda: moment().format("DD/MMMM/YYYY"),
             sombra: true,
@@ -179,7 +203,7 @@ export const tarjetaVerticalEnlaces = () => ({
             imagen: imagenEjemplo,
             nombre: 'Esto es un título.',
             subtitulo: "Esto es un subtitulo",
-            descripcion: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             nivelTitulo: 'h3',
             sombra: true,
             enlaces,

@@ -1,11 +1,17 @@
-const extractoTexto = (texto, limite, textoFinal) => {
+const limitarTexto = (texto, limite, textoFinal="...") => {
+    
     if (!texto || !limite) return;
-    var content = texto;
-    content = content.trim();
-    content = content.split(' ').slice(0, limite);
-    content = content.join(' ') + (textoFinal ? textoFinal : '');
+    let contenido = texto;
+    
+    contenido = contenido.trim();
+    contenido = contenido.split(' ').slice(0, limite);
+    contenido = contenido.join(' ')
+    
+    if( texto.length > contenido.length ) {
+        contenido += (textoFinal ? textoFinal : '');
+    }
     //
-    return content;
+    return contenido;
 };
 
-export default extractoTexto;
+export default limitarTexto;

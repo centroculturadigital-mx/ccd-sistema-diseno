@@ -8,7 +8,7 @@
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
 
-  import extracto from "../../../funciones/limitaTexto";
+  import limitaTexto from "../../../funciones/limitaTexto";
 
   export let pleca;
   export let enlace;
@@ -16,11 +16,12 @@
   export let nombre;
   export let nivelTitulo;
   export let subtitulo;
-  export let descripcion;
+  export let extracto;
   export let sombra;
   export let leyenda;
   export let enlaces = [];
   export let acciones = [];
+  export let extractoExtension = 25;
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
@@ -36,7 +37,6 @@
       : ""
     : "";
 
-  $: console.log("EXTRACTO", extracto(descripcion, 12, " ..."));
     
 </script>
 
@@ -152,9 +152,9 @@
     /*margin: 0.5rem 0;*/
     margin: var(--theme-espaciados-margen) 0;
   }
-  .Descripcion :global(p) {
+  .Extracto :global(p) {
     margin: var(--theme-espaciados-margen) 0;
-    height: 7rem;
+    height: auto;
     margin-bottom: 0;
   }
   .Pleca {
@@ -243,17 +243,17 @@
         </section>
       {/if}
 
-      {#if !!descripcion}
+      {#if !!extracto}
         {#if !!enlace}
           <a class="enlazado" {...linkTarget} href={enlace}>
-            <div class="Descripcion">
-              <Parrafo texto={extracto(descripcion, 22, " ...")} />
+            <div class="Extracto">
+              <Parrafo texto={limitaTexto(extracto, extractoExtension, " ...")} />
             </div>
           </a>
         {:else}
-          <div class="Descripcion">
-            <Parrafo texto={descripcion} />
-          </div>
+            <div class="Extracto">
+              <Parrafo texto={limitaTexto(extracto, extractoExtension, "...")} />
+            </div>
         {/if}
       {/if}
 

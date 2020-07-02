@@ -25,11 +25,25 @@
     valorLocal = v;
   };
 
-  // $: (typeof cambiar == "function" && !! valorLocal) ? cambiar(valorLocal) : null
+  // actualizar datos cuando cambian campos
+  // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
+  const realizarCambio = () => {
+
+    if(typeof cambiar == "function") {
+      cambiar(valorLocal)
+    }
+    
+  }
+  // $: ( && !! valorLocal) && cambiar(valorLocal)
 
   // $: cambiarValorDesdeFuera( valor )
+  
+  let mostrarEstado = false;
 
-  $: clases = 'Entrada' + (estado ? " " + estado : '' );
+  const revelarEstado = () => { mostrarEstado = true };
+  const ocultarEstado = () => { mostrarEstado = false };
+
+  $: clases = 'Entrada' + ((mostrarEstado && estado) ? " " + estado : '' );
 
   $: seleccionarTipo(tipo);
 
@@ -88,7 +102,10 @@
 
   <input
     class={clases}
-    on:focusout={e => cambiar(e.target.value)}
+    on:keyup={realizarCambio}
+    on:change={realizarCambio}
+    on:focusout={revelarEstado}
+    on:focus={ocultarEstado}
     name={nombre}
     type="text" 
     placeholder={ejemplo}
@@ -100,7 +117,10 @@
 {#if tipo == 'contrasenna'}
   <input
     class={clases}
-    on:focusout={e => cambiar(e.target.value)}
+    on:keyup={realizarCambio}
+    on:change={realizarCambio}
+    on:focusout={revelarEstado}
+    on:focus={ocultarEstado}
     name={nombre}
     type="password" 
     placeholder={ejemplo}
@@ -112,7 +132,10 @@
 {#if tipo == 'email'}
   <input
     class={clases}
-    on:focusout={e => cambiar(e.target.value)}
+    on:keyup={realizarCambio}
+    on:change={realizarCambio}
+    on:focusout={revelarEstado}
+    on:focus={ocultarEstado}
     name={nombre}
     type="email" 
     placeholder={ejemplo}
@@ -124,7 +147,10 @@
 {#if tipo == 'numero'}
   <input
     class={clases}
-    on:focusout={e => cambiar(e.target.value)}
+    on:keyup={realizarCambio}
+    on:change={realizarCambio}
+    on:focusout={revelarEstado}
+    on:focus={ocultarEstado}
     name={nombre}
     type="number"
     min={!!minimo ? minimo : ''}
@@ -138,7 +164,10 @@
 {#if tipo == 'archivo'}
   <input
     class={clases}
-    on:focusout={e => cambiar(e.target.value)}
+    on:keyup={realizarCambio}
+    on:change={realizarCambio}
+    on:focusout={revelarEstado}
+    on:focus={ocultarEstado}
     name={nombre}
     type="file" 
     placeholder={ejemplo}
@@ -150,7 +179,10 @@
 {#if tipo == 'textarea'}
   <textarea
     class={clases}
-    on:focusout={e => cambiar(e.target.value)}
+    on:keyup={realizarCambio}
+    on:change={realizarCambio}
+    on:focusout={revelarEstado}
+    on:focus={ocultarEstado}
     name={nombre}
     placeholder={ejemplo}
     bind:value={valorLocal}
@@ -169,3 +201,4 @@
   />
 
 {/if}
+

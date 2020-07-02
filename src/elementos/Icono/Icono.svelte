@@ -99,6 +99,8 @@
       on:click
       imagen={iconoMostrar}
       altTexto={`Ícono ${icono}`}
-      altura={tamanno} />
+      estilos={{
+        altura:tamanno
+      }} />
   </div>
 {/if}

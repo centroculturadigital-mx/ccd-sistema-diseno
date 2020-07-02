@@ -7,16 +7,12 @@ export default {
 
 let enviarConTiempo = e => {
 
-    respuesta = "Enviando..."
+    const respuesta = "Enviando..."
 
     setTimeout(() => {
-
-        if (error) {
-            respuesta = new Error(error)
-        } else {
-            respuesta = "El formulario se ha enviado con éxito"
-        }
-
+        
+        alert("enviar")
+        
     }, 400)
 }
 
