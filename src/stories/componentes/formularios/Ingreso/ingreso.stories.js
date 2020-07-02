@@ -3,9 +3,7 @@ import Ingreso from '../../../../componentes/formularios/Ingreso/Ingreso.svelte'
 
 const enviar = () => console.log("Ingreso enviado");
 
-export default {
-    title: 'Componentes/Formularios/Ingreso'
-}
+export default { title: 'Componentes/Formularios/Ingreso' }
 
 let campos = [{
         tipo: 'texto',
