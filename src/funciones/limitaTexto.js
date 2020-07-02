@@ -7,7 +7,7 @@ const extractoTexto = (texto, limite, textoFinal) => {
     contenido = contenido.split(' ').slice(0, limite);
     contenido = contenido.join(' ')
     
-    if( texto.length > contenido ) {
+    if( texto.length > contenido.length ) {
         contenido += (textoFinal ? textoFinal : '');
     }
     //
