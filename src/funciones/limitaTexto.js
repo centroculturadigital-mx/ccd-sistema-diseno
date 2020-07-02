@@ -1,4 +1,4 @@
-const extractoTexto = (texto, limite, textoFinal="...") => {
+const limitarTexto = (texto, limite, textoFinal="...") => {
     
     if (!texto || !limite) return;
     let contenido = texto;
@@ -14,4 +14,4 @@ const extractoTexto = (texto, limite, textoFinal="...") => {
     return contenido;
 };
 
-export default extractoTexto;
+export default limitarTexto;
