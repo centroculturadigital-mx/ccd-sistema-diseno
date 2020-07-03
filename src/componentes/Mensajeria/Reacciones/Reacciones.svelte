@@ -8,8 +8,19 @@
   export let reaccionar;
 
   let estado = false;
+  let lista
 
   let abrir = () => {
+
+    var rect = lista.getBoundingClientRect();  
+
+    console.log( "ventana",  );
+    
+    if( window.innerHeight - rect.bottom < 120 ) {
+      lista.style.top = -152 +"px"
+    }
+
+
     estado = !estado;
   };
 
@@ -19,22 +30,29 @@
       reaccionar(reaccion)
     }
     estado = !estado;
-
     
   };
+
 </script>
 
 <style>
   .Reacciones {
     position: relative;
-    height: auto;
     width: 16rem;
+    height: 12rem;
   }
   .Reacciones:hover :global(img) {
     opacity: 0.75;
   }
   .ReaccionesLista {
-    width: 100%;
+    
+    width: 16rem;
+    height: auto;
+    max-height: 8rem;
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+
     position: absolute;
     top: 3rem;
     right: 14rem;
@@ -85,17 +103,17 @@
 <div class="Reacciones">
   <Icono icono={'reaccion'} on:click={abrir} />
 
-  {#if !!estado}
-    <ul class="ReaccionesLista" transition:fade>
+    <ul bind:this={lista} class="ReaccionesLista" transition:fade>
 
+      {#if !!estado}
       {#each reacciones as reaccion (reaccion)}
         <li on:click={reaccionarAccion(reaccion)}>
-          <Imagen imagen={reaccion.imagen} />
+          <Imagen imagen={reaccion.imagen}/>
           <div class="Texto">
             <Texto texto={reaccion.texto} css={{color:"white", "font-size": "0.75rem"}}/>
           </div>
         </li>
       {/each}
+      {/if}
     </ul>
-  {/if}
 </div>
