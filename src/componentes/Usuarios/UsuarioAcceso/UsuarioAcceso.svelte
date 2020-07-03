@@ -1,5 +1,6 @@
 <script>
   import Avatar from "../Avatar/Avatar";
+  import Texto from "../../../elementos/texto/Texto/Texto";
 
   export let imagen = "";
   export let nombre = "";
@@ -23,5 +24,6 @@
 </style>
 
 <section class="UsuarioAcceso">
+  <Texto texto={nombre}/>
   <Avatar {imagen} {nombre} />
 </section>

@@ -1,6 +1,7 @@
 <script>
   export let texto = "Botón";
   export let click;
+  export let deshabilitado;
 
 </script>
 
@@ -31,6 +32,6 @@
   }
 </style>
 
-<button on:click={click}>
+<button on:click={click} disabled={deshabilitado}>
   {!!texto ? texto : ''}
 </button>

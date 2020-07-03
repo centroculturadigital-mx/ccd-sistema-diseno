@@ -28,18 +28,20 @@
   .Reacciones {
     position: relative;
     height: auto;
-    width: auto;
+    width: 16rem;
   }
   .Reacciones:hover :global(img) {
     opacity: 0.75;
   }
   .ReaccionesLista {
+    width: 100%;
     position: absolute;
-    top: 2rem;
-    right: 0rem;
+    top: 3rem;
+    right: 14rem;
     list-style-type: none;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
     background-color: var(--theme-tarjetas-fondo);
     padding: var(--theme-espaciados-padding);
     margin: 0;
@@ -49,11 +51,27 @@
     border-radius: 5rem;
   }
   li {
-    display: flex;
+    position: relative;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 var(--theme-espaciados-margen);
+    margin: 0 var(--theme-espaciados-margen); */
     cursor: pointer;
+    margin: 0.125rem;
+  }
+  li .Texto {
+    width: 5rem;
+    position: absolute;
+    top: -2rem;
+    left: -2.5rem;
+    background-color: rgba(0,0,0,0.9);
+    display: none;
+    padding: 0.125rem 0.125rem ;
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+  li:hover .Texto {
+    display: inline;
   }
   .ReaccionesLista li :global(img) {
     height: 1.5rem;
@@ -73,7 +91,9 @@
       {#each reacciones as reaccion (reaccion)}
         <li on:click={reaccionarAccion(reaccion)}>
           <Imagen imagen={reaccion.imagen} />
-          <Texto texto={reaccion.texto} />
+          <div class="Texto">
+            <Texto texto={reaccion.texto} css={{color:"white", "font-size": "0.75rem"}}/>
+          </div>
         </li>
       {/each}
     </ul>
