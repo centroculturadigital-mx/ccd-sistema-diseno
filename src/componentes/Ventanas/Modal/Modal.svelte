@@ -9,8 +9,8 @@
 
   let cerrarAccion = () => {
     estado = !estado;
-    if(typeof cerrar == "function" ) {
-      cerrar()
+    if (typeof cerrar == "function") {
+      cerrar();
     }
   };
 </script>
@@ -31,33 +31,38 @@
   }
   .Modal header {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -1.05rem;
+    right: -2.9rem;
     padding: calc(var(--theme-espaciados-padding) * 2);
     height: auto;
-    width: 100%;
+    width: auto;
     display: flex;
     justify-content: flex-end;
     z-index: 1001;
     box-sizing: border-box;
   }
   .Modal header :global(img) {
-      transition: var(--theme-transisiones-normal);
+    transition: var(--theme-transisiones-normal);
+    height: 1.25rem !important  ;
   }
   .Modal header :global(img:hover) {
-      filter: invert();
+    filter: invert();
+  }
+  .Contenedor {
+    position: relative;
   }
 </style>
 
 {#if !!estado}
   <section class="Modal" transition:fade>
-    <header>
-      <div on:click={cerrarAccion}>
-        <Icono icono={'cerrar'} />
-      </div>
-    </header>
 
-    <div class="ModalContenedor">
+    <div class="Contenedor">
+      <header>
+        <div on:click={cerrarAccion}>
+          <Icono icono={'cerrar'} />
+        </div>
+      </header>
+
       <svelte:component this={componente} {...datos} />
     </div>
 
