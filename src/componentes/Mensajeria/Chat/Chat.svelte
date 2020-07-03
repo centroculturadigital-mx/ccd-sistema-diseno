@@ -7,6 +7,7 @@
   export let enviar = () => console.log("enviar");
   export let enfocar = () => console.log("enfocar");
   export let reaccionar = () => console.log("reaccionar");
+  export let objetoAccion
 
   const reaccionarAccion = () => {
     if (mensaje && typeof reaccionar == "function") {
@@ -48,7 +49,7 @@
 
     {#if Array.isArray(mensajes)}
       {#each mensajes as mensaje (mensaje)}
-        <ChatMensaje {mensaje} {reacciones} {reaccionar}/>
+        <ChatMensaje {mensaje} {reacciones} {reaccionar} {objetoAccion}/>
       {/each}
     {/if}
   </section>

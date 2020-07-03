@@ -10,11 +10,18 @@
   export let reacciones;
   export let reaccionar;
   export let mensaje;
+  export let objetoAccion;
 
 
   const reaccionarAccion = reaccion => {
     if(typeof reaccionar == "function") {
       reaccionar({...reaccion, mensaje})
+    }
+  }
+
+  const realizarObjetoAccion = () => {
+    if( !! mensaje && mensaje.objeto && typeof objetoAccion == "function" ) {
+      objetoAccion(mensaje.objeto.datos)
     }
   }
 
@@ -96,7 +103,7 @@
       </div>
     </div>
     {#if typeof mensaje.objeto == 'object'}
-      <div class="ChatMensajeObjeto">
+      <div class="ChatMensajeObjeto" on:click={realizarObjetoAccion}>
         <svelte:component this={mensaje.objeto.componente} {...mensaje.objeto.datos} />
       </div>
     {/if}
