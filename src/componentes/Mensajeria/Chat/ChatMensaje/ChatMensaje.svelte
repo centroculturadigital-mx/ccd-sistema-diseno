@@ -77,9 +77,13 @@
   <div>
     <div class="Mensaje">
       <div class="Texto">
-        <a href={mensaje.usuario.enlace}>
+        {#if mensaje.usuario.enlace}
+          <a href={mensaje.usuario.enlace}>
+            <Texto texto={mensaje.usuario.nombre} />
+          </a>
+        {:else}
           <Texto texto={mensaje.usuario.nombre} />
-        </a>
+        {/if}
 
         <Texto texto={mensaje.mensaje} />
 
