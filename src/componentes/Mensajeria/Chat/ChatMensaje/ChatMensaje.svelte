@@ -98,9 +98,11 @@
         <Texto texto={moment(mensaje.fechaCreacion).fromNow()} estilos={["italic","small"]}/>
 
       </div>
-      <div class="Boton">
-        <Reacciones {reacciones} reaccionar={reaccionarAccion}/>
-      </div>
+      {#if ! mensaje.objeto }
+        <div class="Boton">
+          <Reacciones {reacciones} reaccionar={reaccionarAccion}/>
+        </div>
+      {/if}
     </div>
     {#if typeof mensaje.objeto == 'object'}
       <div class="ChatMensajeObjeto" on:click={realizarObjetoAccion}>
