@@ -5,6 +5,8 @@
   import Reacciones from "../../Reacciones/Reacciones";
   import MensajeReacciones from "../../MensajeReacciones/MensajeReacciones";
 
+  import moment from 'moment';
+
   export let reacciones;
   export let reaccionar;
   export let mensaje;
@@ -87,7 +89,7 @@
 
         <Texto texto={mensaje.mensaje} />
 
-        <Texto texto={mensaje.fechaCreacion} estilos={["italic","small"]}/>
+        <Texto texto={moment(mensaje.fechaCreacion).fromNow()} estilos={["italic","small"]}/>
 
       </div>
       <div class="Boton">
