@@ -111,6 +111,12 @@ export { default as ChatObjeto }
 from "./componentes/Mensajeria/Chat/ChatObjeto/ChatObjeto.svelte";
 export { default as Ingreso }
 from "./componentes/formularios/Ingreso/Ingreso.svelte";
+// 
+export { default as Avatar }
+from "./componentes/Usuarios/Avatar/Avatar.svelte";
+export { default as UsuarioAcceso }
+from "./componentes/Usuarios/UsuarioAcceso/UsuarioAcceso.svelte";
+
 
 // CMS
 export { default as Editor }
