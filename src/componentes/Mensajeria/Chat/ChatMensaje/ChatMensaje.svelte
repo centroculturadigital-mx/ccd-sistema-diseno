@@ -10,7 +10,6 @@
   export let reacciones;
   export let reaccionar;
   export let mensaje;
-  export let objeto;
 
 
   const reaccionarAccion = reaccion => {
@@ -96,9 +95,9 @@
         <Reacciones {reacciones} reaccionar={reaccionarAccion}/>
       </div>
     </div>
-    {#if typeof objeto == 'object'}
+    {#if typeof mensaje.objeto == 'object'}
       <div class="ChatMensajeObjeto">
-        <svelte:component this={objeto.componente} {...objeto.datos} />
+        <svelte:component this={mensaje.objeto.componente} {...mensaje.objeto.datos} />
       </div>
     {/if}
 

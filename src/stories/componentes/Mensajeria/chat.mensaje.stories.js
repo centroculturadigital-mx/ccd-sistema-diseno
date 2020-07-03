@@ -46,11 +46,14 @@ export const chatMensajeObjetoConReacciones = () => ({
     props: {
         componente: ChatMensaje,
         datos: {
-            mensaje,
-            objeto: {
-                componente: TarjetaHorizontalChica,
-                datos
-            }
+            mensaje: {
+                ...mensaje,
+                objeto: {
+                    componente: TarjetaHorizontalChica,
+                    datos
+                }
+            },
+            
         }
     }
 });
