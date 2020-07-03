@@ -9,6 +9,7 @@
   export let segment;
   export let logotipos;
   export let elementos;
+  export let componentes;
   export let fixed;
   export let sombra;
   export let estado;
@@ -21,7 +22,6 @@
   const menuAlternar = () => {
     estado = !estado;
   };
-
 </script>
 
 <style>
@@ -78,6 +78,12 @@
       <MenuEscritorio {elementos} {segment} />
     {/if}
 
+    {#if !!componentes && Array.isArray(componentes)}
+      {#each componentes as componente}
+        <svelte:component this={componente.componente} {...componente.datos} />
+      {/each}
+    {/if}
+
   </div>
 
   <!-- Menu Movil  -->
@@ -88,8 +94,8 @@
         {estado}
         {elementos}
         {sombra}
-        {segment} 
-        on:click={menuAlternar}/>
+        {segment}
+        on:click={menuAlternar} />
     {/if}
   {/if}
 

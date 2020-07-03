@@ -1,5 +1,6 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Cabecera from '../../../componentes/Cabecera/Cabecera.svelte';
+import Icono from '../../../elementos/Icono/Icono';
 import ImagenArchivo from '../../../../public/placeholder.jpg';
 
 export default { title: 'Componentes/Cabecera/Cabecera' }
@@ -91,6 +92,24 @@ export const cabeceraFixed = () => ({
             logotipos: logo,
             sombra: true,
             fixed: true,
+        }
+    }
+});
+export const cabeceraConComponente = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Cabecera,
+        datos: {
+            elementos: rutas,
+            logotipos: logo,
+            sombra: true,
+            fixed: true,
+            componentes: [{
+                componente: Icono,
+                datos: {
+                    icono: "ojoAbierto"
+                }
+            }]
         }
     }
 });
