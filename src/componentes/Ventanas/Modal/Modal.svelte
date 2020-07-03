@@ -5,9 +5,13 @@
   export let estado = false;
   export let componente = null;
   export let datos = {};
+  export let cerrar = {};
 
-  let cerrar = () => {
+  let cerrarAccion = () => {
     estado = !estado;
+    if(typeof cerrar == "function" ) {
+      cerrar()
+    }
   };
 </script>
 
@@ -48,7 +52,7 @@
 {#if !!estado}
   <section class="Modal" transition:fade>
     <header>
-      <div on:click={cerrar}>
+      <div on:click={cerrarAccion}>
         <Icono icono={'cerrar'} />
       </div>
     </header>
