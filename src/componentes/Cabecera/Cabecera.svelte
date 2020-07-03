@@ -56,6 +56,20 @@
   .Cabecera :global(.iconoContenedor img) {
     object-position: right;
   }
+  .Navegacion {
+    display: flex;
+    flex-direction: row;
+  }
+  .Herramientas {
+      display: flex;
+      align-items: center;
+      padding: 0 calc(var(--theme-espaciados-padding) / 1 );
+  }
+  @media screen and (max-width: 1024px) {
+  .Herramientas {
+    order: -1;
+  }
+  }
 </style>
 
 <svelte:window bind:innerWidth={responsivo} />
@@ -70,19 +84,24 @@
     {/if}
 
     <!-- Menu Escritorio  -->
-    {#if responsivo < breakpoint}
-      {#if !!elementos}
-        <Icono on:click={menuAlternar} icono={!estado ? 'menu' : 'cerrar'} />
+    <div class="Navegacion">
+      {#if responsivo < breakpoint}
+        {#if !!elementos}
+          <Icono on:click={menuAlternar} icono={!estado ? 'menu' : 'cerrar'} />
+        {/if}
+      {:else if !!elementos}
+        <MenuEscritorio {elementos} {segment} />
       {/if}
-    {:else if !!elementos}
-      <MenuEscritorio {elementos} {segment} />
-    {/if}
-
-    {#if !!componentes && Array.isArray(componentes)}
-      {#each componentes as componente}
-        <svelte:component this={componente.componente} {...componente.datos} />
-      {/each}
-    {/if}
+      <div class="Herramientas">
+        {#if !!componentes && Array.isArray(componentes)}
+          {#each componentes as componente}
+            <svelte:component
+              this={componente.componente}
+              {...componente.datos} />
+          {/each}
+        {/if}
+      </div>
+    </div>
 
   </div>
 
