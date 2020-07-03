@@ -61,14 +61,14 @@
     flex-direction: row;
   }
   .Herramientas {
-      display: flex;
-      align-items: center;
-      padding: 0 calc(var(--theme-espaciados-padding) / 1 );
+    display: flex;
+    align-items: center;
+    padding: 0 calc(var(--theme-espaciados-padding) / 1);
   }
   @media screen and (max-width: 1024px) {
-  .Herramientas {
-    order: -1;
-  }
+    .Herramientas {
+      order: -1;
+    }
   }
 </style>
 
