@@ -225,11 +225,6 @@
             <Titulo texto={subtitulo} nivel={4} />
           </div>
         {/if}
-        {#if !!leyenda}
-          <div class="Leyenda">
-            <Titulo texto={leyenda} nivel={5} />
-          </div>
-        {/if}
       {/if}
 
       {#if Array.isArray(enlaces) && enlaces.length > 0}
