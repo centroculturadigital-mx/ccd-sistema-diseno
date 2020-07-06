@@ -8,8 +8,19 @@
   export let reaccionar;
 
   let estado = false;
+  let lista
 
   let abrir = () => {
+
+    var rect = lista.getBoundingClientRect();  
+
+    console.log( "ventana",  );
+    
+    if( window.innerHeight - rect.bottom < 120 ) {
+      lista.style.top = -152 +"px"
+    }
+
+
     estado = !estado;
   };
 
@@ -19,27 +30,36 @@
       reaccionar(reaccion)
     }
     estado = !estado;
-
     
   };
+
 </script>
 
 <style>
   .Reacciones {
     position: relative;
-    height: auto;
-    width: auto;
+    width: 16rem;
+    height: 12rem;
   }
   .Reacciones:hover :global(img) {
     opacity: 0.75;
   }
   .ReaccionesLista {
+    
+    width: 16rem;
+    height: auto;
+    max-height: 8rem;
+    
+    overflow-y: auto;
+    overflow-x: hidden;
+
     position: absolute;
-    top: 2rem;
-    right: 0rem;
+    top: 3rem;
+    right: 14rem;
     list-style-type: none;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
     background-color: var(--theme-tarjetas-fondo);
     padding: var(--theme-espaciados-padding);
     margin: 0;
@@ -49,11 +69,27 @@
     border-radius: 5rem;
   }
   li {
-    display: flex;
+    position: relative;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 var(--theme-espaciados-margen);
+    margin: 0 var(--theme-espaciados-margen); */
     cursor: pointer;
+    margin: 0.125rem;
+  }
+  li .Texto {
+    width: 5rem;
+    position: absolute;
+    top: -2rem;
+    left: -2.5rem;
+    background-color: rgba(0,0,0,0.9);
+    display: none;
+    padding: 0.125rem 0.125rem ;
+    text-align: center;
+    border-radius: 0.5rem;
+  }
+  li:hover .Texto {
+    display: inline;
   }
   .ReaccionesLista li :global(img) {
     height: 1.5rem;
@@ -67,15 +103,17 @@
 <div class="Reacciones">
   <Icono icono={'reaccion'} on:click={abrir} />
 
-  {#if !!estado}
-    <ul class="ReaccionesLista" transition:fade>
+    <ul bind:this={lista} class="ReaccionesLista" transition:fade>
 
+      {#if !!estado}
       {#each reacciones as reaccion (reaccion)}
         <li on:click={reaccionarAccion(reaccion)}>
-          <Imagen imagen={reaccion.imagen} />
-          <Texto texto={reaccion.texto} />
+          <Imagen imagen={reaccion.imagen}/>
+          <div class="Texto">
+            <Texto texto={reaccion.texto} css={{color:"white", "font-size": "0.75rem"}}/>
+          </div>
         </li>
       {/each}
+      {/if}
     </ul>
-  {/if}
 </div>
