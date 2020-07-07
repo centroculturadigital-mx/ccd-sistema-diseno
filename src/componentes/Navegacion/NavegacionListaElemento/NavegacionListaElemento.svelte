@@ -17,12 +17,23 @@
 </script>
 
 <style>
+.elementoLista :global( button){
+  display: flex;
+  
+
+
+}
 
 .flecha{
   background-color: var(--theme-tarjetas-fondo);
  /* border-style: none;
   width: var(--theme-tamannos-lg);*/ 
 }
+
+ .flecha :global(.iconoContenedor img){
+  height:var(--theme-tamannos-sm) !important;
+  margin-right: 0.5rem;
+  }
 
 .elementoLista :global(.iconoContenedor img){
   height:var(--theme-tamannos-xs);
@@ -33,7 +44,6 @@
    background-color: var(--theme-colores-fondo-transparente);
    cursor: auto;
    border:none;
-   
   }
 
 span{
