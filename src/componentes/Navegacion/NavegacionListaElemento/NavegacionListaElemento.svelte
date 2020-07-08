@@ -1,71 +1,80 @@
- <script>
-  import Bloque from "../../../componentes/Bloque/Bloque.svelte"; 
-  import Icono from "../../../elementos/Icono/Icono"; 
-  export let elemento={};
-  export let colapsado=false;
-  export let accion=()=>console.log("una accion");
-  let iconoExpandido="derecha";
-  let iconoColapsado="abajo";
+<script>
+  import Bloque from "../../../componentes/Bloque/Bloque.svelte";
+  import Icono from "../../../elementos/Icono/Icono";
+
+  import { slide } from 'svelte/transition';
+
+  export let elemento = {};
+  export let colapsado = false;
+  export let accion = () => console.log("una accion");
+  
+  let iconoExpandido = "derecha";
+  let iconoColapsado = "abajo";
 
   $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : [];
-  
-  
+
   const activar = () => {
-    colapsado=!colapsado
-    accion()
-  }
+    colapsado = !colapsado;
+    accion();
+  };
 </script>
 
 <style>
-.elementoLista :global( button){
-  border-style: none;
-  padding-bottom: var(--theme-tamannos-sm);
-  padding-top: var(--theme-tamannos-sm);
-  background-color: var(--theme-tarjetas-transparente);
-}
-
-.flecha{
-  background-color: var(--theme-tarjetas-fondo);
-}
-
-.flecha :global(.iconoContenedor img){
-  height:var(--theme-tamannos-sm) !important;
-  margin-right: 0.5rem;
+  .elementoLista :global(button) {
+    border-style: none;
+    padding: calc(var(--theme-tamannos-sm) / 3);
+    padding-left: 0;
+    background-color: var(--theme-tarjetas-transparente);
+    cursor: pointer;
+  }
+  .elementoLista :global(button:hover) {
+    opacity: 0.75;
   }
 
-span{
-  display: inline-block;
-  font-size: var(--theme-tamannos-md);
-  font-family: var(--theme-botones-primario-familia);
-  color: var(--theme-textos-parrafo-neutro); 
-}
+  .flecha {
+    background-color: var(--theme-tarjetas-fondo);
+  }
 
-li {
-  list-style: none;
-}
+  .flecha :global(.iconoContenedor img) {
+    height: var(--theme-tamannos-sm) !important;
+    margin-right: 0.5rem;
+  }
 
-ul {
- list-style: none;  
-}
+  span {
+    display: inline-block;
+    font-size: var(--theme-tamannos-md);
+    font-family: var(--theme-botones-primario-familia);
+    color: var(--theme-textos-parrafo-neutro);
+  }
 
+  ul {
+    list-style: none;
+    margin: 0;
+  }
+
+  li {
+    list-style: none;
+  }
 </style>
 
 <li class="elementoLista">
   <button on:click={activar}>
     {#if Array.isArray(subElementos) && subElementos.length > 0}
-    <span class="flecha">
-      <Icono icono={'derecha'}/>
-    </span>
+      <span class="flecha">
+        {#if !colapsado}
+          <Icono icono={'abajo'} />
+        {:else}
+          <Icono icono={'derecha'} />
+        {/if}
+      </span>
     {/if}
-    <span>
-      {elemento.texto}
-    </span>
+    <span>{elemento.texto}</span>
   </button>
 
   {#if !colapsado && Array.isArray(subElementos) && subElementos.length > 0}
-    <ul>
+    <ul transition:slide>
       {#each subElementos as subElemento}
-        <svelte:self elemento={subElemento} {accion}/>
+        <svelte:self elemento={subElemento} {accion} />
       {/each}
     </ul>
   {/if}
