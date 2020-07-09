@@ -353,7 +353,7 @@ export const iconoAvanzarArriba = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzar.arriba",
+        icono: "avanzarArriba",
     }
     },
     
@@ -364,7 +364,7 @@ export const iconoAvanzarAbajo = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzar.abajo",
+        icono: "avanzarAbajo",
     }
     },
     
@@ -375,7 +375,7 @@ export const iconoAvanzarIzquierda = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzar.izquierda",
+        icono: "avanzarIzquierda",
     }
     },
     
@@ -386,7 +386,7 @@ export const iconoAvanzarDerecha = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzar.derecha",
+        icono: "avanzarDerecha",
     }
     },
     
@@ -562,7 +562,7 @@ export const iconoFlechaArriba = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "flecha.arriba",
+        icono: "flechaArriba",
     }
     },
     
@@ -573,7 +573,7 @@ export const iconoFlechaIzquierda = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "flecha.izquierda",
+        icono: "flechaIzquierda",
     }
     },
     
@@ -694,7 +694,7 @@ export const iconoIrArriba = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "ir.arriba",
+        icono: "irArriba",
     }
     },
     
@@ -705,7 +705,7 @@ export const iconoIrAbajo = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "ir.abajo",
+        icono: "irAbajo",
     }
     },
     
@@ -716,7 +716,7 @@ export const iconoCalendarioAgregar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "calendario.agregar",
+        icono: "calendarioAgregar",
     }
     },
     
