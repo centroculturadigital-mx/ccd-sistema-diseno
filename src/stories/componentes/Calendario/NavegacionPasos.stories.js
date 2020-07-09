@@ -10,7 +10,7 @@ export const calendarioCabeceraDefault = () => ({
     props: {
         componente: NavegacionPasos,
         datos: {
-            rangoVista: moment().format("DD MMMM"),
+            rangoVista: moment().format("MMMM YYYY"),
             rangoAccion: () => console.log("RANGO"),
             anterior: () => console.log("ANTERIOR"),
             siguiente: () => console.log("REGRESA"),
