@@ -1,4 +1,8 @@
-## CCD Sistema de diseño V0.1
+## CCD Sistema de diseño V0.2
+
+![CCDSD](
+    https://github.com/centroculturadigital-mx/ccd-sistema-diseno/blob/master/$
+
 
 
 ```bash
@@ -10,5 +14,3 @@ npm run storybook
 
 ```
 
-![CCDSD](
-    https://github.com/centroculturadigital-mx/ccd-sistema-diseno/blob/master/ccdsd.png?raw=true)
