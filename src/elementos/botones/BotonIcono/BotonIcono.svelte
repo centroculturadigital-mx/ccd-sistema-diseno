@@ -3,7 +3,8 @@
 
   export let texto;
   export let icono;
-  export let borde;
+  export let borde = true;
+  export let click = () => console.log("Accion botón ícono");
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let estado = false;
@@ -25,12 +26,13 @@
   }
   button:hover {
     color: var(--theme-botones-primario-hover);
+    opacity: 0.75;
   }
-  button:focus,
+  /* button:focus,
   button:visited,
   button:active {
     color: var(--theme-botones-primario-activo);
-  }
+  } */
   .no-borde {
     border: 0;
   }
@@ -54,7 +56,7 @@
   }
 </style>
 
-<button on:click class={!!borde ? 'borde' : 'no-borde'}>
+<button on:click={click} class={!!borde ? 'borde' : 'no-borde'}>
 
   <!-- version iconos dos estados -->
   {#if !!iconoBotonEstadoUnoUrl}
