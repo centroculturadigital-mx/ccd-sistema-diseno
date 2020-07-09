@@ -22,7 +22,7 @@
 <style>
   .elementoLista :global(button) {
     border-style: none;
-    padding: calc(var(--theme-tamannos-sm) / 3);
+    padding: var(--theme-tamannos-sm);
     padding-left: 0;
     background-color: var(--theme-tarjetas-transparente);
     cursor: pointer;
@@ -49,7 +49,7 @@
 
   ul {
     list-style: none;
-    margin: 0;
+    /* margin: 0; */
   }
 
   li {
