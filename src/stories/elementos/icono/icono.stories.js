@@ -238,17 +238,6 @@ export const iconoSumar = () => ({
     
 });
 
-export const iconoHamburguesa = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Icono,
-        datos: {
-        icono: "hamburguesa",
-    }
-    },
-    
-});
-
 export const iconoConfirma = () => ({
     Component: ThemeTester,
     props: {
@@ -354,6 +343,413 @@ export const iconoMano = () => ({
         componente: Icono,
         datos: {
         icono: "mano",
+    }
+    },
+    
+});
+
+export const iconoAvanzarArriba = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "avanzar.arriba",
+    }
+    },
+    
+});
+
+export const iconoAvanzarAbajo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "avanzar.abajo",
+    }
+    },
+    
+});
+
+export const iconoAvanzarIzquierda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "avanzar.izquierda",
+    }
+    },
+    
+});
+
+export const iconoAvanzarDerecha = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "avanzar.derecha",
+    }
+    },
+    
+});
+
+export const iconoSoundcloud = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "soundcloud",
+    }
+    },
+    
+});
+
+export const iconoDocumento = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "documento",
+    }
+    },
+    
+});
+
+export const iconoTiempo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "tiempo",
+    }
+    },
+    
+});
+
+export const iconoCamara = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "camara",
+    }
+    },
+    
+});
+
+export const iconoSubir = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "subir",
+    }
+    },
+    
+});
+
+export const iconoExterno = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "externo",
+    }
+    },
+    
+});
+
+export const iconoEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "enlace",
+    }
+    },
+    
+});
+
+export const iconoYoutube = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "youtube",
+    }
+    },
+    
+});
+
+export const iconoLinkedin = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "linkedin",
+    }
+    },
+    
+});
+
+export const iconoRestar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "restar",
+    }
+    },
+    
+});
+
+export const iconoSeguridad = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "seguridad",
+    }
+    },
+    
+});
+
+export const iconoCasilla = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "casilla",
+    }
+    },
+    
+});
+
+export const iconoNube = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "nube",
+    }
+    },
+    
+});
+
+export const iconoConfiguracion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "configuracion",
+    }
+    },
+    
+});
+
+export const iconoInicio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "inicio",
+    }
+    },
+    
+});
+
+export const iconoFlechaArriba = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "flecha.arriba",
+    }
+    },
+    
+});
+
+export const iconoFlechaIzquierda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "flecha.izquierda",
+    }
+    },
+    
+});
+
+export const iconoOrdenar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "ordenar",
+    }
+    },
+    
+});
+
+export const iconoNotificacion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "notificacion",
+    }
+    },
+    
+});
+
+export const iconoCalendario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "calendario",
+    }
+    },
+    
+});
+
+export const iconoLista = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "lista",
+    }
+    },
+    
+});
+
+export const iconoUbicacion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "ubicacion",
+    }
+    },
+    
+});
+
+export const iconoTelefono = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "telefono",
+    }
+    },
+    
+});
+
+export const iconoContacto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "contacto",
+    }
+    },
+    
+});
+
+export const iconoEliminar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "eliminar",
+    }
+    },
+    
+});
+
+export const iconoDescargar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "descargar",
+    }
+    },
+    
+});
+
+export const iconoBuscar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "buscar",
+    }
+    },
+    
+});
+
+export const iconoIrArriba = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "ir.arriba",
+    }
+    },
+    
+});
+
+export const iconoIrAbajo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "ir.abajo",
+    }
+    },
+    
+});
+
+export const iconoCalendarioAgregar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "calendario.agregar",
+    }
+    },
+    
+});
+
+export const iconoGestores = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "gestores",
+    }
+    },
+    
+});
+
+export const iconoMinimizar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "minimizar",
+    }
+    },
+    
+});
+
+export const iconoMaximizar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "maximizar",
     }
     },
     

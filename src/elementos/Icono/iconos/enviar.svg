@@ -1,3 +1,5 @@
-<svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M0.283447 0.876694L1.42095 8.83922L2.06408 9L1.42095 9.16078L0.28345 17.1233L16.5301 9L0.283447 0.876694ZM2.91238 7.49411L2.38322 3.78997L12.8033 8.99999L2.38322 14.21L2.91238 10.5059L8.93592 9L2.91238 7.49411Z" fill="#AAAAAA"/>
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icono/Enviar">
+<path id="icon" fill-rule="evenodd" clip-rule="evenodd" d="M4.56689 3.7534L6.8419 19.6784L8.12815 20L6.8419 20.3216L4.56689 36.2466L37.0601 20L4.56689 3.7534ZM9.82476 16.9882L8.76643 9.57995L29.6065 20L8.76643 30.4201L9.82476 23.0118L21.8718 20L9.82476 16.9882Z" fill="#212121"/>
+</g>
 </svg>
