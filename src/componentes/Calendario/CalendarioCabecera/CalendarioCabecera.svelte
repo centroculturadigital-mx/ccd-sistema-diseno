@@ -1,11 +1,12 @@
 <script>
 import Titulo from '../../../elementos/texto/Titulo/Titulo'
 import Texto from '../../../elementos/texto/Texto/Texto'
-import BotonIcono from '../../../elementos/botones/BotonIcono/BotonIcono';
 import Selector from '../../../elementos/formularios/Selector/Selector';
+import NavegacionPasos from '../NavegacionPasos/NavegacionPasos';
+
 
 export let anterior = () => console.log("regesa");
-export let siguiente = () => console.log("avanza");;
+export let siguiente = () => console.log("avanza");
 export let opcionesVista = [{
         valor: 'dia',
         texto: 'Día'
@@ -23,6 +24,9 @@ export let opcionesVista = [{
 const vistaValor = (e) => {
     console.log("Vista Seleccionada: ", e);
 }
+
+$: rangoVista = "Julio 2020";
+
 </script>
 
 <style>
@@ -44,20 +48,8 @@ const vistaValor = (e) => {
     justify-content: space-between;
     box-sizing: border-box;
 }
-.Navegacion {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-}
-.Navegacion :global(button) {
-    padding: calc(var(--theme-botones-primario-espacio) * 1.25) calc(var(--theme-botones-primario-espacio) * 2);
-    padding-left: 0;
-}
-.Navegacion :global(span) {
-    padding-right: calc(var(--theme-botones-primario-espacio) * 2);
-    flex-shrink: 0;
-    box-sizing: border-box;
+.Vista :global() {
+
 }
 </style>
 
@@ -66,11 +58,7 @@ const vistaValor = (e) => {
 <Titulo texto={"Título de la sección"}/>
 
 <div class="Herramientas">
-    <div class="Navegacion">
-    <BotonIcono icono={"avanzarIzquierda"} borde={false} click={anterior}/>
-    <Texto texto="Día o Año"/>
-    <BotonIcono icono={"derecha"} borde={false} click={siguiente}/>
-    </div>
+    <NavegacionPasos {rangoVista} {anterior} {siguiente}/>
     <div class="Vista">
     <Selector opciones={opcionesVista} cambiar={vistaValor} ejemplo={"Filtro vista"} vacioPermitido={false}/>
     </div>
