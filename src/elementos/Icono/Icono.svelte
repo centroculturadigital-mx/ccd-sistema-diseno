@@ -51,8 +51,8 @@
   import nube from "./iconos/nube.svg";
   import configuracion from "./iconos/configuracion.svg";
   import inicio from "./iconos/inicio.svg";
-  import flechaArriba from "./iconos/flecha.arriba.svg";
-  import flechaIzquierda from "./iconos/flecha.izquierda.svg";
+  import Arriba from "./iconos/flecha.arriba.svg";
+  import Izquierda from "./iconos/flecha.izquierda.svg";
   import ordenar from "./iconos/ordenar.svg";
   import notificacion from "./iconos/notificacion.svg";
   import calendario from "./iconos/calendario.svg";
@@ -126,8 +126,8 @@
     nube,
     configuracion,
     inicio,
-    flechaArriba,
-    flechaIzquierda,
+    Arriba,
+    Izquierda,
     ordenar,
     notificacion,
     calendario,

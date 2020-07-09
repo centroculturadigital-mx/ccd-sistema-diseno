@@ -557,23 +557,23 @@ export const iconoInicio = () => ({
     
 });
 
-export const iconoFlechaArriba = () => ({
+export const iconoArriba = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos: {
-        icono: "flechaArriba",
+        icono: "Arriba",
     }
     },
     
 });
 
-export const iconoFlechaIzquierda = () => ({
+export const iconoIzquierda = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos: {
-        icono: "flechaIzquierda",
+        icono: "Izquierda",
     }
     },
     
