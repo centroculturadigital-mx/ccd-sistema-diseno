@@ -1,5 +1,5 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import NavegacionPasos from '../../../componentes/Calendario/NavegacionPasos/NavegacionPasos.svelte';
+import NavegacionPasos from '../../../componentes/Calendario/Navegacion/NavegacionPasos/NavegacionPasos.svelte';
 
 import moment from 'moment';
 

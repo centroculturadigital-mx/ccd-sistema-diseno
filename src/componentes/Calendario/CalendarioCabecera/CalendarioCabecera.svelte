@@ -1,7 +1,7 @@
 <script>
   import Titulo from "../../../elementos/texto/Titulo/Titulo";
   import Texto from "../../../elementos/texto/Texto/Texto";
-  import NavegacionPasos from "../NavegacionPasos/NavegacionPasos";
+  import NavegacionPasos from "../Navegacion/NavegacionPasos/NavegacionPasos";
   import SelectorVista from "../SelectorVista/SelectorVista";
 
   export let titulo;

@@ -1,6 +1,6 @@
 <script>
-import Boton from '../../../elementos/botones/Boton/Boton';
-import BotonIcono from '../../../elementos/botones/BotonIcono/BotonIcono';
+import Boton from '../../../../elementos/botones/Boton/Boton';
+import BotonIcono from '../../../../elementos/botones/BotonIcono/BotonIcono';
 
 export let rangoVista;
 export let rangoAccion = () => console.log("regesa");
