@@ -8,8 +8,29 @@ export const NavegacionMesDefault = () => ({
     props: {
         componente: NavegacionMes,
         datos: {
+            // seleccionar: e => {
+            //     console.log("e", e);
+            // }
+        }
+    },
+});
+export const NavegacionMesActual = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: NavegacionMes,
+        datos: {
+            mesActual: 4
+        }
+    },
+});
+
+export const NavegacionMesSeleccionar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: NavegacionMes,
+        datos: {
             seleccionar: e => {
-                console.log("e", e);
+                console.log("Ejemplo navegación mes");
             }
         }
     },

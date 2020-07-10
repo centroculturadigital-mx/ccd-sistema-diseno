@@ -3,11 +3,14 @@
 
   import moment from "moment";
 
-  export let seleccionar = e => console.log("Mes seleccionado", e);
+  export let mesActual = 0;
+  export let seleccionar = i => {mesActual = i};
 
-  const meses = new Array(12).fill(true).map((e, i) => i + 1);
 
-  $: clases = "";
+  const meses = new Array(12).fill(true).map((e, i) => moment(`${i + 1}/01/20`).format('MMMM'));
+
+  const clasesCalcular = (mes,i) => mes == i ? "activo" : "" ;
+
 </script>
 
 <style>
@@ -39,18 +42,18 @@
     opacity: 0.75;
     background-color: rgba(170, 170, 170, 0.25);
   }
-  .Seleccionado :global(button) {
-    font-weight: bolder;
+  .activo :global(button) {
+    font-weight: bold !important;
+
   }
 </style>
 
 <ul class="NavegacionMes">
-
-  {#each meses as mes, i}
-    <li class={clases}>
+  {#each meses as mes, i (mes)}
+    <li class={clasesCalcular(mesActual,i)}>
       <Boton
-        texto={moment(`${i + 1}/01/20`).format('MMMM')}
-        click={seleccionar} />
+        texto={mes}
+        click={() => seleccionar(i)} />
     </li>
   {/each}
 </ul>

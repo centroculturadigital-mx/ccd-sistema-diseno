@@ -1,10 +1,10 @@
 <script>
 import Boton from '../../../../elementos/botones/Boton/Boton';
 import BotonIcono from '../../../../elementos/botones/BotonIcono/BotonIcono';
+import Texto from '../../../../elementos/texto/Texto/Texto';
 
-export let rangoVista;
-export let rangoAccion = () => console.log("regesa");
-export let anterior = () => console.log("regesa");
+export let rango;
+export let anterior = () => console.log("regresa");
 export let siguiente = () => console.log("avanza");
 
 
@@ -33,6 +33,6 @@ export let siguiente = () => console.log("avanza");
 
 <div class="Navegacion">
   <BotonIcono icono={'izquierda'} borde={false} click={anterior} />
-  <Boton texto={rangoVista} click={rangoAccion}/>
+  <Texto texto={rango} />
   <BotonIcono icono={'derecha'} borde={false} click={siguiente} />
 </div>

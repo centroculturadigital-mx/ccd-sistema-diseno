@@ -9,11 +9,11 @@
   export let siguiente = () => console.log("avanza");
   export let opciones = [];
 
-  const vistaValor = e => {
+  const vistaElegir = e => {
     console.log("Vista Seleccionada: ", e);
   };
 
-  $: rangoVista = "Julio 2020";
+  $: rango = "Julio 2020";//
 </script>
 
 <style>
@@ -43,9 +43,9 @@
     <Titulo texto={titulo} />
   {/if}
   <div class="Herramientas">
-    <NavegacionPasos {rangoVista} {anterior} {siguiente} />
+    <NavegacionPasos {rango} {anterior} {siguiente} />
     {#if Array.isArray(opciones) && opciones.length > 0}
-      <SelectorVista {opciones} cambiar={vistaValor} />
+      <SelectorVista {opciones} cambiar={vistaElegir} />
     {/if}
   </div>
 </section>
