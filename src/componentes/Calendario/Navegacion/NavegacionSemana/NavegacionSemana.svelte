@@ -4,9 +4,11 @@
   import moment from "moment";
 
   export let diaActual;
+  export let evento;
 
   export let seleccionar = i => {
-    diaActual = (i - 1);
+    diaActual = i - 1;
+    console.log("DebugX: ", i);
   };
 
   const dias = new Array(366).fill(true).map((e, i) => ({
@@ -19,7 +21,6 @@
   }));
 
   const clasesCalcular = (dia, i) => (dia == i ? "activo" : "");
-
 </script>
 
 <style>
@@ -51,7 +52,8 @@
     background-color: transparent;
     color: var(--theme-textos-parrafo-color);
     border: 0;
-    padding: calc(var(--theme-espaciados-padding) /2 )  calc(var(--theme-espaciados-padding) / 2);
+    padding: calc(var(--theme-espaciados-padding) / 2)
+      calc(var(--theme-espaciados-padding) / 2);
     box-sizing: border-box;
   }
   .NavegacionSemana :global(button:hover) {
@@ -66,7 +68,7 @@
   .activo :global(button) {
     font-weight: bold !important;
     background-color: transparent;
-    color: var(--theme-colores-primario);
+    color: var(--theme-textos-citas-color);
   }
   .evento {
     background-color: var(--theme-colores-primario);
@@ -82,7 +84,9 @@
       <Boton
         texto={dia.nombre + '\n' + dia.numero}
         click={() => seleccionar(i)} />
-      <div class="evento" />
+      {#if !!evento}
+        <div class="evento" />
+      {/if}
     </li>
   {/each}
 </ul>

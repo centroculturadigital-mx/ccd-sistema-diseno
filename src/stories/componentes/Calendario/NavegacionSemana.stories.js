@@ -17,25 +17,35 @@ export const navegacionSemanaDefault = () => ({
     },
 });
 
-export const navegacionSemanaActual = () => ({
+export const navegacionSemanaDiaActual = () => ({
     Component: ThemeTester,
     props: {
         componente: NavegacionSemana,
         datos: {
             diaActual: moment().dayOfYear() - 1,
-            mesActual: moment().month(),
         }
     },
 });
 
-// export const navegacionSemanaSeleccionar = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: NavegacionSemana,
-//         datos: {
-//             seleccionar: e => {
-//                 console.log("Ejemplo navegación mes");
-//             }
-//         }
-//     },
-// });
+export const navegacionSemanaConEventos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: NavegacionSemana,
+        datos: {
+            diaActual: moment().dayOfYear() - 1,
+            evento: true
+        }
+    },
+});
+
+export const navegacionSemanaSeleccionar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: NavegacionSemana,
+        datos: {
+            seleccionar: e => {
+                console.log("Navegación semana");
+            }
+        }
+    },
+});
