@@ -32,7 +32,7 @@ export let siguiente = () => console.log("avanza");
 </style>
 
 <div class="Navegacion">
-  <BotonIcono icono={'Izquierda'} borde={false} click={anterior} />
+  <BotonIcono icono={'izquierda'} borde={false} click={anterior} />
   <Boton texto={rangoVista} click={rangoAccion}/>
   <BotonIcono icono={'derecha'} borde={false} click={siguiente} />
 </div>
