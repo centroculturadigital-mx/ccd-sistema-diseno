@@ -562,7 +562,7 @@ export const iconoArriba = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "Arriba",
+        icono: "arriba",
     }
     },
     
@@ -573,7 +573,7 @@ export const iconoIzquierda = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "Izquierda",
+        icono: "izquierda",
     }
     },
     
