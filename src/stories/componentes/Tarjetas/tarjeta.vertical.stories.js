@@ -99,6 +99,18 @@ export const tarjetaVerticalExtractoCorto = () => ({
         }
     }
 });
+
+export const tarjetaImagenTexto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Tarjeta con una acción.',
+        }
+    }
+});
+
 export const tarjetaVerticalAccion = () => ({
     Component: ThemeTester,
     props: {
@@ -111,6 +123,8 @@ export const tarjetaVerticalAccion = () => ({
         }
     }
 });
+
+
 export const tarjetaVerticalAcciones = () => ({
     Component: ThemeTester,
     props: {
