@@ -14,7 +14,7 @@
   export let enlace;
   export let imagen;
   export let nombre;
-  export let nivelTitulo;
+  export let nivelTitulo=3;
   export let subtitulo;
   export let extracto;
   export let sombra;
