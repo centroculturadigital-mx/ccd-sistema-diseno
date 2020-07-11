@@ -15,7 +15,7 @@
 
   const activar = () => {
     colapsado = !colapsado;
-    accion();
+    accion(elemento);
   };
 </script>
 
