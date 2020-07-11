@@ -31,6 +31,7 @@
           "font-size": "0.6rem",
           "text-transform": "uppercase",
           "letter-spacing": "1px",
+          ...css
         };
         break;
       case "AUXILIAR":
