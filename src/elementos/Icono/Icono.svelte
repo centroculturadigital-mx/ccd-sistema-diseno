@@ -1,11 +1,11 @@
 <script>
+  import Imagen from "../media/Imagen/Imagen";
+  import imagen from "./iconos/imagen.svg";
   import play from "./iconos/play.svg";
   import menu from "./iconos/menu.svg";
   import cerrar from "./iconos/cerrar.svg";
   import mas from "./iconos/mas.svg";
-  import imagen from "./iconos/imagen.svg";
   import avatar from "./iconos/avatar.svg";
-  import Imagen from "../media/Imagen/Imagen";
   import facebook from "./iconos/facebook.svg";
   import twitter from "./iconos/twitter.svg";
   import instagram from "./iconos/instagram.svg";
