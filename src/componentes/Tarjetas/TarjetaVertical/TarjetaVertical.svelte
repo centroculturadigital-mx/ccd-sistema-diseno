@@ -26,16 +26,16 @@
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
   let colorFondoPleca = !!pleca
-    ? pleca.colores.fondo
-      ? `background-color: ${pleca.colores.fondo}; `
-      : ""
-    : "";
+    ? pleca.colores
+      ? pleca.colores.fondo
+      : "#fff"
+    : "#fff";
 
   let colorTextoPleca = !!pleca
-    ? pleca.colores.texto
-      ? `${pleca.colores.texto}`
-      : ""
-    : "";
+    ? pleca.colores
+      ? pleca.colores.texto
+      : "#000"
+    : "#000";
 
     
 </script>
@@ -187,7 +187,7 @@
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
       {#if !!pleca && typeof pleca == 'object'}
-        <div class="Pleca" style={colorFondoPleca}>
+        <div class="Pleca" style={ `background-color: ${colorFondoPleca}`}>
           <Texto texto={pleca.texto} css={{ color: colorTextoPleca }} />
           {#if !!pleca.icono}
             <Icono icono={pleca.icono} />

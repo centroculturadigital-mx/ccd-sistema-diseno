@@ -45,10 +45,6 @@ let enlaces = [{
 ];
 
 let pleca = {
-    colores: {
-        fondo: "#FF0000",
-        texto: "#FFF"
-    },
     texto: "En vivo ahora!",
     icono: "play"
 };
@@ -245,7 +241,13 @@ export const tarjetaVerticalConPleca = () => ({
             imagen: imagenEjemplo,
             nombre: 'Tarjeta con una pleca de aviso',
             acciones: accionesFunciones,
-            pleca,
+            pleca: {
+                ...pleca,
+                colores: {
+                    fondo: "#f00",
+                    texto: "#fff"
+                }
+            },
         }
     }
 });
