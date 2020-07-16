@@ -42,3 +42,24 @@ export const botonIconoBorde = () => ({
         }
     },
 });
+
+
+
+
+
+export const botonIconoCss = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            texto: 'Boton Icono Bold',
+            icono: 'cerrar',
+            css: {
+                'text-transform': 'uppercase',
+                'font-size': '0.5rem',
+                'letter-spacing': '3px',
+                'background': "#fa0"
+            }
+        },
+    }
+});

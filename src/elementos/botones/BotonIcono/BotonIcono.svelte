@@ -9,6 +9,12 @@
   export let iconoBotonEstadoDosUrl;
   export let estado = false;
 
+
+  export let css = {};
+
+  $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
+
+
 </script>
 
 <style>
@@ -56,7 +62,7 @@
   }
 </style>
 
-<button on:click={click} class={!!borde ? 'borde' : 'no-borde'}>
+<button on:click={click} class={!!borde ? 'borde' : 'no-borde'} style={cssString}>
 
   <!-- version iconos dos estados -->
   {#if !!iconoBotonEstadoUnoUrl}

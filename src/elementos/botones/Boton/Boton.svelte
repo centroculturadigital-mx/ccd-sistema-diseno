@@ -2,6 +2,9 @@
   export let texto = "Botón";
   export let click;
   export let deshabilitado;
+  export let css = {};
+
+  $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
 
 </script>
 
@@ -32,6 +35,6 @@
   }
 </style>
 
-<button on:click={click} disabled={deshabilitado}>
+<button on:click={click} disabled={deshabilitado} style={cssString}>
   {!!texto ? texto : ''}
 </button>

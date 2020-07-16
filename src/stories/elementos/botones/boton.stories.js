@@ -13,3 +13,19 @@ export const botonDefault = () => ({
         }
     },
 });
+
+
+export const botonCss = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Boton Bold',
+            css: {
+                'text-transform': 'uppercase',
+                'font-size': '0.5rem',
+                'letter-spacing': '3px',
+            }
+        },
+    }
+});
