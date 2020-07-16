@@ -213,6 +213,16 @@ const tema = {
             neutro: variables.colores.borde.neutro,
             oscuro: variables.colores.borde.oscuro,
         },
+
+        fondos: {
+            fondo1: variables.colores.fondo.base,
+            fondo2: variables.colores.fondo.base2,
+            fondo3: variables.colores.fondo.base3,
+            fondo4: variables.colores.fondo.base4,
+            fondo5: variables.colores.fondo.claro,
+            fondo6: variables.colores.fondo.oscuro,
+            fondo7: variables.colores.fondo.transparente,
+        },
     },
     fontFamilies: {
         principal: variables.tipografia.familias.principal,
