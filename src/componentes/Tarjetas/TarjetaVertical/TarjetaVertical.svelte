@@ -28,16 +28,12 @@
   let colorFondoPleca = !!pleca
     ? pleca.colores
       ? pleca.colores.fondo
-        ? `background-color: ${pleca.colores.fondo}; `
-        : "#fff"
       : "#fff"
     : "#fff";
 
   let colorTextoPleca = !!pleca
     ? pleca.colores
       ? pleca.colores.texto
-        ? `${pleca.colores.texto}`
-        : "#000"
       : "#000"
     : "#000";
 
@@ -191,7 +187,7 @@
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
       {#if !!pleca && typeof pleca == 'object'}
-        <div class="Pleca" style={colorFondoPleca}>
+        <div class="Pleca" style={{ "background-color": colorFondoPleca}}>
           <Texto texto={pleca.texto} css={{ color: colorTextoPleca }} />
           {#if !!pleca.icono}
             <Icono icono={pleca.icono} />
