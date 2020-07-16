@@ -1,4 +1,4 @@
-import variables from './variables';
+import variables from './variables'; 
 
 const estilos = {
     tipografia: {
@@ -83,6 +83,13 @@ const estilos = {
         aviso: variables.colores.alerta.aviso,
         alerta: variables.colores.alerta.alerta,
         accion: variables.colores.alerta.accion,
+    },
+    redes: {
+        twitter: variables.colores.redes.twitter,
+        facebook: variables.colores.redes.facebook,
+        youtube: variables.colores.redes.yotube,
+        soundcloud: variables.colores.redes.soundcloud,
+        linkedin: variables.colores.redes.linkedin,
     },
 
     bordes: { 

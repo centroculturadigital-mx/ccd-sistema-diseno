@@ -147,6 +147,13 @@ const tema = {
             alerta: estilos.alertas.alerta,
             accion: estilos.alertas.accion,
         },
+        redes: {
+            twitter: variables.colores.redes.twitter,
+            facebook: variables.colores.redes.facebook,
+            youtube: variables.colores.redes.youtube,
+            soundcloud: variables.colores.redes.soundcloud,
+            linkedin: variables.colores.redes.linkedin,
+        },
         iconos: {
             primario: {
                 color: variables.colores.icono.primario,

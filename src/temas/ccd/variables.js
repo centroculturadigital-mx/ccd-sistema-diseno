@@ -1,5 +1,5 @@
 const variables = {
-    colores: {
+    colores: { 
         texto: {
             base: "#4C4CFF",
             claro: '#FFF',
@@ -111,6 +111,13 @@ const variables = {
             aviso: "#C8CC00",
             alerta: "#C50023",
             accion: "#212121",
+        },
+        redes: {
+            twitter: "#1DA1F2",
+            facebook: "#1877F2",
+            youtube: "#FF0000",
+            soundcloud: "#F7620E",
+            linkedin: "#007BB6",
         },
         cabecera: {
             fondo: "#FFF",
