@@ -187,7 +187,7 @@
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
       {#if !!pleca && typeof pleca == 'object'}
-        <div class="Pleca" style={{ "background-color": colorFondoPleca}}>
+        <div class="Pleca" style={ `background-color: ${colorFondoPleca}`}>
           <Texto texto={pleca.texto} css={{ color: colorTextoPleca }} />
           {#if !!pleca.icono}
             <Icono icono={pleca.icono} />
