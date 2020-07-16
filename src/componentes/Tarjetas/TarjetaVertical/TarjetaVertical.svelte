@@ -26,16 +26,20 @@
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
   let colorFondoPleca = !!pleca
-    ? pleca.colores.fondo
-      ? `background-color: ${pleca.colores.fondo}; `
-      : ""
-    : "";
+    ? pleca.colores
+      ? pleca.colores.fondo
+        ? `background-color: ${pleca.colores.fondo}; `
+        : "#fff"
+      : "#fff"
+    : "#fff";
 
   let colorTextoPleca = !!pleca
-    ? pleca.colores.texto
-      ? `${pleca.colores.texto}`
-      : ""
-    : "";
+    ? pleca.colores
+      ? pleca.colores.texto
+        ? `${pleca.colores.texto}`
+        : "#000"
+      : "#000"
+    : "#000";
 
     
 </script>
