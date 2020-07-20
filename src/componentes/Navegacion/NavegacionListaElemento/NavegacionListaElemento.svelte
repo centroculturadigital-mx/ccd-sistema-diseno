@@ -11,6 +11,7 @@
   let iconoExpandido = "derecha";
   let iconoColapsado = "abajo";
 
+
   $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : [];
 
   const activar = () => {
@@ -56,6 +57,12 @@
   li {
     list-style: none;
   }
+
+  .activo {
+    font-weight: bold;
+  }
+
+  
 </style>
 
 <li class="elementoLista">
@@ -69,13 +76,15 @@
         {/if}
       </span>
     {/if}
-    <span>{elemento.texto}</span>
+    <span class={ elemento.activo ? "activo" : "" }>
+      {elemento.texto}
+    </span>
   </button>
 
   {#if !colapsado && Array.isArray(subElementos) && subElementos.length > 0}
     <ul transition:slide>
       {#each subElementos as subElemento}
-        <svelte:self elemento={subElemento} {accion} />
+        <svelte:self elemento={subElemento} {accion}/>
       {/each}
     </ul>
   {/if}

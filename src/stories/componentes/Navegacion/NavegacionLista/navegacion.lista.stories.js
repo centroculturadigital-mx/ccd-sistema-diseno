@@ -44,6 +44,15 @@ let elementos = [{
                         datos: {
                             id: "id_6"
                         },
+                        elementos: [
+                            {
+                                texto: "Lorem sit culpa.",
+                                activo: true,
+                                datos: {
+                                    id: "id_8"
+                                },
+                            },
+                        ]
                     },
                 ]
             },
