@@ -4,23 +4,25 @@ import NavegacionLista from '../../../../componentes/Navegacion/NavegacionLista/
 export default { title: 'Componentes/Navegacion/NavegacionLista/NavegacionLista' }
 
 let elementos = [{
-        texto: "Hola"
+        texto: "Incididunt eiusmod anim est.",
     },
     {
-        texto: "Mundo"
+        texto: "Exercitation sint voluptate.",
     },
     {
-        texto: "Madre",
-        elementos: [{
-                texto: "Hija 1"
+        texto: "Labore culpa minim esse elit.",
+        elementos: [
+            {
+                texto: "Labore non sint.",
             },
             {
-                texto: "Hija 2",
-                elementos: [{
-                        texto: "Nieta 1"
+                texto: "Ad et excepteur.",
+                elementos: [
+                    {
+                        texto: "Veniam nostrud sint non.",
                     },
                     {
-                        texto: "Nieta 2"
+                        texto: "Veniam sit culpa.",
                     },
                 ]
             },

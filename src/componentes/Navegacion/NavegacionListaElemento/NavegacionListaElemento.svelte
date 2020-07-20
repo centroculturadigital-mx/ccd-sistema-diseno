@@ -26,6 +26,7 @@
     padding-left: 0;
     background-color: var(--theme-tarjetas-transparente);
     cursor: pointer;
+    text-align: left;
   }
   .elementoLista :global(button:hover) {
     opacity: 0.75;
