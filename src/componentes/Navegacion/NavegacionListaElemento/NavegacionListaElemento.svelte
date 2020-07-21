@@ -11,6 +11,7 @@
   let iconoExpandido = "derecha";
   let iconoColapsado = "abajo";
 
+
   $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : [];
 
   const activar = () => {
@@ -26,6 +27,7 @@
     padding-left: 0;
     background-color: var(--theme-tarjetas-transparente);
     cursor: pointer;
+    text-align: left;
   }
   .elementoLista :global(button:hover) {
     opacity: 0.75;
@@ -55,6 +57,12 @@
   li {
     list-style: none;
   }
+
+  .activo {
+    font-weight: bold;
+  }
+
+  
 </style>
 
 <li class="elementoLista">
@@ -68,13 +76,15 @@
         {/if}
       </span>
     {/if}
-    <span>{elemento.texto}</span>
+    <span class={ elemento.activo ? "activo" : "" }>
+      {elemento.texto}
+    </span>
   </button>
 
   {#if !colapsado && Array.isArray(subElementos) && subElementos.length > 0}
     <ul transition:slide>
-      {#each subElementos as subElemento}
-        <svelte:self elemento={subElemento} {accion} />
+      {#each subElementos as subElemento (subElemento)}
+        <svelte:self elemento={subElemento} {accion}/>
       {/each}
     </ul>
   {/if}

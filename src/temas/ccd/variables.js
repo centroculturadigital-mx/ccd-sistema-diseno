@@ -11,6 +11,7 @@ const variables = {
             base: "#CCCCCC",
             base2: "#AAAAAA",
             base3: "#666666",
+            base4: "#F2F2F2",
             claro: "#FFF",
             oscuro: "#212121",
             transparente: "transparent",

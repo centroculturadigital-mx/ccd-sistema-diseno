@@ -4,23 +4,55 @@ import NavegacionLista from '../../../../componentes/Navegacion/NavegacionLista/
 export default { title: 'Componentes/Navegacion/NavegacionLista/NavegacionLista' }
 
 let elementos = [{
-        texto: "Hola"
+        texto: "Incididunt eiusmod anim est.",
+        datos: {
+            id: "id_0"
+        },
     },
     {
-        texto: "Mundo"
+        texto: "Exercitation sint voluptate.",
+        datos: {
+            id: "id_1"
+        },
     },
     {
-        texto: "Madre",
-        elementos: [{
-                texto: "Hija 1"
+        texto: "Labore culpa minim esse elit.",
+        datos: {
+            id: "id_2"
+        },
+        elementos: [
+            {
+                texto: "Labore non sint.",
+                datos: {
+                    id: "id_3"
+                },
             },
             {
-                texto: "Hija 2",
-                elementos: [{
-                        texto: "Nieta 1"
+                texto: "Ad et excepteur.",
+                datos: {
+                    id: "id_4"
+                },
+                elementos: [
+                    {
+                        texto: "Veniam nostrud sint non.",
+                        datos: {
+                            id: "id_5"
+                        },
                     },
                     {
-                        texto: "Nieta 2"
+                        texto: "Veniam sit culpa.",
+                        datos: {
+                            id: "id_6"
+                        },
+                        elementos: [
+                            {
+                                texto: "Lorem sit culpa.",
+                                activo: true,
+                                datos: {
+                                    id: "id_8"
+                                },
+                            },
+                        ]
                     },
                 ]
             },
@@ -44,7 +76,7 @@ export const navegacionListaAccion = () => ({
         componente: NavegacionLista,
         datos: {
             elementos,
-            accion: () => alert("una accion desde afuera!")
+            accion: (e) => console.log("acción navegacion lista", e)        
         }
     },
 });

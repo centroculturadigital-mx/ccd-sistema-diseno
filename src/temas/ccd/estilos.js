@@ -46,7 +46,7 @@ const estilos = {
                 color: variables.colores.texto.oscuro,
                 hover: variables.colores.primario.base,
                 fuente: variables.tipografia.fuentes.secundaria.nombre,
-                tamanno: variables.tipografia.tamannos.md, 
+                tamanno: variables.tipografia.tamannos.md,  
                 peso: variables.tipografia.fuentes.principal.regular
             }
         },
@@ -90,6 +90,16 @@ const estilos = {
         youtube: variables.colores.redes.yotube,
         soundcloud: variables.colores.redes.soundcloud,
         linkedin: variables.colores.redes.linkedin,
+    },
+
+    fondos: {
+        fondo1: variables.colores.fondo.base,
+        fondo2: variables.colores.fondo.base2,
+        fondo3: variables.colores.fondo.base3,
+        fondo4: variables.colores.fondo.base4,
+        fondo5: variables.colores.fondo.claro,
+        fondo6: variables.colores.fondo.oscuro,
+        fondo7: variables.colores.fondo.transparente,
     },
 
     bordes: { 
