@@ -83,7 +83,7 @@
 
   {#if !colapsado && Array.isArray(subElementos) && subElementos.length > 0}
     <ul transition:slide>
-      {#each subElementos as subElemento}
+      {#each subElementos as subElemento (subElemento)}
         <svelte:self elemento={subElemento} {accion}/>
       {/each}
     </ul>
