@@ -16,7 +16,9 @@
 
   const activar = () => {
     colapsado = !colapsado;
-    // accion(elemento);
+  };
+  const cerrar = () => {
+    colapsado = false;
   };
 </script>
 
@@ -78,7 +80,7 @@
         {/if}
       </span>
     {/if}
-    <span class={ elemento.activo ? "activo" : "" } on:click={accion(elemento)}>
+    <span class={ elemento.activo ? "activo" : "" } on:click={() => [accion(elemento),cerrar()]}>
       {elemento.texto}
     </span>
   </button>
