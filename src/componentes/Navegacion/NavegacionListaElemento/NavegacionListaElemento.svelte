@@ -5,7 +5,7 @@
   import { slide } from 'svelte/transition';
 
   export let elemento = {};
-  export let colapsado = false;
+  export let colapsado = true;
   export let accion = () => console.log("una accion");
   
   let iconoExpandido = "derecha";
@@ -16,7 +16,7 @@
 
   const activar = () => {
     colapsado = !colapsado;
-    accion(elemento);
+    // accion(elemento);
   };
 </script>
 
@@ -51,7 +51,7 @@
 
   ul {
     list-style: none;
-    /* margin: 0; */
+    margin: 0;
   }
 
   li {
@@ -66,9 +66,9 @@
 </style>
 
 <li class="elementoLista">
-  <button on:click={activar}>
+  <button>
     {#if Array.isArray(subElementos) && subElementos.length > 0}
-      <span class="flecha">
+      <span class="flecha" on:click={activar}>
         {#if !colapsado}
           <Icono icono={'abajo'} />
         {:else}
@@ -76,7 +76,7 @@
         {/if}
       </span>
     {/if}
-    <span class={ elemento.activo ? "activo" : "" }>
+    <span class={ elemento.activo ? "activo" : "" } on:click={accion(elemento)}>
       {elemento.texto}
     </span>
   </button>

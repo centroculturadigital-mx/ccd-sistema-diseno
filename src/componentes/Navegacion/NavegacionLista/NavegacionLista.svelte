@@ -7,7 +7,7 @@
 </script>
 
 <style>
-.NavegacionLista{
+.NavegacionLista {
  background-color: var(--theme-tarjetas-fondo);
  padding: var(--theme-tamannos-md);
 }
