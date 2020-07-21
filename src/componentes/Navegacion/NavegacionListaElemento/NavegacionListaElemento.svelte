@@ -21,20 +21,22 @@
 </script>
 
 <style>
-  .elementoLista :global(button) {
+  .elementoLista button {
     border-style: none;
     padding: var(--theme-tamannos-sm);
     padding-left: 0;
     background-color: var(--theme-tarjetas-transparente);
     cursor: pointer;
     text-align: left;
+    display: flex;
   }
-  .elementoLista :global(button:hover) {
+  .elementoLista button:hover {
     opacity: 0.75;
   }
 
   .flecha {
     background-color: var(--theme-tarjetas-fondo);
+    padding-top: 0.25rem;
   }
 
   .flecha :global(.iconoContenedor img) {
