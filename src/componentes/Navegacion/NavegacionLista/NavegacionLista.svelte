@@ -7,7 +7,7 @@
 </script>
 
 <style>
-.NavegacionLista{
+.NavegacionLista {
  background-color: var(--theme-tarjetas-fondo);
  padding: var(--theme-tamannos-md);
 }
@@ -15,7 +15,7 @@
 </style>
 
 <section class="NavegacionLista"> 
-  {#each elementos as elemento}
+  {#each elementos as elemento, i (elemento)}
     <NavegacionListaElemento {elemento} {accion}/>
   {/each}
 </section>

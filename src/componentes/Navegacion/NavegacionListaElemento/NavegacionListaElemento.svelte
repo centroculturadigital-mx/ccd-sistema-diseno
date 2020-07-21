@@ -5,17 +5,18 @@
   import { slide } from 'svelte/transition';
 
   export let elemento = {};
-  export let colapsado = false;
+  export let colapsado = true;
   export let accion = () => console.log("una accion");
   
   let iconoExpandido = "derecha";
   let iconoColapsado = "abajo";
 
+
   $: subElementos = Array.isArray(elemento.elementos) ? elemento.elementos : [];
 
   const activar = () => {
     colapsado = !colapsado;
-    accion(elemento);
+    // accion(elemento);
   };
 </script>
 
@@ -26,6 +27,7 @@
     padding-left: 0;
     background-color: var(--theme-tarjetas-transparente);
     cursor: pointer;
+    text-align: left;
   }
   .elementoLista :global(button:hover) {
     opacity: 0.75;
@@ -49,18 +51,24 @@
 
   ul {
     list-style: none;
-    /* margin: 0; */
+    margin: 0;
   }
 
   li {
     list-style: none;
   }
+
+  .activo {
+    font-weight: bold;
+  }
+
+  
 </style>
 
 <li class="elementoLista">
-  <button on:click={activar}>
+  <button>
     {#if Array.isArray(subElementos) && subElementos.length > 0}
-      <span class="flecha">
+      <span class="flecha" on:click={activar}>
         {#if !colapsado}
           <Icono icono={'abajo'} />
         {:else}
@@ -68,13 +76,15 @@
         {/if}
       </span>
     {/if}
-    <span>{elemento.texto}</span>
+    <span class={ elemento.activo ? "activo" : "" } on:click={accion(elemento)}>
+      {elemento.texto}
+    </span>
   </button>
 
   {#if !colapsado && Array.isArray(subElementos) && subElementos.length > 0}
     <ul transition:slide>
-      {#each subElementos as subElemento}
-        <svelte:self elemento={subElemento} {accion} />
+      {#each subElementos as subElemento (subElemento)}
+        <svelte:self elemento={subElemento} {accion}/>
       {/each}
     </ul>
   {/if}

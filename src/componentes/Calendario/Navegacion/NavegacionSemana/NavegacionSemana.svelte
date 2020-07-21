@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import Boton from "../../../../elementos/botones/Boton/Boton";
 
   import moment from "moment";
@@ -21,6 +22,14 @@
   }));
 
   const clasesCalcular = (dia, i) => (dia == i ? "activo" : "");
+
+  let componente;
+
+  let ancho;
+
+  onMount(() => {
+    console.log("COMPO: ", componente.clientWidth);
+  });
 </script>
 
 <style>
@@ -78,15 +87,18 @@
   }
 </style>
 
-<ul class="NavegacionSemana">
-  {#each dias as dia, i (dia)}
-    <li class={clasesCalcular(diaActual, i)}>
-      <Boton
-        texto={dia.nombre + '\n' + dia.numero}
-        click={() => seleccionar(i)} />
-      {#if !!evento}
-        <div class="evento" />
-      {/if}
-    </li>
-  {/each}
+<ul class="NavegacionSemana" bind:this={componente}>
+
+  {#if ancho}
+    {#each dias as dia, i (dia)}
+      <li class={clasesCalcular(diaActual, i)}>
+        <Boton
+          texto={dia.nombre + '\n' + dia.numero}
+          click={() => seleccionar(i)} />
+        {#if !!evento}
+          <div class="evento" />
+        {/if}
+      </li>
+    {/each}
+  {/if}
 </ul>
