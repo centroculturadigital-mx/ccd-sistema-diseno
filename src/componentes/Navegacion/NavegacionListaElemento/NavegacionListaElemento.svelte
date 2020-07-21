@@ -36,7 +36,7 @@
 
   .flecha {
     background-color: var(--theme-tarjetas-fondo);
-    padding-top: 0.25rem;
+    padding-top: 0.15rem;
   }
 
   .flecha :global(.iconoContenedor img) {
