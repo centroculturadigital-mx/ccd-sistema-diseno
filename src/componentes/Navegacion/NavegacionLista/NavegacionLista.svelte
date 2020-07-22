@@ -15,7 +15,7 @@
 </style>
 
 <section class="NavegacionLista"> 
-  {#each elementos as elemento (elemento)}
+  {#each elementos as elemento}
     <NavegacionListaElemento {elemento} {accion}/>
   {/each}
 </section>
