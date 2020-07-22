@@ -85,9 +85,9 @@
     </span>
   </button>
 
-  {#if !colapsado && Array.isArray(subElementos) && subElementos.length > 0}
+  {#if !colapsado && Array.isArray(subElementos)}
     <ul transition:slide>
-      {#each subElementos as subElemento,i  ({ texto: subElemento.texto, elementos: Array.isArray(subElemento.elementos) && subElemento.elementos.map(e=>e.texto), i })}
+      {#each subElementos as subElemento}
         <svelte:self elemento={subElemento} {accion}/>
       {/each}
     </ul>

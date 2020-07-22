@@ -15,7 +15,7 @@
 </style>
 
 <section class="NavegacionLista"> 
-  {#each elementos as elemento, i ({ texto: elemento.texto, elementos: Array.isArray(elemento.elementos) && elemento.elementos.map(e=>e.texto), i })}
+  {#each elementos as elemento}
     <NavegacionListaElemento {elemento} {accion}/>
   {/each}
 </section>
