@@ -15,7 +15,7 @@
 </style>
 
 <section class="NavegacionLista"> 
-  {#each elementos as elemento, i (elemento)}
+  {#each elementos as elemento, i ({ texto: elemento.texto, elementos: elemento.elementos, i })}
     <NavegacionListaElemento {elemento} {accion}/>
   {/each}
 </section>
