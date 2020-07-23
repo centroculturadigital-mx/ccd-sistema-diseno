@@ -13,6 +13,7 @@
   import ListaOrdenada from "../../elementos/listas/ListaOrdenada/ListaOrdenada.svelte";
 
   export let documento;
+  export let html;
   export let tamanno;
 
   $: bloquesJSON = !!documento ? JSON.parse(documento).nodes : [];
@@ -106,10 +107,21 @@
   };
 </script>
 
-{#if Array.isArray(bloques)}
-  <section class="Contenido">
-    {#each bloques as bloque, i ('bloque_' + i)}
-      <Bloque contenido={bloque} {tamanno} />
-    {/each}
+{#if !! html}
+
+  <section class="Contenido html">
+    {@html html }
   </section>
+
+{:else}
+
+  {#if Array.isArray(bloques)}
+    <section class="Contenido">
+      {#each bloques as bloque, i ('bloque_' + i)}
+        <Bloque contenido={bloque} {tamanno} />
+      {/each}
+    </section>
+  {/if}
+
+
 {/if}
