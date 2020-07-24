@@ -21,21 +21,19 @@ export const ContenidoHTML = () => ({
     props: {
         componente: Contenido,
         datos: {
-            html: `
-                <h1>Título principal</h1>
-                
-                <iframe src="https://www.youtube.com/embed/C0DPdy98e4c" width="100%" height="480px" frameborder="0" allowfullscreen=""></iframe>
-                
-                <p>Ad dolore deserunt elit culpa commodo sint id cillum eiusmod ut tempor nisi.</p>
-                <ul>
-                    <li>Fugiat sunt occaecat labore do duis magna incididunt sint cupidatat Lorem mollit.</li>
-                    <li>Tempor culpa sit tempor exercitation nisi ut occaecat proident.</li>
-                </ul>
-                <p>Ipsum do commodo ullamco fugiat occaecat aute officia cupidatat qui eu veniam dolor excepteur. Culpa non ipsum id minim Lorem. Esse esse culpa culpa sunt proident officia sunt adipisicing ad ex commodo aute esse. Laborum do laboris id commodo ad veniam adipisicing velit do.</p>
-                <p><img src="http://fakeimg.pl/600x400" alt="Imagen falsa"></p>
-                <hr>
-                <p>Un enlace a <a href="https://wikipedia.org/">un sitio</a>.
-            `
+            html: `<h1>Título principal</h1>
+
+<iframe src="https://www.youtube.com/embed/C0DPdy98e4c" width="100%" height="480px" frameborder="0" allowfullscreen=""></iframe>
+
+<p>Ad dolore deserunt elit culpa commodo sint id cillum eiusmod ut tempor nisi.</p>
+<ul>
+    <li>Fugiat sunt occaecat labore do duis magna incididunt sint cupidatat Lorem mollit.</li>
+    <li>Tempor culpa sit tempor exercitation nisi ut occaecat proident.</li>
+</ul>
+<p>Ipsum do commodo ullamco fugiat occaecat aute officia cupidatat qui eu veniam dolor excepteur. Culpa non ipsum id minim Lorem. Esse esse culpa culpa sunt proident officia sunt adipisicing ad ex commodo aute esse. Laborum do laboris id commodo ad veniam adipisicing velit do.</p>
+<p><img src="http://fakeimg.pl/600x400" alt="Imagen falsa"></p>
+<hr>
+<p>Un enlace a <a href="https://wikipedia.org/">un sitio</a>.</p>`
         }
     }
 });

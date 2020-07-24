@@ -164,15 +164,36 @@
     position: absolute;
     top: 2rem;
     left: 0;
-    min-width: 45%;
+    min-width: 35%;
     padding: var(--theme-espaciados-padding);
-    max-width: 100%;
+    max-width: 66%;
     box-sizing: border-box;
   }
   .Pleca :global(.iconoContenedor img) {
     height: 1rem;
     width: 1rem;
     margin-left: 0.5rem;
+  }
+  .Pleca :global(span) {
+    white-space: pre-wrap;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 5%;
+    font-weight: normal;
+    line-height: 1.5;
+  }
+  .Pleca .Textos {
+    display: block;
+    padding: .5rem 0;
+    margin: 0;
+  }
+  .Pleca .Textos :global(span) {
+    width: 100%;
+    display: block;
+    margin-bottom: .5rem;
+  }
+  .Pleca .Textos :global(span:last-child) {
+    margin-bottom: 0;
   }
 </style>
 
@@ -186,9 +207,18 @@
       {:else}
         <Imagen {imagen} alt={nombre} ajuste="cover" />
       {/if}
-      {#if !!pleca && typeof pleca == 'object'}
+      {#if typeof pleca == 'object'}
         <div class="Pleca" style={ `background-color: ${colorFondoPleca}`}>
-          <Texto texto={pleca.texto} css={{ color: colorTextoPleca }} />
+          {#if !!pleca.texto}
+            <Texto texto={pleca.texto} variante="COMPACTO" css={{ color: colorTextoPleca }} />
+          {/if}
+          {#if Array.isArray(pleca.textos)}
+            <ul class="Textos">
+              {#each pleca.textos as texto}
+                <Texto {texto} variante="COMPACTO" css={{ color: colorTextoPleca }} />
+              {/each}
+            </ul>
+          {/if}
           {#if !!pleca.icono}
             <Icono icono={pleca.icono} />
           {/if}

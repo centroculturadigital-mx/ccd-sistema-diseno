@@ -251,3 +251,27 @@ export const tarjetaVerticalConPleca = () => ({
         }
     }
 });
+
+
+export const tarjetaVerticalConPlecaConTextos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Tarjeta con una pleca de aviso',
+            acciones: accionesFunciones,
+            pleca: {
+                textos: [
+                    "Primer texto",
+                    "Segundo",
+                    "Tercero",
+                ],
+                colores: {
+                    fondo: "#f00",
+                    texto: "#fff"
+                }
+            },
+        }
+    }
+});
