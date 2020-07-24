@@ -184,7 +184,7 @@
   }
   .Pleca .Textos {
     display: block;
-    padding: .5rem 0;
+    padding: 0;
     margin: 0;
   }
   .Pleca .Textos :global(span) {
