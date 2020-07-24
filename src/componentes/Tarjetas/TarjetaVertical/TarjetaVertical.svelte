@@ -181,6 +181,7 @@
     letter-spacing: 5%;
     font-weight: normal;
     line-height: 1.5;
+    width: 100%;
   }
   .Pleca .Textos {
     display: block;
