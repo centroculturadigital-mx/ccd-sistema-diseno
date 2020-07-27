@@ -42,8 +42,9 @@
   }
 
   .flecha :global(.iconoContenedor img) {
-    height: var(--theme-tamannos-md) !important;
+    height: var(--theme-tamannos-sm) !important;
     margin-right: 0.5rem;
+    color:#fff !important;
   }
 
   span {
