@@ -165,13 +165,13 @@
     top: 2rem;
     left: 0;
     min-width: 35%;
-    padding: var(--theme-espaciados-padding);
+    padding: calc(var(--theme-espaciados-padding) / 2) var(--theme-espaciados-padding);
     max-width: 66%;
     box-sizing: border-box;
   }
   .Pleca :global(.iconoContenedor img) {
-    height: 1rem;
-    width: 1rem;
+    height: 1.5rem !important;
+    width: 0.75rem;
     margin-left: 0.5rem;
   }
   .Pleca :global(span) {
