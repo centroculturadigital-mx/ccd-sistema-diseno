@@ -142,28 +142,28 @@ const variables = {
     },
     tipografia: {
         familias: {
-            principal: "https://fonts.googleapis.com/css2?family=Roboto&display=swap",
-            secundaria: "https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap",
+            principal: "https://fonts.googleapis.com/css2?family=Mada&display=swap",
+            secundaria: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap",
             complementaria: "https://fonts.googleapis.com/css2?family=Ubuntu&display=swap",
             complementaria2: "https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre&display=swap",
         },
         fuentes: {
             titulo: {
-                nombre: "Roboto Condensed",
+                nombre: "Mada",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             principal: {
-                nombre: "Roboto",
+                nombre: "Mada",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
                 grueso: 900
             },
             secundaria: { 
-                nombre: "Roboto Condensed",
+                nombre: "Cormorant Garamond",
                 regular: 400,
                 ligero: 300,
                 negrita: 700,
