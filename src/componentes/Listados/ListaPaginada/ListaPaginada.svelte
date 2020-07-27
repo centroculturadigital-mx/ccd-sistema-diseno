@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import ListaComponentes from "../ListaComponentes/ListaComponentes";
   import Paginacion from "../../Navegacion/Paginacion/Paginacion";
 
@@ -8,6 +9,7 @@
 
   export let pagina;
   export let seleccionar;
+
   let paginaSeleccionada = 0;
 
   $: paginaActual =
@@ -24,6 +26,8 @@
     if (typeof seleccionar == "function") {
       seleccionar(i);
     }
+
+    scroll();
   };
 
   $: elementoInicial = paginaActual * elementosPaginaNum;
@@ -34,17 +38,27 @@
     elementoInicial + elementosPaginaNum
   );
 
-  
+  let superior;
+  let scroll;
+
+  onMount(() => {
+    scroll = () => {
+      superior.scrollIntoView();
+    };
+  });
 </script>
 
 <style>
+  /* html {
+    scroll-behavior: smooth;
+  } */
   .ListaPaginada {
     padding: 1rem;
     width: 100%;
   }
 </style>
 
-<section class="ListaPaginada">
+<section class="ListaPaginada" bind:this={superior}>
   <ListaComponentes
     elementos={elementosMostrar}
     elementosPagina={elementosPaginaNum} />
