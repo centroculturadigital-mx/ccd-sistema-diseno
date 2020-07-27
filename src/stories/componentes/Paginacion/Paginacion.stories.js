@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Paginacion from '../../../componentes/Navegacion/Paginacion/Paginacion.svelte';
 
-export default { title: 'Componentes/Navegacion/Paginacion' } 
+export default { title: 'Componentes/Navegacion/Paginacion' }
 
 export const PaginacionDefault = () => ({
     Component: ThemeTester,
@@ -21,10 +21,10 @@ export const PaginacionArreglo = () => ({
     props: {
         componente: Paginacion,
         datos: {
-            elementos: ["hola", "soy", "un", "array"], // total de elementos a representar
-            elementosPagina: 4, // cuantos se muestran por pag.
-            pagina: 0, // el índice de pag actual
-            seleccionar: i => console.log(i) // función que consume el índice
+            elementos: ["hola", "soy", "un", "array"],
+            elementosPagina: 4,
+            pagina: 0,
+            seleccionar: i => console.log(i)
         },
     },
 });
@@ -35,7 +35,7 @@ export const PaginacionNoMostrar = () => ({
     props: {
         componente: Paginacion,
         datos: {
-            seleccionar: i => console.log(i) // función que consume el índice
+            seleccionar: i => console.log(i)
         },
     },
 });
