@@ -46,6 +46,7 @@
       superior.scrollIntoView();
     };
   });
+
 </script>
 
 <style>
@@ -62,9 +63,13 @@
   <ListaComponentes
     elementos={elementosMostrar}
     elementosPagina={elementosPaginaNum} />
-  <Paginacion
-    elementos={elementosCargados}
-    elementosPagina={elementosPaginaNum}
-    {pagina}
-    seleccionar={i => seleccionarPagina(i)} />
+
+  {#if elementos.length > elementosPagina}
+    <Paginacion
+      elementos={elementosCargados}
+      elementosPagina={elementosPaginaNum}
+      {pagina}
+      seleccionar={i => seleccionarPagina(i)} />
+  {/if}
+
 </section>

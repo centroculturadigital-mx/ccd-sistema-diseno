@@ -14,6 +14,14 @@ const elementos = new Array(11).fill(0).map((e, i) => ({
         imagen: ImagenArchivo
     }
 }))
+const elementosUnaPagina = new Array(3).fill(0).map((e, i) => ({
+    componente: TarjetaHorizontal,
+    data: {
+        // chica: true,
+        nombre: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
+        imagen: ImagenArchivo
+    }
+}))
 
 export const ListaPaginadaDefault = () => ({
     Component: ThemeTester,
@@ -49,6 +57,16 @@ export const ListaPaginadaAutomatico = () => ({
         datos: {
             elementos,
             elementosPagina: 3
+        },
+    }
+});
+export const ListaPaginadaUnaPagina = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ListaPaginada,
+        datos: {
+            elementos: elementosUnaPagina,
+            elementosPagina: 11
         },
     }
 });
