@@ -24,9 +24,9 @@ const variables = {
             neutro: "#AAAAAA",
         },
         primario: {
-            base: "#353130",
+            base: "#3F816C",
             claro: "#5F5A59",
-            oscuro: "#0F0907",
+            oscuro: "#6eb19a",
             transparente: "transparent",
         },
         primario2: {
@@ -54,9 +54,9 @@ const variables = {
             transparente: "transparent",
         },
         secundario2: {
-            base: "#0A1699",
-            claro: "#5540CB",
-            oscuro: "#00006A",
+            base: "#353130",
+            claro: "#0f0907",
+            oscuro: "#5f5a59",
             transparente: "transparent",
         },
         secundario3: {
