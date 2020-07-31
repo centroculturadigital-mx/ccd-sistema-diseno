@@ -146,7 +146,8 @@
   .enlazado {
     text-decoration: none;
     width: 100%;
-    height: auto;
+    height: 100%;
+    display: block;
   }
   .Titulo :global(h3) {
     /*margin: 0.5rem 0;*/
