@@ -155,6 +155,8 @@
     align-items: center;
     cursor: pointer;
     width: auto;
+    color: #000;
+    fill: currentColor;
   }
   .iconoContenedor :global(*) {
     fill: inherit; 
@@ -166,13 +168,7 @@
 </style>
 
 {#if icono && Object.keys(iconos).includes(icono)}
-  <div class="iconoContenedor" style={`fill:${color};`}>
-    <Imagen
-      on:click
-      imagen={iconoMostrar}
-      altTexto={`Ícono ${icono}`}
-      estilos={{
-        altura:tamanno
-      }} />
+  <div class="iconoContenedor" style={`fill:${color}; width: ${tamanno}; height: ${tamanno}`}>
+    {@html iconoMostrar }
   </div>
 {/if}

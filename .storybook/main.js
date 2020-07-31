@@ -1,36 +1,53 @@
 const path = require('path');
 
-const svgRules = {
-    test: /\.svgmap$/,
-    loader: '/home/furenku/chamba/CCD/2020/proyectos/ccd-sistema-diseno/node_modules/svg-inline-loader/index.js',
-    options: {
-      removeSVGTagAttrs: false
-    },
-    include: path.resolve(__dirname, '../'),
-
-  }
-
 
 // Export a function. Accept the base config as the only param.
 module.exports = {
     webpackFinal: async (config, { configType }) => {
-        let sel
-        config.module.rules=config.module.rules.map((r,i)=>{
-            let svgIndex = String(r.test).indexOf("svg")
-            if( svgIndex >= 0 ) {
-                sel = String(r.test).substring(0,svgIndex);
-                sel += String(r.test).substring(svgIndex+4);
-                // r.test=(sel)
+        
+        config.module.rules=config.module.rules.map(rule => {
+            if (
+                String(rule.test) === String(/\.(svg|ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/)
+                ) {
+                return {
+                    ...rule,
+                    test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+                }
             }
-
-            return r
+            
+            return rule
+        }).map(rule => {
+            const ruleTestString = rule.test.toString();
+            if (/svg\|?/.test(ruleTestString)) {
+            return {
+                ...rule,
+                test: new RegExp(
+                ruleTestString
+                    .replace(/svg\|?/, '') // Remove other svg rules
+                    .replace(/\//, ''), // No "/" needed when creating a new RegExp
+                ),
+            };
+            }
+            return rule;
         })
-
+            
+        config.module.rules=[
+            ...config.module.rules,
+            {
+                test: /\.svg$/i,
+                use: [
+                {
+                    loader: 'svg-inline-loader',
+                    options: {
+                        removeSVGTagAttrs: false
+                    },
+                },
+                ],
+            },
         // console.log("sel",sel);
         
-
+        ]
         // console.log(svgRules);
-        config.module.rules.push(svgRules)
         // console.log("rules",config.module.rules);
         
         return config;
