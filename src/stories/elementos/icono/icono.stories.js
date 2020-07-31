@@ -35,13 +35,36 @@ export const iconoTamanno2 = () => ({
     },
 });
 
-export const iconoColor = () => ({
+export const iconoColor1 = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos :{
         icono: "cerrar",
         color: "red"
+    }
+    },
+});
+
+export const iconoColor2 = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos :{
+        icono: "cerrar",
+        color: "green"
+    }
+    },
+});
+
+
+export const iconoColor3 = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos :{
+        icono: "cerrar",
+        color: "blue"
     }
     },
 });
