@@ -169,11 +169,14 @@
     padding: calc(var(--theme-espaciados-padding) / 2) var(--theme-espaciados-padding);
     max-width: 66%;
     box-sizing: border-box;
+    color: #000;
+    fill: currentColor;
   }
-  .Pleca :global(.iconoContenedor img) {
+  .Pleca :global(.iconoContenedor > *) {
     height: 1.5rem !important;
     width: 0.75rem;
     margin-left: 0.5rem;
+    fill: inherit;
   }
   .Pleca :global(span) {
     white-space: pre-wrap;
@@ -222,7 +225,7 @@
             </ul>
           {/if}
           {#if !!pleca.icono}
-            <Icono icono={pleca.icono} />
+            <Icono icono={pleca.icono} color={colorTextoPleca}/>
           {/if}
         </div>
       {/if}

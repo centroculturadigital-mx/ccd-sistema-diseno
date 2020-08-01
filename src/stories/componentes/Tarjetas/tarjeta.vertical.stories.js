@@ -233,6 +233,7 @@ export const tarjetaVerticalAccionesConEnlace = () => ({
         }
     }
 });
+
 export const tarjetaVerticalConPleca = () => ({
     Component: ThemeTester,
     props: {
@@ -242,10 +243,50 @@ export const tarjetaVerticalConPleca = () => ({
             nombre: 'Tarjeta con una pleca de aviso',
             acciones: accionesFunciones,
             pleca: {
-                ...pleca,
+                texto: "Texto pleca",
                 colores: {
                     fondo: "#f00",
                     texto: "#fff"
+                }
+            },
+        }
+    }
+});
+
+export const tarjetaVerticalConPlecaIcono = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Tarjeta con una pleca de aviso',
+            acciones: accionesFunciones,
+            pleca: {
+                texto: "Texto pleca",
+                icono: "mas",
+                colores: {
+                    fondo: "#f00",
+                    texto: "#fff"
+                }
+            },
+        }
+    }
+});
+
+export const tarjetaVerticalConPlecaIconoColor = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: TarjetaVertical,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Tarjeta con una pleca de aviso',
+            acciones: accionesFunciones,
+            pleca: {
+                texto: "Texto pleca",
+                icono: "mas",
+                colores: {
+                    fondo: "#0561ad",
+                    texto: "#0bc1ed"
                 }
             },
         }
