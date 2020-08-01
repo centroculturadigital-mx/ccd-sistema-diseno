@@ -1,7 +1,5 @@
 const path = require('path');
 
-
-// Export a function. Accept the base config as the only param.
 module.exports = {
     webpackFinal: async (config, { configType }) => {
         
@@ -44,11 +42,8 @@ module.exports = {
                 },
                 ],
             },
-        // console.log("sel",sel);
         
         ]
-        // console.log(svgRules);
-        // console.log("rules",config.module.rules);
         
         return config;
     },
