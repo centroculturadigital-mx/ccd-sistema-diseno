@@ -66,9 +66,10 @@
 
   <!-- version iconos dos estados -->
   {#if !!iconoBotonEstadoUnoUrl}
-    <img
-      src={!!estado ? iconoBotonEstadoDosUrl : iconoBotonEstadoUnoUrl}
-      alt={!!texto ? texto : ''} />
+    <Icono
+    icono={!!estado ? iconoBotonEstadoDosUrl : iconoBotonEstadoUnoUrl}
+    tamanno={'1rem'}
+    />
   {:else}{!!texto ? texto : ''}{/if}
 
   <!-- Version prop icono -->
