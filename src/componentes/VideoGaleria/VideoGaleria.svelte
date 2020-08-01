@@ -258,7 +258,7 @@
         {#if estado}
           <header>
             <a href="#" on:click|preventDefault={alternarEstado}>
-              <BotonIcono iconoBotonEstadoUnoUrl={iconoCierra} />
+              <BotonIcono icono={"cerrar"} />
             </a>
           </header>
 
