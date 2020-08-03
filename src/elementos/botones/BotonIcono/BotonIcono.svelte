@@ -48,18 +48,20 @@
   .borde:hover {
     border: 1px solid var(--theme-botones-primario-hover);
   }
-  .borde:focus,
   .borde:visited,
   .borde:active {
     border: 1px solid var(--theme-botones-primario-activo);
   }
+  .borde:focus {
+    outline: 0;
+  }
   button :global(.iconoContenedor) {
     margin: 0 0.5rem;
   }
-  img {
-    height: 2rem;
-    width: auto;
+  button :global(.iconoContenedor svg) {
+    fill: var(--theme-botones-primario-borde);
   }
+
 </style>
 
 <button on:click={click} class={!!borde ? 'borde' : 'no-borde'} style={cssString}>
