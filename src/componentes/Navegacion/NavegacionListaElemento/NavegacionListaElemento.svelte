@@ -42,6 +42,7 @@
 
   .flecha :global(.iconoContenedor) {
     align-items: flex-start;
+    height: auto !important;
   }
   .flecha :global(.iconoContenedor svg) {
     height: auto;
@@ -69,8 +70,9 @@
   .activo {
     font-weight: bold;
   }
-
-  
+  *:focus {
+    outline: 0;
+  }
 </style>
 
 <li class="elementoLista">
