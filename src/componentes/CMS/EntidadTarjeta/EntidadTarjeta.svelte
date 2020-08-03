@@ -5,7 +5,7 @@
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
 
-  export let icono;
+  export let icono; 
   export let nombre;
   export let cantidad;
   export let clave;
@@ -13,6 +13,7 @@
   $: abrir = `/${clave}`;
 
   $: crear = `/${clave}/nuevo`;
+
 </script>
 
 <style>
@@ -49,7 +50,7 @@
   hr {
     border: 0.5px solid lightgray;
   }
-  .crear :global(.iconoContenedor img) {
+  .crear :global(.iconoContenedor svg) {
     height: var(--theme-tamannos-md);
   }
 </style>
@@ -78,7 +79,7 @@
     </a>
     &nbsp;
     <a href={crear} class="crear">
-      <BotonIcono icono={'mas'} texto={'Crear nuevo'} />
+      <BotonIcono  icono={'mas'} texto={'Crear nuevo'}  />
     </a>
   </section>
 
