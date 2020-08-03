@@ -38,13 +38,16 @@
 
   .flecha {
     background-color: var(--theme-tarjetas-fondo);
-    padding-top: 0.15rem;
   }
 
-  .flecha :global(.iconoContenedor img) {
-    height: var(--theme-tamannos-sm) !important;
+  .flecha :global(.iconoContenedor) {
+    align-items: flex-start;
+  }
+  .flecha :global(.iconoContenedor svg) {
+    height: auto;
+    width: var(--theme-tamannos-lg) !important;
     margin-right: 0.5rem;
-    color:#fff !important;
+    fill:#000 !important;
   }
 
   span {
