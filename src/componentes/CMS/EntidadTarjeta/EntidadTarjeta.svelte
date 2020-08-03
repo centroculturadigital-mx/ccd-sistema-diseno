@@ -22,10 +22,13 @@
     max-width: 20rem;
     border: 1px solid lightgray;
   }
-  .avatar :global(.iconoContenedor) {
+  .avatar  {
     display: flex;
     justify-content: center;
+  } 
+  .avatar :global(.iconoContenedor svg) {
     margin: 0.25rem 0;
+    fill:var(--theme-botones-primario-fondo);
    /* height: 3rem;*/ 
   } 
   .EntidadTarjeta :global(h2) {
