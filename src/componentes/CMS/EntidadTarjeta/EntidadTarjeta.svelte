@@ -52,6 +52,7 @@
   }
   .crear :global(.iconoContenedor svg) {
     height: var(--theme-tamannos-md);
+    fill:var(--theme-botones-primario-fondo);
   }
 </style>
 
