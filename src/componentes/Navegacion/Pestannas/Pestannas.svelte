@@ -32,7 +32,7 @@
     border-bottom: 3px solid var(--theme-pestannas-borde-hover);
   }
   li :global(p span) {
-    color: var(--theme-pestannas-texto-color);
+    color: var(--theme-pestannas-texto-color); 
     font-weight: bolder;
   }
   li:hover :global(p span),
