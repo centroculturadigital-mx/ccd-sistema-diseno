@@ -368,19 +368,19 @@ export const tarjetaTipoChica = () => ({
         componente: Tarjeta,
         datos: {
             imagen: imagenEjemplo,
-            nombre: 'Tarjeta con una pleca de aviso',
-            acciones: accionesFunciones,
-            pleca: {
-                textos: [
-                    "Primer texto",
-                    "Segundo",
-                    "Tercero",
-                ],
-                colores: {
-                    fondo: "#f00",
-                    texto: "#fff"
-                }
+            enlace: {
+                url: "http://un-enlace.com",
+                externo: true
             },
+            nombre: 'Esto es un título para la tarjeta tipo chica.',
+            nivelTitulo: 'h4',
+            sombra: true,
+            subtitulo: "Esto es un subtítulo",
+            // extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            leyenda: "Un texto configurable",
+            // acciones: [accionesFunciones[0], accionesEnlaces[0]],
+            // pleca,
+            // enlaces,
             tipo: "Chica"
         }
     }

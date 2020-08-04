@@ -38,7 +38,8 @@
       : "#000"
     : "#000";
 
-  $: horizontal = tipo == "Horizontal" ? "TarjetaHorizontal" : "";
+  $: apariencia = tipo == "Horizontal" ? "TarjetaHorizontal" : tipo == "Chica" ? "TarjetaChica" : "";
+
 </script>
 
 <style>
@@ -54,6 +55,7 @@
     background-color: var(--theme-tarjetas-fondo);
     color: var(--theme-textos-parrafo-color);
     overflow: hidden;
+    box-sizing: border-box;
   }
   .TarjetaHorizontal {
     max-width: 36rem !important;
@@ -61,6 +63,32 @@
     height: initial !important;
     padding-top: 0;
     padding-bottom: 0;
+  }
+  .TarjetaChica {
+    max-width: initial !important;
+    display: flex;
+    height: auto !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: center !important;
+  }
+  .TarjetaChicaImagen {
+    position: absolute; 
+    top: 0;
+    height: 100% !important;
+    left: 0;
+    z-index: 0;
+  }
+  .TarjetaChicaContenido {
+    min-width: initial !important;
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+  }
+  .TarjetaChicaTextos {
+    width: 75% !important;
+    position: relative;
+    z-index: 1;
   }
   .Imagen {
     width: 100%;
@@ -72,6 +100,7 @@
     width: 100%;
   }
   .Textos {
+    background-color: var(--theme-tarjetas-fondo);
     box-sizing: border-box;
     padding: var(--theme-espaciados-padding)
       calc(var(--theme-espaciados-padding) * 2);
@@ -203,11 +232,11 @@
   /* tipos */
 </style>
 
-<article class="{horizontal} Tarjeta {!!sombra ? ' sombra' : ''}">
-  <div class="{horizontal} Contenido">
-    <div class="{horizontal} Imagen">
+<article class="{apariencia} Tarjeta {!!sombra ? ' sombra' : ''}">
+  <div class="{apariencia} Contenido {tipo == "Chica" ? "TarjetaChicaContenido" : "" }">
+    <div class="{apariencia} Imagen {tipo == "Chica" ? "TarjetaChicaImagen" : "" }">
       {#if !!enlace}
-        <a class="{horizontal} enlazado" {...linkTarget} href={enlace}>
+        <a class="{apariencia} enlazado" {...linkTarget} href={enlace}>
           <Imagen {imagen} alt={nombre} ajuste="cover" />
         </a>
       {:else}
@@ -237,14 +266,14 @@
         </div>
       {/if}
     </div>
-    <div class="Textos">
+    <div class="Textos {tipo ? "TarjetaChicaTextos" : ""}">
       {#if !!leyenda}
         <div class="Leyenda">
           <Parrafo texto={leyenda} nivel={5} />
         </div>
       {/if}
       {#if !!enlace}
-        <a class="{horizontal} enlazado" {...linkTarget} href={enlace}>
+        <a class="{apariencia} enlazado" {...linkTarget} href={enlace}>
           {#if !!nombre}
             <div class="Titulo">
               <Titulo texto={nombre} nivel={nivelTitulo} />
@@ -282,7 +311,7 @@
 
       {#if !!extracto}
         {#if !!enlace}
-          <a class="{horizontal} enlazado" {...linkTarget} href={enlace}>
+          <a class="{apariencia} enlazado" {...linkTarget} href={enlace}>
             <div class="Extracto">
               <Parrafo
                 texto={limitaTexto(extracto, extractoExtension, ' ...')} />
@@ -295,11 +324,10 @@
         {/if}
       {/if}
 
-<!-- footer -->
-      {#if tipo == 'Horizontal'}
+<!-- footer horizontal-->
+      {#if tipo == 'Horizontal' || tipo == 'Chica'}
         {#if Array.isArray(acciones) && acciones.length > 0}
-          <footer class="{horizontal}">
-            <hr />
+          <footer class="{apariencia}">
             <div class="Acciones">
               {#each acciones as accion (accion)}
                 {#if accion.enlace}
@@ -343,9 +371,3 @@
   {/if}
 
 </article>
-
-<!-- {#if tipo === "Horizontal"}
-  Horizontal
-{/if} -->
-
-{#if tipo === 'Chica'}Chica{/if}
