@@ -266,7 +266,7 @@
         </div>
       {/if}
     </div>
-    <div class="Textos {tipo ? "TarjetaChicaTextos" : ""}">
+    <div class="Textos {tipo == "Chica" ? "TarjetaChicaTextos" : ""}">
       {#if !!leyenda}
         <div class="Leyenda">
           <Parrafo texto={leyenda} nivel={5} />
