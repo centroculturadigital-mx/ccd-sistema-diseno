@@ -64,11 +64,11 @@ const estilos = {
     },
     pestannas: {
         fondo: variables.colores.fondo.claro,
-        fondoHover: variables.colores.primario.claro,
+        fondoHover: variables.colores.primario.claro, 
         borde: variables.colores.fondo.claro,
         bordeHover: variables.colores.primario.base,
         texto: variables.colores.texto.oscuro,
-        textoHover: variables.colores.primario.base,
+        textoHover: variables.colores.texto.claro,
     },
     colores: {
         fondo: variables.colores.fondo.claro,

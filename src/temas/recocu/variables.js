@@ -59,7 +59,10 @@ const variables = {
             oscuro: "#2700CA",
         },
         pie: {
+            base: "#F36957",
+            claro: "#FF9A84",
             oscuro: "#BB382D",
+            transparente: "transparent",
         },
         icono: {
             base: "#4C4CFF",

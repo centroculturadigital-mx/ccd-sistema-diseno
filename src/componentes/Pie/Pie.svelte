@@ -17,7 +17,7 @@
 </script>
 
 <style>
-  footer {
+  footer { 
     background-color: var(--theme-pies-fondo);
     position: relative;
     display: flex;
