@@ -349,7 +349,7 @@
 
   </div>
 <!-- footer vertical (unico duplicado) -->
-  {#if tipo == 'Vertical'}
+  {#if tipo == 'Vertical' || !tipo}
     {#if Array.isArray(acciones) && acciones.length > 0}
       <footer>
         <hr />
