@@ -8,7 +8,7 @@
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
 
-  export let tipo = "Vertical"; //"Vertical", "Horizontal", "Chica"
+  export let apariencia = "Vertical"; //"Vertical", "Horizontal", "Chica"
   export let pleca;
   export let enlace;
   export let imagen;
@@ -35,7 +35,7 @@
       : "#000"
     : "#000";
 
-  $: apariencia = tipo == "Horizontal" ? "TarjetaHorizontal" : tipo == "Chica" ? "TarjetaChica" : "";
+  $: apariencia = apariencia == "Horizontal" ? "TarjetaHorizontal" : apariencia == "Chica" ? "TarjetaChica" : "";
 
 </script>
 
@@ -214,6 +214,7 @@
     width: 100%;
   }
   .Pleca .Textos {
+    background-color: transparent;
     display: block;
     padding: 0;
     margin: 0;
@@ -226,12 +227,12 @@
   .Pleca .Textos :global(span:last-child) {
     margin-bottom: 0;
   }
-  /* tipos */
+
 </style>
 
 <article class="{apariencia} Tarjeta {!!sombra ? ' sombra' : ''}">
-  <div class="{apariencia} Contenido {tipo == "Chica" ? "TarjetaChicaContenido" : "" }">
-    <div class="{apariencia} Imagen {tipo == "Chica" ? "TarjetaChicaImagen" : "" }">
+  <div class="{apariencia} Contenido {apariencia == "Chica" ? "TarjetaChicaContenido" : "" }">
+    <div class="{apariencia} Imagen {apariencia == "Chica" ? "TarjetaChicaImagen" : "" }">
       {#if !!enlace}
         <a class="{apariencia} enlazado" {...linkTarget} href={enlace}>
           <Imagen {imagen} alt={nombre} ajuste="cover" />
@@ -263,7 +264,7 @@
         </div>
       {/if}
     </div>
-    <div class="Textos {tipo == "Chica" ? "TarjetaChicaTextos" : ""}">
+    <div class="Textos {apariencia == "Chica" ? "TarjetaChicaTextos" : ""}">
       {#if !!leyenda}
         <div class="Leyenda">
           <Parrafo texto={leyenda} nivel={5} />
@@ -322,7 +323,7 @@
       {/if}
 
 <!-- footer horizontal-->
-      {#if tipo == 'Horizontal' || tipo == 'Chica'}
+      {#if apariencia == 'Horizontal' || apariencia == 'Chica'}
         {#if Array.isArray(acciones) && acciones.length > 0}
           <footer class="{apariencia}">
             <div class="Acciones">
@@ -346,7 +347,7 @@
 
   </div>
 <!-- footer vertical (unico duplicado) -->
-  {#if tipo == 'Vertical' || !tipo}
+  {#if apariencia == 'Vertical' || !apariencia}
     {#if Array.isArray(acciones) && acciones.length > 0}
       <footer>
         <hr />

@@ -335,7 +335,7 @@ export const tarjetaTipoVertical = () => ({
             acciones: [accionesFunciones[0], accionesEnlaces[0]],
             pleca,
             enlaces,
-            tipo: "Vertical"
+            apariencia: "Vertical"
         }
     }
 });
@@ -358,7 +358,7 @@ export const tarjetaTipoHorizontal = () => ({
             acciones: [accionesFunciones[0], accionesEnlaces[0]],
             pleca,
             enlaces,
-            tipo: "Horizontal"
+            apariencia: "Horizontal"
         }
     }
 });
@@ -372,7 +372,7 @@ export const tarjetaTipoChica = () => ({
                 url: "http://un-enlace.com",
                 externo: true
             },
-            nombre: 'Esto es un título para la tarjeta tipo chica.',
+            nombre: 'Esto es un título para la tarjeta apariencia chica.',
             nivelTitulo: 'h4',
             sombra: true,
             subtitulo: "Esto es un subtítulo",
@@ -381,7 +381,7 @@ export const tarjetaTipoChica = () => ({
             // acciones: [accionesFunciones[0], accionesEnlaces[0]],
             // pleca,
             // enlaces,
-            tipo: "Chica"
+            apariencia: "Chica"
         }
     }
 });
