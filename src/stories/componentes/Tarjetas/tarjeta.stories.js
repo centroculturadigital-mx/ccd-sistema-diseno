@@ -355,10 +355,10 @@ export const tarjetaTipoHorizontal = () => ({
             nivelTitulo: 'h3',
             leyenda: "Un texto configurable",
             sombra: true,
-            acciones: [accionesFunciones[0], accionesEnlaces[0]],
             pleca,
             enlaces,
-            apariencia: "Horizontal"
+            apariencia: "Horizontal",
+            acciones: [accionesFunciones[0], accionesEnlaces[0]],
         }
     }
 });
@@ -376,11 +376,7 @@ export const tarjetaTipoChica = () => ({
             nivelTitulo: 'h4',
             sombra: true,
             subtitulo: "Esto es un subtítulo",
-            // extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
             leyenda: "Un texto configurable",
-            // acciones: [accionesFunciones[0], accionesEnlaces[0]],
-            // pleca,
-            // enlaces,
             apariencia: "Chica"
         }
     }
