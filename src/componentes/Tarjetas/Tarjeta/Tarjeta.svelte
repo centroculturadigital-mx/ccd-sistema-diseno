@@ -103,6 +103,9 @@
     box-sizing: border-box;
     width: 100%;
   }
+  .Contenidos {
+    width: 100%;
+  }
   .Textos {
     background-color: var(--theme-tarjetas-fondo);
     box-sizing: border-box;
@@ -270,7 +273,7 @@
       {/if}
     </div>
 
-    <section class="{apariencia == 'Chica' ? 'TarjetaChicaContenido' : ''}">
+    <section class="{apariencia == 'Chica' ? 'TarjetaChicaContenido' : 'Contenidos'}">
       <div class="Textos {apariencia == 'Chica' ? 'TarjetaChicaTextos' : ''}">
         {#if !!leyenda}
           <div class="Leyenda">
