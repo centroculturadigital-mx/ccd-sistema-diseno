@@ -59,6 +59,9 @@
       case "numero":
         tipo = "number";
         break;
+      case "telefono":
+        tipo = "tel";
+        break;
       case "contrasenna":
         tipo = "password";
         break;
@@ -173,7 +176,20 @@
     placeholder={ejemplo}
     bind:value={valorLocal}
   />
+{/if}
 
+{#if tipo == 'telefono'}
+  <input
+    class={clases}
+    on:keyup={realizarCambio}
+    on:change={realizarCambio}
+    on:focusout={revelarEstado}
+    on:focus={ocultarEstado}
+    name={nombre}
+    type="tel" 
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+  />
 {/if}
 
 {#if tipo == 'textarea'}

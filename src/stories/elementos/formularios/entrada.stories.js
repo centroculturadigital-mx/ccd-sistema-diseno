@@ -3,7 +3,7 @@ import Entrada from '../../../elementos/formularios/Entrada/Entrada.svelte';
 
 export default { title: 'Elementos/Formularios/Entrada' }
 
-export const inputDefault = () => ({
+export const entradaDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: Entrada,
@@ -13,7 +13,7 @@ export const inputDefault = () => ({
     },
 });
 
-export const inputCorreo = () => ({
+export const entradaCorreo = () => ({
     Component: ThemeTester,
     props: {
         componente: Entrada,
@@ -23,7 +23,7 @@ export const inputCorreo = () => ({
         }
     },
 });
-export const inputNumero = () => ({
+export const entradaNumero = () => ({
     Component: ThemeTester,
     props: {
         componente: Entrada,
@@ -34,7 +34,7 @@ export const inputNumero = () => ({
     },
 });
 
-export const inputNumeroMinMax = () => ({
+export const entradaNumeroMinMax = () => ({
     Component: ThemeTester,
     props: {
         componente: Entrada,
@@ -47,7 +47,7 @@ export const inputNumeroMinMax = () => ({
     },
 });
 
-export const inputContrasenna = () => ({
+export const entradaContrasenna = () => ({
     Component: ThemeTester,
     props: {
         componente: Entrada,
@@ -58,13 +58,23 @@ export const inputContrasenna = () => ({
     },
 });
 
-export const inputTextArea = () => ({
+export const entradaTextArea = () => ({
     Component: ThemeTester,
     props: {
         componente: Entrada,
         datos: {
             ejemplo: 'Agrega tu contraseña',
             tipo: "textarea",
+        }
+    },
+});
+export const entradaTelefono = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Entrada,
+        datos: {
+            ejemplo: 'Agrega tu teléfono',
+            tipo: "telefono",
         }
     },
 });
