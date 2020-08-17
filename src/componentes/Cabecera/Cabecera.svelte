@@ -20,6 +20,7 @@
   let breakpoint = 1024;
 
   const menuAlternar = () => {
+    console.log("DEBUG", estado);
     estado = !estado;
   };
 </script>
@@ -59,6 +60,14 @@
   .Navegacion {
     display: flex;
     flex-direction: row;
+    align-items: center;
+  }
+  .iconoMenu {
+    display: flex;
+    align-items: center;
+  }
+  .iconoMenu:hover {
+    opacity: 0.75;
   }
   .Herramientas {
     display: flex;
@@ -84,11 +93,12 @@
       <Logos {logotipos} />
     {/if}
 
-    <!-- Menu Escritorio  -->
     <div class="Navegacion">
       {#if responsivo < breakpoint}
         {#if !!elementos}
-          <Icono on:click={menuAlternar} icono={!estado ? 'menu' : 'cerrar'} />
+        <div class="iconoMenu" on:click={menuAlternar}>
+          <Icono icono={!estado ? 'menu' : 'cerrar'} />
+        </div>
         {/if}
       {:else if !!elementos}
         <MenuEscritorio {elementos} {segment} />
@@ -106,7 +116,7 @@
 
   </div>
 
-  <!-- Menu Movil  -->
+  <!-- NAvegacion Movil  -->
   {#if responsivo < breakpoint}
     {#if !!elementos}
       <MenuMovil
