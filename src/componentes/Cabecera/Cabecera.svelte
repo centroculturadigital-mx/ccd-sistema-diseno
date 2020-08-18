@@ -35,7 +35,7 @@
     box-sizing: border-box;
   }
 
-  header div:nth-child(1) {
+  .contenedor {
     box-sizing: border-box;
     padding: 0 0.5rem;
     display: flex;
@@ -74,6 +74,9 @@
     align-items: center;
     padding: 0 calc(var(--theme-espaciados-padding) / 1);
   }
+  .sombra {
+    box-shadow:0 4px 3px rgba(0,0,0,0.5);
+  }
   @media screen and (max-width: 1024px) {
     .Herramientas {
       order: -1;
@@ -83,11 +86,9 @@
 
 <svelte:window bind:innerWidth={responsivo} />
 
-
 <header
-  style={!!sombra ? 'box-shadow:0 4px 3px rgba(0,0,0,0.5)' : ''}
-  class={clases}>
-  <div>
+  class={!!sombra ? "sombra " + clases : clases}>
+  <div class="contenedor">
 
     {#if Array.isArray(logotipos)}
       <Logos {logotipos} />
@@ -116,7 +117,7 @@
 
   </div>
 
-  <!-- NAvegacion Movil  -->
+  <!-- Navegacion Movil  -->
   {#if responsivo < breakpoint}
     {#if !!elementos}
       <MenuMovil

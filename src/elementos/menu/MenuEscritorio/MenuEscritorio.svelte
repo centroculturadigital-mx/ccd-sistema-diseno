@@ -37,7 +37,7 @@
   }
 </style>
 
-<nav>
+<nav class="MenuEscritorio">
   <ul>
 
     {#each elementos as elemento}

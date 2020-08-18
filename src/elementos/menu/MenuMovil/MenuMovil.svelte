@@ -24,6 +24,7 @@
   ul {
     height: auto;
     margin: 0;
+    padding: 0;
     }
   li {
     padding: 0.5rem;
@@ -48,7 +49,7 @@
 </style>
 
 {#if estado === true}
-  <nav class={!!sombra ? 'sombra' : ''} transition:slide>
+  <nav class={!!sombra ? 'sombra MenuMovil' : 'MenuMovil'} transition:slide>
     <ul>
 
       {#each elementos as elemento, i ('elemento_' + i)}
