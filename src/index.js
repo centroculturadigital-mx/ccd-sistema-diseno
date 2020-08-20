@@ -111,6 +111,9 @@ export { default as ChatObjeto }
 from "./componentes/Mensajeria/Chat/ChatObjeto/ChatObjeto.svelte";
 export { default as Ingreso }
 from "./componentes/formularios/Ingreso/Ingreso.svelte";
+
+export { default as Calendario }
+from "./componentes/Calendario/Calendario.svelte";
 // 
 export { default as Avatar }
 from "./componentes/Usuarios/Avatar/Avatar.svelte";
