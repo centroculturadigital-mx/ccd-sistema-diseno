@@ -9,12 +9,17 @@
     const meses = diccionario.meses
 
     export let fecha
+    export let accion
+
+    $: fecha = moment(fecha)
     
     let diaActual
     
     const hoy = moment()
 
     $: mes = fecha ? fecha.month() : null
+
+    $: console.log(mes)
     
     $: hoyDia = (
         hoy.month()==fecha.month()
@@ -29,7 +34,6 @@
     $: console.log(fecha.format("D-M-Y"),fecha.date());
     
 
-    export let accion
 
     let mesActual = 0
 
@@ -97,7 +101,7 @@
 
 {#if typeof fecha == "object"}
 
-    <h1>{mesNombre}</h1>
+    <!-- <h1>{mesNombre}</h1> -->
 
     <section class="dias">
     

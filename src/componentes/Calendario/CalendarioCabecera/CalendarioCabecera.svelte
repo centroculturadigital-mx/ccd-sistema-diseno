@@ -43,7 +43,7 @@
     <Titulo texto={titulo} />
   {/if}
   <div class="Herramientas">
-    <NavegacionPasos {rango} {anterior} {siguiente} />
+    <NavegacionPasos rango={titulo} {anterior} {siguiente} />
     {#if Array.isArray(opciones) && opciones.length > 0}
       <SelectorVista {opciones} cambiar={vistaElegir} />
     {/if}

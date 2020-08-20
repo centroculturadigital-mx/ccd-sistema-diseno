@@ -9,8 +9,9 @@ import CalendarioAnno from "./CalendarioAnno/CalendarioAnno";
 import CalendarioMes from "./CalendarioMes/CalendarioMes";
 import CalendarioSemana from "./CalendarioSemana/CalendarioSemana";
 import CalendarioDia from "./CalendarioDia/CalendarioDia";
+import CalendarioCabecera from "./CalendarioCabecera/CalendarioCabecera"
 
-let vistaActual = 0
+let vistaActual = 1
 
 export let eventos
 export let seleccionarMes
@@ -39,6 +40,7 @@ $: fecha = moment({
     year: annoActual
 })
 
+$: console.log('fecha', fecha.format('DD/MMM/YY'))
 
 
 
@@ -209,51 +211,58 @@ const seleccionarDiaActual = i => {
 
 </style>
 
-<h1>Calendario</h1>
+<section>
 
-<nav>
-    <ul>
-    {#each vistas as vista, i ("vista_+i")}
-        <li on:click={(e)=>vistaSeleccionar(i)}>
-            <button>
-                { vista.nombre }
-            </button>
-        </li>
-    {/each}
-    </ul>
-</nav>
+    <!-- <nav>
+        <ul>
+        {#each vistas as vista, i ("vista_+i")}
+            <li on:click={(e)=>vistaSeleccionar(i)}>
+                <button>
+                    { vista.nombre }
+                </button>
+            </li>
+        {/each}
+        </ul>
+    </nav> -->
 
-{#if vistaMostrar }
+    {#if vistaMostrar }
 
-    <div class="Vista">
+        <div class="Vista">
 
-        <header>
+            <!-- <header>
 
-        <nav>
-            <ul>
-                <li on:click={pasos.anterior.accion}>
-                    <button>
-                        { pasos.anterior.nombre }
-                    </button>
-                </li>
-                <li on:click={pasos.siguiente.accion}>
-                    <button>
-                        { pasos.siguiente.nombre }
-                    </button>
-                </li>
-            </ul>
-        </nav>
-        </header>
+            <nav>
+                <ul>
+                    <li on:click={pasos.anterior.accion}>
+                        <button>
+                            { pasos.anterior.nombre }
+                        </button>
+                    </li>
+                    <li on:click={pasos.siguiente.accion}>
+                        <button>
+                            { pasos.siguiente.nombre }
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+            </header> -->
 
-        <svelte:component
-            this={vistaMostrar.componente}
-            {...vistaMostrar.data}
-        />
+            <CalendarioCabecera 
+                titulo={fecha.format("MMMM YYYY")} 
+                anterior={pasos.anterior.accion}
+                siguiente={pasos.siguiente.accion}
+            />
 
-    </div>
+            <svelte:component
+                this={vistaMostrar.componente}
+                {...vistaMostrar.data}
+            />
 
-{:else}
+        </div>
 
-    <Aviso/>
+    {:else}
 
-{/if}
+        <Aviso/>
+
+    {/if}
+</section>
