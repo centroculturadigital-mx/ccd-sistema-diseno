@@ -26,8 +26,8 @@ export const FieldDefault = () => ({
     props: {
         componente: Calendario,
         datos: {
-        eventos,
-        seleccionarMes
-    }
+            eventos,
+            seleccionarMes
+        }
     },
 });

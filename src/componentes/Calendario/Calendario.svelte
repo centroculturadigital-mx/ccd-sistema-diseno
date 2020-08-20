@@ -2,6 +2,7 @@
 
 import moment from "moment" 
 
+import { onMount } from "svelte"
 
 import Aviso from "../../elementos/texto/Aviso/Aviso";
 
@@ -18,15 +19,7 @@ export let seleccionarMes
 
 const vistaSeleccionar = i => { 
     vistaActual = i
-
-
-
 }
-
-
-$: vistaMostrar = vistas[vistaActual]
-
-
 
 
 let annoActual=moment().year()
@@ -34,13 +27,31 @@ let mesActual=moment().month()
 let semanaActual=moment().week()
 let diaActual=moment().date()
 
-$: fecha = moment({
+
+const calcularFecha = ({
+    annoActual,
+    mesActual,
+    diaActual
+}) => moment({
     day: diaActual,
     month: mesActual,
     year: annoActual
 })
 
-$: console.log('fecha', fecha.format('DD/MMM/YY'))
+
+
+
+$: fecha = calcularFecha({
+    annoActual,
+    mesActual,
+    diaActual
+})
+
+
+
+
+$: vistaMostrar = vistas[vistaActual]
+
 
 
 
@@ -60,7 +71,7 @@ $: vistas = [
         nombre: "Mes",
         componente: CalendarioMes,
         data: {
-            accion: seleccionarSemanaActual,
+            accion: seleccionarDiaActual,
             fecha,
             eventos
         }
@@ -224,11 +235,9 @@ const seleccionarDiaActual = i => {
         {/each}
         </ul>
     </nav> -->
-
-    {#if vistaMostrar }
+    {#if !! fecha && vistaMostrar }
 
         <div class="Vista">
-
             <!-- <header>
 
             <nav>
@@ -248,9 +257,10 @@ const seleccionarDiaActual = i => {
             </header> -->
 
             <CalendarioCabecera 
-                titulo={fecha.format("MMMM YYYY")} 
-                anterior={pasos.anterior.accion}
-                siguiente={pasos.siguiente.accion}
+            titulo={fecha.format("MMMM D, YYYY")}
+            rango={fecha.format("MMMM")}
+            anterior={pasos.anterior.accion}
+            siguiente={pasos.siguiente.accion}
             />
 
             <svelte:component
@@ -261,7 +271,7 @@ const seleccionarDiaActual = i => {
         </div>
 
     {:else}
-
+<!-- test -->
         <Aviso/>
 
     {/if}

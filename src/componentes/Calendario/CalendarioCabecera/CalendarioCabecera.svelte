@@ -5,7 +5,8 @@
   import SelectorVista from "../SelectorVista/SelectorVista";
 
   export let titulo;
-  export let anterior = () => console.log("regesa");
+  export let rango;
+  export let anterior = () => console.log("regresa");
   export let siguiente = () => console.log("avanza");
   export let opciones = [];
 
@@ -13,7 +14,6 @@
     console.log("Vista Seleccionada: ", e);
   };
 
-  $: rango = "Julio 2020";//
 </script>
 
 <style>
@@ -43,7 +43,7 @@
     <Titulo texto={titulo} />
   {/if}
   <div class="Herramientas">
-    <NavegacionPasos rango={titulo} {anterior} {siguiente} />
+    <NavegacionPasos {rango} {anterior} {siguiente} />
     {#if Array.isArray(opciones) && opciones.length > 0}
       <SelectorVista {opciones} cambiar={vistaElegir} />
     {/if}

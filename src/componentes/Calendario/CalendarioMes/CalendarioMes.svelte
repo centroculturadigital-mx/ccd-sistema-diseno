@@ -19,7 +19,8 @@
 
     $: mes = fecha ? fecha.month() : null
 
-    $: console.log(mes)
+    $: esteMes = moment().month() == fecha.month() &&
+    moment().year() == fecha.year()
     
     $: hoyDia = (
         hoy.month()==fecha.month()
@@ -30,8 +31,8 @@
     
 
     $: mesNombre = fecha ? fecha.format("MMMM") : null
-    $: inicioSemana = fecha.startOf("month").weekday()
-    $: console.log(fecha.format("D-M-Y"),fecha.date());
+    $: inicioSemana = fecha.startOf("month").weekday()+1
+    
     
 
 
@@ -87,14 +88,14 @@
         align-items: center;
     }
 
+    .dia.seleccionado {
+        background: none;
+        outline: 2px solid #000;
+    }
     .dia.hoy {
-        background-color: #000;
-        color: #fff;
+        background-color: #ccc;
     }
 
-    .dia.seleccionado {
-        background-color: #eee;
-    }
 
 </style>
 
@@ -120,9 +121,9 @@
                 <ul>
                     {#each dias as d,i ("dia_"+i) }
                         <li class={
-                            i==(diaActual+inicioSemana+1)? "dia seleccionado" :
-                                i==(hoyDia+2)? "dia hoy": "dia"
-                        } on:click={(e)=>seleccionar(d-1)}>
+                            i==(diaActual+inicioSemana-1)? "dia seleccionado" :
+                                (esteMes && i==(hoyDia+inicioSemana-1))? "dia hoy": "dia"
+                        } on:click={(e)=>seleccionar(d+1)}>
                             { d >= 0 ? (d+1) : "" }
                         </li>
                     {/each}
