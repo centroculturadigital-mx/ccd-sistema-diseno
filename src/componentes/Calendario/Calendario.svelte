@@ -15,7 +15,7 @@ import CalendarioCabecera from "./CalendarioCabecera/CalendarioCabecera"
 let vistaActual = 1
 
 export let eventos
-export let seleccionarMes
+export let seleccionar
 
 const vistaSeleccionar = i => { 
     vistaActual = i
@@ -169,37 +169,39 @@ let pasos = {
 
 
 
+const seleccionarFechaActual = () => {
+    if( typeof seleccionar == "function" ) {
+        seleccionar(calcularFecha({
+            annoActual,
+            mesActual,
+            diaActual
+        }).toDate())
+    }
+}
+
 const seleccionarAnnoActual = i => {
     
     annoActual = i;
 
-    if( typeof seleccionarAnno == "function" ) {
-        seleccionarAnno(i)
-    }
+    seleccionarFechaActual()
 }
 const seleccionarMesActual = i => {
     
     mesActual = i;
 
-    if( typeof seleccionarMes == "function" ) {
-        seleccionarMes(i)
-    }
+    seleccionarFechaActual()
 }
 const seleccionarSemanaActual = i => {
     
     semanaActual = i;
 
-    if( typeof seleccionarSemana == "function" ) {
-        seleccionarSemana(i)
-    }
+    seleccionarFechaActual()
 }
 const seleccionarDiaActual = i => {
     
     diaActual = i;
 
-    if( typeof seleccionarDia == "function" ) {
-        seleccionarDia(i)
-    }
+    seleccionarFechaActual()
 }
 
 
