@@ -107,12 +107,20 @@ const anterior = () => {
             break;
         case 'mes': 
             mesActual--
+            if( mesActual < 0 ) {
+                annoActual--
+                mesActual = 11
+            }
             break;
         case 'semana': 
             semanaActual--
             break;
         case 'dia': 
             diaActual--
+            if( diaActual < 0 ) {
+                mesActual--
+                diaActual = moment({month: mesActual, year: annoActual}).daysInMonth()
+            }   
             break;
     }
     console.log("anterior");
@@ -125,12 +133,20 @@ const siguiente = () => {
             break;
         case 'mes': 
             mesActual++
+            if( mesActual > 11 ) {
+                annoActual++
+                mesActual = 0
+            }            
             break;
         case 'semana': 
             semanaActual++
             break;
         case 'dia': 
             diaActual++
+            if( diaActual > moment({month: mesActual, year: annoActual}).daysInMonth() ) {
+                mesActual++
+                diaActual = 0
+            }   
             break;
     }
     console.log("siguiente");
