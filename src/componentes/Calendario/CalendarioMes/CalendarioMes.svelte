@@ -10,10 +10,10 @@
 
     export let fecha
     export let seleccionar
-    export let diaActual
-
-    $: fecha = moment(fecha)
     
+    
+    $: fecha = moment(fecha)
+    $: diaActual = fecha && null
     
     const hoy = moment()
 
@@ -47,22 +47,16 @@
 
     const seleccionarDia = i => {
         if( parseInt(i+1)>=0 ) {
-
+            
             if( typeof seleccionar.dia == "function" ) {
                 seleccionar.dia(i)
             }
         }
+        // cambiar indicador de dia cuando ya se haya ejecutado callback anterior
+        setTimeout(()=>{ diaActual = i })
     }
-    const seleccionarMes = i => {
-        if( parseInt(i+1)>=0 ) {
-
-            mesActual = i
-            
-            if( typeof seleccionar.mes == "function" ) {
-                seleccionar.mes(i)
-            }
-        }
-    }
+   
+    
 
 
 </script>
@@ -130,7 +124,7 @@
                 <ul>
                     {#each dias as d,i ("dia_"+i) }
                         <li class={
-                            i==(diaActual+inicioSemana-1)? "dia seleccionado" :
+                            (i-inicioSemana+1)==diaActual ? "dia seleccionado" :
                                 (esteMes && i==(hoyDia+inicioSemana-1))? "dia hoy": "dia"
                         } on:click={(e)=>seleccionarDia(d+1)}>
                             { d >= 0 ? (d+1) : "" }
