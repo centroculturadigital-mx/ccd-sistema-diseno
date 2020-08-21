@@ -26,6 +26,23 @@ export const calendarioCabeceraDefault = () => ({
             anterior: () => console.log("Cabecera Regesa"),
             siguiente: () => console.log("Cabecera Avanza"),
             opciones,
+            vista: "Mes",
+            seleccionar: ()=>console.log("seleccionar")
+        }
+    },
+});
+export const calendarioCabeceraSeleccionado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: CalendarioCabecera,
+        datos: {
+            titulo: "Título de la sección",
+            anterior: () => console.log("Cabecera Regesa"),
+            siguiente: () => console.log("Cabecera Avanza"),
+            opciones,
+            vista: "Mes",
+            seleccionar: ()=>console.log("desseleccionar"),
+            seleccionado: true
         }
     },
 });

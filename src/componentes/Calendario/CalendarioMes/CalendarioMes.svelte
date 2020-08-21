@@ -9,11 +9,11 @@
     const meses = diccionario.meses
 
     export let fecha
-    export let accion
+    export let seleccionar
+    export let diaActual
 
     $: fecha = moment(fecha)
     
-    let diaActual
     
     const hoy = moment()
 
@@ -44,13 +44,22 @@
         ).fill(0).map((e,i)=>(i-inicioSemana))
     ) : null
 
-    const seleccionar = i => {
+
+    const seleccionarDia = i => {
         if( parseInt(i+1)>=0 ) {
 
-            diaActual = i
+            if( typeof seleccionar.dia == "function" ) {
+                seleccionar.dia(i)
+            }
+        }
+    }
+    const seleccionarMes = i => {
+        if( parseInt(i+1)>=0 ) {
+
+            mesActual = i
             
-            if( typeof accion == "function" ) {
-                accion(i)
+            if( typeof seleccionar.mes == "function" ) {
+                seleccionar.mes(i)
             }
         }
     }
@@ -123,7 +132,7 @@
                         <li class={
                             i==(diaActual+inicioSemana-1)? "dia seleccionado" :
                                 (esteMes && i==(hoyDia+inicioSemana-1))? "dia hoy": "dia"
-                        } on:click={(e)=>seleccionar(d+1)}>
+                        } on:click={(e)=>seleccionarDia(d+1)}>
                             { d >= 0 ? (d+1) : "" }
                         </li>
                     {/each}

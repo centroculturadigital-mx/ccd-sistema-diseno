@@ -14,12 +14,22 @@ import CalendarioCabecera from "./CalendarioCabecera/CalendarioCabecera"
 
 let vistaActual = 1
 
-export let eventos
 export let seleccionar
+export let eventos
+
+
+const desseleccionar = () => {
+    diaActual=null
+    semanaActual=null
+    mesActual=null
+    annoActual=null
+}
+
 
 const vistaSeleccionar = i => { 
     vistaActual = i
 }
+
 
 
 let annoActual=moment().year()
@@ -29,39 +39,40 @@ let diaActual=moment().date()
 
 
 const calcularFecha = ({
-    annoActual,
-    mesActual,
-    diaActual
+    anno,
+    mes,
+    dia
 }) => moment({
-    day: diaActual,
-    month: mesActual,
-    year: annoActual
+    day: dia,
+    month: mes,
+    year: anno
 })
 
 
 
 
 $: fecha = calcularFecha({
-    annoActual,
-    mesActual,
-    diaActual
+    anno: annoActual,
+    mes: mesActual,
+    dia: diaActual
 })
 
 
 
 
+$: console.log({diaActual})
 $: vistaMostrar = vistas[vistaActual]
 
+// $: acciones = { ...seleccionar }
 
-
-
+$: console.log({vistas});
 $: vistas = [
     {
         clave: "anno",
         nombre: "Año",
         componente: CalendarioAnno,
         data: {
-            accion: seleccionarMesActual,
+            // accion: seleccionarAnnoActual,
             fecha,
             eventos
         },
@@ -71,9 +82,22 @@ $: vistas = [
         nombre: "Mes",
         componente: CalendarioMes,
         data: {
-            accion: seleccionarDiaActual,
-            fecha,
-            eventos
+            // accion: seleccionarMesActual,
+            seleccionar: {
+                dia: (i)=>{
+                    seleccionarDiaActual(i)
+                    seleccionar.dia(i)
+                },
+                mes: ()=>{
+                    llamarAccion()
+                    seleccionar.mes(mesActual)
+                }
+            },
+            eventos,
+            annoActual,
+            semanaActual,
+            mesActual,
+            diaActual
         }
     },
     {
@@ -81,7 +105,7 @@ $: vistas = [
         nombre: "Semana",
         componente: CalendarioSemana,
         data: {
-            accion: seleccionarDiaActual,
+            accion: seleccionar,
             fecha,
             eventos
         }
@@ -91,6 +115,7 @@ $: vistas = [
         nombre: "Dia",
         componente: CalendarioDia,
         data: {
+            accion: seleccionar,
             fecha,
             eventos
         }
@@ -126,10 +151,16 @@ const anterior = () => {
     console.log("anterior");
 }
 
+
+
+
+
+
 const siguiente = () => {
     switch( vistaMostrar.clave ) {
         case 'anno': 
             annoActual++
+            seleccionarAnnoActual(annoActual)
             break;
         case 'mes': 
             mesActual++
@@ -137,9 +168,11 @@ const siguiente = () => {
                 annoActual++
                 mesActual = 0
             }            
+            seleccionarMesActual(mesActual)
             break;
         case 'semana': 
             semanaActual++
+            seleccionarSemanaActual(semanaActual)
             break;
         case 'dia': 
             diaActual++
@@ -147,6 +180,7 @@ const siguiente = () => {
                 mesActual++
                 diaActual = 0
             }   
+            seleccionarDiaActual(diaActual)
             break;
     }
     console.log("siguiente");
@@ -169,39 +203,66 @@ let pasos = {
 
 
 
-const seleccionarFechaActual = () => {
+const llamarAccion = (inicio, final) => {
     if( typeof seleccionar == "function" ) {
-        seleccionar(calcularFecha({
-            annoActual,
-            mesActual,
-            diaActual
-        }).toDate())
+        
+        // let inicio = {
+        //     anno: annoActual,
+        //     mes: mesActual,
+        //     dia: diaActual,
+        // }
+
+        // let final
+
+        // switch( vistaActual ) {
+        //     case 0:
+        //         final = {
+        //             anno: annoActual+1,
+        //             mes,
+        //             dia: 1
+        //         }
+        //         break;
+        //     case 1:
+
+        //         inicio.dia = 1;
+                
+        //         final = {
+        //             anno: annoActual,
+        //             mes: mesActual,
+        //             dia: moment({month:mesActual}).daysInMonth
+        //         }
+        //         break;
+        // }
+
+        final = calcularFecha(final).toDate()
+                
+        seleccionar({
+            inicio,
+            final,
+        })
     }
 }
 
 const seleccionarAnnoActual = i => {
     
     annoActual = i;
-
-    seleccionarFechaActual()
+    llamarAccion()
 }
 const seleccionarMesActual = i => {
     
     mesActual = i;
+    // llamarAccion()
 
-    seleccionarFechaActual()
 }
 const seleccionarSemanaActual = i => {
     
     semanaActual = i;
-
-    seleccionarFechaActual()
+    llamarAccion()
 }
 const seleccionarDiaActual = i => {
     
     diaActual = i;
-
-    seleccionarFechaActual()
+    llamarAccion()
 }
 
 
@@ -276,6 +337,8 @@ const seleccionarDiaActual = i => {
 
             <CalendarioCabecera 
             titulo={fecha.format("MMMM D, YYYY")}
+            vista={vistaMostrar.nombre}
+            seleccionar={vistaMostrar.data.seleccionar[vistaMostrar.clave]}
             rango={fecha.format("MMMM")}
             anterior={pasos.anterior.accion}
             siguiente={pasos.siguiente.accion}

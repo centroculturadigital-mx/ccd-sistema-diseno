@@ -10,10 +10,11 @@ export default {title: 'Componentes/Calendario/Calendario'}
 let eventos = []
 
 
-const seleccionar=(fecha)=>{
-    
-    console.log("seleccionar fecha", fecha);
-    
+const seleccionar= {
+    dia: (fecha) => console.log("seleccionar dia", fecha),
+    semana: (fecha) => console.log("seleccionar semana", fecha),
+    mes: (fecha) => console.log("seleccionar mes", fecha),
+    anno: (fecha) => console.log("seleccionar anno", fecha),
 }
 
 

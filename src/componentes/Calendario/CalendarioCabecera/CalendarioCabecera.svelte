@@ -1,10 +1,15 @@
 <script>
+  import Boton from "../../../elementos/botones/Boton/Boton";
   import Titulo from "../../../elementos/texto/Titulo/Titulo";
   import Texto from "../../../elementos/texto/Texto/Texto";
   import NavegacionPasos from "../Navegacion/NavegacionPasos/NavegacionPasos";
   import SelectorVista from "../SelectorVista/SelectorVista";
 
+  export let elementosNombre="Eventos";
+  export let seleccionar
+  export let seleccionado
   export let titulo;
+  export let vista;
   export let rango;
   export let anterior = () => console.log("regresa");
   export let siguiente = () => console.log("avanza");
@@ -35,6 +40,11 @@
     justify-content: space-between;
     box-sizing: border-box;
   }
+
+  .seleccionado {
+    background-color: #000;
+    color: #fff;
+  }
 </style>
 
 <section class="CalendarioCabecera">
@@ -47,5 +57,8 @@
     {#if Array.isArray(opciones) && opciones.length > 0}
       <SelectorVista {opciones} cambiar={vistaElegir} />
     {/if}
+
+    <Boton variante={seleccionado ? "COMPACTO": "HUECO_COMPACTO" } click={()=>seleccionar()} texto={`${elementosNombre} del ${vista}`}/>
+    
   </div>
 </section>
