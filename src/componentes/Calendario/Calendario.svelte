@@ -83,6 +83,7 @@ $: vistas = [
         componente: CalendarioMes,
         data: {
             // accion: seleccionarMesActual,
+            fecha,
             seleccionar: {
                 dia: (i)=>{
                     seleccionarDiaActual(i)
@@ -93,11 +94,8 @@ $: vistas = [
                     seleccionar.mes(mesActual)
                 }
             },
-            eventos,
-            annoActual,
-            semanaActual,
-            mesActual,
-            diaActual
+            eventos
+            
         }
     },
     {
