@@ -12,6 +12,8 @@
   export let pieMargen = 3;
   export let autoplay = false;
   export let autoplayMs = 2500;
+  export let flechas = true;
+  export let navegacion = true;
 
   export let activo = -1;
 
@@ -283,7 +285,7 @@
     cursor: pointer;
   }
   .elementosBotones li:hover button {
-    background-color:var(--theme-botones-primario-fondo);
+    background-color: var(--theme-botones-primario-fondo);
   }
   .elementosBotones li.activo button {
     background-color: var(--theme-botones-primario-fondo);
@@ -354,8 +356,10 @@
   class={`Carrusel ${estilos.direccion}`}
   id={`carrusel_${id}`}
   style={estilosCarrusel}>
+
   {#if Array.isArray(elementos)}
     <div bind:this={carrusel} class="ventana" style={estilosVentana}>
+
       <div class="elementos" style={estilosLista}>
 
         {#each elementos as elemento, i ('elemento_' + i)}
@@ -375,25 +379,30 @@
         {/each}
 
       </div>
+
     </div>
 
-    <ul class="elementosBotones">
-      {#each elementosBotones as boton, i ('boton_' + i)}
-        <li class={activo == i ? 'activo' : ''}>
-          <button on:click={ir(i)}>{i}</button>
-        </li>
-      {/each}
-    </ul>
+    {#if !!navegacion}
+      <ul class="elementosBotones">
+        {#each elementosBotones as boton, i ('boton_' + i)}
+          <li class={activo == i ? 'activo' : ''}>
+            <button on:click={ir(i)}>{i}</button>
+          </li>
+        {/each}
+      </ul>
+    {/if}
 
-    <button class="boton-flecha boton-anterior" on:click={ir(activo - 1)}>
-      <img
-        src={estilos.direccion == 'vertical' ? IconoCaretArriba : IconoCaretIzquierda}
-        alt="Anterior" />
-    </button>
-    <button class="boton-flecha boton-siguiente" on:click={ir(activo + 1)}>
-      <img
-        src={estilos.direccion == 'vertical' ? IconoCaretAbajo : IconoCaretDerecha}
-        alt="Siguiente" />
-    </button>
+    {#if !!flechas}
+      <button class="boton-flecha boton-anterior" on:click={ir(activo - 1)}>
+        <img
+          src={estilos.direccion == 'vertical' ? IconoCaretArriba : IconoCaretIzquierda}
+          alt="Anterior" />
+      </button>
+      <button class="boton-flecha boton-siguiente" on:click={ir(activo + 1)}>
+        <img
+          src={estilos.direccion == 'vertical' ? IconoCaretAbajo : IconoCaretDerecha}
+          alt="Siguiente" />
+      </button>
+    {/if}
   {/if}
 </div>

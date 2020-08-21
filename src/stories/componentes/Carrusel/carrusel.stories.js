@@ -207,6 +207,45 @@ export const carruselEmpezarDesdeIndice = () => ({
     }
 });
 
+export const carruselSinFlechas = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Carrusel,
+        datos: {
+            elementos,
+            activo: 3,
+            flechas: false
+
+        }
+    }
+});
+
+export const carruselSinNavegacion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Carrusel,
+        datos: {
+            elementos,
+            activo: 3,
+            navegacion: false
+        }
+    }
+});
+
+export const carruselSinNavegacionNiFlechas = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Carrusel,
+        datos: {
+            elementos,
+            activo: 3,
+            autoplay: true,
+            flechas: false,
+            navegacion: false
+        }
+    }
+});
+
 
 export const carruselArrayVacio = () => ({
     Component: ThemeTester,
