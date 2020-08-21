@@ -237,17 +237,20 @@
 </style>
 
 <article class="{aparienciaEstilo} Tarjeta {!!sombra ? ' sombra' : ''}">
-  <div
-    class="{aparienciaEstilo} Contenido">
+  <div class="{aparienciaEstilo} Contenido">
+    
+      {#if !!imagen}
     <div
       class="{aparienciaEstilo} Imagen {apariencia == 'Chica' ? 'TarjetaChicaImagen' : ''}">
-      {#if !!enlace}
-        <a class="{aparienciaEstilo} enlazado" {...linkTarget} href={enlace}>
+
+        {#if !!enlace}
+          <a class="{aparienciaEstilo} enlazado" {...linkTarget} href={enlace}>
+            <Imagen {imagen} alt={nombre} ajuste="cover" />
+          </a>
+        {:else}
           <Imagen {imagen} alt={nombre} ajuste="cover" />
-        </a>
-      {:else}
-        <Imagen {imagen} alt={nombre} ajuste="cover" />
-      {/if}
+        {/if}
+
       {#if typeof pleca == 'object'}
         <div class="Pleca" style={`background-color: ${colorFondoPleca}`}>
           {#if !!pleca.texto}
@@ -271,9 +274,12 @@
           {/if}
         </div>
       {/if}
-    </div>
 
-    <section class="{apariencia == 'Chica' ? 'TarjetaChicaContenido' : 'Contenidos'}">
+    </div>
+      {/if}
+
+    <section
+      class={apariencia == 'Chica' ? 'TarjetaChicaContenido' : 'Contenidos'}>
       <div class="Textos {apariencia == 'Chica' ? 'TarjetaChicaTextos' : ''}">
         {#if !!leyenda}
           <div class="Leyenda">
