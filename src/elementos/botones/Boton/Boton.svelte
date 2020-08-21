@@ -1,8 +1,43 @@
 <script>
+
+  import { getContext } from "svelte";
+
+  // let { theme } = getContext('theme')
+
+  // $: console.log({$theme});
+
   export let texto = "Botón";
   export let click;
   export let deshabilitado;
   export let css = {};
+  export let variante;
+
+
+  if (!!variante) {
+    switch (variante) {
+      case "NORMAL":
+        break;
+      case "HUECO_COMPACTO":
+        css = {
+          "background": "none",
+          "padding": "0.25rem 1rem",
+          "color": "black",
+          "font-size": "0.75",          
+          ...css
+        };
+        break;
+      case "COMPACTO":
+        css = {
+          "padding": "0.25rem 1rem",
+          "font-size": "0.75",          
+          ...css
+        };
+        break;
+    }
+  }
+  $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
+
+
 
   $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
 
