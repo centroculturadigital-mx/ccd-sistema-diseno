@@ -4,6 +4,7 @@
 
   export let logotipo;
   export let enlace;
+  export let externo=false;
   export let nombre;
 
   export let estilos = {
@@ -43,7 +44,7 @@
   style="width:{estilos.ancho};{!enlace ? 'padding:0.5rem' : ''}">
 
   {#if !!enlace}
-    <a href={enlace} target="_blank">
+    <a href={enlace} target={ externo ? "_blank": '' }>
       {#if !!logotipo}
         <Imagen
           imagen={logotipo}
