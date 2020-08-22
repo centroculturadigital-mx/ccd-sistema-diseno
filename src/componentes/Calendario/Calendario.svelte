@@ -60,12 +60,10 @@ $: fecha = calcularFecha({
 
 
 
-$: console.log({diaActual})
 $: vistaMostrar = vistas[vistaActual]
 
 // $: acciones = { ...seleccionar }
 
-$: console.log({vistas});
 $: vistas = [
     {
         clave: "anno",
@@ -91,7 +89,7 @@ $: vistas = [
                 },
                 mes: ()=>{
                     llamarAccion()
-                    seleccionar.mes(mesActual)
+                    seleccionar.mes(fecha.set("date",1).toDate())
                 }
             },
             eventos
@@ -145,8 +143,7 @@ const anterior = () => {
                 diaActual = moment({month: mesActual, year: annoActual}).daysInMonth()
             }   
             break;
-    }
-    console.log("anterior");
+    }    
 }
 
 
@@ -180,8 +177,7 @@ const siguiente = () => {
             }   
             seleccionarDiaActual(diaActual)
             break;
-    }
-    console.log("siguiente");
+    }    
 }
 
 
