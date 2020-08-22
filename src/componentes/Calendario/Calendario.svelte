@@ -17,6 +17,7 @@ let vistaActual = 1
 export let seleccionar
 export let eventos
 
+moment.locale('es_MX')
 
 const desseleccionar = () => {
     diaActual=null
