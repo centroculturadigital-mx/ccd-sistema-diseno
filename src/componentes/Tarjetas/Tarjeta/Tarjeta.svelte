@@ -62,7 +62,7 @@
     max-width: 36rem !important;
     display: flex;
     flex-direction: row !important;
-    height: initial !important;
+    height: 100% !important;
     padding-top: 0;
     padding-bottom: 0;
   }
@@ -234,25 +234,42 @@
   .Pleca .Textos :global(span:last-child) {
     margin-bottom: 0;
   }
+  .Cabecera {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: initial;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .noImagen {
+    position: initial !important;
+  }
 </style>
 
 <article class="{aparienciaEstilo} Tarjeta {!!sombra ? ' sombra' : ''}">
   <div class="{aparienciaEstilo} Contenido">
-    
-      {#if !!imagen}
-    <div
-      class="{aparienciaEstilo} Imagen {apariencia == 'Chica' ? 'TarjetaChicaImagen' : ''}">
 
-        {#if !!enlace}
-          <a class="{aparienciaEstilo} enlazado" {...linkTarget} href={enlace}>
+    <div class="Cabecera">
+      {#if !!imagen}
+        <div
+          class="{aparienciaEstilo} Imagen {apariencia == 'Chica' ? 'TarjetaChicaImagen' : ''}">
+
+          {#if !!enlace}
+            <a
+              class="{aparienciaEstilo} enlazado"
+              {...linkTarget}
+              href={enlace}>
+              <Imagen {imagen} alt={nombre} ajuste="cover" />
+            </a>
+          {:else}
             <Imagen {imagen} alt={nombre} ajuste="cover" />
-          </a>
-        {:else}
-          <Imagen {imagen} alt={nombre} ajuste="cover" />
-        {/if}
+          {/if}
+        </div>
+      {/if}
 
       {#if typeof pleca == 'object'}
-        <div class="Pleca" style={`background-color: ${colorFondoPleca}`}>
+        <div class="Pleca {!imagen ? "noImagen" : ""}" style={`background-color: ${colorFondoPleca}`}>
           {#if !!pleca.texto}
             <Texto
               texto={pleca.texto}
@@ -276,7 +293,6 @@
       {/if}
 
     </div>
-      {/if}
 
     <section
       class={apariencia == 'Chica' ? 'TarjetaChicaContenido' : 'Contenidos'}>

@@ -5,7 +5,7 @@
   export let estado = false;
   export let componente = null;
   export let datos = {};
-  export let cerrar = {};
+  export let cerrar;
 
   let cerrarAccion = () => {
     estado = !estado;
