@@ -31,8 +31,8 @@
   }
   .Modal header {
     position: absolute;
-    top: -1.05rem;
-    right: -2.9rem;
+    top: -1.4rem;
+    right: -3.25rem;
     padding: calc(var(--theme-espaciados-padding) * 2);
     height: auto;
     width: auto;
@@ -50,6 +50,16 @@
   }
   .Contenedor {
     position: relative;
+  }
+  .Contenedor :global(.cerrar) {
+    fill: #fff !important;
+  }
+  .Contenedor :global(.cerrar:hover) {
+    opacity: 0.75;
+  }
+  .Contenedor :global(svg) {
+    height: 100%;
+    width: 100%;
   }
 </style>
 
