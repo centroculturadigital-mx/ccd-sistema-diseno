@@ -4,38 +4,39 @@
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
 
-  export let tipo = "alerta"; //"tipos: alerta  o confirmacion"
   export let titulo = "";
   export let texto = "";
-  export let confirmar = () => {
-    console.log("Confirmado");
-  };
-  export let cancelar = () => {
-    console.log("Cancelado");
-  };
+  export let acciones;
 </script>
 
 <style>
   .Dialogo {
-    background-color: var(--theme-colores-fondo);
+    position: relative;
+    background-color: var(--theme-tarjetas-fondo);
     padding: calc(var(--theme-espaciados-padding) * 3);
+    max-width: 40rem;
+    box-sizing: border-box;
+  }
+  .Dialogo :global(button) {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 </style>
 
 <section class="Dialogo">
   <Titulo texto={titulo} nivel={4} />
   <Parrafo {texto} />
-  {#if tipo == 'alerta'}
-    {#if !!confirmar}
-      <Boton texto={'Entendido'} click={confirmar} />
-    {/if}
-  {:else if tipo == 'confirmacion'}
-    {#if !!cancelar}
-      <BotonSecundario texto={'Cancelar'} click={cancelar} borde={false} />
-    {/if}
-    {#if !!confirmar}
-      <Boton texto={'Confirmar'} click={confirmar} />
-    {/if}
+
+  {#if Array.isArray(acciones) && acciones.length > 0}
+    <section class="acciones">
+
+      {#each acciones as accion (accion)}
+        {#if typeof accion.accion == 'function'}
+          <Boton texto={accion.texto} click={accion.accion} />
+        {/if}
+      {/each}
+
+    </section>
   {/if}
 
 </section>
