@@ -78,3 +78,19 @@ export const entradaTelefono = () => ({
         }
     },
 });
+export const entradaCalendario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Entrada,
+        datos: {
+            ejemplo: 'Selecciona una fecha',
+            tipo: "fecha",
+            seleccionar: {
+                dia: (fecha) => console.log("seleccionar dia", fecha),
+                semana: (fecha) => console.log("seleccionar semana", fecha),
+                mes: (fecha) => console.log("seleccionar mes", fecha),
+                anno: (fecha) => console.log("seleccionar anno", fecha),
+            }
+        }
+    },
+});

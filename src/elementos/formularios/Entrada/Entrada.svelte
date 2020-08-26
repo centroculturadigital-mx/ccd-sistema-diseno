@@ -1,21 +1,21 @@
 <script>
   import Selector from "../Selector/Selector.svelte";
-
+  import Calendario from "../../../componentes/Calendario/Calendario";
 
   // propiedades
   export let tipo = "texto";
-  export let ejemplo="Introduce un valor";
-  export let opciones=[];
-  export let estado="";
+  export let ejemplo = "Introduce un valor";
+  export let opciones = [];
+  export let estado = "";
   export let minimo = 0;
   export let maximo = 999;
+  export let seleccionar;
+  export let eventos;
 
   // propiedades para lógica
-  export let nombre="";
+  export let nombre = "";
   export let valor;
   export let cambiar;
-
-
 
   let valorLocal;
 
@@ -28,22 +28,24 @@
   // actualizar datos cuando cambian campos
   // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
   const realizarCambio = () => {
-
-    if(typeof cambiar == "function") {
-      cambiar(valorLocal)
+    if (typeof cambiar == "function") {
+      cambiar(valorLocal);
     }
-    
-  }
+  };
   // $: ( && !! valorLocal) && cambiar(valorLocal)
 
   // $: cambiarValorDesdeFuera( valor )
-  
+
   let mostrarEstado = false;
 
-  const revelarEstado = () => { mostrarEstado = true };
-  const ocultarEstado = () => { mostrarEstado = false };
+  const revelarEstado = () => {
+    mostrarEstado = true;
+  };
+  const ocultarEstado = () => {
+    mostrarEstado = false;
+  };
 
-  $: clases = 'Entrada' + ((mostrarEstado && estado) ? " " + estado : '' );
+  $: clases = "Entrada" + (mostrarEstado && estado ? " " + estado : "");
 
   $: seleccionarTipo(tipo);
 
@@ -58,6 +60,9 @@
         break;
       case "numero":
         tipo = "number";
+        break;
+      case "fecha":
+        tipo = "fecha";
         break;
       case "telefono":
         tipo = "tel";
@@ -76,7 +81,8 @@
 </script>
 
 <style>
-  input, textarea {
+  input,
+  textarea {
     font-size: var(--theme-textos-parrafo-tamanno);
     font-family: var(--theme-textos-parrafo-tipografia);
     font-weight: var(--theme-textos-parrafo-peso);
@@ -84,7 +90,7 @@
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
     padding: var(--theme-campos-espacio);
-    margin-top: calc(var(--theme-espaciados-margen) / 2 );
+    margin-top: calc(var(--theme-espaciados-margen) / 2);
     margin-bottom: var(--theme-espaciados-margen);
     min-height: 2rem;
   }
@@ -110,11 +116,9 @@
     on:focusout={revelarEstado}
     on:focus={ocultarEstado}
     name={nombre}
-    type="text" 
+    type="text"
     placeholder={ejemplo}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'contrasenna'}
@@ -125,11 +129,9 @@
     on:focusout={revelarEstado}
     on:focus={ocultarEstado}
     name={nombre}
-    type="password" 
+    type="password"
     placeholder={ejemplo}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'email'}
@@ -140,11 +142,9 @@
     on:focusout={revelarEstado}
     on:focus={ocultarEstado}
     name={nombre}
-    type="email" 
+    type="email"
     placeholder={ejemplo}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'numero'}
@@ -159,9 +159,7 @@
     min={!!minimo ? minimo : ''}
     max={!!maximo ? maximo : ''}
     placeholder={ejemplo}
-    bind:value={valorLocal}
-  />
-
+    bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'archivo'}
@@ -172,10 +170,9 @@
     on:focusout={revelarEstado}
     on:focus={ocultarEstado}
     name={nombre}
-    type="file" 
+    type="file"
     placeholder={ejemplo}
-    bind:value={valorLocal}
-  />
+    bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'telefono'}
@@ -186,10 +183,9 @@
     on:focusout={revelarEstado}
     on:focus={ocultarEstado}
     name={nombre}
-    type="tel" 
+    type="tel"
     placeholder={ejemplo}
-    bind:value={valorLocal}
-  />
+    bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'textarea'}
@@ -201,20 +197,13 @@
     on:focus={ocultarEstado}
     name={nombre}
     placeholder={ejemplo}
-    bind:value={valorLocal}
-  ></textarea>
-
+    bind:value={valorLocal} />
 {/if}
 
-{#if tipo == "selector" && Array.isArray(opciones) }
-
-  <Selector
-    bind:value={valorLocal}
-    {nombre}
-    {opciones}
-    {estado}
-    {cambiar}
-  />
-
+{#if tipo == 'selector' && Array.isArray(opciones)}
+  <Selector bind:value={valorLocal} {nombre} {opciones} {estado} {cambiar} />
 {/if}
 
+{#if tipo == 'fecha'}
+  <Calendario {eventos} {seleccionar} />
+{/if}
