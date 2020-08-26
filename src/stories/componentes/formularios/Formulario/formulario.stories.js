@@ -10,9 +10,9 @@ let enviarConTiempo = e => {
     const respuesta = "Enviando..."
 
     setTimeout(() => {
-        
+
         alert("enviar")
-        
+
     }, 400)
 }
 
@@ -164,6 +164,41 @@ export const formularioNoEnviar = () => ({
             campos: campos,
             error: "Formulario con error",
             cambiar
+        }
+    },
+});
+
+export const formularioCalendario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [{
+                tipo: "fecha",
+                nombre: 'Calendario',
+                requerido: true,
+                etiqueta: '',
+                ejemplo: '',
+                valorInicial: '',
+                seleccionar: {
+                    dia: fecha => console.log("dia", fecha),
+                    semana: fecha => console.log("semana", fecha),
+                    mes: fecha => console.log("mes", fecha),
+                    anno: fecha => console.log("año", fecha),
+                },
+                validacion: (valor) => {
+                    console.log("Validación fecha");
+                    // let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]");
+
+                    // return {
+                    //     valido: !caracteresEspeciales.test(valor),
+                    //     error: caracteresEspeciales.test(valor) ?
+                    //         new Error("No caracteres especiales") : null,
+                    //     estado: caracteresEspeciales.test(valor) ?
+                    //         "error" : !valor ? "" : "ok"
+                    // }
+                }
+            }],
         }
     },
 });

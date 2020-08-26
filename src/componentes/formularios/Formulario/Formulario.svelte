@@ -9,7 +9,8 @@
     "numero",
     "archivo",
     "contrasenna",
-    "selector"
+    "selector",
+    "fecha"
   ];
 
   let datos = {};
