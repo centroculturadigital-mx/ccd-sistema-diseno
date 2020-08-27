@@ -1,4 +1,5 @@
 <script>
+  import Titulo from "../../../elementos/texto/Titulo/Titulo";
   import Campo from "../Campo/Campo.svelte";
   import Aviso from "../../../elementos/texto/Aviso/Aviso";
 
@@ -15,14 +16,15 @@
 
   let datos = {};
 
+  export let pasos;
   export let campos;
   export let enviar;
   export let cambiar;
   export let respuesta;
   export let config = {
-      textos: {
-        enviar: "Enviar",
-      }
+    textos: {
+      enviar: "Enviar"
+    }
   };
 
   $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
@@ -42,8 +44,7 @@
             }
           };
 
-          if (!! valor && typeof c.validacion == "function") {
-
+          if (!!valor && typeof c.validacion == "function") {
             let resultadoValidacion = c.validacion(valor);
             campoPreparado = {
               ...campoPreparado,
@@ -66,12 +67,12 @@
     // if( typeof c.validacion == "function" ) {
     // if( c.validacion(valor).valido ) {
     console.log(valor);
-      
+
     datos[c.nombre] = valor;
     // } else {
     // datos[c.nombre] = null
     // }
-    // } 
+    // }
 
     if (typeof cambiar == "function") {
       cambiar(datos);
@@ -104,6 +105,7 @@
 
     return false;
   };
+
 </script>
 
 <style>
@@ -158,6 +160,7 @@
 
 {#if !respuesta}
 
+  <!-- campos -->
   {#if Array.isArray(campos)}
     {#if campos.length > 0}
       <form on:submit|preventDefault={enviarFuncion}>
@@ -170,11 +173,45 @@
           <input
             disabled={hayErrores || hayRequeridosVacios}
             type="submit"
-            class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'} 
-            value={config.textos.enviar}/>
+            class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
+            value={config.textos.enviar} />
         {/if}
 
       </form>
+    {/if}
+  {/if}
+
+  <!-- Pasos -->
+  {#if Array.isArray(pasos)}
+    <nav>
+      {#each pasos as paso, i}
+        <!-- <button class="botonPaso">{i + paso[i] == i ? paso.titulo : ''}</button> -->
+        <button class="botonPaso">{i}</button>
+      {/each}
+    </nav>
+
+    {#if pasos.length > 0}
+
+      {#each pasos as paso, i (paso)}
+    
+        <Titulo texto={paso.titulo} nivel={1} />
+
+        <form on:submit|preventDefault={enviarFuncion}>
+
+          {#each paso.campos as campo, i (campo)}
+            <Campo {...campo} />
+          {/each}
+
+          {#if !!enviar}
+            <input
+              disabled={hayErrores || hayRequeridosVacios}
+              type="submit"
+              class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
+              value={config.textos.enviar} />
+          {/if}
+
+        </form>
+      {/each}
     {/if}
   {/if}
 {:else}

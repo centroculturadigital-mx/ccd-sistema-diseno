@@ -7,6 +7,7 @@
     export let cambiar
     
     export let campos
+    export let pasos
 
     let respuesta
 
@@ -14,4 +15,4 @@
 </script>
 
 
-<Formulario {enviar} {cambiar} {respuesta} {campos}/>
+<Formulario {enviar} {cambiar} {respuesta} {campos} {pasos}/>

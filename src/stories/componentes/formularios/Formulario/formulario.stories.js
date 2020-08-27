@@ -1,6 +1,8 @@
 import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import FormularioTester from '../../../../componentes/formularios/Formulario/FormularioTester.svelte';
 
+import pasos from "../../../../data/pasos";
+
 export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
 }
@@ -188,17 +190,23 @@ export const formularioCalendario = () => ({
                 },
                 validacion: (valor) => {
                     console.log("Validación fecha");
-                    // let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]");
-
                     // return {
-                    //     valido: !caracteresEspeciales.test(valor),
-                    //     error: caracteresEspeciales.test(valor) ?
-                    //         new Error("No caracteres especiales") : null,
-                    //     estado: caracteresEspeciales.test(valor) ?
-                    //         "error" : !valor ? "" : "ok"
                     // }
                 }
             }],
+        }
+    },
+});
+
+export const formularioPasos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            pasos,
+            enviar: () => console.log("Enviar")
+                // campos: campos,
+                // error: "Formulario con error",
         }
     },
 });
