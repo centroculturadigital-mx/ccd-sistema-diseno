@@ -1,5 +1,6 @@
 export default [{
         titulo: "Título paso 1",
+        textoPaso: "Fecha",
         campos: [{
             tipo: "fecha",
             nombre: 'Calendario',
@@ -16,10 +17,12 @@ export default [{
             validacion: (valor) => {
                 console.log("Validación fecha", valor);
             }
-        }]
+        }],
+
     },
     {
         titulo: "Título paso 2",
+        textoPaso: "Información",
         campos: [{
                 tipo: 'texto',
                 nombre: 'nombre',
@@ -76,10 +79,12 @@ export default [{
                     }
                 }
             }
-        ]
+        ],
+
     },
     {
         titulo: "Título paso 3",
+        textoPaso: "Asistentes",
         campos: [{
                 tipo: "numero",
                 nombre: 'ninnos',
@@ -135,7 +140,13 @@ export default [{
                 maximo: 100,
                 validacion: (valor) => console.log("Validación fecha", valor)
             },
-        ]
+        ],
+
+    },
+    {
+        titulo: "Título paso confirmacion",
+        textoPaso: "Confirma",
+        texto: "Si lo necesitas, revisa que la información esté correcta"
     }
 
 ]

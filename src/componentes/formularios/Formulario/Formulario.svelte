@@ -1,5 +1,8 @@
 <script>
+import { onMount } from "svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo";
+  import Parrafo from "../../../elementos/texto/Parrafo/Parrafo";
+  import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono";
   import Campo from "../Campo/Campo.svelte";
   import Aviso from "../../../elementos/texto/Aviso/Aviso";
 
@@ -17,6 +20,7 @@
   let datos = {};
 
   export let pasos;
+  export let pasoActual = 0;
   export let campos;
   export let enviar;
   export let cambiar;
@@ -106,6 +110,22 @@
     return false;
   };
 
+  const avanzar = () => {
+    pasoActual = pasoActual + 1;
+    console.log("avanzaste", pasoActual);
+  };
+  const regresar = () => {
+    pasoActual = pasoActual - 1;
+    console.log("regresaste", pasoActual);
+  };
+
+  let contenedorPasos;
+
+  onMount(() => { 
+
+    console.log(contenedorPasos.child);
+
+  });
 </script>
 
 <style>
@@ -156,49 +176,96 @@
     border-color: var(--theme-botones-primario-hover);
     color: var(--theme-botones-primario-inactivo);
   }
+  .pasos {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: 32rem;
+    box-sizing: border-box;
+  }
+  .paso {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .navegacion {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    box-sizing: border-box;
+  }
 </style>
 
-{#if !respuesta}
-
-  <!-- campos -->
-  {#if Array.isArray(campos)}
-    {#if campos.length > 0}
-      <form on:submit|preventDefault={enviarFuncion}>
-
-        {#each camposMostrar as campo, i ('formulario_campo_' + i)}
-          <Campo {...campo} />
-        {/each}
-
-        {#if !!enviar}
-          <input
-            disabled={hayErrores || hayRequeridosVacios}
-            type="submit"
-            class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
-            value={config.textos.enviar} />
-        {/if}
-
-      </form>
-    {/if}
-  {/if}
-
-  <!-- Pasos -->
-  {#if Array.isArray(pasos)}
+<!-- deshabilita campos si existen pasos -->
+{#if !!pasos && Array.isArray(pasos)}
+  <div class="pasos" bind:this={contenedorPasos}>
     <nav>
-      {#each pasos as paso, i}
-        <!-- <button class="botonPaso">{i + paso[i] == i ? paso.titulo : ''}</button> -->
-        <button class="botonPaso">{i}</button>
+      {#each pasos as paso, i (paso)}
+        <button class="botonPaso">{pasoActual == i ? (i+1) + " . " + paso.textoPaso : i+1}</button>
+        <!-- <button class="botonPaso">{i}</button> -->
       {/each}
     </nav>
 
-    {#if pasos.length > 0}
-
-      {#each pasos as paso, i (paso)}
-    
-        <Titulo texto={paso.titulo} nivel={1} />
-
+    {#each pasos as paso, i (paso)}
+      <div class={"paso_" + i }>
+        {#if !!paso.titulo}
+          <Titulo texto={paso.titulo} nivel={1} />
+        {/if}
+        {#if !!paso.texto}
+          <Parrafo texto={paso.texto} />
+        {/if}
         <form on:submit|preventDefault={enviarFuncion}>
 
-          {#each paso.campos as campo, i (campo)}
+          {#if Array.isArray(paso.campos) && paso.campos.length > 0}
+            {#each paso.campos as campo, i (campo)}
+              <Campo {...campo} />
+            {/each}
+          {/if}
+
+          {#if !!enviar}
+            {#if pasoActual == pasos.length - 1}
+              <input
+                disabled={hayErrores || hayRequeridosVacios}
+                type="submit"
+                class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
+                value={config.textos.enviar} />
+            {/if}
+          {/if}
+
+        </form>
+
+      </div>
+    {/each}
+
+    <section class="navegacion">
+      <div>
+        {#if pasoActual > 0}
+          <BotonIcono
+            texto={'Regresa'}
+            icono={'flechaIzquierda'}
+            click={regresar} />
+        {/if}
+      </div>
+
+      <div>
+        {#if pasoActual != pasos.length - 1}
+          <BotonIcono
+            texto={'Siguiente'}
+            icono={'flechaDerecha'}
+            click={avanzar} />
+        {/if}
+      </div>
+    </section>
+  </div>
+{:else}
+  <!-- Formulario con campos -->
+  {#if !respuesta}
+    {#if Array.isArray(campos)}
+      {#if campos.length > 0}
+        <form on:submit|preventDefault={enviarFuncion}>
+
+          {#each camposMostrar as campo, i ('formulario_campo_' + i)}
             <Campo {...campo} />
           {/each}
 
@@ -211,9 +278,9 @@
           {/if}
 
         </form>
-      {/each}
+      {/if}
     {/if}
+  {:else}
+    <Aviso texto={respuesta} />
   {/if}
-{:else}
-  <Aviso texto={respuesta} />
 {/if}

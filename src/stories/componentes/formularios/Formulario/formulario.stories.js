@@ -204,9 +204,13 @@ export const formularioPasos = () => ({
         componente: FormularioTester,
         datos: {
             pasos,
-            enviar: () => console.log("Enviar")
-                // campos: campos,
-                // error: "Formulario con error",
+            campos: campos,
+            enviar: () => console.log("Enviar"),
+            config: {
+                textos: {
+                    enviar: "Finalizar"
+                }
+            }
         }
     },
 });

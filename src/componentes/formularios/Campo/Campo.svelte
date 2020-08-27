@@ -19,7 +19,7 @@
   label,
   label > * {
     width: 100%;
-    max-width: 15rem;
+    max-width: 32rem;
     height: auto;
     display: flex;
     flex-direction: column;
