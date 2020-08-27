@@ -1,5 +1,5 @@
 <script>
-import { onMount } from "svelte";
+  import { onMount } from "svelte";
   import Titulo from "../../../elementos/texto/Titulo/Titulo";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono";
@@ -112,20 +112,25 @@ import { onMount } from "svelte";
 
   const avanzar = () => {
     pasoActual = pasoActual + 1;
-    console.log("avanzaste", pasoActual);
   };
   const regresar = () => {
     pasoActual = pasoActual - 1;
-    console.log("regresaste", pasoActual);
   };
 
   let contenedorPasos;
 
-  onMount(() => { 
+  const ventana = pasosArr => {
+    pasosArr.forEach((e, i) => {
+      if (e.tagName == "DIV" && e.classList.contains("paso")) {
+        e.style.display = "none";
+        if (i == 2) {
+          e.style.display = "block";
+        }
+      }
+    });
+  };
 
-    console.log(contenedorPasos.children);
-
-  });
+  $: contenedorPasos ? ventana(contenedorPasos.childNodes) : null;
 </script>
 
 <style>
@@ -202,13 +207,15 @@ import { onMount } from "svelte";
   <div class="pasos" bind:this={contenedorPasos}>
     <nav>
       {#each pasos as paso, i (paso)}
-        <button class="botonPaso">{pasoActual == i ? (i+1) + " . " + paso.textoPaso : i+1}</button>
+        <button class="botonPaso">
+          {pasoActual == i ? i + 1 + ' . ' + paso.textoPaso : i + 1}
+        </button>
         <!-- <button class="botonPaso">{i}</button> -->
       {/each}
     </nav>
 
     {#each pasos as paso, i (paso)}
-      <div class={"paso_" + i }>
+      <div class={'paso paso_' + i}>
         {#if !!paso.titulo}
           <Titulo texto={paso.titulo} nivel={1} />
         {/if}
