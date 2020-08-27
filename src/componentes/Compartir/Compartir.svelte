@@ -1,9 +1,9 @@
 <script>
-import { fade } from "svelte/transition";
+  import { fade } from "svelte/transition";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono";
 
-  export let url = "";
-  export let titulo = "Texto a compartir";
+  export let url;
+  export let titulo;
   export let usuario = "CCDmx";
   export let compartir;
 
@@ -22,7 +22,6 @@ import { fade } from "svelte/transition";
     }
 
     e.preventDefault();
-    // ga.track("comparte-redes", { ...datos });
     ventana.focus();
   };
 
