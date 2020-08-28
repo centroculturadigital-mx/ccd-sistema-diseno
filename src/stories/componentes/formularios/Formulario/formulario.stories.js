@@ -205,7 +205,7 @@ export const formularioPasos = () => ({
         datos: {
             pasos,
             campos: campos,
-            enviar: () => console.log("Enviar"),
+            enviar: () => console.log("Finalizar"),
             config: {
                 textos: {
                     enviar: "Finalizar"
