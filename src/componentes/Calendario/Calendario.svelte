@@ -15,6 +15,23 @@
 
   export let seleccionar;
   export let eventos;
+  export let configuracion;
+
+  let configuracionDefault = {
+    acciones: {
+      seleccionar: {
+        dia: true,
+        mes: false
+      }
+    }
+  };
+
+  // const hidratarConfiguracion = configuracion => {};
+
+  $: configuracion = {
+    ...configuracionDefault,
+    ...configuracion
+  };
 
   moment.locale("es_MX");
 
@@ -70,14 +87,18 @@
         // accion: seleccionarMesActual,
         fecha,
         seleccionar: {
-          dia: i => {
-            seleccionarDiaActual(i);
-            seleccionar.dia(i);
-          },
-          mes: () => {
-            llamarAccion();
-            seleccionar.mes(fecha.set("date", 1).toDate());
-          }
+          dia:
+            configuracion.acciones.seleccionar.dia &&
+            (i => {
+              seleccionarDiaActual(i);
+              seleccionar.dia(i);
+            }),
+          mes:
+            configuracion.acciones.seleccionar.mes &&
+            (() => {
+              llamarAccion();
+              seleccionar.mes(fecha.set("date", 1).toDate());
+            })
         },
         eventos
       }

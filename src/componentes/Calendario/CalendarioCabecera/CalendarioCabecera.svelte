@@ -5,9 +5,9 @@
   import NavegacionPasos from "../Navegacion/NavegacionPasos/NavegacionPasos";
   import SelectorVista from "../SelectorVista/SelectorVista";
 
-  export let elementosNombre="Eventos";
-  export let seleccionar
-  export let seleccionado
+  export let elementosNombre = "Eventos";
+  export let seleccionar;
+  export let seleccionado;
   export let titulo;
   export let vista;
   export let rango;
@@ -18,7 +18,6 @@
   const vistaElegir = e => {
     console.log("Vista Seleccionada: ", e);
   };
-
 </script>
 
 <style>
@@ -58,7 +57,12 @@
       <SelectorVista {opciones} cambiar={vistaElegir} />
     {/if}
 
-    <Boton variante={seleccionado ? "COMPACTO": "HUECO_COMPACTO" } click={()=>seleccionar()} texto={`${elementosNombre} del ${vista}`}/>
+    {#if typeof seleccionar == 'function'}
+      <Boton
+        variante={seleccionado ? 'COMPACTO' : 'HUECO_COMPACTO'}
+        click={() => seleccionar()}
+        texto={`${elementosNombre} del ${vista}`} />
+    {/if}
     
   </div>
 </section>
