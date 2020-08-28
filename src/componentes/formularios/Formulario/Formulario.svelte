@@ -140,6 +140,7 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
+    max-width: 32rem;
     box-sizing: border-box;
   }
 
@@ -194,13 +195,44 @@
     position: relative;
     height: 100%;
     width: 100%;
-    max-width: 32rem;
     box-sizing: border-box;
   }
+  .pasos nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .pasos nav button {
+    position: relative;
+    background-color: transparent;
+    padding: calc(var(--theme-espaciados-padding) * 2) calc(var(--theme-espaciados-padding) * 3);
+    border: 1px solid #000;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .activo {
+    background-color: var(--theme-colores-secundario1) !important;
+    color: #FFF;
+  }
+
   .paso {
     position: relative;
     height: 100%;
     width: 100%;
+    box-sizing: border-box;
+  }
+  .paso :global(h1) {
+    display: flex;
+    justify-content: center;
+  }
+  .paso input[type="submit"] {
+    position: absolute;
+    right: 0.5rem;
+    bottom: -5.25rem;
+    padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
     box-sizing: border-box;
   }
   .actual {
@@ -221,8 +253,8 @@
       <header class="pasos">
         <nav>
           {#each pasos as paso, i (paso)}
-            <button class="botonPaso" on:click={() => cambiarPaso(i)}>
-              {pasoActual == i ? i + 1 + ' . ' + paso.textoPaso : i + 1}
+            <button class="botonPaso {pasoActual >= i ? "activo" : ""}" on:click={() => cambiarPaso(i)}>
+              {pasoActual == i ? (i + 1) + ' . ' + paso.textoPaso : i + 1}
             </button>
           {/each}
         </nav>
