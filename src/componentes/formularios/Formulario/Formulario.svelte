@@ -34,6 +34,10 @@
 
   $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
 
+  
+  $: console.log({datos});
+
+
   const computarCampos = (campos, datos) => {
     const camposPreparados = campos
       .map(c => {
@@ -118,25 +122,26 @@
     pasoActual = pasoActual - 1;
   };
 
+  const cambiarPaso = i => {
+    pasoActual = i;
+  };
+
   $: pantallaActual =
     Array.isArray(pasos) && pasos.length > 0
       ? pasos[pasoActual]
       : {
           campos: camposMostrar
         };
-
-  $: console.log({ pantallaActual });
 </script>
 
 <style>
-.Formulario {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-}
-
+  .Formulario {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
   form {
     width: 100%;
@@ -211,71 +216,83 @@
 
 <section class="Formulario">
 
-{#if Array.isArray(pasos)}
-  <header class="pasos">
-    <nav>
-      {#each pasos as paso, i (paso)}
-        <button class="botonPaso">
-          {pasoActual == i ? i + 1 + ' . ' + paso.textoPaso : i + 1}
-        </button>
-      {/each}
-    </nav>
-  </header>
-{/if}
-
-<div class={'paso paso_' + pasoActual}>
-  {#if !!pantallaActual.titulo}
-    <Titulo texto={pantallaActual.titulo} nivel={1} />
-  {/if}
-  {#if !!pantallaActual.texto}
-    <Parrafo texto={pantallaActual.texto} />
-  {/if}
-
-  <form on:submit|preventDefault={enviarFuncion}>
-
-    {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
-      {#each pantallaActual.campos as campo, i (campo)}
-        <Campo {...campo} />
-      {/each}
+  {#if !respuesta}
+    {#if Array.isArray(pasos)}
+      <header class="pasos">
+        <nav>
+          {#each pasos as paso, i (paso)}
+            <button class="botonPaso" on:click={() => cambiarPaso(i)}>
+              {pasoActual == i ? i + 1 + ' . ' + paso.textoPaso : i + 1}
+            </button>
+          {/each}
+        </nav>
+      </header>
     {/if}
 
-    {#if !!enviar}
-      {#if !Array.isArray(pasos) || pasoActual == pasos.length - 1}
-        <input
-          disabled={hayErrores || hayRequeridosVacios}
-          type="submit"
-          class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
-          value={config.textos.enviar} />
+    <div class={'paso paso_' + pasoActual}>
+      {#if !!pantallaActual.titulo}
+        <Titulo texto={pantallaActual.titulo} nivel={1} />
       {/if}
+      {#if !!pantallaActual.texto}
+        <Parrafo texto={pantallaActual.texto} />
+      {/if}
+
+      <form on:submit|preventDefault={enviarFuncion}>
+
+        {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
+          {#each pantallaActual.campos as campo, i (campo)}
+            <Campo {...campo} />
+          {/each}
+        {/if}
+
+        {#if !!enviar}
+          {#if !Array.isArray(pasos) || pasoActual == pasos.length - 1}
+            <input
+              disabled={hayErrores || hayRequeridosVacios}
+              type="submit"
+              class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
+              value={config.textos.enviar} />
+          {/if}
+        {/if}
+
+      </form>
+
+    </div>
+
+    {#if Array.isArray(pasos)}
+      <section class="navegacion">
+        <div>
+          {#if pasoActual > 0}
+            <BotonIcono
+              texto={'Regresa'}
+              icono={'flechaIzquierda'}
+              click={regresar} />
+          {/if}
+        </div>
+
+        <div>
+          {#if pasoActual < pasos.length - 1}
+            <BotonIcono
+              texto={'Siguiente'}
+              icono={'flechaDerecha'}
+              click={avanzar} />
+          {/if}
+        </div>
+      </section>
+    {/if}
+  {:else}
+    {#if typeof respuesta == 'string'}
+      <Aviso texto={respuesta} />
     {/if}
 
-  </form>
+    {#if typeof respuesta == 'object'}
+      <Titulo texto={respuesta.titulo} nivel={1} />
+      <Parrafo texto={respuesta.texto} nivel={1} />
+    {/if}
 
-</div>
+    {#if respuesta instanceof Error}
+      <Parrafo texto={respuesta.message} />
+    {/if}
+  {/if}
 
-{#if Array.isArray(pasos)}
-  <section class="navegacion">
-    <div>
-      {#if pasoActual > 0}
-        <BotonIcono
-          texto={'Regresa'}
-          icono={'flechaIzquierda'}
-          click={regresar} />
-      {/if}
-    </div>
-
-    <div>
-      {#if pasoActual < pasos.length - 1}
-        <BotonIcono
-          texto={'Siguiente'}
-          icono={'flechaDerecha'}
-          click={avanzar} />
-      {/if}
-    </div>
-  </section>
-{/if}
 </section>
-<!-- {:else}
-
-  <Aviso texto={respuesta} />
-{/if} -->
