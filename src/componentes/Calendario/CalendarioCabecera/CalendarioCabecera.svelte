@@ -25,7 +25,7 @@
     background-color: var(--theme-tarjetas-fondo);
     padding: calc(var(--theme-espaciados-padding) * 3);
     height: 100%;
-    max-width: 24rem;
+    max-width: initial;
     min-width: 20rem;
     width: 100%;
     box-sizing: border-box;
