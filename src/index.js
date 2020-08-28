@@ -41,6 +41,8 @@ from "./elementos/IndicadoresCarga/IndicadorCargaLinea/IndicadorCargaLinea.svelt
 //  Componentes
 export { default as Campo }
 from "./componentes/formularios/Campo/Campo.svelte";
+export { default as Compartir }
+from "./componentes/Compartir/Compartir.svelte";
 export { default as Formulario }
 from "./componentes/formularios/Formulario/Formulario.svelte";
 export { default as Cabecera }
