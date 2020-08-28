@@ -46,7 +46,7 @@
 
           let campoPreparado = {
             ...c,
-            // valor,
+            valor,
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => {
               cambiarCampo(v, c);
@@ -75,7 +75,7 @@
   const cambiarCampo = (valor, c) => {
     // if( typeof c.validacion == "function" ) {
     // if( c.validacion(valor).valido ) {
-    console.log(valor);
+    console.log({valor, cambiar});
 
     datos[c.nombre] = valor;
     // } else {
@@ -126,12 +126,31 @@
     pasoActual = i;
   };
 
-  $: pantallaActual =
-    Array.isArray(pasos) && pasos.length > 0
-      ? pasos[pasoActual]
-      : {
+  let pasoUltimo
+  let pantallaActual
+  
+  const actualizarPantalla = (pasoActual, camposMostrar) => {
+    
+    if( pasoActual != pasoUltimo ) {
+
+      pantallaActual = (Array.isArray(pasos) && pasos.length > 0)
+        ? {
+          ...pasos[pasoActual],
+          campos: camposMostrar
+        }
+        : {
           campos: camposMostrar
         };
+
+      pasoUltimo = pasoActual
+      
+    }
+
+  }
+
+  $: actualizarPantalla(pasoActual, camposMostrar)
+
+
 </script>
 
 <style>
@@ -321,8 +340,9 @@
       <Titulo texto={respuesta.titulo} nivel={1} />
       <Parrafo texto={respuesta.texto} nivel={1} />
     {/if}
-
+      
     {#if respuesta instanceof Error}
+      <Titulo texto={"Error"} nivel={1} />
       <Parrafo texto={respuesta.message} />
     {/if}
   {/if}
