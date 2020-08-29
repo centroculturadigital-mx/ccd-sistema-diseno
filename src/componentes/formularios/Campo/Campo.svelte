@@ -13,9 +13,11 @@
 
   export let valor;
   export let cambiar;
+  
 </script>
 
 <style>
+
   label,
   label > * {
     width: 100%;
