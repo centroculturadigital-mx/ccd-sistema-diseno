@@ -14,7 +14,8 @@
     "archivo",
     "contrasenna",
     "selector",
-    "fecha"
+    "fecha",
+    "telefono",
   ];
 
   let datos = {};
@@ -35,9 +36,6 @@
   $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
 
   
-  $: console.log({datos});
-
-
   const computarCampos = (campos, datos) => {
     const camposPreparados = campos
       .map(c => {
@@ -72,20 +70,15 @@
     return camposPreparados;
   };
 
+
   const cambiarCampo = (valor, c) => {
-    // if( typeof c.validacion == "function" ) {
-    // if( c.validacion(valor).valido ) {
-    console.log({valor, cambiar});
 
     datos[c.nombre] = valor;
-    // } else {
-    // datos[c.nombre] = null
-    // }
-    // }
 
     if (typeof cambiar == "function") {
       cambiar(datos);
     }
+
   };
 
   $: hayErrores =
@@ -128,18 +121,19 @@
 
   let pasoUltimo
   let pantallaActual
-  
+
   const actualizarPantalla = (pasoActual, camposMostrar) => {
     
+    console.log("actualizarPantalla");
     if( pasoActual != pasoUltimo ) {
 
       pantallaActual = (Array.isArray(pasos) && pasos.length > 0)
         ? {
           ...pasos[pasoActual],
-          campos: camposMostrar
+          campos: pasos[pasoActual].campos && computarCampos( pasos[pasoActual].campos, datos )
         }
         : {
-          campos: camposMostrar
+          campos: computarCampos( campos, datos )
         };
 
       pasoUltimo = pasoActual
@@ -188,7 +182,7 @@
     border-color: var(--theme-botones-primario-hover);
     color: var(--theme-botones-secundario-color);
   }
-  form input[type="submit"]:focus,
+  form input[type="submit"]:ad,
   form input[type="submit"]:visited,
   form input[type="submit"]:active {
     background-color: var(--theme-botones-primario-activo);
@@ -311,7 +305,9 @@
     </div>
 
     {#if Array.isArray(pasos)}
+
       <section class="navegacion">
+
         <div>
           {#if pasoActual > 0}
             <BotonIcono
@@ -329,9 +325,13 @@
               click={avanzar} />
           {/if}
         </div>
+
       </section>
+    
     {/if}
+
   {:else}
+
     {#if typeof respuesta == 'string'}
       <Aviso texto={respuesta} />
     {/if}
@@ -345,6 +345,7 @@
       <Titulo texto={"Error"} nivel={1} />
       <Parrafo texto={respuesta.message} />
     {/if}
+
   {/if}
 
 </section>
