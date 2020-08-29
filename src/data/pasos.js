@@ -1,6 +1,6 @@
 export default [{
         titulo: "Título paso 1",
-        textoPaso: "Fecha",
+        texto: "Por favor introduce una fecha",
         campos: [{
             tipo: "fecha",
             nombre: 'Calendario',
@@ -22,7 +22,7 @@ export default [{
     },
     {
         titulo: "Título paso 2",
-        textoPaso: "Información",
+        texto: "Información",
         campos: [{
                 tipo: 'texto',
                 nombre: 'nombre',
@@ -84,7 +84,7 @@ export default [{
     },
     {
         titulo: "Título paso 3",
-        textoPaso: "Asistentes",
+        texto: "Asistentes",
         campos: [{
                 tipo: "numero",
                 nombre: 'ninnos',
@@ -145,7 +145,7 @@ export default [{
     },
     {
         titulo: "Título paso confirmacion",
-        textoPaso: "Confirma",
+        texto: "Confirma",
         texto: "Si lo necesitas, revisa que la información esté correcta"
     }
 
