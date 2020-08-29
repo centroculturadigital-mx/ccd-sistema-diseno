@@ -65,7 +65,7 @@
         tipo = "fecha";
         break;
       case "telefono":
-        tipo = "tel";
+        tipo = "telefono";
         break;
       case "contrasenna":
         tipo = "password";
