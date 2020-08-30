@@ -12,8 +12,50 @@
   export let opciones;
 
   export let valor;
+  export let validacion;
   export let cambiar;
+
   
+  
+  let enfocado = false
+  
+  const calcularEstado = v => {
+    if( ! enfocado ) {
+      return estado
+    } else {      
+      return validacion(v).estado
+    }
+  }
+
+  let estadoMostrar = calcularEstado(valor)
+
+  const enfocar = () => {
+    enfocado = true  
+  }
+  
+  const desenfocar = () => {
+    enfocado = false  
+  }
+
+  const cambiarAccion = (v) => {
+
+    console.log("cambiar", valor, v);
+    if (typeof cambiar == "function") {
+      if( ! enfocado ) {
+        console.log("no enfocado");
+        cambiar(v);
+      }
+    }
+    
+    if( valor && enfocado) {
+      // validar sin repintar pantalla
+      estadoMostrar = calcularEstado(v)
+      console.log("wtf", v, estadoMostrar);
+    }
+  }
+
+  
+
 </script>
 
 <style>
@@ -64,13 +106,15 @@
     {/if}
 
     <Entrada
-    {tipo}
-    {nombre}
-    {valor}
-    {ejemplo}
-    {estado}
-    {cambiar}
-    {opciones}
+      {tipo}
+      {nombre}
+      {valor}
+      {ejemplo}
+      estado={estadoMostrar}
+      cambiar={cambiarAccion}
+      {opciones}
+      {enfocar}
+      {desenfocar}
     />
 
     {#if error instanceof Error}

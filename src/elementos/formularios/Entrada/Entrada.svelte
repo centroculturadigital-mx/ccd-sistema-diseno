@@ -9,8 +9,8 @@
   export let estado = "";
   export let minimo = 0;
   export let maximo = 999;
-  export let seleccionar;
-  export let eventos;
+  export let enfocar;
+  export let desenfocar;
 
   // propiedades para lógica
   export let nombre = "";
@@ -27,6 +27,7 @@
 
   // actualizar datos cuando cambian campos
   // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
+  // TODO : eliminar esto:
   const realizarCambio = () => {
     if (typeof cambiar == "function") {
       cambiar(valorLocal);
@@ -36,16 +37,24 @@
 
   // $: cambiarValorDesdeFuera( valor )
 
-  let mostrarEstado = false;
 
-  const revelarEstado = () => {
-    mostrarEstado = true;
+  const desenfocarAccion = () => {
+    if (typeof desenfocar == "function") {
+      desenfocar()
+    }
+    if (typeof cambiar == "function") {
+      cambiar(valorLocal);
+    }
   };
-  const ocultarEstado = () => {
-    mostrarEstado = false;
+  
+  const enfocarAccion = () => {
+    if (typeof enfocar == "function") {
+      enfocar()
+    }
   };
 
-  $: clases = "Entrada" + (mostrarEstado && estado ? " " + estado : "");
+  $: clases = "Entrada" + (estado ? " " + estado : "");
+  // $: clases = "Entrada" + (enfocado && estado ? " " + estado : "");
 
   $: seleccionarTipo(tipo);
 
@@ -113,8 +122,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={revelarEstado}
-    on:focus={ocultarEstado}
+    on:focusout={desenfocarAccion}
+    on:focus={enfocarAccion}
     name={nombre}
     type="text"
     placeholder={ejemplo}
@@ -126,8 +135,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={revelarEstado}
-    on:focus={ocultarEstado}
+    on:focusout={desenfocarAccion}
+    on:focus={enfocarAccion}
     name={nombre}
     type="password"
     placeholder={ejemplo}
@@ -139,8 +148,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={revelarEstado}
-    on:focus={ocultarEstado}
+    on:focusout={desenfocarAccion}
+    on:focus={enfocarAccion}
     name={nombre}
     type="email"
     placeholder={ejemplo}
@@ -152,8 +161,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={revelarEstado}
-    on:focus={ocultarEstado}
+    on:focusout={desenfocarAccion}
+    on:focus={enfocarAccion}
     name={nombre}
     type="number"
     min={!!minimo ? minimo : ''}
@@ -167,8 +176,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={revelarEstado}
-    on:focus={ocultarEstado}
+    on:focusout={desenfocarAccion}
+    on:focus={enfocarAccion}
     name={nombre}
     type="file"
     placeholder={ejemplo}
@@ -180,8 +189,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={revelarEstado}
-    on:focus={ocultarEstado}
+    on:focusout={desenfocarAccion}
+    on:focus={enfocarAccion}
     name={nombre}
     type="tel"
     placeholder={ejemplo}
@@ -193,17 +202,17 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={revelarEstado}
-    on:focus={ocultarEstado}
+    on:focusout={desenfocarAccion}
+    on:focus={enfocarAccion}
     name={nombre}
     placeholder={ejemplo}
     bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'selector' && Array.isArray(opciones)}
-  <Selector bind:value={valorLocal} {nombre} {opciones} {estado} {cambiar} />
+  <Selector bind:value={valorLocal} {nombre} {opciones} {estado} cambiar={realizarCambio} />
 {/if}
 
 {#if tipo == 'fecha'}
-  <Calendario {eventos} {seleccionar} />
+  <Calendario seleccionar={realizarCambio} />
 {/if}

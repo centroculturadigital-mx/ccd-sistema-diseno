@@ -25,6 +25,7 @@
   export let enviar;
   export let cambiar;
   export let respuesta;
+  
   export let config = {
     textos: {
       enviar: "Enviar"
@@ -32,6 +33,7 @@
   };
 
   let pasoActual = 0;
+
 
   $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
 
@@ -119,26 +121,24 @@
     pasoActual = i;
   };
 
-  let pasoUltimo
+  // let pasoUltimo
   let pantallaActual
 
+
+  const init = el => {
+    el.focus()
+  }
+
   const actualizarPantalla = (pasoActual, camposMostrar) => {
-    
-    console.log("actualizarPantalla");
-    if( pasoActual != pasoUltimo ) {
-
-      pantallaActual = (Array.isArray(pasos) && pasos.length > 0)
-        ? {
-          ...pasos[pasoActual],
-          campos: pasos[pasoActual].campos && computarCampos( pasos[pasoActual].campos, datos )
-        }
-        : {
-          campos: computarCampos( campos, datos )
-        };
-
-      pasoUltimo = pasoActual
-      
-    }
+  
+    pantallaActual = (Array.isArray(pasos) && pasos.length > 0)
+      ? {
+        ...pasos[pasoActual],
+        campos: pasos[pasoActual].campos && computarCampos( pasos[pasoActual].campos, datos )
+      }
+      : {
+        campos: computarCampos( campos, datos )
+      };
 
   }
 
