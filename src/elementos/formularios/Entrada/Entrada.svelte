@@ -38,16 +38,18 @@
   // $: cambiarValorDesdeFuera( valor )
 
 
-  const desenfocarAccion = () => {
+  const desenfocarAccion = (v) => {
+    console.log("desenfocarAccion");
     if (typeof desenfocar == "function") {
       desenfocar()
     }
     if (typeof cambiar == "function") {
-      cambiar(valorLocal);
+      cambiar(v || valorLocal);
     }
   };
   
   const enfocarAccion = () => {
+    console.log("enfocarAccion");
     if (typeof enfocar == "function") {
       enfocar()
     }
@@ -122,8 +124,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={desenfocarAccion}
-    on:focus={enfocarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
     name={nombre}
     type="text"
     placeholder={ejemplo}
@@ -135,8 +137,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={desenfocarAccion}
-    on:focus={enfocarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
     name={nombre}
     type="password"
     placeholder={ejemplo}
@@ -148,8 +150,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={desenfocarAccion}
-    on:focus={enfocarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
     name={nombre}
     type="email"
     placeholder={ejemplo}
@@ -161,8 +163,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={desenfocarAccion}
-    on:focus={enfocarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
     name={nombre}
     type="number"
     min={!!minimo ? minimo : ''}
@@ -176,8 +178,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={desenfocarAccion}
-    on:focus={enfocarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
     name={nombre}
     type="file"
     placeholder={ejemplo}
@@ -189,8 +191,8 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={desenfocarAccion}
-    on:focus={enfocarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
     name={nombre}
     type="tel"
     placeholder={ejemplo}
@@ -202,15 +204,16 @@
     class={clases}
     on:keyup={realizarCambio}
     on:change={realizarCambio}
-    on:focusout={desenfocarAccion}
-    on:focus={enfocarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
     name={nombre}
     placeholder={ejemplo}
     bind:value={valorLocal} />
 {/if}
 
 {#if tipo == 'selector' && Array.isArray(opciones)}
-  <Selector bind:value={valorLocal} {nombre} {opciones} {estado} cambiar={realizarCambio} />
+  <Selector bind:value={valorLocal} desenfocar={desenfocarAccion}
+  enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={realizarCambio} />
 {/if}
 
 {#if tipo == 'fecha'}

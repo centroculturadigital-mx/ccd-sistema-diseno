@@ -4,6 +4,8 @@
   export let estado;
   export let nombre;
   export let cambiar;
+  export let enfocar;
+  export let desenfocar;
   export let vacioPermitido = true;
 
   export let value;
@@ -52,6 +54,8 @@
 <select
   class={clases}
   name={nombre}
+  on:focus={()=>enfocar(valorLocal)}
+  on:focusout={()=>desenfocar(valorLocal)}
   on:change={e => cambiar(e.target.value)}
   bind:value={valorLocal}>
 

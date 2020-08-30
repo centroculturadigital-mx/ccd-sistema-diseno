@@ -39,10 +39,8 @@
 
   const cambiarAccion = (v) => {
 
-    console.log("cambiar", valor, v);
     if (typeof cambiar == "function") {
       if( ! enfocado ) {
-        console.log("no enfocado");
         cambiar(v);
       }
     }
@@ -50,7 +48,6 @@
     if( valor && enfocado) {
       // validar sin repintar pantalla
       estadoMostrar = calcularEstado(v)
-      console.log("wtf", v, estadoMostrar);
     }
   }
 
