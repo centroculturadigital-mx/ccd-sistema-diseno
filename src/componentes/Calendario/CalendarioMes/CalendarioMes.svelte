@@ -13,7 +13,7 @@
     
     
     $: fecha = moment(fecha)
-    $: diaActual = fecha && null
+    $: diaActual = fecha
     
     const hoy = moment()
 
@@ -45,11 +45,12 @@
     ) : null
 
 
-    const seleccionarDia = i => {
+    const seleccionarAccion = i => {
+
         if( parseInt(i+1)>=0 ) {
             
-            if( typeof seleccionar.dia == "function" ) {
-                seleccionar.dia(i)
+            if( typeof seleccionar == "function" ) {
+                seleccionar(i)
             }
         }
         // cambiar indicador de dia cuando ya se haya ejecutado callback anterior
@@ -57,8 +58,21 @@
     }
    
     
+    const calcularClases = (i) => {
+        let str = 'dia'
 
+        if( i < inicioSemana ) {
+            str += " inactivo"
+            return str
+        }
 
+        str += (i-inicioSemana+1)==diaActual ? " seleccionado" : ""
+        str += (esteMes && i==(hoyDia+inicioSemana-1))? " hoy": ""
+        
+        return str
+    }
+
+    
 </script>
 
 <style>
@@ -123,10 +137,9 @@
             <nav>
                 <ul>
                     {#each dias as d,i ("dia_"+i) }
-                        <li class={
-                            (i-inicioSemana+1)==diaActual ? "dia seleccionado" :
-                                (esteMes && i==(hoyDia+inicioSemana-1))? "dia hoy": "dia"
-                        } on:click={(e)=>seleccionarDia(d+1)}>
+                        <li class={calcularClases(i)}
+                        on:click={ ()=> i>=inicioSemana && seleccionarAccion(d+1)} >
+                        <!-- > -->
                             { d >= 0 ? (d+1) : "" }
                         </li>
                     {/each}

@@ -10,15 +10,7 @@ export default {title: 'Componentes/Calendario/CalendarioMes'}
 let eventos = []
 
 
-const seleccionarMes=(mes)=>{
-    
-    eventos = fechas.filter(f=>moment(f.fecha).isBetween(
-            moment({month:mes,day:1}).toDate(),
-            moment({month:mes,day:moment({month:mes}).daysInMonth()}).toDate(),
-        )
-    )
-
-}
+const seleccionar=(dia)=>console.log(dia)
 
 
 export const FieldDefault = () => ({
@@ -28,7 +20,7 @@ export const FieldDefault = () => ({
       datos: {
           fecha: new Date(),
           // eventos,
-          // seleccionarMes
+          seleccionar
       }
     },
 });
