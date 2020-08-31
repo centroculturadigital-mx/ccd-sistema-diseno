@@ -19,26 +19,33 @@
 
 <style>
   button {
+    transition: 0.5s;
     color: var(--theme-botones-primario-borde);
     padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
     background-color: var(--theme-botones-secundario-fondo);
     font-family: var(--theme-botones-primario-familia);
     border-radius: var(--theme-botones-primario-esquinas);
     display: flex;
-    transition: 0.5s;
     cursor: pointer;
     margin: 0;
     align-items: center;
   }
   button:hover {
-    color: var(--theme-botones-primario-hover);
+    color: var(--theme-botones-secundario-hover);
+    border: 1px solid var(--theme-botones-secundario-hover) !important;
     opacity: 0.75;
   }
+  button:hover :global(svg) {
+    transition: 0.5s;
+    fill: var(--theme-botones-secundario-hover);
+    /* stroke: var(--theme-botones-secundario-hover); */
+  }
+
   /* button:focus,
-  button:visited,
+  button:visited, */
   button:active {
     color: var(--theme-botones-primario-activo);
-  } */
+  }
   .no-borde {
     border: 0;
   }
