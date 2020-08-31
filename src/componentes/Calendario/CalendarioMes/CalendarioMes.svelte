@@ -13,7 +13,7 @@
     
     
     $: fecha = moment(fecha)
-    $: diaActual = fecha
+    $: diaActual = fecha.date()
     
     const hoy = moment()
 
@@ -112,7 +112,9 @@
     .dia.hoy {
         background-color: #ccc;
     }
-
+    .inactivo {
+        cursor: default;
+    }
 
 </style>
 
