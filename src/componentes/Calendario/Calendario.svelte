@@ -11,6 +11,9 @@
   import CalendarioDia from "./CalendarioDia/CalendarioDia";
   import CalendarioCabecera from "./CalendarioCabecera/CalendarioCabecera";
 
+  moment.locale("es_MX");
+
+
   let vistaActual = 1;
 
   export let seleccionar;
@@ -30,10 +33,9 @@
 
   $: configuracion = {
     ...configuracionDefault,
-    ...configuracion
+    ...configuracion ? configuracion : {}
   };
 
-  moment.locale("es_MX");
 
   const desseleccionar = () => {
     diaActual = null;
@@ -68,6 +70,19 @@
 
   // $: acciones = { ...seleccionar }
 
+  const seleccion = {
+      mes: () => {
+        llamarAccion();
+        seleccionar.mes(fecha.set("date", 1).toDate());
+      },
+      dia: i => {
+        seleccionarDiaActual(i);
+        seleccionar.dia(i);
+      },
+  }
+
+  $: console.log({configuracion});
+
   $: vistas = [
     {
       clave: "anno",
@@ -83,23 +98,12 @@
       clave: "mes",
       nombre: "Mes",
       componente: CalendarioMes,
+      seleccionar: configuracion.acciones.seleccionar.mes && seleccion.mes,
       data: {
         // accion: seleccionarMesActual,
         fecha,
-        seleccionar: {
-          dia:
-            configuracion.acciones.seleccionar.dia &&
-            (i => {
-              seleccionarDiaActual(i);
-              seleccionar.dia(i);
-            }),
-          mes:
-            configuracion.acciones.seleccionar.mes &&
-            (() => {
-              llamarAccion();
-              seleccionar.mes(fecha.set("date", 1).toDate());
-            })
-        },
+        seleccionar: configuracion.acciones.seleccionar.dia && seleccion.dia,
+          
         eventos
       }
     },
@@ -117,6 +121,7 @@
       clave: "clave",
       nombre: "Dia",
       componente: CalendarioDia,
+      seleccionar: configuracion.acciones.seleccionar.dia && seleccion.dia,
       data: {
         accion: seleccionar,
         fecha,
@@ -330,7 +335,7 @@
       <CalendarioCabecera
         titulo={fecha.format('MMMM D, YYYY')}
         vista={vistaMostrar.nombre}
-        seleccionar={vistaMostrar.data.seleccionar[vistaMostrar.clave]}
+        seleccionar={vistaMostrar.seleccionar}
         rango={fecha.format('MMMM')}
         anterior={pasos.anterior.accion}
         siguiente={pasos.siguiente.accion} />
