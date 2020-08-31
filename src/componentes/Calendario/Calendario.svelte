@@ -20,6 +20,10 @@
   export let eventos;
   export let configuracion;
 
+
+  let seleccionActual = {}
+  let seleccionActualValor
+
   let configuracionDefault = {
     acciones: {
       seleccionar: {
@@ -46,6 +50,7 @@
 
   const vistaSeleccionar = i => {
     vistaActual = i;
+    seleccionActual = null
   };
 
   let annoActual = moment().year();
@@ -66,11 +71,17 @@
     dia: diaActual
   });
 
-  $: vistaMostrar = vistas[vistaActual];
+  $: vistaMostrar = {
+    ...vistas[vistaActual],
+    data: {
+      ...vistas[vistaActual].data,
+      seleccion: seleccionActualValor
+    },
+  };
 
   // $: acciones = { ...seleccionar }
 
-  const seleccion = {
+  const selecciones = {
       mes: () => {
         llamarAccion();
         seleccionar.mes(fecha.set("date", 1).toDate());
@@ -81,7 +92,6 @@
       },
   }
 
-  $: console.log({configuracion});
 
   $: vistas = [
     {
@@ -98,12 +108,12 @@
       clave: "mes",
       nombre: "Mes",
       componente: CalendarioMes,
-      seleccionar: configuracion.acciones.seleccionar.mes && seleccion.mes,
+      calcularTitulo: fecha => fecha.format('MMMM YYYY'),
+      seleccionar: configuracion.acciones.seleccionar.mes && selecciones.mes,
       data: {
         // accion: seleccionarMesActual,
         fecha,
-        seleccionar: configuracion.acciones.seleccionar.dia && seleccion.dia,
-          
+        seleccionar: configuracion.acciones.seleccionar.dia && selecciones.dia,
         eventos
       }
     },
@@ -121,7 +131,7 @@
       clave: "clave",
       nombre: "Dia",
       componente: CalendarioDia,
-      seleccionar: configuracion.acciones.seleccionar.dia && seleccion.dia,
+      seleccionar: configuracion.acciones.seleccionar.dia && selecciones.dia,
       data: {
         accion: seleccionar,
         fecha,
@@ -141,6 +151,7 @@
           annoActual--;
           mesActual = 11;
         }
+        seleccionarMesActual(mesActual);
         break;
       case "semana":
         semanaActual--;
@@ -246,6 +257,8 @@
   };
   const seleccionarMesActual = i => {
     mesActual = i;
+    seleccionActualValor = null
+    diaActual = null
     // llamarAccion()
   };
   const seleccionarSemanaActual = i => {
@@ -254,6 +267,9 @@
   };
   const seleccionarDiaActual = i => {
     diaActual = i;
+    seleccionActual.dia = diaActual
+    seleccionActualValor = diaActual
+
     llamarAccion();
   };
 </script>
@@ -333,7 +349,7 @@
             </header> -->
 
       <CalendarioCabecera
-        titulo={fecha.format('MMMM D, YYYY')}
+        titulo={vistaMostrar.calcularTitulo(fecha)}
         vista={vistaMostrar.nombre}
         seleccionar={vistaMostrar.seleccionar}
         rango={fecha.format('MMMM')}

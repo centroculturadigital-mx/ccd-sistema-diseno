@@ -10,7 +10,7 @@
 
     export let fecha
     export let seleccionar
-    
+    export let seleccion
     
     $: fecha = moment(fecha)
     $: diaActual = fecha.date()
@@ -66,7 +66,7 @@
             return str
         }
 
-        str += (i-inicioSemana+1)==diaActual ? " seleccionado" : ""
+        str += ( (i-inicioSemana+1)==diaActual && !! seleccion ) ? " seleccionado" : ""
         str += (esteMes && i==(hoyDia+inicioSemana-1))? " hoy": ""
         
         return str
