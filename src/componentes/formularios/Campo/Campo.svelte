@@ -38,7 +38,7 @@
   }
 
   const cambiarAccion = (v) => {
-
+    console.log("deberiaCambiar",v);
     if (typeof cambiar == "function") {
       if( ! enfocado ) {
         cambiar(v);
@@ -92,7 +92,6 @@
 
 {#if !!tipo}
   <label>
-
     {#if !!etiqueta}
       <p>
         {etiqueta}
@@ -101,6 +100,7 @@
         {/if}
       </p>
     {/if}
+  </label>
 
     <Entrada
       {tipo}
@@ -118,5 +118,4 @@
       <Parrafo texto={error.message} />
     {/if}
 
-  </label>
 {/if}

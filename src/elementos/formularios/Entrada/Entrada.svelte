@@ -1,6 +1,6 @@
 <script>
   import Selector from "../Selector/Selector.svelte";
-  import Calendario from "../../../componentes/Calendario/Calendario";
+  import CalendarioEntrada from "../../../componentes/Calendario/CalendarioEntrada/CalendarioEntrada";
 
   // propiedades
   export let tipo = "texto";
@@ -28,7 +28,7 @@
   // actualizar datos cuando cambian campos
   // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
   // TODO : eliminar esto:
-  const realizarCambio = () => {
+  const cambiarAccion = () => {
     if (typeof cambiar == "function") {
       cambiar(valorLocal);
     }
@@ -39,7 +39,6 @@
 
 
   const desenfocarAccion = (v) => {
-    console.log("desenfocarAccion");
     if (typeof desenfocar == "function") {
       desenfocar()
     }
@@ -49,7 +48,6 @@
   };
   
   const enfocarAccion = () => {
-    console.log("enfocarAccion");
     if (typeof enfocar == "function") {
       enfocar()
     }
@@ -122,8 +120,8 @@
 
   <input
     class={clases}
-    on:keyup={realizarCambio}
-    on:change={realizarCambio}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -135,8 +133,8 @@
 {#if tipo == 'contrasenna'}
   <input
     class={clases}
-    on:keyup={realizarCambio}
-    on:change={realizarCambio}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -148,8 +146,8 @@
 {#if tipo == 'email'}
   <input
     class={clases}
-    on:keyup={realizarCambio}
-    on:change={realizarCambio}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -161,8 +159,8 @@
 {#if tipo == 'numero'}
   <input
     class={clases}
-    on:keyup={realizarCambio}
-    on:change={realizarCambio}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -176,8 +174,8 @@
 {#if tipo == 'archivo'}
   <input
     class={clases}
-    on:keyup={realizarCambio}
-    on:change={realizarCambio}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -189,8 +187,8 @@
 {#if tipo == 'telefono'}
   <input
     class={clases}
-    on:keyup={realizarCambio}
-    on:change={realizarCambio}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -202,8 +200,8 @@
 {#if tipo == 'textarea'}
   <textarea
     class={clases}
-    on:keyup={realizarCambio}
-    on:change={realizarCambio}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -213,9 +211,14 @@
 
 {#if tipo == 'selector' && Array.isArray(opciones)}
   <Selector bind:value={valorLocal} desenfocar={desenfocarAccion}
-  enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={realizarCambio} />
+  enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion} />
 {/if}
 
 {#if tipo == 'fecha'}
-  <Calendario seleccionar={realizarCambio} />
+  <CalendarioEntrada
+    bind:value={valorLocal}
+    cambiar={cambiarAccion}
+    desenfocar={desenfocarAccion}
+    enfocar={enfocarAccion}
+    />
 {/if}

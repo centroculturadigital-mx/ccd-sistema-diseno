@@ -20,7 +20,6 @@
   export let eventos;
   export let configuracion;
 
-
   let seleccionActual = {}
   let seleccionActualValor
 
@@ -32,6 +31,24 @@
       }
     }
   };
+
+
+
+  const selecciones = {
+      mes: () => {
+        // seleccionarMesActual(?)
+        seleccionar && seleccionar.mes(fecha.set("date", 1).toDate());
+      },
+      dia: i => {
+        seleccionarDiaActual(i);
+        // setTimeout(()=>{
+          console.log({"dia actual": i, diaActual, fecha: fecha.format("DDMMYY")});
+        seleccionar(fecha.toDate())
+        // })
+      },
+  }
+
+
 
   // const hidratarConfiguracion = configuracion => {};
 
@@ -58,18 +75,14 @@
   let semanaActual = moment().week();
   let diaActual = moment().date();
 
-  const calcularFecha = ({ anno, mes, dia }) =>
-    moment({
-      day: dia,
-      month: mes,
-      year: anno
-    });
 
-  $: fecha = calcularFecha({
-    anno: annoActual,
-    mes: mesActual,
-    dia: diaActual
+
+  $: fecha = moment({
+    year: annoActual,
+    month: mesActual,
+    day: diaActual
   });
+
 
   $: vistaMostrar = {
     ...vistas[vistaActual],
@@ -80,17 +93,6 @@
   };
 
   // $: acciones = { ...seleccionar }
-
-  const selecciones = {
-      mes: () => {
-        llamarAccion();
-        seleccionar.mes(fecha.set("date", 1).toDate());
-      },
-      dia: i => {
-        seleccionarDiaActual(i);
-        seleccionar.dia(i);
-      },
-  }
 
 
   $: vistas = [
@@ -109,7 +111,7 @@
       nombre: "Mes",
       componente: CalendarioMes,
       calcularTitulo: fecha => fecha.format('MMMM YYYY'),
-      seleccionar: configuracion.acciones.seleccionar.mes && selecciones.mes,
+      seleccionar: i=>seleccionarDiaActual(i),
       data: {
         // accion: seleccionarMesActual,
         fecha,
@@ -140,120 +142,123 @@
     }
   ];
 
-  const anterior = () => {
-    switch (vistaMostrar.clave) {
-      case "anno":
-        annoActual--;
-        break;
-      case "mes":
-        mesActual--;
-        if (mesActual < 0) {
-          annoActual--;
-          mesActual = 11;
-        }
-        seleccionarMesActual(mesActual);
-        break;
-      case "semana":
-        semanaActual--;
-        break;
-      case "dia":
-        diaActual--;
-        if (diaActual < 0) {
-          mesActual--;
-          diaActual = moment({
-            month: mesActual,
-            year: annoActual
-          }).daysInMonth();
-        }
-        break;
-    }
-  };
 
-  const siguiente = () => {
-    switch (vistaMostrar.clave) {
-      case "anno":
-        annoActual++;
-        seleccionarAnnoActual(annoActual);
-        break;
-      case "mes":
-        mesActual++;
-        if (mesActual > 11) {
-          annoActual++;
-          mesActual = 0;
-        }
-        seleccionarMesActual(mesActual);
-        break;
-      case "semana":
-        semanaActual++;
-        seleccionarSemanaActual(semanaActual);
-        break;
-      case "dia":
-        diaActual++;
-        if (
-          diaActual >
-          moment({ month: mesActual, year: annoActual }).daysInMonth()
-        ) {
-          mesActual++;
-          diaActual = 0;
-        }
-        seleccionarDiaActual(diaActual);
-        break;
-    }
-  };
 
   let pasos = {
     anterior: {
       nombre: "Anterior",
-      accion: anterior
+      accion: () => {
+        console.log("anterior!");
+        switch (vistaMostrar.clave) {
+          case "anno":
+            annoActual--;
+            break;
+          case "mes":
+            mesActual--;
+            if (mesActual < 0) {
+              annoActual--;
+              mesActual = 11;
+            }
+            seleccionarMesActual(mesActual);
+            break;
+          case "semana":
+            semanaActual--;
+            break;
+          case "dia":
+            diaActual--;
+            if (diaActual < 0) {
+              mesActual--;
+              diaActual = moment({
+                month: mesActual,
+                year: annoActual
+              }).daysInMonth();
+            }
+            break;
+        }
+      }
     },
     siguiente: {
       nombre: "Siguiente",
-      accion: siguiente
+      accion: () => {
+        console.log("siguiente!");
+        switch (vistaMostrar.clave) {
+          case "anno":
+            annoActual++;
+            seleccionarAnnoActual(annoActual);
+            break;
+          case "mes":
+            mesActual++;
+            if (mesActual > 11) {
+              annoActual++;
+              mesActual = 0;
+            }
+            seleccionarMesActual(mesActual);
+            break;
+          case "semana":
+            semanaActual++;
+            seleccionarSemanaActual(semanaActual);
+            break;
+          case "dia":
+            diaActual++;
+            if (
+              diaActual >
+              moment({ month: mesActual, year: annoActual }).daysInMonth()
+            ) {
+              mesActual++;
+              diaActual = 0;
+            }
+            seleccionarDiaActual(diaActual);
+            break;
+        }
+      }
     }
   };
 
-  const llamarAccion = (inicio, final) => {
-    if (typeof seleccionar == "function") {
-      // let inicio = {
-      //     anno: annoActual,
-      //     mes: mesActual,
-      //     dia: diaActual,
-      // }
+  // const llamarAccion = (inicio, final) => {
 
-      // let final
+  //   console.log("llamarAccion");
 
-      // switch( vistaActual ) {
-      //     case 0:
-      //         final = {
-      //             anno: annoActual+1,
-      //             mes,
-      //             dia: 1
-      //         }
-      //         break;
-      //     case 1:
+  //   if (typeof seleccionar == "function") {
+  //     let inicio = moment({
+  //         year: annoActual,
+  //         month: mesActual,
+  //         date: diaActual,
+  //     })
 
-      //         inicio.dia = 1;
+  //     let final
 
-      //         final = {
-      //             anno: annoActual,
-      //             mes: mesActual,
-      //             dia: moment({month:mesActual}).daysInMonth
-      //         }
-      //         break;
-      // }
+  //     switch( vistaActual ) {
+  //         case 0:
+  //             final = {
+  //                 anno: annoActual+1,
+  //                 mes,
+  //                 dia: 1
+  //             }
+  //             break;
+  //         case 1:
 
-      final = calcularFecha(final).toDate();
+  //             // inicio.set("date",1)
 
-      seleccionar({
-        inicio,
-        final
-      });
-    }
-  };
+  //             final = {
+  //                 anno: annoActual,
+  //                 mes: mesActual,
+  //                 dia: moment({month:mesActual}).daysInMonth
+  //             }
+  //             break;
+  //     }
+
+  //     final = calcularFecha(final).toDate();
+
+  //     seleccionar({
+  //       inicio: inicio.toDate(),
+  //       final
+  //     });
+  //   }
+  // };
 
   const seleccionarAnnoActual = i => {
     annoActual = i;
-    llamarAccion();
+    // llamarAccion();
   };
   const seleccionarMesActual = i => {
     mesActual = i;
@@ -263,14 +268,15 @@
   };
   const seleccionarSemanaActual = i => {
     semanaActual = i;
-    llamarAccion();
+    // llamarAccion();
   };
   const seleccionarDiaActual = i => {
+    
     diaActual = i;
     seleccionActual.dia = diaActual
     seleccionActualValor = diaActual
 
-    llamarAccion();
+    // llamarAccion();
   };
 </script>
 
@@ -289,7 +295,7 @@
   }
   ul {
     display: flex;
-    font-family: var(--theme-textos-parrafo-tipografia);
+    font-family: var(--thee-textos-parrafo-tipografia);
     box-sizing: border-box;
   }
 
@@ -313,6 +319,13 @@
   nav {
     font-family: var(--theme-textos-parrafo-tipografia);
   }
+
+
+  input.oculto {
+    /* visibility: hidden; */
+  }
+
+
 </style>
 
 <section class="Calendario">
@@ -363,4 +376,5 @@
     <!-- test -->
     <Aviso />
   {/if}
+
 </section>

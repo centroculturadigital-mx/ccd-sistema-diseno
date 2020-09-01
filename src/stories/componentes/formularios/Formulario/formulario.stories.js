@@ -9,13 +9,13 @@ export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
 }
 
-let enviarConTiempo = e => {
+let enviarConTiempo = datos => {
 
     const respuesta = "Enviando..."
 
     setTimeout(() => {
 
-        alert("enviar")
+        console.log("enviar", datos)
 
     }, 400)
 }
@@ -31,6 +31,17 @@ const cambiar = datos => {
 
 
 export const formularioDefault = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: campos.slice(0,3),
+            enviar: enviarConTiempo,
+        }
+    },
+});
+
+export const formularioCompleto = () => ({
     Component: ThemeTester,
     props: {
         componente: FormularioTester,
@@ -121,24 +132,22 @@ export const formularioCalendario = () => ({
         componente: FormularioTester,
         datos: {
             campos: [{
-                tipo: "fecha",
-                nombre: 'Calendario',
+                tipo: 'fecha',
+                nombre: 'ccd-sd-fecha',
                 requerido: true,
-                etiqueta: '',
-                ejemplo: '',
-                valorInicial: '',
-                seleccionar: {
-                    dia: fecha => console.log("dia", fecha),
-                    semana: fecha => console.log("semana", fecha),
-                    mes: fecha => console.log("mes", fecha),
-                    anno: fecha => console.log("año", fecha),
-                },
+                etiqueta: 'Fecha',
+                valorInicial: '',            
                 validacion: (valor) => {
                     console.log("Validación fecha");
-                    // return {
-                    // }
+                    return {
+                        valido: true,
+                        error: null,
+                        estado: "ok"
+                    }
+                
                 }
             }],
+            enviar: enviarConTiempo
         }
     },
 });

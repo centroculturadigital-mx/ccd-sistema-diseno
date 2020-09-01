@@ -140,8 +140,7 @@
                 <ul>
                     {#each dias as d,i ("dia_"+i) }
                         <li class={calcularClases(i)}
-                        on:click={ ()=> i>=inicioSemana && seleccionarAccion(d+1)} >
-                        <!-- > -->
+                        on:click={ ()=> i>=inicioSemana && seleccionarAccion(d+1)}>
                             { d >= 0 ? (d+1) : "" }
                         </li>
                     {/each}

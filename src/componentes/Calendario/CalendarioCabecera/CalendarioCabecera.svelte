@@ -7,12 +7,14 @@
 
   export let elementosNombre = "Eventos";
   export let seleccionar;
+  export let desenfocar;
+  export let enfocar;
   export let seleccionado;
   export let titulo;
   export let vista;
   export let rango;
-  export let anterior = () => console.log("regresa");
-  export let siguiente = () => console.log("avanza");
+  export let anterior;
+  export let siguiente;
   export let opciones = [];
 
   const vistaElegir = e => {
@@ -44,10 +46,13 @@
     background-color: #000;
     color: #fff;
   }
+
+  button:hover {
+    border: 1px solid #000;
+  }
 </style>
 
 <section class="CalendarioCabecera">
-
   {#if !!titulo}
     <Titulo texto={titulo} />
   {/if}

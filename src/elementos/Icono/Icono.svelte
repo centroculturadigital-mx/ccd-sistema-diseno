@@ -168,7 +168,7 @@
 </style>
 
 {#if icono && Object.keys(iconos).includes(icono)}
-  <div class="iconoContenedor {icono}" style={`fill:${color}; width: ${tamanno}; height: ${tamanno}`}>
+  <div class="iconoContenedor {icono}" style={`fill:${color}; width: ${tamanno}; height: ${tamanno}`} on:click>
     {@html iconoMostrar }
   </div>
 {/if}

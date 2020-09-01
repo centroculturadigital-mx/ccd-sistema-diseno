@@ -1,6 +1,6 @@
 <script>
-  import Boton from "../../../../elementos/botones/Boton/Boton";
-  import BotonIcono from "../../../../elementos/botones/BotonIcono/BotonIcono";
+  // import Boton from "../../../../elementos/botones/Boton/Boton";
+  import Icono from "../../../../elementos/Icono/Icono";
   import Texto from "../../../../elementos/texto/Texto/Texto";
 
   export let rango;
@@ -9,18 +9,21 @@
 </script>
 
 <style>
-  .Navegacion {
+  .NavegacionPasos {
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
   }
-  .Navegacion :global(button) {
+  .NavegacionPasos :global(button) {
     padding: calc(var(--theme-botones-primario-espacio) * 1.25)
       calc(var(--theme-botones-primario-espacio) * 2);
     padding-left: 0;
   }
-  .Navegacion :global(button:first-child) {
+  .NavegacionPasos :global(.iconoContenedor:hover) {
+    outline: 1px solid red;
+  }
+  .NavegacionPasos :global(button:first-child) {
     /* padding-right: calc(var(--theme-botones-primario-espacio) * 2); */
     padding-right: 0;
     flex-shrink: 0;
@@ -29,14 +32,14 @@
     border: 0;
     box-sizing: border-box;
   }
-  .Navegacion :global(span) {
+  .NavegacionPasos :global(span) {
     min-width: 6rem;
     text-align: center;
   }
 </style>
 
-<div class="Navegacion">
-  <BotonIcono icono={'izquierda'} borde={false} click={anterior} />
+<div class="NavegacionPasos">
+  <Icono icono={'izquierda'} borde={false} on:click={()=>anterior()} />
   <Texto texto={rango} />
-  <BotonIcono icono={'derecha'} borde={false} click={siguiente} />
+  <Icono icono={'derecha'} borde={false} on:click={()=>siguiente()} />
 </div>
