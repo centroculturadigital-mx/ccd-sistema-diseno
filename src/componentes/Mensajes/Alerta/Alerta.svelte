@@ -6,6 +6,7 @@
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
 
+  export let apariencia = "horizontal";//Vertical
   export let estado = "";
   export let tipo = "";
   export let titulo = "";
@@ -50,6 +51,7 @@
 
 <style>
   .Alerta {
+    position: relative;
     padding: var(--theme-espaciados-padding);
     display: flex;
     justify-content: space-between;
@@ -68,7 +70,7 @@
   .Alerta :global(button) {
     padding: var(--theme-espaciados-padding);
   }
-  .Info {
+  .Informacion {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -113,6 +115,9 @@
     display: flex;
     align-items: center;
   }
+  .Cerrar:hover {
+    opacity: 0.75;
+  }
   .Cerrar :global(.iconoContenedor img) {
     height: 1.25rem;
     width: auto;
@@ -149,15 +154,38 @@
   .accion {
     background-color: var(--theme-alertas-accion);
   }
+  .vertical {
+    flex-direction: column;
+    max-width: 20rem;
+    padding: 2rem 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .verticalInformacion {
+    flex-direction: column;
+    max-width: 20rem;
+    padding: 1rem 0rem;
+  }
+  .verticalTextos {
+    margin: 2rem 0;
+  }
+  .verticalAcciones {
+    justify-content: center;
+  }
+  .verticalCerrar {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 </style>
 
 {#if !!estado}
-  <section class={clases} transition:fade>
+  <section class="{clases} {apariencia == "vertical" ? "vertical" : ""}" transition:fade>
 
-    <div class="Info">
+    <div class="Informacion {apariencia == "vertical" ? "verticalInformacion" : ""}">
       <Icono {icono} />
 
-      <div class="Textos">
+      <div class="Textos {apariencia == "vertical" ? "verticalTextos" : ""}">
         {#if !!titulo}
           <Titulo texto={titulo} nivel={4} />
         {/if}
@@ -167,7 +195,7 @@
       </div>
     </div>
 
-    <div class="Acciones">
+    <div class="Acciones {apariencia == "vertical" ? "verticalAcciones" : ""}">
       {#if !!accion_1}
         <div class="BotonAccion1" transition:fade>
           <BotonSecundario texto={'Alerta 1'} click={accion_1} />
@@ -179,7 +207,7 @@
         </div>
       {/if}
 
-      <div class="Cerrar" on:click={cerrar}>
+      <div class="Cerrar {apariencia == "vertical" ? "verticalCerrar" : ""}" on:click={cerrar}>
         <Icono icono={'cerrar'} />
       </div>
     </div>

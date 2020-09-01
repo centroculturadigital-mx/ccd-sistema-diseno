@@ -160,6 +160,20 @@ export const alertaSinTextos = () => ({
     }
 });
 
+export const alertaVertical = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Alerta,
+        datos: {
+            estado: true,
+            apariencia: "vertical",
+            titulo: "Titulo de alerta acción",
+            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
+            accion_1: () => { console.log("Accion 1") },
+            accion_2: () => { console.log("Accion 2") }
+        }
+    }
+});
 export const alertaNoExiste = () => ({
     Component: ThemeTester,
     props: {
