@@ -5,6 +5,7 @@
 
   export let campos = [];
   export let enviar;
+  // export let registrar
 </script>
 
 <style>
@@ -46,15 +47,7 @@
     <div class="Registro">
       <Texto texto={'¿Aún no tienes cuenta?'} />
       &nbsp;
-      {#if typeof registrar == 'function'}
-        <div>
-          <Texto
-            texto={'Regístrate aquí'}
-            css={{ color: '#4d376d !important', cursor: 'pointer' }} />
-        </div>
-      {:else}
         <Enlace texto={'Regístrate aquí'} enlace={'/registrar'} />
-      {/if}
     </div>
   </section>
 {/if}
