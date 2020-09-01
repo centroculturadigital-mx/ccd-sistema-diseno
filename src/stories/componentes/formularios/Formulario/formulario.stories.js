@@ -102,18 +102,6 @@ export const formularioConRespuestaError = () => ({
     },
 });
 
-export const formularioError = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: FormularioTester,
-        datos: {
-            campos: campos,
-            enviar: enviarConTiempo,
-            error: "Formulario con error"
-        }
-    },
-});
-
 export const formularioNoEnviar = () => ({
     Component: ThemeTester,
     props: {
@@ -159,12 +147,12 @@ export const formularioPasos = () => ({
         datos: {
             pasos,
             campos: campos,
-            enviar: () => console.log("Finalizar"),
+            enviar: () => console.log("Finalizado formulario por pasos"),
             config: {
                 textos: {
-                    enviar: "Finalizar"
+                    enviar: "Confirmar"
                 }
-            }
+            },
         }
     },
 });

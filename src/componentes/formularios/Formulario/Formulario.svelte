@@ -15,7 +15,7 @@
     "contrasenna",
     "selector",
     "fecha",
-    "telefono",
+    "telefono"
   ];
 
   let datos = {};
@@ -25,7 +25,7 @@
   export let enviar;
   export let cambiar;
   export let respuesta;
-  
+
   export let config = {
     textos: {
       enviar: "Enviar"
@@ -34,10 +34,8 @@
 
   let pasoActual = 0;
 
-
   $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
 
-  
   const computarCampos = (campos, datos) => {
     const camposPreparados = campos
       .map(c => {
@@ -72,15 +70,12 @@
     return camposPreparados;
   };
 
-
   const cambiarCampo = (valor, c) => {
-
     datos[c.nombre] = valor;
 
     if (typeof cambiar == "function") {
       cambiar(datos);
     }
-
   };
 
   $: hayErrores =
@@ -122,29 +117,27 @@
   };
 
   // let pasoUltimo
-  let pantallaActual
-
+  let pantallaActual;
 
   const init = el => {
-    el.focus()
-  }
+    el.focus();
+  };
 
   const actualizarPantalla = (pasoActual, camposMostrar) => {
-  
-    pantallaActual = (Array.isArray(pasos) && pasos.length > 0)
-      ? {
-        ...pasos[pasoActual],
-        campos: pasos[pasoActual].campos && computarCampos( pasos[pasoActual].campos, datos )
-      }
-      : {
-        campos: computarCampos( campos, datos )
-      };
+    pantallaActual =
+      Array.isArray(pasos) && pasos.length > 0
+        ? {
+            ...pasos[pasoActual],
+            campos:
+              pasos[pasoActual].campos &&
+              computarCampos(pasos[pasoActual].campos, datos)
+          }
+        : {
+            campos: computarCampos(campos, datos)
+          };
+  };
 
-  }
-
-  $: actualizarPantalla(pasoActual, camposMostrar)
-
-
+  $: actualizarPantalla(pasoActual, camposMostrar);
 </script>
 
 <style>
@@ -221,18 +214,30 @@
   .pasos nav button {
     position: relative;
     background-color: transparent;
-    padding: calc(var(--theme-espaciados-padding) * 2) calc(var(--theme-espaciados-padding) * 3);
+    padding: calc(var(--theme-espaciados-padding) * 2)
+      calc(var(--theme-espaciados-padding) * 3);
     border: 1px solid #000;
     height: 100%;
     box-sizing: border-box;
   }
-  .activo {
-    background-color: var(--theme-colores-secundario1) !important;
-    color: #FFF;
+  .botonPaso {
+    cursor: pointer;
   }
-
+  .botonPaso:hover {
+    opacity: 0.75;
+  }
+  .pasado {
+    background-color: var(--theme-colores-secundario1) !important;
+    color: #fff;
+  }
+  .actual {
+    background-color: var(--theme-colores-secundario1) !important;
+    color: #fff;
+    width: 100%;
+  }
   .paso {
     position: relative;
+    padding: calc(var(--theme-espaciados-padding) * 2);
     height: 100%;
     width: 100%;
     box-sizing: border-box;
@@ -244,18 +249,39 @@
   .paso input[type="submit"] {
     position: absolute;
     right: 0.5rem;
-    bottom: -5.25rem;
-    padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
+    bottom: -4.75rem;
+    padding: calc(var(--theme-botones-primario-espacio) * 1.5)
+      calc(var(--theme-botones-primario-espacio) * 4);
+    color: var(--theme-botones-primario-color) !important;
     box-sizing: border-box;
   }
-  .actual {
-    display: none;
+  .paso input[type="submit"]:hover {
+    background-color: var(--theme-botones-secundario-hover);
   }
   .navegacion {
     display: flex;
     justify-content: space-between;
     padding: 2rem 0;
     box-sizing: border-box;
+  }
+  .navegacion :global(button) {
+    padding: calc(var(--theme-botones-primario-espacio) * 1.5)
+      calc(var(--theme-botones-primario-espacio) * 2.5);
+  }
+  .regresa :global(button .iconoContenedor) {
+    order: -1;
+  }
+  .respuesta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .respuesta :global(h1) {
+    margin: 0.5rem 0;
   }
 </style>
 
@@ -266,8 +292,11 @@
       <header class="pasos">
         <nav>
           {#each pasos as paso, i (paso)}
-            <button class="botonPaso {pasoActual >= i ? "activo" : ""}" on:click={() => cambiarPaso(i)}>
-              {pasoActual == i ? (i + 1) + ' . ' + paso.textoPaso : i + 1}
+            <button
+              class="botonPaso {pasoActual > i ? 'pasado' : ''}
+              {pasoActual == i ? 'actual' : ''}"
+              on:click={() => cambiarPaso(i)}>
+              {pasoActual == i ? i + 1 + ' . ' + paso.textoPaso : i + 1}
             </button>
           {/each}
         </nav>
@@ -305,47 +334,44 @@
     </div>
 
     {#if Array.isArray(pasos)}
-
       <section class="navegacion">
 
-        <div>
+        <div class="regresa">
           {#if pasoActual > 0}
             <BotonIcono
               texto={'Regresa'}
-              icono={'flechaIzquierda'}
+              icono={'irIzquierda'}
               click={regresar} />
           {/if}
         </div>
 
-        <div>
+        <div class="avanza">
           {#if pasoActual < pasos.length - 1}
             <BotonIcono
               texto={'Siguiente'}
-              icono={'flechaDerecha'}
+              icono={'irDerecha'}
               click={avanzar} />
           {/if}
         </div>
 
       </section>
-    
     {/if}
-
   {:else}
+    <section class="respuesta">
+      {#if typeof respuesta == 'string'}
+        <Aviso texto={respuesta} />
+      {/if}
 
-    {#if typeof respuesta == 'string'}
-      <Aviso texto={respuesta} />
-    {/if}
+      {#if typeof respuesta == 'object'}
+        <Titulo texto={respuesta.titulo} nivel={1} />
+        <Parrafo texto={respuesta.texto} nivel={1} />
+      {/if}
 
-    {#if typeof respuesta == 'object'}
-      <Titulo texto={respuesta.titulo} nivel={1} />
-      <Parrafo texto={respuesta.texto} nivel={1} />
-    {/if}
-      
-    {#if respuesta instanceof Error}
-      <Titulo texto={"Error"} nivel={1} />
-      <Parrafo texto={respuesta.message} />
-    {/if}
-
+      {#if respuesta instanceof Error}
+        <Titulo texto={'Error'} nivel={1} />
+        <Parrafo texto={respuesta.message} />
+      {/if}
+    </section>
   {/if}
 
 </section>
