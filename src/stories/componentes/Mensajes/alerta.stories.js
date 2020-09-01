@@ -12,8 +12,15 @@ export const alertaDefault = () => ({
             // tipo: "accion",
             titulo: "Titulo de alerta acción",
             contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
+            acciones: [{
+                    texto: "Cancelar",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Guardar",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
         }
     }
 });
@@ -27,8 +34,15 @@ export const alertaInformacion = () => ({
             tipo: "informacion",
             titulo: "Titulo de alerta información",
             contenido: 'Texto con un <a href="#">link información</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
+            acciones: [{
+                    texto: "Acción 1",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Acción 2",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
         }
     }
 });
@@ -41,8 +55,15 @@ export const alertaExito = () => ({
             tipo: "exito",
             titulo: "Titulo de alerta éxito",
             contenido: 'Texto con un <a href="#">link éxito</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
+            acciones: [{
+                    texto: "Acción 1",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Acción 2",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
         }
     }
 });
@@ -55,8 +76,15 @@ export const alertaAviso = () => ({
             tipo: "aviso",
             titulo: "Titulo de alerta aviso",
             contenido: 'Texto con un <a href="#">link aviso</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
+            acciones: [{
+                    texto: "Acción 1",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Acción 2",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
         }
     }
 });
@@ -69,8 +97,15 @@ export const alertaAlerta = () => ({
             tipo: "alerta",
             titulo: "Titulo de alerta alerta",
             contenido: 'Texto con un <a href="#">link alerta</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
+            acciones: [{
+                    texto: "Acción 1",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Acción 2",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
         }
     }
 });
@@ -83,8 +118,15 @@ export const alertaAccion = () => ({
             tipo: "accion",
             titulo: "Titulo de alerta acción",
             contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
+            acciones: [{
+                    texto: "Cancelar",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Guardar",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
         }
     }
 });
@@ -97,8 +139,10 @@ export const alertaSinAccionUno = () => ({
             tipo: "accion",
             titulo: "Titulo de alerta sin botones",
             contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
-            accion_2: () => { console.log("Accion 2") }
-
+            acciones: [{
+                texto: "Cancelar",
+                accion: () => console.log("Cancelado"),
+            }]
         }
     }
 });
@@ -111,7 +155,31 @@ export const alertaSinAccionDos = () => ({
             tipo: "accion",
             titulo: "Titulo de alerta sin botones",
             contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
+            acciones: [{
+                    texto: "Cancelar",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Guardar",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
+        }
+    }
+});
+export const alertaVertical = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Alerta,
+        datos: {
+            estado: true,
+            apariencia: "vertical",
+            titulo: "Titulo de alerta acción",
+            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
+            acciones: [{
+                texto: "Guardar",
+                accion: () => console.log("Guardado"),
+            }]
         }
     }
 });
@@ -156,24 +224,19 @@ export const alertaSinTextos = () => ({
         datos: {
             estado: true,
             tipo: "accion",
+            acciones: [{
+                    texto: "Cancelar",
+                    accion: () => console.log("Cancelado"),
+                },
+                {
+                    texto: "Guardar",
+                    accion: () => console.log("Guardado"),
+                }
+            ]
         }
     }
 });
 
-export const alertaVertical = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Alerta,
-        datos: {
-            estado: true,
-            apariencia: "vertical",
-            titulo: "Titulo de alerta acción",
-            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
-            accion_1: () => { console.log("Accion 1") },
-            accion_2: () => { console.log("Accion 2") }
-        }
-    }
-});
 export const alertaNoExiste = () => ({
     Component: ThemeTester,
     props: {

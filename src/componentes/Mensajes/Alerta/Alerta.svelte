@@ -6,13 +6,14 @@
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
 
-  export let apariencia = "horizontal";//Vertical
+  export let apariencia = "horizontal"; //Vertical
   export let estado = "";
   export let tipo = "";
   export let titulo = "";
   export let contenido = "";
   export let accion_1 = console.log("Accion1");
   export let accion_2 = console.log("Accion2");
+  export let acciones;
 
   let tipos = ["informacion", "exito", "aviso", "alerta", "accion"];
 
@@ -122,22 +123,11 @@
     height: 1.25rem;
     width: auto;
   }
-  .BotonAccion1,
-  .BotonAccion2 {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    margin: 0 var(--theme-espaciados-margen);
-  }
-  .BotonAccion1 :global(button) {
+  .Acciones :global(button) {
     background-color: var(--theme-botones-alerta-uno-fondo);
     border: 1px solid var(--theme-botones-alerta-uno-borde);
     color: var(--theme-botones-alerta-uno-texto);
-  }
-  .BotonAccion2 :global(button) {
-    background-color: var(--theme-botones-alerta-dos-fondo);
-    border: 1px solid var(--theme-botones-alerta-dos-borde);
-    color: var(--theme-botones-alerta-dos-texto);
+    margin-right: var(--theme-espaciados-margen);
   }
   .informacion {
     background-color: var(--theme-alertas-informacion);
@@ -180,12 +170,16 @@
 </style>
 
 {#if !!estado}
-  <section class="{clases} {apariencia == "vertical" ? "vertical" : ""}" transition:fade>
+  <section
+    class="{clases}
+    {apariencia == 'vertical' ? 'vertical' : ''}"
+    transition:fade>
 
-    <div class="Informacion {apariencia == "vertical" ? "verticalInformacion" : ""}">
+    <div
+      class="Informacion {apariencia == 'vertical' ? 'verticalInformacion' : ''}">
       <Icono {icono} />
 
-      <div class="Textos {apariencia == "vertical" ? "verticalTextos" : ""}">
+      <div class="Textos {apariencia == 'vertical' ? 'verticalTextos' : ''}">
         {#if !!titulo}
           <Titulo texto={titulo} nivel={4} />
         {/if}
@@ -195,21 +189,20 @@
       </div>
     </div>
 
-    <div class="Acciones {apariencia == "vertical" ? "verticalAcciones" : ""}">
-      {#if !!accion_1}
-        <div class="BotonAccion1" transition:fade>
-          <BotonSecundario texto={'Alerta 1'} click={accion_1} />
-        </div>
+    <div class="Acciones {apariencia == 'vertical' ? 'verticalAcciones' : ''}">
+      {#if Array.isArray(acciones) && acciones.length > 0}
+        {#each acciones as accion (accion)}
+          {#if typeof accion.accion == 'function'}
+            <Boton texto={accion.texto} click={accion.accion} />
+          {/if}
+        {/each}
       {/if}
-      {#if !!accion_2}
-        <div class="BotonAccion2" transition:fade>
-          <Boton texto={'Alerta 2'} click={accion_2} />
-        </div>
-      {/if}
-
-      <div class="Cerrar {apariencia == "vertical" ? "verticalCerrar" : ""}" on:click={cerrar}>
+      <div
+        class="Cerrar {apariencia == 'vertical' ? 'verticalCerrar' : ''}"
+        on:click={cerrar}>
         <Icono icono={'cerrar'} />
       </div>
     </div>
+
   </section>
 {/if}
