@@ -1,7 +1,6 @@
 import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import Ingreso from '../../../../componentes/formularios/Ingreso/Ingreso.svelte';
 
-const enviar = () => console.log("Ingreso enviado");
 
 export default { title: 'Componentes/Formularios/Ingreso' }
 
@@ -35,7 +34,9 @@ let campos = [{
         valorInicial: '',
         ejemplo: '***********',
     },
-]
+];
+
+const enviar = () => console.log("Ingreso enviado");
 
 export const ingresoDefault = () => ({
     Component: ThemeTester,
