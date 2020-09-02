@@ -19,6 +19,7 @@
   export let seleccionar;
   export let eventos;
   export let configuracion;
+  export let fecha;
 
   let seleccionActual = {}
   let seleccionActualValor
@@ -37,13 +38,12 @@
   const selecciones = {
       mes: () => {
         // seleccionarMesActual(?)
-        seleccionar && seleccionar.mes(fecha.set("date", 1).toDate());
+        seleccionar && seleccionar.mes(fechaLocal.set("date", 1).toDate());
       },
       dia: i => {
         seleccionarDiaActual(i);
         setTimeout(()=>{
-          console.log({"dia actual": i, diaActual, fecha: fecha.format("DDMMYY"), date: fecha.toDate()});
-          seleccionar(fecha.toDate())
+          seleccionar(fechaLocal.toDate())
         })
       },
   }
@@ -71,27 +71,29 @@
   };
 
 
-  console.log("Crear Calendario");
 
   let annoActual = moment().year();
   let mesActual = moment().month();
   let semanaActual = moment().week();
   let diaActual = moment().date();
 
+  const recibirFecha = fecha => {
+    annoActual = moment(fecha).year();
+    mesActual = moment(fecha).month();
+    diaActual = moment(fecha).date();
 
+    // TODO: Actualmente solamente soporta Calendario mes:
+    seleccionActualValor = diaActual
 
-  $: fecha = moment({
+  }
+
+  $: recibirFecha(fecha)
+
+  $: fechaLocal = moment({
     year: annoActual,
     month: mesActual,
     day: diaActual
   });
-
-  $:console.log( "fecha",
-    fecha.format("DD/MM/YY"),
-    annoActual,
-    mesActual,
-    diaActual
-  );
 
 
   $: vistaMostrar = {
@@ -112,7 +114,7 @@
       componente: CalendarioAnno,
       data: {
         // accion: seleccionarAnnoActual,
-        fecha,
+        fecha: fechaLocal,
         eventos
       }
     },
@@ -120,11 +122,11 @@
       clave: "mes",
       nombre: "Mes",
       componente: CalendarioMes,
-      calcularTitulo: fecha => fecha.format('MMMM YYYY'),
-      seleccionar: i=>seleccionarDiaActual(i),
+      calcularTitulo: fecha => fechaLocal.format('MMMM YYYY'),
+      seleccionar: configuracion && configuracion.acciones.seleccionar.mes && (i=>seleccionarMesActual(i)),
       data: {
         // accion: seleccionarMesActual,
-        fecha,
+        fecha: fechaLocal,
         seleccionar: configuracion.acciones.seleccionar.dia && selecciones.dia,
         eventos
       }
@@ -135,7 +137,7 @@
       componente: CalendarioSemana,
       data: {
         accion: seleccionar,
-        fecha,
+        fecha: fechaLocal,
         eventos
       }
     },
@@ -146,7 +148,7 @@
       seleccionar: configuracion.acciones.seleccionar.dia && selecciones.dia,
       data: {
         accion: seleccionar,
-        fecha,
+        fecha: fechaLocal,
         eventos
       }
     }
@@ -158,7 +160,6 @@
     anterior: {
       nombre: "Anterior",
       accion: () => {
-        console.log("anterior!");
         switch (vistaMostrar.clave) {
           case "anno":
             annoActual--;
@@ -190,7 +191,6 @@
     siguiente: {
       nombre: "Siguiente",
       accion: () => {
-        console.log("siguiente!");
         switch (vistaMostrar.clave) {
           case "anno":
             annoActual++;
@@ -226,7 +226,6 @@
 
   // const llamarAccion = (inicio, final) => {
 
-  //   console.log("llamarAccion");
 
   //   if (typeof seleccionar == "function") {
   //     let inicio = moment({
@@ -351,7 +350,7 @@
         {/each}
         </ul>
     </nav> -->
-  {#if !!fecha && vistaMostrar}
+  {#if !!fechaLocal && vistaMostrar}
     <div class="Vista">
       <!-- <header>
 
@@ -372,10 +371,10 @@
             </header> -->
 
       <CalendarioCabecera
-        titulo={vistaMostrar.calcularTitulo(fecha)}
+        titulo={vistaMostrar.calcularTitulo(fechaLocal)}
         vista={vistaMostrar.nombre}
         seleccionar={vistaMostrar.seleccionar}
-        rango={fecha.format('MMMM')}
+        rango={fechaLocal.format('MMMM')}
         anterior={pasos.anterior.accion}
         siguiente={pasos.siguiente.accion} />
 

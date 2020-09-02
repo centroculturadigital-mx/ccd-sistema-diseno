@@ -38,7 +38,6 @@
   }
 
   const cambiarAccion = (v) => {
-    console.log("deberiaCambiar",v);
     if (typeof cambiar == "function") {
       if( ! enfocado ) {
         cambiar(v);

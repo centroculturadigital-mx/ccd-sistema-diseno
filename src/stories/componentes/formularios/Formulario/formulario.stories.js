@@ -5,6 +5,8 @@ import Formulario from '../../../../componentes/formularios/Formulario/Formulari
 import campos from "../../../../data/campos/";
 import pasos from "../../../../data/pasos";
 
+import moment from "moment"
+
 export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
 }
@@ -123,14 +125,16 @@ export const formularioCalendario = () => ({
                 tipo: 'fecha',
                 nombre: 'ccd-sd-fecha',
                 requerido: true,
-                etiqueta: 'Fecha',
+                etiqueta: 'Fecha: Selecciona el 31 de diciembre del 2020',
                 valorInicial: '',            
                 validacion: (valor) => {
-                    console.log("Validación fecha", valor);
+                    
+                    const mismoDia = moment(valor).isSame(moment("12/31/2020"),"month");
+                    
                     return {
-                        valido: true,
-                        error: null,
-                        estado: "ok"
+                        valido: mismoDia,
+                        error: mismoDia ? false : new Error("No es el día solicitado"),
+                        estado: ! valor ? "" : mismoDia ? "ok" : "error"
                     }
                 
                 }

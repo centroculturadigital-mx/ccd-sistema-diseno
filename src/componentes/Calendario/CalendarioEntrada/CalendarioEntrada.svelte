@@ -43,11 +43,20 @@
 
 
   const seleccionar = fecha => {
-    console.log('seleccionar',fecha);
     cambiarInputOculto(fecha.toISOString())
     cambiar(fecha.toISOString())
   };
 
+
+
+  const configuracion = {
+    acciones: {
+        seleccionar: {
+            dia: true,
+            mes: false,
+        }
+    }
+  }
 
 
 
@@ -59,7 +68,7 @@
   }
 </style>
 
-<Calendario {seleccionar}/>
+<Calendario {seleccionar} {configuracion} fecha={value}/>
 
 
 
@@ -69,4 +78,5 @@
 bind:this={inputOculto} 
 on:focus={()=>enfocarAccion()}
 on:focusout={()=>desenfocarAccion()}
+bind:value={value}
 type="text" class="oculto">
