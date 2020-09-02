@@ -78,6 +78,16 @@ export const entradaTelefono = () => ({
         }
     },
 });
+export const entradaArchivo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Entrada,
+        datos: {
+            ejemplo: 'Sube un archivo',
+            tipo: "archivo",
+        }
+    },
+});
 export const entradaCalendario = () => ({
     Component: ThemeTester,
     props: {
