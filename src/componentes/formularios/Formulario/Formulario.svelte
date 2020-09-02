@@ -283,6 +283,18 @@
   .respuesta :global(h1) {
     margin: 0.5rem 0;
   }
+  .error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .error :global(p span) {
+    color: var(--theme-alertas-error);
+  }
 </style>
 
 <section class="Formulario">
@@ -368,8 +380,10 @@
       {/if}
 
       {#if respuesta instanceof Error}
-        <Titulo texto={'Error'} nivel={1} />
-        <Parrafo texto={respuesta.message} />
+        <div class="error">
+          <Titulo texto={'Error'} nivel={1} />
+          <Parrafo texto={respuesta.message} />
+        </div>
       {/if}
     </section>
   {/if}
