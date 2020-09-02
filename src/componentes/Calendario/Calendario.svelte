@@ -41,10 +41,10 @@
       },
       dia: i => {
         seleccionarDiaActual(i);
-        // setTimeout(()=>{
-          console.log({"dia actual": i, diaActual, fecha: fecha.format("DDMMYY")});
-        seleccionar(fecha.toDate())
-        // })
+        setTimeout(()=>{
+          console.log({"dia actual": i, diaActual, fecha: fecha.format("DDMMYY"), date: fecha.toDate()});
+          seleccionar(fecha.toDate())
+        })
       },
   }
 
@@ -70,6 +70,9 @@
     seleccionActual = null
   };
 
+
+  console.log("Crear Calendario");
+
   let annoActual = moment().year();
   let mesActual = moment().month();
   let semanaActual = moment().week();
@@ -82,6 +85,13 @@
     month: mesActual,
     day: diaActual
   });
+
+  $:console.log( "fecha",
+    fecha.format("DD/MM/YY"),
+    annoActual,
+    mesActual,
+    diaActual
+  );
 
 
   $: vistaMostrar = {

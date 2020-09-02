@@ -126,7 +126,7 @@ export const formularioCalendario = () => ({
                 etiqueta: 'Fecha',
                 valorInicial: '',            
                 validacion: (valor) => {
-                    console.log("Validación fecha");
+                    console.log("Validación fecha", valor);
                     return {
                         valido: true,
                         error: null,
