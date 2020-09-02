@@ -3,6 +3,7 @@ import FormularioTester from '../../../../componentes/formularios/Formulario/For
 import Formulario from '../../../../componentes/formularios/Formulario/Formulario.svelte';
 
 import campos from "../../../../data/campos/";
+import campoFecha from "../../../../data/campos/fecha";
 import pasos from "../../../../data/pasos";
 
 import moment from "moment"
@@ -121,24 +122,7 @@ export const formularioCalendario = () => ({
     props: {
         componente: FormularioTester,
         datos: {
-            campos: [{
-                tipo: 'fecha',
-                nombre: 'ccd-sd-fecha',
-                requerido: true,
-                etiqueta: 'Fecha: Selecciona el 31 de diciembre del 2020',
-                valorInicial: '',            
-                validacion: (valor) => {
-                    
-                    const mismoDia = moment(valor).isSame(moment("12/31/2020"),"month");
-                    
-                    return {
-                        valido: mismoDia,
-                        error: mismoDia ? false : new Error("No es el día solicitado"),
-                        estado: ! valor ? "" : mismoDia ? "ok" : "error"
-                    }
-                
-                }
-            }],
+            campos: [campoFecha],
             enviar: enviarConTiempo
         }
     },

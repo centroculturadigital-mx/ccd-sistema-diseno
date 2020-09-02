@@ -1,21 +1,20 @@
-const validacion = (valor) => {
-
-    return {
-        valido: true,
-        error: false ?
-            new Error("No cars. espec.") : null,
-        estado: true ? "" : caracteresEspeciales.test(valor) ?
-        // estado: !valor ? "" : caracteresEspeciales.test(valor) ?
-            "error" :  "ok"
-    }
-    
-}
+import moment from "moment"
 
 export default {
     tipo: 'fecha',
     nombre: 'ccd-sd-fecha',
     requerido: true,
-    etiqueta: 'Fecha',
-    valorInicial: '',
-    validacion
+    etiqueta: 'Fecha: Selecciona el 31 de diciembre del 2020',
+    valorInicial: '',            
+    validacion: (valor) => {
+        
+        const mismoDia = moment(valor).isSame(moment("12/31/2020"),"month");
+        
+        return {
+            valido: mismoDia,
+            error: mismoDia ? false : new Error("No es el día solicitado"),
+            estado: ! valor ? "" : mismoDia ? "ok" : "error"
+        }
+    
+    }
 }

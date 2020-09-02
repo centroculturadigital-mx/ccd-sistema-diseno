@@ -16,6 +16,6 @@ export default [
     campoEmail,
     campoFecha,
     campoContrasenna,
-    campoArchivo,
+    // campoArchivo,
     campoTelefono,
 ]
