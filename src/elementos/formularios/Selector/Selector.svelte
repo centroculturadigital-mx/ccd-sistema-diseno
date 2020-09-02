@@ -30,10 +30,12 @@
     color: var(--theme-campos-color);
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
-    padding: calc(var(--theme-campos-espacio) * 1.67);
+    padding: calc(var(--theme-campos-espacio) * 2) calc(var(--theme-campos-espacio) * 1.5);
     margin-top: var(--theme-espaciados-margen);
     margin-bottom: var(--theme-espaciados-margen);
     min-height: 2rem;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .Selector:focus,
