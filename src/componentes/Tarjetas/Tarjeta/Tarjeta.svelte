@@ -77,7 +77,8 @@
   .TarjetaChicaImagen {
     position: absolute;
     top: 0;
-    height: 100% !important;
+    height: auto !important;
+    width: 100%;
     left: 0;
     z-index: 0;
   }
@@ -194,16 +195,23 @@
   .Pleca {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     position: absolute;
     top: 2rem;
     left: 0;
-    padding: calc(var(--theme-espaciados-padding) / 2)
-      var(--theme-espaciados-padding);
-    max-width: 66%;
+    width: 100%;
     box-sizing: border-box;
     color: #000;
     fill: currentColor;
+  }
+  .PlecaContenido {
+    display: flex;
+    padding: calc(var(--theme-espaciados-padding) / 2)
+      calc(var(--theme-espaciados-padding) * 2);
+  }
+  .PlecaContenido :global(span) {
+    display: flex;
+    align-items: center;
   }
   .Pleca :global(.iconoContenedor > *) {
     height: 1.5rem !important;
@@ -218,7 +226,7 @@
     letter-spacing: 5%;
     font-weight: normal;
     line-height: 1.5;
-    width: 100%;
+    width: auto;
   }
   .Pleca .Textos {
     background-color: transparent;
@@ -260,35 +268,42 @@
               class="{aparienciaEstilo} enlazado"
               {...linkTarget}
               href={enlace}>
-              <Imagen {imagen} alt={nombre} ajuste="cover" />
+              <Imagen {imagen} alt={nombre} estilos={{ ajuste: 'cover' }} />
             </a>
           {:else}
-            <Imagen {imagen} alt={nombre} ajuste="cover" />
+            <Imagen {imagen} alt={nombre} estilos={{ ajuste: 'cover' }} />
           {/if}
         </div>
       {/if}
 
       {#if typeof pleca == 'object'}
-        <div class="Pleca {!imagen ? "noImagen" : ""}" style={`background-color: ${colorFondoPleca}`}>
-          {#if !!pleca.texto}
-            <Texto
-              texto={pleca.texto}
-              variante="COMPACTO"
-              css={{ color: colorTextoPleca }} />
-          {/if}
-          {#if Array.isArray(pleca.textos)}
-            <ul class="Textos">
-              {#each pleca.textos as texto}
-                <Texto
-                  {texto}
-                  variante="COMPACTO"
-                  css={{ color: colorTextoPleca }} />
-              {/each}
-            </ul>
-          {/if}
-          {#if !!pleca.icono}
-            <Icono icono={pleca.icono} color={colorTextoPleca} />
-          {/if}
+        <div
+          class="Pleca {!imagen ? 'noImagen' : ''}">
+
+          <div
+            class="PlecaContenido"
+            style={`background-color: ${colorFondoPleca}`}>
+            {#if !!pleca.texto}
+              <Texto
+                texto={pleca.texto}
+                variante="COMPACTO"
+                css={{ color: colorTextoPleca }} />
+            {/if}
+            {#if Array.isArray(pleca.textos)}
+              <ul class="Textos">
+                {#each pleca.textos as texto}
+                  <Texto
+                    {texto}
+                    variante="COMPACTO"
+                    css={{ color: colorTextoPleca }} />
+                {/each}
+              </ul>
+            {/if}
+            {#if !!pleca.icono}
+              <Icono icono={pleca.icono} color={colorTextoPleca} />
+            {/if}
+          </div>
+
         </div>
       {/if}
 
