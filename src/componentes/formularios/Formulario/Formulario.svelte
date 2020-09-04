@@ -34,7 +34,6 @@
 
   let pasoActual = 0;
 
-  $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
 
   const computarCampos = (campos, datos) => {
 
@@ -83,14 +82,14 @@
 
 
   $: todosLosCampos = Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos)?[...a,...p.campos]:a,[]) : campos
-  $: todosLosCampos = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, datos) : []
+  $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, datos) : []
 
   
   $: hayErrores =
-    !todosLosCampos || todosLosCampos.filter(c => !!c.error).length > 0;
+    !camposMostrar || camposMostrar.filter(c => !!c.error).length > 0;
 
   $: hayRequeridosVacios =
-    todosLosCampos.filter(c => !!c.requerido).filter(cR => !datos[cR.nombre])
+    camposMostrar.filter(c => !!c.requerido).filter(cR => !datos[cR.nombre])
       .length > 0;
 
   const enviarFuncion = () => {
