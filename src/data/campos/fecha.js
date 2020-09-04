@@ -8,7 +8,7 @@ export default {
     valorInicial: '',            
     validacion: (valor) => {
         
-        const mismoDia = moment(valor).isSame(moment("12/31/2020"),"month");
+        const mismoDia = moment(valor).isSame(moment("12/31/2020"),"day");
         
         return {
             valido: mismoDia,

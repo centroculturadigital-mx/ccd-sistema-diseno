@@ -1,24 +1,11 @@
+import campoEmail from "../data/campos/email"
+import campoFecha from "../data/campos/fecha"
+
 export default [{
         titulo: "Título primer paso",
         texto: "Por favor introduce una fecha",
         textoPaso: "Paso uno",
-        campos: [{
-            tipo: "fecha",
-            nombre: 'Calendario',
-            requerido: true,
-            etiqueta: '',
-            ejemplo: '',
-            valorInicial: '',
-            seleccionar: {
-                dia: fecha => console.log("dia", fecha),
-                semana: fecha => console.log("semana", fecha),
-                mes: fecha => console.log("mes", fecha),
-                anno: fecha => console.log("año", fecha),
-            },
-            validacion: (valor) => {
-                console.log("Validación fecha", valor);
-            }
-        }],
+        campos: [campoFecha],
 
     },
     {
@@ -62,25 +49,7 @@ export default [{
                     }
                 }
             },
-            {
-                tipo: 'email',
-                nombre: 'correo',
-                requerido: true,
-                etiqueta: 'Correo electrónico',
-                ejemplo: '',
-                valorInicial: '',
-                validacion: (valor) => {
-                    let caracteresEspeciales = new RegExp("[!#$%^&*()+={};':|,<>/?]"); //solo acepta guion medio y bajo
-
-                    return {
-                        valido: !caracteresEspeciales.test(valor),
-                        error: caracteresEspeciales.test(valor) ?
-                            new Error("No cars. espec.") : null,
-                        estado: caracteresEspeciales.test(valor) ?
-                            "error" : !valor ? "" : "ok"
-                    }
-                }
-            }
+            campoEmail
         ],
 
     },
@@ -92,57 +61,43 @@ export default [{
                 tipo: "numero",
                 nombre: 'ninnos',
                 requerido: false,
-                etiqueta: 'Niños (18 -)',
+                etiqueta: 'Introduce un número',
                 ejemplo: '0',
                 valorInicial: 0,
                 minimo: 0,
                 maximo: 100,
-                validacion: (valor) => console.log("Validación fecha", valor)
-            },
-            {
-                tipo: "numero",
-                nombre: 'adultos',
-                requerido: false,
-                etiqueta: 'Adultos (18 +)',
-                ejemplo: '0',
-                valorInicial: 0,
-                minimo: 0,
-                maximo: 100,
-                validacion: (valor) => console.log("Validación fecha", valor)
-            },
-            {
-                tipo: "numero",
-                nombre: 'mayores',
-                requerido: false,
-                etiqueta: 'Adultos mayores (60 +)',
-                ejemplo: '0',
-                valorInicial: 0,
-                minimo: 0,
-                maximo: 100,
-                validacion: (valor) => console.log("Validación fecha", valor)
-            },
-            {
-                tipo: "numero",
-                nombre: 'discapacidad',
-                requerido: false,
-                etiqueta: 'Personas con discapacidad',
-                ejemplo: '0',
-                valorInicial: 0,
-                minimo: 0,
-                maximo: 100,
-                validacion: (valor) => console.log("Validación fecha", valor)
-            },
-            {
-                tipo: "numero",
-                nombre: 'discapacidad',
-                requerido: false,
-                etiqueta: '¿Necesitas sillas de ruedas?',
-                ejemplo: '0',
-                valorInicial: 0,
-                minimo: 0,
-                maximo: 100,
-                validacion: (valor) => console.log("Validación fecha", valor)
-            },
+                validacion: (valor) => {
+
+
+                    if (typeof valor == "number" ) {
+                        return {
+                            valido: true,
+                            estado: "ok",
+                        }
+                    }
+
+                    if (!typeof valor == "number" ) {
+                        return {
+                            valido: false,
+                            estado: "error",
+                            error: new Error("Números, por favor")
+                        }
+                    }
+            
+                    if (!valor) {
+                        return {
+                            valido: true,
+                            estado: ""
+                        }
+                    }
+            
+                    return {
+                        valido: false,
+                        estado: "error",
+                        error: new Error("Por favor introduce un número")
+                    }
+                }
+            }
         ],
 
     },

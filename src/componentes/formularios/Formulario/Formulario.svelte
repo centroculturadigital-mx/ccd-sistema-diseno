@@ -37,6 +37,7 @@
   $: camposMostrar = Array.isArray(campos) ? computarCampos(campos, datos) : [];
 
   const computarCampos = (campos, datos) => {
+
     const camposPreparados = campos
       .map(c => {
         if (revisarCampo(c)) {
@@ -78,11 +79,18 @@
     }
   };
 
+
+
+
+  $: todosLosCampos = Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos)?[...a,...p.campos]:a,[]) : campos
+  $: todosLosCampos = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, datos) : []
+
+  
   $: hayErrores =
-    !camposMostrar || camposMostrar.filter(c => !!c.error).length > 0;
+    !todosLosCampos || todosLosCampos.filter(c => !!c.error).length > 0;
 
   $: hayRequeridosVacios =
-    camposMostrar.filter(c => !!c.requerido).filter(cR => !datos[cR.nombre])
+    todosLosCampos.filter(c => !!c.requerido).filter(cR => !datos[cR.nombre])
       .length > 0;
 
   const enviarFuncion = () => {
