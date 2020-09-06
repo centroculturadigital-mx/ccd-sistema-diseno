@@ -7,9 +7,9 @@
 
 <style>
 .Avatar {
-    border-radius: 5rem;
-    height: 1.75rem;
-    width: 1.75rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
     overflow: hidden;
 }
 </style>

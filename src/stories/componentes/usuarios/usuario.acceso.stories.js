@@ -8,8 +8,14 @@ export const usuarioAccesoDefault = () => ({
     props: {
         componente: UsuarioAcceso,
         datos: {
-            imagen: "https://fakeimg.pl/64x64?text=A",
-            nombre: "Usaurio"
+            imagen: "https://place-hold.it/64x64",
+            nombre: "Usaurio",
+            menu: [
+                {
+                    texto: "Menu 1",
+                    enlace: "/menu1",
+                }
+            ]
         }
     }
 });
