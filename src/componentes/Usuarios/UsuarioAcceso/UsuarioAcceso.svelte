@@ -5,6 +5,7 @@
 
   export let imagen = "";
   export let nombre = "";
+  export let slug = "";
   export let menu = [];
 </script>
 
@@ -35,8 +36,10 @@
 </style>
 
 <section class="UsuarioAcceso">
+
   <Texto texto={nombre} variante="SECUNDARIO"/>
-  <Avatar {imagen} {nombre} />
+
+  <Avatar {imagen} {nombre} {slug}/>
 
 {#if Array.isArray(menu) && menu.length>0}
 

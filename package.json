@@ -30,6 +30,7 @@
         "npm": "^6.14.5",
         "rollup-plugin-svg-import": "^1.4.0",
         "sirv-cli": "^0.4.4",
+        "storybook": "^6.0.21",
         "svelte-feather-icons": "^3.2.2",
         "svg-inline-loader": "^0.8.2"
     }
