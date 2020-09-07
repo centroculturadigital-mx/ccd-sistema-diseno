@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import MensajeReacciones from '../../../componentes/Mensajeria/MensajeReacciones/MensajeReacciones.svelte';
 
-export default { title: "Componentes/Mensajeria/MensajeReacciones" }
+export default { title: "Componentes/Mensajeria/Chat/MensajeReacciones" }
 
 import mensajes from '../../../data/mensajes';
 

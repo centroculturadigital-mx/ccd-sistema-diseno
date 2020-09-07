@@ -8,7 +8,7 @@ import imagen from '../../../data/recursos/placeholder.png';
 import reacciones from '../../../data/reacciones';
 import mensajes from '../../../data/mensajes';
 
-export default { title: "Componentes/Mensajeria/ChatMensaje" }
+export default { title: "Componentes/Mensajeria/Chat/ChatMensaje" }
 
 const mensaje = mensajes[0]
 
@@ -53,7 +53,7 @@ export const chatMensajeObjetoConReacciones = () => ({
                     datos
                 }
             },
-            
+
         }
     }
 });

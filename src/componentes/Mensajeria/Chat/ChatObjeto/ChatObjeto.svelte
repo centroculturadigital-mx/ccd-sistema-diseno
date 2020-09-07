@@ -6,8 +6,8 @@
 <style>
   .ChatObjeto {
     display: flex;
-    height: 6rem;
-    background-color: var(--theme-alertas-inactivo);
+    min-height: 6rem;
+    padding: var(--theme-espaciados-padding);
     width: 100%;
     box-sizing: border-box;
   }
