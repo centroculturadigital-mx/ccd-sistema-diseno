@@ -34,7 +34,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: var(--theme-espaciados-padding);
-    margin: var(--theme-espaciados-margen) 0;
     height: auto;
     width: 100%;
   }
@@ -66,15 +65,13 @@
   }
   .Boton {
     padding: var(--theme-espaciados-padding);
+    padding-top: 0;
     display: flex;
-    align-items: center;
-    flex-shrink: 0;
+    justify-content: center;
   }
-  .Boton :global(.Reacciones .iconoCOntenedor img) {
-    padding: calc(var(--theme-espaciados-padding) / 2);
-    height: 1rem;
-    width: 1rem;
-    box-sizing: border-box;
+  .Boton :global(.Reacciones .iconoContenedor svg) {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 </style>
 

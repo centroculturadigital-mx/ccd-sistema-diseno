@@ -12,8 +12,6 @@
       ...u
     }
   }));
-
-  $: console.log({ avatares });
 </script>
 
 
