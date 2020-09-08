@@ -70,13 +70,26 @@
     border-top-style: solid;
   }
   .ChatEntrada :global(button) {
+    transition: 0.25s;
     background-color: var(--theme-colores-fondo-transparente);
     padding: 0;
+    border: 0;
   }
-
-  .ChatEntrada :global(.iconoContenedor img) {
-    height: var(--theme-tamannos-lg);
-    color: var(--theme-textos-parrafo-neutro);
+  .ChatEntrada :global(button:hover) {
+    border: 0 !important;
+  }
+  .ChatEntrada :global(.iconoContenedor svg) {
+    height: 100%;
+    width: 100%;
+    fill: var(--theme-textos-parrafo-neutro);
+  }
+  .ChatEntrada :global(.iconoContenedor) {
+    margin: 0;
+    height: calc(var(--theme-tamannos-lg) * 1.5) !important;
+    width: calc(var(--theme-tamannos-lg) * 1.5) !important;
+  }
+  .ChatEntrada :global(button:hover svg) {
+    fill: var(--theme-colores-primario);
   }
 </style>
  

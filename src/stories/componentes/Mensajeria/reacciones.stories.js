@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Reacciones from '../../../componentes/Mensajeria/Reacciones/Reacciones.svelte';
 
-export default { title: "Componentes/Mensajeria/Reacciones" }
+export default { title: "Componentes/Mensajeria/Chat/Reacciones" }
 
 import reacciones from '../../../data/reacciones';
 
@@ -13,7 +13,7 @@ export const reaccionesDefault = () => ({
         datos: {
             reacciones,
             reaccionar: reaccion => console.log('reaccionaste', reaccion)
-            
+
         }
     }
 });

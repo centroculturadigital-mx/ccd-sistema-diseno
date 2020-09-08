@@ -3,17 +3,29 @@
 
   export let imagen;
   export let nombre;
+  export let slug;
 </script>
 
 <style>
-.Avatar {
-    border-radius: 5rem;
-    height: 1.75rem;
-    width: 1.75rem;
+  .Avatar {
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
     overflow: hidden;
-}
+  }
+  .Avatar a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .Avatar a:hover {
+    opacity: 0.75;
+  }
 </style>
 
 <div class="Avatar">
-  <Imagen {imagen} alt={nombre} />
+  <a href={slug ? slug : ""}>
+    <Imagen {imagen} alt={nombre} />
+  </a>
 </div>

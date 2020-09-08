@@ -8,72 +8,63 @@
   export let reaccionar;
 
   let estado = false;
-  let lista
+  let lista;
 
   let abrir = () => {
+    var rect = lista.getBoundingClientRect();
 
-    var rect = lista.getBoundingClientRect();  
-
-    console.log( "ventana",  );
-    
-    if( window.innerHeight - rect.bottom < 120 ) {
-      lista.style.top = -152 +"px"
+    if (window.innerHeight - rect.bottom < 120) {
+      lista.style.top = -152 + "px";
     }
-
 
     estado = !estado;
   };
 
   const reaccionarAccion = reaccion => {
-
-    if(typeof reaccionar == "function") {
-      reaccionar(reaccion)
+    if (typeof reaccionar == "function") {
+      reaccionar(reaccion);  
     }
     estado = !estado;
-    
   };
 
+  $: console.log( estado );
 </script>
 
 <style>
   .Reacciones {
     position: relative;
-    width: 16rem;
-    height: 12rem;
+    width: auto;
+    height: auto;
   }
-  .Reacciones:hover :global(img) {
+  .Reacciones:hover :global(.iconoContenedor) {
     opacity: 0.75;
   }
   .ReaccionesLista {
-    
-    width: 16rem;
-    height: auto;
-    max-height: 8rem;
-    
+    transition: 0.5s;
+    position: relative;
+    background-color: var(--theme-tarjetas-fondo);
     overflow-y: auto;
     overflow-x: hidden;
-
     position: absolute;
-    top: 3rem;
-    right: 14rem;
+    padding: 0;
+    top: 1.75rem;
+    right: 1.75rem;
     list-style-type: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: var(--theme-tarjetas-fondo);
-    padding: var(--theme-espaciados-padding);
     margin: 0;
+    height: auto;
+    max-height: 8rem;
+    width: 16rem;
     box-sizing: border-box;
+    z-index: -1;
   }
   .ReaccionesLista :global(img) {
     border-radius: 5rem;
   }
   li {
     position: relative;
-    /* display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 var(--theme-espaciados-margen); */
     cursor: pointer;
     margin: 0.125rem;
   }
@@ -82,9 +73,9 @@
     position: absolute;
     top: -2rem;
     left: -2.5rem;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     display: none;
-    padding: 0.125rem 0.125rem ;
+    padding: 0.125rem 0.125rem;
     text-align: center;
     border-radius: 0.5rem;
   }
@@ -98,22 +89,29 @@
   .ReaccionesLista li:hover {
     opacity: 0.75;
   }
+  .abierto {
+    padding: 0.5rem 0;
+    box-sizing: border-box;
+    z-index: 10000;
+  }
 </style>
 
 <div class="Reacciones">
+
   <Icono icono={'reaccion'} on:click={abrir} />
 
-    <ul bind:this={lista} class="ReaccionesLista" transition:fade>
-
-      {#if !!estado}
+    <ul bind:this={lista} class="ReaccionesLista {!!estado ? "abierto" : ""}" transition:fade>
+  {#if !!estado}
       {#each reacciones as reaccion (reaccion)}
         <li on:click={reaccionarAccion(reaccion)}>
-          <Imagen imagen={reaccion.imagen}/>
+          <Imagen imagen={reaccion.imagen} />
           <div class="Texto">
-            <Texto texto={reaccion.texto} css={{color:"white", "font-size": "0.75rem"}}/>
+            <Texto
+              texto={reaccion.texto}
+              css={{ color: 'white', 'font-size': '0.75rem' }} />
           </div>
         </li>
       {/each}
-      {/if}
+  {/if}
     </ul>
 </div>

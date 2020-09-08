@@ -22,7 +22,6 @@
     justify-content: flex-start;
     width: 100%;
   }
-
   li {
     background-color: var(--theme-tarjetas-fondo);
     display: flex;

@@ -1,6 +1,8 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import UsuarioAcceso from '../../../componentes/Usuarios/UsuarioAcceso/UsuarioAcceso.svelte';
 
+import usuario from "../../../data/usuario";
+
 export default { title: 'Componentes/Usuarios/UsuarioAcceso' }
 
 export const usuarioAccesoDefault = () => ({
@@ -8,8 +10,11 @@ export const usuarioAccesoDefault = () => ({
     props: {
         componente: UsuarioAcceso,
         datos: {
-            imagen: "https://fakeimg.pl/64x64?text=A",
-            nombre: "Usaurio"
+            ...usuario,
+            menu: [{
+                texto: "Menu 1",
+                enlace: "/menu1",
+            }]
         }
     }
 });
