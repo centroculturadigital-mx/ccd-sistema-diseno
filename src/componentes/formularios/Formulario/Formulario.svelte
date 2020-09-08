@@ -145,6 +145,10 @@
   };
 
   $: actualizarPantalla(pasoActual, camposMostrar);
+
+  $: clasesContenedor = Array.isArray(pasos) && pasos.length > 0 ? 'paso paso_' + pasoActual : ''
+
+
 </script>
 
 <style>
@@ -322,7 +326,7 @@
       </header>
     {/if}
 
-    <div class={'paso paso_' + pasoActual}>
+    <div class={clasesContenedor}>
       {#if !!pantallaActual.titulo}
         <Titulo texto={pantallaActual.titulo} nivel={1} />
       {/if}
