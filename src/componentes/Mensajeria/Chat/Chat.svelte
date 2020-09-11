@@ -9,12 +9,12 @@
   export let reaccionar = () => console.log("reaccionar");
   export let objetoAccion
 
-  const reaccionarAccion = () => {
+  const reaccionarAccion = (mensaje) => {
     if (mensaje && typeof reaccionar == "function") {
       reaccionar(mensaje);
     }
   };
-  const enviarAccion = () => {
+  const enviarAccion = (mensaje) => {
     if (mensaje && typeof enviar == "function") {
       enviar(mensaje);
     }
@@ -54,7 +54,7 @@
     {/if}
   </section>
   <section class="ChatEnviar">
-    <ChatEntrada {enviar} {enfocar}/>
+    <ChatEntrada enviar={enviarAccion} {enfocar}/>
   </section>
 
 </section>

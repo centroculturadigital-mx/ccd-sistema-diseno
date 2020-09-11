@@ -14,7 +14,7 @@
 
   let mensaje = "";
 
-  const enviarMensaje = (e) => {
+  const enviarMensaje = () => {
 
     if(contieneSoloEspacios(mensaje)) {
 
@@ -102,5 +102,5 @@
     on:focus={enfocar}
     on:keyup={enter} />
 
-  <BotonIcono icono={'enviar'} on:click={enviarMensaje} />
+  <BotonIcono icono={'enviar'} click={enviarMensaje} />
 </div>
