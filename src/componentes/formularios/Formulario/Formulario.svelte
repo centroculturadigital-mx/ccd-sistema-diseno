@@ -35,6 +35,8 @@
   let pasoActual = 0;
 
 
+  let ultimoCampoCambiado
+
   const computarCampos = (campos, datos) => {
 
     const camposPreparados = campos
@@ -45,8 +47,10 @@
           let campoPreparado = {
             ...c,
             valor,
+            ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => {
+              ultimoCampoCambiado = c
               cambiarCampo(v, c);
             }
           };

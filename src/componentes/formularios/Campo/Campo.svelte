@@ -14,6 +14,8 @@
   export let valor;
   export let validacion;
   export let cambiar;
+  
+  export let ultimo;
 
   
   
@@ -39,9 +41,9 @@
 
   const cambiarAccion = (v) => {
     if (typeof cambiar == "function") {
-      if( ! enfocado ) {
+      // if( ! enfocado ) {
         cambiar(v);
-      }
+      // }
     }
     
     if( valor && enfocado) {
@@ -111,10 +113,13 @@
       {opciones}
       {enfocar}
       {desenfocar}
+      {ultimo}
     />
 
     {#if error instanceof Error}
-      <Parrafo texto={error.message} />
+      <div class="error">
+        <Parrafo texto={error.message} />
+      </div>
     {/if}
 
 {/if}

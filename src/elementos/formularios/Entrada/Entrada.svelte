@@ -1,4 +1,5 @@
 <script>
+
   import Selector from "../Selector/Selector.svelte";
   import CalendarioEntrada from "../../../componentes/Calendario/CalendarioEntrada/CalendarioEntrada";
 
@@ -16,6 +17,10 @@
   export let nombre = "";
   export let valor;
   export let cambiar;
+  
+  export let ultimo;
+  
+  let cambiado;
 
   let valorLocal;
 
@@ -29,6 +34,7 @@
   // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
   // TODO : eliminar esto:
   const cambiarAccion = () => {
+    cambiado = true
     if (typeof cambiar == "function") {
       cambiar(valorLocal);
     }
@@ -38,19 +44,24 @@
   // $: cambiarValorDesdeFuera( valor )
 
 
-  const desenfocarAccion = (v) => {
-    if (typeof desenfocar == "function") {
-      desenfocar()
-    }
-    if (typeof cambiar == "function") {
-      cambiar(v || valorLocal);
+  const desenfocarAccion = () => {
+    if (cambiado) {
+      console.log("desenfocar");
+      if (typeof desenfocar == "function") {
+        desenfocar()
+      }
+      if (typeof cambiar == "function") {
+        cambiar(valorLocal);
+      }
+      cambiado = false
     }
   };
   
   const enfocarAccion = () => {
-    if (typeof enfocar == "function") {
-      enfocar()
-    }
+    cambiado = false
+    // if (typeof enfocar == "function") {
+    //   enfocar()
+    // }
   };
 
   $: clases = "Entrada" + (estado ? " " + estado : "");
@@ -87,6 +98,14 @@
         break;
     }
   };
+
+
+  const enfoque = async (el) => {
+    if( ultimo ) {
+      console.log("es ultimo", el);
+      el.focus()
+    }
+  }
 </script>
 
 <style>
@@ -128,7 +147,8 @@
     name={nombre}
     type="text"
     placeholder={ejemplo}
-    bind:value={valorLocal} />
+    bind:value={valorLocal}
+    use:enfoque/>
 {/if}
 
 {#if tipo == 'contrasenna'}
@@ -141,7 +161,8 @@
     name={nombre}
     type="password"
     placeholder={ejemplo}
-    bind:value={valorLocal} />
+    bind:value={valorLocal}
+    use:enfoque/>
 {/if}
 
 {#if tipo == 'email'}
@@ -154,7 +175,8 @@
     name={nombre}
     type="email"
     placeholder={ejemplo}
-    bind:value={valorLocal} />
+    bind:value={valorLocal}
+    use:enfoque/>
 {/if}
 
 {#if tipo == 'numero'}
@@ -169,7 +191,8 @@
     min={!!minimo ? minimo : ''}
     max={!!maximo ? maximo : ''}
     placeholder={ejemplo}
-    bind:value={valorLocal} />
+    bind:value={valorLocal}
+    use:enfoque/>
 {/if}
 
 {#if tipo == 'archivo'}
@@ -182,7 +205,8 @@
     name={nombre}
     type="file"
     placeholder={ejemplo}
-    bind:value={valorLocal} />
+    bind:value={valorLocal}
+    use:enfoque/>
 {/if}
 
 {#if tipo == 'telefono'}
@@ -195,7 +219,8 @@
     name={nombre}
     type="tel"
     placeholder={ejemplo}
-    bind:value={valorLocal} />
+    bind:value={valorLocal}
+    use:enfoque/>
 {/if}
 
 {#if tipo == 'textarea'}
@@ -207,12 +232,14 @@
     on:focus={()=>enfocarAccion()}
     name={nombre}
     placeholder={ejemplo}
-    bind:value={valorLocal} />
+    bind:value={valorLocal}
+    use:enfoque/>
 {/if}
 
 {#if tipo == 'selector' && Array.isArray(opciones)}
   <Selector bind:value={valorLocal} desenfocar={desenfocarAccion}
-  enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion} />
+  enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
+  />
 {/if}
 
 {#if tipo == 'fecha'}
