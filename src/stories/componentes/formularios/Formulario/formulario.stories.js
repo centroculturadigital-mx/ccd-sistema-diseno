@@ -44,6 +44,17 @@ export const formularioDefault = () => ({
     },
 });
 
+export const formularioUnCampo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: campos.slice(0,1),
+            enviar: enviarConTiempo,
+        }
+    },
+});
+
 export const formularioCompleto = () => ({
     Component: ThemeTester,
     props: {

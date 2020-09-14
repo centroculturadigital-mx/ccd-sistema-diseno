@@ -19,6 +19,7 @@
   ];
 
   let datos = {};
+  let datosCambiados = {};
 
   export let pasos;
   export let campos;
@@ -36,11 +37,48 @@
 
 
   let ultimoCampoCambiado
+  let ultimoCampoEnfocado
+
+  let campoCambiado = {
+    nombre: "",
+    enfocado: false,
+    recien: false,
+  }
+
+
+
+  const cambiarCampo = (v, c) => {
+    datos[c.nombre] = v;
+    ultimoCampoCambiado = c
+    campoCambiado.recien = false
+    
+    if (typeof cambiar == "function") {
+      cambiar(datos);
+    }
+  };
+
+
+
+  const enfocarCampo = ( c ) => {
+    console.log("enfocar", { c });
+    campoCambiado.nombre = c
+    campoCambiado.recien = true
+    // datosCambiados[c.nombre] = true;
+
+  }
+  const desenfocarCampo = ( c ) => {
+    console.log("desenfocar", { c });
+    if( campoCambiado.recien ) {
+      console.log("deberia validar ya")
+    }
+    // datosCambiados[c.nombre] = true;
+
+  }
+
 
   const computarCampos = (campos, datos) => {
 
-    const camposPreparados = campos
-      .map(c => {
+    const camposPreparados = campos.map(c => {
         if (revisarCampo(c)) {
           let valor = datos[c.nombre];
 
@@ -50,9 +88,10 @@
             ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => {
-              ultimoCampoCambiado = c
               cambiarCampo(v, c);
-            }
+            },
+            desenfocar: desenfocarCampo,
+            enfocar: enfocarCampo
           };
 
           if (!!valor && typeof c.validacion == "function") {
@@ -72,14 +111,6 @@
       .filter(c => !!c);
 
     return camposPreparados;
-  };
-
-  const cambiarCampo = (valor, c) => {
-    datos[c.nombre] = valor;
-
-    if (typeof cambiar == "function") {
-      cambiar(datos);
-    }
   };
 
 

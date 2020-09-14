@@ -15,6 +15,8 @@
   export let validacion;
   export let cambiar;
   
+  export let desenfocar;
+  export let enfocar;
   export let ultimo;
 
   
@@ -31,17 +33,25 @@
 
   let estadoMostrar = calcularEstado(valor)
 
-  const enfocar = () => {
-    enfocado = true  
-  }
-  
-  const desenfocar = () => {
+  const desenfocarAccion = v => {
+    if (typeof desenfocar == "function") {
+      console.log("d.E.");
+      desenfocar(nombre);
+    }
     enfocado = false  
+  }
+
+  const enfocarAccion = v => {
+    if (typeof enfocar == "function") {
+        enfocar(nombre);
+    }
+    enfocado = true  
   }
 
   const cambiarAccion = (v) => {
     if (typeof cambiar == "function") {
       // if( ! enfocado ) {
+        console.log("cambiar");
         cambiar(v);
       // }
     }
@@ -111,8 +121,8 @@
       estado={estadoMostrar}
       cambiar={cambiarAccion}
       {opciones}
-      {enfocar}
-      {desenfocar}
+      enfocar={enfocarAccion}
+      desenfocar={desenfocarAccion}
       {ultimo}
     />
 

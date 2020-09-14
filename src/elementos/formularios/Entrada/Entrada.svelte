@@ -1,4 +1,5 @@
 <script>
+  import { onDestroy} from "svelte"
 
   import Selector from "../Selector/Selector.svelte";
   import CalendarioEntrada from "../../../componentes/Calendario/CalendarioEntrada/CalendarioEntrada";
@@ -20,9 +21,13 @@
   
   export let ultimo;
   
+  export let primerIntento
+
+  
   let cambiado;
 
   let valorLocal;
+  
 
   $: valorActualizar(valor);
 
@@ -30,38 +35,53 @@
     valorLocal = v;
   };
 
+
+
   // actualizar datos cuando cambian campos
   // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
   // TODO : eliminar esto:
   const cambiarAccion = () => {
-    cambiado = true
-    if (typeof cambiar == "function") {
-      cambiar(valorLocal);
+    console.log("cambiar");
+    if (primerIntento) {
+      console.log("segundo intento");
+      cambiado = true
+      if (typeof cambiar == "function") {
+        cambiar(valorLocal);
+      }
     }
+  };
+  
+  const salirAccion = () => {
+    console.log("salir");
+    cambiarAccion();
   };
   // $: ( && !! valorLocal) && cambiar(valorLocal)
 
   // $: cambiarValorDesdeFuera( valor )
 
 
+  onDestroy(()=>console.log("ondestroy"))
+
+  const blurtest  = ()=>console.log("onblur")
+
   const desenfocarAccion = () => {
-    if (cambiado) {
+    if (!cambiado) {
       console.log("desenfocar");
       if (typeof desenfocar == "function") {
         desenfocar()
       }
-      if (typeof cambiar == "function") {
-        cambiar(valorLocal);
-      }
-      cambiado = false
+      // if (typeof cambiar == "function") {
+        // cambiar(valorLocal);
+      // }
+      // cambiado = false
     }
   };
   
   const enfocarAccion = () => {
     cambiado = false
-    // if (typeof enfocar == "function") {
-    //   enfocar()
-    // }
+    if (typeof enfocar == "function") {
+      enfocar()
+    }
   };
 
   $: clases = "Entrada" + (estado ? " " + estado : "");
@@ -138,17 +158,18 @@
 
 {#if tipo == 'texto'}
 
+  <!-- on:focusout={()=>desenfocarAccion()} -->
+  <!-- on:change={cambiarAccion} -->
   <input
-    class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
-    on:focusout={()=>desenfocarAccion()}
-    on:focus={()=>enfocarAccion()}
-    name={nombre}
-    type="text"
-    placeholder={ejemplo}
-    bind:value={valorLocal}
-    use:enfoque/>
+  class={clases}
+  on:change={()=>cambiarAccion()}
+  on:blur={()=>salirAccion()}
+  on:focus={()=>enfocarAccion()}
+  name={nombre}
+  type="text"
+  placeholder={ejemplo}
+  bind:value={valorLocal}
+  use:enfoque/>
 {/if}
 
 {#if tipo == 'contrasenna'}
