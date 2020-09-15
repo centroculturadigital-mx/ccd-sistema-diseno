@@ -19,7 +19,7 @@
     box-sizing: border-box;
   }
   .Colapsable {
-    transition: var(--theme-transiciones-normal);
+    transition: var(--theme-transiciones-lenta);
     background-color: var(--theme-colores-fondo);
     position: relative;
     height: 100%;
@@ -62,7 +62,8 @@
   .abierto {
     width: 100%;
   }
-  .contenedor {
+  .contenedor,
+  .titulo {
     overflow: hidden;
   }
   .abrir :global(.iconoContenedor) {
@@ -79,7 +80,8 @@
     left: 0.035rem;
   }
   .noVisible {
-      visibility: hidden;
+    transition: var(--theme-transiciones-lenta);
+    visibility: hidden;
   }
 </style>
 
@@ -91,7 +93,7 @@
         <Icono icono={'derecha'} />
       </div>
     {:else}
-      <div>
+      <div class="titulo">
         {#if !!titulo}
           <Parrafo texto={titulo} />
         {/if}
@@ -104,9 +106,9 @@
     {/if}
   </header>
 
-    <section class="contenedor {estado ? "" : "noVisible"}">
+  <section class="contenedor {estado ? '' : 'noVisible'}">
 
-      <svelte:component this={componente} {...datos} />
+    <svelte:component this={componente} {...datos} />
 
-    </section>
+  </section>
 </aside>
