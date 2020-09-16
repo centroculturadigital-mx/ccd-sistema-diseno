@@ -86,6 +86,7 @@ export const entradaCasilla = () => ({
         datos: {
             ejemplo: 'Una Casilla',
             tipo: "casilla",
+            valorEstatico: "Automovil"
         }
     },
 });
@@ -96,6 +97,7 @@ export const entradaCircular = () => ({
         datos: {
             ejemplo: 'Una entrada circular',
             tipo: "radio",
+            valorEstatico: "Automovil"
         }
     },
 });

@@ -12,6 +12,7 @@
   export let maximo = 999;
   export let enfocar;
   export let desenfocar;
+  export let valorEstatico;
 
   // propiedades para lógica
   export let nombre = "";
@@ -243,8 +244,7 @@
     on:focus={()=>enfocarAccion()}
     name={nombre}
     type="checkbox"
-    placeholder={ejemplo}
-    bind:value={valorLocal}
+    value={valorEstatico}
     use:enfoque/>
 {/if}
 
@@ -257,8 +257,7 @@
     on:focus={()=>enfocarAccion()}
     name={nombre}
     type="radio"
-    placeholder={ejemplo}
-    bind:value={valorLocal}
+    value={valorEstatico}
     use:enfoque/>
 {/if}
 
