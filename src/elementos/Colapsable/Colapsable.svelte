@@ -66,6 +66,11 @@
   .titulo {
     overflow: hidden;
   }
+  /* .abrir {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  } */
   .abrir :global(.iconoContenedor) {
     position: relative;
     right: 1rem;
