@@ -4,9 +4,9 @@ import Formulario from '../../../../componentes/formularios/Formulario/Formulari
 
 import campos from "../../../../data/campos/";
 import campoFecha from "../../../../data/campos/fecha";
+import casilla from "../../../../data/campos/casilla";
+import radio from "../../../../data/campos/radio";
 import pasos from "../../../../data/pasos";
-
-import moment from "moment"
 
 export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
@@ -38,7 +38,7 @@ export const formularioDefault = () => ({
     props: {
         componente: FormularioTester,
         datos: {
-            campos: campos.slice(0,3),
+            campos: campos.slice(0, 3),
             enviar: enviarConTiempo,
         }
     },
@@ -123,6 +123,28 @@ export const formularioCalendario = () => ({
         componente: FormularioTester,
         datos: {
             campos: [campoFecha],
+            enviar: enviarConTiempo
+        }
+    },
+});
+
+export const formularioCasillas = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [casilla],
+            enviar: enviarConTiempo
+        }
+    },
+});
+
+export const formularioRadios = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [radio],
             enviar: enviarConTiempo
         }
     },

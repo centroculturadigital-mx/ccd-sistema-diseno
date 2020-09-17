@@ -12,6 +12,7 @@
   export let opciones;
 
   export let valor;
+  export let valorEstatico;
   export let validacion;
   export let cambiar;
   
@@ -107,6 +108,7 @@
       {tipo}
       {nombre}
       {valor}
+      {valorEstatico}
       {ejemplo}
       estado={estadoMostrar}
       cambiar={cambiarAccion}

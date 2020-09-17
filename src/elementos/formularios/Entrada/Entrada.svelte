@@ -12,6 +12,7 @@
   export let maximo = 999;
   export let enfocar;
   export let desenfocar;
+  export let valorEstatico;
 
   // propiedades para lógica
   export let nombre = "";
@@ -92,6 +93,12 @@
       case "email":
         tipo = "email";
         break;
+      case "casilla":
+        tipo = "checkbox";
+        break;
+      case "radio":
+        tipo = "radio";
+        break;
       case "textarea":
         tipo = "textarea";
         break;
@@ -123,6 +130,11 @@
   }
   textarea {
     min-height: 8rem;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    height: auto !important;
+    min-height: initial !important;
   }
   .error {
     border: 1px solid var(--theme-alertas-error);
@@ -218,6 +230,32 @@
     type="tel"
     placeholder={ejemplo}
     bind:value={valorLocal}
+    use:enfoque/>
+{/if}
+
+{#if tipo == 'casilla'}
+  <input
+    class={clases}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
+    name={nombre}
+    type="checkbox"
+    value={valorEstatico}
+    use:enfoque/>
+{/if}
+
+{#if tipo == 'radio'}
+  <input
+    class={clases}
+    on:keyup={cambiarAccion}
+    on:change={cambiarAccion}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
+    name={nombre}
+    type="radio"
+    value={valorEstatico}
     use:enfoque/>
 {/if}
 

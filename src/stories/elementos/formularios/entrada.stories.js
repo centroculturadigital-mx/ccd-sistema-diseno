@@ -78,6 +78,30 @@ export const entradaTelefono = () => ({
         }
     },
 });
+
+export const entradaCasilla = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Entrada,
+        datos: {
+            ejemplo: 'Una Casilla',
+            tipo: "casilla",
+            valorEstatico: "Automovil"
+        }
+    },
+});
+export const entradaCircular = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Entrada,
+        datos: {
+            ejemplo: 'Una entrada circular',
+            tipo: "radio",
+            valorEstatico: "Automovil"
+        }
+    },
+});
+
 export const entradaArchivo = () => ({
     Component: ThemeTester,
     props: {
