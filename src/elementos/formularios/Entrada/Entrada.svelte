@@ -46,7 +46,6 @@
 
   const desenfocarAccion = () => {
     if (cambiado) {
-      console.log("desenfocar");
       if (typeof desenfocar == "function") {
         desenfocar()
       }
@@ -102,7 +101,6 @@
 
   const enfoque = async (el) => {
     if( ultimo ) {
-      console.log("es ultimo", el);
       el.focus()
     }
   }
