@@ -1,9 +1,14 @@
 <script>
 
+
+  import { onMount } from "svelte"
+
   import scrollTo from "../../../funciones/scrollTo"
 
+  import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import ChatMensaje from "./ChatMensaje/ChatMensaje.svelte";
   import ChatEntrada from "./ChatEntrada/ChatEntrada.svelte";
+import { stdout } from "process";
 
   export let reacciones = [];
   export let mensajes = [];
@@ -14,18 +19,25 @@
 
 
 
+  const scrollearUltimo = () => {
 
+    let msjs = document.querySelector(".ChatMensajes")
+    let msj = document.querySelector(".ChatMensaje:last-child")
+
+    msj && scrollTo( msjs, msjs.scrollHeight)
+
+  }
   
   const actualizar = mensajes => {
+
+    hayNuevos = true
+
     setTimeout(()=>{
-
-      let msjs = document.querySelector(".ChatMensajes")
-      let msj = document.querySelector(".ChatMensaje:last-child")
-      // msj && msj.scrollIntoView({
-      //   behavior: 'smooth',
-      // })
-      msj && scrollTo( msjs, msjs.scrollHeight)
-
+      
+      if( deberiaScrollear ) {
+        scrollearUltimo()
+      }
+      
     })
   }
 
@@ -44,6 +56,24 @@
       enviar(mensaje);
     }
   };
+
+
+  let deberiaScrollear = true
+  
+  let hayNuevos = false
+
+  onMount(()=>{
+    let msjs = document.querySelector(".ChatMensajes")
+    msjs.addEventListener("scroll", ()=>{
+      deberiaScrollear = msjs.scrollTop  + 100 >= msjs.scrollHeight - msjs.clientHeight  
+    })
+  })
+
+
+
+
+
+
 
 </script>
 
@@ -67,14 +97,35 @@
     overflow-x: hidden;
   }
 
+.Nuevos {
+  position: absolute;
+  right: 0;
+  bottom: -3rem;
+}
+
+.Chat {
+  position: relative;
+}
+
 </style>
 
-<section class="Chat">
 
+<section class="Chat">
+  {#if hayNuevos && ! deberiaScrollear} 
+    <div class="Nuevos">
+      <Boton texto="Nuevos" variante="COMPACTO" click={()=>{
+        scrollearUltimo()
+        setTimeout(()=>{
+          deberiaScrollear = true        
+        },300)
+      }
+    }/>
+    </div>
+  {/if}
   <section class="ChatMensajes">
 
     {#if Array.isArray(mensajes)}
-      {#each mensajes as mensaje (mensaje.id || mensaje.mensaje)}
+      {#each mensajes as mensaje (mensaje.id)}
         <ChatMensaje {mensaje} {reacciones} {reaccionar} {objetoAccion}/>
       {/each}
     {/if}

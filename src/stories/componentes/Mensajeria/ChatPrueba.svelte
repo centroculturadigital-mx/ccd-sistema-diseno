@@ -15,7 +15,7 @@
         if( mensajes.length > mensajesMostrar.length ) {
             mensajesMostrar.push( mensajes[ Math.max(0,mensajesMostrar.length-1) ] )
             mensajesMostrar = mensajesMostrar
-            setTimeout(simular,100)
+            setTimeout(simular,500)
         }
     }
     

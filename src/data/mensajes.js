@@ -11,14 +11,15 @@ let mensajeMuyCorto = "Hola"
 
 let mensajes = [mensajeLargo, mensajeMedio, mensajeCorto, mensajeMuyCorto];
 
-export default new Array(15).fill(true).map((e, i) => ({
+export default new Array(50).fill(true).map((e, i) => ({
+    id: "id" + i,
     usuario: {
         id: "abc",
         nombre: "Nombre usuario",
         imagen: avatar,
         enlace: "/usuarios/nombre-usuario"
     },
-    mensaje: mensajes[Math.floor(Math.random() * mensajes.length)],
+    mensaje: i + ": " + mensajes[Math.floor(Math.random() * mensajes.length)],
     fechaCreacion: moment().subtract(i * 20, 's').toISOString(),
     reacciones: [{
             id: "id0",
