@@ -1,4 +1,7 @@
 <script>
+
+  import scrollTo from "../../../funciones/scrollTo"
+
   import ChatMensaje from "./ChatMensaje/ChatMensaje.svelte";
   import ChatEntrada from "./ChatEntrada/ChatEntrada.svelte";
 
@@ -9,17 +12,23 @@
   export let reaccionar = () => console.log("reaccionar");
   export let objetoAccion
 
+
+
+
   
   const actualizar = mensajes => {
     setTimeout(()=>{
 
+      let msjs = document.querySelector(".ChatMensajes")
       let msj = document.querySelector(".ChatMensaje:last-child")
-      msj && msj.scrollIntoView({
-        behavior: 'smooth',
-      })
+      // msj && msj.scrollIntoView({
+      //   behavior: 'smooth',
+      // })
+      msj && scrollTo( msjs, msjs.scrollHeight)
 
     })
   }
+
 
   $: actualizar(mensajes)
 
