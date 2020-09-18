@@ -9,6 +9,23 @@
   export let reaccionar = () => console.log("reaccionar");
   export let objetoAccion
 
+  
+  const actualizar = mensajes => {
+    setTimeout(()=>{
+
+      let msj = document.querySelector(".ChatMensaje:last-child")
+      msj && msj.scrollIntoView({
+        behavior: 'smooth',
+        // block: 'end'
+      })
+      
+    })
+  }
+
+  $: actualizar(mensajes)
+
+
+
   const reaccionarAccion = (mensaje) => {
     if (mensaje && typeof reaccionar == "function") {
       reaccionar(mensaje);
@@ -32,6 +49,7 @@
     border-style: solid;
     border-radius: 0.2rem;
     height: 100%;
+    max-height: 80vh;
     width: 100%;
   }
   .ChatMensajes {

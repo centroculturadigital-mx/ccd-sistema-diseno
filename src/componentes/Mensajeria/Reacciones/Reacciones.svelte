@@ -27,7 +27,6 @@
     estado = !estado;
   };
 
-  $: console.log( estado );
 </script>
 
 <style>

@@ -11,7 +11,7 @@ let mensajeMuyCorto = "Hola"
 
 let mensajes = [mensajeLargo, mensajeMedio, mensajeCorto, mensajeMuyCorto];
 
-export default new Array(25).fill(true).map((e, i) => ({
+export default new Array(15).fill(true).map((e, i) => ({
     usuario: {
         id: "abc",
         nombre: "Nombre usuario",
