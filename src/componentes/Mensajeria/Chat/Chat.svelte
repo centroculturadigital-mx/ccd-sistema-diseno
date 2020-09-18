@@ -16,9 +16,8 @@
       let msj = document.querySelector(".ChatMensaje:last-child")
       msj && msj.scrollIntoView({
         behavior: 'smooth',
-        // block: 'end'
       })
-      
+
     })
   }
 
