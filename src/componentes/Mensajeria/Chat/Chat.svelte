@@ -74,7 +74,7 @@
   <section class="ChatMensajes">
 
     {#if Array.isArray(mensajes)}
-      {#each mensajes as mensaje (mensaje)}
+      {#each mensajes as mensaje (mensaje.id || mensaje.mensaje)}
         <ChatMensaje {mensaje} {reacciones} {reaccionar} {objetoAccion}/>
       {/each}
     {/if}
