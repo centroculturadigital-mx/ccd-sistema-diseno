@@ -118,7 +118,6 @@
     use:eventos
     on:focus={enfocar}
     on:keyup={enter}
-    disabled={!activo}
     />
 
   <BotonIcono
