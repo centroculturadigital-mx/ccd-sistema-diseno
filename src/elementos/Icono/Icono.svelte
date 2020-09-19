@@ -153,7 +153,6 @@
   .iconoContenedor {
     display: flex;
     align-items: center;
-    cursor: pointer;
     width: auto;
     color: #000;
     fill: currentColor;

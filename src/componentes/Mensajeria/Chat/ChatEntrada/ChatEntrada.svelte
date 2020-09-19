@@ -7,6 +7,10 @@
   export let enviar = () => console.log("enviado");
   export let enfocar = () => console.log("enfocar");
   export let numMaxCaracteres = 140;
+  
+  export let activo
+  export let textoActivo
+  export let textoInactivo
 
   const contieneSoloEspacios = (str) => !str.replace(/\s/g, '').length;
   
@@ -47,6 +51,12 @@
       }
 
   }
+
+
+
+  $: clases = "ChatEntrada " + (activo ? "activo" : "inactivo")
+
+
 </script>
 
 <style>
@@ -81,26 +91,39 @@
   .ChatEntrada :global(.iconoContenedor svg) {
     height: 100%;
     width: 100%;
-    fill: var(--theme-textos-parrafo-neutro);
+    /* fill: var(--theme-textos-parrafo-neutro); */
   }
   .ChatEntrada :global(.iconoContenedor) {
     margin: 0;
     height: calc(var(--theme-tamannos-lg) * 1.5) !important;
     width: calc(var(--theme-tamannos-lg) * 1.5) !important;
   }
-  .ChatEntrada :global(button:hover svg) {
-    fill: var(--theme-colores-primario);
+  .ChatEntrada.inactivo :global(svg) {
+    fill: #aaa !important
   }
+  
+  .ChatEntrada.inactivo :global(button) {
+    color: #aaaaaa !important;
+    cursor: default;
+  }
+  
+  
 </style>
  
-<div class="ChatEntrada">
+<div class={clases}>
   <input
     type="text"
     bind:value={mensaje}
-    placeholder="Enviar mensaje"
+    placeholder={ activo ? textoActivo : textoInactivo }
     use:eventos
     on:focus={enfocar}
-    on:keyup={enter} />
+    on:keyup={enter}
+    disabled={!activo}
+    />
 
-  <BotonIcono icono={'enviar'} click={enviarMensaje} />
+  <BotonIcono
+    icono={'enviar'}
+    inactivo={!activo}
+    click={ activo ? enviarMensaje : null }    
+  />
 </div>

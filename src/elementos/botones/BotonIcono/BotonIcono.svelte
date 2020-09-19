@@ -8,7 +8,8 @@
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
   export let estado = false;
-
+  
+  export let inactivo;
 
   export let css = {};
 
@@ -71,19 +72,20 @@
 
 </style>
 
-<button on:click={click} class={!!borde ? 'borde' : 'no-borde'} style={cssString}>
+<button on:click={click} class={!!borde ? 'borde' : 'no-borde'} style={cssString} disabled="true">
 
   <!-- version iconos dos estados -->
   {#if !!iconoBotonEstadoUnoUrl}
     <Icono
     icono={!!estado ? iconoBotonEstadoDosUrl : iconoBotonEstadoUnoUrl}
     tamanno={'1rem'}
+    color={css.color}
     />
   {:else}{!!texto ? texto : ''}{/if}
 
   <!-- Version prop icono -->
   {#if !!icono}
-    <Icono {icono} tamanno={'1rem'} />
+    <Icono {icono} tamanno={'1rem'} color={css.color} />
   {/if}
 
 </button>

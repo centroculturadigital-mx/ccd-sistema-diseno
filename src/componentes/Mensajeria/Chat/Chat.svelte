@@ -8,7 +8,6 @@
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import ChatMensaje from "./ChatMensaje/ChatMensaje.svelte";
   import ChatEntrada from "./ChatEntrada/ChatEntrada.svelte";
-import { stdout } from "process";
 
   export let reacciones = [];
   export let mensajes = [];
@@ -16,6 +15,10 @@ import { stdout } from "process";
   export let enfocar = () => console.log("enfocar");
   export let reaccionar = () => console.log("reaccionar");
   export let objetoAccion
+  
+  export let activo = true
+  export let textoActivo = "Enviar mensaje"
+  export let textoInactivo = "Inicia sesión para chatear"
 
 
 
@@ -131,7 +134,13 @@ import { stdout } from "process";
     {/if}
   </section>
   <section class="ChatEnviar">
-    <ChatEntrada enviar={enviarAccion} {enfocar}/>
+    <ChatEntrada
+      enviar={enviarAccion}
+      {enfocar}
+      {activo}
+      {textoActivo}
+      {textoInactivo}
+    />
   </section>
 
 </section>
