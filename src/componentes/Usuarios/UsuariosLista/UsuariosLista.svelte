@@ -9,9 +9,13 @@
   $: avatares = usuarios.map(u => ({
     componente: Avatar,
     data: {
-      ...u
+      ...u,
+      mostrarNombre: true
     }
   }));
+
+
+  $: clases = "UsuariosLista " + (apariencia == "vertical" ? "vertical" : "horizontal")
 </script>
 
 
@@ -20,6 +24,7 @@
     scroll-behavior: smooth;
     position: relative;
     display: flex;
+    justify-content: flex-end;
     flex-wrap: nowrap;
     height: 100%;
     width: 100%;
@@ -35,17 +40,35 @@
 .horizontal :global(ul) {
     flex-direction: row;
 }
-.vertical {
-    overflow-y: auto;
-    width: auto;
-    max-height: 100%;
+.UsuariosLista.vertical {
+  overflow-y: auto;
+  /* overflow-x: visible !important; */
+  min-width: 12rem;
+  width: auto;
+  max-height: 100%;
 }
 .vertical :global(ul) { 
-    flex-direction: column;
+    flex-direction: column !important;
 }
+
+:global( .ListaComponentes li) {
+  width: 10rem !important;
+  display: flex;
+  justify-content: flex-end;
+}
+
+:global( .Avatar *) {
+  width: 2rem !important;
+}
+:global( .Avatar .nombre) {
+  left: -7rem;
+  top: .25rem !important;
+}
+
+
 </style>
 
-<section class="UsuariosLista {apariencia == "Vertical" ? "vertical" : "horizontal"}">
+<section class={clases}>
 
   <ListaComponentes elementos={avatares} />
 

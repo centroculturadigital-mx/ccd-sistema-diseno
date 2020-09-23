@@ -14,3 +14,13 @@ export const avatarDefault = () => ({
         }
     }
 });
+export const avatarMostrarNombre = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Avatar,
+        datos: {
+            ...usuario,
+            mostrarNombre: true
+        }
+    }
+});

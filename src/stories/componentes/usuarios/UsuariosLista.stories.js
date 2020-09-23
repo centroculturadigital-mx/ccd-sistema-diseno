@@ -14,12 +14,13 @@ export const usuariosListaDefault = () => ({
         }
     }
 });
+
 export const usuariosListaVertical = () => ({
     Component: ThemeTester,
     props: {
         componente: UsuariosLista,
         datos: {
-            apariencia: "Vertical",
+            apariencia: "vertical",
             usuarios,
         }
     }
