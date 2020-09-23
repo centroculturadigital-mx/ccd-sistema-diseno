@@ -52,11 +52,11 @@
       {#if typeof registrar == 'function'}
         <span on:click={registrar}>
           <Texto
-            texto={'Ingresa aquí'}
+            texto={'Regístrate aquí'}
             css={{ color: '#4d376d !important', cursor: 'pointer' }} />
         </span>
       {:else}
-        <Enlace texto={'Ingresa aquí'} enlace={'/registrar'} />
+        <Enlace texto={'Regístrate aquí'} enlace={'/registrar'} />
       {/if}
     </div>
   </section>
