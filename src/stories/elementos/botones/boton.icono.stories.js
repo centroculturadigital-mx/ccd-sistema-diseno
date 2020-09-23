@@ -9,7 +9,8 @@ export const botonIconoDefaul = () => ({
         componente: BotonIcono,
         datos: {
             texto: 'Botón Ícono',
-            icono: 'cerrar'
+            icono: 'cerrar',
+            click: () => console.log("click")
         }
     },
 });

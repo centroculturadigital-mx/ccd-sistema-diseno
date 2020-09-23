@@ -10,6 +10,7 @@ export const botonDefault = () => ({
         componente: Boton,
         datos: {
             texto: 'Botón',
+            click: ()=>console.log("click"),
         }
     },
 });
@@ -21,6 +22,7 @@ export const botonCss = () => ({
         componente: Boton,
         datos: {
             texto: 'Boton Bold',
+            click: ()=>console.log("click"),
             css: {
                 'text-transform': 'uppercase',
                 'font-size': '0.5rem',

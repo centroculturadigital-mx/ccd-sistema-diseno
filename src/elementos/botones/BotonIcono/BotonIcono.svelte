@@ -3,7 +3,7 @@
 
   export let texto;
   export let icono;
-  export let borde = true;
+  export let borde = false;
   export let click = () => console.log("Accion botón ícono");
   export let iconoBotonEstadoUnoUrl;
   export let iconoBotonEstadoDosUrl;
@@ -72,7 +72,7 @@
 
 </style>
 
-<button on:click={click} class={!!borde ? 'borde' : 'no-borde'} style={cssString} disabled="true">
+<button on:click={()=>click()} class={!!borde ? 'borde' : 'no-borde'} style={cssString}>
 
   <!-- version iconos dos estados -->
   {#if !!iconoBotonEstadoUnoUrl}

@@ -37,7 +37,6 @@
   let input;
 
 
-
   const seleccionarImagen = async e => {
     let files = e.target.files;
 
@@ -75,7 +74,10 @@
   const abrir = () => input.click();
 
   const eliminarImagen = () => {
+    console.log("elmg");
     imagen = null;
+    cambiar(imagen)
+
   };
 </script>
 
@@ -107,21 +109,21 @@
     /* display: flex;
     justify-content: flex-end; */
   }
-  .ImagenPreparada div {
+
+
+  .ImagenPreparada :global(.iconoContenedor) {
     height: auto;
     position: absolute;
     right: 0.5rem;
     top: 0.5rem;
-  }
-  .ImagenPreparada div :global(.iconoContenedor) {
     transition: 0.5s;
     background-color: rgba(255, 255, 255, 0.25);
     padding: 0.25rem;
   }
-  .ImagenPreparada div :global(.iconoContenedor:hover) {
+  .ImagenPreparada :global(.iconoContenedor:hover) {
     filter: invert();
   }
-  .ImagenPreparada div :global(button) {
+  .ImagenPreparada :global(button) {
     padding: 0;
   }
   .Contenedor {
@@ -143,6 +145,7 @@
   }
   
 
+
 </style>
 
 <section class="ImagenSubir">
@@ -161,13 +164,15 @@
       
     </div>
   {:else}
-    <div class="ImagenPreparada">
-      <div on:click={eliminarImagen}>
-        <BotonIcono icono={'cerrar'} />
-      </div>
-      <Imagen imagen={imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
+    
+  
+  <div class="ImagenPreparada">
+      <BotonIcono icono={'cerrar'} click={eliminarImagen}/>
+      {#if imagen}
+      <Imagen {imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
+      {/if}
     </div>
-
+    
   {/if}
 
 </section>
