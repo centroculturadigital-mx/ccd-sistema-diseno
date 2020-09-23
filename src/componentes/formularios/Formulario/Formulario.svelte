@@ -155,7 +155,6 @@
   $: clasesContenedor = Array.isArray(pasos) && pasos.length > 0 ? 'paso paso_' + pasoActual : ''
 
 
-$: console.log("CAMPO", campos[0].valor);
 
 </script>
 
