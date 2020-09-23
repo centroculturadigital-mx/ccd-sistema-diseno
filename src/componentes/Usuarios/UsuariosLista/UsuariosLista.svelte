@@ -57,7 +57,7 @@
   justify-content: flex-end;
 }
 
-:global( .Avatar *) {
+:global( .Avatar img) {
   width: 2rem !important;
 }
 :global( .Avatar .nombre) {

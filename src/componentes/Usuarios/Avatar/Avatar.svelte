@@ -20,9 +20,9 @@
     align-items: center;
     position: relative;
     text-align: center;
+    
   }
-
-  .Avatar :global(.Imagen) {
+  .Avatar :global(img) {
     border-radius: 50%;
     height: 2rem;
     width: 2rem;
@@ -34,9 +34,6 @@
     width: 100%;
     box-sizing: border-box;
   } */
-  .Avatar:hover :global(.Imagen) {
-    opacity: 0.75;
-  }
 
   .nombre {
     display: none;
