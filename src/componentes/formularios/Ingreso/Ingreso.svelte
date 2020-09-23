@@ -6,7 +6,7 @@
   export let campos = [];
   export let enviar;
   export let registrar;
-  // export let registrar
+
 </script>
 
 <style>

@@ -2,6 +2,7 @@
 
   import Selector from "../Selector/Selector.svelte";
   import CalendarioEntrada from "../../../componentes/Calendario/CalendarioEntrada/CalendarioEntrada";
+import { isArray } from "util";
 
   // propiedades
   export let tipo = "texto";
@@ -21,7 +22,7 @@
   
   export let ultimo;
   
-  let cambiado;
+  // let cambiado;
 
   let valorLocal;
 
@@ -35,7 +36,7 @@
   // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
   // TODO : eliminar esto:
   const cambiarAccion = () => {
-    cambiado = true
+    // cambiado = true
     if (typeof cambiar == "function") {
       cambiar(valorLocal);
     }
@@ -46,19 +47,19 @@
 
 
   const desenfocarAccion = () => {
-    if (cambiado) {
-      if (typeof desenfocar == "function") {
-        desenfocar()
-      }
+    // if (cambiado) {
+      // if (typeof desenfocar == "function") {
+      //   desenfocar()
+      // }
       if (typeof cambiar == "function") {
         cambiar(valorLocal);
       }
-      cambiado = false
-    }
+      // cambiado = false
+    // }
   };
   
   const enfocarAccion = () => {
-    cambiado = false
+    // cambiado = false
     // if (typeof enfocar == "function") {
     //   enfocar()
     // }
@@ -108,7 +109,7 @@
 
   const enfoque = async (el) => {
     if( ultimo ) {
-      el.focus()
+      // el.focus()
     }
   }
 </script>
@@ -150,8 +151,6 @@
 
   <input
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -164,8 +163,6 @@
 {#if tipo == 'contrasenna'}
   <input
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -178,8 +175,6 @@
 {#if tipo == 'email'}
   <input
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -192,8 +187,6 @@
 {#if tipo == 'numero'}
   <input
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -208,8 +201,6 @@
 {#if tipo == 'archivo'}
   <input
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -222,8 +213,6 @@
 {#if tipo == 'telefono'}
   <input
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -234,25 +223,23 @@
 {/if}
 
 {#if tipo == 'casilla'}
-{#each opciones as opcion (opcion)}
-  <input
-  class={clases}
-  on:keyup={cambiarAccion}
-  on:change={cambiarAccion}
-  on:focusout={()=>desenfocarAccion()}
-  on:focus={()=>enfocarAccion()}
-  name={nombre}
-  type="checkbox"
-  value={valorEstatico}
-  use:enfoque/>
-{/each}
+  {#if Array.isArray(opciones)}
+    {#each opciones as opcion (opcion)}
+      <input
+      class={clases}
+      on:focusout={()=>desenfocarAccion()}
+      on:focus={()=>enfocarAccion()}
+      name={nombre}
+      type="checkbox"
+      value={valorEstatico}
+      use:enfoque/>
+    {/each}
+  {/if}
 {/if}
 
 {#if tipo == 'radio'}
   <input
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}
@@ -264,8 +251,6 @@
 {#if tipo == 'textarea'}
   <textarea
     class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     name={nombre}

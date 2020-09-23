@@ -43,15 +43,15 @@
 
   const cambiarAccion = (v) => {
     if (typeof cambiar == "function") {
-      // if( ! enfocado ) {
+      if( ! enfocado ) {
         cambiar(v);
-      // }
+      }
     }
     
-    if( valor && enfocado) {
-      // validar sin repintar pantalla
-      estadoMostrar = calcularEstado(v)
-    }
+    // if( valor && enfocado) {
+    //   // validar sin repintar pantalla
+    //   estadoMostrar = calcularEstado(v)
+    // }
   }
 
   
@@ -118,12 +118,12 @@
       {valorEstatico}
       {ejemplo}
       estado={estadoMostrar}
-      cambiar={cambiarAccion}
       {opciones}
       {enfocar}
       {desenfocar}
       {ultimo}
-    />
+      cambiar={cambiarAccion}
+      />
 
     {#if error instanceof Error}
       <div class="error">
