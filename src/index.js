@@ -123,6 +123,8 @@ export { default as Avatar }
 from "./componentes/Usuarios/Avatar/Avatar.svelte";
 export { default as UsuarioAcceso }
 from "./componentes/Usuarios/UsuarioAcceso/UsuarioAcceso.svelte";
+export { default as UsuariosLista }
+from "./componentes/Usuarios/UsuariosLista/UsuariosLista.svelte";
 
 
 // CMS
