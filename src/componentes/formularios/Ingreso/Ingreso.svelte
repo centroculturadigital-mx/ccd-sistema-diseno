@@ -5,6 +5,7 @@
 
   export let campos = [];
   export let enviar;
+  export let registrar;
   // export let registrar
 </script>
 
@@ -44,10 +45,19 @@
 
     <Formulario {campos} {enviar} />
 
+    
     <div class="Registro">
       <Texto texto={'¿Aún no tienes cuenta?'} />
       &nbsp;
-        <Enlace texto={'Regístrate aquí'} enlace={'/registrar'} />
+      {#if typeof registrar == 'function'}
+        <span on:click={registrar}>
+          <Texto
+            texto={'Ingresa aquí'}
+            css={{ color: '#4d376d !important', cursor: 'pointer' }} />
+        </span>
+      {:else}
+        <Enlace texto={'Ingresa aquí'} enlace={'/registrar'} />
+      {/if}
     </div>
   </section>
 {/if}
