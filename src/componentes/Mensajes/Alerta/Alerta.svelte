@@ -11,8 +11,6 @@
   export let tipo = "";
   export let titulo = "";
   export let contenido = "";
-  export let accion_1 = console.log("Accion1");
-  export let accion_2 = console.log("Accion2");
   export let acciones;
 
   let tipos = ["informacion", "exito", "aviso", "alerta", "accion"];

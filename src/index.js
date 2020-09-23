@@ -37,6 +37,8 @@ export { default as IndicadorCargaCirculo }
 from "./elementos/IndicadoresCarga/IndicadorCargaCirculo/IndicadorCargaCirculo.svelte";
 export { default as IndicadorCargaLinea }
 from "./elementos/IndicadoresCarga/IndicadorCargaLinea/IndicadorCargaLinea.svelte";
+export { default as Colapsable }
+from "./elementos/Colapsable/Colapsable.svelte";
 
 //  Componentes
 export { default as Campo }
