@@ -132,13 +132,16 @@
 
   .ImagenSubir :global(.Aviso) {
     position: absolute;
-    bottom: -4rem;
+    bottom: .25rem;
     height: auto;
     color: #f00;
   }
   .ImagenSubir :global(.Aviso *) {
     color: #f00;
+    margin: 0;
+    font-size: .8rem;
   }
+  
 
 </style>
 
