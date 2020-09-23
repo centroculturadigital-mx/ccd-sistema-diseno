@@ -234,16 +234,18 @@
 {/if}
 
 {#if tipo == 'casilla'}
+{#each opciones as opcion (opcion)}
   <input
-    class={clases}
-    on:keyup={cambiarAccion}
-    on:change={cambiarAccion}
-    on:focusout={()=>desenfocarAccion()}
-    on:focus={()=>enfocarAccion()}
-    name={nombre}
-    type="checkbox"
-    value={valorEstatico}
-    use:enfoque/>
+  class={clases}
+  on:keyup={cambiarAccion}
+  on:change={cambiarAccion}
+  on:focusout={()=>desenfocarAccion()}
+  on:focus={()=>enfocarAccion()}
+  name={nombre}
+  type="checkbox"
+  value={valorEstatico}
+  use:enfoque/>
+{/each}
 {/if}
 
 {#if tipo == 'radio'}
@@ -286,3 +288,4 @@
     enfocar={enfocarAccion}
     />
 {/if}
+

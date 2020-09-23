@@ -3,6 +3,7 @@
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
 
   export let etiqueta;
+  export let indicacion;
   export let nombre;
   export let requerido;
   export let tipo;
@@ -103,6 +104,12 @@
       </p>
     {/if}
   </label>
+  
+  {#if !!indicacion}
+    <p>
+      {indicacion}      
+    </p>
+  {/if}
 
     <Entrada
       {tipo}
