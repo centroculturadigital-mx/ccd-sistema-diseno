@@ -60,14 +60,14 @@
             }
             fr.readAsDataURL(files[0]);
 
+          } else {
+
+            error = new Error("Elige una imagen menor a 2mb.")
+
           }
 
 
-      } else {
-
-        error = new Error("Elige una imagen menor a 2mb.")
-
-      }
+      } 
     }
   };
 
