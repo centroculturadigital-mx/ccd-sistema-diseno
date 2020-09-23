@@ -1,9 +1,11 @@
 <script>
+  import Aviso from "../../../elementos/texto/Aviso/Aviso.svelte";
   import Campo from "../../formularios/Campo/Campo.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
+  import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
   export let etiqueta;
   export let nombre;
@@ -13,7 +15,12 @@
   export let error;
   export let cambiar;
   export let estado;
-  export let opciones;
+  
+  
+  export let maximo=2;
+
+  // export let opciones;
+
 
   $: props = {
     nombre,
@@ -23,7 +30,7 @@
     error,
     cambiar,
     estado,
-    opciones
+    // opciones
   };
 
   let imagen;
@@ -33,20 +40,35 @@
 
   const seleccionarImagen = async e => {
     let files = e.target.files;
-    
-    if (FileReader && files && files.length) {
-      let fr = new FileReader();
-      
-      fr.onload = async () => {
-        const blob = fr.result;
-        imagen = blob// e.target.files[0].name;
-      };
-      
-      if( typeof cambiar == "function" ) {
-        cambiar(files[0])
-      }
-      fr.readAsDataURL(files[0]);
 
+    // call them as such; files[0].size will get you the file size of the 0th file
+
+    if (files && files.length) {
+        const filesize = ((files[0].size/1024)/1024).toFixed(4); // MB
+        if (filesize <= maximo) { 
+
+
+          if (FileReader) {
+            let fr = new FileReader();
+            
+            fr.onload = async () => {
+              const blob = fr.result;
+              imagen = blob// e.target.files[0].name;
+            };
+            
+            if( typeof cambiar == "function" ) {
+              cambiar(files[0])
+            }
+            fr.readAsDataURL(files[0]);
+
+          }
+
+
+      } else {
+
+        error = new Error("Elige una imagen menor a 2mb.")
+
+      }
     }
   };
 
@@ -107,6 +129,17 @@
     background-color: #b9b9b9;
     box-sizing: border-box;
   }
+
+  .ImagenSubir :global(.Aviso) {
+    position: absolute;
+    bottom: -4rem;
+    height: auto;
+    color: #f00;
+  }
+  .ImagenSubir :global(.Aviso *) {
+    color: #f00;
+  }
+
 </style>
 
 <section class="ImagenSubir">
@@ -116,7 +149,13 @@
   {#if !imagen}
     <div class="Contenedor" on:click={abrir}>
       <Icono icono={'imagen'} tamanno={'2rem'} />
-      <Parrafo texto={etiqueta ? etiqueta : 'Agregar Imagen'} />
+      <Parrafo texto={ etiqueta ? etiqueta : 'Agregar Imagen.'} />
+      <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 2mb' }  variante="CHICO"/>
+  
+      {#if error}
+        <Aviso texto={error}/>
+      {/if}
+      
     </div>
   {:else}
     <div class="ImagenPreparada">
@@ -125,6 +164,7 @@
       </div>
       <Imagen imagen={imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
     </div>
+
   {/if}
 
 </section>
