@@ -24,6 +24,7 @@
         estilos = [];
         break;
       case "SECUNDARIO":
+      case "CHICO":
         estilos = ["small"];
         break;
       case "COMPACTO":
