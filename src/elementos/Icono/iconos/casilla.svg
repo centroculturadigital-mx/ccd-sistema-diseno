@@ -1,4 +1,6 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2.41667 2.41667H37.5833V37.5833H2.41667V2.41667Z" stroke="#212121" stroke-width="1.5"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M16.6667 22.643L25.4882 13.8215L27.8452 16.1785L16.6667 27.357L10.4882 21.1785L12.8452 18.8215L16.6667 22.643Z" fill="#212121"/>
+<svg width="27" height="25" viewBox="0 0 27 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="casilla">
+<path id="Vector 2" d="M7 11.8571L11.7273 17L20 8" stroke="black" stroke-width="2"/>
+<path id="Vector 1" d="M1 23.5V1H25.5V23.5H1Z" stroke="black" stroke-width="2"/>
+</g>
 </svg>
