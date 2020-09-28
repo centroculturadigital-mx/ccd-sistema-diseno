@@ -42,12 +42,13 @@
     transition: 0.5s;
     position: relative;
     background-color: var(--theme-tarjetas-fondo);
-    overflow-y: auto;
-    overflow-x: hidden;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
     position: absolute;
     padding: 0;
     top: 1.75rem;
     right: 1.75rem;
+    padding-top: 2rem !important;
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -99,7 +100,7 @@
 
   <Icono icono={'reaccion'} on:click={abrir} />
 
-    <ul bind:this={lista} class="ReaccionesLista {!!estado ? "abierto" : ""}" transition:fade>
+  <ul bind:this={lista} class="ReaccionesLista {!!estado ? "abierto" : ""}" transition:fade>
   {#if !!estado}
       {#each reacciones as reaccion (reaccion)}
         <li on:click={reaccionarAccion(reaccion)}>
