@@ -777,3 +777,124 @@ export const iconoMaximizar = () => ({
     },
     
 });
+
+export const iconoFiltro = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "filtro",
+    }
+    },
+    
+});
+
+export const iconoWeb = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "web",
+    }
+    },
+    
+});
+
+export const iconoEditar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "editar",
+    }
+    },
+    
+});
+
+export const iconoRotar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "rotar",
+    }
+    },
+    
+});
+
+export const iconoBehance = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "behance",
+    }
+    },
+    
+});
+
+export const iconoDribbble = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "dribbble",
+    }
+    },
+    
+});
+
+export const iconoGithub = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "github",
+    }
+    },
+    
+});
+
+export const iconoGitlab = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "gitlab",
+    }
+    },
+    
+});
+
+export const iconoVimeo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "vimeo",
+    }
+    },
+    
+});
+
+export const iconoTikTok = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "tiktok",
+    }
+    },
+    
+});
+
+export const iconoReaccion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+        icono: "reaccion",
+    }
+    },
+    
+});

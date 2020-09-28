@@ -69,6 +69,16 @@
   import gestores from "./iconos/gestores.svg";
   import minimizar from "./iconos/minimizar.svg";
   import maximizar from "./iconos/maximizar.svg";
+  import filtro from "./iconos/filtro.svg";
+  import web from "./iconos/web.svg";
+  import editar from "./iconos/editar.svg";
+  import rotar from "./iconos/rotar.svg";
+  import behance from "./iconos/behance.svg";
+  import dribbble from "./iconos/dribbble.svg";
+  import github from "./iconos/github.svg";
+  import gitlab from "./iconos/gitlab.svg";
+  import vimeo from "./iconos/vimeo.svg";
+  import tiktok from "./iconos/tiktok.svg";
   
   export let icono;
   export let tamanno = "2rem";
@@ -144,6 +154,16 @@
     gestores,
     minimizar,
     maximizar,
+    filtro,
+    web,
+    editar,
+    rotar,
+    behance,
+    dribbble,
+    github,
+    gitlab,
+    vimeo,
+    tiktok,
   };
 
   $: iconoMostrar = iconos[icono];
