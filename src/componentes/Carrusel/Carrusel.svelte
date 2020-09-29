@@ -269,18 +269,21 @@
   }
   .elementosBotones li {
     list-style: none;
-    padding: 0 0.1225rem;
+    height: 0.75rem;
+    width: 0.75rem;
+    margin: 0.15rem;
+    box-sizing: border-box;
   }
 
   .elementosBotones li button {
     background-color: var(--theme-botones-primario-inactivo);
     color: transparent;
+    padding: 0;
     border: none;
     outline: none;
-    border-radius: 50%;
-    width: 0.75rem;
-    height: 0.75rem;
-    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25); */
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
     transition: background-color 0.25s ease-in-out;
     cursor: pointer;
   }
@@ -362,16 +365,11 @@
 
       <div class="elementos" style={estilosLista}>
 
-        {#each elementos as elemento, i ('elemento_' + i)}
+        {#each elementos as elemento, i (elemento)}
           <div
             class={i == activo ? 'elemento activo' : 'elemento'}
             style={estilosElemento}
             on:click={ir(i)}>
-            <!-- <article style="background: #ddd; width: 15rem; height 12rem; display: flex; justify-content: center; align-items: center;">
-                                <h6>
-                                    Hola Elemento!
-                                </h6>
-                            </article> -->
 
             <svelte:component this={elemento.componente} {...elemento.data} />
 
@@ -386,7 +384,9 @@
       <ul class="elementosBotones">
         {#each elementosBotones as boton, i ('boton_' + i)}
           <li class={activo == i ? 'activo' : ''}>
-            <button on:click={ir(i)}>{i}</button>
+            <button on:click={ir(i)}>
+            {i}
+            </button>
           </li>
         {/each}
       </ul>
