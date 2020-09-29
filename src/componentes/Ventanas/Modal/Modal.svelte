@@ -15,10 +15,6 @@
     console.log("DebugModal", estado);
   };
 
-  const cerrarHeader = () => {
-    estado = !estado;
-    console.log("DebugHeader", estado);
-  };
 </script>
 
 <style>
@@ -86,7 +82,7 @@
 
     <div class="Contenedor">
       <header>
-        <div on:click={cerrarHeader}>
+        <div on:click={cerrarModal}>
           <Icono icono={'cerrar'} />
         </div>
       </header>
