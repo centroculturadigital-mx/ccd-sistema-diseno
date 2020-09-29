@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import Icono from "../../../elementos/Icono/Icono.svelte";
 
@@ -12,7 +13,6 @@
     if (typeof cerrar == "function") {
       cerrar();
     }
-    console.log("DebugModal", estado);
   };
 
 </script>
@@ -77,10 +77,10 @@
 </style>
 
 {#if !!estado}
-  <section class="Modal" transition:fade>
-    <div class="capaCerrar" on:click={cerrarModal}/>
+  <section class="Modal" transition:fade >
+    <div class="capaCerrar" on:click={cerrarModal} />
 
-    <div class="Contenedor">
+    <div class="Contenedor" >
       <header>
         <div on:click={cerrarModal}>
           <Icono icono={'cerrar'} />
