@@ -11,10 +11,24 @@ export const EnlaceDefault = () => ({
         datos:{
         texto:"Hola Mundo",
         enlace: "http://wikipedia.org",
+        blank: false,
+    }
+    }
+});
+
+
+export const EnlaceNueva = () => ({
+    Component: ThemeTester,    
+    props: {
+        componente: Enlace,
+        datos:{
+        texto:"Hola Mundo",
+        enlace: "http://wikipedia.org",
         blank: true,
     }
     }
 });
+
 
 export const EnlaceContenidoHTML = () => ({
     Component: ThemeTester,

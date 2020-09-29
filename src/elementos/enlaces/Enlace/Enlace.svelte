@@ -11,7 +11,7 @@
   };
 
   $: (target => {
-    atributos["target"] = !!target;
+    atributos["target"] = !!target ? "_blank" : "";
   })(blank);
 </script>
 
