@@ -7,15 +7,24 @@
   export let datos = {};
   export let cerrar;
 
-  let cerrarAccion = () => {
+  const cerrarModal = () => {
     estado = !estado;
     if (typeof cerrar == "function") {
       cerrar();
     }
+    console.log("DebugModal", estado);
+  };
+
+  const cerrarHeader = () => {
+    estado = !estado;
+    console.log("DebugHeader", estado);
   };
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .Modal {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -27,19 +36,17 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    box-sizing: border-box;
   }
   .Modal header {
     position: absolute;
-    top: -1.4rem;
-    right: -3.25rem;
-    padding: calc(var(--theme-espaciados-padding) * 2);
+    top: 0;
+    right: 0;
+    padding: calc(var(--theme-espaciados-padding) * 1);
     height: auto;
     width: auto;
     display: flex;
     justify-content: flex-end;
     z-index: 1001;
-    box-sizing: border-box;
   }
   .Modal header :global(img) {
     transition: var(--theme-transisiones-normal);
@@ -50,9 +57,13 @@
   }
   .Contenedor {
     position: relative;
+    max-width: 85vw;
+    overflow: hidden;
+    z-index: 1001;
   }
   .Contenedor :global(.cerrar) {
-    fill: #fff !important;
+    fill: #aaaaaa !important;
+    cursor: pointer;
   }
   .Contenedor :global(.cerrar:hover) {
     opacity: 0.75;
@@ -61,14 +72,21 @@
     height: 100%;
     width: 100%;
   }
+  .capaCerrar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
 </style>
 
 {#if !!estado}
   <section class="Modal" transition:fade>
+    <div class="capaCerrar" on:click={cerrarModal}/>
 
     <div class="Contenedor">
       <header>
-        <div on:click={cerrarAccion}>
+        <div on:click={cerrarHeader}>
           <Icono icono={'cerrar'} />
         </div>
       </header>

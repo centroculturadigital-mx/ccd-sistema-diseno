@@ -15,7 +15,7 @@
   export let flechas = true;
   export let navegacion = true;
 
-  export let activo = -1;
+  export let activo = 0;
 
   export let estilos = {
     direccion: "horizontal",
@@ -235,9 +235,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     transform: scale(1);
     opacity: 1;
+    overflow: hidden;
   }
 
   .elemento:not(.activo) {
@@ -252,6 +252,7 @@
   :global(.Carrusel .elemento > *) {
     max-width: 100% !important;
     max-height: 100% !important;
+    cursor: pointer;
   }
 
   .elementosBotones {
