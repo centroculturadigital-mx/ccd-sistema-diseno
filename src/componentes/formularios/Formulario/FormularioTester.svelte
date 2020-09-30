@@ -3,7 +3,7 @@
     import Formulario from "./Formulario.svelte";
 
     export let error
-    export let enviar
+    // export let enviar
     export let cambiar
     
     export let campos
@@ -12,7 +12,21 @@
     let respuesta
 
 
+
+let enviarConTiempo = datos => {
+
+    
+    setTimeout(() => {
+        
+        console.log("enviar", datos)
+        
+        respuesta = "Enviado!"
+        
+    }, 1500)
+
+}
+
 </script>
 
 
-<Formulario {enviar} {cambiar} {respuesta} {campos} {pasos}/>
+<Formulario enviar={enviarConTiempo} {cambiar} {respuesta} {campos} {pasos}/>

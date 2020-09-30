@@ -12,17 +12,6 @@ export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
 }
 
-let enviarConTiempo = datos => {
-
-    const respuesta = "Enviando..."
-
-    setTimeout(() => {
-
-        console.log("enviar", datos)
-
-    }, 400)
-}
-
 
 const cambiar = datos => {
 
@@ -39,7 +28,7 @@ export const formularioDefault = () => ({
         componente: FormularioTester,
         datos: {
             campos: campos.slice(0, 3),
-            enviar: enviarConTiempo,
+            // enviar: enviarConTiempo,
         }
     },
 });
@@ -50,7 +39,7 @@ export const formularioCompleto = () => ({
         componente: FormularioTester,
         datos: {
             campos: campos,
-            enviar: enviarConTiempo,
+            // enviar: enviarConTiempo,
         }
     },
 });
@@ -84,7 +73,7 @@ export const formularioConRespuestaObjeto = () => ({
         componente: Formulario,
         datos: {
             campos: campos,
-            enviar: enviarConTiempo,
+            // enviar: enviarConTiempo,
             respuesta: {
                 titulo: "Titulo de respuesta",
                 texto: "Texto de respuesta",
@@ -99,7 +88,7 @@ export const formularioConRespuestaError = () => ({
         componente: Formulario,
         datos: {
             campos: campos,
-            enviar: enviarConTiempo,
+            // enviar: enviarConTiempo,
             respuesta: new Error("Respuesta con error")
         }
     },

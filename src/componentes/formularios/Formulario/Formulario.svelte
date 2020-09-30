@@ -28,9 +28,15 @@
   export let cambiar;
   export let respuesta;
 
+
+  let enviando = false
+
+  $: respuesta && (()=>{ enviando=false })()
+
   export let config = {
     textos: {
-      enviar: "Enviar"
+      enviar: "Enviar",
+      enviando: "Enviando...",
     }
   };
 
@@ -102,6 +108,7 @@
     if (typeof enviar == "function") {
       if (!hayErrores || !hayRequeridosVacios()) {
         enviar(datos);
+        enviando = true
       }
     }
   };
@@ -355,7 +362,7 @@
               disabled={hayErrores || hayRequeridosVacios}
               type="submit"
               class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
-              value={config.textos.enviar} />
+              value={ enviando ? config.textos.enviando : config.textos.enviar} />
           {/if}
         {/if}
 
