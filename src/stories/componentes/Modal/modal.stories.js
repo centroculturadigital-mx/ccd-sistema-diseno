@@ -16,7 +16,7 @@ export const modalAbrir = () => ({
             componente: Tarjeta,
             datos: {
                 imagen: placeholder,
-                titulo: "Titulo de tarjeta",
+                nombre: "Titulo de tarjeta",
                 nivelTitulo: 3,
                 // texto: "Nam in timeam commodo numquam, eu sed dolore vivendum reprimique. Cibo referrentur id pri, ei sea placerat adipisci.",
                 sombra: true,
@@ -34,7 +34,7 @@ export const modalAbierto = () => ({
             componente: Tarjeta,
             datos: {
                 imagen: placeholder,
-                titulo: "Titulo de tarjeta",
+                nombre: "Titulo de tarjeta",
                 nivelTitulo: 3,
                 // texto: "Nam in timeam commodo numquam, eu sed dolore vivendum reprimique. Cibo referrentur id pri, ei sea placerat adipisci.",
                 sombra: true,
@@ -52,7 +52,7 @@ export const modalCerrado = () => ({
             componente: Tarjeta,
             datos: {
                 imagen: placeholder,
-                titulo: "Titulo de tarjeta",
+                nombre: "Titulo de tarjeta",
                 nivelTitulo: 3,
                 texto: "Nam in timeam commodo numquam, eu sed dolore vivendum reprimique. Cibo referrentur id pri, ei sea placerat adipisci.",
                 sombra: true,
