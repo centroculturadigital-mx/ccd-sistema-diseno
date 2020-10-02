@@ -32,6 +32,7 @@
         "sirv-cli": "^0.4.4",
         "storybook": "^6.0.21",
         "svelte-feather-icons": "^3.2.2",
+        "svelte-swipe": "^1.7.0",
         "svg-inline-loader": "^0.8.2"
     }
 }

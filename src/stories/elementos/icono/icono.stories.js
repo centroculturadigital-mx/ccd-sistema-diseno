@@ -1,19 +1,19 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import Icono from '../../../elementos/Icono/Icono.svelte';   
+import Icono from '../../../elementos/Icono/Icono.svelte';
 
-export default { title: 'Elementos/Icono' } 
+export default { title: 'Elementos/Icono' }
 
-export const iconoDefault = () => ({ 
+export const iconoDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos: {
-        icono: "play",
+            icono: "play",
         }
     },
 });
 
-export const iconoTamanno = () => ({ 
+export const iconoTamanno = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
@@ -24,7 +24,7 @@ export const iconoTamanno = () => ({
     },
 });
 
-export const iconoTamanno2 = () => ({ 
+export const iconoTamanno2 = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
@@ -39,10 +39,10 @@ export const iconoColor1 = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
-        datos :{
-        icono: "cerrar",
-        color: "red"
-    }
+        datos: {
+            icono: "cerrar",
+            color: "red"
+        }
     },
 });
 
@@ -50,10 +50,10 @@ export const iconoColor2 = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
-        datos :{
-        icono: "cerrar",
-        color: "green"
-    }
+        datos: {
+            icono: "cerrar",
+            color: "green"
+        }
     },
 });
 
@@ -62,19 +62,19 @@ export const iconoColor3 = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
-        datos :{
-        icono: "cerrar",
-        color: "blue"
-    }
+        datos: {
+            icono: "cerrar",
+            color: "blue"
+        }
     },
 });
 export const iconoPlay = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
-        datos:{
-        icono: "play",
-    }
+        datos: {
+            icono: "play",
+        }
     },
 });
 export const iconoMenu = () => ({
@@ -82,8 +82,8 @@ export const iconoMenu = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "menu",
-    }
+            icono: "menu",
+        }
     },
 });
 export const iconoCerrar = () => ({
@@ -91,8 +91,8 @@ export const iconoCerrar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "cerrar",
-    }
+            icono: "cerrar",
+        }
     },
 });
 
@@ -101,10 +101,10 @@ export const iconoAvatar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avatar",
-    }
+            icono: "avatar",
+        }
     },
-    
+
 });
 
 export const iconoFacebook = () => ({
@@ -112,10 +112,10 @@ export const iconoFacebook = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "facebook",
-    }
+            icono: "facebook",
+        }
     },
-    
+
 });
 
 export const iconoTwitter = () => ({
@@ -123,21 +123,21 @@ export const iconoTwitter = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "twitter",
-    }
+            icono: "twitter",
+        }
     },
-    
-}); 
+
+});
 
 export const iconoInstagram = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos: {
-        icono: "instagram",
-    }
+            icono: "instagram",
+        }
     },
-    
+
 });
 
 export const iconoAgregar = () => ({
@@ -145,10 +145,10 @@ export const iconoAgregar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "agregar",
-    }
+            icono: "agregar",
+        }
     },
-    
+
 });
 
 export const iconoAlerta = () => ({
@@ -156,10 +156,10 @@ export const iconoAlerta = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "alerta",
-    }
+            icono: "alerta",
+        }
     },
-    
+
 });
 
 export const iconoAviso = () => ({
@@ -167,10 +167,10 @@ export const iconoAviso = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "aviso",
-    }
+            icono: "aviso",
+        }
     },
-    
+
 });
 
 export const iconoExito = () => ({
@@ -178,10 +178,10 @@ export const iconoExito = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "exito",
-    }
+            icono: "exito",
+        }
     },
-    
+
 });
 
 export const iconoInformacion = () => ({
@@ -189,10 +189,10 @@ export const iconoInformacion = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "informacion",
-    }
+            icono: "informacion",
+        }
     },
-    
+
 });
 
 export const iconoPregunta = () => ({
@@ -200,10 +200,10 @@ export const iconoPregunta = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "pregunta",
-    }
+            icono: "pregunta",
+        }
     },
-    
+
 });
 
 export const iconoDerecha = () => ({
@@ -211,10 +211,10 @@ export const iconoDerecha = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "derecha",
-    }
+            icono: "derecha",
+        }
     },
-    
+
 });
 
 export const iconoAbajo = () => ({
@@ -222,10 +222,10 @@ export const iconoAbajo = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "abajo",
-    }
+            icono: "abajo",
+        }
     },
-    
+
 });
 
 export const iconoFeliz = () => ({
@@ -233,10 +233,10 @@ export const iconoFeliz = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "feliz",
-    }
+            icono: "feliz",
+        }
     },
-    
+
 });
 
 export const iconoAdjuntar = () => ({
@@ -244,10 +244,10 @@ export const iconoAdjuntar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "adjuntar",
-    }
+            icono: "adjuntar",
+        }
     },
-    
+
 });
 
 export const iconoSumar = () => ({
@@ -255,10 +255,10 @@ export const iconoSumar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "sumar",
-    }
+            icono: "sumar",
+        }
     },
-    
+
 });
 
 export const iconoConfirma = () => ({
@@ -266,10 +266,10 @@ export const iconoConfirma = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "confirma",
-    }
+            icono: "confirma",
+        }
     },
-    
+
 });
 
 export const iconoIrIzquierda = () => ({
@@ -277,10 +277,10 @@ export const iconoIrIzquierda = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "irIzquierda",
-    }
+            icono: "irIzquierda",
+        }
     },
-    
+
 });
 
 export const iconoIrDerecha = () => ({
@@ -288,10 +288,10 @@ export const iconoIrDerecha = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "irDerecha",
-    }
+            icono: "irDerecha",
+        }
     },
-    
+
 });
 
 export const iconoOjoAbierto = () => ({
@@ -299,10 +299,10 @@ export const iconoOjoAbierto = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "ojoAbierto",
-    }
+            icono: "ojoAbierto",
+        }
     },
-    
+
 });
 
 export const iconoOjoCerrado = () => ({
@@ -310,10 +310,10 @@ export const iconoOjoCerrado = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "ojoCerrado",
-    }
+            icono: "ojoCerrado",
+        }
     },
-    
+
 });
 
 export const iconoCompartir = () => ({
@@ -321,10 +321,10 @@ export const iconoCompartir = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "compartir",
-    }
+            icono: "compartir",
+        }
     },
-    
+
 });
 
 export const iconoGoogle = () => ({
@@ -332,10 +332,10 @@ export const iconoGoogle = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "google",
-    }
+            icono: "google",
+        }
     },
-    
+
 });
 
 export const iconoCharla = () => ({
@@ -343,10 +343,10 @@ export const iconoCharla = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "charla",
-    }
+            icono: "charla",
+        }
     },
-    
+
 });
 
 export const iconoAdjuntarFoto = () => ({
@@ -354,10 +354,10 @@ export const iconoAdjuntarFoto = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "adjuntarFoto",
-    }
+            icono: "adjuntarFoto",
+        }
     },
-    
+
 });
 
 export const iconoMano = () => ({
@@ -365,10 +365,10 @@ export const iconoMano = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "mano",
-    }
+            icono: "mano",
+        }
     },
-    
+
 });
 
 export const iconoAvanzarArriba = () => ({
@@ -376,10 +376,10 @@ export const iconoAvanzarArriba = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzarArriba",
-    }
+            icono: "avanzarArriba",
+        }
     },
-    
+
 });
 
 export const iconoAvanzarAbajo = () => ({
@@ -387,10 +387,10 @@ export const iconoAvanzarAbajo = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzarAbajo",
-    }
+            icono: "avanzarAbajo",
+        }
     },
-    
+
 });
 
 export const iconoAvanzarIzquierda = () => ({
@@ -398,10 +398,10 @@ export const iconoAvanzarIzquierda = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzarIzquierda",
-    }
+            icono: "avanzarIzquierda",
+        }
     },
-    
+
 });
 
 export const iconoAvanzarDerecha = () => ({
@@ -409,10 +409,10 @@ export const iconoAvanzarDerecha = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "avanzarDerecha",
-    }
+            icono: "avanzarDerecha",
+        }
     },
-    
+
 });
 
 export const iconoSoundcloud = () => ({
@@ -420,10 +420,10 @@ export const iconoSoundcloud = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "soundcloud",
-    }
+            icono: "soundcloud",
+        }
     },
-    
+
 });
 
 export const iconoDocumento = () => ({
@@ -431,10 +431,10 @@ export const iconoDocumento = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "documento",
-    }
+            icono: "documento",
+        }
     },
-    
+
 });
 
 export const iconoTiempo = () => ({
@@ -442,10 +442,10 @@ export const iconoTiempo = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "tiempo",
-    }
+            icono: "tiempo",
+        }
     },
-    
+
 });
 
 export const iconoCamara = () => ({
@@ -453,10 +453,10 @@ export const iconoCamara = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "camara",
-    }
+            icono: "camara",
+        }
     },
-    
+
 });
 
 export const iconoSubir = () => ({
@@ -464,10 +464,10 @@ export const iconoSubir = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "subir",
-    }
+            icono: "subir",
+        }
     },
-    
+
 });
 
 export const iconoExterno = () => ({
@@ -475,10 +475,10 @@ export const iconoExterno = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "externo",
-    }
+            icono: "externo",
+        }
     },
-    
+
 });
 
 export const iconoEnlace = () => ({
@@ -486,10 +486,10 @@ export const iconoEnlace = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "enlace",
-    }
+            icono: "enlace",
+        }
     },
-    
+
 });
 
 export const iconoYoutube = () => ({
@@ -497,10 +497,10 @@ export const iconoYoutube = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "youtube",
-    }
+            icono: "youtube",
+        }
     },
-    
+
 });
 
 export const iconoLinkedin = () => ({
@@ -508,10 +508,10 @@ export const iconoLinkedin = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "linkedin",
-    }
+            icono: "linkedin",
+        }
     },
-    
+
 });
 
 export const iconoRestar = () => ({
@@ -519,10 +519,10 @@ export const iconoRestar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "restar",
-    }
+            icono: "restar",
+        }
     },
-    
+
 });
 
 export const iconoSeguridad = () => ({
@@ -530,10 +530,10 @@ export const iconoSeguridad = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "seguridad",
-    }
+            icono: "seguridad",
+        }
     },
-    
+
 });
 
 export const iconoCasilla = () => ({
@@ -541,10 +541,10 @@ export const iconoCasilla = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "casilla",
-    }
+            icono: "casilla",
+        }
     },
-    
+
 });
 
 export const iconoNube = () => ({
@@ -552,10 +552,10 @@ export const iconoNube = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "nube",
-    }
+            icono: "nube",
+        }
     },
-    
+
 });
 
 export const iconoConfiguracion = () => ({
@@ -563,10 +563,10 @@ export const iconoConfiguracion = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "configuracion",
-    }
+            icono: "configuracion",
+        }
     },
-    
+
 });
 
 export const iconoInicio = () => ({
@@ -574,10 +574,10 @@ export const iconoInicio = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "inicio",
-    }
+            icono: "inicio",
+        }
     },
-    
+
 });
 
 export const iconoArriba = () => ({
@@ -585,10 +585,10 @@ export const iconoArriba = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "arriba",
-    }
+            icono: "arriba",
+        }
     },
-    
+
 });
 
 export const iconoIzquierda = () => ({
@@ -596,10 +596,10 @@ export const iconoIzquierda = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "izquierda",
-    }
+            icono: "izquierda",
+        }
     },
-    
+
 });
 
 export const iconoOrdenar = () => ({
@@ -607,10 +607,10 @@ export const iconoOrdenar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "ordenar",
-    }
+            icono: "ordenar",
+        }
     },
-    
+
 });
 
 export const iconoNotificacion = () => ({
@@ -618,10 +618,10 @@ export const iconoNotificacion = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "notificacion",
-    }
+            icono: "notificacion",
+        }
     },
-    
+
 });
 
 export const iconoCalendario = () => ({
@@ -629,10 +629,10 @@ export const iconoCalendario = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "calendario",
-    }
+            icono: "calendario",
+        }
     },
-    
+
 });
 
 export const iconoLista = () => ({
@@ -640,10 +640,10 @@ export const iconoLista = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "lista",
-    }
+            icono: "lista",
+        }
     },
-    
+
 });
 
 export const iconoUbicacion = () => ({
@@ -651,10 +651,10 @@ export const iconoUbicacion = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "ubicacion",
-    }
+            icono: "ubicacion",
+        }
     },
-    
+
 });
 
 export const iconoTelefono = () => ({
@@ -662,10 +662,10 @@ export const iconoTelefono = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "telefono",
-    }
+            icono: "telefono",
+        }
     },
-    
+
 });
 
 export const iconoContacto = () => ({
@@ -673,10 +673,10 @@ export const iconoContacto = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "contacto",
-    }
+            icono: "contacto",
+        }
     },
-    
+
 });
 
 export const iconoEliminar = () => ({
@@ -684,10 +684,10 @@ export const iconoEliminar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "eliminar",
-    }
+            icono: "eliminar",
+        }
     },
-    
+
 });
 
 export const iconoDescargar = () => ({
@@ -695,10 +695,10 @@ export const iconoDescargar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "descargar",
-    }
+            icono: "descargar",
+        }
     },
-    
+
 });
 
 export const iconoBuscar = () => ({
@@ -706,10 +706,10 @@ export const iconoBuscar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "buscar",
-    }
+            icono: "buscar",
+        }
     },
-    
+
 });
 
 export const iconoIrArriba = () => ({
@@ -717,10 +717,10 @@ export const iconoIrArriba = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "irArriba",
-    }
+            icono: "irArriba",
+        }
     },
-    
+
 });
 
 export const iconoIrAbajo = () => ({
@@ -728,10 +728,10 @@ export const iconoIrAbajo = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "irAbajo",
-    }
+            icono: "irAbajo",
+        }
     },
-    
+
 });
 
 export const iconoCalendarioAgregar = () => ({
@@ -739,10 +739,10 @@ export const iconoCalendarioAgregar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "calendarioAgregar",
-    }
+            icono: "calendarioAgregar",
+        }
     },
-    
+
 });
 
 export const iconoGestores = () => ({
@@ -750,10 +750,10 @@ export const iconoGestores = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "gestores",
-    }
+            icono: "gestores",
+        }
     },
-    
+
 });
 
 export const iconoMinimizar = () => ({
@@ -761,10 +761,10 @@ export const iconoMinimizar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "minimizar",
-    }
+            icono: "minimizar",
+        }
     },
-    
+
 });
 
 export const iconoMaximizar = () => ({
@@ -772,10 +772,10 @@ export const iconoMaximizar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "maximizar",
-    }
+            icono: "maximizar",
+        }
     },
-    
+
 });
 
 export const iconoFiltro = () => ({
@@ -783,10 +783,10 @@ export const iconoFiltro = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "filtro",
-    }
+            icono: "filtro",
+        }
     },
-    
+
 });
 
 export const iconoWeb = () => ({
@@ -794,10 +794,10 @@ export const iconoWeb = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "web",
-    }
+            icono: "web",
+        }
     },
-    
+
 });
 
 export const iconoEditar = () => ({
@@ -805,10 +805,10 @@ export const iconoEditar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "editar",
-    }
+            icono: "editar",
+        }
     },
-    
+
 });
 
 export const iconoRotar = () => ({
@@ -816,10 +816,10 @@ export const iconoRotar = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "rotar",
-    }
+            icono: "rotar",
+        }
     },
-    
+
 });
 
 export const iconoBehance = () => ({
@@ -827,10 +827,10 @@ export const iconoBehance = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "behance",
-    }
+            icono: "behance",
+        }
     },
-    
+
 });
 
 export const iconoDribbble = () => ({
@@ -838,10 +838,10 @@ export const iconoDribbble = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "dribbble",
-    }
+            icono: "dribbble",
+        }
     },
-    
+
 });
 
 export const iconoGithub = () => ({
@@ -849,10 +849,10 @@ export const iconoGithub = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "github",
-    }
+            icono: "github",
+        }
     },
-    
+
 });
 
 export const iconoGitlab = () => ({
@@ -860,10 +860,10 @@ export const iconoGitlab = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "gitlab",
-    }
+            icono: "gitlab",
+        }
     },
-    
+
 });
 
 export const iconoVimeo = () => ({
@@ -871,10 +871,10 @@ export const iconoVimeo = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "vimeo",
-    }
+            icono: "vimeo",
+        }
     },
-    
+
 });
 
 export const iconoTikTok = () => ({
@@ -882,10 +882,10 @@ export const iconoTikTok = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "tiktok",
-    }
+            icono: "tiktok",
+        }
     },
-    
+
 });
 
 export const iconoReaccion = () => ({
@@ -893,8 +893,27 @@ export const iconoReaccion = () => ({
     props: {
         componente: Icono,
         datos: {
-        icono: "reaccion",
-    }
+            icono: "reaccion",
+        }
     },
-    
+
+});
+export const iconoCasillaVacia = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "casillavacia",
+        }
+    }
+});
+
+export const iconoCasillaLlena = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "casillallena",
+        }
+    }
 });

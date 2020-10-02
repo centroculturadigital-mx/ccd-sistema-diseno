@@ -79,6 +79,8 @@
   import gitlab from "./iconos/gitlab.svg";
   import vimeo from "./iconos/vimeo.svg";
   import tiktok from "./iconos/tiktok.svg";
+  import casillavacia from "./iconos/casillavacia.svg";
+  import casillallena from "./iconos/casillallena.svg";
   
   export let icono;
   export let tamanno = "2rem";
@@ -164,9 +166,11 @@
     gitlab,
     vimeo,
     tiktok,
+    casillallena,
+    casillavacia
   };
 
-  $: iconoMostrar = iconos[icono];
+  $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;
 </script>
 
 <style>
