@@ -48,21 +48,23 @@ import { isArray } from "util";
 
   const desenfocarAccion = () => {
     // if (cambiado) {
-      // if (typeof desenfocar == "function") {
-      //   desenfocar()
-      // }
-      if (typeof cambiar == "function") {
-        cambiar(valorLocal);
+      if (typeof desenfocar == "function") {
+        desenfocar()
       }
+      setTimeout(()=>{
+        if (typeof cambiar == "function") {
+          cambiar(valorLocal);
+        }
+      },100)
       // cambiado = false
     // }
   };
   
   const enfocarAccion = () => {
     // cambiado = false
-    // if (typeof enfocar == "function") {
-    //   enfocar()
-    // }
+    if (typeof enfocar == "function") {
+      enfocar()
+    }
   };
 
   $: clases = "Entrada" + (estado ? " " + estado : "");
@@ -153,6 +155,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     type="text"
     placeholder={ejemplo}
@@ -165,6 +168,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     type="password"
     placeholder={ejemplo}
@@ -177,6 +181,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     type="email"
     placeholder={ejemplo}
@@ -189,6 +194,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     type="number"
     min={!!minimo ? minimo : ''}
@@ -203,6 +209,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     type="file"
     placeholder={ejemplo}
@@ -215,6 +222,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     type="tel"
     placeholder={ejemplo}
@@ -229,6 +237,7 @@ import { isArray } from "util";
       class={clases}
       on:focusout={()=>desenfocarAccion()}
       on:focus={()=>enfocarAccion()}
+      on:keyup={()=>cambiarAccion()}
       name={nombre}
       type="checkbox"
       value={valorEstatico}
@@ -242,6 +251,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     type="radio"
     value={valorEstatico}
@@ -253,6 +263,7 @@ import { isArray } from "util";
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
     name={nombre}
     placeholder={ejemplo}
     bind:value={valorLocal}

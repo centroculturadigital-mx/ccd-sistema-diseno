@@ -20,18 +20,19 @@
   export let ultimo;
 
   
-  
   let enfocado = false
   
-  const calcularEstado = v => {
-    if( ! enfocado ) {
-      return estado
-    } else {      
-      return validacion(v).estado
-    }
-  }
+  // const calcularEstado = v => {
+  //   if( ! enfocado ) {
+  //     return estado
+  //   } else {      
+  //     return validacion(v).estado
+  //   }
+  // }
+  // temporalmente siempre validar:
+  const calcularEstado = v => estado
 
-  let estadoMostrar = calcularEstado(valor)
+  $: estadoMostrar = calcularEstado(estado)
 
   const enfocar = () => {
     enfocado = true  
@@ -43,9 +44,9 @@
 
   const cambiarAccion = (v) => {
     if (typeof cambiar == "function") {
-      if( ! enfocado ) {
+      // if( ! enfocado ) {
         cambiar(v);
-      }
+      // }
     }
     
     // if( valor && enfocado) {

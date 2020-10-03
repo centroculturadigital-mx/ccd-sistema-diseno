@@ -42,7 +42,8 @@
 
   let pasoActual = 0;
 
-
+  let formularioId = Math.random().toString().replace("0.","") // identificador para ids de campos
+  console.log({formularioId});
   let ultimoCampoCambiado
 
   const computarCampos = (campos, datos) => {
@@ -91,7 +92,7 @@
   };
 
 
-
+  
 
   $: todosLosCampos = Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos)?[...a,...p.campos]:a,[]) : campos
   $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, datos) : []
@@ -155,6 +156,8 @@
         : {
             campos: computarCampos(campos, datos)
           };
+
+    console.log({pantallaActual});
   };
 
   $: actualizarPantalla(pasoActual, camposMostrar);
@@ -351,7 +354,8 @@
       <form on:submit|preventDefault={enviarFuncion}>
 
         {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
-          {#each pantallaActual.campos as campo, i (campo)}
+          {#each pantallaActual.campos as campo, i ("formulario_" +formularioId + "_" + campo.nombre)}
+          <!-- {#each pantallaActual.campos as campo, i (campo)} -->
             <Campo {...campo} />
           {/each}
         {/if}
@@ -359,7 +363,7 @@
         {#if !!enviar}
           {#if !Array.isArray(pasos) || pasoActual == pasos.length - 1}
             <input
-              disabled={hayErrores || hayRequeridosVacios}
+              disabled={enviando || hayErrores || hayRequeridosVacios}
               type="submit"
               class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
               value={ enviando ? config.textos.enviando : config.textos.enviar} />
