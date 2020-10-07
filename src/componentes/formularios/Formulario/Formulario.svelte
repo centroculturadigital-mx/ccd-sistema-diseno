@@ -90,9 +90,9 @@
     if (typeof c.cambiar == "function") {
       c.cambiar(datos);
     }
-    
+
     if (typeof cambiar == "function") {
-      cambiar(datos);
+      cambiar(valor, c);
     }
   };
 
