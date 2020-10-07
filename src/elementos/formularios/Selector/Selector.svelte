@@ -8,17 +8,51 @@
   export let desenfocar;
   export let vacioPermitido = true;
 
-  export let value;
+  // export let value;
+
 
   $: clases = 'Selector' + (estado ? " " + estado : '' );
 
-  const actualizarValor = v => {
-    value = v;
-  };
+  // const actualizarValor = v => {
+  //   value = v;
+  // };
 
   let valorLocal;
 
-  $: actualizarValor(value);
+  // $: actualizarValor(value);
+
+
+
+  const desenfocarAccion = () => {
+    // if (cambiado) {
+      if (typeof desenfocar == "function") {
+        desenfocar()
+      }
+
+      if (typeof cambiar == "function") {
+        cambiar(valorLocal);
+      }
+      
+      // cambiado = false
+    // }
+  };
+  
+  const enfocarAccion = () => {
+    // cambiado = false
+    if (typeof enfocar == "function") {
+      enfocar()
+    }
+  };
+
+
+  const cambiarAccion = () => {
+    // cambiado = true
+    if (typeof cambiar == "function") {
+      setTimeout(()=>{
+        cambiar(valorLocal)
+      });
+    }
+  };
 </script>
 
 <style>
@@ -56,9 +90,9 @@
 <select
   class={clases}
   name={nombre}
-  on:focus={()=>enfocar(valorLocal)}
-  on:focusout={()=>desenfocar(valorLocal)}
-  on:change={e => cambiar(e.target.value)}
+  on:focus={()=>enfocarAccion()}
+  on:focusout={()=>desenfocarAccion()}
+  on:change={()=>cambiarAccion()}
   bind:value={valorLocal}>
 
       {#if !!opciones}
@@ -76,7 +110,7 @@
         {#each opciones as opcion}
           <option
           value={opcion.valor}
-          selected={ opcion.valor === value }>
+          selected={ opcion.valor === valorLocal }>
             {opcion.texto}
           </option>
         {/each}

@@ -5,10 +5,7 @@ export default {
     etiqueta: 'Texto: Sin caracteres especiales ',
     valorInicial: '...',
     validacion: (valor) => {
-        console.log("validacion texto", valor);
-          
         let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]"); //solo acepta guion medio y bajo        
-
 
         return {
             valido: !caracteresEspeciales.test(valor),

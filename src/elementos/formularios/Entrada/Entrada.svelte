@@ -35,10 +35,10 @@ import { isArray } from "util";
   // actualizar datos cuando cambian campos
   // $: (typeof cambiar == "function" && !! valorLocal) && cambiar(valorLocal)
   // TODO : eliminar esto:
-  const cambiarAccion = () => {
+  const cambiarAccion = (valor) => {
     // cambiado = true
     if (typeof cambiar == "function") {
-      cambiar(valorLocal);
+      cambiar(valor||valorLocal);
     }
   };
   // $: ( && !! valorLocal) && cambiar(valorLocal)
@@ -271,7 +271,7 @@ import { isArray } from "util";
 {/if}
 
 {#if tipo == 'selector' && Array.isArray(opciones)}
-  <Selector bind:value={valorLocal} desenfocar={desenfocarAccion}
+  <Selector desenfocar={desenfocarAccion}
   enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
   />
 {/if}
@@ -279,9 +279,9 @@ import { isArray } from "util";
 {#if tipo == 'fecha'}
   <CalendarioEntrada
     bind:value={valorLocal}
-    cambiar={cambiarAccion}
-    desenfocar={desenfocarAccion}
-    enfocar={enfocarAccion}
+    cambiar={()=>cambiarAccion()}
+    desenfocar={()=>desenfocarAccion()}
+    enfocar={()=>enfocarAccion()}
     />
 {/if}
 

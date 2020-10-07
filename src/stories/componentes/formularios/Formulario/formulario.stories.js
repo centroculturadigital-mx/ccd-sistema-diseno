@@ -163,7 +163,7 @@ export const formularioCamposCambiarPersonalizado = () => ({
     props: {
         componente: FormularioTester,
         datos: {
-            campos: campos.slice(0, 3).map(c=>({
+            campos: campos.map(c=>({
                 ...c,
                 cambiar: (datos) => {
                     console.log("cambiar personalizado", c.nombre, datos);                    

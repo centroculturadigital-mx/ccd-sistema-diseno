@@ -4,7 +4,6 @@ export default {
     requerido: true,
     etiqueta: 'Un selector',
     validacion: (valor) => {
-        console.log("validacion selector", valor);
         return true
     },
     valor: 2,

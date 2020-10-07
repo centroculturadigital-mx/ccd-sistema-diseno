@@ -88,7 +88,7 @@
     datos[c.nombre] = valor;
 
     if (typeof c.cambiar == "function") {
-      c.cambiar(datos);
+      c.cambiar(valor||c.valor);
     }
 
     if (typeof cambiar == "function") {
