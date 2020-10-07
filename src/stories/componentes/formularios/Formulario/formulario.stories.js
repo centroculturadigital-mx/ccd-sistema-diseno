@@ -155,3 +155,21 @@ export const formularioPasos = () => ({
         }
     },
 });
+
+
+
+export const formularioCamposCambiarPersonalizado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: campos.slice(0, 3).map(c=>({
+                ...c,
+                cambiar: (datos) => {
+                    console.log("cambiar personalizado", c.nombre, datos);                    
+                }
+            })),
+            // enviar: enviarConTiempo,
+        }
+    },
+});

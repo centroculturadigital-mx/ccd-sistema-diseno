@@ -87,6 +87,10 @@
   const cambiarCampo = (valor, c) => {
     datos[c.nombre] = valor;
 
+    if (typeof c.cambiar == "function") {
+      c.cambiar(datos);
+    }
+    
     if (typeof cambiar == "function") {
       cambiar(datos);
     }

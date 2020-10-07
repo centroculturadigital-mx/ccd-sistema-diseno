@@ -3,7 +3,10 @@ export default {
     nombre: 'ccd-sd-selector',
     requerido: true,
     etiqueta: 'Un selector',
-    validacion: (valor) => true,
+    validacion: (valor) => {
+        console.log("validacion selector", valor);
+        return true
+    },
     valor: 2,
     opciones: [{
             valor: 1,
