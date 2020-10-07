@@ -41,6 +41,8 @@ export { default as Colapsable }
 from "./elementos/Colapsable/Colapsable.svelte";
 
 //  Componentes
+export { default as Acordeon }
+from "./componentes/Acordeon/Acordeon.svelte";
 export { default as Campo }
 from "./componentes/formularios/Campo/Campo.svelte";
 export { default as Compartir }
