@@ -162,6 +162,7 @@
 
   const reiniciar = () => {
     respuesta = null
+    datos = {}
   }
 
   $: actualizarPantalla(pasoActual, camposMostrar);
