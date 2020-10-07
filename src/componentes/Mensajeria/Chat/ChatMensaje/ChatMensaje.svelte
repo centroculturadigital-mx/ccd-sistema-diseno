@@ -60,6 +60,14 @@
     overflow: hidden;
     margin-right: calc(var(--theme-espaciados-margen) * 2);
   }
+  .ChatMensaje .Nombre :global(*) {
+    font-weight: bolder;
+    color: #000;
+  }
+  .ChatMensaje .Mensaje :global(*) {
+    color: #333;
+  }
+  
   .Mensaje {
     display: flex;
   }
@@ -82,13 +90,15 @@
   <div>
     <div class="Mensaje">
       <div class="Texto">
-        {#if mensaje.usuario.enlace}
-          <a href={mensaje.usuario.enlace}>
+        <span class="Nombre">
+          {#if mensaje.usuario.enlace}
+            <a href={mensaje.usuario.enlace}>
+              <Texto texto={mensaje.usuario.nombre} />
+            </a>
+          {:else}
             <Texto texto={mensaje.usuario.nombre} />
-          </a>
-        {:else}
-          <Texto texto={mensaje.usuario.nombre} />
-        {/if}
+          {/if}
+        </span>
 
         <Texto texto={mensaje.mensaje} />
 

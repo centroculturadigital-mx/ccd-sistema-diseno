@@ -43,9 +43,13 @@
 .UsuariosLista.vertical {
   overflow-y: auto;
   /* overflow-x: visible !important; */
-  min-width: 12rem;
   width: auto;
   max-height: 100%;
+  min-width: 4rem;
+}
+
+.UsuariosLista.vertical:hover {
+  min-width: 12rem;
 }
 .vertical :global(ul) { 
     flex-direction: column !important;

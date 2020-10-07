@@ -108,6 +108,7 @@
 
 .Chat {
   position: relative;
+  max-width: 40rem;
 }
 
 </style>

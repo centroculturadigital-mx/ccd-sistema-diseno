@@ -3,6 +3,7 @@
   import Titulo from "../../../elementos/texto/Titulo/Titulo";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono";
+  import Boton from "../../../elementos/botones/Boton/Boton";
   import Campo from "../Campo/Campo.svelte";
   import Aviso from "../../../elementos/texto/Aviso/Aviso";
 
@@ -43,7 +44,7 @@
   let pasoActual = 0;
 
   let formularioId = Math.random().toString().replace("0.","") // identificador para ids de campos
-  console.log({formularioId});
+  
   let ultimoCampoCambiado
 
   const computarCampos = (campos, datos) => {
@@ -157,8 +158,11 @@
             campos: computarCampos(campos, datos)
           };
 
-    console.log({pantallaActual});
   };
+
+  const reiniciar = () => {
+    respuesta = null
+  }
 
   $: actualizarPantalla(pasoActual, camposMostrar);
 
@@ -413,6 +417,11 @@
           <Titulo texto={'Error'} nivel={1} />
           <Parrafo texto={respuesta.message} />
         </div>
+        <footer>
+
+          <Boton texto="Reiniciar" click={reiniciar}/>
+
+        </footer>
       {/if}
     </section>
   {/if}
