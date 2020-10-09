@@ -50,7 +50,9 @@
 <div class="Acordeon">
   <header on:click={colapsar}>
     <Titulo texto={titulo} {nivel} />
+    {#if !!elemento || !!contenido}
     <Icono icono={estado ? 'arriba' : 'abajo'} />
+    {/if}
   </header>
   {#if estado}
     <div class="contenido" transition:slide>
