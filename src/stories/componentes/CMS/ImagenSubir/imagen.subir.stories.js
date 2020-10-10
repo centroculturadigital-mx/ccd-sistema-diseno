@@ -8,7 +8,7 @@ export const imagenSubirInicial = () => ({
     props: {
         componente: ImagenSubir,
         datos: {
-            cambiar: datos => console.log("IMAGEN CAMBIAR",datos)
+            cambiar: datos => console.log("IMAGEN CAMBIAR", datos)
         }
     }
 });
@@ -18,6 +18,15 @@ export const imagenSubirEtiqueta = () => ({
         componente: ImagenSubir,
         datos: {
             etiqueta: "Sube una imagen",
+        }
+    }
+});
+export const imagenSubirIcono = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ImagenSubir,
+        datos: {
+            icono: "avatar"
         }
     }
 });

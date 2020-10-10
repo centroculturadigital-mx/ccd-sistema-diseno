@@ -3,6 +3,8 @@
   import Texto from "../../../elementos/texto/Texto/Texto";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace";
 
+  import ListaElemento from "../../../elementos/listas/ListaElemento/ListaElemento"
+
   export let imagen = "";
   export let nombre = "";
   export let slug = "";
@@ -45,9 +47,10 @@
 
   <ul class="menu">
     {#each menu as elemento (elemento)}
-      <li>
+      <!-- <li>
         <Enlace {...elemento}/>
-      </li>
+      </li> -->
+      <!-- <ListaElemento /> -->
     {/each}
   </ul>
 
