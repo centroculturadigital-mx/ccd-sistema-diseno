@@ -1,7 +1,7 @@
 import avatar from "./recursos/avatar.png";
 
 export default {
-    nombre: "nombreUsuaria",
+    nombre: "Nombre Usuaria",
     nombres: "Nombre Usuaria",
     apellidos: "ApellidoPaterno Apellido Materno ",
     email: "hola@correo.com",
