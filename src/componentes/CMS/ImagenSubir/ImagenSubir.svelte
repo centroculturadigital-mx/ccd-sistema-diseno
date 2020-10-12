@@ -151,7 +151,11 @@
 
 <section class="ImagenSubir">
   
-  <input type="file" on:change={seleccionarImagen} bind:this={input} />
+  <input
+  type="file"
+  accept="image/x-png,image/gif,image/jpeg"
+  on:change={seleccionarImagen} bind:this={input}
+  />
   
   {#if !imagen}
     <div class="Contenedor" on:click={abrir}>
