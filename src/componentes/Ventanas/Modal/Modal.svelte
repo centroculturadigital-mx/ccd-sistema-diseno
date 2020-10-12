@@ -8,6 +8,12 @@
   export let datos = {};
   export let cerrar;
 
+  $: datosMostrar = {
+    ...datos
+  }
+
+  $: console.log("datosMostrar",datosMostrar);
+
   const cerrarModal = () => {
     estado = !estado;
     if (typeof cerrar == "function") {
@@ -87,7 +93,7 @@
         </div>
       </header>
 
-      <svelte:component this={componente} {...datos} />
+      <svelte:component this={componente} {...datosMostrar} />
     </div>
 
   </section>
