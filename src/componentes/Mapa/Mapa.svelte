@@ -34,7 +34,9 @@
     let paths;
 
     onMount(()=>{
-        configurar()
+        setTimeout(()=>{
+            configurar()
+        },100)
     })
     $: ancho && alto && !! svg && escalar(ancho,alto);
     $: datos && activarHabilitados()
@@ -43,8 +45,9 @@
 
     const configurar = () => {
         
-        svg = document.getElementsByTagName('svg')[0]
+        svg = document.querySelector('.mapa-svg svg')
 
+        console.log("svg", svg);
         // containerHeight = svg.parentNode.clientHeight
 
         if(!!svg) {
@@ -54,7 +57,8 @@
 
             escalar(contenedorAncho,contenedorAlto)
             
-            setTimeout(()=>svg.parentNode.classList.add("listo"),300)
+            svg.parentNode.classList.add("listo")
+            setTimeout(()=>svg.parentNode.parentNode.classList.add("listo"),300)
 
             paths = obtenerPaths();
 
@@ -226,6 +230,13 @@
         color: #fff;
     }
      
+
+    .mapa-svg,
+    .mapa-svg :global( svg) {
+        width: 100%;
+        height: 100%;
+    }
+
     :global(.mapa.listo) {
         opacity: 1 !important;
     }
@@ -258,5 +269,7 @@
         {/if}
 
     </header>
-    {@html mapa }
+    <div class="mapa-svg">
+        {@html mapa }
+    </div>
 </div>
