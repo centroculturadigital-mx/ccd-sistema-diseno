@@ -34,7 +34,7 @@
     // opciones
   };
 
-  let imagen;
+  export let imagen;
   let input;
 
 
