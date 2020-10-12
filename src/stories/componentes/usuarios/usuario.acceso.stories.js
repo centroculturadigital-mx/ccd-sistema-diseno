@@ -5,16 +5,51 @@ import usuario from "../../../data/usuario";
 
 export default { title: 'Componentes/Usuarios/UsuarioAcceso' }
 
+let usuarioVacio = {
+    ...usuario,
+    nombre: ""
+}
+
 export const usuarioAccesoDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: UsuarioAcceso,
         datos: {
+            usuario: usuarioVacio,
+        }
+    }
+});
+export const usuarioAccesoConNombre = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: UsuarioAcceso,
+        datos: {
             ...usuario,
-            menu: [{
-                texto: "Menu 1",
-                enlace: "/menu1",
-            }]
+        }
+    }
+});
+export const usuarioAccesoConMenuDesplegable = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: UsuarioAcceso,
+        datos: {
+            ...usuario,
+            elementos: [{
+                    texto: "Ver perfil",
+                    enlace: "#",
+                    icono: "avatar"
+                },
+                {
+                    texto: "Configuraciones",
+                    enlace: "#",
+                    icono: "configuracion"
+                },
+                {
+                    texto: "salir",
+                    enlace: "#",
+                    icono: "flechaDerecha"
+                }
+            ]
         }
     }
 });

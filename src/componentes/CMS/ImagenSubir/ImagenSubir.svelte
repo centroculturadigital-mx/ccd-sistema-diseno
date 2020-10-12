@@ -7,6 +7,7 @@
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
+  export let icono = "camara";
   export let etiqueta;
   export let nombre;
   export let requerido;
@@ -159,7 +160,7 @@
   
   {#if !imagen}
     <div class="Contenedor" on:click={abrir}>
-      <Icono icono={'imagen'} tamanno={'2rem'} />
+      <Icono {icono} tamanno={'2rem'} />
       <Parrafo texto={ etiqueta ? etiqueta : 'Agregar Imagen.'} />
       <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 2mb' }  variante="CHICO"/>
   

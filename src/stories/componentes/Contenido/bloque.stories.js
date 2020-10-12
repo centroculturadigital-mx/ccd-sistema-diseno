@@ -1,6 +1,8 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Bloque from '../../../componentes/Bloque/Bloque.svelte';
 
+import Tarjeta from "../../../componentes/Tarjetas/Tarjeta/Tarjeta"
+
 export default { title: 'Componentes/Bloque/Bloque' }
 
 const documento = `
@@ -50,6 +52,21 @@ export const BloqueContenido = () => ({
             estilos: {
                 tamanno: "4.8rem",
                 color: "aquamarine"
+            }
+        },
+    },
+});
+export const BloqueComponente = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Bloque,
+        datos: {
+            contenido: {
+                componente: Tarjeta,
+                data: {
+                    nombre: "Titulo de tarjeta",
+                    leyenda: "Lorem ipsum dolor sit amet"
+                }
             }
         },
     },
