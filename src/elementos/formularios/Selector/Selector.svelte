@@ -8,18 +8,19 @@
   export let desenfocar;
   export let vacioPermitido = true;
 
-  // export let value;
+  export let valor;
 
 
   $: clases = 'Selector' + (estado ? " " + estado : '' );
 
-  // const actualizarValor = v => {
-  //   value = v;
-  // };
-
   let valorLocal;
 
-  // $: actualizarValor(value);
+  const actualizarValor = v => {
+    valorLocal = v;
+  };
+
+  
+  $: actualizarValor(valor);
 
 
 
@@ -110,7 +111,7 @@
         {#each opciones as opcion}
           <option
           value={opcion.valor}
-          selected={ opcion.valor === valorLocal }>
+          selected={ opcion.valor === valorLocal || opcion.texto === valorLocal }>
             {opcion.texto}
           </option>
         {/each}

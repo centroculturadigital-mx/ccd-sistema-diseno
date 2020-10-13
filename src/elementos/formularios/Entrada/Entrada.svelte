@@ -271,7 +271,9 @@ import { isArray } from "util";
 {/if}
 
 {#if tipo == 'selector' && Array.isArray(opciones)}
-  <Selector desenfocar={desenfocarAccion}
+  <Selector
+  valor={valorLocal}
+  desenfocar={desenfocarAccion}
   enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
   />
 {/if}

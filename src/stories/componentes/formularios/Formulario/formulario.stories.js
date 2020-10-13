@@ -53,6 +53,10 @@ export const formularioConValores = () => ({
                     ...campos[2],
                     valor: "Aliquanon"
                 },
+                {       
+                    ...campos[3],
+                    valor: 2
+                },
 
             ],
             // enviar: enviarConTiempo,
