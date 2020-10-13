@@ -33,6 +33,34 @@ export const formularioDefault = () => ({
     },
 });
 
+
+
+export const formularioConValores = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...campos[0],
+                    valor: "Consectetur proident ut ut dolore"
+                },
+                {
+                    ...campos[1],
+                    valor: 13
+                },
+                {
+                    ...campos[2],
+                    valor: "Aliquanon"
+                },
+
+            ],
+            // enviar: enviarConTiempo,
+        }
+    },
+});
+
+
 export const formularioCompleto = () => ({
     Component: ThemeTester,
     props: {

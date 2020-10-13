@@ -29,6 +29,22 @@
   export let cambiar;
   export let respuesta;
 
+  let cargadoInicial = false
+
+  const llenarDatosCampos = ( campos ) => {
+    const nuevosDatos = {}
+    campos.filter(c=>!!c.valor).forEach(c=>{
+      nuevosDatos[c.nombre]=c.valor
+    })
+    datos = {
+      ...datos,
+      ...nuevosDatos
+    }
+    cargadoInicial = true
+  }
+
+  $: ! cargadoInicial && llenarDatosCampos( campos )
+
 
   let enviando = false
 
