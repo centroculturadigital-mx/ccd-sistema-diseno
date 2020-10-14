@@ -128,3 +128,31 @@ export const entradaCalendario = () => ({
         }
     },
 });
+export const entradaCasillas = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Entrada,
+        datos: {
+            ejemplo: 'Selecciona un variedad',
+            tipo: "casillas",
+            seleccionar: [
+                {
+                    valor: "GrKu",
+                    texto: "Green 69 Kush",
+                },
+                {
+                    valor: "ChOG",
+                    texto: "Chamuko XXX OG",
+                },
+                {
+                    valor: "PuHa",
+                    texto: "Satan Purple Haze",
+                },
+                {
+                    valor: "PaKu",
+                    texto: "Panteon Kush",
+                },
+            ]
+        }
+    },
+});

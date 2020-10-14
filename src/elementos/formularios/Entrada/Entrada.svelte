@@ -97,7 +97,7 @@ import { isArray } from "util";
         tipo = "email";
         break;
       case "casilla":
-        tipo = "checkbox";
+        tipo = "casilla";
         break;
       case "radio":
         tipo = "radio";
@@ -134,11 +134,18 @@ import { isArray } from "util";
   textarea {
     min-height: 8rem;
   }
-  input[type="checkbox"],
+  /* input[type="checkbox"],
   input[type="radio"] {
     height: auto !important;
     min-height: initial !important;
+  } */
+  input[type="checkbox"]
+  /* ,
+  input[type="radio"] */
+  {
+    visibility: hidden;
   }
+  
   .error {
     border: 1px solid var(--theme-alertas-error);
     color: var(--theme-alertas-error);

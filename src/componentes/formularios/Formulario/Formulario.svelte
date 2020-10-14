@@ -18,6 +18,7 @@
     "fecha",
     "telefono",
     "casilla",
+    "casillas",
     "radio"
   ];
 
