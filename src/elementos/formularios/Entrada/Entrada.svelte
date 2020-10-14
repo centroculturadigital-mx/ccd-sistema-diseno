@@ -2,7 +2,10 @@
 
   import Selector from "../Selector/Selector.svelte";
   import CalendarioEntrada from "../../../componentes/Calendario/CalendarioEntrada/CalendarioEntrada";
-import { isArray } from "util";
+  
+  import Casilla from "../Casilla/Casilla";
+
+  import Casillas from "../Casillas/Casillas";
 
   // propiedades
   export let tipo = "texto";
@@ -238,18 +241,18 @@ import { isArray } from "util";
 {/if}
 
 {#if tipo == 'casilla'}
+  <Casilla/>
+{/if}
+
+{#if tipo == 'casillas'}
   {#if Array.isArray(opciones)}
-    {#each opciones as opcion (opcion)}
-      <input
-      class={clases}
-      on:focusout={()=>desenfocarAccion()}
-      on:focus={()=>enfocarAccion()}
-      on:keyup={()=>cambiarAccion()}
-      name={nombre}
-      type="checkbox"
-      value={valorEstatico}
-      use:enfoque/>
-    {/each}
+    <Casillas {opciones} tipo="multiple"/>
+  {/if}
+{/if}
+
+{#if tipo == 'casillasUnico'}
+  {#if Array.isArray(opciones)}
+    <Casillas {opciones} tipo="unico"/>
   {/if}
 {/if}
 

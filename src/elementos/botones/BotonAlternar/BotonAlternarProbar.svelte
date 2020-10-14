@@ -1,7 +1,8 @@
 <script>
     
     import BotonAlternar from "./BotonAlternar.svelte";
-
+    
+    
     export let texto;
     export let click;
 
