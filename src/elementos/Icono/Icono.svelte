@@ -81,6 +81,7 @@
   import tiktok from "./iconos/tiktok.svg";
   import casillavacia from "./iconos/casillavacia.svg";
   import casillallena from "./iconos/casillallena.svg";
+  import correo from "./iconos/correo.svg";
   
   export let icono;
   export let tamanno = "2rem";
@@ -167,7 +168,8 @@
     vimeo,
     tiktok,
     casillallena,
-    casillavacia
+    casillavacia,
+    correo
   };
 
   $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;

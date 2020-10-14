@@ -917,3 +917,13 @@ export const iconoCasillaLlena = () => ({
         }
     }
 });
+
+export const iconoCorreo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "correo",
+        }
+    }
+});
