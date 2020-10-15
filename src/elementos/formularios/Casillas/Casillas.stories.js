@@ -36,3 +36,16 @@ export const casillasValor = () => ({
         }
     }
 });
+
+export const casillasUnico = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casillas,
+        datos: {
+            opciones,
+            valor: opciones.map(o=>false),
+            cambiar: valor => console.log("cambiar", valor),
+            tipo: "UNICO"
+        }
+    }
+});

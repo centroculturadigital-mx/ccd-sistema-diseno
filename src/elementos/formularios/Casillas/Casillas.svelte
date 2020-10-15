@@ -1,9 +1,11 @@
 <script>
     import Casilla from "../Casilla/Casilla"
     
-    export let opciones;
+    export let opciones=[];
     export let cambiar;
-    export let valor;
+    export let valor=[];
+
+    export let tipo="MULTIPLE"
     
 
     let valorLocal;
@@ -19,9 +21,14 @@
 
     const cambiarAccion = (opcion) => {
 
-        console.log("opcion", opcion);
-
         valorLocal[opcion] = ! valorLocal[opcion]
+
+        if( tipo == "UNICO" ) {
+            if(valorLocal[opcion]) {
+                valorLocal=valorLocal.map(v=>false)
+                valorLocal[opcion]=true
+            }
+        }
 
         try {
             cambiar(valorLocal)
@@ -29,6 +36,7 @@
             console.log("Error al activar casilla", err);
         }
 
+        console.log(tipo, valorLocal);
         // opciones = opciones
     }
 
@@ -37,7 +45,7 @@
     $: casillas = Array.isArray(opciones)
     ? opciones.map((o,i)=>({
         ...o,
-        valor: valor[i],      
+        valor: valorLocal[i],      
         // click: ()=>cambiarAccion(o)
         cambiar: ()=>cambiarAccion(i)
     }))
