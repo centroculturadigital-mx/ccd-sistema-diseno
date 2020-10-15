@@ -4,9 +4,13 @@ import Formulario from '../../../../componentes/formularios/Formulario/Formulari
 
 import campos from "../../../../data/campos/";
 import campoFecha from "../../../../data/campos/fecha";
-import casilla from "../../../../data/campos/casilla";
 import radio from "../../../../data/campos/radio";
 import pasos from "../../../../data/pasos";
+
+import casilla from "../../../../data/campos/casilla"
+import casillas from "../../../../data/campos/casillas"
+
+
 
 export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
@@ -149,17 +153,6 @@ export const formularioCalendario = () => ({
     },
 });
 
-export const formularioCasillas = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: FormularioTester,
-        datos: {
-            campos: [casilla],
-            enviar: enviarConTiempo
-        }
-    },
-});
-
 export const formularioRadios = () => ({
     Component: ThemeTester,
     props: {
@@ -184,6 +177,28 @@ export const formularioPasos = () => ({
                     enviar: "Confirmar"
                 }
             },
+        }
+    },
+});
+
+
+
+export const formularioCasillas = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                casilla,
+                casillas,
+                {
+                    ...casillas,
+                    nombre: "casillasUnico",
+                    etiqueta: "Opción única",
+                    tipo: "UNICO"
+                }
+            ]
+            // enviar: enviarConTiempo,
         }
     },
 });

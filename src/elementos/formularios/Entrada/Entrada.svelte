@@ -11,6 +11,7 @@
   export let tipo = "texto";
   export let ejemplo = "Introduce un valor";
   export let opciones = [];
+  export let datos = {};
   export let estado = "";
   export let minimo = 0;
   export let maximo = 999;
@@ -240,21 +241,19 @@
     use:enfoque/>
 {/if}
 
+
 {#if tipo == 'casilla'}
-  <Casilla/>
+  <Casilla texto={datos.texto} {cambiar}/>
 {/if}
 
 {#if tipo == 'casillas'}
-  {#if Array.isArray(opciones)}
-    <Casillas {opciones} tipo="multiple"/>
-  {/if}
+  <Casillas {opciones} tipo="multiple" {cambiar}/>
 {/if}
 
 {#if tipo == 'casillasUnico'}
-  {#if Array.isArray(opciones)}
-    <Casillas {opciones} tipo="unico"/>
-  {/if}
+  <Casillas {nombre} {opciones} tipo="UNICO" {cambiar}/>
 {/if}
+
 
 {#if tipo == 'radio'}
   <input
@@ -294,6 +293,6 @@
     cambiar={()=>cambiarAccion()}
     desenfocar={()=>desenfocarAccion()}
     enfocar={()=>enfocarAccion()}
-    />
+  />
 {/if}
 

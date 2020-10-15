@@ -9,6 +9,7 @@ export const casillaDefault = () => ({
         componente: Casilla,
         datos: {
             texto: "Aute in minim.",
+            nombre: "unCampo",
             valor: "AUINMIN",
             click: () => console.log("Click casilla")
         }

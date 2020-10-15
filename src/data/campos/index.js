@@ -7,6 +7,8 @@ import campoFecha from "./fecha"
 import campoContrasenna from "./contrasenna"
 import campoArchivo from "./archivo"
 import campoTelefono from "./telefono"
+import campoCasilla from "./casilla"
+import campoCasillas from "./casillas"
 
 export default [
     campoTexto,
@@ -18,4 +20,6 @@ export default [
     campoContrasenna,
     // campoArchivo,
     campoTelefono,
+    campoCasilla,
+    campoCasillas,
 ]

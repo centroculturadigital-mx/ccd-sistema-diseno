@@ -34,7 +34,7 @@
 
   const llenarDatosCampos = ( campos ) => {
     const nuevosDatos = {}
-    campos.filter(c=>!!c.valor).forEach(c=>{
+    campos.filter(c => ( c && c.valor ) ).forEach(c=>{
       nuevosDatos[c.nombre]=c.valor
     })
     datos = {

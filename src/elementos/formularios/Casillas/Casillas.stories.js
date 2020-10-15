@@ -8,6 +8,7 @@ export const casillasDefault = () => ({
     props: {
         componente: Casillas,
         datos: {
+            nombre: "unCampo",
             opciones: new Array(13).fill(true).map((o,i)=>({
                 id: "OPC"+i,
                 texto: "Opción " + (i+1),
@@ -31,6 +32,7 @@ export const casillasValor = () => ({
         componente: Casillas,
         datos: {
             opciones,
+            nombre: "unCampo",
             valor: opciones.map(o=>Math.random()>0.5),
             cambiar: valor => console.log("cambiar", valor)
         }
@@ -44,6 +46,7 @@ export const casillasUnico = () => ({
         datos: {
             opciones,
             valor: opciones.map(o=>false),
+            nombre: "unCampo",
             cambiar: valor => console.log("cambiar", valor),
             tipo: "UNICO"
         }

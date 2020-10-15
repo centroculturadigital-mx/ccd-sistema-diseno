@@ -142,6 +142,7 @@ export const campoSelector = () => ({
         },
     }
 });
+
 export const campoArchivo = () => ({
     Component: ThemeTester,
     props: {
@@ -150,6 +151,32 @@ export const campoArchivo = () => ({
             tipo: 'archivo',
             etiqueta: 'Un campo archivo',
             ejemplo: "...",
+        },
+    }
+});
+
+export const campoCasilla = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Campo,
+        datos: {
+            tipo: 'casilla',
+            etiqueta: 'Una casilla',
+            ejemplo: "...",
+
+            etiqueta: "Un campo tipo casilla",
+            indicacion: "Verdadero o falso",
+            nombre: "casilla",
+            requerido: true,
+
+            valor: true,
+            // valorEstatico: "",
+            // validacion: "",
+            datos: {
+                texto: "Una casilla"
+            },
+            cambiar: datos=>console.log("Campo casilla datos", datos),
+  
         },
     }
 });

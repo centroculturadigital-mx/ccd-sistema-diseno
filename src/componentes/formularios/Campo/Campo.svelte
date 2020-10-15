@@ -1,6 +1,7 @@
 <script>
   import Entrada from "../../../elementos/formularios/Entrada/Entrada.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
+  import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
   export let etiqueta;
   export let indicacion;
@@ -10,7 +11,9 @@
   export let ejemplo;
   export let error;
   export let estado;
+  export let resolver = (v => v);
   export let opciones;
+  export let datos;
 
   export let valor;
   export let valorEstatico;
@@ -43,10 +46,16 @@
   }
 
   const cambiarAccion = (v) => {
-    if (typeof cambiar == "function") {
+    try {
+
       // if( ! enfocado ) {
-        cambiar(v);
+        cambiar( resolver( v ) );
       // }
+
+    } catch( err) {
+      
+      console.log("Error al cambiar", err);
+
     }
     
     // if( valor && enfocado) {
@@ -76,11 +85,13 @@
     padding: calc(var(--theme-campos-espacio) / 4);
     box-sizing: border-box;
   }
-  label :global(p span) {
-    color: var(--theme-alertas-error);
+  label :global(.requerido span) {
+    /* color: var(--theme-alertas-error); */
     font-size: calc(var(--theme-textos-parrafo-tamanno) / 1.5);
     font-family: inherit;
     font-weight: inherit;
+    margin-left: calc(var(--theme-campos-espacio) / 2);
+
   }
   p {
     margin: 0;
@@ -88,28 +99,25 @@
     font-family: inherit;
     font-weight: inherit;
   }
-  p span {
-    display: contents;
-    margin-left: calc(var(--theme-campos-espacio) / 2);
-  }
+  
 </style>
 
 {#if !!tipo}
   <label>
     {#if !!etiqueta}
-      <p>
-        {etiqueta}
-        {#if requerido}
-          <span>*requerido</span>
-        {/if}
-      </p>
+      <Parrafo texto={etiqueta}/>
+      {#if requerido}
+        <span class="requerido">
+          <Texto variante="CHICO" texto={'*requerido'} css={{
+            color: "red"
+          }}/>
+        </span>
+      {/if}
     {/if}
   </label>
   
   {#if !!indicacion}
-    <p>
-      {indicacion}      
-    </p>
+    <Parrafo variante="CHICO" texto={indicacion}/>
   {/if}
 
     <Entrada
@@ -120,11 +128,12 @@
       {ejemplo}
       estado={estadoMostrar}
       {opciones}
+      {datos}
       {enfocar}
       {desenfocar}
       {ultimo}
       cambiar={cambiarAccion}
-      />
+    />
 
     {#if error instanceof Error}
       <div class="error">

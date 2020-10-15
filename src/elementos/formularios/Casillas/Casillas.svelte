@@ -2,11 +2,26 @@
     import Casilla from "../Casilla/Casilla"
     
     export let opciones=[];
+    export let tipo = "MULTIPLE";
     export let cambiar;
     export let valor=[];
 
-    export let tipo="MULTIPLE"
-    
+    export let resolver = (v => {
+        console.log("resolver", v);
+        switch( tipo ) {
+            
+            case "UNICO":
+
+               return v.indexOf(true)
+
+            default:
+
+               return v
+        }
+
+
+    });
+
 
     let valorLocal;
 
@@ -25,13 +40,13 @@
 
         if( tipo == "UNICO" ) {
             if(valorLocal[opcion]) {
-                valorLocal=valorLocal.map(v=>false)
+                valorLocal=valorLocal.map( v => false )
                 valorLocal[opcion]=true
             }
         }
 
         try {
-            cambiar(valorLocal)
+            cambiar( resolver( valorLocal ) )
         } catch(err) {
             console.log("Error al activar casilla", err);
         }

@@ -36,7 +36,9 @@
     }
 
 
-    const cambiarAccion = () => {
+    const cambiarAccion = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
         
         valorLocal = !valorLocal
         try {
@@ -58,16 +60,27 @@
 
 
 <style>
+    
+    .Casilla {
+        position: relative;
+    }
+    
     .oculto {
+        position: absolute;
         visibility: hidden;
     }
+
+
 </style>
 
+<div class="Casilla">
 
-<input class="checkbox oculto" bind:this={inputOculto} bind:value={valorLocal} type="checkbox"/>
+    <input class="checkbox oculto" bind:this={inputOculto} bind:value={valorLocal} type="checkbox"/>
 
-<BotonAlternar
-    {texto}
-    estado={valorLocal}
-    click={cambiarAccion}
-/>
+    <BotonAlternar
+        {texto}
+        estado={valorLocal}
+        click={cambiarAccion}
+    />
+
+</div>
