@@ -109,6 +109,7 @@
     }
 
     if (typeof cambiar == "function") {
+      console.log("cambiar formulario", valor, c);
       cambiar(valor, c);
     }
   };

@@ -11,7 +11,7 @@
   export let ejemplo;
   export let error;
   export let estado;
-  export let resolver = (v => v);
+  export let resolver;
   export let opciones;
   export let datos;
 
@@ -49,7 +49,7 @@
     try {
 
       // if( ! enfocado ) {
-        cambiar( resolver( v ) );
+        cambiar( v );
       // }
 
     } catch( err) {
@@ -99,6 +99,10 @@
     font-family: inherit;
     font-weight: inherit;
   }
+
+  .indicacion :global(*) {
+    color: #888;
+  }
   
 </style>
 
@@ -117,7 +121,9 @@
   </label>
   
   {#if !!indicacion}
-    <Parrafo variante="CHICO" texto={indicacion}/>
+    <div class="indicacion">
+      <Parrafo variante="CHICO" texto={indicacion}/>
+    </div>
   {/if}
 
     <Entrada
@@ -133,6 +139,7 @@
       {desenfocar}
       {ultimo}
       cambiar={cambiarAccion}
+      {resolver}
     />
 
     {#if error instanceof Error}

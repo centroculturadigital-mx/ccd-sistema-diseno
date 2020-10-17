@@ -1,18 +1,20 @@
 <script>
-    import Casilla from "../Casilla/Casilla"
+    import { isArray } from "util";
+import Casilla from "../Casilla/Casilla"
     
     export let opciones=[];
     export let tipo = "MULTIPLE";
     export let cambiar;
+    export let nombre;
     export let valor=[];
 
     export let resolver = (v => {
-        console.log("resolver", v);
+
         switch( tipo ) {
             
             case "UNICO":
-
-               return v.indexOf(true)
+                console.log("tipo unico", v.indexOf(true));
+               return v.indexOf(true) || 0
 
             default:
 
@@ -31,40 +33,77 @@
         valorLocal = v;
     };
 
+
+    const prepararArreglo = opciones => {
+        if( valorLocal.length != opciones.length ) {
+
+            valorLocal = new Array(opciones.length).fill(false);
+            console.log("valor Local", opciones, valorLocal);
+        }
+    };
+
+
+    const prepararCasillas = (opciones, valorLocal) => {
+        // return Array.isArray(opciones)
+        // setTimeout(()=>{
+            casillas = Array.isArray(opciones)
+            ? opciones.map((o,i)=>{
+
+                return ({
+                    ...o,
+                    valor: valorLocal[i],      
+                    // click: ()=>cambiarAccion(o)
+                    cambiar: ()=>cambiarAccion(i)
+                })
+                // )
+            }
+            )
+            : null
+
+            console.log("casillas", casillas, valorLocal);
+
+        // })
+    };
+
+
+
+
+
+    // Reactividad
+
+    $: prepararArreglo( opciones )
+    // $: casillas = prepararCasillas( opciones, valorLocal )
+    $: casillas = []
+    $: prepararCasillas( opciones, valorLocal )
+
     
 
 
     const cambiarAccion = (opcion) => {
 
+        
         valorLocal[opcion] = ! valorLocal[opcion]
-
+        
         if( tipo == "UNICO" ) {
             if(valorLocal[opcion]) {
                 valorLocal=valorLocal.map( v => false )
                 valorLocal[opcion]=true
             }
         }
-
+        
         try {
+            // console.log("cambiar", opcion,  ! valorLocal[opcion]);
             cambiar( resolver( valorLocal ) )
+            // valorLocal = valorLocal
         } catch(err) {
             console.log("Error al activar casilla", err);
         }
 
-        console.log(tipo, valorLocal);
         // opciones = opciones
     }
 
 
 
-    $: casillas = Array.isArray(opciones)
-    ? opciones.map((o,i)=>({
-        ...o,
-        valor: valorLocal[i],      
-        // click: ()=>cambiarAccion(o)
-        cambiar: ()=>cambiarAccion(i)
-    }))
-    : []
 
 
 </script>
@@ -91,9 +130,11 @@
 </style>
 
 <ul>
-    {#each casillas as casilla (casilla.id) }
-    <li>
-        <Casilla {...casilla}/>
-    </li>
-    {/each}
+    {#if Array.isArray(casillas) }
+        {#each casillas as casilla (casilla.id) }
+        <li>
+            <Casilla {...casilla}/>
+        </li>
+        {/each}
+    {/if}
 </ul>

@@ -18,6 +18,7 @@
   export let enfocar;
   export let desenfocar;
   export let valorEstatico;
+  export let resolver;
 
   // propiedades para lógica
   export let nombre = "";
@@ -42,7 +43,8 @@
   const cambiarAccion = (valor) => {
     // cambiado = true
     if (typeof cambiar == "function") {
-      cambiar(valor||valorLocal);
+      // cambiar(valor||valorLocal);
+      cambiar(valor);
     }
   };
   // $: ( && !! valorLocal) && cambiar(valorLocal)
@@ -243,15 +245,11 @@
 
 
 {#if tipo == 'casilla'}
-  <Casilla texto={datos.texto} {cambiar}/>
+    <Casilla texto={datos.texto} cambiar={cambiarAccion} {resolver}/>
 {/if}
 
 {#if tipo == 'casillas'}
-  <Casillas {opciones} tipo="multiple" {cambiar}/>
-{/if}
-
-{#if tipo == 'casillasUnico'}
-  <Casillas {nombre} {opciones} tipo="UNICO" {cambiar}/>
+    <Casillas {nombre} {opciones} cambiar={cambiarAccion} {...datos} {resolver}/>
 {/if}
 
 
@@ -284,6 +282,7 @@
   valor={valorLocal}
   desenfocar={desenfocarAccion}
   enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
+  {resolver}
   />
 {/if}
 
@@ -293,6 +292,7 @@
     cambiar={()=>cambiarAccion()}
     desenfocar={()=>desenfocarAccion()}
     enfocar={()=>enfocarAccion()}
+    {resolver}
   />
 {/if}
 

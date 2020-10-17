@@ -195,7 +195,10 @@ export const formularioCasillas = () => ({
                     ...casillas,
                     nombre: "casillasUnico",
                     etiqueta: "Opción única",
-                    tipo: "UNICO"
+                    tipo: "casillas",
+                    datos: {
+                        tipo: "UNICO"
+                    }
                 }
             ]
             // enviar: enviarConTiempo,
