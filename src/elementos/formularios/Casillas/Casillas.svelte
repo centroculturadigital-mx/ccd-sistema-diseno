@@ -6,7 +6,7 @@ import Casilla from "../Casilla/Casilla"
     export let tipo = "MULTIPLE";
     export let cambiar;
     export let nombre;
-    export let valor=[];
+    export let valor;
 
 
 
@@ -32,18 +32,19 @@ import Casilla from "../Casilla/Casilla"
 
     const valorActualizar = v => {
 
-        // console.log("valorActualizar", v);
         switch( tipo ) {
             
             case "UNICO":
-                if(typeof v == "number") {
-                    console.log("unico v", v);
+                if(typeof v == "number" || v === 0 ) {
                     valorLocal = new Array(opciones.length).fill(false).map((e,i)=>i==v)
-                    prepararCasillas( opciones, valorLocal )
                     // console.log("vl", valorLocal.indexOf(true));
+                    prepararCasillas( opciones, valorLocal )
+
                 } else {
-                    valorLocal = v
+                    // valorLocal = new Array(opciones.length).fill(false)
+                    valorLocal = []
                 }
+
                
                 break;
 
@@ -66,7 +67,6 @@ import Casilla from "../Casilla/Casilla"
     const prepararCasillas = (opciones, valorLocal) => {
         // return Array.isArray(opciones)
         setTimeout(()=>{
-            console.log("prepararCasillas", valorLocal);
             casillas = Array.isArray(opciones)
             ? opciones.map((o,i)=>{
 

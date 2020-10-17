@@ -15,7 +15,7 @@ export default {
     opciones: new Array(13).fill(true).map((o,i)=>({
         id: "OPC"+i,
         texto: "Opción " + (i+1),
-        click: () => console.log("Click casilla",i)
+        // click: () => console.log("Click casilla",i)
     })),
     // valorEstatico: "",
     // validacion: "",

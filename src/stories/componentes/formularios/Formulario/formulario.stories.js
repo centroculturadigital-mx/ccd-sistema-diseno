@@ -205,7 +205,7 @@ export const formularioCasillas = () => ({
                     datos: {
                         tipo: "UNICO"
                     },
-                    valor: 3
+                    valor: 0
                 }
             ],
             enviar: datos => console.log("Enviaste formulario", datos),
