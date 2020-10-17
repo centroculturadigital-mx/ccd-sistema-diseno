@@ -43,8 +43,8 @@
   const cambiarAccion = (valor) => {
     // cambiado = true
     if (typeof cambiar == "function") {
-      // cambiar(valor||valorLocal);
-      cambiar(valor);
+      cambiar(valor||valorLocal);
+      // cambiar(valor);
     }
   };
   // $: ( && !! valorLocal) && cambiar(valorLocal)
