@@ -6,7 +6,7 @@ export default {
 
     indicacion: "Elige las que quieras",
     
-    nombre: "casillas",
+    nombre: "ccd-sd-casillas",
 
     requerido: true,
 

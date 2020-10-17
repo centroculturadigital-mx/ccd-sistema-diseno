@@ -44,6 +44,7 @@
 
   const seleccionar = fecha => {
     cambiarInputOculto(fecha.toISOString())
+
     cambiar(fecha.toISOString())
   };
 

@@ -48,6 +48,8 @@
   const cambiarAccion = (v) => {
     try {
 
+
+      console.log("cambiar", v);
       // if( ! enfocado ) {
         cambiar( v );
       // }

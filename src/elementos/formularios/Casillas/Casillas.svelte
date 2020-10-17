@@ -8,6 +8,8 @@ import Casilla from "../Casilla/Casilla"
     export let nombre;
     export let valor=[];
 
+
+
     export let resolver = (v => {
 
         switch( tipo ) {
@@ -29,13 +31,33 @@ import Casilla from "../Casilla/Casilla"
     $: valorActualizar(valor);
 
     const valorActualizar = v => {
-        valorLocal = v;
+
+        // console.log("valorActualizar", v);
+        switch( tipo ) {
+            
+            case "UNICO":
+                if(typeof v == "number") {
+                    console.log("unico v", v);
+                    valorLocal = new Array(opciones.length).fill(false).map((e,i)=>i==v)
+                    prepararCasillas( opciones, valorLocal )
+                    // console.log("vl", valorLocal.indexOf(true));
+                } else {
+                    valorLocal = v
+                }
+               
+                break;
+
+            default:
+
+               valorLocal = v;
+               prepararCasillas( opciones, valorLocal )
+
+        }
     };
 
 
     const prepararArreglo = opciones => {
         if( valorLocal.length != opciones.length ) {
-
             valorLocal = new Array(opciones.length).fill(false);
         }
     };
@@ -43,7 +65,8 @@ import Casilla from "../Casilla/Casilla"
 
     const prepararCasillas = (opciones, valorLocal) => {
         // return Array.isArray(opciones)
-        // setTimeout(()=>{
+        setTimeout(()=>{
+            console.log("prepararCasillas", valorLocal);
             casillas = Array.isArray(opciones)
             ? opciones.map((o,i)=>{
 
@@ -59,7 +82,7 @@ import Casilla from "../Casilla/Casilla"
             : null
 
 
-        // })
+        })
     };
 
 
@@ -70,8 +93,8 @@ import Casilla from "../Casilla/Casilla"
 
     $: prepararArreglo( opciones )
     // $: casillas = prepararCasillas( opciones, valorLocal )
-    $: casillas = []
-    $: prepararCasillas( opciones, valorLocal )
+    let casillas = []
+    // $: prepararCasillas( opciones, valorLocal )
 
     
 
@@ -82,10 +105,10 @@ import Casilla from "../Casilla/Casilla"
         valorLocal[opcion] = ! valorLocal[opcion]
         
         if( tipo == "UNICO" ) {
-            if(valorLocal[opcion]) {
+            // if(valorLocal[opcion]) {
                 valorLocal=valorLocal.map( v => false )
                 valorLocal[opcion]=true
-            }
+            // }
         }
         
         try {

@@ -5,7 +5,7 @@ export default {
 
     etiqueta: "Un campo tipo casilla",
     indicacion: "Verdadero o falso",
-    nombre: "casilla",
+    nombre: "ccd-sd-casilla",
     requerido: true,
 
     valor: true,

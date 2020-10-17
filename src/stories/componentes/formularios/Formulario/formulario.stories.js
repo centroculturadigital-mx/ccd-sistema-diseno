@@ -148,7 +148,6 @@ export const formularioCalendario = () => ({
         componente: FormularioTester,
         datos: {
             campos: [campoFecha],
-            enviar: enviarConTiempo
         }
     },
 });
@@ -189,16 +188,24 @@ export const formularioCasillas = () => ({
         componente: FormularioTester,
         datos: {
             campos: [
-                casilla,
-                casillas,
+                {
+                    ...casilla,
+                    valor: true
+                },
+                {
+                    ...casillas,
+                    valor: new Array(13).fill(true).map(()=>Math.random()>0.5)
+                },
                 {
                     ...casillas,
                     nombre: "casillasUnico",
                     etiqueta: "Opción única",
+                    indicacion: "Elige solo una",
                     tipo: "casillas",
                     datos: {
                         tipo: "UNICO"
-                    }
+                    },
+                    valor: 3
                 }
             ],
             enviar: datos => console.log("Enviaste formulario", datos),

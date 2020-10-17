@@ -244,15 +244,6 @@
 {/if}
 
 
-{#if tipo == 'casilla'}
-    <Casilla texto={datos.texto} cambiar={cambiarAccion} {resolver}/>
-{/if}
-
-{#if tipo == 'casillas'}
-    <Casillas {nombre} {opciones} cambiar={cambiarAccion} {...datos} {resolver}/>
-{/if}
-
-
 {#if tipo == 'radio'}
   <input
     class={clases}
@@ -277,22 +268,38 @@
     use:enfoque/>
 {/if}
 
+
+
+<!-- Tipos de Entradas mas complejos: -->
+
+
+{#if tipo == 'casilla'}
+    <Casilla texto={datos.texto} {valor} cambiar={cambiarAccion} {resolver}/>
+{/if}
+
+{#if tipo == 'casillas'}
+    <Casillas {nombre} {opciones} {valor} cambiar={cambiarAccion} {...datos} {resolver}/>
+{/if}
+
+
+
+
 {#if tipo == 'selector' && Array.isArray(opciones)}
   <Selector
   valor={valorLocal}
   desenfocar={desenfocarAccion}
   enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
-  {resolver}
   />
+  <!-- {resolver} -->
 {/if}
 
 {#if tipo == 'fecha'}
   <CalendarioEntrada
     bind:value={valorLocal}
-    cambiar={()=>cambiarAccion()}
+    cambiar={cambiarAccion}
     desenfocar={()=>desenfocarAccion()}
     enfocar={()=>enfocarAccion()}
-    {resolver}
-  />
+    />
+    <!-- {resolver} -->
 {/if}
 
