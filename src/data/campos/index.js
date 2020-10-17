@@ -16,7 +16,7 @@ export default [
     campoTextarea,
     campoSelector,
     campoEmail,
-    // campoFecha,
+    campoFecha,
     campoContrasenna,
     // campoArchivo,
     campoTelefono,
