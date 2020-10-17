@@ -105,11 +105,10 @@
     datos[c.nombre] = valor;
 
     if (typeof c.cambiar == "function") {
-      c.cambiar(valor||c.valor);
+      c.cambiar(valor);
     }
 
     if (typeof cambiar == "function") {
-      console.log("cambiar formulario", valor, c);
       cambiar(valor, c);
     }
   };

@@ -200,8 +200,8 @@ export const formularioCasillas = () => ({
                         tipo: "UNICO"
                     }
                 }
-            ]
-            // enviar: enviarConTiempo,
+            ],
+            enviar: datos => console.log("Enviaste formulario", datos),
         }
     },
 });

@@ -43,12 +43,11 @@
         valorLocal = !valorLocal
         try {
 
-            console.log("cambia valor en casilla", valorLocal);
             cambiar(valorLocal)
             cambiarInputOculto( valorLocal )
             
         } catch( err) {
-            console.log("error al cambiar casilla", err);
+            console.log("Error al cambiar casilla", err);
         }
             
         // actualizarValor( valorLocal )

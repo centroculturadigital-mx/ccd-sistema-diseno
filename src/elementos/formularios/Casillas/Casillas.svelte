@@ -13,7 +13,6 @@ import Casilla from "../Casilla/Casilla"
         switch( tipo ) {
             
             case "UNICO":
-                console.log("tipo unico", v.indexOf(true));
                return v.indexOf(true) || 0
 
             default:
@@ -38,7 +37,6 @@ import Casilla from "../Casilla/Casilla"
         if( valorLocal.length != opciones.length ) {
 
             valorLocal = new Array(opciones.length).fill(false);
-            console.log("valor Local", opciones, valorLocal);
         }
     };
 
@@ -60,7 +58,6 @@ import Casilla from "../Casilla/Casilla"
             )
             : null
 
-            console.log("casillas", casillas, valorLocal);
 
         // })
     };
