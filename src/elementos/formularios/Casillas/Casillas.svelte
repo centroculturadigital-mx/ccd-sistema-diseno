@@ -99,25 +99,31 @@ import Casilla from "../Casilla/Casilla"
     
 
 
-    const cambiarAccion = (opcion) => {
+    const cambiarAccion = (indice) => {
 
-        
-        valorLocal[opcion] = ! valorLocal[opcion]
+        console.log("cambiarAccion", indice);
+        valorLocal[indice] = ! valorLocal[indice]
         
         if( tipo == "UNICO" ) {
-            // if(valorLocal[opcion]) {
-                valorLocal=valorLocal.map( v => false )
-                valorLocal[opcion]=true
+            // if(valorLocal[indice]) {
+                valorLocal=valorLocal.map((v,i)=>i==indice)
+                console.log("valorLocal", indice, valorLocal);
             // }
         }
         
-        try {
-            // console.log("cambiar", opcion,  ! valorLocal[opcion]);
-            cambiar( resolver( valorLocal ) )
-            // valorLocal = valorLocal
-        } catch(err) {
-            console.log("Error al activar casilla", err);
-        }
+
+        prepararCasillas( opciones, valorLocal )
+        setTimeout(()=>{
+
+            try {
+                // console.log("cambiar", opcion,  ! valorLocal[opcion]);
+                cambiar( resolver( valorLocal ) )
+                // valorLocal = valorLocal
+            } catch(err) {
+                console.log("Error al activar casilla", err);
+            }
+            
+        })
 
         // opciones = opciones
     }
