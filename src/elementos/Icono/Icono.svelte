@@ -83,6 +83,7 @@
   import casillallena from "./iconos/casillallena.svg";
   import correo from "./iconos/correo.svg";
   import portafolio from "./iconos/portafolio.svg";
+  import cv from "./iconos/cv.svg";
   
   export let icono;
   export let tamanno = "2rem";
@@ -171,7 +172,8 @@
     casillallena,
     casillavacia,
     correo,
-    portafolio
+    portafolio,
+    cv
   };
 
   $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;

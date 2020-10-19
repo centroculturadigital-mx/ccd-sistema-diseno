@@ -933,7 +933,17 @@ export const iconoPortafolio = () => ({
     props: {
         componente: Icono,
         datos: {
-            icono: "portifolio",
+            icono: "portafolio",
+        }
+    }
+});
+
+export const iconoCv = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "cv",
         }
     }
 });
