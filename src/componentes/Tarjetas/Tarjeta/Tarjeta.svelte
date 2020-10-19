@@ -7,11 +7,13 @@
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace.svelte";
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
+  import Embebido from "../../../elementos/media/Embebido/Embebido";
 
   export let apariencia = "Vertical"; //"Vertical", "Horizontal", "Chica"
   export let pleca;
   export let enlace;
   export let imagen;
+  export let video;
   export let nombre;
   export let nivelTitulo = 3;
   export let subtitulo;
@@ -259,21 +261,28 @@
   <div class="{aparienciaEstilo} Contenido">
 
     <div class="Cabecera">
-      {#if !!imagen}
-        <div
-          class="{aparienciaEstilo} Imagen {apariencia == 'Chica' ? 'TarjetaChicaImagen' : ''}">
+      {#if !!video}
 
-          {#if !!enlace}
-            <a
-              class="{aparienciaEstilo} enlazado"
-              {...linkTarget}
-              href={enlace}>
+        <Embebido enlace={video}/>
+      
+      {:else}
+      
+        {#if !!imagen}
+          <div
+            class="{aparienciaEstilo} Imagen {apariencia == 'Chica' ? 'TarjetaChicaImagen' : ''}">
+
+            {#if !!enlace}
+              <a
+                class="{aparienciaEstilo} enlazado"
+                {...linkTarget}
+                href={enlace}>
+                <Imagen {imagen} alt={nombre} estilos={{ ajuste: 'cover' }} />
+              </a>
+            {:else}
               <Imagen {imagen} alt={nombre} estilos={{ ajuste: 'cover' }} />
-            </a>
-          {:else}
-            <Imagen {imagen} alt={nombre} estilos={{ ajuste: 'cover' }} />
-          {/if}
-        </div>
+            {/if}
+          </div>
+        {/if}
       {/if}
 
       {#if typeof pleca == 'object'}
