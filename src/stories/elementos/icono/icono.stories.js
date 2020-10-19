@@ -927,3 +927,13 @@ export const iconoCorreo = () => ({
         }
     }
 });
+
+export const iconoPortafolio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "portifolio",
+        }
+    }
+});
