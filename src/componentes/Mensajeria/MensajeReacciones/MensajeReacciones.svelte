@@ -21,6 +21,8 @@
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    flex-wrap: wrap;
+    width: 16rem;
   }
   li {
     background-color: var(--theme-tarjetas-fondo);

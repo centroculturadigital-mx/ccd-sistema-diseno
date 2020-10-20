@@ -19,12 +19,22 @@ export const mensajeReaccionesDefault = () => ({
     }
 });
 
-export const mensajeReaccionesVarias = () => ({
+export const mensajeReaccionesPocas = () => ({
     Component: ThemeTester,
     props: {
         componente: MensajeReacciones,
         datos: {
             reacciones: mensaje.reacciones
+        }
+    }
+});
+
+export const mensajeReaccionesDemasiadas = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: MensajeReacciones,
+        datos: {
+            reacciones: new Array(45).fill(mensaje.reacciones[0])
         }
     }
 });

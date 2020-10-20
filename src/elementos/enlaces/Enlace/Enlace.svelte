@@ -10,8 +10,10 @@
     enlace
   };
 
-  $: (target => {
-    atributos["target"] = !!target ? "_blank" : "";
+  $: (blank => {
+    if( !! blank ) {
+      atributos["target"] = "_blank";
+    }
   })(blank);
 </script>
 

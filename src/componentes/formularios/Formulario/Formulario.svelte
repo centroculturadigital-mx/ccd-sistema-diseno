@@ -6,6 +6,11 @@
   import Boton from "../../../elementos/botones/Boton/Boton";
   import Campo from "../Campo/Campo.svelte";
   import Aviso from "../../../elementos/texto/Aviso/Aviso";
+  import Contenido from "../../../componentes/Contenido/Contenido";
+  
+  import isHTML from "../../../funciones/isHTML";
+  
+  
 
   let tiposValidos = [
     "texto",
@@ -191,6 +196,8 @@
 
   $: clasesContenedor = Array.isArray(pasos) && pasos.length > 0 ? 'paso paso_' + pasoActual : ''
 
+
+  $: esHTML = isHTML(respuesta)
 
 
 </script>
@@ -427,7 +434,11 @@
   {:else}
     <section class="respuesta">
       {#if typeof respuesta == 'string'}
-        <Aviso texto={respuesta} />
+        {#if esHTML }
+          <Contenido html={respuesta}/>
+        {:else}
+          <Aviso texto={respuesta} />
+        {/if}
       {/if}
 
       {#if typeof respuesta == 'object'}

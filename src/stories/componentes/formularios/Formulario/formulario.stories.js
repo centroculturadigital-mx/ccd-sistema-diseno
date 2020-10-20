@@ -97,8 +97,24 @@ export const formularioConRespuestaTexto = () => ({
         componente: Formulario,
         datos: {
             campos: campos,
-            enviar: enviarConTiempo,
             respuesta: "El formulario tiene una respuesta en texto"
+        }
+    },
+});
+
+
+export const formularioConRespuestaHtml = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Formulario,
+        datos: {
+            campos: campos,
+            respuesta: `
+                <h4>Una respuesta</h4>
+                <p>Eu consequat culpa laborum deserunt pariatur non nisi consectetur eiusmod.</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/oHg5SJYRHA0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <button>Boton</button>
+            `
         }
     },
 });
@@ -109,7 +125,6 @@ export const formularioConRespuestaObjeto = () => ({
         componente: Formulario,
         datos: {
             campos: campos,
-            // enviar: enviarConTiempo,
             respuesta: {
                 titulo: "Titulo de respuesta",
                 texto: "Texto de respuesta",
