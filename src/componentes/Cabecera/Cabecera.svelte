@@ -65,6 +65,7 @@
   .iconoMenu {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
   .iconoMenu:hover {
     opacity: 0.75;
@@ -75,7 +76,7 @@
     padding: 0 calc(var(--theme-espaciados-padding) / 1);
   }
   .sombra {
-    box-shadow:0 4px 3px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
   }
   @media screen and (max-width: 1024px) {
     .Herramientas {
@@ -86,8 +87,7 @@
 
 <svelte:window bind:innerWidth={responsivo} />
 
-<header
-  class={!!sombra ? "sombra " + clases : clases}>
+<header class={!!sombra ? 'sombra ' + clases : clases}>
   <div class="contenedor">
 
     {#if Array.isArray(logotipos)}
@@ -97,22 +97,22 @@
     <div class="Navegacion">
       {#if responsivo < breakpoint}
         {#if !!elementos}
-        <div class="iconoMenu" on:click={menuAlternar}>
-          <Icono icono={!estado ? 'menu' : 'cerrar'} />
-        </div>
+          <div class="iconoMenu" on:click={menuAlternar}>
+            <Icono icono={!estado ? 'menu' : 'cerrar'} />
+          </div>
         {/if}
       {:else if !!elementos}
         <MenuEscritorio {elementos} {segment} />
-      {/if}
-      <div class="Herramientas">
         {#if !!componentes && Array.isArray(componentes)}
-          {#each componentes as componente}
-            <svelte:component
-              this={componente.componente}
-              {...componente.datos} />
-          {/each}
+          <div class="Herramientas">
+            {#each componentes as componente}
+              <svelte:component
+                this={componente.componente}
+                {...componente.datos} />
+            {/each}
+          </div>
         {/if}
-      </div>
+      {/if}
     </div>
 
   </div>
@@ -126,6 +126,7 @@
         {elementos}
         {sombra}
         {segment}
+        {componentes}
         on:click={menuAlternar} />
     {/if}
   {/if}
