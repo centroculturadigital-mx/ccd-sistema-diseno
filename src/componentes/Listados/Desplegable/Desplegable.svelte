@@ -47,9 +47,11 @@
     left: 0;
     margin: 0;
     list-style-type: none;
-    width: 100%;
+    width: auto;
+    min-width: 100%;
   }
   li {
+    padding: calc(var(--theme-espaciados-padding) / 2) 0;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -57,6 +59,7 @@
   .enlace :global(a span),
   li :global(a span) {
     color: var(--theme-textos-parrafo-color);
+    white-space: nowrap;
   }
   .enlace:hover :global(svg),
   .enlace:hover :global(span),
@@ -67,10 +70,10 @@
   }
 </style>
 
-<div class="Desplegable {!!enlace ? "enlace" : ""}">
+<div class="Desplegable {!!enlace ? 'enlace' : ''}">
   <header on:click={!enlace ? mostrar : null}>
     {#if !!enlace}
-      <Enlace {texto} {enlace} blank={true}/>
+      <Enlace {texto} {enlace} blank={true} />
     {:else}
       <Texto {texto} />
     {/if}
