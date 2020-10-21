@@ -89,6 +89,8 @@ export { default as ListaPaginada }
 from "./componentes/Listados/ListaPaginada/ListaPaginada.svelte";
 export { default as Reticula }
 from "./componentes/Listados/Reticula/Reticula.svelte";
+export { default as Desplegable }
+from "./componentes/Listados/Desplegable/Desplegable.svelte";
 export { default as Pestannas }
 from "./componentes/Navegacion/Pestannas/Pestannas.svelte";
 export { default as TransmisionIndicador }
