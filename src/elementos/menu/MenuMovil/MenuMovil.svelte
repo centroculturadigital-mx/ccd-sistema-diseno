@@ -50,27 +50,29 @@
   }
   nav :global(.Herramientas) {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
   }
 </style>
 
 {#if estado === true}
-  <nav class={!!sombra ? 'sombra MenuMovil' : 'MenuMovil'} transition:slide>
+  <nav
+    class={!!sombra ? 'sombra MenuMovil' : 'MenuMovil'}
+    transition:slide|local>
     {#if Array.isArray(elementos) && elementos.length > 0}
-    <ul>
-      {#each elementos as elemento, i ('elemento_' + i)}
-        <li>
-          <a
-            class:selected={segment === elemento.enlace}
-            href={elemento.enlace}
-            on:click>
-            {elemento.texto}
-          </a>
-        </li>
-      {/each}
-    </ul>
+      <ul>
+        {#each elementos as elemento, i ('elemento_' + i)}
+          <li>
+            <a
+              class:selected={segment === elemento.enlace}
+              href={elemento.enlace}
+              on:click>
+              {elemento.texto}
+            </a>
+          </li>
+        {/each}
+      </ul>
     {/if}
-    {#if !!componentes && Array.isArray(componentes)}
+    {#if Array.isArray(componentes) && componentes.length > 0}
       <div class="Herramientas">
         {#each componentes as componente}
           <svelte:component

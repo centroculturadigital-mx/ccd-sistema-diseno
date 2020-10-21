@@ -96,14 +96,14 @@
 
     <div class="Navegacion">
       {#if responsivo < breakpoint}
-        {#if !!elementos}
+        {#if !!elementos || !!componentes}
           <div class="iconoMenu" on:click={menuAlternar}>
             <Icono icono={!estado ? 'menu' : 'cerrar'} />
           </div>
         {/if}
-      {:else if !!elementos}
+      {:else if !!elementos || !!componentes}
         <MenuEscritorio {elementos} {segment} />
-        {#if !!componentes && Array.isArray(componentes)}
+        {#if Array.isArray(componentes) && componentes.length > 0}
           <div class="Herramientas">
             {#each componentes as componente}
               <svelte:component
@@ -119,7 +119,7 @@
 
   <!-- Navegacion Movil  -->
   {#if responsivo < breakpoint}
-    {#if !!elementos}
+    {#if Array.isArray(elementos) || Array.isArray(componentes)}
       <MenuMovil
         on:eventoEstadoMenu
         {estado}
