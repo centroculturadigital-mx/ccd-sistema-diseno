@@ -5,6 +5,7 @@
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace";
 
   export let texto;
+  export let enlace;
   export let icono = "abajo";
   export let enlaces = [];
 
@@ -40,29 +41,40 @@
     margin-left: 1rem;
   }
   ul {
-    padding: 0;
+    position: absolute;
+    background-color: var(--theme-colores-fondo);
+    padding: var(--theme-espaciados-padding);
+    left: 0;
     margin: 0;
     list-style-type: none;
+    width: 100%;
   }
   li {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
   }
-  li :global(span) {
-      color: var(--theme-textos-parrafo-color);
+  .enlace :global(a span),
+  li :global(a span) {
+    color: var(--theme-textos-parrafo-color);
   }
+  .enlace:hover :global(svg),
+  .enlace:hover :global(span),
   li:hover :global(svg),
   li:hover :global(span) {
-      fill: var(--theme-textos-enlaces-color);
-      color: var(--theme-textos-enlaces-color);
+    fill: var(--theme-textos-enlaces-color);
+    color: var(--theme-textos-enlaces-color);
   }
 </style>
 
-<div class="Desplegable">
-  <header on:click={mostrar}>
-    <Texto {texto} />
-    <Icono icono={estado ? "arriba" : icono} />
+<div class="Desplegable {!!enlace ? "enlace" : ""}">
+  <header on:click={!enlace ? mostrar : null}>
+    {#if !!enlace}
+      <Enlace {texto} {enlace} blank={true}/>
+    {:else}
+      <Texto {texto} />
+    {/if}
+    <Icono icono={estado && !enlace ? 'arriba' : icono} />
   </header>
 
   {#if estado}

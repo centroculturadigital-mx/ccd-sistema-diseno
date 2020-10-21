@@ -5,11 +5,6 @@ import desplegable from "../../../data/desplegable"
 
 export default { title: 'Componentes/Listados/Desplegable' }
 
-let desplegableIcono = {
-    ...desplegable,
-    icono: "charla"
-}
-
 export const desplegableDefault = () => ({
     Component: ThemeTester,
     props: {
@@ -24,7 +19,20 @@ export const desplegableCambioIcono = () => ({
     props: {
         componente: Desplegable,
         datos: {
-            ...desplegableIcono
+            ...desplegable,
+            icono: "charla"
+        }
+    },
+});
+export const desplegableEsEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Desplegable,
+        datos: {
+            ...desplegable,
+            texto: "Enlace externo",
+            enlace: "#",
+            icono: "enlace"
         }
     },
 });
