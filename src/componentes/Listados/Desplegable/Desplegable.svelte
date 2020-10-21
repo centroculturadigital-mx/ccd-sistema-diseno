@@ -4,8 +4,8 @@
   import Icono from "../../../elementos/Icono/Icono";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace";
 
-//   export let icono = "abajo";
   export let texto;
+  export let icono = "abajo";
   export let enlaces = [];
 
   let estado = false;
@@ -47,14 +47,22 @@
   li {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+  }
+  li :global(span) {
+      color: var(--theme-textos-parrafo-color);
+  }
+  li:hover :global(svg),
+  li:hover :global(span) {
+      fill: var(--theme-textos-enlaces-color);
+      color: var(--theme-textos-enlaces-color);
   }
 </style>
 
 <div class="Desplegable">
   <header on:click={mostrar}>
     <Texto {texto} />
-    <!-- <Icono {icono} /> -->
-    <Icono icono={estado ? "arriba" : "abajo"} />
+    <Icono icono={estado ? "arriba" : icono} />
   </header>
 
   {#if estado}
