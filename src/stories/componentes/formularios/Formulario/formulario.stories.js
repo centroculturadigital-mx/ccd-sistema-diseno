@@ -5,6 +5,7 @@ import Formulario from '../../../../componentes/formularios/Formulario/Formulari
 import campos from "../../../../data/campos/";
 import campoFecha from "../../../../data/campos/fecha";
 import radio from "../../../../data/campos/radio";
+import archivo from "../../../../data/campos/archivo";
 import pasos from "../../../../data/pasos";
 
 import casilla from "../../../../data/campos/casilla"
@@ -32,7 +33,6 @@ export const formularioDefault = () => ({
         componente: FormularioTester,
         datos: {
             campos: campos.slice(0, 3),
-            // enviar: enviarConTiempo,
         }
     },
 });
@@ -63,7 +63,6 @@ export const formularioConValores = () => ({
                 },
 
             ],
-            // enviar: enviarConTiempo,
         }
     },
 });
@@ -75,7 +74,6 @@ export const formularioCompleto = () => ({
         componente: FormularioTester,
         datos: {
             campos: campos,
-            // enviar: enviarConTiempo,
         }
     },
 });
@@ -86,7 +84,6 @@ export const formularioValidacion = () => ({
         componente: FormularioTester,
         datos: {
             campos: campos,
-            enviar: enviarConTiempo,
         }
     },
 });
@@ -139,7 +136,6 @@ export const formularioConRespuestaError = () => ({
         componente: Formulario,
         datos: {
             campos: campos,
-            // enviar: enviarConTiempo,
             respuesta: new Error("Respuesta con error")
         }
     },
@@ -173,7 +169,25 @@ export const formularioRadios = () => ({
         componente: FormularioTester,
         datos: {
             campos: [radio],
-            enviar: enviarConTiempo
+        }
+    },
+});
+
+export const formularioArchivos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...archivo,
+                    nombre: 'ccd-sd-archivo-1',
+                },
+                {
+                    ...archivo,
+                    nombre: 'ccd-sd-archivo-2',
+                },
+            ],
         }
     },
 });
@@ -241,7 +255,6 @@ export const formularioCamposCambiarPersonalizado = () => ({
                     console.log("cambiar personalizado", c.nombre, datos);                    
                 }
             })),
-            // enviar: enviarConTiempo,
         }
     },
 });
