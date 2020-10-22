@@ -1,5 +1,6 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import MenuMovil from '../../../elementos/menu/MenuMovil/MenuMovil.svelte';
+import Tarjeta from '../../../componentes/Tarjetas/Tarjeta/Tarjeta';
 
 export default { title: 'Elementos/Menú/Menú Movil' }
 
@@ -25,6 +26,16 @@ let rutas = [{
     }
 ];
 
+export const menuMovilVacio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: MenuMovil,
+        datos: {
+            estado: true,
+            elementos: [],
+        }
+    }
+});
 export const menuMovilAbierto = () => ({
     Component: ThemeTester,
     props: {
@@ -56,13 +67,19 @@ export const menuMovilCerrado = () => ({
         }
     }
 });
-export const menuMovilVacio = () => ({
+export const menuMovilConComponentes = () => ({
     Component: ThemeTester,
     props: {
         componente: MenuMovil,
         datos: {
             estado: true,
-            elementos: [],
+            componentes: [{
+                componente: Tarjeta,
+                datos: {
+                    nombre: "Hola mundo",
+                    subtitulo: "Foo ipsum dolor"
+                }
+            }]
         }
     }
 });

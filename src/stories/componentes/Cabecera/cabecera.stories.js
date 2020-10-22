@@ -96,12 +96,30 @@ export const cabeceraFixed = () => ({
         }
     }
 });
-export const cabeceraConComponente = () => ({
+export const cabeceraConMenuYComponente = () => ({
     Component: ThemeTester,
     props: {
         componente: Cabecera,
         datos: {
             elementos: rutas,
+            logotipos: logo,
+            sombra: true,
+            fixed: true,
+            componentes: [{
+                componente: UsuarioAcceso,
+                datos: {
+                    nombre: "Nombre usuaria",
+                    imagen: ImagenArchivo,
+                }
+            }]
+        }
+    }
+});
+export const cabeceraConComponenteSinMenu = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Cabecera,
+        datos: {
             logotipos: logo,
             sombra: true,
             fixed: true,

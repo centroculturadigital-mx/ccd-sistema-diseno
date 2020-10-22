@@ -37,16 +37,18 @@
   }
 </style>
 
-<nav class="MenuEscritorio">
-  <ul>
-
-    {#each elementos as elemento}
-      <li>
-        <a class:selected={segment === elemento.enlace} href={elemento.enlace}>
-          {elemento.texto}
-        </a>
-      </li>
-    {/each}
-
-  </ul>
-</nav>
+{#if Array.isArray(elementos && elementos.length > 0)}
+  <nav class="MenuEscritorio">
+    <ul>
+      {#each elementos as elemento}
+        <li>
+          <a
+            class:selected={segment === elemento.enlace}
+            href={elemento.enlace}>
+            {elemento.texto}
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </nav>
+{/if}

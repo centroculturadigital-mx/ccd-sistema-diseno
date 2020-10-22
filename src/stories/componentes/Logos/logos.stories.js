@@ -35,7 +35,7 @@ export const logosArregloVacio = () => ({
     props: {
         componente: Logos,
         datos: {
-            logos: []
+            logotipos: []
         }
     }
 });
@@ -45,7 +45,7 @@ export const logosImagen = () => ({
     props: {
         componente: Logos,
         datos: {
-            logos
+            logotipos: logos
         }
     }
 });

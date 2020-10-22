@@ -5,7 +5,9 @@
   export let estado;
   export let elementos;
   export let sombra;
+  export let componentes;
 
+  console.log("MenuMOvil", componentes);
 </script>
 
 <style>
@@ -25,7 +27,7 @@
     height: auto;
     margin: 0;
     padding: 0;
-    }
+  }
   li {
     padding: 0.5rem;
     display: flex;
@@ -46,19 +48,38 @@
   .sombra {
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
   }
+  nav :global(.Herramientas) {
+    display: flex;
+    justify-content: center;
+  }
 </style>
 
 {#if estado === true}
-  <nav class={!!sombra ? 'sombra MenuMovil' : 'MenuMovil'} transition:slide>
-    <ul>
-
-      {#each elementos as elemento, i ('elemento_' + i)}
-        <li>
-          <a class:selected={segment === elemento.enlace} href={elemento.enlace} on:click>
-            {elemento.texto}
-          </a>
-        </li>
-      {/each}
-    </ul>
+  <nav
+    class={!!sombra ? 'sombra MenuMovil' : 'MenuMovil'}
+    transition:slide|local>
+    {#if Array.isArray(elementos) && elementos.length > 0}
+      <ul>
+        {#each elementos as elemento, i ('elemento_' + i)}
+          <li>
+            <a
+              class:selected={segment === elemento.enlace}
+              href={elemento.enlace}
+              on:click>
+              {elemento.texto}
+            </a>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+    {#if Array.isArray(componentes) && componentes.length > 0}
+      <div class="Herramientas">
+        {#each componentes as componente}
+          <svelte:component
+            this={componente.componente}
+            {...componente.datos} />
+        {/each}
+      </div>
+    {/if}
   </nav>
 {/if}
