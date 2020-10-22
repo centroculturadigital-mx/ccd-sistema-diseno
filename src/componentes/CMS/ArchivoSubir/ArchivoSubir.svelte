@@ -176,7 +176,7 @@
   <div class="ArchivoPreparado">
       <BotonIcono icono={'cerrar'} click={eliminarArchivo}/>
       {#if archivo}
-        <a href={archivo}>
+        <a href={archivo} target="_blank">
             <Icono icono={iconoDescargar} tamanno={'2rem'} />
             <Parrafo texto={ etiquetaDescargar } />
         </a>
