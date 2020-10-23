@@ -146,3 +146,5 @@ export { default as RegistrosLista }
 from "./componentes/CMS/RegistrosLista/RegistrosLista.svelte";
 export { default as ImagenSubir }
 from "./componentes/CMS/ImagenSubir/ImagenSubir.svelte";
+export { default as ArchivoSubir }
+from "./componentes/CMS/ArchivoSubir/ArchivoSubir.svelte";
