@@ -8,7 +8,8 @@
 
   export let icono = "subir";
   export let iconoDescargar = "descargar";
-  export let etiqueta = 'Adjunta tu archivo aquí.';
+  export let etiqueta = 'Adjunta un PDF aquí.';
+  export let tipos = "application/pdf";
   export let etiquetaDescargar = 'Descargable.';
   export let nombre;
   export let requerido;
@@ -155,7 +156,7 @@
   
   <input
   type="file"
-  accept="image/x-png,image/gif,image/jpeg"
+  accept={tipos}
   on:change={seleccionarArchivo} bind:this={input}
   />
   
