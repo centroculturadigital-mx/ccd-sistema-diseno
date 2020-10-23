@@ -1,6 +1,8 @@
 <script>
   export let segment;
   export let elementos;
+
+  console.log("MenuEscritorio" , elementos);
 </script>
 
 <style>
@@ -37,7 +39,7 @@
   }
 </style>
 
-{#if Array.isArray(elementos && elementos.length > 0)}
+{#if Array.isArray(elementos)  && elementos.length > 0}
   <nav class="MenuEscritorio">
     <ul>
       {#each elementos as elemento}

@@ -8,7 +8,6 @@
   .Logotipos {
     display: flex;
     height: 100%;
-    min-width: 12rem;
     align-items: center;
     justify-content: flex-start;
   }
