@@ -75,12 +75,11 @@
   const abrir = () => input.click();
 
   const eliminarImagen = () => {
-    console.log("elmg");
     imagen = null;
     error = null
-    cambiar(imagen)
-
+    cambiar(null)
   };
+
 </script>
 
 <style>

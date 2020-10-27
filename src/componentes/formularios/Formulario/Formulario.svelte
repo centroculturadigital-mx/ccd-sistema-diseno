@@ -41,6 +41,7 @@
     const nuevosDatos = {}
     // campos.filter(c => ( c && c.valor ) ).forEach(c=>{
     campos.filter(c => ( c && (c.valor || c.valor===0) ) ).forEach(c=>{
+    // campos.filter(c => ( c && (c.valor || c.valor===0) ) ).forEach(c=>{
       nuevosDatos[c.nombre]=c.valor
     })
     datos = {
@@ -50,7 +51,7 @@
     cargadoInicial = true
   }
 
-  $: ! cargadoInicial && llenarDatosCampos( campos )
+  $: ! cargadoInicial && Array.isArray(todosLosCampos) && llenarDatosCampos( todosLosCampos )
 
 
   let enviando = false
@@ -123,6 +124,8 @@
   
 
   $: todosLosCampos = Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos)?[...a,...p.campos]:a,[]) : campos
+  
+
   $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, datos) : []
 
   

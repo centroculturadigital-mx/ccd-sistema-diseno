@@ -77,12 +77,11 @@
   const abrir = () => input.click();
 
   const eliminarArchivo = () => {
-    console.log("elmg");
     archivo = null;
     error = null
-    cambiar(archivo)
-
+    cambiar(null)
   };
+  
 </script>
 
 <style>

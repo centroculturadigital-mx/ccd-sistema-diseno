@@ -198,7 +198,6 @@ export const formularioPasos = () => ({
         componente: FormularioTester,
         datos: {
             pasos,
-            campos: campos,
             enviar: () => console.log("Finalizado formulario por pasos"),
             config: {
                 textos: {
