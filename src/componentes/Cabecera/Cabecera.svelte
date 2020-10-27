@@ -23,6 +23,9 @@
     console.log("DEBUG", estado);
     estado = !estado;
   };
+
+  console.log("CABECERA/SD", elementos);
+
 </script>
 
 <style>
@@ -56,6 +59,9 @@
   }
   .Cabecera :global(.iconoContenedor img) {
     object-position: right;
+  }
+  .logos {
+    display: flex;
   }
   .Navegacion {
     display: flex;
@@ -91,17 +97,17 @@
   <div class="contenedor">
 
     {#if Array.isArray(logotipos)}
-      <Logos {logotipos} />
+        <Logos {logotipos} />
     {/if}
 
     <div class="Navegacion">
       {#if responsivo < breakpoint}
-        {#if !!elementos || !!componentes}
+        {#if Array.isArray(elementos) || Array.isArray(componentes)}
           <div class="iconoMenu" on:click={menuAlternar}>
             <Icono icono={!estado ? 'menu' : 'cerrar'} />
           </div>
         {/if}
-      {:else if !!elementos || !!componentes}
+      {:else}
         <MenuEscritorio {elementos} {segment} />
         {#if Array.isArray(componentes) && componentes.length > 0}
           <div class="Herramientas">

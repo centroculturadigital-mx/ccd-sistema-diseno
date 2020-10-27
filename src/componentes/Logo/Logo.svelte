@@ -18,19 +18,19 @@
 </script>
 
 <style>
+* {
+    box-sizing: border-box;
+}
   .Logo {
     display: flex;
     height: 100%;
-    max-width: 100%;
     align-items: center;
     justify-content: left;
-    box-sizing: border-box;
+    width: auto;
   }
   a {
-    box-sizing: border-box;
     padding: 0.5rem;
     height: 100%;
-    width: 100%;
   }
   .Logo :global(img) {
     object-fit: contain;
@@ -41,7 +41,7 @@
 
 <div
   class="Logo"
-  style="width:{estilos.ancho};{!enlace ? 'padding:0.5rem' : ''}">
+  style="width:{estilos.ancho ? estilos.ancho : "100%"};{!enlace ? 'padding:0.5rem' : ''}">
 
   {#if !!enlace}
     <a href={enlace} target={ externo ? "_blank": '' }>

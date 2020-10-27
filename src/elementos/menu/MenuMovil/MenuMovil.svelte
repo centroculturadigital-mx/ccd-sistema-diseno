@@ -7,7 +7,6 @@
   export let sombra;
   export let componentes;
 
-  console.log("MenuMOvil", componentes);
 </script>
 
 <style>
