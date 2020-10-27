@@ -373,7 +373,7 @@
               class="botonPaso {pasoActual > i ? 'pasado' : ''}
               {pasoActual == i ? 'actual' : ''}"
               on:click={() => cambiarPaso(i)}>
-              {pasoActual == i ? i + 1 + ' . ' + paso.textoPaso : i + 1}
+              {pasoActual == i ? i + 1 + ' . ' + paso.nombre : i + 1}
             </button>
           {/each}
         </nav>

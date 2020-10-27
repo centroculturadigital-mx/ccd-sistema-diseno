@@ -4,14 +4,14 @@ import campoFecha from "../data/campos/fecha"
 export default [{
         titulo: "Título primer paso",
         texto: "Por favor introduce una fecha",
-        textoPaso: "Paso uno",
+        nombre: "Paso uno",
         campos: [campoFecha],
 
     },
     {
         titulo: "Título segundo paso",
         texto: "Información",
-        textoPaso: "paso dos",
+        nombre: "paso dos",
         campos: [{
                 tipo: 'texto',
                 nombre: 'nombre',
@@ -56,7 +56,7 @@ export default [{
     {
         titulo: "Título tercer paso",
         texto: "Asistentes",
-        textoPaso: "Paso tres",
+        nombre: "Paso tres",
         campos: [{
                 tipo: "numero",
                 nombre: 'ninnos',
@@ -103,7 +103,7 @@ export default [{
     },
     {
         titulo: "Título paso confirmacion",
-        textoPaso: "Confirma",
+        nombre: "Confirma",
         texto: "Si lo necesitas, revisa que la información esté correcta"
     }
 
