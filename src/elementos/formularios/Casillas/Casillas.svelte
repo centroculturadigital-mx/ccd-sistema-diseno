@@ -153,7 +153,7 @@
 
 {#if Array.isArray(casillas) }
     <ul>
-        {#each casillas as casilla (casilla.id)}
+        {#each casillas as casilla (campoId + "-" + casilla.id)}
           
             <li>
                 <Casilla {...casilla}/>
