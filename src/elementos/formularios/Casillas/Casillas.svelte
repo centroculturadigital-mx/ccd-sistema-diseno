@@ -81,7 +81,6 @@
             )
             : null
 
-
         })
     };
 
@@ -154,7 +153,7 @@
 
 {#if Array.isArray(casillas) }
     <ul>
-        {#each casillas as casilla ("casillas_" +campoId + "_" + casilla.nombre)}
+        {#each casillas as casilla (casilla.id)}
           
             <li>
                 <Casilla {...casilla}/>

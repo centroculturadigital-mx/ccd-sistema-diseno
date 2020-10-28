@@ -242,6 +242,37 @@ export const formularioCasillas = () => ({
 });
 
 
+export const formularioPasosCasillas = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            pasos: pasos.map((p,i)=>({
+                ...p,
+                campos: new Array( Math.ceil(Math.random()*3 )).fill({})
+                .map(()=>(
+                    {
+                        ...casillas,
+                        nombre: "casillas_"+i,
+                        opciones: casillas.opciones.map((o,j)=>({
+                            ...o,
+                            texto: Math.random(),
+                            id: Math.random()+"_"+i+"_"+j
+                        })),
+                        valor: new Array(5+Math.ceil(Math.random()*3)).fill(true).map(()=>Math.random()>0.5)
+                    })
+                )
+            })),
+            enviar: () => console.log("Finalizado formulario por pasos"),
+            config: {
+                textos: {
+                    enviar: "Confirmar"
+                }
+            },
+        }
+    },
+});
+
 
 export const formularioCamposCambiarPersonalizado = () => ({
     Component: ThemeTester,

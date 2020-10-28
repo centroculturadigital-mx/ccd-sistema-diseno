@@ -6,7 +6,6 @@ export default [{
         texto: "Por favor introduce una fecha",
         nombre: "Paso uno",
         campos: [campoFecha],
-
     },
     {
         titulo: "Título segundo paso",
