@@ -429,6 +429,7 @@
               texto={'Siguiente'}
               icono={'irDerecha'}
               click={avanzar} />
+              <!-- deshabilitado={ pasoCompleto } -->
           {/if}
         </div>
 

@@ -1,6 +1,5 @@
 <script>
-    import { isArray } from "util";
-import Casilla from "../Casilla/Casilla"
+    import Casilla from "../Casilla/Casilla"
     
     export let opciones=[];
     export let tipo = "MULTIPLE";
@@ -9,6 +8,7 @@ import Casilla from "../Casilla/Casilla"
     export let valor;
 
 
+    let campoId = Math.random().toString().replace("0.","") // identificador para ids de campos
 
     export let resolver = (v => {
 
@@ -101,13 +101,11 @@ import Casilla from "../Casilla/Casilla"
 
     const cambiarAccion = (indice) => {
 
-        console.log("cambiarAccion", indice);
         valorLocal[indice] = ! valorLocal[indice]
         
         if( tipo == "UNICO" ) {
             // if(valorLocal[indice]) {
                 valorLocal=valorLocal.map((v,i)=>i==indice)
-                console.log("valorLocal", indice, valorLocal);
             // }
         }
         
@@ -116,7 +114,6 @@ import Casilla from "../Casilla/Casilla"
         setTimeout(()=>{
 
             try {
-                // console.log("cambiar", opcion,  ! valorLocal[opcion]);
                 cambiar( resolver( valorLocal ) )
                 // valorLocal = valorLocal
             } catch(err) {
@@ -155,12 +152,13 @@ import Casilla from "../Casilla/Casilla"
 
 </style>
 
-<ul>
-    {#if Array.isArray(casillas) }
-        {#each casillas as casilla (casilla.id) }
-        <li>
-            <Casilla {...casilla}/>
-        </li>
+{#if Array.isArray(casillas) }
+    <ul>
+        {#each casillas as casilla ("casillas_" +campoId + "_" + casilla.nombre)}
+          
+            <li>
+                <Casilla {...casilla}/>
+            </li>
         {/each}
-    {/if}
-</ul>
+    </ul>
+{/if}

@@ -1,6 +1,7 @@
 <script>
     import BotonAlternar from "../../botones/BotonAlternar/BotonAlternar"
     
+    export let nombre;
     export let valor;
     export let texto;
     export let cambiar;
@@ -75,7 +76,7 @@
 
 <div class="Casilla">
 
-    <input class="checkbox oculto" bind:this={inputOculto} bind:value={valorLocal} type="checkbox"/>
+    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorLocal} type="checkbox"/>
 
     <BotonAlternar
         {texto}
