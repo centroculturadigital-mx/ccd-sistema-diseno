@@ -72,7 +72,7 @@ import Casilla from "../Casilla/Casilla"
 
                 return ({
                     ...o,
-                    valor: valorLocal[i],      
+                    valor: Array.isArray(valorLocal) ? valorLocal[i] : null,
                     // click: ()=>cambiarAccion(o)
                     cambiar: ()=>cambiarAccion(i)
                 })
