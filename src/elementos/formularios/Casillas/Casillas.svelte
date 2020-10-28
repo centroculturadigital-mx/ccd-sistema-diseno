@@ -58,7 +58,7 @@ import Casilla from "../Casilla/Casilla"
 
 
     const prepararArreglo = opciones => {
-        if( valorLocal.length != opciones.length ) {
+        if( Array.isArray(valorLocal) && valorLocal.length != opciones.length ) {
             valorLocal = new Array(opciones.length).fill(false);
         }
     };
