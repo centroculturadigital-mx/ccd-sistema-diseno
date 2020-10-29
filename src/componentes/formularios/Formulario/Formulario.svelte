@@ -76,11 +76,11 @@
     const camposPreparados = campos
       .map(c => {
         if (revisarCampo(c)) {
-          let valor = datos[c.nombre];
+          let valor = datos[c.nombre] || c.valor;
 
           let campoPreparado = {
             ...c,
-            valor: valor || c.valor,
+            valor,
             ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => {
