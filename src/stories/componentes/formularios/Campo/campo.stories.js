@@ -1,5 +1,6 @@
 import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import Campo from '../../../../componentes/formularios/Campo/Campo.svelte';
+import CampoSelectorPrueba from '../../../../componentes/formularios/Campo/CampoSelectorPrueba.svelte';
 
 export default {
     title: 'Componentes/Formularios/Campo/Campo'
@@ -124,21 +125,28 @@ export const campoNumero = () => ({
 export const campoSelector = () => ({
     Component: ThemeTester,
     props: {
-        componente: Campo,
+        componente: CampoSelectorPrueba,
         datos: {
-            tipo: 'selector',
-            etiqueta: 'Un campo selector',
-            ejemplo: "...",
-            valor: 2,
-            opciones: [{
-                    valor: 1,
-                    texto: "Hola",
-                },
-                {
-                    valor: 2,
-                    texto: "Mundo",
-                }
-            ]
+            campo: {
+                tipo: 'selector',
+                etiqueta: 'Un campo selector',
+                ejemplo: "...",
+                valor: "hashid-2",
+                opciones: [
+                    {
+                        valor: "hashid-1",
+                        texto: "Hola",
+                    },
+                    {
+                        valor: "hashid-2",
+                        texto: "Mundo",
+                    },
+                    {
+                        valor: "hashid-3",
+                        texto: "Adios",
+                    },
+                ]
+            }
         },
     }
 });
