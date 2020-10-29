@@ -76,7 +76,8 @@
     const camposPreparados = campos
       .map(c => {
         if (revisarCampo(c)) {
-          let valor = datos[c.nombre] || c.valor;
+          // primero revisar si viene un valor desde afuera. 
+          let valor = c.valor || datos[c.nombre];
 
           let campoPreparado = {
             ...c,
