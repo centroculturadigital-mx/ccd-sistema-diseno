@@ -111,6 +111,7 @@
           <option
           value={opcion.valor}
           selected={ opcion.valor == valorLocal || opcion.texto == valorLocal }>
+            <h3>{valorLocal}</h3>
             {opcion.texto}
           </option>
         {/each}
