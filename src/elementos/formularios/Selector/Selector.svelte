@@ -100,7 +100,6 @@
         <!-- primer elemento de ejemplo -->
           <option
           class="ejemplo"
-          selected
           disabled={ vacioPermitido ? false : true }
           >
             {#if !!ejemplo}
