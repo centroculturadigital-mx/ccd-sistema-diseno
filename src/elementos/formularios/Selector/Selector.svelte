@@ -111,7 +111,7 @@
         {#each opciones as opcion}
           <option
           value={opcion.valor}
-          selected={ opcion.valor === valorLocal || opcion.texto === valorLocal }>
+          selected={ opcion.valor == valorLocal || opcion.texto == valorLocal }>
             {opcion.texto}
           </option>
         {/each}
