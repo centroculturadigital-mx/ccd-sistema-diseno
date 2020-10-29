@@ -80,7 +80,7 @@
 
           let campoPreparado = {
             ...c,
-            valor,
+            valor: valor || c.valor,
             ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => {
