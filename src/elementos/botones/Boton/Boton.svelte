@@ -66,6 +66,12 @@
     border-color:  var(--theme-botones-primario-activo);
     color: var(--theme-botones-primario-claro);
   }
+
+  button:disabled {
+    background-color: var(--theme-botones-primario-inactivo);
+    border-color: var(--theme-botones-primario-inactivo);
+    color: var(--theme-botones-primario-claro);
+  }
 </style>
 
 <button on:click={click} disabled={deshabilitado} style={cssString}>

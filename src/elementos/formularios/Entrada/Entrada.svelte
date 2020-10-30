@@ -26,6 +26,7 @@
   export let cambiar;
   
   export let ultimo;
+  export let deshabilitado;
   
   // let cambiado;
 
@@ -173,7 +174,9 @@
     type="text"
     placeholder={ejemplo}
     bind:value={valorLocal}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 {#if tipo == 'contrasenna'}
@@ -186,7 +189,9 @@
     type="password"
     placeholder={ejemplo}
     bind:value={valorLocal}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 {#if tipo == 'email'}
@@ -199,7 +204,9 @@
     type="email"
     placeholder={ejemplo}
     bind:value={valorLocal}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 {#if tipo == 'numero'}
@@ -214,7 +221,9 @@
     max={!!maximo ? maximo : ''}
     placeholder={ejemplo}
     bind:value={valorLocal}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 {#if tipo == 'archivo'}
@@ -227,7 +236,9 @@
     type="file"
     placeholder={ejemplo}
     bind:value={valorLocal}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 {#if tipo == 'telefono'}
@@ -240,7 +251,9 @@
     type="tel"
     placeholder={ejemplo}
     bind:value={valorLocal}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 
@@ -253,7 +266,9 @@
     name={nombre}
     type="radio"
     value={valorEstatico}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 {#if tipo == 'textarea'}
@@ -265,7 +280,9 @@
     name={nombre}
     placeholder={ejemplo}
     bind:value={valorLocal}
-    use:enfoque/>
+    use:enfoque
+    disabled={deshabilitado}
+    />
 {/if}
 
 
@@ -274,11 +291,13 @@
 
 
 {#if tipo == 'casilla'}
-    <Casilla texto={datos.texto} {valor} cambiar={cambiarAccion} {resolver}/>
+    <Casilla texto={datos.texto} {valor} cambiar={cambiarAccion} {resolver}
+    {deshabilitado}/>
 {/if}
 
 {#if tipo == 'casillas'}
-    <Casillas {nombre} {opciones} {valor} cambiar={cambiarAccion} {...datos} {resolver}/>
+    <Casillas {nombre} {opciones} {valor} cambiar={cambiarAccion} {...datos} {resolver}
+    {deshabilitado}/>
 {/if}
 
 
@@ -289,6 +308,7 @@
   valor={valorLocal}
   desenfocar={desenfocarAccion}
   enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
+  {deshabilitado}
   />
   <!-- {resolver} -->
 {/if}
@@ -299,6 +319,7 @@
     cambiar={cambiarAccion}
     desenfocar={()=>desenfocarAccion()}
     enfocar={()=>enfocarAccion()}
+    {deshabilitado}
     />
     <!-- {resolver} -->
 {/if}

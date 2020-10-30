@@ -9,6 +9,7 @@
   export let vacioPermitido = true;
 
   export let valor;
+  export let deshabilitado
 
 
   $: clases = 'Selector' + (estado ? " " + estado : '' );
@@ -86,26 +87,36 @@
   .Selector.ok {
     outline: 1px solid var(--theme-alertas-exito);
   }
+
+
+  select:disabled {
+    color: #aaa;
+    border-color: #ddd !important;
+  }
+
 </style>
 
 <select
   class={clases}
   name={nombre}
+  
   on:focus={()=>enfocarAccion()}
   on:focusout={()=>desenfocarAccion()}
   on:change={()=>cambiarAccion()}
-  bind:value={valorLocal}>
+  bind:value={valorLocal}
+  disabled={deshabilitado}
+>
 
-      {#if !!opciones}
-        <!-- primer elemento de ejemplo -->
-          <option
-          class="ejemplo"
-          disabled={ vacioPermitido ? false : true }
-          >
-            {#if !!ejemplo}
-                {ejemplo}
-            {/if}
-          </option>
+    {#if !!opciones}
+      <!-- primer elemento de ejemplo -->
+        <option
+        class="ejemplo"
+        disabled={ vacioPermitido ? false : true }
+        >
+          {#if !!ejemplo}
+              {ejemplo}
+          {/if}
+        </option>
         <!-- Si elementos que monstrar se popula la lista de opciones -->
         {#each opciones as opcion}
           <option

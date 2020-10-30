@@ -21,6 +21,11 @@
   export let configuracion;
   export let fecha;
 
+
+  // TODO: implementar deshabilitado
+  // export let deshabilitado
+
+
   let seleccionActual = {}
   let seleccionActualValor
 

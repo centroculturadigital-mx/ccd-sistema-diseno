@@ -7,6 +7,9 @@
     export let nombre;
     export let valor;
 
+    // TODO: implementar deshabilitado
+    // export let deshabilitado
+
 
     let campoId = Math.random().toString().replace("0.","") // identificador para ids de campos
 

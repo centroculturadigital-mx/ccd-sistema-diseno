@@ -31,3 +31,15 @@ export const botonCss = () => ({
         },
     }
 });
+
+export const botonDeshabilitado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Boton Deshabilitado',
+            click: ()=>console.log("no debería loggear click"),
+            deshabilitado: true
+        },
+    }
+});

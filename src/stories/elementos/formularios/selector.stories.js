@@ -43,3 +43,15 @@ export const inputSelectPlaceholder = () => ({
         }
     },
 });
+export const selectorDeshabilitado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Selector,
+        datos: {
+            ejemplo,
+            opciones,
+            accion,
+            deshabilitado: true
+        }
+    },
+});

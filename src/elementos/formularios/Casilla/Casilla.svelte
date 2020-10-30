@@ -6,7 +6,8 @@
     export let texto;
     export let cambiar;
 
-
+    // TODO: implementar deshabilitado
+    // export let deshabilitado
 
     let inputOculto
 
