@@ -31,9 +31,9 @@
         desenfocar()
       }
 
-      if (typeof cambiar == "function") {
-        cambiar(valorLocal);
-      }
+      // if (typeof cambiar == "function") {
+      //   cambiar(valorLocal);
+      // }
       
       // cambiado = false
     // }
