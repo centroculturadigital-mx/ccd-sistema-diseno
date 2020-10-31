@@ -109,25 +109,25 @@
   disabled={deshabilitado}
 >
 
-    {#if !!opciones}
-      <!-- primer elemento de ejemplo -->
-        <option
-        class="ejemplo"
-        value={false}
-        disabled={ vacioPermitido ? false : true }
-        >
-          {#if !!ejemplo}
-              {ejemplo}
-          {/if}
-        </option>
-        <!-- Si elementos que monstrar se popula la lista de opciones -->
-        {#each opciones as opcion}
-          <option
-          value={opcion.valor}
-          selected={ opcion.valor == valorLocal || opcion.texto == valorLocal }>
-            {opcion.texto}
-          </option>
-        {/each}
+    <!-- primer elemento -->
+    <option
+    value={false}
+    disabled={ vacioPermitido ? false : true }
+    >
+      {#if deshabilitado}
+          {ejemplo}
       {/if}
+    </option>
+
+    
+    {#if ! deshabilitado && !!opciones}
+      {#each opciones as opcion}
+        <option
+        value={opcion.valor}
+        selected={ opcion.valor == valorLocal || opcion.texto == valorLocal }>
+          {opcion.texto}
+        </option>
+      {/each}
+    {/if}
 
 </select>

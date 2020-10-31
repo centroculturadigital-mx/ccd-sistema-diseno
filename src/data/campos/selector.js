@@ -1,6 +1,7 @@
 export default {
     tipo: 'selector',
     nombre: 'ccd-sd-selector',
+    ejemplo: 'Selecciona una opción',
     requerido: true,
     etiqueta: 'Un selector',
     validacion: (valor) => {
