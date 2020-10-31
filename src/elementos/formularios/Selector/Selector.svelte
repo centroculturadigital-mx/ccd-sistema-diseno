@@ -26,17 +26,17 @@
 
 
   const desenfocarAccion = () => {
-    // if (cambiado) {
-      if (typeof desenfocar == "function") {
-        desenfocar()
-      }
+    //  // if (cambiado) {
+      // if (typeof desenfocar == "function") {
+      //   desenfocar()
+      // }
 
       // if (typeof cambiar == "function") {
       //   cambiar(valorLocal);
       // }
       
-      // cambiado = false
-    // }
+      // // cambiado = false
+    // // }
   };
   
   const enfocarAccion = () => {
