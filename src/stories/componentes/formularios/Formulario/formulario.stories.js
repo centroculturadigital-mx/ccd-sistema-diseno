@@ -288,3 +288,17 @@ export const formularioCamposCambiarPersonalizado = () => ({
         }
     },
 });
+
+
+export const formularioCamposDeshabilitados = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: campos.map(c=>({
+                ...c,
+                deshabilitado: true
+            })),
+        }
+    },
+});

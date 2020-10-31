@@ -21,6 +21,7 @@
   export let cambiar;
   
   export let ultimo;
+  export let deshabilitado;
 
   
   let enfocado = false
@@ -141,6 +142,7 @@
       {ultimo}
       cambiar={cambiarAccion}
       {resolver}
+      {deshabilitado}
     />
 
     {#if error instanceof Error}

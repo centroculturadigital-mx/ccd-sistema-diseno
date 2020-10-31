@@ -1,6 +1,6 @@
 <script>
   import getEventsAction from "../../../../funciones/getEventsAction";
-
+  
   import Formulario from "../../../formularios/Formulario/Formulario";
   import BotonIcono from "../../../../elementos/botones/BotonIcono/BotonIcono";
 
