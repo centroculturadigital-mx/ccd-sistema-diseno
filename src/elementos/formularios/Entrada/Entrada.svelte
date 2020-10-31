@@ -305,10 +305,11 @@
 
 {#if tipo == 'selector' && Array.isArray(opciones)}
   <Selector
-  valor={valorLocal}
-  desenfocar={desenfocarAccion}
-  enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
-  {deshabilitado}
+    valor={valorLocal}
+    {ejemplo}
+    desenfocar={desenfocarAccion}
+    enfocar={enfocarAccion} {nombre} {opciones} {estado} cambiar={cambiarAccion}
+    {deshabilitado}
   />
   <!-- {resolver} -->
 {/if}
@@ -316,11 +317,12 @@
 {#if tipo == 'fecha'}
   <CalendarioEntrada
     bind:value={valorLocal}
+    {ejemplo}
     cambiar={cambiarAccion}
     desenfocar={()=>desenfocarAccion()}
     enfocar={()=>enfocarAccion()}
     {deshabilitado}
-    />
+  />
     <!-- {resolver} -->
 {/if}
 
