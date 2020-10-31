@@ -32,7 +32,6 @@
       }
 
       if (typeof cambiar == "function") {
-        console.log("cambiar",valorLocal);        
         cambiar(valorLocal);
       }
       
@@ -52,7 +51,6 @@
     // cambiado = true
     if (typeof cambiar == "function") {
       setTimeout(()=>{
-        console.log("cambiar",valorLocal);
         cambiar(valorLocal)
       });
     }
@@ -114,9 +112,7 @@
     value={false}
     disabled={ vacioPermitido ? false : true }
     >
-      {#if deshabilitado}
-          {ejemplo}
-      {/if}
+      {ejemplo}
     </option>
 
     
