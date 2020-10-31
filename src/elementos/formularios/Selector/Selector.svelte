@@ -1,5 +1,5 @@
 <script>
-  export let ejemplo;
+  export let ejemplo="Selecciona una opción";
   export let opciones;
   export let estado;
   export let nombre;

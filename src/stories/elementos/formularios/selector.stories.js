@@ -22,27 +22,18 @@ const accion = e => console.log("una accion", e);
 
 const ejemplo = "Selecciona un estado"
 
-export const inputSelectDefault = () => ({
+export const selectorDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: Selector,
         datos: {
             opciones,
-            accion
-        }
-    },
-});
-export const inputSelectPlaceholder = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Selector,
-        datos: {
             ejemplo,
-            opciones,
             accion
         }
     },
 });
+
 export const selectorDeshabilitado = () => ({
     Component: ThemeTester,
     props: {

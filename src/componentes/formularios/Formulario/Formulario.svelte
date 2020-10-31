@@ -110,7 +110,7 @@
   };
 
   const cambiarCampo = (valor, c) => {
-
+    console.log("cambiar campo", valor, c);
     if( ! c.valorExterno ) {
       datos[c.nombre] = valor;    
     }
