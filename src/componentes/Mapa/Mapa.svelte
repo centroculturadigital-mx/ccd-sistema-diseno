@@ -176,8 +176,10 @@
         const height = altoOriginal
         
         svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
-        
-        ajustarVentana(0,0,width,height)
+
+        if( typeof ajustarVentana == "function" ) {
+            ajustarVentana(0,0,width,height)
+        }
 
         pathSeleccionado = null
 
