@@ -10,6 +10,8 @@
     export let alto = 300
     export let seleccionado
     
+    export let ajustarVentana
+    
     let anchoOriginal
     let altoOriginal
 
@@ -154,7 +156,11 @@
         path.setAttribute('active',true)
         
         path.parentNode.setAttribute('viewBox',`${x} ${y} ${w} ${h}`)
-    
+        
+        if( typeof ajustarVentana == "function" ) {
+            ajustarVentana(x,y,w,h)
+        }
+
     }
 
 
@@ -170,6 +176,8 @@
         const height = altoOriginal
         
         svg.setAttribute('viewBox',`0 0 ${width} ${height}`)
+        
+        ajustarVentana(0,0,width,height)
 
         pathSeleccionado = null
 
