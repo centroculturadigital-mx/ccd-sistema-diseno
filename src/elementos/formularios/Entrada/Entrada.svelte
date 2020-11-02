@@ -43,6 +43,7 @@
   // TODO : eliminar esto:
   const cambiarAccion = (valor) => {
     // cambiado = true
+    console.log("cambiar entrada", valor, valorLocal);
     if (typeof cambiar == "function") {
       cambiar((!!valor||valor===0) ? valor : valorLocal);
       // cambiar(valor);
