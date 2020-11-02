@@ -49,8 +49,11 @@
 
   const cambiarAccion = () => {
     // cambiado = true
+
+    
     if (typeof cambiar == "function") {
       setTimeout(()=>{
+        console.log("cambiar selector", valorLocal );
         cambiar(valorLocal)
       });
     }

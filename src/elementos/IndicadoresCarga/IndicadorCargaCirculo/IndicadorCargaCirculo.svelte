@@ -53,6 +53,6 @@
     style="border-width: {estilos.grosor ? estilos.grosor : ''};
     width:{estilos.tamanno ? estilos.tamanno : '3rem'}; height:{estilos.tamanno ? estilos.tamanno : '3rem'};
     border-top-width: {estilos.grosor ? estilos.grosor : ''}; border-top-color:{estilos.color ? estilos.color : ''};
-    " />
+  " />
 
 </section>
