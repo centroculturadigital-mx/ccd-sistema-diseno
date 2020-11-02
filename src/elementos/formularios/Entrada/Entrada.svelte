@@ -44,7 +44,12 @@
   const cambiarAccion = (valor) => {
     // cambiado = true
     if (typeof cambiar == "function") {
-      cambiar(valor);
+      // TODO : revisar si esto todavía se necesita:
+      if( tipo != "selector" ) {
+        cambiar((!!valor||valor===0) ? valor : valorLocal);
+      } else {        
+        cambiar(valor);
+      }
       // cambiar((!!valor||valor===0) ? valor : valorLocal);
       // cambiar(valor);
     }

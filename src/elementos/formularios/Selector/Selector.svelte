@@ -53,7 +53,6 @@
     
     if (typeof cambiar == "function") {
       setTimeout(()=>{
-        console.log("cambiar selector", valorLocal );
         cambiar(valorLocal)
       });
     }
