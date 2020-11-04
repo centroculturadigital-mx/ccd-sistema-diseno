@@ -82,7 +82,7 @@
 
   {#if estado}
     <ul transition:slide|local>
-      {#each enlaces as enlace (enlace.id)}
+      {#each enlaces as enlace (enlace)}
         <li>
           <Enlace texto={enlace.texto} enlace={enlace.enlace} />
           <Icono icono={enlace.icono} />
