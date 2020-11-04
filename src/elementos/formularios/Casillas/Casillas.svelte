@@ -19,6 +19,9 @@
             
             case "UNICO":
                return v.indexOf(true) || 0
+            
+            case "OPCIONES_OTRA":
+               return (typeof v == "string" ? v : v.indexOf(true)) || 0
 
             default:
 
@@ -113,6 +116,7 @@
         
 
         prepararCasillas( opciones, valorLocal )
+        
         setTimeout(()=>{
 
             try {
