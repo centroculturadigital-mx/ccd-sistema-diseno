@@ -1,6 +1,8 @@
 // Elementos
 export { default as Boton }
 from "./elementos/botones/Boton/Boton.svelte";
+export { default as BotonEnlace }
+from "./elementos/botones/BotonEnlace/BotonEnlace.svelte";
 export { default as BotonIcono }
 from "./elementos/botones/BotonIcono/BotonIcono.svelte";
 export { default as Enlace }
