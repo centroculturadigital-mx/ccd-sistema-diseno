@@ -2,7 +2,7 @@
     import BotonAlternar from "../../botones/BotonAlternar/BotonAlternar"
     
     export let nombre;
-    export let texto;
+    export let texto="Otra:";
     export let valor;
     export let cambiar;
 
