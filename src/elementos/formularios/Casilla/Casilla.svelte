@@ -44,7 +44,6 @@
         
         valorLocal = !valorLocal
         try {
-
             cambiar(valorLocal)
             cambiarInputOculto( valorLocal )
             

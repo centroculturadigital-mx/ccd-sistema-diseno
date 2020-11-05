@@ -45,7 +45,7 @@
     // cambiado = true
     if (typeof cambiar == "function") {
       // TODO : revisar si esto todavía se necesita:
-      if( tipo != "selector" ) {
+      if( tipo != "selector" &&  tipo != "casilla" ) {
         cambiar((!!valor||valor===0) ? valor : valorLocal);
       } else {        
         cambiar(valor);

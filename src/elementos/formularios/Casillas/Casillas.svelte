@@ -68,8 +68,6 @@
                 if( Array.isArray(v)) {
                     valorLocal = v
                 }    
-
-                console.log("mO", v);
                 break;
             default:
                 valorLocal = v;
