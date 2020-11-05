@@ -43,11 +43,16 @@
                         valorLocal = v
                     }
                     if( v.id == opciones.length && v.texto ) {
-                        if( v.valor ) {
+                        // if( v.valor ) {
                             valorLocal = v
-                        } else {
-                            valorLocal = null
-                        }
+                        // } else {
+                        //     valorLocal = null
+                        // }
+                    }
+                }
+                if( typeof v == "number" ) {
+                    valorLocal = {
+                        id: v
                     }
                 }
                 
@@ -85,7 +90,6 @@
                 valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
                 
 
-            
                 break;
 
             default:
