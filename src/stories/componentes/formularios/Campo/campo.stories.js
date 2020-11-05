@@ -189,3 +189,42 @@ export const campoCasilla = () => ({
         },
     }
 });
+
+
+export const campoMultiCampo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Campo,
+        datos: {
+            tipo: 'multicampo',
+            etiqueta: 'Una multicampo',
+            ejemplo: "...",
+
+            etiqueta: "Un campo tipo multicampo",
+            indicacion: "...",
+            nombre: "multicampo",
+            requerido: true,
+
+            // valor: true,
+            // valorEstatico: "",
+            // validacion: "",
+            datos: {
+                campos: [
+                    {
+                        tipo: "texto",
+                        nombre: "multicampo-1",
+                        ejemplo: "multicampo-1"
+                    },
+                    {
+                        tipo: "texto",
+                        nombre: "multicampo-2",
+                        ejemplo: "multicampo-2"
+                    }
+                ],
+                // texto: "Una casilla"
+            },
+            cambiar: datos=>console.log("Campo multicampo datos", datos),
+  
+        },
+    }
+});

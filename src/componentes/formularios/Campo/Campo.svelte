@@ -2,6 +2,7 @@
   import Entrada from "../../../elementos/formularios/Entrada/Entrada.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
+import Bloque from "../../Bloque/Bloque.svelte";
 
   export let etiqueta;
   export let indicacion;
@@ -66,6 +67,18 @@
     // }
   }
 
+  
+
+  const cambiarMultiCampo = (datos, campo) => {
+    console.log("cambiar multicampo", datos, campo);
+  }
+
+  $: multiCampo = tipo == "multicampo" ? {
+    campos: Array.isArray(datos.campos) ? datos.campos.map( campo => ({
+      ...campo,
+      cambiar: datos => cambiarMultiCampo( datos, campo )
+    })) : []
+  } : null
   
 
 </script>
@@ -138,11 +151,13 @@
   </label>
   
   {#if !!indicacion}
-    <div class="indicacion">
-      <!-- <Parrafo variante="CHICO" texto={indicacion}/> -->
-      <p>{@html indicacion}</p>
-    </div>
+  <div class="indicacion">
+    <!-- <Parrafo variante="CHICO" texto={indicacion}/> -->
+    <p>{@html indicacion}</p>
+  </div>
   {/if}
+  
+  {#if tipo != "multicampo"}
 
     <Entrada
       {tipo}
@@ -161,11 +176,17 @@
       {deshabilitado}
     />
 
-    {#if error instanceof Error}
-      <div class="error">
-        <Parrafo texto={error.message} />
-      </div>
-    {/if}
+  {:else}
+    {#each multiCampo.campos as campo (campo)}
+      <Entrada {...campo}/>
+    {/each}
+  {/if}
+  
+  {#if error instanceof Error}
+    <div class="error">
+      <Parrafo texto={error.message} />
+    </div>
+  {/if}
 
 {/if}
 

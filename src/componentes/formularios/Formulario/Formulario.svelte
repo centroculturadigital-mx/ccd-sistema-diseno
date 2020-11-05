@@ -24,7 +24,8 @@
     "telefono",
     "casilla",
     "casillas",
-    "radio"
+    "radio",
+    "multicampo",
   ];
 
   let datos = {};
