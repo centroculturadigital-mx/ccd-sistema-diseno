@@ -71,6 +71,10 @@
         visibility: hidden;
     }
 
+    .Casilla :global(.BotonAlternar) {
+        width: auto;
+    }
+
 
 </style>
 

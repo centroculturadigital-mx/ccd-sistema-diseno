@@ -364,6 +364,12 @@
   .error :global(p span) {
     color: var(--theme-alertas-error);
   }
+
+
+  .Formulario :global(.Campo) {
+    margin-bottom: .5rem;
+  }
+
 </style>
 
 <section class="Formulario">

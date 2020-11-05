@@ -41,6 +41,7 @@ export const campoDefault = () => ({
         datos: {
             etiqueta: 'Un campo',
             tipo: 'texto',
+            indicacion: "Puedes hacer <em>algo</em> con <a href=#>este campo</a>",
             ejemplo: 'Un campo default',
         },
     }

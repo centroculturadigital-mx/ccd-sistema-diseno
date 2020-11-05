@@ -72,6 +72,12 @@
 
 <style>
 
+  .Campo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
   label,
   label > * {
     width: 100%;
@@ -87,12 +93,16 @@
     padding: calc(var(--theme-campos-espacio) / 4);
     box-sizing: border-box;
   }
+  label :global(.requerido) {
+    padding: 0;
+  }
   label :global(.requerido span) {
     /* color: var(--theme-alertas-error); */
     font-size: calc(var(--theme-textos-parrafo-tamanno) / 1.5);
     font-family: inherit;
     font-weight: inherit;
-    margin-left: calc(var(--theme-campos-espacio) / 2);
+    padding: 0;
+    /* margin-left: calc(var(--theme-campos-espacio) / 2); */
 
   }
   p {
@@ -102,19 +112,24 @@
     font-weight: inherit;
   }
 
+  .indicacion {
+    margin: 0.5rem 0;
+  }
   .indicacion :global(*) {
-    color: #888;
+    color: #555;
+    font-size: .7rem;
   }
   
 </style>
 
-{#if !!tipo}
+<div class="Campo">
+  {#if !!tipo}
   <label>
     {#if !!etiqueta}
       <Parrafo texto={etiqueta}/>
       {#if requerido}
         <span class="requerido">
-          <Texto variante="CHICO" texto={'*requerido'} css={{
+          <Texto variante="CHICO" texto={'* requerido'} css={{
             color: "red"
           }}/>
         </span>
@@ -124,7 +139,8 @@
   
   {#if !!indicacion}
     <div class="indicacion">
-      <Parrafo variante="CHICO" texto={indicacion}/>
+      <!-- <Parrafo variante="CHICO" texto={indicacion}/> -->
+      <p>{@html indicacion}</p>
     </div>
   {/if}
 
@@ -152,3 +168,6 @@
     {/if}
 
 {/if}
+
+
+</div>
