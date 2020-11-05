@@ -69,8 +69,14 @@ import Bloque from "../../Bloque/Bloque.svelte";
 
   
 
+  let valorMultiCampo = {}
+
   const cambiarMultiCampo = (datos, campo) => {
-    console.log("cambiar multicampo", datos, campo);
+    
+    valorMultiCampo[ campo.nombre ] = datos
+
+    cambiarAccion( valorMultiCampo )
+
   }
 
   $: multiCampo = tipo == "multicampo" ? {
