@@ -24,7 +24,6 @@ import Bloque from "../../Bloque/Bloque.svelte";
   export let ultimo;
   export let deshabilitado;
 
-  
   let enfocado = false
   
   // const calcularEstado = v => {
@@ -67,24 +66,30 @@ import Bloque from "../../Bloque/Bloque.svelte";
     // }
   }
 
-  
-
   let valorMultiCampo = {}
 
+  
   const cambiarMultiCampo = (datos, campo) => {
-    
-    valorMultiCampo[ campo.nombre ] = datos
+    if( typeof valorMultiCampo == "object" ) {
 
-    cambiarAccion( valorMultiCampo )
-
+      
+      console.log("cmC", campo.nombre, valorMultiCampo);
+      valorMultiCampo[ campo.nombre ] = datos
+      cambiarAccion( valorMultiCampo )
+      
+    }
   }
 
-  $: multiCampo = tipo == "multicampo" ? {
+
+  $: multiCampo = (tipo == "multicampo" && typeof valorMultiCampo == "object" ) ? {
     campos: Array.isArray(datos.campos) ? datos.campos.map( campo => ({
       ...campo,
+      valor: valorMultiCampo[campo.nombre],
+      // cambiar: datos => setTimeout(()=>cambiarMultiCampo( datos, campo ), 400)
       cambiar: datos => cambiarMultiCampo( datos, campo )
     })) : []
   } : null
+
   
 
 </script>
@@ -183,7 +188,7 @@ import Bloque from "../../Bloque/Bloque.svelte";
     />
 
   {:else}
-    {#each multiCampo.campos as campo (campo)}
+    {#each multiCampo.campos as campo (campo.nombre)}
       <svelte:self {...campo}/>
     {/each}
   {/if}

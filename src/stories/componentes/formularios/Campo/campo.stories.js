@@ -215,7 +215,7 @@ export const campoMultiCampo = () => ({
                         ejemplo: "multicampo-1"
                     },
                     {
-                        tipo: "texto",
+                        tipo: "numero",
                         etiqueta: "Sub-campo 2",
                         nombre: "multicampo-2",
                         ejemplo: "multicampo-2"

@@ -1,5 +1,6 @@
 import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 import FormularioTester from '../../../../componentes/formularios/Formulario/FormularioTester.svelte';
+import FormularioMultiCampo from '../../../../componentes/formularios/Formulario/FormularioMultiCampo.svelte';
 import Formulario from '../../../../componentes/formularios/Formulario/Formulario.svelte';
 
 import campos from "../../../../data/campos/";
@@ -328,6 +329,93 @@ export const formularioCamposDeshabilitados = () => ({
                 ...c,
                 deshabilitado: true
             })),
+        }
+    },
+});
+
+
+
+export const formularioMultiCampo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioMultiCampo,
+        datos: {
+            campos: [
+                {
+                    tipo: 'multicampo',
+        
+                    etiqueta: "Un campo tipo multicampo",
+                    indicacion: "...",
+                    nombre: "multicampo",
+                    requerido: true,
+        
+                    // valorEstatico: "",
+                    // validacion: "",
+                    datos: {
+                        campos: [
+                            {
+                                tipo: "texto",
+                                etiqueta: "Sub-campo 1",
+                                nombre: "multicampo-1",
+                                ejemplo: "multicampo-1"
+                            },
+                            {
+                                tipo: "numero",
+                                etiqueta: "Sub-campo 2",
+                                nombre: "multicampo-2",
+                                ejemplo: "multicampo-2"
+                            }
+                        ],
+                        // texto: "Una casilla"
+                    },
+                    cambiar: datos=>console.log("Campo multicampo datos", datos),
+          
+                }
+            ]
+        }
+    },
+});
+export const formularioMultiCampoValores = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioMultiCampo,
+        datos: {
+            campos: [
+                {
+                    tipo: 'multicampo',
+        
+                    etiqueta: "Un campo tipo multicampo",
+                    indicacion: "...",
+                    nombre: "multicampo",
+                    requerido: true,
+        
+                    valor: {
+                        "multicampo-1": 123,
+                        "multicampo-2": 456,
+                    },
+                    // valorEstatico: "",
+                    // validacion: "",
+                    datos: {
+                        campos: [
+                            {
+                                tipo: "texto",
+                                etiqueta: "Sub-campo 1",
+                                nombre: "multicampo-1",
+                                ejemplo: "multicampo-1"
+                            },
+                            {
+                                tipo: "numero",
+                                etiqueta: "Sub-campo 2",
+                                nombre: "multicampo-2",
+                                ejemplo: "multicampo-2"
+                            }
+                        ],
+                        // texto: "Una casilla"
+                    },
+                    cambiar: datos=>console.log("Campo multicampo datos", datos),
+          
+                }
+            ]
         }
     },
 });
