@@ -234,6 +234,17 @@ export const formularioCasillas = () => ({
                         tipo: "UNICO"
                     },
                     valor: 0
+                },
+                {
+                    ...casillas,
+                    nombre: "casillasOtra",
+                    etiqueta: "Opción única: elige otra",
+                    indicacion: "Elige solo una, o agrega tu opción",
+                    tipo: "casillas",
+                    datos: {
+                        tipo: "UNICO_OTRA"
+                    },
+                    valor: 0
                 }
             ],
             enviar: datos => console.log("Enviaste formulario", datos),

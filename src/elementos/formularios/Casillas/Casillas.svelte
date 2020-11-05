@@ -37,7 +37,7 @@
                     }
                 }
                 break;
-            case "OPCIONES_OTRA":
+            case "UNICO_OTRA":
                 if( typeof v == "object" ) {
                     if( v.id ) {
                         valorLocal = v
@@ -85,7 +85,7 @@
                 
                 break;         
                 
-            case "OPCIONES_OTRA":
+            case "UNICO_OTRA":
                 
                 valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
                 
@@ -204,7 +204,7 @@
             </li>
         {/each}
 
-        {#if tipo == "OPCIONES_OTRA" }
+        {#if tipo == "UNICO_OTRA" }
 
             <CasillaTexto valor={otra} cambiar={cambiarOtra}/>
 

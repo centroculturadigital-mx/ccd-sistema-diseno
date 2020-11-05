@@ -67,7 +67,7 @@ export const casillasOpcionOtra = () => ({
             },
             nombre: "unCampo",
             cambiar: valor => console.log("cambiar", valor),
-            tipo: "OPCIONES_OTRA"
+            tipo: "UNICO_OTRA"
         }
     }
 });
@@ -83,7 +83,7 @@ export const casillasOpcionOtraNumeroElegido = () => ({
             },
             nombre: "unCampo",
             cambiar: valor => console.log("cambiar", valor),
-            tipo: "OPCIONES_OTRA"
+            tipo: "UNICO_OTRA"
         }
     }
 });
