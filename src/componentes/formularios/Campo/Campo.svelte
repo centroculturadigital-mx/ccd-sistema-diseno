@@ -184,7 +184,7 @@ import Bloque from "../../Bloque/Bloque.svelte";
 
   {:else}
     {#each multiCampo.campos as campo (campo)}
-      <Entrada {...campo}/>
+      <svelte:self {...campo}/>
     {/each}
   {/if}
   

@@ -197,8 +197,6 @@ export const campoMultiCampo = () => ({
         componente: Campo,
         datos: {
             tipo: 'multicampo',
-            etiqueta: 'Una multicampo',
-            ejemplo: "...",
 
             etiqueta: "Un campo tipo multicampo",
             indicacion: "...",
@@ -212,11 +210,13 @@ export const campoMultiCampo = () => ({
                 campos: [
                     {
                         tipo: "texto",
+                        etiqueta: "Sub-campo 1",
                         nombre: "multicampo-1",
                         ejemplo: "multicampo-1"
                     },
                     {
                         tipo: "texto",
+                        etiqueta: "Sub-campo 2",
                         nombre: "multicampo-2",
                         ejemplo: "multicampo-2"
                     }
