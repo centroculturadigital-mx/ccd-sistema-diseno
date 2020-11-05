@@ -2,8 +2,8 @@
     import BotonAlternar from "../../botones/BotonAlternar/BotonAlternar"
     
     export let nombre;
-    export let valor;
     export let texto;
+    export let valor;
     export let cambiar;
 
     // TODO: implementar deshabilitado
@@ -12,16 +12,19 @@
     let inputOculto
 
 
-    const actualizarValor = v => {
-        valor = v;
-    };
-
     let valorLocal;
 
     $: valorActualizar(valor);
 
     const valorActualizar = v => {
-        valorLocal = v;
+        if( v ) {
+
+            valorLocal = v;
+            
+            valorTexto = v.texto
+            valorEstado = v.valor
+            
+        }
     };
 
     // $: actualizarValor(value);
@@ -38,18 +41,27 @@
     }
 
 
+    const cambiarValor = () => {
+
+        valorLocal.valor = !valorLocal.valor
+
+        cambiarAccion()
+
+    }
+
     const cambiarAccion = (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        
-        valorLocal = !valorLocal
+        if( e ) {
+            e.preventDefault()
+            e.stopPropagation()            
+        }
+
+        // para actualizar input invisible
+        valorEstado = valorLocal.valor
+
         try {
 
-
-            console.log("cambiar", valorLocal);
-
-            cambiar(valorLocal)
-            cambiarInputOculto( valorLocal )
+            cambiar( valorLocal )
+            cambiarInputOculto( valorLocal.valor )
             
         } catch( err) {
             console.log("Error al cambiar casilla", err);
@@ -59,7 +71,15 @@
 
     }
 
-    $: valorLocal = valor
+    let valorTexto
+    let valorEstado
+
+    $: valorLocal = {
+        ...valor,
+        texto: valorTexto
+    }
+
+
 
 </script>
 
@@ -91,14 +111,14 @@
 
 <div class="CasillaTexto">
 
-    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorLocal} type="checkbox"/>
+    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorEstado} type="checkbox"/>
 
     <BotonAlternar
         {texto}
-        estado={!!valorLocal}
-        click={cambiarAccion}
+        estado={!!valorLocal.valor}
+        click={cambiarValor}
     />
 
-    <input type="text" bind:value={valorLocal} on:keyup={cambiarAccion}/>
+    <input type="text" bind:value={valorTexto} on:keyup={cambiarAccion}/>
 
 </div>

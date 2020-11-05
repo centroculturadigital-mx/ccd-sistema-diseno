@@ -14,24 +14,7 @@
 
     let campoId = Math.random().toString().replace("0.","") // identificador para ids de campos
 
-    export let resolver = (v => {
-
-        switch( tipo ) {
-            
-            case "UNICO":
-               return v
-            
-            case "OPCIONES_OTRA":
-               return v //(typeof v == "string" ? v : v.indexOf(true)) || 0
-
-            default:
-
-               return v
-        }
-
-
-    });
-
+    
 
     let valorLocal;
 
@@ -47,14 +30,27 @@
         switch(tipo) {
             case "MULTIPLE":
                 if( Array.isArray(v)) {
-                    console.log("es arreglo", v );
                     valorLocal = v
                 } else {
-                    console.log("no es arreglo", v );
                     if( Array.isArray(valorLocal)) {
                         valorLocal[v] = !valorLocal[v];
                     }
                 }
+                break;
+            case "OPCIONES_OTRA":
+                if( typeof v == "object" ) {
+                    if( v.id ) {
+                        valorLocal = v
+                    }
+                    if( v.id == opciones.length && v.texto ) {
+                        if( v.valor ) {
+                            valorLocal = v
+                        } else {
+                            valorLocal = null
+                        }
+                    }
+                }
+                
                 break;
             default:
                 valorLocal = v;
@@ -85,14 +81,9 @@
                 break;         
                 
             case "OPCIONES_OTRA":
-                if(typeof v == "number" || v === 0) {
-                    valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=>i==v)
-                } else if( typeof v == "string" ) {
-                    valoresCasillas = new Array(opciones.length).fill(false).push(!!v)
-
-                } else {
-                    valoresCasillas = []
-                }
+                
+                valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
+                
 
             
                 break;
@@ -159,7 +150,23 @@
     }
 
 
+    const cambiarOtra = ({valor, texto}) => {
+        textoOtra = texto
+        
+        cambiarAccion({
+            id: opciones.length,
+            valor,
+            texto
+        })
 
+    }
+
+    let textoOtra
+
+    $: otra = ( valorLocal && valorLocal.id == opciones.length ) ? {
+        valor: valorLocal.id == opciones.length,
+        texto: textoOtra
+    } : null
 
 </script>
 
@@ -195,7 +202,7 @@
 
         {#if tipo == "OPCIONES_OTRA" }
 
-            <CasillaTexto valor={valorLocal} cambiar={cambiarAccion}/>
+            <CasillaTexto valor={otra} cambiar={cambiarOtra}/>
 
         {/if}
 

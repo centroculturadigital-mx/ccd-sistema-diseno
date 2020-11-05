@@ -62,7 +62,25 @@ export const casillasOpcionOtra = () => ({
         componente: Casillas,
         datos: {
             opciones,
-            valor: "Hola mundo",
+            valor: {
+                texto: "Hola mundo"
+            },
+            nombre: "unCampo",
+            cambiar: valor => console.log("cambiar", valor),
+            tipo: "OPCIONES_OTRA"
+        }
+    }
+});
+
+export const casillasOpcionOtraNumeroElegido = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casillas,
+        datos: {
+            opciones,
+            valor: {
+                id: 2
+            },
             nombre: "unCampo",
             cambiar: valor => console.log("cambiar", valor),
             tipo: "OPCIONES_OTRA"
