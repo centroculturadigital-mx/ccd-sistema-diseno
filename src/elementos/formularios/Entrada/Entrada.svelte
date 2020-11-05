@@ -220,7 +220,8 @@
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
-    on:keyup={()=>cambiarAccion()}
+    on:input={()=>cambiarAccion()}
+    on:change={()=>cambiarAccion()}
     name={nombre}
     type="number"
     min={!!minimo ? minimo : ''}
