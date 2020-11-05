@@ -221,6 +221,7 @@
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     on:input={()=>cambiarAccion()}
+    on:keyup={()=>cambiarAccion()}
     on:change={()=>cambiarAccion()}
     name={nombre}
     type="number"
