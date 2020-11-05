@@ -237,7 +237,7 @@ export const formularioCasillas = () => ({
                 },
                 {
                     ...casillas,
-                    nombre: "casillasOtra",
+                    nombre: "casillasUnicoOtra",
                     etiqueta: "Opción única: elige otra",
                     indicacion: "Elige solo una, o agrega tu opción",
                     tipo: "casillas",
@@ -245,6 +245,24 @@ export const formularioCasillas = () => ({
                         tipo: "UNICO_OTRA"
                     },
                     valor: 0
+                },
+                {
+                    ...casillas,
+                    nombre: "casillasMultipleOtra",
+                    etiqueta: "Opción múltiple, y/o añade otra",
+                    indicacion: "Elige las opciones, y/o agrega tu opción",
+                    tipo: "casillas",
+                    datos: {
+                        tipo: "MULTIPLE_OTRA"
+                    },
+                    valor: [
+                        ...new Array(13).fill(true).map((o,i)=>({ id: i, valor: Math.random()>0.5 })),
+                        {
+                            id: 13,
+                            valor: true,
+                            texto: "Hola mundo"
+                        }
+                    ]
                 }
             ],
             enviar: datos => console.log("Enviaste formulario", datos),

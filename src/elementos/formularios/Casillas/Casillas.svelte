@@ -43,11 +43,7 @@
                         valorLocal = v
                     }
                     if( v.id == opciones.length && v.texto ) {
-                        // if( v.valor ) {
-                            valorLocal = v
-                        // } else {
-                        //     valorLocal = null
-                        // }
+                        valorLocal = v
                     }
                 }
                 if( typeof v == "number" ) {
@@ -57,18 +53,41 @@
                 }
                 
                 break;
+                
+            case "MULTIPLE_OTRA":               
+                if( typeof v == "number" ) {
+                    if( Array.isArray(valorLocal)) {
+                        valorLocal[v].valor = !valorLocal[v].valor;
+                    }
+                }
+                if( typeof v == "object" ) {
+                    if( v.id == opciones.length && v.texto ) {
+                        valorLocal[opciones.length] = v
+                    }
+                }
+                if( Array.isArray(v)) {
+                    valorLocal = v
+                }    
+
+                console.log("mO", v);
+                break;
             default:
                 valorLocal = v;
         }
     
-    };
+    }
 
 
     const prepararArreglo = opciones => {
-        if( tipo == "MULTIPLE" && (! Array.isArray(valorLocal) || (valorLocal.length != opciones.length) )) {
-            valorLocal = new Array(opciones.length).fill(false);
+        if( ! Array.isArray(valorLocal) ) {
+            if( tipo == "MULTIPLE" ) {
+                valorLocal = new Array(opciones.length).fill(false);
+            }
+            if( tipo == "MULTIPLE_OTRA" ) {
+                valorLocal = new Array(opciones.length+1).fill(false).map((e,i)=>({ id: i, valor: false}));
+            }
         }
-    };
+    }
 
 
     const prepararCasillas = (opciones, v) => {
@@ -81,23 +100,24 @@
                 // if(typeof v == "number" || v === 0 ) {
                     valoresCasillas = new Array(opciones.length).fill(false).map((e,i)=>i==v)
                 // }
-                
-                
                 break;         
                 
             case "UNICO_OTRA":
-                
                 valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
-                
-
                 break;
-
-            default:
-            if( v ) {
-
-                valoresCasillas = v
-
-            }
+                
+            case "MULTIPLE_OTRA":
+                if( Array.isArray(v) ) {
+                    valoresCasillas = v.map(e=>e.valor)
+                }
+                break;
+                
+            case "MULTIPLE":
+            // default:
+                if( Array.isArray(v) ) {
+                    valoresCasillas = v
+                }
+                break;
         }
 
         
@@ -122,7 +142,7 @@
     
     
 
-    };
+    }
 
 
 
@@ -155,8 +175,9 @@
 
 
     const cambiarOtra = ({valor, texto}) => {
+        valorOtra = ! textoOtra ? true : texto ? valor : null
         textoOtra = texto
-        
+
         cambiarAccion({
             id: opciones.length,
             valor,
@@ -166,9 +187,10 @@
     }
 
     let textoOtra
+    let valorOtra
 
-    $: otra = ( valorLocal && valorLocal.id == opciones.length ) ? {
-        valor: valorLocal.id == opciones.length,
+    $: otra = ( tipo == "MULTIPLE_OTRA" || ( valorLocal && valorLocal.id == opciones.length ) ) ? {
+        valor: tipo == "UNICO_OTRA" ? valorLocal.id == opciones.length : valorOtra,
         texto: textoOtra
     } : null
 
@@ -204,7 +226,7 @@
             </li>
         {/each}
 
-        {#if tipo == "UNICO_OTRA" }
+        {#if tipo.includes("OTRA") }
 
             <CasillaTexto valor={otra} cambiar={cambiarOtra}/>
 

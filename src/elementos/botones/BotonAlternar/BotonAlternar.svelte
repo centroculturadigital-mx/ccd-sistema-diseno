@@ -36,7 +36,7 @@
 
 <!-- <input type="checkbox" id={nombre} name={nombre} value={valor} on:click={click}/> -->
 
-<button class={clases} on:click={click}>
+<button class={clases} on:click|preventDefault={click}>
   
   <Icono icono={estado ? 'casillallena' : 'casillavacia'} />
 

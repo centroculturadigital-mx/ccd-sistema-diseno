@@ -3,22 +3,7 @@ import Casillas from './Casillas';
 
 export default { title: 'Elementos/Formularios/Entrada/Casillas' }
 
-export const casillasDefault = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Casillas,
-        datos: {
-            nombre: "unCampo",
-            opciones: new Array(13).fill(true).map((o,i)=>({
-                id: "OPC"+i,
-                texto: "Opción " + (i+1),
-                click: () => console.log("Click casilla",i)
-            })),
-            cambiar: valor => console.log("cambiar", valor),
 
-        }
-    }
-});
 
 
 
@@ -27,6 +12,20 @@ const opciones = new Array(13).fill(true).map((o,i)=>({
     texto: "Opción " + (i+1),
     click: () => console.log("Click casilla",i),
 }))
+
+
+export const casillasDefault = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casillas,
+        datos: {
+            nombre: "unCampo",
+            opciones,
+            cambiar: valor => console.log("cambiar", valor),
+
+        }
+    }
+});
 
 export const casillasValor = () => ({
     Component: ThemeTester,
@@ -56,7 +55,7 @@ export const casillasUnico = () => ({
 });
 
 
-export const casillasOpcionOtra = () => ({
+export const casillasUnicoOtra = () => ({
     Component: ThemeTester,
     props: {
         componente: Casillas,
@@ -72,7 +71,7 @@ export const casillasOpcionOtra = () => ({
     }
 });
 
-export const casillasOpcionOtraNumeroElegido = () => ({
+export const casillasUnicoOtraNumeroElegido = () => ({
     Component: ThemeTester,
     props: {
         componente: Casillas,
@@ -84,6 +83,30 @@ export const casillasOpcionOtraNumeroElegido = () => ({
             nombre: "unCampo",
             cambiar: valor => console.log("cambiar", valor),
             tipo: "UNICO_OTRA"
+        }
+    }
+});
+
+
+
+
+export const casillasMultipleOtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casillas,
+        datos: {
+            opciones,
+            valor: [
+                ...opciones.map((o,i)=>({ id: i, valor: Math.random()>0.5 })),
+                {
+                    id: opciones.length,
+                    valor: true,
+                    texto: "Hola mundo"
+                }
+            ],
+            nombre: "unCampo",
+            cambiar: valor => console.log("cambiar", valor),
+            tipo: "MULTIPLE_OTRA"
         }
     }
 });
