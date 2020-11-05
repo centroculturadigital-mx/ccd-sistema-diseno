@@ -45,6 +45,9 @@
         valorLocal = !valorLocal
         try {
 
+
+            console.log("cambiar", valorLocal);
+
             cambiar(valorLocal)
             cambiarInputOculto( valorLocal )
             
@@ -96,6 +99,6 @@
         click={cambiarAccion}
     />
 
-    <input type="text" bind:value={valorLocal}/>
+    <input type="text" bind:value={valorLocal} on:keyup={cambiarAccion}/>
 
 </div>

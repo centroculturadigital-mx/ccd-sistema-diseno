@@ -13,7 +13,9 @@ export const casillasDefault = () => ({
                 id: "OPC"+i,
                 texto: "Opción " + (i+1),
                 click: () => console.log("Click casilla",i)
-            }))
+            })),
+            cambiar: valor => console.log("cambiar", valor),
+
         }
     }
 });
@@ -45,10 +47,25 @@ export const casillasUnico = () => ({
         componente: Casillas,
         datos: {
             opciones,
-            valor: opciones.map(o=>false),
+            valor: null,
             nombre: "unCampo",
             cambiar: valor => console.log("cambiar", valor),
             tipo: "UNICO"
+        }
+    }
+});
+
+
+export const casillasOpcionOtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casillas,
+        datos: {
+            opciones,
+            valor: "Hola mundo",
+            nombre: "unCampo",
+            cambiar: valor => console.log("cambiar", valor),
+            tipo: "OPCIONES_OTRA"
         }
     }
 });

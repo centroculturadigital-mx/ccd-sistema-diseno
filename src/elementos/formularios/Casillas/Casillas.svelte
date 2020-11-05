@@ -1,5 +1,6 @@
 <script>
     import Casilla from "../Casilla/Casilla"
+    import CasillaTexto from "../CasillaTexto/CasillaTexto"
     
     export let opciones=[];
     export let tipo = "MULTIPLE";
@@ -18,10 +19,10 @@
         switch( tipo ) {
             
             case "UNICO":
-               return v.indexOf(true) || 0
+               return v
             
             case "OPCIONES_OTRA":
-               return (typeof v == "string" ? v : v.indexOf(true)) || 0
+               return v //(typeof v == "string" ? v : v.indexOf(true)) || 0
 
             default:
 
@@ -34,43 +35,78 @@
 
     let valorLocal;
 
-    $: valorActualizar(valor);
+    $: valorProcesar(valor);
+    
+    
+    $: prepararArreglo( opciones )
+    $: prepararCasillas( opciones, valorLocal )
 
-    const valorActualizar = v => {
 
-        switch( tipo ) {
-            
-            case "UNICO":
-                if(typeof v == "number" || v === 0 ) {
-                    valorLocal = new Array(opciones.length).fill(false).map((e,i)=>i==v)
-                    // console.log("vl", valorLocal.indexOf(true));
-                    prepararCasillas( opciones, valorLocal )
 
+    const valorProcesar = v => {
+        switch(tipo) {
+            case "MULTIPLE":
+                if( Array.isArray(v)) {
+                    console.log("es arreglo", v );
+                    valorLocal = v
                 } else {
-                    // valorLocal = new Array(opciones.length).fill(false)
-                    valorLocal = []
+                    console.log("no es arreglo", v );
+                    if( Array.isArray(valorLocal)) {
+                        valorLocal[v] = !valorLocal[v];
+                    }
                 }
-
-               
                 break;
-
             default:
-
-               valorLocal = v;
-               prepararCasillas( opciones, valorLocal )
-
+                valorLocal = v;
         }
+    
     };
 
 
     const prepararArreglo = opciones => {
-        if( Array.isArray(valorLocal) && (valorLocal.length != opciones.length) ) {
+        if( tipo == "MULTIPLE" && (! Array.isArray(valorLocal) || (valorLocal.length != opciones.length) )) {
             valorLocal = new Array(opciones.length).fill(false);
         }
     };
 
 
-    const prepararCasillas = (opciones, valorLocal) => {
+    const prepararCasillas = (opciones, v) => {
+
+        let valoresCasillas
+
+        switch( tipo ) {
+            
+            case "UNICO":
+                // if(typeof v == "number" || v === 0 ) {
+                    valoresCasillas = new Array(opciones.length).fill(false).map((e,i)=>i==v)
+                // }
+                
+                
+                break;         
+                
+            case "OPCIONES_OTRA":
+                if(typeof v == "number" || v === 0) {
+                    valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=>i==v)
+                } else if( typeof v == "string" ) {
+                    valoresCasillas = new Array(opciones.length).fill(false).push(!!v)
+
+                } else {
+                    valoresCasillas = []
+                }
+
+            
+                break;
+
+            default:
+            if( v ) {
+
+                valoresCasillas = v
+
+            }
+        }
+
+        
+
         // return Array.isArray(opciones)
         setTimeout(()=>{
             casillas = Array.isArray(opciones)
@@ -78,7 +114,7 @@
 
                 return ({
                     ...o,
-                    valor: Array.isArray(valorLocal) ? valorLocal[i] : null,
+                    valor: valoresCasillas[i],
                     // click: ()=>cambiarAccion(o)
                     cambiar: ()=>cambiarAccion(i)
                 })
@@ -88,39 +124,30 @@
             : null
 
         })
+    
+    
+
     };
 
 
 
 
 
-    // Reactividad
 
-    $: prepararArreglo( opciones )
-    // $: casillas = prepararCasillas( opciones, valorLocal )
     let casillas = []
-    // $: prepararCasillas( opciones, valorLocal )
 
     
 
 
-    const cambiarAccion = (indice) => {
+    const cambiarAccion = (v) => {
+        
+        valorProcesar( v )
 
-        valorLocal[indice] = ! valorLocal[indice]
-        
-        if( tipo == "UNICO" ) {
-            // if(valorLocal[indice]) {
-                valorLocal=valorLocal.map((v,i)=>i==indice)
-            // }
-        }
-        
-
-        prepararCasillas( opciones, valorLocal )
-        
         setTimeout(()=>{
 
             try {
-                cambiar( resolver( valorLocal ) )
+
+                cambiar( valorLocal )
                 // valorLocal = valorLocal
             } catch(err) {
                 console.log("Error al activar casilla", err);
@@ -130,7 +157,6 @@
 
         // opciones = opciones
     }
-
 
 
 
@@ -166,5 +192,12 @@
                 <Casilla {...casilla}/>
             </li>
         {/each}
+
+        {#if tipo == "OPCIONES_OTRA" }
+
+            <CasillaTexto valor={valorLocal} cambiar={cambiarAccion}/>
+
+        {/if}
+
     </ul>
 {/if}

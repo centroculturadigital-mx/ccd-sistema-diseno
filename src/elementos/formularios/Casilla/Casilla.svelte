@@ -10,13 +10,13 @@
     // export let deshabilitado
 
     let inputOculto
+    let valorLocal;
 
 
     const actualizarValor = v => {
         valor = v;
     };
 
-    let valorLocal;
 
     $: valorActualizar(valor);
 
