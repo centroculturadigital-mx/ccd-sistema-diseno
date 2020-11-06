@@ -1,3 +1,9 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M19 7L20.4142 8.41421L11.7071 17.1213L3 8.41421L4.41421 7L11.7071 14.2929L19 7Z" fill="#212121"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#212121;}
+</style>
+<path class="st0" d="M19.5,23.8l12.2-12.2L34,14L19.5,28.5L5,14l2.4-2.4L19.5,23.8z"/>
 </svg>
