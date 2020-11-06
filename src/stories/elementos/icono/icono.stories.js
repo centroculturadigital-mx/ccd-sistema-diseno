@@ -947,3 +947,33 @@ export const iconoCv = () => ({
         }
     }
 });
+
+export const iconoDuda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "duda",
+        }
+    }
+});
+
+export const iconoMapa = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "mapa",
+        }
+    }
+});
+
+export const iconoFolder = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "folder",
+        }
+    }
+});
