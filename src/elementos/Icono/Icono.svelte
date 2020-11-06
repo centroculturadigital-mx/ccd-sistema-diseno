@@ -84,6 +84,9 @@
   import correo from "./iconos/correo.svg";
   import portafolio from "./iconos/portafolio.svg";
   import cv from "./iconos/cv.svg";
+  import duda from "./iconos/duda.svg";
+  import mapa from "./iconos/mapa.svg";
+  import folder from "./iconos/folder.svg";
   
   export let icono;
   export let tamanno = "2rem";
@@ -173,7 +176,10 @@
     casillavacia,
     correo,
     portafolio,
-    cv
+    cv,
+    duda,
+    mapa,
+    folder
   };
 
   $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;
