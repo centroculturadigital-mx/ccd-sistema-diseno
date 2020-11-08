@@ -14,7 +14,7 @@
   export let datos = {};
   export let estado = "";
   export let minimo = 0;
-  export let maximo = 999;
+  export let maximo = 999999;
   export let enfocar;
   export let desenfocar;
   export let valorEstatico;
