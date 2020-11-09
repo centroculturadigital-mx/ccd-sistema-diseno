@@ -2,6 +2,7 @@
   import { fade } from "svelte/transition";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono";
 
+  export let texto;
   export let url;
   export let titulo;
   export let usuario = "CCDmx";
@@ -80,7 +81,7 @@
 <section class="Compartir">
 
   <div class="boton">
-    <BotonIcono icono={'compartir'} texto={'Compartir'} click={mostrar} />
+    <BotonIcono icono={'compartir'} {texto} click={mostrar} />
   </div>
 
   <!-- menu contextual -->
