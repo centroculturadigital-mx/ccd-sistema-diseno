@@ -46,6 +46,19 @@ export const campoDefault = () => ({
         },
     }
 });
+export const campoObligatorio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Campo,
+        datos: {
+            etiqueta: 'Un campo con etiqueta larga',
+            requerido: true,
+            tipo: 'texto',
+            indicacion: "Puedes hacer <em>algo</em> con <a href=#>este campo</a>",
+            ejemplo: 'Un campo default',
+        },
+    }
+});
 
 export const campoConValor = () => ({
     Component: ThemeTester,
@@ -133,8 +146,7 @@ export const campoSelector = () => ({
                 etiqueta: 'Un campo selector',
                 ejemplo: "...",
                 valor: "hashid-2",
-                opciones: [
-                    {
+                opciones: [{
                         valor: "hashid-1",
                         texto: "Hola",
                     },
@@ -184,8 +196,8 @@ export const campoCasilla = () => ({
             datos: {
                 texto: "Una casilla"
             },
-            cambiar: datos=>console.log("Campo casilla datos", datos),
-  
+            cambiar: datos => console.log("Campo casilla datos", datos),
+
         },
     }
 });
@@ -207,8 +219,7 @@ export const campoMultiCampo = () => ({
             // valorEstatico: "",
             // validacion: "",
             datos: {
-                campos: [
-                    {
+                campos: [{
                         tipo: "texto",
                         etiqueta: "Sub-campo 1",
                         nombre: "multicampo-1",
@@ -223,8 +234,8 @@ export const campoMultiCampo = () => ({
                 ],
                 // texto: "Una casilla"
             },
-            cambiar: datos=>console.log("Campo multicampo datos", datos),
-  
+            cambiar: datos => console.log("Campo multicampo datos", datos),
+
         },
     }
 });
