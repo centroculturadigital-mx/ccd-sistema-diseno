@@ -17,3 +17,15 @@ export const CompartirDefault = () => ({
         }
     },
 });
+export const CompartirSinTexto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Compartir,
+        datos: {
+            url: "https://www.lospinos.cultura.gob.mx",
+            titulo: "Texto a compartir",
+            usuario: "IllSlide",
+            compartir: ({ red, url }) => console.log("Analytics: ", red, url)
+        }
+    },
+});
