@@ -9,6 +9,7 @@ export const CompartirDefault = () => ({
     props: {
         componente: Compartir,
         datos: {
+            texto: "compartir",
             url: "https://www.lospinos.cultura.gob.mx",
             titulo: "Texto a compartir",
             usuario: "IllSlide",
