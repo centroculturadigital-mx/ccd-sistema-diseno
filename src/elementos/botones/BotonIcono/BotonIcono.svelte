@@ -33,7 +33,7 @@
   }
   button:hover {
     color: var(--theme-botones-secundario-hover);
-    border: 1px solid var(--theme-botones-secundario-hover) !important;
+    /* border: 1px solid var(--theme-botones-secundario-hover) !important; */
     opacity: 0.75;
   }
   button:hover :global(svg) {
