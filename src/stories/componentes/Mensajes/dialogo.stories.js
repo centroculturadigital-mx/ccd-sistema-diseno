@@ -10,6 +10,9 @@ let texto = "Esta es una explicación de lo que implicaría realizar esta acció
 let acciones = [{
         texto: "Cancelar",
         accion: () => console.log("Cancelaste"),
+        boton: {
+            variante: "HUECO"
+        }
     },
     {
         texto: "Aceptar",

@@ -17,6 +17,13 @@
     switch (variante) {
       case "NORMAL":
         break;
+      case "HUECO":
+        css = {
+          "background": "none",
+          "color": "black",          
+          ...css
+        };
+        break;
       case "HUECO_COMPACTO":
         css = {
           "background": "none",

@@ -32,7 +32,7 @@
 
       {#each acciones as accion (accion)}
         {#if typeof accion.accion == 'function'}
-          <Boton texto={accion.texto} click={accion.accion} />
+          <Boton texto={accion.texto} click={accion.accion} {...accion.boton}/>
         {/if}
       {/each}
 
