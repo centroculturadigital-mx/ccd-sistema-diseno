@@ -5,6 +5,8 @@
     export let valor;
     export let texto;
     export let cambiar;
+    export let apagable = true;
+
 
     // TODO: implementar deshabilitado
     // export let deshabilitado
@@ -41,8 +43,10 @@
     const cambiarAccion = (e) => {
         e.preventDefault()
         e.stopPropagation()
-        
-        valorLocal = !valorLocal
+        if( apagable ) {
+            valorLocal = !valorLocal
+        }
+
         try {
             cambiar(valorLocal)
             cambiarInputOculto( valorLocal )

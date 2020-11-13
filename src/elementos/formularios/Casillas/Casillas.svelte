@@ -70,6 +70,7 @@
                 }    
                 break;
             default:
+                
                 valorLocal = v;
         }
     
@@ -128,6 +129,7 @@
                 return ({
                     ...o,
                     valor: valoresCasillas[i],
+                    apagable: tipo != "UNICO",
                     // click: ()=>cambiarAccion(o)
                     cambiar: ()=>cambiarAccion(i)
                 })
