@@ -35,6 +35,7 @@
   export let enviar;
   export let cambiar;
   export let respuesta;
+  export let enviando = false
 
   let cargadoInicial = false
 
@@ -55,7 +56,6 @@
   $: ! cargadoInicial && Array.isArray(todosLosCampos) && llenarDatosCampos( todosLosCampos )
 
 
-  let enviando = false
 
   $: respuesta && (()=>{ enviando=false })()
 
@@ -204,6 +204,7 @@
   const reiniciar = () => {
     respuesta = null
     datos = {}
+    enviando = false
   }
 
   $: actualizarPantalla(pasoActual, camposMostrar);
