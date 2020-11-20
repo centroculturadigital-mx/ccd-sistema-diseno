@@ -20,11 +20,9 @@
   let breakpoint = 1024;
 
   const menuAlternar = () => {
-    console.log("DEBUG", estado);
     estado = !estado;
   };
 
-  console.log("CABECERA/SD", elementos);
 
 </script>
 

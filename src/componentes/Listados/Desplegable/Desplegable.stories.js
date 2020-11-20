@@ -14,25 +14,3 @@ export const desplegableDefault = () => ({
         }
     },
 });
-export const desplegableCambioIcono = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Desplegable,
-        datos: {
-            ...desplegable,
-            icono: "charla"
-        }
-    },
-});
-export const desplegableEsEnlace = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Desplegable,
-        datos: {
-            ...desplegable,
-            texto: "Enlace externo",
-            enlace: "#",
-            icono: "enlace"
-        }
-    },
-});

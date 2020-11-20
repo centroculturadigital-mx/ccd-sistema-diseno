@@ -40,6 +40,6 @@
   }
 </style>
 
-<a href={enlace} {...atributos}>
+<a class="Enlace" href={enlace} {...atributos}>
   <Bloque {contenido} {texto} />
 </a>

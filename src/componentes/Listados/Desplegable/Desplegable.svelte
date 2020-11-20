@@ -6,10 +6,11 @@
 
   export let texto;
   export let enlace;
-  export let icono = "abajo";
   export let enlaces = [];
+  export let estado = false;
 
-  let estado = false;
+  let icono = "abajo";
+
 
   const mostrar = () => {
     estado = !estado;

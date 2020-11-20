@@ -36,6 +36,7 @@
     {#each contenido as componente (componente)}
       <svelte:component
         this={componente.componente}
+        {...componente.datos}
         {...componente.data}
         tamanno={estilos.tamanno} />
     {/each}
@@ -43,6 +44,7 @@
     <svelte:component
       this={contenido.componente}
       {...contenido.data}
+      {...contenido.datos}
       tamanno={estilos.tamanno} />
   {:else}
     <span style={estilosCalculados}>
