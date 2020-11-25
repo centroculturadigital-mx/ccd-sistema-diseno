@@ -36,6 +36,13 @@
     flex-shrink: 0;
     cursor: pointer;
   }
+
+  li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
   li:hover {
     opacity: 0.75;
     border-bottom: 3px solid var(--theme-pestannas-borde-hover);
@@ -57,12 +64,23 @@
 <nav>
   <ul>
     {#each elementos as elemento, i ('elemento_local_' + i)}
-      <li on:click={elemento.accion(i)} class={i == actual ? 'actual' : ''}>
-        {#if elemento.icono && responsivo < 768}
-          <Icono icono={elemento.icono} />
-        {/if}
-        <Texto texto={elemento.texto} />
-      </li>
+      {#if elemento.enlace}
+        <li class={i == actual ? 'actual' : ''}>
+          <a href={elemento.enlace}>
+            {#if elemento.icono && responsivo < 768}
+              <Icono icono={elemento.icono} />
+            {/if}
+            <Texto texto={elemento.texto} />
+          </a>
+        </li>
+      {:else}
+        <li on:click={elemento.accion(i)} class={i == actual ? 'actual' : ''}>
+          {#if elemento.icono && responsivo < 768}
+            <Icono icono={elemento.icono} />
+          {/if}
+          <Texto texto={elemento.texto} />
+        </li>
+      {/if}
     {/each}
   </ul>
 </nav>
