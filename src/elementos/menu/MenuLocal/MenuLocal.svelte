@@ -73,7 +73,10 @@
   }
 </style>
 
+
 <svelte:window bind:innerWidth={responsivo}/>
+
+
 <nav>
   <ul>
     {#each elementos as elemento, i ('elemento_local_' + i)}

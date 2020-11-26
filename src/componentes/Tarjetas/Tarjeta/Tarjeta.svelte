@@ -285,7 +285,7 @@
         {/if}
       {/if}
 
-      {#if typeof pleca == 'object'}
+      {#if pleca && typeof pleca == 'object'}
         <div
           class="Pleca {!imagen ? 'noImagen' : ''}">
 
