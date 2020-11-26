@@ -37,6 +37,18 @@
     cursor: pointer;
   }
 
+  li.Enlace {
+    padding: 0 !important;
+  }
+  li.Enlace a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--theme-espaciados-padding)
+      calc(var(--theme-espaciados-padding) * 3);      
+  }
+
   li a {
     width: 100%;
     height: 100%;
@@ -66,7 +78,7 @@
   <ul>
     {#each elementos as elemento, i ('elemento_local_' + i)}
       {#if elemento.enlace}
-        <li class={i == actual ? 'actual' : ''}>
+        <li class={`Enlace ${i == actual ? ' actual' : ''}`}>
           <a href={elemento.enlace}>
             {#if elemento.icono && responsivo < 768}
               <Icono icono={elemento.icono} />
