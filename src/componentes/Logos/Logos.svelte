@@ -13,10 +13,10 @@
   }
 </style>
 
-{#each logotipos as logo, i ('logo_' + i)}
-  <div class="Logotipos">
-    {#if Array.isArray(logotipos)}
-      <Logo {...logo} />
-    {/if}
-  </div>
-{/each}
+<div class="Logotipos">
+  {#if Array.isArray(logotipos)}
+    {#each logotipos as logo, i ('logo_' + i)}
+        <Logo {...logo} />
+    {/each}
+  {/if}
+</div>
