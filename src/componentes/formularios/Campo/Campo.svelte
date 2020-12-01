@@ -65,7 +65,6 @@
 
   const cambiarMultiCampo = (datos, campo) => {
     if (typeof valorMultiCampo == "object") {
-      console.log("cmC", campo.nombre, valorMultiCampo);
       valorMultiCampo[campo.nombre] = datos;
       cambiarAccion(valorMultiCampo);
     }

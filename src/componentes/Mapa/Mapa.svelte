@@ -49,7 +49,6 @@
         
         svg = document.querySelector('.mapa-svg svg')
 
-        console.log("svg", svg);
         // containerHeight = svg.parentNode.clientHeight
 
         if(!!svg) {
