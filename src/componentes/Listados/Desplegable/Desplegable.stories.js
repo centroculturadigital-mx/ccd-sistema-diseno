@@ -14,3 +14,15 @@ export const desplegableDefault = () => ({
         }
     },
 });
+export const desplegableEsEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Desplegable,
+        datos: {
+            ...desplegable,
+            enlaces: [],
+            texto: "Soy enlace",
+            enlace: "#"
+        }
+    },
+});

@@ -11,7 +11,6 @@
 
   let icono = "abajo";
 
-
   const mostrar = () => {
     estado = !estado;
   };
@@ -57,6 +56,11 @@
     justify-content: space-between;
     cursor: pointer;
   }
+  li :global(.iconoContenedor) {
+    margin-left: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
   .enlace :global(a span),
   li :global(a span) {
     color: var(--theme-textos-parrafo-color);
@@ -78,7 +82,7 @@
     {:else}
       <Texto {texto} />
     {/if}
-    <Icono icono={estado && !enlace ? 'arriba' : icono} />
+    <Icono icono={estado && !enlace ? 'arriba' : enlace ? 'externo' : icono} />
   </header>
 
   {#if estado}
