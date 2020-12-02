@@ -9,7 +9,6 @@
 
   export let seleccionar = i => {
     diaActual = i - 1;
-    console.log("DebugX: ", i);
   };
 
   const dias = new Array(366).fill(true).map((e, i) => ({
@@ -28,7 +27,6 @@
   let ancho;
 
   onMount(() => {
-    console.log("COMPO: ", componente.clientWidth);
   });
 </script>
 

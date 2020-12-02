@@ -8,9 +8,6 @@ let activo = 0
 
 const seleccionar = i =>{
     activo = i
-    console.log ("seleccionaste",i)
-  
-    
 }
 
 

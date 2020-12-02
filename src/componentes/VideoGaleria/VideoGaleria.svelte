@@ -98,7 +98,6 @@
     });
   };
   const onPlayerReady = event => {
-    console.log("onPlayerReady",event);
     
     switch (estadoVideo) {
       case 1:

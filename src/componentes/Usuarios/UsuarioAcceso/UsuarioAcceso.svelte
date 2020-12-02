@@ -27,7 +27,6 @@
     }
   }));
 
-  console.log("DEBUG", elementosLista);
 </script>
 
 <style>

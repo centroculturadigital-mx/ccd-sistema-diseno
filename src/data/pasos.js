@@ -5,7 +5,47 @@ export default [{
         titulo: "Título primer paso",
         texto: "Por favor introduce una fecha",
         nombre: "Paso uno",
-        campos: [campoFecha],
+        campos: [
+            campoFecha,
+            {
+                tipo: 'texto',
+                nombre: 'nombre',
+                requerido: true,
+                etiqueta: 'Nombre completo',
+                ejemplo: '',
+                valorInicial: '',
+                validacion: (valor) => {
+                    let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]");
+
+                    return {
+                        valido: !caracteresEspeciales.test(valor),
+                        error: caracteresEspeciales.test(valor) ?
+                            new Error("No caracteres especiales") : null,
+                        estado: caracteresEspeciales.test(valor) ?
+                            "error" : !valor ? "" : "ok"
+                    }
+                }
+            }, {
+                tipo: 'texto',
+                nombre: 'name',
+                requerido: true,
+                etiqueta: '¿De que institución o AC viene?',
+                ejemplo: '',
+                valorInicial: '',
+                validacion: (valor) => {
+                    let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]");
+
+                    return {
+                        valido: !caracteresEspeciales.test(valor),
+                        error: caracteresEspeciales.test(valor) ?
+                            new Error("No caracteres especiales") : null,
+                        estado: caracteresEspeciales.test(valor) ?
+                            "error" : !valor ? "" : "ok"
+                    }
+                }
+            },
+            campoEmail
+        ],
     },
     {
         titulo: "Título segundo paso",
@@ -48,7 +88,47 @@ export default [{
                     }
                 }
             },
+            campoEmail,
+
+            {
+                tipo: 'texto',
+                nombre: 'nombre',
+                requerido: true,
+                etiqueta: 'Nombre completo',
+                ejemplo: '',
+                valorInicial: '',
+                validacion: (valor) => {
+                    let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]");
+
+                    return {
+                        valido: !caracteresEspeciales.test(valor),
+                        error: caracteresEspeciales.test(valor) ?
+                            new Error("No caracteres especiales") : null,
+                        estado: caracteresEspeciales.test(valor) ?
+                            "error" : !valor ? "" : "ok"
+                    }
+                }
+            }, {
+                tipo: 'texto',
+                nombre: 'name',
+                requerido: true,
+                etiqueta: '¿De que institución o AC viene?',
+                ejemplo: '',
+                valorInicial: '',
+                validacion: (valor) => {
+                    let caracteresEspeciales = new RegExp("[!@#$%^&*()+={};':|,.<>/?]");
+
+                    return {
+                        valido: !caracteresEspeciales.test(valor),
+                        error: caracteresEspeciales.test(valor) ?
+                            new Error("No caracteres especiales") : null,
+                        estado: caracteresEspeciales.test(valor) ?
+                            "error" : !valor ? "" : "ok"
+                    }
+                }
+            },
             campoEmail
+
         ],
 
     },

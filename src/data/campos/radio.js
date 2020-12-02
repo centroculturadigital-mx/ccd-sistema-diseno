@@ -8,8 +8,6 @@ export default {
         // let resultado = new RegExp("[!@#$%^&*()+={};':|,.<>/?]"); //solo acepta guion medio y bajo        
 
 
-        console.log("DEBUG radio", valor);
-
         return {
             //     valido: !resultado.test(valor),
             //     error: resultado.test(valor) ?

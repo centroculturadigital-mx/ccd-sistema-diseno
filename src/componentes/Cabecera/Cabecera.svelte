@@ -106,7 +106,9 @@
           </div>
         {/if}
       {:else}
+        
         <MenuEscritorio {elementos} {segment} />
+
         {#if Array.isArray(componentes) && componentes.length > 0}
           <div class="Herramientas">
             {#each componentes as componente}

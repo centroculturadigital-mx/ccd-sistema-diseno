@@ -13,7 +13,7 @@
 
 
 const cambiarAccion = datos => {
-    console.log("cambiarAccion", datos);
+    // console.log("cambiarAccion", datos);
     // campos.find(campos.nombre=)
 }
 

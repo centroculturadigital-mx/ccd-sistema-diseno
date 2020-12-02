@@ -1,8 +1,6 @@
 <script>
   export let segment;
   export let elementos;
-
-  console.log("MenuEscritorio" , elementos);
 </script>
 
 <style>
