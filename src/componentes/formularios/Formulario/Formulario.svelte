@@ -170,9 +170,11 @@
 
   const avanzar = () => {
     pasoActual = pasoActual + 1;
+    document.querySelector("header.pasos").scrollIntoView()
   };
   const regresar = () => {
     pasoActual = pasoActual - 1;
+    document.querySelector("header.pasos").scrollIntoView()
   };
 
   const cambiarPaso = i => {
