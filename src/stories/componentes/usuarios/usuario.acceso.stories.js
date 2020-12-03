@@ -28,6 +28,7 @@ export const usuarioAccesoConNombre = () => ({
         }
     }
 });
+
 export const usuarioAccesoConMenuDesplegable = () => ({
     Component: ThemeTester,
     props: {
@@ -47,6 +48,33 @@ export const usuarioAccesoConMenuDesplegable = () => ({
                 {
                     texto: "salir",
                     enlace: "#",
+                    icono: "flechaDerecha"
+                }
+            ]
+        }
+    }
+});
+
+
+export const usuarioAccesoConMenuDesplegableAcciones = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: UsuarioAcceso,
+        datos: {
+            ...usuario,
+            elementos: [{
+                    texto: "Ver perfil",
+                    accion: () => console.log("Ver perfil"),
+                    icono: "avatar"
+                },
+                {
+                    texto: "Configuraciones",
+                    accion: () => console.log("Configuraciones"),
+                    icono: "configuracion"
+                },
+                {
+                    texto: "salir",
+                    accion: () => console.log("salir"),
                     icono: "flechaDerecha"
                 }
             ]

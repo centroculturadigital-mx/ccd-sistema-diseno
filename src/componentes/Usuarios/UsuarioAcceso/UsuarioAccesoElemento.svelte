@@ -1,7 +1,10 @@
 <script>
+
 import Enlace from "../../../elementos/enlaces/Enlace/Enlace"
 import Icono from "../../../elementos/Icono/Icono"
+import Boton from '../../../elementos/botones/Boton/Boton';
 
+export let accion;
 export let enlace;
 export let texto;
 export let icono;
@@ -27,8 +30,17 @@ div :global(svg) {
     fill: var(--theme-textos-enlaces-color) !important;
     stroke: var(--theme-textos-enlaces-color) !important;
 }
+
+.UsuarioAccesoElemento :global(button) {
+    padding: 0 !important;
+    border: none !important;
+}
 </style>
 
 <div class="UsuarioAccesoElemento">
-    <Enlace {enlace} {texto} /> <Icono {icono}/>
+    {#if accion}
+        <Boton {texto} click={accion} variante="HUECO" /> <Icono {icono}/>
+    {:else}
+        <Enlace {enlace} {texto} /> <Icono {icono}/>
+    {/if}
 </div>
