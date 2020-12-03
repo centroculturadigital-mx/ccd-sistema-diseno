@@ -11,7 +11,7 @@
 
 </script>
 
-<style>
+<style>                                                                                                                    
   button {
     position: relative;
     background-color: transparent;
@@ -24,8 +24,11 @@
     width: 100%;
     font-weight: bold;
     text-align: left;
-    cursor: pointer;
+                cursor: pointer;
     box-sizing: border-box;
+  }
+  button :global(.iconoContenedor) {
+    flex-shrink: 0;
   }
   .apagado :global(svg) {
     fill: white !important;
