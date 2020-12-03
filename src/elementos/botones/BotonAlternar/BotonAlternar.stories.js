@@ -35,3 +35,13 @@ export const botonAlternarProbar = () => ({
         }
     }
 });
+export const botonAlternarTextoLargo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonAlternarProbar,
+        datos: {
+            texto: "Lorem ipsum dolor si amet precialis ember doritum ges un it volare oscilis cuadrato ltio ritah signoru, sobrilisti uncamini dotin. Lorem ipsum dolor si amet precialis ember doritum ges un it volare oscilis cuadrato ltio ritah signoru, sobrilisti uncamini dotin",
+            click: (estado) => console.log("estado", estado)
+        }
+    }
+});
