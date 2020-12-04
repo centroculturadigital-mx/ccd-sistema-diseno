@@ -16,7 +16,7 @@
 
   let estado = false;
 
-  const mostrar = () => {
+  const alternarEstado = () => {
     estado = !estado;
   };
 
@@ -61,7 +61,7 @@
 
 <section class="UsuarioAcceso">
 
-  <div class="contenido" on:click={mostrar}>
+  <div class="contenido" on:click={alternarEstado}>
     {#if !!nombre}
       <Texto texto={nombre} variante="SECUNDARIO" />
     {/if}
@@ -70,7 +70,7 @@
 
   {#if Array.isArray(elementos) && elementos.length > 0}
     {#if estado}
-      <ul class="menu" transition:slide>
+      <ul class="menu" transition:slide|local on:click={alternarEstado}>
         {#each elementosLista as elemento (elemento)}
           <ListaElemento contenido={elemento} />
         {/each}

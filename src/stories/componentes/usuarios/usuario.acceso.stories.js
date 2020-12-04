@@ -64,7 +64,7 @@ export const usuarioAccesoConMenuDesplegableAcciones = () => ({
             ...usuario,
             elementos: [{
                     texto: "Ver perfil",
-                    accion: () => console.log("Ver perfil"),
+                    enlace: "/perfil",
                     icono: "avatar"
                 },
                 {

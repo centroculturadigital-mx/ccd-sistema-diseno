@@ -11,7 +11,7 @@
 
   let icono = "abajo";
 
-  const mostrar = () => {
+  const alternar = () => {
     estado = !estado;
   };
 </script>
@@ -76,7 +76,7 @@
 </style>
 
 <div class="Desplegable {!!enlace ? 'enlace' : ''}">
-  <header on:click={!enlace ? mostrar : null}>
+  <header on:click={!enlace ? alternar : null}>
     {#if !!enlace}
       <Enlace {texto} {enlace} blank={true} />
     {:else}
@@ -86,7 +86,7 @@
   </header>
 
   {#if estado}
-    <ul transition:slide|local>
+    <ul transition:slide|local on:click={alternar}>
       {#each enlaces as enlace (enlace)}
         <li>
           <Enlace texto={enlace.texto} enlace={enlace.enlace} />
