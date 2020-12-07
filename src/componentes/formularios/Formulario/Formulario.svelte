@@ -147,6 +147,9 @@
     camposMostrar.filter(c => !!c.requerido).filter(cR => (!datos[cR.nombre]) && (cR.tipo !="casilla"))
       .length > 0;
 
+  $: console.log( "hayRequeridosVacios", hayRequeridosVacios, camposMostrar );
+
+
   const enviarFuncion = () => {
     if (typeof enviar == "function") {
       if (!hayErrores || !hayRequeridosVacios()) {
