@@ -143,11 +143,13 @@
   $: hayErrores =
     !camposMostrar || camposMostrar.filter(c => !!c.error).length > 0;
 
+
+  // TODO: validar implementación "casilla"
   $: hayRequeridosVacios =
     camposMostrar.filter(c => !!c.requerido).filter(cR => (!datos[cR.nombre]) && (cR.tipo !="casilla"))
       .length > 0;
 
-  $: console.log( "hayRequeridosVacios", hayRequeridosVacios, camposMostrar );
+  $: console.log( "hayRequeridosVacios", hayRequeridosVacios, camposMostrar, datos );
 
 
   const enviarFuncion = () => {
