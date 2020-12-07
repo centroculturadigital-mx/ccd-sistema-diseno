@@ -48,18 +48,22 @@ export const formularioConValores = () => ({
             campos: [
                 {
                     ...campos[0],
+                    requerido: true,
                     valor: "Consectetur proident ut ut dolore"
                 },
                 {
                     ...campos[1],
+                    requerido: true,
                     valor: 13
                 },
                 {
                     ...campos[2],
+                    requerido: true,
                     valor: "Aliquanon"
                 },
                 {       
                     ...campos[3],
+                    requerido: true,
                     valor: 2
                 },
 

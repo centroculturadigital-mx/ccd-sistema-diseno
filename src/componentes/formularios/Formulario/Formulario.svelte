@@ -145,11 +145,15 @@
 
 
   // TODO: validar implementación "casilla"
-  $: hayRequeridosVacios =
-    camposMostrar.filter(c => !!c.requerido).filter(cR => (!datos[cR.nombre]) && (cR.tipo !="casilla"))
+
+  const calcularRequeridosVacios = (campos, datos) => {
+    return campos.filter(c => !!c.requerido).filter(cR => (!datos[cR.nombre]) && (cR.tipo !="casilla"))
       .length > 0;
+  }
+  $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, datos )
 
   $: console.log( "hayRequeridosVacios", hayRequeridosVacios, camposMostrar, datos );
+  $: console.log( "datos", datos );
 
 
   const enviarFuncion = () => {
