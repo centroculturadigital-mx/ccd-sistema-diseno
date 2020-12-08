@@ -10,7 +10,15 @@ export default {
 
     valor: true,
     // valorEstatico: "",
-    // validacion: "",
+    
+    validacion: valor => {
+        return {
+            valido: valor == true,
+            estado: valor == true  ? "ok" : "error",
+            error: valor == false  ? new Error("Es necesario aceptar") : null,                            
+        }
+    },
+
     datos: {
         texto: "Una casilla"
     },

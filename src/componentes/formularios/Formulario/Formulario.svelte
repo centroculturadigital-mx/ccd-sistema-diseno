@@ -78,7 +78,12 @@
       .map(c => {
         if (revisarCampo(c)) {
           // primero revisar si viene un valor desde afuera. 
-          let valor = c.valor || datos[c.nombre];
+
+          let valor = (c.tipo == "casilla")
+            ? datos[c.nombre]
+            : c.valor || datos[c.nombre];
+
+          console.log("valor", valor, c.valor, datos[c.nombre]);
 
           let campoPreparado = {
             ...c,
@@ -91,7 +96,8 @@
             }
           };
 
-          if (!!valor && typeof c.validacion == "function") {
+          if (( (c.tipo == "casilla") || !!valor) && typeof c.validacion == "function") {
+
             let resultadoValidacion = c.validacion(valor);
             campoPreparado = {
               ...campoPreparado,
@@ -111,6 +117,8 @@
   };
 
   const cambiarCampo = (valor, c) => {
+    
+    console.log(" cambiarCampo",valor, c)
 
     if( ! c.valorExterno ) {
       // if( c.tipo != "multicampo" ) {

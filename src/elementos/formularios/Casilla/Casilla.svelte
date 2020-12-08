@@ -48,6 +48,8 @@
         }
 
         try {
+
+            console.log("valorLocal", valorLocal);
             cambiar(valorLocal)
             cambiarInputOculto( valorLocal )
             

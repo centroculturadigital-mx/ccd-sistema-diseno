@@ -215,6 +215,24 @@ export const formularioPasos = () => ({
 
 
 
+export const formularioCasilla = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...casilla,
+                    requerido: true                    
+                },
+                
+            ],
+            enviar: datos => console.log("Enviaste formulario", datos),
+        }
+    },
+});
+
+
 export const formularioCasillas = () => ({
     Component: ThemeTester,
     props: {
