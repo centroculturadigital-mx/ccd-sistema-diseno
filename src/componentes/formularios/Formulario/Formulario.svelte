@@ -152,8 +152,6 @@
   }
   $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, datos )
 
-  $: console.log( "hayRequeridosVacios", hayRequeridosVacios, camposMostrar, datos );
-  $: console.log( "datos", datos );
 
 
   const enviarFuncion = () => {
