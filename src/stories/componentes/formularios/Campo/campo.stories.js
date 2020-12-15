@@ -239,3 +239,30 @@ export const campoMultiCampo = () => ({
         },
     }
 });
+
+
+
+
+export const campoTextoNumero = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Campo,
+        datos: {
+            tipo: 'texto-numero',
+
+            etiqueta: "Un campo tipo texto-numero",
+            indicacion: "...",
+            nombre: "texto-numero",
+            requerido: true,
+
+            // valor: true,
+            // valorEstatico: "",
+            // validacion: "",
+            datos: {
+                
+            },
+            cambiar: datos => console.log("Campo texto-numero datos", datos),
+
+        },
+    }
+});

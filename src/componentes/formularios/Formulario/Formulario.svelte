@@ -26,6 +26,7 @@
     "casillas",
     "radio",
     "multicampo",
+    "texto-numero",
   ];
 
   let datos = {};
@@ -82,8 +83,6 @@
           let valor = (c.tipo == "casilla")
             ? datos[c.nombre]
             : c.valor || datos[c.nombre];
-
-          console.log("valor", valor, c.valor, datos[c.nombre]);
 
           let campoPreparado = {
             ...c,

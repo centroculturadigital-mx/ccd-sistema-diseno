@@ -441,3 +441,61 @@ export const formularioMultiCampoValores = () => ({
         }
     },
 });
+
+
+
+
+
+
+export const formularioMultiCampoPreguntaNumericaOpcionOtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioMultiCampo,
+        datos: {
+            campos: [
+                {
+                    tipo: 'multicampo',
+        
+                    etiqueta: "Un campo tipo multicampo",
+                    indicacion: "...",
+                    nombre: "multicampo",
+                    requerido: true,
+        
+                    valor: {
+                        "multicampo-1": 123,
+                        "multicampo-2": 456,
+                    },
+                    // valorEstatico: "",
+                    // validacion: "",
+                    datos: {
+                        campos: [
+                            
+                            {
+                                tipo: "numero",
+                                etiqueta: "Sub-campo 1",
+                                nombre: "multicampo-1",
+                                ejemplo: "multicampo-1"
+                            },
+                            {
+                                tipo: "numero",
+                                etiqueta: "Sub-campo 2",
+                                nombre: "multicampo-2",
+                                ejemplo: "multicampo-2"
+                            },
+                            {
+                                tipo: "texto-numero",
+                                etiqueta: "Sub-campo 3",
+                                nombre: "multicampo-3",
+                                ejemplo: "multicampo-3"
+                            },
+                        ],
+                        // texto: "Una casilla"
+                    },
+                    cambiar: datos=>console.log("Campo multicampo datos", datos),
+          
+                }
+            ]
+        }
+    },
+});
+

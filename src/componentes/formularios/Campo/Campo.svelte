@@ -185,9 +185,13 @@
         {resolver}
         {deshabilitado} />
     {:else}
+
       {#each multiCampo.campos as campo (campo.nombre)}
+
         <svelte:self {...campo} />
+
       {/each}
+      
     {/if}
 
     {#if error instanceof Error}

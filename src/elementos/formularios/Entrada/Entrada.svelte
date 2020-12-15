@@ -31,6 +31,26 @@
   // let cambiado;
 
   let valorLocal;
+  let valorLocalObjeto = {};
+
+
+  const prepararObjeto = tipo => {
+    if( tipo == "texto-numero" ) {
+      valorLocalObjeto = {
+        texto: "",
+        numero: 0
+      }
+    }
+
+  }
+
+  $: prepararObjeto( tipo )
+
+  const actualizarValorObjeto = valorLocalObjeto => {
+    valorLocal = valorLocalObjeto
+  }
+  
+  $: actualizarValorObjeto( valorLocalObjeto )
 
   $: valorActualizar(valor);
 
@@ -117,6 +137,11 @@
         break;
       case "textarea":
         tipo = "textarea";
+        break;
+      
+      
+      case "texto-numero":
+        tipo = "texto-numero";
         break;
     }
   };
@@ -331,6 +356,47 @@
     enfocar={()=>enfocarAccion()}
     {deshabilitado}
   />
+    <!-- {resolver} -->
+{/if}
+
+
+
+{#if tipo == 'texto-numero' && (! valorLocal || typeof valorLocal == "object" )}
+  
+
+
+  <input
+    class={clases}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
+    name={nombre}
+    type="text"
+    bind:value={ valorLocalObjeto.texto }
+    use:enfoque
+    disabled={deshabilitado}
+    />
+    <!-- placeholder={ejemplo} -->
+
+  <input
+    class={clases}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
+    on:input={()=>cambiarAccion()}
+    on:keyup={()=>cambiarAccion()}
+    on:change={()=>cambiarAccion()}
+    name={nombre}
+    type="number"
+    min={!!minimo ? minimo : ''}
+    max={!!maximo ? maximo : ''}
+    bind:value={ valorLocalObjeto.numero }
+    use:enfoque
+    disabled={deshabilitado}
+    />
+    <!-- placeholder={ejemplo} -->
+
+
+
     <!-- {resolver} -->
 {/if}
 

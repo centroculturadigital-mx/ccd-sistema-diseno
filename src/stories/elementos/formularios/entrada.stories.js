@@ -156,3 +156,17 @@ export const entradaCasillas = () => ({
         }
     },
 });
+
+export const entradaTextoNumero = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Entrada,
+        datos: {
+            ejemplo: {
+                texto: "...",
+                numero: 0.666,            
+            },
+            tipo: "texto-numero",
+        }
+    },
+});
