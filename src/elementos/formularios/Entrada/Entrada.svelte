@@ -49,7 +49,7 @@
   const actualizarValorObjeto = valorLocalObjeto => {
     valorLocal = valorLocalObjeto
   }
-  
+
   $: actualizarValorObjeto( valorLocalObjeto )
 
   $: valorActualizar(valor);
@@ -191,6 +191,11 @@
   .ok {
     border: 1px solid var(--theme-alertas-exito);
     color: var(--theme-alertas-exito);
+  }
+
+  .TextoNumero {
+    display: grid;
+    grid-template-columns: 1fr 4rem;
   }
 </style>
 
@@ -364,6 +369,7 @@
 {#if tipo == 'texto-numero' && (! valorLocal || typeof valorLocal == "object" )}
   
 
+<div class="TextoNumero">
 
   <input
     class={clases}
@@ -396,6 +402,7 @@
     <!-- placeholder={ejemplo} -->
 
 
+</div>
 
     <!-- {resolver} -->
 {/if}
