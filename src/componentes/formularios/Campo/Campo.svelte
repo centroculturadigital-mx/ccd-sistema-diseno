@@ -6,6 +6,7 @@
 
   export let etiqueta;
   export let indicacion;
+  export let instruccion;
   export let nombre;
   export let requerido;
   export let tipo;
@@ -25,6 +26,9 @@
   export let deshabilitado;
 
   let enfocado = false;
+
+  // TODO: eliminar cuando este 100% implementado instruccion
+  $: instruccion = !! indicacion ? indicacion : instruccion
 
   // const calcularEstado = v => {
   //   if( ! enfocado ) {
@@ -83,6 +87,10 @@
             : []
         }
       : null;
+
+
+    $: listo = !! tipo
+    
 </script>
 
 <style>
@@ -134,17 +142,17 @@
     font-family: inherit;
     font-weight: inherit;
   }
-  .indicacion {
+  .instruccion {
     margin: 0.5rem 0;
   }
-  .indicacion :global(*) {
+  .instruccion :global(*) {
     color: #555;
     font-size: 0.7rem;
   }
 </style>
 
 <div class="Campo">
-  {#if !!tipo}
+  {#if listo }
     <label>
       {#if !!etiqueta}
         <Parrafo texto={etiqueta} />
@@ -159,11 +167,11 @@
       {/if}
     </label>
 
-    {#if !!indicacion}
-      <div class="indicacion">
-        <!-- <Parrafo variante="CHICO" texto={indicacion}/> -->
+    {#if !!instruccion}
+      <div class="instruccion">
+        <!-- <Parrafo variante="CHICO" texto={instruccion}/> -->
         <p>
-          {@html indicacion}
+          {@html instruccion}
         </p>
       </div>
     {/if}
