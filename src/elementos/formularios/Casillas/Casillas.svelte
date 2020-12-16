@@ -7,6 +7,8 @@
     export let cambiar;
     export let nombre;
     export let valor;
+    export let vacioPermitido=false;
+
 
     // TODO: implementar deshabilitado
     // export let deshabilitado
