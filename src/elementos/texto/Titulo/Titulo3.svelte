@@ -11,6 +11,6 @@
   }
 </style>
 
-<h3 {...data}>
+<h3 class="Titulo" {...data}>
   <slot />
 </h3>
