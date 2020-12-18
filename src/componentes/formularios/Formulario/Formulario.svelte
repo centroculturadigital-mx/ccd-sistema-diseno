@@ -117,8 +117,6 @@
 
   const cambiarCampo = (valor, c) => {
     
-    console.log(" cambiarCampo",valor, c)
-
     if( ! c.valorExterno ) {
       // if( c.tipo != "multicampo" ) {
       //   datos[c.nombre] = valor;    
