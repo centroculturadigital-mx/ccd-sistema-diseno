@@ -15,7 +15,7 @@
 
   let tipos = ["informacion", "exito", "aviso", "alerta", "accion"];
 
-  let clases = `Alerta ${
+  $: clases = `Alerta ${
     tipo == tipos[0]
       ? "informacion"
       : tipo == tipos[1]
@@ -29,7 +29,7 @@
       : "informacion" //default
   }`;
 
-  let icono = `${
+  $: icono = `${
     tipo == tipos[0]
       ? "informacion"
       : tipo == tipos[1]
