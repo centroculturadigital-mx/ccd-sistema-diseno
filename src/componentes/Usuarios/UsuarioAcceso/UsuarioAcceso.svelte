@@ -14,7 +14,7 @@
   export let slug = "";
   export let elementos = [];
 
-  let estado = false;
+  export let estado = false;
 
   const alternarEstado = () => {
     estado = !estado;
