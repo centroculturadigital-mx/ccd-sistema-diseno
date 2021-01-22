@@ -163,6 +163,11 @@
       campo.tipo=="numero"
     ) && valor === 0
   )
+  const casillasLlenas = (campo, valor) => (
+    (
+      campo.tipo=="casillas"
+    ) && valor === 0
+  )
 
   const calcularRequeridosVacios = (campos, datos) => {
     
@@ -175,6 +180,8 @@
           textoLleno(cR, datos[cR.nombre])
           ||
           numeroLleno(cR, datos[cR.nombre])
+          ||
+          casillasLlenas(cR, datos[cR.nombre])
         )
         &&
         (
