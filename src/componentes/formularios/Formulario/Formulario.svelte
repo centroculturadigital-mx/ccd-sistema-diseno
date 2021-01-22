@@ -153,6 +153,7 @@
 
   const calcularRequeridosVacios = (campos, datos) => {
     // return campos.filter(c => !!c.requerido).filter(cR => (!datos[cR.nombre]) && (cR.tipo !="casilla"))
+    console.log("calcularRequeridosVacios", campos, datos);
     return campos.filter(c => !!c.requerido).filter(cR => !datos[cR.nombre])
       .length > 0;
   }
@@ -392,6 +393,18 @@
   .Formulario :global(.Campo) {
     margin-bottom: .5rem;
   }
+
+
+
+  :global(.inactivo),
+  :global(.inactivo *),
+  :global(input[disabled=true]),
+  :global(input[disabled=true]:hover ){
+    cursor:unset !important;
+    background-color: var(--theme-botones-primario-inactivo) !important;
+  }
+
+
 
 </style>
 
