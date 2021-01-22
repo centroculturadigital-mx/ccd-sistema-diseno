@@ -1,6 +1,7 @@
 export default {
     tipo: 'numero',
     nombre: 'ccd-sd-numero',
+    requerido: true,
     etiqueta: 'Introduce un número entre 10 y 20',
     valorInicial: '...',
     validacion: (valor) => {

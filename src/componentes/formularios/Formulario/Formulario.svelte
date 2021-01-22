@@ -151,17 +151,43 @@
 
   // TODO: validar implementación "casilla"
 
-  const calcularRequeridosVacios = (campos, datos) => {
+  const textoLleno = (campo, valor) => (
+    (
+      campo.tipo=="texto" ||
+      campo.tipo=="textarea"
+    ) && valor !== ""
+  )
 
-    return campos.filter(c => !!c.requerido).filter(cR => (
-      datos[cR.nombre] !== null
-      && datos[cR.nombre] !== undefined
-      && typeof datos[cR.nombre] !== "undefined"
+  const numeroLleno = (campo, valor) => (
+    (
+      campo.tipo=="numero"
+    ) && valor === 0
+  )
+
+  const calcularRequeridosVacios = (campos, datos) => {
+    
+
+    const llenos = campos.filter(c => !!c.requerido)
+      .filter(cR => (
+        (
+          (!! datos[cR.nombre])
+          ||
+          textoLleno(cR, datos[cR.nombre])
+          ||
+          numeroLleno(cR, datos[cR.nombre])
+        )
+        &&
+        (
+          datos[cR.nombre] != null &&
+          datos[cR.nombre] != undefined &&
+          (typeof datos[cR.nombre] != "undefined")
+        )
     ) )
-      .length > 0;
+
+
+    return (llenos.length < campos.length);
   }
   $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, datos )
-  $: console.log("test", hayErrores, hayRequeridosVacios);
 
 
 
