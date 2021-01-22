@@ -153,6 +153,14 @@
 
   const calcularRequeridosVacios = (campos, datos) => {
     // return campos.filter(c => !!c.requerido).filter(cR => (!datos[cR.nombre]) && (cR.tipo !="casilla"))
+
+    console.log("Campos pendientes",
+    campos.filter(c => !!c.requerido).filter(cR => ! (
+      datos[cR.nombre] !== null
+      && datos[cR.nombre] !== undefined
+      && typeof datos[cR.nombre] !== "undefined"
+    ) )
+    )
     return campos.filter(c => !!c.requerido).filter(cR => (
       datos[cR.nombre] !== null
       && datos[cR.nombre] !== undefined
