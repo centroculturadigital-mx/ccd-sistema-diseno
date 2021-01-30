@@ -111,7 +111,7 @@
 
   .Contenido {
     word-break: break-all;
-    white-space: pre;
+    white-space: pre-wrap;
     line-height: 1.5;
   }
   
