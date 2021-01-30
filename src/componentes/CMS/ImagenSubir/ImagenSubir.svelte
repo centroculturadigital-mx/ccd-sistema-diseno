@@ -16,6 +16,7 @@
   export let error;
   export let cambiar;
   export let estado;
+  export let borrarPermitir = true;
   
   
   export let maximo=2;
@@ -172,7 +173,11 @@
     
   
   <div class="ImagenPreparada">
-      <BotonIcono icono={'cerrar'} click={eliminarImagen}/>
+      
+      {#if borrarPermitir}
+        <BotonIcono icono={'cerrar'} click={eliminarImagen}/>
+      {/if}
+      
       {#if imagen}
       <Imagen {imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
       {/if}

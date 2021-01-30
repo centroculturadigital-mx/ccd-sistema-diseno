@@ -30,3 +30,13 @@ export const imagenSubirIcono = () => ({
         }
     }
 });
+
+export const imagenSubirNoBorrable = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ImagenSubir,
+        datos: {
+            borrarPermitir: false
+        }
+    }
+});
