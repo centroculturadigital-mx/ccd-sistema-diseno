@@ -107,6 +107,17 @@
   };
 </script>
 
+<style>
+
+  .Contenido {
+    word-break: break-all;
+    white-space: pre;
+    line-height: 1.5;
+  }
+  
+</style>
+
+
 {#if !! html}
 
   <section class="Contenido html">

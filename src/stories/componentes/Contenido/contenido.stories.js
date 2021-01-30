@@ -16,6 +16,7 @@ export const ContenidoBloques = () => ({
         }
     },
 });
+
 export const ContenidoHTML = () => ({
     Component: ThemeTester,
     props: {
@@ -37,6 +38,32 @@ export const ContenidoHTML = () => ({
         }
     }
 });
+
+
+export const ContenidoHtmlSaltosLinea = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Contenido,
+        datos: {
+            html: `<p>
+Fidedigno fiducia abadiato. Generable cencerreo engarzador descerrajar batán cenaoscuras.
+Incorpóreo batalloso incorporo cencivera descerrajadura gendarme cenca cencerrillas.                        
+Engarmarse fideo abadí abajadero generalato incruentamente cenata incremento
+</p>`,
+        }
+    },
+});
+
+export const ContenidoHtmlLarguisimo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Contenido,
+        datos: {
+            html: '<p>Ipsumdoloradconsectetursuntesseminimnullaetautequisadconsectetur.Temporlaborisofficiaduisofficianisi.OccaecatincididuntcommodoutpariaturveniamipsumidquiofficiaaliquaconsequatLoremaliquaullamco.Mollitaliquipconsecteturreprehenderitdolorsuntexeiusmodexullamcoenim.VeniamvelitipsumnostrudutcommodoenimdeseruntLoremmollitutvelitinaliqualaborum.Quietvoluptatecupidatattemporfugiatpariaturcupidatatenim.</p>',
+        }
+    },
+});
+
 export const ContenidoVacio = () => ({
     Component: ThemeTester,
     props: {
