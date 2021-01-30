@@ -17,6 +17,7 @@
   export let cambiar;
   export let estado;
   export let borrarPermitir = true;
+  export let iconoCambiar = true;
   
   
   export let maximo=2;
@@ -88,6 +89,7 @@
     height: 13rem;
     width: 13rem;
     position: relative;
+    padding: 0 !important;
   }
   input[type="file"] {
     opacity: 0;
@@ -103,6 +105,7 @@
     align-items: center;
     background-color: #b9b9b9;
     cursor: pointer;
+    padding: 0 !important;
   }
   .ImagenPreparada {
     height: 100%;
@@ -146,7 +149,29 @@
     font-size: .8rem;
   }
   
+  .CambiarIcono {
+    position: absolute;
+    right: 1rem;  
+    bottom: 1rem;
+    padding: 0 !important;
+    background-color: #fff;
+    box-shadow: .1225rem .1225rem .1225rem .1225rem rgba(0,0,0,0.1);
+    border-radius: 50%;
+  }
 
+  .CambiarIcono :global( button ) {
+    padding: 0.25rem;
+    margin: 0 !important;
+    
+  }
+  .CambiarIcono :global( button * ) {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .CambiarIcono :global( svg ) {
+    height: 1rem;
+  }
 
 </style>
 
@@ -177,10 +202,19 @@
       {#if borrarPermitir}
         <BotonIcono icono={'cerrar'} click={eliminarImagen}/>
       {/if}
-      
+
       {#if imagen}
       <Imagen {imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
       {/if}
+      
+    </div>
+    
+  {/if}
+  
+  {#if iconoCambiar}
+
+    <div class="CambiarIcono">
+      <BotonIcono icono={'adjuntarFoto'} click={abrir}/>
     </div>
     
   {/if}
