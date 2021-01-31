@@ -9,7 +9,7 @@
   export let iconoBotonEstadoDosUrl;
   export let estado = false;
   
-  export let inactivo;
+  export let deshabilitado;
 
   export let css = {};
 
@@ -70,9 +70,18 @@
     fill: var(--theme-botones-primario-borde);
   }
 
+  button[disabled],  
+  button[disabled] :global(*) {
+    /* TODO: color via vars */
+    color: #999;
+    stroke: #999 !important;
+    fill: #999 !important;
+    cursor: default;
+  }
+
 </style>
 
-<button on:click={()=>click()} class={!!borde ? 'borde' : 'no-borde'} style={cssString}>
+<button on:click={()=>click()} class={!!borde ? 'borde' : 'no-borde'} style={cssString} disabled={deshabilitado}>
 
   <!-- version iconos dos estados -->
   {#if !!iconoBotonEstadoUnoUrl}

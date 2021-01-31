@@ -3,7 +3,7 @@ import BotonIcono from '../../../elementos/botones/BotonIcono/BotonIcono.svelte'
 
 export default { title: 'Elementos/Botones/BotonIcono' }
 
-export const botonIconoDefaul = () => ({
+export const botonIconoDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: BotonIcono,
@@ -11,6 +11,17 @@ export const botonIconoDefaul = () => ({
             texto: 'Botón Ícono',
             icono: 'cerrar',
             click: () => console.log("click")
+        }
+    },
+});
+export const botonIconoDeshabilitado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            texto: 'Botón Ícono',
+            icono: 'cerrar',
+            deshabilitado: true
         }
     },
 });
