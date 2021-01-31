@@ -272,12 +272,15 @@
 
   const calcularErroresCampos = (campos) => campos.filter(c => !!c.error).length > 0
 
-  $: pasoActualCorrecto = (Array.isArray(pasos) && datos) && (    
-    (! calcularRequeridosVacios( pasos[pasoActual].campos, datos) )
+  
+  const calcularCamposCorrectos = (campos, datos) => ( Array.isArray(campos) && typeof datos == "object" ) &&
+  (    
+    (! calcularRequeridosVacios(campos, datos) )
     &&
-    (! calcularErroresCampos( computarCampos(pasos[pasoActual].campos, datos) ) )
+    (! calcularErroresCampos( computarCampos(campos, datos) ) )
   )
 
+  $: pasoActualCorrecto = (Array.isArray(pasos) && datos) && calcularCamposCorrectos(pasos[pasoActual].campos, datos)
   
   
 
@@ -469,7 +472,9 @@
             <button
               class="botonPaso {pasoActual > i ? 'pasado' : ''}
               {pasoActual == i ? 'actual' : ''}"
-              on:click={() => cambiarPaso(i)}>
+              on:click={() => cambiarPaso(i)}
+              disabled={ pasoActual != i && ! calcularCamposCorrectos(paso.campos, datos) }
+              >
               {pasoActual == i ? i + 1 + ' . ' + paso.nombre : i + 1}
             </button>
           {/each}
