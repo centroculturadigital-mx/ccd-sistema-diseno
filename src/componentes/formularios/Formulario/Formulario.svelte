@@ -171,7 +171,6 @@
 
   const calcularRequeridosVacios = (campos, datos) => {
     
-
     const llenos = campos.filter(c => !!c.requerido)
       .filter(cR => (
         (
@@ -191,9 +190,12 @@
         )
     ) )
 
+    
 
     return (llenos.length < campos.length);
+  
   }
+
   $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, datos )
 
 
@@ -266,6 +268,18 @@
 
 
   $: esHTML = isHTML(respuesta)
+
+
+  const calcularErroresCampos = (campos) => campos.filter(c => !!c.error).length > 0
+
+  $: pasoActualCorrecto = (Array.isArray(pasos) && datos) && (    
+    (! calcularRequeridosVacios( pasos[pasoActual].campos, datos) )
+    &&
+    (! calcularErroresCampos( computarCampos(pasos[pasoActual].campos, datos) ) )
+  )
+
+  
+  
 
 
 </script>
@@ -507,11 +521,13 @@
         </div>
 
         <div class="avanza">
-          {#if pasoActual < pasos.length - 1}
+          {#if (pasoActual < pasos.length - 1) }
             <BotonIcono
               texto={'Siguiente'}
               icono={'irDerecha'}
-              click={avanzar} />
+              click={avanzar}
+              deshabilitado={ ! pasoActualCorrecto }
+              />
               <!-- deshabilitado={ pasoCompleto } -->
           {/if}
         </div>
