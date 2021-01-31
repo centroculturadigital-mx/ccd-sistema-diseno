@@ -473,7 +473,7 @@
               class="botonPaso {pasoActual > i ? 'pasado' : ''}
               {pasoActual == i ? 'actual' : ''}"
               on:click={() => cambiarPaso(i)}
-              disabled={ pasoActual != i && ! calcularCamposCorrectos(paso.campos, datos) }
+              disabled={ i != 0 && pasoActual != i && ! calcularCamposCorrectos(pasos[i-1].campos, datos) }
               >
               {pasoActual == i ? i + 1 + ' . ' + paso.nombre : i + 1}
             </button>
