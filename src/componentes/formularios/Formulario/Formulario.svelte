@@ -514,7 +514,7 @@
     </div>
 
     {#if Array.isArray(pasos)}
-      <section class="navegacion">
+      <nav class="navegacion">
 
         <div class="regresa">
           {#if pasoActual > 0}
@@ -537,7 +537,7 @@
           {/if}
         </div>
 
-      </section>
+      </nav>
     {/if}
   {:else}
     <section class="respuesta">
