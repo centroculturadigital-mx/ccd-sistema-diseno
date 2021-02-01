@@ -171,6 +171,11 @@
 
   const calcularRequeridosVacios = (campos, datos) => {
     
+    if( campos.filter(c => !!c.requerido).length == 0 ) {
+      return false
+    }
+
+
     const llenos = campos.filter(c => !!c.requerido)
       .filter(cR => (
         (
@@ -190,14 +195,12 @@
         )
     ) )
 
-    
 
-    return (llenos.length < campos.length);
+    return (llenos.length < campos.filter(c => !!c.requerido).length);
   
   }
 
   $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, datos )
-
 
 
   const enviarFuncion = () => {
@@ -279,6 +282,7 @@
     &&
     (! calcularErroresCampos( computarCampos(campos, datos) ) )
   )
+
 
   $: pasoActualCorrecto = (Array.isArray(pasos) && datos) && calcularCamposCorrectos(pasos[pasoActual].campos, datos)
   

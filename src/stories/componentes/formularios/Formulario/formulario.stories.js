@@ -27,6 +27,10 @@ const cambiar = datos => {
 
 
 
+const noRequeridos = campos.slice(0, 3).map(c=>({
+    ...c,
+    requerido: false
+}))
 
 export const formularioDefault = () => ({
     Component: ThemeTester,
@@ -34,6 +38,37 @@ export const formularioDefault = () => ({
         componente: FormularioTester,
         datos: {
             campos: campos.slice(0, 3),
+        }
+    },
+});
+
+
+
+
+export const formularioNoRequeridos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: noRequeridos,
+        }
+    },
+});
+
+
+export const formularioRequeridoMixto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                ...noRequeridos,
+                {
+                    ...noRequeridos[noRequeridos.length-1],
+                    nombre: "campo-requerido",
+                    requerido: true
+                },
+            ],
         }
     },
 });
