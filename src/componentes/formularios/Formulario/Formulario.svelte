@@ -53,6 +53,7 @@
 
   const hidratarEstado = () => {
     // hidratar desde datos:
+
     Object.entries( datos ).forEach( par => {
 
       const [clave, valor] = par
@@ -66,7 +67,9 @@
           })
         }
       } else {
+
         cambiarEstado(clave,valor)
+
       }
 
     })
@@ -85,8 +88,6 @@
 
   const cambiarEstado = ( clave, valor ) => {
     
-    console.log("cambiarEstado",clave, valor );
-
     estado = {
       ...estado,
       [clave]: valor
@@ -109,6 +110,13 @@
 
     cargadoInicial = true
 
+    if( Array.isArray(pasos)) {
+      // pasoActual = 1
+      setTimeout(()=>{
+        pasoActual = 0
+      })
+
+    }
 
   })
 
@@ -140,7 +148,8 @@
     }
   };
 
-  let pasoActual = 0;
+  let pasoActual;
+  // let pasoActual = 0;
 
   let formularioId = Math.random().toString().replace("0.","") // identificador para ids de campos
   
@@ -149,8 +158,6 @@
 
   const cambiarCampo = (c, v) => {
 
-    console.log("cambiarCampo", c, v);
-    
     ultimoCampoCambiado = c
 
     cambiarEstado( c.nombre, v )
@@ -173,6 +180,7 @@
 
           let valor = estado[c.nombre]
 
+
           let campoPreparado = {
             ...c,
             valor,
@@ -183,7 +191,7 @@
 
 
           if (c.tipo == "multicampo") {
-            console.log("estado ahora", estado);
+                      
             campoPreparado = {
               ...campoPreparado,
               datos: {
@@ -394,7 +402,7 @@
     enviando = false
   }
 
-  $: actualizarPantalla(pasoActual, camposMostrar);
+  $: ( pasoActual > 0 || pasoActual === 0 )&& actualizarPantalla(pasoActual, camposMostrar);
 
   $: clasesContenedor = Array.isArray(pasos) && pasos.length > 0 ? 'paso paso_' + pasoActual : ''
 
@@ -413,7 +421,7 @@
   )
 
 
-  $: pasoActualCorrecto = (Array.isArray(pasos) && estado) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
+  $: pasoActualCorrecto = (Array.isArray(pasos) && estado && pasoActual) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
   
   
 
@@ -614,6 +622,7 @@
         </nav>
       </header>
     {/if}
+    {#if pantallaActual}
 
     <div class={clasesContenedor}>
       {#if !!pantallaActual.titulo}
@@ -633,7 +642,7 @@
         {/if}
 
         {#if !!enviar}
-          {#if !Array.isArray(pasos) || pasoActual == pasos.length - 1}
+          {#if !Array.isArray(pasos) || (pasoActual == pasos.length - 1)}
             <input
               disabled={enviando || hayErrores || hayRequeridosVacios}
               type="submit"
@@ -646,6 +655,7 @@
 
     </div>
 
+    {/if}
     {#if Array.isArray(pasos)}
       <nav class="navegacion">
 
