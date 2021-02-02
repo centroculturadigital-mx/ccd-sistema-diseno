@@ -881,3 +881,46 @@ export const formularioPasosMulticampoValoresEnCampos = () => ({
 
 
 
+
+
+
+export const formularioWtf = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            "campos": [
+              {
+                "tipo": "email",
+                "nombre": "cc-ingreso-correo",
+                "requerido": true,
+                "etiqueta": "Correo electrónico",
+                "valorInicial": "",
+                "ejemplo": ""
+              },
+              {
+                "tipo": "contrasenna",
+                "nombre": "cc-ingreso-contrasenna",
+                "requerido": true,
+                "etiqueta": "Contraseña",
+                "valorInicial": "",
+                "ejemplo": ""
+              }
+            ],
+            "config": {
+              "textos": {
+                "enviar": "Iniciar sesión",
+                "enviando": "Ingresando..."
+              }
+            }
+          }
+    },
+});
+
+
+
+
+                
+
+
+

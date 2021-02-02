@@ -148,8 +148,8 @@
     }
   };
 
-  let pasoActual;
-  // let pasoActual = 0;
+  // let pasoActual;
+  let pasoActual = Array.isArray(pasos) ? null : 0;
 
   let formularioId = Math.random().toString().replace("0.","") // identificador para ids de campos
   
@@ -169,6 +169,7 @@
   const computarCampos = (campos, datos) => {
 
 
+    
     const camposPreparados = campos
       .map(c => {
         if (revisarValidezCampo(c)) {
@@ -229,6 +230,8 @@
       })
       .filter(c => !!c);
 
+      console.log("camposPreparados", camposPreparados);
+
     return camposPreparados;
   };
 
@@ -260,7 +263,8 @@
 
   $: todosLosCampos = (
     Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos) ? [...a,...p.campos]:a,[]) : campos
-  ).reduce(
+  )
+  .reduce(
       (acc,c)=> (c.tipo == "multicampo") ? (
       [
         ...acc,
@@ -278,7 +282,6 @@
   
 
   $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, estado) : []
-
   
   $: hayErrores =
     !camposMostrar || camposMostrar.filter(c => !!c.error).length > 0;
@@ -335,7 +338,6 @@
   
   }
 
-  $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, estado )
 
 
   const enviarFuncion = () => {
@@ -409,6 +411,7 @@
 
   $: esHTML = isHTML(respuesta)
 
+  $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, estado )
 
   const calcularErroresCampos = (campos) => campos.filter(c => !!c.error).length > 0
 
@@ -654,7 +657,8 @@
       </form>
 
     </div>
-
+    {:else}
+    no pantalla actual. perfeccionar logica con pasoActual cuando no hay pasos
     {/if}
     {#if Array.isArray(pasos)}
       <nav class="navegacion">
