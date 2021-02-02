@@ -183,15 +183,21 @@
 
 
           if (c.tipo == "multicampo") {
-
+            console.log("estado ahora", estado);
             campoPreparado = {
               ...campoPreparado,
               datos: {
                 ...campoPreparado.datos,
                 campos: campoPreparado.datos.campos.map(cC=>({
                   ...cC,
+                  valor: estado[cC.nombre],
                   cambiar: v=>cambiarCampo(cC, v)
                 }))
+                // campos: campoPreparado.datos.campos.map(cC=>({
+                //   ...cC,
+                //   valor: estado[cC.nombre],
+                //   cambiar: v=>cambiarCampo(cC, v)
+                // }))
               }
             }
 
