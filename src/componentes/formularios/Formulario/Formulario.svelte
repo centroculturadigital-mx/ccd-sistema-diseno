@@ -43,8 +43,6 @@
 
 
   let estado = {}
-
-  $: console.log("estado", estado);
   
   // orden cargado datos
   // 1. desde "datos"
@@ -53,7 +51,7 @@
 
   const todosLosDatos = []
 
-  const hidratar = () => {
+  const hidratarEstado = () => {
     // hidratar desde datos:
     Object.entries( datos ).forEach( par => {
 
@@ -97,9 +95,11 @@
   }
               
 
+
+
   onMount(()=>{
 
-    hidratar()
+    hidratarEstado()
     
     //eliminar valores campos
     
@@ -151,7 +151,7 @@
 
     const camposPreparados = campos
       .map(c => {
-        if (revisarCampo(c)) {
+        if (revisarValidezCampo(c)) {
           // primero revisar si viene un valor desde afuera. 
 
           // let valor = (c.tipo == "casilla")
@@ -311,7 +311,7 @@
     }
   };
 
-  const revisarCampo = c => {
+  const revisarValidezCampo = c => {
     if (!c.nombre) {
       return false;
     }
@@ -578,7 +578,7 @@
               class="botonPaso {pasoActual > i ? 'pasado' : ''}
               {pasoActual == i ? 'actual' : ''}"
               on:click={() => cambiarPaso(i)}
-              disabled={ i != 0 && pasoActual != i && ! calcularCamposCorrectos(pasos[i-1].campos, datos) }
+              disabled={ i != 0 && pasoActual != i && ! calcularCamposCorrectos(pasos[i-1].campos, estado) }
               >
               {pasoActual == i ? i + 1 + ' . ' + paso.nombre : i + 1}
             </button>
