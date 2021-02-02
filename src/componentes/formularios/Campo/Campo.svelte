@@ -25,7 +25,11 @@
   export let ultimo;
   export let deshabilitado;
 
+  
+  
   let enfocado = false;
+  let valorMultiCampo = {};
+  
 
   // TODO: eliminar cuando este 100% implementado instruccion
   $: instruccion = !! indicacion ? indicacion : instruccion
@@ -39,8 +43,6 @@
   // }
   // temporalmente siempre validar:
   const calcularEstado = v => estado;
-
-  $: estadoMostrar = calcularEstado(estado);
 
   const enfocar = () => {
     enfocado = true;
@@ -65,7 +67,6 @@
     // }
   };
 
-  let valorMultiCampo = {};
 
   const cambiarMultiCampo = (datos, campo) => {
     if (typeof valorMultiCampo == "object") {
@@ -77,8 +78,8 @@
   const prepararMultiCampo = () => {
 
     // almacenar valor en almacen
-    typeof valor == "object"  && datos.campos.forEach(campo => {
-      valorMultiCampo[campo.nombre] = valor[campo.nombre]
+    Array.isArray(datos.campos) && datos.campos.forEach(campo => {
+      valorMultiCampo[campo.nombre] = datos[campo.nombre] || ( typeof valor == "object" ? valor[campo.nombre] : null) || campo.valor 
     })
 
     return {
@@ -94,15 +95,19 @@
       
   }
 
+
+
+
+  $: estadoMostrar = calcularEstado(estado);
+
   
-  $: multiCampo = tipo == "multicampo" && typeof valorMultiCampo == "object"
-      ? prepararMultiCampo()
-      : null;
+  $: multiCampo = (tipo == "multicampo" && typeof valorMultiCampo == "object")
+    ? prepararMultiCampo()
+    : null;
     
-
-
-
+  
   $: listo = !! tipo
+
     
 </script>
 
