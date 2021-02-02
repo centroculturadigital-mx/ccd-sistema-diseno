@@ -76,7 +76,6 @@ export const formularioRequeridoMixto = () => ({
 });
 
 
-
 export const formularioConValores = () => ({
     Component: ThemeTester,
     props: {
@@ -102,6 +101,42 @@ export const formularioConValores = () => ({
                     ...campos[3],
                     requerido: true,
                     valor: 2
+                },
+
+            ],
+        }
+    },
+});
+
+
+
+export const formularioConDatos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            datos: {
+                [campos[0].nombre]: "Consectetur proident ut ut dolore",
+                [campos[1].nombre]: 13,
+                [campos[2].nombre]: "Aliquanon",
+                [campos[3].nombre]: 2,
+            },
+            campos: [
+                {
+                    ...campos[0],
+                    requerido: true
+                },
+                {
+                    ...campos[1],
+                    requerido: true
+                },
+                {
+                    ...campos[2],
+                    requerido: true
+                },
+                {       
+                    ...campos[3],
+                    requerido: true
                 },
 
             ],
@@ -694,23 +729,21 @@ export const formularioPasosMulticampo = () => ({
                         etiqueta: "Multicampo numeros",
                         indicacion: "Llena las opciones",
                         tipo: "multicampo",
-                        valor: {
-                            "multicampo-numero-1": 13,
-                            "multicampo-numero-2": 69,
-                        },
                         datos: {
                             campos: [
                                 {
                                     tipo: "numero",
                                     etiqueta: "Sub-campo número 1",
                                     nombre: "multicampo-numero-1",
-                                    ejemplo: "666"
+                                    ejemplo: "666",
+                                    valor: 13
                                 },
                                 {
                                     tipo: "numero",
                                     etiqueta: "Sub-campo número 2",
                                     nombre: "multicampo-numero-2",
-                                    ejemplo: "666"
+                                    ejemplo: "666",
+                                    valor: 69
                                 },
                             ],
                             // texto: "Una casilla"
@@ -727,3 +760,6 @@ export const formularioPasosMulticampo = () => ({
 
 
                 
+
+
+

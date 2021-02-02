@@ -11,7 +11,7 @@
   import isHTML from "../../../funciones/isHTML";
   
   
-
+  
   let tiposValidos = [
     "texto",
     "email",
@@ -29,32 +29,105 @@
     "texto-numero",
   ];
 
-  let datos = {};
-
   export let pasos;
+  export let datos = {};
   export let campos;
   export let enviar;
   export let cambiar;
   export let respuesta;
   export let enviando = false
 
+
+
   let cargadoInicial = false
 
-  const llenarDatosCampos = ( campos ) => {
-    const nuevosDatos = {}
-    // campos.filter(c => ( c && c.valor ) ).forEach(c=>{
-    campos.filter(c => ( c && (c.valor || c.valor===0) ) ).forEach(c=>{
-    // campos.filter(c => ( c && (c.valor || c.valor===0) ) ).forEach(c=>{
-      nuevosDatos[c.nombre]=c.valor
+
+  let estado = {}
+
+  $: console.log("estado", estado);
+  
+  // orden cargado datos
+  // 1. desde "datos"
+  // 2. desde campos
+  
+
+  const todosLosDatos = []
+
+  const hidratar = () => {
+    // hidratar desde datos:
+    Object.entries( datos ).forEach( par => {
+
+      const [clave, valor] = par
+
+      if( typeof valor == "object" ) {
+        if( valor.tipo == "multicampo" ) {
+          valor.datos.campos.forEach( mC => {
+            if( datos[mC.nombre] ) {
+              cambiarEstado( mC.nombre, datos[mC.nombre] )              
+            }
+          })
+        }
+      } else {
+        cambiarEstado(clave,valor)
+      }
+
     })
-    datos = {
-      ...datos,
-      ...nuevosDatos
-    }
-    cargadoInicial = true
+
+
+    // hidratar desde campos
+
+    todosLosCampos.forEach(c=>{
+      if(c.valor) {
+        cambiarEstado(c.nombre,c.valor)
+      }
+    })
+
   }
 
-  $: ! cargadoInicial && Array.isArray(todosLosCampos) && llenarDatosCampos( todosLosCampos )
+
+  const cambiarEstado = ( clave, valor ) => {
+    
+    console.log("cambiarEstado",clave, valor );
+
+    estado = {
+      ...estado,
+      [clave]: valor
+    }
+
+  }
+              
+
+  onMount(()=>{
+
+    hidratar()
+    
+    //eliminar valores campos
+    
+    todosLosCampos.forEach(c=>{
+      delete c.valor
+    })
+
+    cargadoInicial = true
+
+
+  })
+
+
+  // const llenarDatosCampos = ( campos ) => {
+  //   const nuevosDatos = {}
+  //   // campos.filter(c => ( c && c.valor ) ).forEach(c=>{
+  //   campos.filter(c => ( c && (c.valor || c.valor===0) ) ).forEach(c=>{
+  //   // campos.filter(c => ( c && (c.valor || c.valor===0) ) ).forEach(c=>{
+  //     nuevosDatos[c.nombre]=c.valor
+  //   })
+  //   datos = {
+  //     ...datos,
+  //     ...nuevosDatos
+  //   }
+  //   cargadoInicial = true
+  // }
+
+  // $: ! cargadoInicial && Array.isArray(todosLosCampos) && llenarDatosCampos( todosLosCampos )
 
 
 
@@ -81,9 +154,11 @@
         if (revisarCampo(c)) {
           // primero revisar si viene un valor desde afuera. 
 
-          let valor = (c.tipo == "casilla")
-            ? datos[c.nombre]
-            : c.valor || datos[c.nombre];
+          // let valor = (c.tipo == "casilla")
+          //   ? datos[c.nombre]
+          //   : c.valor || datos[c.nombre];
+
+          let valor = estado[c.nombre]
 
           let campoPreparado = {
             ...c,
@@ -91,7 +166,11 @@
             ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => {
+              
               ultimoCampoCambiado = c
+
+              cambiarEstado( c.nombre, v )
+              
               cambiarCampo(v, c);
             }
           };
@@ -118,15 +197,15 @@
 
   const cambiarCampo = (valor, c) => {
     
-    if( ! c.valorExterno ) {
-      // if( c.tipo != "multicampo" ) {
-      //   datos[c.nombre] = valor;    
-      // } else {
-      //   datos[c.nombre] = valor;    
-      // }
-      datos[c.nombre] = valor;
+    // if( ! c.valorExterno ) {
+    //   // if( c.tipo != "multicampo" ) {
+    //   //   datos[c.nombre] = valor;    
+    //   // } else {
+    //   //   datos[c.nombre] = valor;    
+    //   // }
+    //   // datos[c.nombre] = valor;
           
-    }
+    // }
 
     if (typeof c.cambiar == "function") {
       c.cambiar(valor);
@@ -135,15 +214,34 @@
     if (typeof cambiar == "function") {
       cambiar(valor, c);
     }
+
   };
 
 
   
 
-  $: todosLosCampos = Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos)?[...a,...p.campos]:a,[]) : campos
+  $: todosLosCampos = (
+    Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos) ? [...a,...p.campos]:a,[]) : campos
+  ).reduce(
+      (acc,c)=> (c.tipo == "multicampo") ? (
+      [
+        ...acc,
+        // c,
+        ...c.datos.campos
+      ]
+    ) : (
+      [
+        ...acc,
+        c
+      ]
+    ),
+  [])
   
+  $: console.log( "todosLosCampos", todosLosCampos, todosLosCampos.length );
 
-  $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, datos) : []
+
+
+  $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, estado) : []
 
   
   $: hayErrores =
@@ -201,13 +299,13 @@
   
   }
 
-  $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, datos )
+  $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, estado )
 
 
   const enviarFuncion = () => {
     if (typeof enviar == "function") {
       if (!hayErrores || !hayRequeridosVacios()) {
-        enviar(datos);
+        enviar(estado);
         enviando = true
       }
     }
@@ -252,16 +350,18 @@
             ...pasos[pasoActual],
             campos:
               pasos[pasoActual].campos &&
-              computarCampos(pasos[pasoActual].campos, datos)
+              computarCampos(pasos[pasoActual].campos, estado)
           }
         : {
-            campos: computarCampos(campos, datos)
+            campos: computarCampos(campos, estado)
           };
 
   };
 
   const reiniciar = () => {
     respuesta = null
+    estado = {}
+    // TODO: Verificar si sig. línea todavía aplica:
     datos = {}
     enviando = false
   }
@@ -285,7 +385,7 @@
   )
 
 
-  $: pasoActualCorrecto = (Array.isArray(pasos) && datos) && calcularCamposCorrectos(pasos[pasoActual].campos, datos)
+  $: pasoActualCorrecto = (Array.isArray(pasos) && estado) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
   
   
 

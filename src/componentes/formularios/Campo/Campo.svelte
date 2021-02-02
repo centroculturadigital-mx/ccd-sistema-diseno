@@ -33,7 +33,7 @@
 
   // TODO: eliminar cuando este 100% implementado instruccion
   $: instruccion = !! indicacion ? indicacion : instruccion
-
+ 
   // const calcularEstado = v => {
   //   if( ! enfocado ) {
   //     return estado
@@ -69,6 +69,8 @@
 
 
   const cambiarMultiCampo = (datos, campo) => {
+
+    console.log("campo.nombre] = datos;", campo.nombre, datos);
     if (typeof valorMultiCampo == "object") {
       valorMultiCampo[campo.nombre] = datos;
       cambiarAccion(valorMultiCampo);

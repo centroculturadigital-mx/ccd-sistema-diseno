@@ -8,6 +8,7 @@
     
     export let campos
     export let pasos
+    export let datos
 
     let respuesta
 
@@ -29,4 +30,4 @@ let enviarConTiempo = datos => {
 </script>
 
 
-<Formulario enviar={enviarConTiempo} {cambiar} {respuesta} {campos} {pasos}/>
+<Formulario enviar={enviarConTiempo} {cambiar} {respuesta} {datos} {campos} {pasos}/>
