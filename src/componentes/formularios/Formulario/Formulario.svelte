@@ -146,6 +146,19 @@
   
   let ultimoCampoCambiado
 
+
+  const cambiarCampo = (c, v) => {
+
+    console.log("cambiarCampo", c, v);
+    
+    ultimoCampoCambiado = c
+
+    cambiarEstado( c.nombre, v )
+    
+    realizarCambioCampo(v, c);
+    
+  }
+
   const computarCampos = (campos, datos) => {
 
 
@@ -165,15 +178,25 @@
             valor,
             ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
-            cambiar: v => {
-              
-              ultimoCampoCambiado = c
-
-              cambiarEstado( c.nombre, v )
-              
-              cambiarCampo(v, c);
-            }
+            cambiar: v=>cambiarCampo(c, v)
           };
+
+
+          if (c.tipo == "multicampo") {
+
+            campoPreparado = {
+              ...campoPreparado,
+              datos: {
+                ...campoPreparado.datos,
+                campos: campoPreparado.datos.campos.map(cC=>({
+                  ...cC,
+                  cambiar: v=>cambiarCampo(cC, v)
+                }))
+              }
+            }
+
+          }
+          
 
           if (( (c.tipo == "casilla") || !!valor) && typeof c.validacion == "function") {
 
@@ -195,7 +218,8 @@
     return camposPreparados;
   };
 
-  const cambiarCampo = (valor, c) => {
+  const realizarCambioCampo = (valor, c) => {
+    
     
     // if( ! c.valorExterno ) {
     //   // if( c.tipo != "multicampo" ) {
@@ -237,9 +261,7 @@
     ),
   [])
   
-  $: console.log( "todosLosCampos", todosLosCampos, todosLosCampos.length );
-
-
+  
 
   $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, estado) : []
 

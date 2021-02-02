@@ -90,7 +90,7 @@
             ...campo,
             valor: valorMultiCampo[campo.nombre],
             // cambiar: datos => setTimeout(()=>cambiarMultiCampo( datos, campo ), 400)
-            cambiar: datos => cambiarMultiCampo(datos, campo)
+            // cambiar: datos => cambiarMultiCampo(datos, campo)
           }))
         : []
     }
