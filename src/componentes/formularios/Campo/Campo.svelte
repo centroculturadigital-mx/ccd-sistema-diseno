@@ -101,10 +101,8 @@
     
 
 
-  $: console.log("multiCampo", multiCampo)
 
-
-    $: listo = !! tipo
+  $: listo = !! tipo
     
 </script>
 
