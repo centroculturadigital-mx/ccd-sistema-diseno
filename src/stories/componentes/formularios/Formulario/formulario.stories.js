@@ -452,19 +452,12 @@ export const formularioMultiCampoValores = () => ({
                     nombre: "multicampo",
                     requerido: true,
         
-        
-                    valor: {
-                        "multicampo-1": "hola mundo",
-                        "multicampo-2": 456,
-                    },
-                    
-                    // valorEstatico: "",
-                    // validacion: "",
+                
                     datos: {
                         campos: [
                             {
                                 tipo: "texto",
-                                etiqueta: "Sub-campo 1",
+                                etiqueta: "Texto",
                                 nombre: "multicampo-1",
                                 ejemplo: "multicampo-1",
                                 valor: "hola mundo",
@@ -472,7 +465,7 @@ export const formularioMultiCampoValores = () => ({
                             },
                             {
                                 tipo: "numero",
-                                etiqueta: "Sub-campo 2",
+                                etiqueta: "Número",
                                 nombre: "multicampo-2",
                                 ejemplo: "multicampo-2",
                                 valor: 666,
@@ -621,46 +614,90 @@ export const formularioPasosMulticampo = () => ({
     props: {
         componente: FormularioMultiCampo,
         datos: {
+            // valor: [
+            //     "multicampo-casilla-1": ?,
+            //     "multicampo-casilla-2": ?,
+           
+
             pasos: [
                 {
                     titulo: "Un paso con multicampo",
                     texto: "...",
-                    nombre: "pasoCasillas",
-                    campos: [{
-                        ...casillas,
-                        nombre: "casillasUnicoOtra",
+                    nombre: "pasocasilla",
+                    campos: [
+                        {
+                        // ...casilla,
+                        nombre: "casilla",
                         etiqueta: "Multicampo casillas",
-                        indicacion: "...",
-                        tipo: "?",
+                        indicacion: "Llena las opciones",
+                        tipo: "multicampo",
                         datos: {
                             campos: [
                                 {
                                     tipo: "casillas",
                                     etiqueta: "Sub-campo casillas 1",
-                                    nombre: "multicampo-casilla-1",
-                                    ejemplo: "multicampo-casilla"
+                                    nombre: "multicampo-casillas-1",
+                                    datos: {
+                                        tipo: "UNICO"
+                                    },
+                                    valor: 1,
+                                    opciones: [
+                                        {
+                                            id: 1,
+                                            texto: "Opción 1"
+                                        },
+                                        {
+                                            id: 2,
+                                            texto: "Opción 2"
+                                        },
+                                    ]
                                 },
                                 {
                                     tipo: "casillas",
                                     etiqueta: "Sub-campo casillas 2",
-                                    nombre: "multicampo-casilla-2",
-                                    ejemplo: "multicampo-casilla"
-                                }
+                                    nombre: "multicampo-casillas-2",
+                                    datos: {
+                                        tipo: "UNICO"
+                                    },
+                                    valor: 2,
+                                    opciones: [
+                                        {
+                                            id: 1,
+                                            texto: "Opción 1"
+                                        },
+
+                                        {
+                                            id: 2,
+                                            texto: "Opción 1"
+                                        },
+
+                                        {
+                                            id: 3,
+                                            texto: "Opción 1"
+                                        },
+                                    ]
+                                },
                             ],
                             // texto: "Una casilla"
                         },
-                        valor: "?"
+                        // valor: 666
                     }]
                 },
                 {
                     titulo: "Un paso con multicampo",
                     texto: "...",
                     nombre: "pasoNumero",
-                    campos: [{
-                        ...numero,
+                    campos: [
+                        {
+                        // ...numero,
                         nombre: "numero",
                         etiqueta: "Multicampo numeros",
                         indicacion: "Llena las opciones",
+                        tipo: "multicampo",
+                        valor: {
+                            "multicampo-numero-1": 13,
+                            "multicampo-numero-2": 69,
+                        },
                         datos: {
                             campos: [
                                 {
