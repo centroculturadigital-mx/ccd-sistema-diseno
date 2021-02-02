@@ -12,6 +12,8 @@ import pasos from "../../../../data/pasos";
 import casilla from "../../../../data/campos/casilla"
 import casillas from "../../../../data/campos/casillas"
 
+import numero from "../../../../data/campos/numero.js"
+
 
 
 export default {
@@ -432,6 +434,10 @@ export const formularioMultiCampo = () => ({
         }
     },
 });
+
+
+
+
 export const formularioMultiCampoValores = () => ({
     Component: ThemeTester,
     props: {
@@ -446,10 +452,12 @@ export const formularioMultiCampoValores = () => ({
                     nombre: "multicampo",
                     requerido: true,
         
+        
                     valor: {
-                        "multicampo-1": 123,
+                        "multicampo-1": "hola mundo",
                         "multicampo-2": 456,
                     },
+                    
                     // valorEstatico: "",
                     // validacion: "",
                     datos: {
@@ -458,13 +466,17 @@ export const formularioMultiCampoValores = () => ({
                                 tipo: "texto",
                                 etiqueta: "Sub-campo 1",
                                 nombre: "multicampo-1",
-                                ejemplo: "multicampo-1"
+                                ejemplo: "multicampo-1",
+                                valor: "hola mundo",
+                                
                             },
                             {
                                 tipo: "numero",
                                 etiqueta: "Sub-campo 2",
                                 nombre: "multicampo-2",
-                                ejemplo: "multicampo-2"
+                                ejemplo: "multicampo-2",
+                                valor: 666,
+                                
                             }
                         ],
                         // texto: "Una casilla"
@@ -534,3 +546,147 @@ export const formularioMultiCampoPreguntaNumericaOpcionOtra = () => ({
     },
 });
 
+
+
+
+export const formularioPasosCasillasMultipleOtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            pasos: [
+                {
+                    titulo: "Un paso con casillas",
+                    texto: "...",
+                    nombre: "pasoCasillas",
+                    campos: [{
+                        ...casillas,
+                        nombre: "casillasMultipleOtra",
+                        etiqueta: "Opción múltiple, y/o añade otra",
+                        indicacion: "Elige las opciones, y/o agrega tu opción",
+                        tipo: "casillas",
+                        datos: {
+                            tipo: "MULTIPLE_OTRA"
+                        },
+                        valor: [
+                            ...new Array(13).fill(true).map((o,i)=>({ id: i, valor: Math.random()>0.5 })),
+                            {
+                                id: 13,
+                                valor: true,
+                                texto: "Hola mundo"
+                            }
+                        ]
+                    }]
+                }
+            ]
+        }
+    },
+});
+
+
+
+
+export const formularioPasosCasillasUnicaOtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            pasos: [
+                {
+                    titulo: "Un paso con casillas",
+                    texto: "...",
+                    nombre: "pasoCasillas",
+                    campos: [{
+                        ...casillas,
+                        nombre: "casillasUnicoOtra",
+                        etiqueta: "Opción única: elige otra",
+                        indicacion: "Elige solo una, o agrega tu opción",
+                        tipo: "casillas",
+                        datos: {
+                            tipo: "UNICO_OTRA"
+                        },
+                        valor: 0
+                    }]
+                }
+            ]
+        }
+    },
+});
+
+
+
+
+export const formularioPasosMulticampo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioMultiCampo,
+        datos: {
+            pasos: [
+                {
+                    titulo: "Un paso con multicampo",
+                    texto: "...",
+                    nombre: "pasoCasillas",
+                    campos: [{
+                        ...casillas,
+                        nombre: "casillasUnicoOtra",
+                        etiqueta: "Multicampo casillas",
+                        indicacion: "...",
+                        tipo: "?",
+                        datos: {
+                            campos: [
+                                {
+                                    tipo: "casillas",
+                                    etiqueta: "Sub-campo casillas 1",
+                                    nombre: "multicampo-casilla-1",
+                                    ejemplo: "multicampo-casilla"
+                                },
+                                {
+                                    tipo: "casillas",
+                                    etiqueta: "Sub-campo casillas 2",
+                                    nombre: "multicampo-casilla-2",
+                                    ejemplo: "multicampo-casilla"
+                                }
+                            ],
+                            // texto: "Una casilla"
+                        },
+                        valor: "?"
+                    }]
+                },
+                {
+                    titulo: "Un paso con multicampo",
+                    texto: "...",
+                    nombre: "pasoNumero",
+                    campos: [{
+                        ...numero,
+                        nombre: "numero",
+                        etiqueta: "Multicampo numeros",
+                        indicacion: "Llena las opciones",
+                        datos: {
+                            campos: [
+                                {
+                                    tipo: "numero",
+                                    etiqueta: "Sub-campo número 1",
+                                    nombre: "multicampo-numero-1",
+                                    ejemplo: "666"
+                                },
+                                {
+                                    tipo: "numero",
+                                    etiqueta: "Sub-campo número 2",
+                                    nombre: "multicampo-numero-2",
+                                    ejemplo: "666"
+                                },
+                            ],
+                            // texto: "Una casilla"
+                        },
+                        // valor: 666
+                    }]
+                }
+            ]
+        }
+    },
+});
+
+
+
+
+                

@@ -177,7 +177,9 @@
 
 
     const cambiarOtra = ({valor, texto}) => {
+
         valorOtra = ! textoOtra ? true : texto ? valor : null
+
         textoOtra = texto
 
         cambiarAccion({
@@ -195,6 +197,8 @@
         valor: tipo == "UNICO_OTRA" ? valorLocal.id == opciones.length : valorOtra,
         texto: textoOtra
     } : null
+
+    
 
 </script>
 

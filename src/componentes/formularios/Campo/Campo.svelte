@@ -74,19 +74,34 @@
     }
   };
 
-  $: multiCampo =
-    tipo == "multicampo" && typeof valorMultiCampo == "object"
-      ? {
-          campos: Array.isArray(datos.campos)
-            ? datos.campos.map(campo => ({
-                ...campo,
-                valor: valorMultiCampo[campo.nombre],
-                // cambiar: datos => setTimeout(()=>cambiarMultiCampo( datos, campo ), 400)
-                cambiar: datos => cambiarMultiCampo(datos, campo)
-              }))
-            : []
-        }
+  const prepararMultiCampo = () => {
+
+    // almacenar valor en almacen
+    typeof valor == "object"  && datos.campos.forEach(campo => {
+      valorMultiCampo[campo.nombre] = valor[campo.nombre]
+    })
+
+    return {
+      campos: Array.isArray(datos.campos)
+        ? datos.campos.map(campo => ({
+            ...campo,
+            valor: valorMultiCampo[campo.nombre],
+            // cambiar: datos => setTimeout(()=>cambiarMultiCampo( datos, campo ), 400)
+            cambiar: datos => cambiarMultiCampo(datos, campo)
+          }))
+        : []
+    }
+      
+  }
+
+  
+  $: multiCampo = tipo == "multicampo" && typeof valorMultiCampo == "object"
+      ? prepararMultiCampo()
       : null;
+    
+
+
+  $: console.log("multiCampo", multiCampo)
 
 
     $: listo = !! tipo
