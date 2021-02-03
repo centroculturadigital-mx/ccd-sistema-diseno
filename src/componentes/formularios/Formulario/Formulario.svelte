@@ -424,7 +424,8 @@
   )
 
 
-  $: pasoActualCorrecto = (Array.isArray(pasos) && estado && pasoActual) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
+  $: pasoActualCorrecto = (Array.isArray(pasos) && estado) && calcularCamposCorrectos(pasos[pasoActual ? pasoActual : 0].campos, estado)
+  // $: pasoActualCorrecto = (Array.isArray(pasos) && estado && pasoActual) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
   
   
 
