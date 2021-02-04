@@ -361,20 +361,20 @@
     return false;
   };
 
+  let superior
+
   const avanzar = () => {
     pasoActual = pasoActual + 1;
-    document.querySelector("header.pasos").scrollIntoView()
-    console.log("AVANZA");
+    superior.scrollIntoView()
   };
   const regresar = () => {
     pasoActual = pasoActual - 1;
-    document.querySelector("header.pasos").scrollIntoView()
-    console.log("REGRESA");
+    superior.scrollIntoView()
   };
-
+  
   const cambiarPaso = i => {
     pasoActual = i;
-    console.log("CAMBIA PASO");
+    superior.scrollIntoView()
   };
 
   // let pasoUltimo
@@ -612,7 +612,7 @@
 
 </style>
 
-<section class="Formulario">
+<section class="Formulario" bind:this={superior}>
 
   {#if !respuesta}
     {#if Array.isArray(pasos)}
