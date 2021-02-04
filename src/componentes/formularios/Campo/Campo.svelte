@@ -71,7 +71,8 @@
   const cambiarMultiCampo = (datos, campo) => {
 
     if (typeof valorMultiCampo == "object") {
-      valorMultiCampo[campo.nombre] = datos;
+      // valorMultiCampo[campo.nombre] = datos;
+      console.log("cambiar", datos, campo.nombre, valorMultiCampo );
       cambiarAccion(valorMultiCampo);
     }
   };
@@ -81,18 +82,19 @@
     // almacenar valor en almacen
     Array.isArray(datos.campos) && datos.campos.forEach(campo => {
       valorMultiCampo[campo.nombre] = campo.valor 
+      valor = valorMultiCampo
       // valorMultiCampo[campo.nombre] = ( typeof valor == "object" ? valor[campo.nombre] : null) || campo.valor 
     })
 
     return {
       campos: Array.isArray(datos.campos)
         ? datos.campos
-        // .map(campo => ({
-        //     ...campo,
-        //     // valor: valorMultiCampo[campo.nombre],
-        //     // cambiar: datos => setTimeout(()=>cambiarMultiCampo( datos, campo ), 400)
-        //     // cambiar: datos => cambiarMultiCampo(datos, campo)
-        //   }))
+        .map(campo => ({
+            ...campo,
+            // valor: valorMultiCampo[campo.nombre],
+            // cambiar: datos => setTimeout(()=>cambiarMultiCampo( datos, campo ), 400)
+          // cambiar: datos => cambiarMultiCampo(datos, campo)
+        }))
         : []
     }
       
