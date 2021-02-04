@@ -21,6 +21,7 @@
   
   
   export let maximo=8;
+  export let mensajeError="Su PDF sobrepasa el peso permitido.";
 
   // export let opciones;
 
@@ -68,7 +69,7 @@
 
       } else {
 
-        error = new Error("Elige una archivo menor a 8mb.")
+        error = new Error(mensajeError)
 
       } 
     }
@@ -85,7 +86,12 @@
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .ArchivoSubir {
+    display: flex;
+    flex-direction: column;
     height: 13rem;
     width: 13rem;
     position: relative;
@@ -109,42 +115,47 @@
     height: 100%;
     width: 100%;
     position: relative;
-    /* display: flex;
-    justify-content: flex-end; */
+    display: grid;
+    place-items: center;
   }
-
-
+  .ArchivoPreparado a {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: var(--theme-colores-primario);
+  }
   .ArchivoPreparado :global(.iconoContenedor.cerrar) {
     height: auto;
-    position: absolute;
-    right: 0.5rem;
-    top: 0.5rem;
     transition: 0.5s;
     background-color: rgba(255, 255, 255, 0.25);
     padding: 0.25rem;
   }
   .ArchivoPreparado :global(.iconoContenedor.cerrar:hover) {
-    filter: invert();
+    filter: invert(50%);
   }
   .ArchivoPreparado :global(button) {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
     padding: 0;
   }
   .Contenedor {
     padding: 0.5rem;
     background-color: #b9b9b9;
-    box-sizing: border-box;
   }
-
+  .error {
+    padding: var(--theme-espaciados-padding) 0;
+  }
   .ArchivoSubir :global(.Aviso) {
-    position: absolute;
-    bottom: .25rem;
+    position: relative;
     height: auto;
     color: #f00;
   }
   .ArchivoSubir :global(.Aviso *) {
     color: #f00;
     margin: 0;
-    font-size: .8rem;
+    font-size: .75rem;
   }
   
 
@@ -165,10 +176,12 @@
       <Parrafo texto={ etiqueta } />
       <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 8mb' }  variante="CHICO"/>
   
+      
+    </div>
+    <div class="error">
       {#if error}
         <Aviso texto={error}/>
       {/if}
-      
     </div>
   {:else}
     
