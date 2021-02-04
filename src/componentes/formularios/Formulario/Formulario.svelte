@@ -160,7 +160,25 @@
 
     ultimoCampoCambiado = c
 
-    cambiarEstado( c.nombre, v )
+    if( c.tipo == "multicampo" ) {
+     
+      const subpreguntaPar = Object.entries(v).filter(p=>!!p[1])
+
+      if(subpreguntaPar) {
+
+        
+        // console.log("cambiarCampo", c.nombre, subpreguntaPar[0], subpreguntaPar[1] );
+        
+        cambiarEstado( subpreguntaPar[0], subpreguntaPar[1] )
+        
+      }
+      
+    } else {
+
+      cambiarEstado( c.nombre, v )
+
+    }
+
     
     realizarCambioCampo(v, c);
     
@@ -187,7 +205,7 @@
             valor,
             ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
-            cambiar: v=>cambiarCampo(c, v)
+            cambiar: v => cambiarCampo(c, v)
           };
 
 
@@ -200,12 +218,12 @@
                 campos: campoPreparado.datos.campos.map(cC=>({
                   ...cC,
                   valor: estado[cC.nombre],
-                  cambiar: v=>cambiarCampo(cC, v)
+                  cambiar: v => cambiarCampo(cC, v)
                 }))
                 // campos: campoPreparado.datos.campos.map(cC=>({
                 //   ...cC,
                 //   valor: estado[cC.nombre],
-                //   cambiar: v=>cambiarCampo(cC, v)
+                //   cambiar: v => cambiarCampo(cC, v)
                 // }))
               }
             }
@@ -230,7 +248,7 @@
       })
       .filter(c => !!c);
 
-      console.log("camposPreparados", camposPreparados);
+      // console.log("camposPreparados", camposPreparados);
 
     return camposPreparados;
   };
@@ -306,6 +324,24 @@
       campo.tipo=="casillas"
     ) && valor === 0
   )
+  const multiCampoLleno = (campo, valor) => {
+
+
+    if( campo && campo.tipo == "multicampo" && campo.datos && valor) {
+
+      const valoresCampos = campo.datos.campos.map(c=>valor[c.nombre])
+      console.log(valoresCampos, valoresCampos.includes(undefined));
+
+      return ! valoresCampos.includes(undefined)
+
+    }
+
+    // (
+    //   (
+    //     campo.tipo=="multicampo"
+    //   ) && valor === 0
+    // )
+  }
 
   const calcularRequeridosVacios = (campos, datos) => {
     
@@ -313,6 +349,8 @@
       return false
     }
 
+
+    // console.log("calcularRequeridosVacios", campos, datos);
 
     const llenos = campos.filter(c => !!c.requerido)
       .filter(cR => (
@@ -324,6 +362,9 @@
           numeroLleno(cR, datos[cR.nombre])
           ||
           casillasLlenas(cR, datos[cR.nombre])
+          ||
+          multiCampoLleno(cR, datos)
+          // multiCampoLleno(cR, datos[cR.nombre])
         )
         &&
         (
@@ -658,9 +699,9 @@
       </form>
 
     </div>
-    {:else}
-    no pantalla actual. perfeccionar logica con pasoActual cuando no hay pasos
+
     {/if}
+
     {#if Array.isArray(pasos)}
       <nav class="navegacion">
 
