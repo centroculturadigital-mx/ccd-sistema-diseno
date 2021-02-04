@@ -101,11 +101,11 @@
     margin-top: 0;
   }
   .Textos :global(span) {
-    color: inherit !important;
+    color: var(--theme-textos-alerta-color);
   }
   .Textos :global(a) {
     transition: 0.5s;
-    color: inherit !important;
+    color: var(--theme-textos-alerta-color);
   }
   .Textos :global(a:hover) {
     color: var(--theme-textos-alerta-enlace);
