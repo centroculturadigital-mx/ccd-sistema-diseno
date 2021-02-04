@@ -110,6 +110,8 @@
     align-items: center;
     background-color: #b9b9b9;
     cursor: pointer;
+    border-radius: 0.25rem;
+    border: 1px dashed var(--theme-colores-primario);
   }
   .ArchivoPreparado {
     height: 100%;
@@ -147,10 +149,18 @@
   .error {
     padding: var(--theme-espaciados-padding) 0;
   }
+  .errorCarga {
+    border-color: red !important;
+  }
+
   .ArchivoSubir :global(.Aviso) {
     position: relative;
     height: auto;
     color: #f00;
+  }
+  .ArchivoSubir :global(.Aviso) {
+    justify-content: flex-start;
+
   }
   .ArchivoSubir :global(.Aviso *) {
     color: #f00;
@@ -171,14 +181,14 @@
   />
   
   {#if !archivo}
-    <div class="Contenedor" on:click={abrir}>
+    <div class="Contenedor {error ? "errorCarga" : ""}" on:click={abrir}>
       <Icono {icono} tamanno={'2rem'} />
       <Parrafo texto={ etiqueta } />
       <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 8mb' }  variante="CHICO"/>
   
       
     </div>
-    <div class="error">
+    <div class={error ? "error" : ""}>
       {#if error}
         <Aviso texto={error}/>
       {/if}
