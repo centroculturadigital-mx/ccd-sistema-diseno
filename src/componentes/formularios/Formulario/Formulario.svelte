@@ -409,17 +409,20 @@
     return false;
   };
 
+  let superior
+
   const avanzar = () => {
     pasoActual = pasoActual + 1;
-    document.querySelector("header.pasos").scrollIntoView()
+    superior.scrollIntoView()
   };
   const regresar = () => {
     pasoActual = pasoActual - 1;
-    document.querySelector("header.pasos").scrollIntoView()
+    superior.scrollIntoView()
   };
-
+  
   const cambiarPaso = i => {
     pasoActual = i;
+    superior.scrollIntoView()
   };
 
   // let pasoUltimo
@@ -547,10 +550,12 @@
     color: var(--theme-botones-primario-inactivo);
   }
   .pasos {
-    position: relative;
+    position: sticky;
+    top: -0.1px;
     height: 100%;
     width: 100%;
     box-sizing: border-box;
+    z-index: 2;
   }
   .pasos nav {
     position: relative;
@@ -664,7 +669,7 @@
 
 </style>
 
-<section class="Formulario">
+<section class="Formulario" bind:this={superior}>
 
   {#if !respuesta}
     {#if Array.isArray(pasos)}

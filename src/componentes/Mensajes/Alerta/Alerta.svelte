@@ -49,6 +49,9 @@
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .Alerta {
     position: relative;
     padding: var(--theme-espaciados-padding);
@@ -101,11 +104,11 @@
     margin-top: 0;
   }
   .Textos :global(span) {
-    color: inherit !important;
+    color: var(--theme-textos-alerta-color);
   }
   .Textos :global(a) {
     transition: 0.5s;
-    color: inherit !important;
+    color: var(--theme-textos-alerta-color);
   }
   .Textos :global(a:hover) {
     color: var(--theme-textos-alerta-enlace);
@@ -113,6 +116,7 @@
   .Cerrar {
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
   .Cerrar:hover {
     opacity: 0.75;
@@ -126,6 +130,9 @@
     border: 1px solid var(--theme-botones-alerta-uno-borde);
     color: var(--theme-botones-alerta-uno-texto);
     margin-right: var(--theme-espaciados-margen);
+  }
+  .Acciones :global(button:hover) {
+    opacity: 0.75rem;
   }
   .informacion {
     background-color: var(--theme-alertas-informacion);

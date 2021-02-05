@@ -176,11 +176,22 @@
     font-weight: inherit;
   }
   .instruccion {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0 0.5rem;
+    padding: 0 calc(var(--theme-campos-espacio) / 4);
+  }
+  .instruccion p {
+    font-size: 0.75rem;
+    /* font-size: var(--theme-textos-parrafo-tamanno); */
+    font-family: var(--theme-textos-parrafo-tipografia);
+    color: var(--theme-textos-parrafo-color);
+    font-weight: var(--theme-textos-parrafo-peso);
   }
   .instruccion :global(*) {
+    font-size: 0.75rem;
+    font-family: var(--theme-textos-parrafo-tipografia);
+    color: var(--theme-textos-parrafo-color);
+    font-weight: var(--theme-textos-parrafo-peso);
     color: #555;
-    font-size: 0.7rem;
   }
 </style>
 
