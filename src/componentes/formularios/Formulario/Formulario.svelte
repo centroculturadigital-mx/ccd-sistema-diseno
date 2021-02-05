@@ -173,11 +173,12 @@
         
       }
       
-    } else {
-
-      cambiarEstado( c.nombre, v )
-
     }
+    //  else {
+
+    cambiarEstado( c.nombre, v )
+
+    // }
 
     
     realizarCambioCampo(v, c);
@@ -213,11 +214,14 @@
                       
             campoPreparado = {
               ...campoPreparado,
+              // cambiar: v => cambiarCampo(c, v),
+
               datos: {
                 ...campoPreparado.datos,
                 campos: campoPreparado.datos.campos.map(cC=>({
                   ...cC,
                   valor: estado[cC.nombre],
+                  // cambiar: v => {}
                   cambiar: v => cambiarCampo(cC, v)
                 }))
                 // campos: campoPreparado.datos.campos.map(cC=>({
@@ -326,11 +330,12 @@
   )
   const multiCampoLleno = (campo, valor) => {
 
-
     if( campo && campo.tipo == "multicampo" && campo.datos && valor) {
-
+      console.log("mc", campo.nombre, valor[campo.nombre]);
+      
       const valoresCampos = campo.datos.campos.map(c=>valor[c.nombre])
-      console.log(valoresCampos, valoresCampos.includes(undefined));
+      
+      console.log("valoresCampos", valoresCampos, valoresCampos.includes(undefined));
 
       return ! valoresCampos.includes(undefined)
 
@@ -344,18 +349,19 @@
   }
 
   const calcularRequeridosVacios = (campos, datos) => {
-    
+
     if( campos.filter(c => !!c.requerido).length == 0 ) {
       return false
     }
 
 
-    // console.log("calcularRequeridosVacios", campos, datos);
+    console.log("crv", datos);
+
 
     const llenos = campos.filter(c => !!c.requerido)
       .filter(cR => (
         (
-          (!! datos[cR.nombre])
+          ( cR.tipo != "multicampo" && !! datos[cR.nombre])
           ||
           textoLleno(cR, datos[cR.nombre])
           ||
@@ -374,6 +380,7 @@
         )
     ) )
 
+    console.log("calcularRequeridosVacios", llenos.length, campos.filter(c => !!c.requerido).length);
 
     return (llenos.length < campos.filter(c => !!c.requerido).length);
   
@@ -445,6 +452,22 @@
     enviando = false
   }
 
+  const calcularErroresCampos = (campos) => campos.filter(c => !!c.error).length > 0
+
+  const calcularCamposCorrectos = (campos, datos) => {
+
+    console.log("errores", campos.map(c => c.error));
+
+    return ( Array.isArray(campos) && typeof datos == "object" ) &&
+    (    
+      (! calcularRequeridosVacios(campos, datos) )
+      &&
+      (! calcularErroresCampos( computarCampos(campos, datos) ) )
+    )
+    
+  }
+
+
   $: ( pasoActual > 0 || pasoActual === 0 )&& actualizarPantalla(pasoActual, camposMostrar);
 
   $: clasesContenedor = Array.isArray(pasos) && pasos.length > 0 ? 'paso paso_' + pasoActual : ''
@@ -452,20 +475,13 @@
 
   $: esHTML = isHTML(respuesta)
 
-  $: hayRequeridosVacios = calcularRequeridosVacios( camposMostrar, estado )
+  $: hayRequeridosVacios = ( ! pasos || ! Array.isArray(pasos) || pasos.length > 0) && calcularRequeridosVacios( camposMostrar, estado )
 
-  const calcularErroresCampos = (campos) => campos.filter(c => !!c.error).length > 0
 
   
-  const calcularCamposCorrectos = (campos, datos) => ( Array.isArray(campos) && typeof datos == "object" ) &&
-  (    
-    (! calcularRequeridosVacios(campos, datos) )
-    &&
-    (! calcularErroresCampos( computarCampos(campos, datos) ) )
-  )
-
 
   $: pasoActualCorrecto = (Array.isArray(pasos) && estado) && calcularCamposCorrectos(pasos[pasoActual ? pasoActual : 0].campos, estado)
+
   // $: pasoActualCorrecto = (Array.isArray(pasos) && estado && pasoActual) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
   
   
@@ -702,7 +718,7 @@
 
     {/if}
 
-    {#if Array.isArray(pasos)}
+      {#if Array.isArray(pasos)}
       <nav class="navegacion">
 
         <div class="regresa">

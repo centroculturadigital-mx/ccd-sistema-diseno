@@ -890,309 +890,309 @@ export const formularioWtf = () => ({
         componente: FormularioTester,
         datos: {
             "pasos": [
-            //   {
-            //     "id": "6019e9ccbdd691001939f6c3",
-            //     "nombre": "Identificación",
-            //     "campos": [
-            //       {
-            //         "tipo": "texto",
-            //         "instruccion": "Si no la recuerdas, consúltala <a href=\"https://www.gob.mx/curp/\" target=\"_blank\">aquí.</a>",
-            //         "opciones": [],
-            //         "nombre": "question-6019e9cbbdd691001939f69b",
-            //         "etiqueta": "1. ¿Cuál es tu CURP?",
-            //         "requerido": true
-            //       },
-            //       {
-            //         "tipo": "texto",
-            //         "instruccion": "Si no lo recuerdas, consúltala <a href=\"https://www.correosdemexico.gob.mx/SSLServicios/ConsultaCP/Descarga.aspx\" target=\"_blank\">aquí.</a>",
-            //         "opciones": [],
-            //         "nombre": "question-6019e9cbbdd691001939f69c",
-            //         "etiqueta": "2. ¿Cuál es tu código postal?",
-            //         "requerido": true
-            //       }
-            //     ]
-            //   },
-            //   {
-            //     "id": "6019e9ccbdd691001939f6c4",
-            //     "nombre": "Demográficos",
-            //     "campos": [
-            //       {
-            //         "tipo": "numero",
-            //         "instruccion": null,
-            //         "opciones": [],
-            //         "maximo": 10000,
-            //         "nombre": "question-6019e9cbbdd691001939f69a",
-            //         "etiqueta": "1. ¿Qué edad tienes?",
-            //         "requerido": true
-            //       },
-            //       {
-            //         "tipo": "casillas",
-            //         "instruccion": "Selecciona una opción",
-            //         "opciones": [
-            //           {
-            //             "id": "6019e9cbbdd691001939f5f7",
-            //             "valor": "6019e9cbbdd691001939f5f7",
-            //             "texto": "Mujer"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f5f8",
-            //             "valor": "6019e9cbbdd691001939f5f8",
-            //             "texto": "Hombre"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f5f9",
-            //             "valor": "6019e9cbbdd691001939f5f9",
-            //             "texto": "No binario"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f5fa",
-            //             "valor": "6019e9cbbdd691001939f5fa",
-            //             "texto": "Prefiero no decirlo"
-            //           }
-            //         ],
-            //         "datos": {
-            //           "tipo": "UNICO"
-            //         },
-            //         "nombre": "question-6019e9cbbdd691001939f6a0",
-            //         "etiqueta": "2. ¿Con qué género te identificas?",
-            //         "requerido": true
-            //       },
-            //       {
-            //         "tipo": "casillas",
-            //         "instruccion": "Selecciona todas las opciones que apliquen",
-            //         "opciones": [
-            //           {
-            //             "id": "6019e9cbbdd691001939f5fb",
-            //             "valor": "6019e9cbbdd691001939f5fb",
-            //             "texto": "Educación"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f5fc",
-            //             "valor": "6019e9cbbdd691001939f5fc",
-            //             "texto": "Artes y humanidades"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f5fd",
-            //             "valor": "6019e9cbbdd691001939f5fd",
-            //             "texto": "Ciencias sociales, administración, negocios y derecho"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f5fe",
-            //             "valor": "6019e9cbbdd691001939f5fe",
-            //             "texto": "Ciencias naturales"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f5ff",
-            //             "valor": "6019e9cbbdd691001939f5ff",
-            //             "texto": "Ciencias exactas, computación, informática y ciencia de datos"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f600",
-            //             "valor": "6019e9cbbdd691001939f600",
-            //             "texto": "Ingeniería, manufactura y construcción"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f601",
-            //             "valor": "6019e9cbbdd691001939f601",
-            //             "texto": "Agronomía y veterinaria"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f602",
-            //             "valor": "6019e9cbbdd691001939f602",
-            //             "texto": "Salud"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f603",
-            //             "valor": "6019e9cbbdd691001939f603",
-            //             "texto": "Servicios"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f604",
-            //             "valor": "6019e9cbbdd691001939f604",
-            //             "texto": "Ninguna"
-            //           }
-            //         ],
-            //         "nombre": "question-6019e9cbbdd691001939f6a2",
-            //         "etiqueta": "3. ¿Cuál es tu área de formación?",
-            //         "requerido": true
-            //       },
-            //       {
-            //         "tipo": "casillas",
-            //         "instruccion": "Selecciona una opción",
-            //         "opciones": [
-            //           {
-            //             "id": "6019e9cbbdd691001939f605",
-            //             "valor": "6019e9cbbdd691001939f605",
-            //             "texto": "Menos de un año"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f606",
-            //             "valor": "6019e9cbbdd691001939f606",
-            //             "texto": "Entre 1 y 5 años"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f607",
-            //             "valor": "6019e9cbbdd691001939f607",
-            //             "texto": "Entre 6 y 10 años"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f608",
-            //             "valor": "6019e9cbbdd691001939f608",
-            //             "texto": "Entre 11 y 15 años"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f609",
-            //             "valor": "6019e9cbbdd691001939f609",
-            //             "texto": "Entre 16 y 20 años"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f60a",
-            //             "valor": "6019e9cbbdd691001939f60a",
-            //             "texto": "Más de 20 años"
-            //           }
-            //         ],
-            //         "datos": {
-            //           "tipo": "UNICO"
-            //         },
-            //         "nombre": "question-6019e9cbbdd691001939f6a3",
-            //         "etiqueta": "4. ¿Cuántos años tienes de experiencia en el sector cultural-creativo?",
-            //         "requerido": true
-            //       },
-            //       {
-            //         "tipo": "casillas",
-            //         "instruccion": "Selecciona todas las opciones que apliquen",
-            //         "opciones": [
-            //           {
-            //             "id": "6019e9cbbdd691001939f60b",
-            //             "valor": "6019e9cbbdd691001939f60b",
-            //             "texto": "Seguro médico"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f60c",
-            //             "valor": "6019e9cbbdd691001939f60c",
-            //             "texto": "Seguro de vida "
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f60d",
-            //             "valor": "6019e9cbbdd691001939f60d",
-            //             "texto": "Fondo de ahorro "
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f60e",
-            //             "valor": "6019e9cbbdd691001939f60e",
-            //             "texto": "Cuenta de inversiones "
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f60f",
-            //             "valor": "6019e9cbbdd691001939f60f",
-            //             "texto": "AFOREs"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f610",
-            //             "valor": "6019e9cbbdd691001939f610",
-            //             "texto": "Ninguno"
-            //           }
-            //         ],
-            //         "nombre": "question-6019e9cbbdd691001939f6a4",
-            //         "etiqueta": "5. ¿Con cuáles de los siguientes servicios cuentas?",
-            //         "requerido": true
-            //       },
-            //       {
-            //         "tipo": "casillas",
-            //         "instruccion": "Selecciona todas las opciones que apliquen.",
-            //         "opciones": [
-            //           {
-            //             "id": "6019e9cbbdd691001939f611",
-            //             "valor": "6019e9cbbdd691001939f611",
-            //             "texto": "Ninguna"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f612",
-            //             "valor": "6019e9cbbdd691001939f612",
-            //             "texto": "Náhuatl"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f613",
-            //             "valor": "6019e9cbbdd691001939f613",
-            //             "texto": "Maya"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f614",
-            //             "valor": "6019e9cbbdd691001939f614",
-            //             "texto": "Tseltal"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f615",
-            //             "valor": "6019e9cbbdd691001939f615",
-            //             "texto": "Mixteco"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f616",
-            //             "valor": "6019e9cbbdd691001939f616",
-            //             "texto": "Tsotsil"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f617",
-            //             "valor": "6019e9cbbdd691001939f617",
-            //             "texto": "Zapoteco"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f618",
-            //             "valor": "6019e9cbbdd691001939f618",
-            //             "texto": "Otomí"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f619",
-            //             "valor": "6019e9cbbdd691001939f619",
-            //             "texto": "Totonaco"
-            //           }
-            //         ],
-            //         "datos": {
-            //           "tipo": "MULTIPLE_OTRA"
-            //         },
-            //         "nombre": "question-6019e9cbbdd691001939f6a6",
-            //         "etiqueta": "6. ¿Hablas alguna de las siguientes lenguas indígenas?",
-            //         "requerido": true
-            //       },
-            //       {
-            //         "tipo": "casillas",
-            //         "instruccion": "Selecciona todas las opciones que apliquen.",
-            //         "opciones": [
-            //           {
-            //             "id": "6019e9cbbdd691001939f61a",
-            //             "valor": "6019e9cbbdd691001939f61a",
-            //             "texto": "No"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f61b",
-            //             "valor": "6019e9cbbdd691001939f61b",
-            //             "texto": "Auditiva"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f61c",
-            //             "valor": "6019e9cbbdd691001939f61c",
-            //             "texto": "Visual "
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f61d",
-            //             "valor": "6019e9cbbdd691001939f61d",
-            //             "texto": "Motriz"
-            //           },
-            //           {
-            //             "id": "6019e9cbbdd691001939f61e",
-            //             "valor": "6019e9cbbdd691001939f61e",
-            //             "texto": "Intelectual"
-            //           }
-            //         ],
-            //         "datos": {
-            //           "tipo": "MULTIPLE_OTRA"
-            //         },
-            //         "nombre": "question-6019e9cbbdd691001939f6a5",
-            //         "etiqueta": "7. ¿Vives con alguna discapacidad?",
-            //         "requerido": true
-            //       }
-            //     ]
-            //   },
+              {
+                "id": "6019e9ccbdd691001939f6c3",
+                "nombre": "Identificación",
+                "campos": [
+                  {
+                    "tipo": "texto",
+                    "instruccion": "Si no la recuerdas, consúltala <a href=\"https://www.gob.mx/curp/\" target=\"_blank\">aquí.</a>",
+                    "opciones": [],
+                    "nombre": "question-6019e9cbbdd691001939f69b",
+                    "etiqueta": "1. ¿Cuál es tu CURP?",
+                    "requerido": true
+                  },
+                  {
+                    "tipo": "texto",
+                    "instruccion": "Si no lo recuerdas, consúltala <a href=\"https://www.correosdemexico.gob.mx/SSLServicios/ConsultaCP/Descarga.aspx\" target=\"_blank\">aquí.</a>",
+                    "opciones": [],
+                    "nombre": "question-6019e9cbbdd691001939f69c",
+                    "etiqueta": "2. ¿Cuál es tu código postal?",
+                    "requerido": true
+                  }
+                ]
+              },
+              {
+                "id": "6019e9ccbdd691001939f6c4",
+                "nombre": "Demográficos",
+                "campos": [
+                  {
+                    "tipo": "numero",
+                    "instruccion": null,
+                    "opciones": [],
+                    "maximo": 10000,
+                    "nombre": "question-6019e9cbbdd691001939f69a",
+                    "etiqueta": "1. ¿Qué edad tienes?",
+                    "requerido": true
+                  },
+                  {
+                    "tipo": "casillas",
+                    "instruccion": "Selecciona una opción",
+                    "opciones": [
+                      {
+                        "id": "6019e9cbbdd691001939f5f7",
+                        "valor": "6019e9cbbdd691001939f5f7",
+                        "texto": "Mujer"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f5f8",
+                        "valor": "6019e9cbbdd691001939f5f8",
+                        "texto": "Hombre"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f5f9",
+                        "valor": "6019e9cbbdd691001939f5f9",
+                        "texto": "No binario"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f5fa",
+                        "valor": "6019e9cbbdd691001939f5fa",
+                        "texto": "Prefiero no decirlo"
+                      }
+                    ],
+                    "datos": {
+                      "tipo": "UNICO"
+                    },
+                    "nombre": "question-6019e9cbbdd691001939f6a0",
+                    "etiqueta": "2. ¿Con qué género te identificas?",
+                    "requerido": true
+                  },
+                  {
+                    "tipo": "casillas",
+                    "instruccion": "Selecciona todas las opciones que apliquen",
+                    "opciones": [
+                      {
+                        "id": "6019e9cbbdd691001939f5fb",
+                        "valor": "6019e9cbbdd691001939f5fb",
+                        "texto": "Educación"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f5fc",
+                        "valor": "6019e9cbbdd691001939f5fc",
+                        "texto": "Artes y humanidades"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f5fd",
+                        "valor": "6019e9cbbdd691001939f5fd",
+                        "texto": "Ciencias sociales, administración, negocios y derecho"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f5fe",
+                        "valor": "6019e9cbbdd691001939f5fe",
+                        "texto": "Ciencias naturales"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f5ff",
+                        "valor": "6019e9cbbdd691001939f5ff",
+                        "texto": "Ciencias exactas, computación, informática y ciencia de datos"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f600",
+                        "valor": "6019e9cbbdd691001939f600",
+                        "texto": "Ingeniería, manufactura y construcción"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f601",
+                        "valor": "6019e9cbbdd691001939f601",
+                        "texto": "Agronomía y veterinaria"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f602",
+                        "valor": "6019e9cbbdd691001939f602",
+                        "texto": "Salud"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f603",
+                        "valor": "6019e9cbbdd691001939f603",
+                        "texto": "Servicios"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f604",
+                        "valor": "6019e9cbbdd691001939f604",
+                        "texto": "Ninguna"
+                      }
+                    ],
+                    "nombre": "question-6019e9cbbdd691001939f6a2",
+                    "etiqueta": "3. ¿Cuál es tu área de formación?",
+                    "requerido": true
+                  },
+                  {
+                    "tipo": "casillas",
+                    "instruccion": "Selecciona una opción",
+                    "opciones": [
+                      {
+                        "id": "6019e9cbbdd691001939f605",
+                        "valor": "6019e9cbbdd691001939f605",
+                        "texto": "Menos de un año"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f606",
+                        "valor": "6019e9cbbdd691001939f606",
+                        "texto": "Entre 1 y 5 años"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f607",
+                        "valor": "6019e9cbbdd691001939f607",
+                        "texto": "Entre 6 y 10 años"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f608",
+                        "valor": "6019e9cbbdd691001939f608",
+                        "texto": "Entre 11 y 15 años"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f609",
+                        "valor": "6019e9cbbdd691001939f609",
+                        "texto": "Entre 16 y 20 años"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f60a",
+                        "valor": "6019e9cbbdd691001939f60a",
+                        "texto": "Más de 20 años"
+                      }
+                    ],
+                    "datos": {
+                      "tipo": "UNICO"
+                    },
+                    "nombre": "question-6019e9cbbdd691001939f6a3",
+                    "etiqueta": "4. ¿Cuántos años tienes de experiencia en el sector cultural-creativo?",
+                    "requerido": true
+                  },
+                  {
+                    "tipo": "casillas",
+                    "instruccion": "Selecciona todas las opciones que apliquen",
+                    "opciones": [
+                      {
+                        "id": "6019e9cbbdd691001939f60b",
+                        "valor": "6019e9cbbdd691001939f60b",
+                        "texto": "Seguro médico"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f60c",
+                        "valor": "6019e9cbbdd691001939f60c",
+                        "texto": "Seguro de vida "
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f60d",
+                        "valor": "6019e9cbbdd691001939f60d",
+                        "texto": "Fondo de ahorro "
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f60e",
+                        "valor": "6019e9cbbdd691001939f60e",
+                        "texto": "Cuenta de inversiones "
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f60f",
+                        "valor": "6019e9cbbdd691001939f60f",
+                        "texto": "AFOREs"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f610",
+                        "valor": "6019e9cbbdd691001939f610",
+                        "texto": "Ninguno"
+                      }
+                    ],
+                    "nombre": "question-6019e9cbbdd691001939f6a4",
+                    "etiqueta": "5. ¿Con cuáles de los siguientes servicios cuentas?",
+                    "requerido": true
+                  },
+                  {
+                    "tipo": "casillas",
+                    "instruccion": "Selecciona todas las opciones que apliquen.",
+                    "opciones": [
+                      {
+                        "id": "6019e9cbbdd691001939f611",
+                        "valor": "6019e9cbbdd691001939f611",
+                        "texto": "Ninguna"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f612",
+                        "valor": "6019e9cbbdd691001939f612",
+                        "texto": "Náhuatl"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f613",
+                        "valor": "6019e9cbbdd691001939f613",
+                        "texto": "Maya"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f614",
+                        "valor": "6019e9cbbdd691001939f614",
+                        "texto": "Tseltal"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f615",
+                        "valor": "6019e9cbbdd691001939f615",
+                        "texto": "Mixteco"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f616",
+                        "valor": "6019e9cbbdd691001939f616",
+                        "texto": "Tsotsil"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f617",
+                        "valor": "6019e9cbbdd691001939f617",
+                        "texto": "Zapoteco"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f618",
+                        "valor": "6019e9cbbdd691001939f618",
+                        "texto": "Otomí"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f619",
+                        "valor": "6019e9cbbdd691001939f619",
+                        "texto": "Totonaco"
+                      }
+                    ],
+                    "datos": {
+                      "tipo": "MULTIPLE_OTRA"
+                    },
+                    "nombre": "question-6019e9cbbdd691001939f6a6",
+                    "etiqueta": "6. ¿Hablas alguna de las siguientes lenguas indígenas?",
+                    "requerido": true
+                  },
+                  {
+                    "tipo": "casillas",
+                    "instruccion": "Selecciona todas las opciones que apliquen.",
+                    "opciones": [
+                      {
+                        "id": "6019e9cbbdd691001939f61a",
+                        "valor": "6019e9cbbdd691001939f61a",
+                        "texto": "No"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f61b",
+                        "valor": "6019e9cbbdd691001939f61b",
+                        "texto": "Auditiva"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f61c",
+                        "valor": "6019e9cbbdd691001939f61c",
+                        "texto": "Visual "
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f61d",
+                        "valor": "6019e9cbbdd691001939f61d",
+                        "texto": "Motriz"
+                      },
+                      {
+                        "id": "6019e9cbbdd691001939f61e",
+                        "valor": "6019e9cbbdd691001939f61e",
+                        "texto": "Intelectual"
+                      }
+                    ],
+                    "datos": {
+                      "tipo": "MULTIPLE_OTRA"
+                    },
+                    "nombre": "question-6019e9cbbdd691001939f6a5",
+                    "etiqueta": "7. ¿Vives con alguna discapacidad?",
+                    "requerido": true
+                  }
+                ]
+              },
               {
                 "id": "6019e9ccbdd691001939f6c5",
                 "nombre": "Práctica profesional y proyectos",

@@ -71,8 +71,8 @@
   const cambiarMultiCampo = (datos, campo) => {
 
     if (typeof valorMultiCampo == "object") {
-      // valorMultiCampo[campo.nombre] = datos;
-      console.log("cambiar", datos, campo.nombre, valorMultiCampo );
+      valorMultiCampo[campo.nombre] = datos;
+      // console.log("cambiarMultiCampo", datos, campo.nombre, valorMultiCampo );
       cambiarAccion(valorMultiCampo);
     }
   };
@@ -93,7 +93,17 @@
             ...campo,
             // valor: valorMultiCampo[campo.nombre],
             // cambiar: datos => setTimeout(()=>cambiarMultiCampo( datos, campo ), 400)
-          // cambiar: datos => cambiarMultiCampo(datos, campo)
+          cambiar: datos => {
+            
+
+            // ejecutar accion para conjunto de sub-campos
+            cambiarMultiCampo(datos, campo)
+
+            // ejecutar accion de sub-campo
+            campo.cambiar(datos)
+            
+
+          }
         }))
         : []
     }
