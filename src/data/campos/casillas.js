@@ -19,6 +19,7 @@ export default {
     })),
     // valorEstatico: "",
     // validacion: "",
-    cambiar: datos=>console.log("Campo casillas datos", datos),
+    // cambiar: datos=>console.log("Campo casillas datos", datos),
+    cambiar: datos=>{},
 
 }

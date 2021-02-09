@@ -295,14 +295,67 @@ export const formularioCasilla = () => ({
             campos: [
                 {
                     ...casilla,
-                    requerido: true                    
-                },
-                
+                    valor: false,
+                    requerido: false,
+                    validacion: null
+                },                
             ],
             enviar: datos => console.log("Enviaste formulario", datos),
         }
     },
 });
+
+export const formularioCasillaObligatoria = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...casilla,
+                    valor: false,
+                    requerido: true,
+                    validacion: null
+                },                
+            ],
+            enviar: datos => console.log("Enviaste formulario", datos),
+        }
+    },
+});
+
+export const formularioCasillaValidacion = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...casilla,
+                    valor: false,
+                    requerido: true                },                
+            ],
+            enviar: datos => console.log("Enviaste formulario", datos),
+        }
+    },
+});
+
+export const formularioCasillaEncendida = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...casilla,
+                    valor: true                 
+                },                
+            ],
+            enviar: datos => console.log("Enviaste formulario", datos),
+        }
+    },
+});
+
+
 
 
 export const formularioCasillas = () => ({
@@ -364,6 +417,36 @@ export const formularioCasillas = () => ({
         }
     },
 });
+
+
+export const formularioCasillasMaximo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...casillas,
+                    nombre: "casillasMultiple",
+                    etiqueta: "Opción múltiple, máximo 3",
+                    indicacion: "Elige máximo 3 opciones",
+                    tipo: "casillas",
+                    datos: {
+                        tipo: "MULTIPLE_MAXIMO",
+                        datos: {
+                          maximo: 3
+                        }
+                    },
+                    valor: [
+                        ...new Array(13).fill(false),                        
+                    ]
+                }
+            ],
+            enviar: datos => console.log("Enviaste formulario", datos),
+        }
+    },
+});
+
 
 
 export const formularioPasosCasillas = () => ({

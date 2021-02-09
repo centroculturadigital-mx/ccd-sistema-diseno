@@ -167,7 +167,6 @@
       if(subpreguntaPar) {
 
         
-        // console.log("cambiarCampo", c.nombre, subpreguntaPar[0], subpreguntaPar[1] );
         
         cambiarEstado( subpreguntaPar[0], subpreguntaPar[1] )
         
@@ -252,7 +251,6 @@
       })
       .filter(c => !!c);
 
-      // console.log("camposPreparados", camposPreparados);
 
     return camposPreparados;
   };
@@ -331,11 +329,9 @@
   const multiCampoLleno = (campo, valor) => {
 
     if( campo && campo.tipo == "multicampo" && campo.datos && valor) {
-      console.log("mc", campo.nombre, valor[campo.nombre]);
       
       const valoresCampos = campo.datos.campos.map(c=>valor[c.nombre])
       
-      console.log("valoresCampos", valoresCampos, valoresCampos.includes(undefined));
 
       return ! valoresCampos.includes(undefined)
 
@@ -355,7 +351,6 @@
     }
 
 
-    console.log("crv", datos);
 
 
     const llenos = campos.filter(c => !!c.requerido)
@@ -380,7 +375,6 @@
         )
     ) )
 
-    console.log("calcularRequeridosVacios", llenos.length, campos.filter(c => !!c.requerido).length);
 
     return (llenos.length < campos.filter(c => !!c.requerido).length);
   
@@ -459,7 +453,6 @@
 
   const calcularCamposCorrectos = (campos, datos) => {
 
-    console.log("errores", campos.map(c => c.error));
 
     return ( Array.isArray(campos) && typeof datos == "object" ) &&
     (    

@@ -4,6 +4,9 @@
     
     export let opciones=[];
     export let tipo = "MULTIPLE";
+    
+    export let datos = {};
+
     export let cambiar;
     export let nombre;
     export let valor;
@@ -55,7 +58,29 @@
                 }
                 
                 break;
-                
+
+            case "MULTIPLE_MAXIMO":
+
+                if( Array.isArray(v)) {
+                    
+                    valorLocal = v
+
+                } else {
+                    if( Array.isArray(valorLocal)) {
+                        // si la intención de usuarix es activar casilla,
+                        // if( !valorLocal[v] ) {
+                            // revisar si cantidad de elementos positivos es superior a cantidad máxima
+                            const numActivos = valorLocal.reduce((acc,v)=> ( acc + (v ? 1 : 0 )), 0 )
+                            valorLocal[v] = ( (! isNaN(datos.maximo)) && numActivos < datos.maximo) ;
+                            console.log("numActivos", numActivos+1, valorLocal);
+                            
+
+                        // } 
+                        valorLocal = valorLocal
+                    }
+                }
+                break;
+
             case "MULTIPLE_OTRA":               
                 if( typeof v == "number" ) {
                     if( Array.isArray(valorLocal)) {
@@ -72,7 +97,6 @@
                 }    
                 break;
             default:
-                
                 valorLocal = v;
         }
     
@@ -81,11 +105,15 @@
 
     const prepararArreglo = opciones => {
         if( ! Array.isArray(valorLocal) ) {
-            if( tipo == "MULTIPLE" ) {
-                valorLocal = new Array(opciones.length).fill(false);
-            }
-            if( tipo == "MULTIPLE_OTRA" ) {
-                valorLocal = new Array(opciones.length+1).fill(false).map((e,i)=>({ id: i, valor: false}));
+            switch(tipo) {
+
+                case "MULTIPLE_OTRA":
+                    valorLocal = new Array(opciones.length+1).fill(false).map((e,i)=>({ id: i, valor: false}));
+                    break;
+                default:
+                    valorLocal = new Array(opciones.length).fill(false);
+                    break;
+
             }
         }
     }
@@ -113,8 +141,8 @@
                 }
                 break;
                 
-            case "MULTIPLE":
-            // default:
+            // case "MULTIPLE":
+            default:
                 if( Array.isArray(v) ) {
                     valoresCasillas = v
                 }
