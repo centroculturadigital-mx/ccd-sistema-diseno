@@ -227,7 +227,8 @@
   }
   .ver :global(svg) {
     stroke-width: 1px;
-    fill: gray
+    fill: gray;
+    opacity: 0.5;
   }
 </style>
 
