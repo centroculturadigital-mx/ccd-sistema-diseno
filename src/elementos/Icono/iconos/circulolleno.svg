@@ -9,46 +9,8 @@
    width="24"
    height="24"
    viewBox="0 0 24 24"
-   fill="none"
-   version="1.1"
-   id="svg4"
-   sodipodi:docname="circulolleno.svg"
-   inkscape:version="1.0.1 (0767f8302a, 2020-10-17)">
-  <metadata
-     id="metadata10">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs8" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="704"
-     id="namedview6"
-     showgrid="false"
-     inkscape:zoom="11.458333"
-     inkscape:cx="12.4206"
-     inkscape:cy="11.577067"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg4"
-     inkscape:document-rotation="0" />
+
+>
   <circle
      cx="12"
      cy="12"
@@ -57,55 +19,7 @@
      stroke="#212121"
      stroke-width="1.5"
      id="circle2" />
-  <ellipse
-     id="path40"
-     cx="12.066923"
-     cy="12.096545"
-     rx="6.0709691"
-     ry="6.2685523" />
-  <ellipse
-     id="path42"
-     cx="-15.438229"
-     cy="6.6441612"
-     rx="4.0490685"
-     ry="5.9806004" />
-  <path
-     id="path47"
-     sodipodi:type="arc"
-     sodipodi:cx="-12.616488"
-     sodipodi:cy="12.046978"
-     sodipodi:rx="2.6227081"
-     sodipodi:ry="6.9006405"
-     sodipodi:start="0"
-     sodipodi:end="3.1637833"
-     sodipodi:arc-type="slice"
-     d="m -9.9937804,12.046978 a 2.6227081,6.9006405 0 0 1 -1.3281906,6.001488 2.6227081,6.9006405 0 0 1 -2.639328,-0.07705 2.6227081,6.9006405 0 0 1 -1.277252,-6.077552 l 2.622063,0.153117 z" />
-  <circle
-     id="path49"
-     sodipodi:type="arc"
-     sodipodi:cx="-9.2677965"
-     sodipodi:cy="2.8783035"
-     sodipodi:rx="3.2392683"
-     sodipodi:ry="2.0019779"
-     sodipodi:start="0"
-     sodipodi:end="3.1637758"
-     sodipodi:arc-type="slice"
-     d="m -6.0285282,2.8783035 a 3.2392683,2.0019779 0 0 1 -1.6404216,1.741118 3.2392683,2.0019779 0 0 1 -3.2597892,-0.022347 3.2392683,2.0019779 0 0 1 -1.577529,-1.7631778 l 3.2384715,0.044407 z" />
-  <circle
-     id="path51"
-     sodipodi:type="arc"
-     sodipodi:cx="11.132108"
-     sodipodi:cy="12.057736"
-     sodipodi:rx="6.9484529"
-     sodipodi:ry="4.6841202"
-     sodipodi:start="0"
-     sodipodi:end="3.1637758"
-     sodipodi:arc-type="slice"
-     d="M 18.080561,12.057736 A 6.9484529,4.6841202 0 0 1 14.561744,16.13151 6.9484529,4.6841202 0 0 1 7.5692725,16.079225 6.9484529,4.6841202 0 0 1 4.1853644,11.953836 l 6.9467436,0.1039 z" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="Layer 1" />
+
   <circle
      cx="12.074139"
      cy="11.999322"
