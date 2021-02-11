@@ -42,6 +42,9 @@
   button :global(.iconoContenedor) {
     flex-shrink: 0;
   }
+  button :global(.circulolleno) {
+    fill: transparent !important;
+  }
   .apagado :global(svg) {
     fill: white !important;
   }
