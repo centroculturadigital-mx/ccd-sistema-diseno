@@ -84,7 +84,7 @@
         numero: valorNumero
     }
 
-    $: accionTipo = tipo == "circulo" ? node => {
+    $: accionTipo = tipo == "CIRCULO" ? node => {
       node.type = 'radio'
     } : node => { 
       node.type = 'checkbox'

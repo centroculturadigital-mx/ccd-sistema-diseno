@@ -34,7 +34,7 @@ export const casillaCirculoTextoValor = () => ({
     props: {
         componente: CasillaTexto,
         datos: {
-            tipo: "circulo",
+            tipo: "CIRCULO",
             texto: "Otra",
             nombre: "unCampo",
             valor: "Un valor",

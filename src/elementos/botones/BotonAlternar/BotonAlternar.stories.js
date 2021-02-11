@@ -9,7 +9,7 @@ export const botonAlternarDefault = () => ({
     props: {
         componente: BotonAlternar,
         datos: {
-            tipo: "casilla",
+            tipo: "CASILLA",
             texto: "Alternar",
             click: () => console.log("Está apagado")
         }
@@ -51,7 +51,7 @@ export const botonAlternarTipoCirculo = () => ({
     props: {
         componente: BotonAlternarProbar,
         datos: {
-            tipo: "circulo",
+            tipo: "CIRCULO",
             texto: "Este es un 'Radio Button'",
             click: (estado) => console.log("estado", estado)
         }

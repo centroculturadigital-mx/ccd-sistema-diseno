@@ -7,10 +7,10 @@ export default { title: 'Elementos/Formularios/Entrada/Casillas' }
 
 
 
-const opciones = new Array(13).fill(true).map((o,i)=>({
-    id: "OPC"+i,
-    texto: "Opción " + (i+1),
-    click: () => console.log("Click casilla",i),
+const opciones = new Array(13).fill(true).map((o, i) => ({
+    id: "OPC" + i,
+    texto: "Opción " + (i + 1),
+    click: () => console.log("Click casilla", i),
 }))
 
 
@@ -34,7 +34,7 @@ export const casillasValor = () => ({
         datos: {
             opciones,
             nombre: "unCampo",
-            valor: opciones.map(o=>Math.random()>0.5),
+            valor: opciones.map(o => Math.random() > 0.5),
             cambiar: valor => console.log("cambiar", valor)
         }
     }
@@ -97,7 +97,7 @@ export const casillasMultipleOtra = () => ({
         datos: {
             opciones,
             valor: [
-                ...opciones.map((o,i)=>({ id: i, valor: Math.random()>0.5 })),
+                ...opciones.map((o, i) => ({ id: i, valor: Math.random() > 0.5 })),
                 {
                     id: opciones.length,
                     valor: true,
@@ -110,4 +110,3 @@ export const casillasMultipleOtra = () => ({
         }
     }
 });
-

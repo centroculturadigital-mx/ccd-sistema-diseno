@@ -19,7 +19,7 @@
 
   $: clases = `BotonAlternar ${estado ? "encendido" : "apagado"}`;
   
-  $: imagen = tipo == "circulo" ? radio : caja ;
+  $: imagen = tipo == "CIRCULO" ? radio : caja ;
   
 </script>
 
