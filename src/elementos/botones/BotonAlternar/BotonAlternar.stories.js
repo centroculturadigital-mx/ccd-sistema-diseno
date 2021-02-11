@@ -9,6 +9,7 @@ export const botonAlternarDefault = () => ({
     props: {
         componente: BotonAlternar,
         datos: {
+            tipo: "casilla",
             texto: "Alternar",
             click: () => console.log("Está apagado")
         }
@@ -41,6 +42,17 @@ export const botonAlternarTextoLargo = () => ({
         componente: BotonAlternarProbar,
         datos: {
             texto: "Lorem ipsum dolor si amet precialis ember doritum ges un it volare oscilis cuadrato ltio ritah signoru, sobrilisti uncamini dotin. Lorem ipsum dolor si amet precialis ember doritum ges un it volare oscilis cuadrato ltio ritah signoru, sobrilisti uncamini dotin",
+            click: (estado) => console.log("estado", estado)
+        }
+    }
+});
+export const botonAlternarTipoCirculo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonAlternarProbar,
+        datos: {
+            tipo: "circulo",
+            texto: "Este es un 'Radio Button'",
             click: (estado) => console.log("estado", estado)
         }
     }

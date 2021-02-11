@@ -5,6 +5,7 @@
     
     export let texto;
     export let click;
+    export let tipo;
 
     let estado = false
 
@@ -21,5 +22,6 @@
 <BotonAlternar
     {texto}
     {estado}
+    {tipo}
     click={clickAccion}
 />

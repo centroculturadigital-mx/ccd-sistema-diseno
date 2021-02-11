@@ -6,7 +6,13 @@
     export let texto;
     export let cambiar;
     export let apagable = true;
+    export let tipo = "checkbox";
 
+    // TODO:     
+    // Agregar prop tipo
+    // segun tipo, elegir input type=checkbox vs input type=radio
+    // segun tipo, colocar svg distinto
+    // en Casillas, pasar este prop a Casilla
 
     // TODO: implementar deshabilitado
     // export let deshabilitado
