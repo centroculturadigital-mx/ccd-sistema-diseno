@@ -11,7 +11,7 @@ export const casillaTextoNumeroDefault = () => ({
             nombre: "unCampo",
             valor: null,
             click: () => console.log("Click casillaTextoNumero"),
-            cambiar: valor => console.log("cambiar",valor)
+            cambiar: valor => console.log("cambiar", valor)
         }
     }
 });
@@ -20,14 +20,30 @@ export const casillaTextoNumeroValor = () => ({
     Component: ThemeTester,
     props: {
         componente: CasillaTextoNumero,
-        datos: {                        
+        datos: {
             nombre: "unCampo",
             valor: {
                 texto: "Lorem ipsum",
                 numero: 66,
             },
             click: () => console.log("Click casillaTextoNumero"),
-            cambiar: valor => console.log("cambiar",valor)
+            cambiar: valor => console.log("cambiar", valor)
+        }
+    }
+});
+export const casillaCirculoTextoNumeroValor = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: CasillaTextoNumero,
+        datos: {
+            nombre: "unCampo",
+            valor: {
+                texto: "Lorem ipsum",
+                numero: 66,
+            },
+            tipo: "circulo",
+            click: () => console.log("Click casillaTextoNumero"),
+            cambiar: valor => console.log("cambiar", valor)
         }
     }
 });

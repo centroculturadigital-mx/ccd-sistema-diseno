@@ -5,6 +5,7 @@
     export let texto="Otra:";
     export let valor;
     export let cambiar;
+    export let tipo;
 
     // TODO: implementar deshabilitado
     // export let deshabilitado
@@ -79,7 +80,11 @@
         texto: valorTexto
     }
 
-
+    $: accionTipo = tipo == "circulo" ? node => {
+      node.type = 'radio'
+    } : node => { 
+      node.type = 'checkbox'
+    }
 
 </script>
 
@@ -111,10 +116,11 @@
 
 <div class="CasillaTexto">
 
-    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorEstado} type="checkbox"/>
+    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorEstado} use:accionTipo/>
 
     <BotonAlternar
         {texto}
+        {tipo}
         estado={!!valorLocal.valor}
         click={cambiarValor}
     />

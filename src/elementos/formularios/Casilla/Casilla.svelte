@@ -6,7 +6,7 @@
     export let texto;
     export let cambiar;
     export let apagable = true;
-    export let tipo = "checkbox";
+    export let tipo;
 
     // TODO:     
     // Agregar prop tipo
@@ -68,6 +68,13 @@
 
     $: valorLocal = valor
 
+    // 
+    $: accionTipo = tipo == "circulo" ? node => {
+      node.type = 'radio'
+    } : node => { 
+      node.type = 'checkbox'
+    }
+
 </script>
 
 
@@ -91,10 +98,11 @@
 
 <div class="Casilla">
 
-    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorLocal} type="checkbox"/>
+    <input name={nombre} class="{tipo == 'circulo' ? "circulo" : "checkbox"} oculto" bind:this={inputOculto} bind:value={valorLocal} use:accionTipo/>
 
     <BotonAlternar
         {texto}
+        {tipo}
         estado={valorLocal}
         click={cambiarAccion}
     />
