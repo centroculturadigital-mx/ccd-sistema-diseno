@@ -73,7 +73,7 @@
                             // revisar si cantidad de elementos positivos es superior a cantidad máxima
                             const numActivos = valorLocal.reduce((acc,v)=> ( acc + (v ? 1 : 0 )), 0 )
                             valorLocal[v] = ( (! isNaN(datos.maximo)) && numActivos < datos.maximo) ;
-                            console.log("numActivos", numActivos+1, valorLocal);
+                            console.log("numActivos", numActivos, valorLocal);
                             
 
                         // } 
@@ -137,7 +137,7 @@
                 
                 case "UNICO_OTRA":
                     valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
-                    tipoCasillas = "CIRCULO";
+                    slack = "CIRCULO";
                 break;
                 
             case "MULTIPLE_OTRA":
@@ -163,7 +163,7 @@
         setTimeout(()=>{
 
 
-            console.log("valoresCasillas", valoresCasillas);
+            // console.log("valoresCasillas", valoresCasillas);
 
             casillas = Array.isArray(opciones)
             ? opciones.map((o,i)=>{
