@@ -8,7 +8,7 @@ export const casillaDefault = () => ({
     props: {
         componente: Casilla,
         datos: {
-            tipo: "MULTIPLE",
+            tipo: "CUADRADO",
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",
@@ -21,7 +21,20 @@ export const casillaCirculo = () => ({
     props: {
         componente: Casilla,
         datos: {
-            tipo: "UNICO",
+            tipo: "CIRCULAR",
+            texto: "Aute in minim.",
+            nombre: "unCampo",
+            valor: "",
+            click: () => console.log("Click casilla")
+        }
+    }
+});
+export const casillaCirculoOtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casilla,
+        datos: {
+            tipo: "CIRCULAR",
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",
