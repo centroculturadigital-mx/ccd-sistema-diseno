@@ -41,7 +41,7 @@ export const casillaCirculoTextoNumeroValor = () => ({
                 texto: "Lorem ipsum",
                 numero: 66,
             },
-            tipo: "CIRCULO",
+            tipo: "CIRCULAR",
             click: () => console.log("Click casillaTextoNumero"),
             cambiar: valor => console.log("cambiar", valor)
         }

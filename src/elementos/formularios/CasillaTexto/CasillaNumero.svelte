@@ -84,10 +84,10 @@
         numero: valorNumero
     }
 
-    $: accionTipo = tipo == "CIRCULO" ? node => {
-      node.type = 'radio'
+    $: accionTipo = tipo == "UNICO" || "UNICO_OTRA" ? node => {
+        node.type = 'radio' 
     } : node => { 
-      node.type = 'checkbox'
+        node.type = 'checkbox'
     }
 
 </script>

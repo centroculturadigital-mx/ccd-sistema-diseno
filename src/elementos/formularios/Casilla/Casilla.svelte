@@ -6,7 +6,7 @@
     export let texto;
     export let cambiar;
     export let apagable = true;
-    export let tipo = "MULTIPLE";
+    export let tipo;
 
     // TODO:     
     // Agregar prop tipo
@@ -75,6 +75,8 @@
         node.type = 'checkbox'
     }
 
+    $: console.log("TIPO:::", tipo);
+
 </script>
 
 
@@ -102,7 +104,7 @@
 
     <BotonAlternar
         {texto}
-        tipo={tipo == "UNICO" || tipo == "UNICO_OTRA" ? 'CIRCULAR' : 'CUADRADO' }
+        {tipo}
         estado={valorLocal}
         click={cambiarAccion}
     />
