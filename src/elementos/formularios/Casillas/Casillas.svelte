@@ -96,26 +96,21 @@
         
         let valoresCasillas
         
-        let tipoCasillas
-        
         switch( tipo ) {
             
             case "UNICO":
                 // if(typeof v == "number" || v === 0 ) {
                     valoresCasillas = new Array(opciones.length).fill(false).map((e,i)=>i==v)
                 // }
-                tipoCasillas = "CIRCULO";
                 break;         
                 
                 case "UNICO_OTRA":
                     valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
-                    tipoCasillas = "CIRCULO";
                 break;
                 
             case "MULTIPLE_OTRA":
                 if( Array.isArray(v) ) {
                     valoresCasillas = v.map(e=>e.valor)
-                    tipoCasillas = "CUADRADO";
                 }
                 break;
                 
@@ -123,7 +118,6 @@
             // default:
                 if( Array.isArray(v) ) {
                     valoresCasillas = v
-                    tipoCasillas = "CUADRADO";
                 }
                 break;
         }
@@ -136,7 +130,7 @@
 
                 return ({
                     ...o,
-                    tipo: tipoCasillas,
+                    tipo,
                     valor: valoresCasillas[i],
                     apagable: tipo != "UNICO",
                     // click: ()=>cambiarAccion(o)

@@ -6,7 +6,7 @@
     export let texto;
     export let cambiar;
     export let apagable = true;
-    export let tipo;
+    export let tipo = "MULTIPLE";
 
     // TODO:     
     // Agregar prop tipo
@@ -68,11 +68,11 @@
 
     $: valorLocal = valor
 
-    // 
-    $: accionTipo = tipo == "CIRCULO" ? node => {
-      node.type = 'radio'
+    //
+    $: accionTipo = tipo == "UNICO" || "UNICO_OTRA" ? node => {
+        node.type = 'radio' 
     } : node => { 
-      node.type = 'checkbox'
+        node.type = 'checkbox'
     }
 
 </script>
@@ -98,11 +98,11 @@
 
 <div class="Casilla">
 
-    <input name={nombre} class="{tipo == 'CIRCULO' ? "CIRCULO" : "checkbox"} oculto" bind:this={inputOculto} bind:value={valorLocal} use:accionTipo/>
+    <input name={nombre} class="{tipo == "UNICO" || "UNICO_OTRA" ? "circular" : "checkbox"} oculto" bind:this={inputOculto} bind:value={valorLocal} use:accionTipo/>
 
     <BotonAlternar
         {texto}
-        {tipo}
+        tipo={tipo == "UNICO" || tipo == "UNICO_OTRA" ? 'CIRCULAR' : 'CUADRADO' }
         estado={valorLocal}
         click={cambiarAccion}
     />
