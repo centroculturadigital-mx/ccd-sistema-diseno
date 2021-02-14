@@ -151,8 +151,14 @@
 
         
 
+        // TODO: validar si todavía es necesario el timeout
+
         // return Array.isArray(opciones)
         setTimeout(()=>{
+
+
+            console.log("valoresCasillas", valoresCasillas);
+
             casillas = Array.isArray(opciones)
             ? opciones.map((o,i)=>{
 
