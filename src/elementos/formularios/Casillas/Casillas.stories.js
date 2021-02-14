@@ -110,3 +110,25 @@ export const casillasMultipleOtra = () => ({
         }
     }
 });
+
+export const casillasMultipleMaximo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casillas,
+        datos: {
+            opciones,
+            valor: [
+                ...opciones.slice(0,4).map((o, i) => ({ id: i, valor: Math.random() > 0.5 })),
+                {
+                    id: opciones.length,
+                    valor: true,
+                    texto: "Hola mundo"
+                }
+            ],
+            maximo: 3,
+            nombre: "unCampo",
+            cambiar: valor => console.log("cambiar", valor),
+            tipo: "MULTIPLE_OTRA"
+        }
+    }
+});

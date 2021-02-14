@@ -5,7 +5,7 @@
   export let texto;
   export let estado;
   export let click;
-  export let tipo;//circulo o casilla
+  export let tipo;//'CUADRADO' O 'CIRCULAR'
 
 
   let caja = {
@@ -19,7 +19,7 @@
 
   $: clases = `BotonAlternar ${estado ? "encendido" : "apagado"}`;
   
-  $: imagen = tipo == "CIRCULO" ? radio : caja ;
+  $: imagen = tipo == "CUADRADO" ? caja : tipo == "CIRCULAR" ? radio : caja ;
   
 </script>
 

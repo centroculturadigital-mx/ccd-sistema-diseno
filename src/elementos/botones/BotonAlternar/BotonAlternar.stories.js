@@ -51,7 +51,7 @@ export const botonAlternarTipoCirculo = () => ({
     props: {
         componente: BotonAlternarProbar,
         datos: {
-            tipo: "CIRCULO",
+            tipo: "CIRCULAR",
             texto: "Este es un 'Radio Button'",
             click: (estado) => console.log("estado", estado)
         }
