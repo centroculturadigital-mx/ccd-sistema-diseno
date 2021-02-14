@@ -1,0 +1,32 @@
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+
+>
+  <circle
+     cx="12"
+     cy="12"
+     r="11.25"
+     fill="white"
+     stroke="#212121"
+     stroke-width="1.5"
+     id="circle2" />
+
+  <circle
+     cx="12.074139"
+     cy="11.999322"
+     r="7.0594826"
+     fill="#ffffff"
+     stroke="#212121"
+     stroke-width="0.941262"
+     id="circle2-3"
+     style="fill:#212121;fill-opacity:1" />
+</svg>

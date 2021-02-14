@@ -28,3 +28,17 @@ export const casillaTextoValor = () => ({
         }
     }
 });
+
+export const casillaCirculoTextoValor = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: CasillaTexto,
+        datos: {
+            tipo: "CIRCULO",
+            texto: "Otra",
+            nombre: "unCampo",
+            valor: "Un valor",
+            click: () => console.log("Click casillaTexto")
+        }
+    }
+});

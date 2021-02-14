@@ -6,6 +6,7 @@
     export let cambiar;
     export let minimo=0;
     export let maximo=100;
+    export let tipo;
 
     // TODO: implementar deshabilitado
     // export let deshabilitado
@@ -89,7 +90,11 @@
         numero: valorNumero
     }
 
-
+    $: accionTipo = tipo == "CIRCULO" ? node => {
+      node.type = 'radio'
+    } : node => { 
+      node.type = 'checkbox'
+    }
 
 </script>
 
@@ -132,11 +137,12 @@
 
 <div class="CasillaTextoNumero">
 
-    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorEstado} type="checkbox"/>
+    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorEstado} use:accionTipo/>
 
     <BotonAlternar        
         estado={!!valorLocal.valor}
         click={cambiarValor}
+        {tipo}
     />
 
     <input

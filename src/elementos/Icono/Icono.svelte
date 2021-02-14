@@ -81,6 +81,8 @@
   import tiktok from "./iconos/tiktok.svg";
   import casillavacia from "./iconos/casillavacia.svg";
   import casillallena from "./iconos/casillallena.svg";
+  import circulovacio from "./iconos/circulovacio.svg";
+  import circulolleno from "./iconos/circulolleno.svg";
   import correo from "./iconos/correo.svg";
   import portafolio from "./iconos/portafolio.svg";
   import cv from "./iconos/cv.svg";
@@ -174,6 +176,8 @@
     tiktok,
     casillallena,
     casillavacia,
+    circulovacio,
+    circulolleno,
     correo,
     portafolio,
     cv,

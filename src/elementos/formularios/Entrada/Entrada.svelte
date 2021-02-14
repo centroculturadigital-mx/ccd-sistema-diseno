@@ -7,6 +7,8 @@
 
   import Casillas from "../Casillas/Casillas";
 
+  import Icono from "../../../elementos/Icono/Icono"
+
   // propiedades
   export let tipo = "texto";
   export let ejemplo = "Introduce un valor";
@@ -152,9 +154,19 @@
       // el.focus()
     }
   }
+
+  let verContrasenna = false;
+  
+  const ver = () => {
+    return verContrasenna =! verContrasenna;  
+  }
+
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   input,
   textarea {
     font-size: var(--theme-textos-parrafo-tamanno);
@@ -197,6 +209,27 @@
     display: grid;
     grid-template-columns: 1fr 4rem;
   }
+  .contrasenna {
+    position: relative;
+  }
+  .ver {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    cursor: pointer;
+  }
+  .ver :global(.iconoContenedor) {
+    background-color: #FFF
+  }
+  .ver :global(svg) {
+    stroke-width: 1px;
+    fill: gray;
+    opacity: 0.5;
+  }
 </style>
 
 {#if tipo == 'texto'}
@@ -216,18 +249,40 @@
 {/if}
 
 {#if tipo == 'contrasenna'}
-  <input
+
+<div class="contrasenna">
+  {#if verContrasenna}
+    <input
     class={clases}
     on:focusout={()=>desenfocarAccion()}
     on:focus={()=>enfocarAccion()}
     on:keyup={()=>cambiarAccion()}
     name={nombre}
-    type="password"
     placeholder={ejemplo}
     bind:value={valorLocal}
     use:enfoque
+    type="text"
     disabled={deshabilitado}
     />
+  {:else}
+    <input
+    class={clases}
+    on:focusout={()=>desenfocarAccion()}
+    on:focus={()=>enfocarAccion()}
+    on:keyup={()=>cambiarAccion()}
+    name={nombre}
+    placeholder={ejemplo}
+    bind:value={valorLocal}
+    use:enfoque
+    type="password"
+    disabled={deshabilitado}
+    />
+  {/if}
+
+  <div class="ver" on:click={ver}>
+    <Icono icono={verContrasenna ? "ojoAbierto" : "ojoCerrado"}/>
+  </div>
+</div>
 {/if}
 
 {#if tipo == 'email'}

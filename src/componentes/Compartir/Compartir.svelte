@@ -2,6 +2,8 @@
   import { fade } from "svelte/transition";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono";
 
+  import { clickFueraDeArea }  from "../../funciones/clickFueraDeArea"
+
   export let texto;
   export let url;
   export let titulo;
@@ -31,7 +33,11 @@
   const mostrar = () => {
     estado = !estado;
   };
-</script>
+      
+   function cierraFueraArea(event) {
+     estado = false;
+   }
+  </script>
 
 <style>
   .Compartir {
@@ -78,6 +84,8 @@
   }
 </style>
 
+
+
 <section class="Compartir">
 
   <div class="boton">
@@ -86,7 +94,7 @@
 
   <!-- menu contextual -->
   {#if !!estado}
-    <section class="botones" transition:fade>
+    <section class="botones" use:clickFueraDeArea on:click_outside={cierraFueraArea} transition:fade>
       <BotonIcono
         icono={'twitter'}
         texto={'Twitter'}

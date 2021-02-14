@@ -12,7 +12,7 @@ export const casillaNumeroDefault = () => ({
             nombre: "unCampo",
             valor: null,
             click: () => console.log("Click casillaNumero"),
-            cambiar: valor => console.log("cambiar",valor)
+            cambiar: valor => console.log("cambiar", valor)
         }
     }
 });
@@ -21,14 +21,31 @@ export const casillaNumeroValor = () => ({
     Component: ThemeTester,
     props: {
         componente: CasillaNumero,
-        datos: {              
+        datos: {
             texto: "Opción",
             nombre: "unCampo",
             valor: {
                 numero: 66,
             },
             click: () => console.log("Click casillaNumero"),
-            cambiar: valor => console.log("cambiar",valor)
+            cambiar: valor => console.log("cambiar", valor)
+        }
+    }
+});
+
+export const casillaCirculoNumeroValor = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: CasillaNumero,
+        datos: {
+            tipo: "CIRCULO",
+            texto: "Opción",
+            nombre: "unCampo",
+            valor: {
+                numero: 66,
+            },
+            click: () => console.log("Click casillaNumero"),
+            cambiar: valor => console.log("cambiar", valor)
         }
     }
 });

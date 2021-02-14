@@ -7,6 +7,7 @@
   import ListaElemento from "../../../elementos/listas/ListaElemento/ListaElemento";
   import Elemento from "./UsuarioAccesoElemento";
 
+  import { clickFueraDeArea }  from "../../../funciones/clickFueraDeArea"
   import imagenDefault from "../../../data/recursos/placeholder.png";
 
   export let imagen = imagenDefault;
@@ -19,6 +20,10 @@
   const alternarEstado = () => {
     estado = !estado;
   };
+
+  function cierraFueraArea(event) {
+     estado = false;
+   }
 
   let elementosLista = elementos.map(e => ({
     componente: Elemento,
@@ -55,7 +60,19 @@
     margin-top: 0.25rem;
     list-style-type: none;
     width: auto;
-    min-width: 5rem;
+    min-width: 11rem;
+  }
+  .menu :global(a span) {
+    display: flex;
+    align-items: center;
+    padding: 0 !important;
+  }
+  .menu :global(button),
+  .menu :global(p) {
+    cursor: pointer;
+    color: var(--theme-textos-enlaces-color) !important;
+    font-family: var(--theme-textos-enlaces-familia);
+    font-size: var(--theme-textos-enlaces-tamanno);
   }
 </style>
 
@@ -70,7 +87,7 @@
 
   {#if Array.isArray(elementos) && elementos.length > 0}
     {#if estado}
-      <ul class="menu" transition:slide|local on:click={alternarEstado}>
+      <ul class="menu" transition:slide|local on:click={alternarEstado} use:clickFueraDeArea on:click_outside={cierraFueraArea}>
         {#each elementosLista as elemento (elemento)}
           <ListaElemento contenido={elemento} />
         {/each}

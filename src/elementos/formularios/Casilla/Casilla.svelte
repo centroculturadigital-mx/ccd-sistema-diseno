@@ -6,7 +6,13 @@
     export let texto;
     export let cambiar;
     export let apagable = true;
+    export let tipo;
 
+    // TODO:     
+    // Agregar prop tipo
+    // segun tipo, elegir input type=checkbox vs input type=radio
+    // segun tipo, colocar svg distinto
+    // en Casillas, pasar este prop a Casilla
 
     // TODO: implementar deshabilitado
     // export let deshabilitado
@@ -62,6 +68,13 @@
 
     $: valorLocal = valor
 
+    // 
+    $: accionTipo = tipo == "CIRCULO" ? node => {
+      node.type = 'radio'
+    } : node => { 
+      node.type = 'checkbox'
+    }
+
 </script>
 
 
@@ -85,10 +98,11 @@
 
 <div class="Casilla">
 
-    <input name={nombre} class="checkbox oculto" bind:this={inputOculto} bind:value={valorLocal} type="checkbox"/>
+    <input name={nombre} class="{tipo == 'CIRCULO' ? "CIRCULO" : "checkbox"} oculto" bind:this={inputOculto} bind:value={valorLocal} use:accionTipo/>
 
     <BotonAlternar
         {texto}
+        {tipo}
         estado={valorLocal}
         click={cambiarAccion}
     />
