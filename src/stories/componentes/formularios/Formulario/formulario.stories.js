@@ -435,6 +435,32 @@ export const formularioCasillas = () => ({
 });
 
 
+export const formularioCasillasUnico = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                {
+                    ...casillas,
+                    nombre: "casillasUnico",
+                    etiqueta: "Opción única",
+                    indicacion: "Elige solo una",
+                    tipo: "casillas",
+                    datos: {
+                        tipo: "UNICO"
+                    },
+                    valor: 0,
+                    cambiar: v => console.log("cambiar", v)
+                },
+            ],
+            enviar: datos => console.log("Enviaste formulario", datos),
+        }
+    },
+});
+
+
+
 export const formularioCasillasMaximo = () => ({
     Component: ThemeTester,
     props: {
