@@ -29,3 +29,16 @@ export const casillaCirculo = () => ({
         }
     }
 });
+export const casillaCirculoOtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Casilla,
+        datos: {
+            tipo: "UNICO",
+            texto: "Aute in minim.",
+            nombre: "unCampo",
+            valor: "",
+            click: () => console.log("Click casilla")
+        }
+    }
+});

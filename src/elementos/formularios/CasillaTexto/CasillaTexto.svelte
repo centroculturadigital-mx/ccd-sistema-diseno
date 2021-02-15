@@ -80,10 +80,10 @@
         texto: valorTexto
     }
 
-    $: accionTipo = tipo == "CIRCULO" ? node => {
-      node.type = 'radio'
+    $: accionTipo = tipo == "UNICO" ? node => {
+        node.type = 'radio' 
     } : node => { 
-      node.type = 'checkbox'
+        node.type = 'checkbox'
     }
 
 </script>
@@ -120,7 +120,7 @@
 
     <BotonAlternar
         {texto}
-        {tipo}
+        tipo={tipo == "UNICO" ? "CIRCULAR" : "CUADRADO"}
         estado={!!valorLocal.valor}
         click={cambiarValor}
     />

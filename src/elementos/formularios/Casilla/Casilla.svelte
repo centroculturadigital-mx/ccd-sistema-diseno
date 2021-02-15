@@ -87,7 +87,7 @@
     $: valorLocal = valor
 
     //
-    $: accionTipo = tipo == "UNICO" || "UNICO_OTRA" ? node => {
+    $: accionTipo = tipo == "UNICO" ? node => {
         node.type = 'radio' 
     } : node => { 
         node.type = 'checkbox'
@@ -116,11 +116,11 @@
 
 <div class="Casilla">
 
-    <input name={nombre} class="{tipo == "UNICO" || "UNICO_OTRA" ? "circular" : "checkbox"} oculto" bind:this={inputOculto} bind:value={valorLocal} use:accionTipo/>
+    <input name={nombre} class="{tipo == "UNICO" ? "circular" : "checkbox"} oculto" bind:this={inputOculto} bind:value={valorLocal} use:accionTipo/>
 
     <BotonAlternar
         {texto}
-        tipo={tipo == "UNICO" || tipo == "UNICO_OTRA" ? 'CIRCULAR' : 'CUADRADO' }
+        tipo={tipo == "UNICO" ? "CIRCULAR" : "CUADRADO"}
         estado={valorLocal}
         click={cambiarAccion}
     />

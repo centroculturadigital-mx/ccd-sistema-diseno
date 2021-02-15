@@ -11,8 +11,6 @@
     export let nombre;
     export let valor;
     export let vacioPermitido=false;
-    export let tipoCasilla
-
 
     // TODO: implementar deshabilitado
     // export let deshabilitado
@@ -163,8 +161,8 @@
 
                 return ({
                     ...o,
-                    tipo,
                     pasiva: true,
+                    tipo: tipo == "UNICO" || tipo == "UNICO_OTRA" ? 'UNICO' : 'MULTIPLE',
                     valor: valoresCasillas[i],
                     apagable: tipo != "UNICO",
                     // click: ()=>cambiarAccion(o)
