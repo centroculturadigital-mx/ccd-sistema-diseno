@@ -8,6 +8,7 @@ export const casillaNumeroDefault = () => ({
     props: {
         componente: CasillaNumero,
         datos: {
+            tipo: "MULTIPLE",
             texto: "Opción",
             nombre: "unCampo",
             valor: null,
@@ -22,6 +23,7 @@ export const casillaNumeroValor = () => ({
     props: {
         componente: CasillaNumero,
         datos: {
+            tipo: "MULTIPLE",
             texto: "Opción",
             nombre: "unCampo",
             valor: {
@@ -38,7 +40,7 @@ export const casillaCirculoNumeroValor = () => ({
     props: {
         componente: CasillaNumero,
         datos: {
-            tipo: "CIRCULAR",
+            tipo: "UNICO",
             texto: "Opción",
             nombre: "unCampo",
             valor: {

@@ -80,7 +80,7 @@
         texto: valorTexto
     }
 
-    $: accionTipo = tipo == "UNICO" || "UNICO_OTRA" ? node => {
+    $: accionTipo = tipo == "UNICO" ? node => {
         node.type = 'radio' 
     } : node => { 
         node.type = 'checkbox'
@@ -120,7 +120,7 @@
 
     <BotonAlternar
         {texto}
-        {tipo}
+        tipo={tipo == "UNICO" ? "CIRCULAR" : "CUADRADO"}
         estado={!!valorLocal.valor}
         click={cambiarValor}
     />
