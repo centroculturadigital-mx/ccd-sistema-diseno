@@ -75,15 +75,18 @@
     align-items: center;
     justify-content: left;
     width: auto;
+    max-width: 7rem;
   }
   a {
-    padding: 0.5rem;
+    padding: 0.25rem;
     height: 100%;
+    width: 100%;
   }
   .Logo :global(img) {
     object-fit: contain;
     object-position: left;
-    width: auto;
+    height: 100%;
+    width: 100%;
   }
   .enlace:hover {
     transition: .5s;
