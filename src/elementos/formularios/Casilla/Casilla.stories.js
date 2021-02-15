@@ -12,7 +12,7 @@ export const casillaDefault = () => ({
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",
-            click: () => console.log("Click casilla")
+            cambiar: () => console.log("Cambiar casilla")
         }
     }
 });
@@ -25,7 +25,7 @@ export const casillaCirculo = () => ({
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",
-            click: () => console.log("Click casilla")
+            cambiar: () => console.log("Cambiar casilla")
         }
     }
 });
@@ -38,7 +38,7 @@ export const casillaCirculoOtra = () => ({
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",
-            click: () => console.log("Click casilla")
+            cambiar: () => console.log("Cambiar casilla")
         }
     }
 });

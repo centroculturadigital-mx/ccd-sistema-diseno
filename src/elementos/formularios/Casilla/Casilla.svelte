@@ -53,31 +53,33 @@
         e.stopPropagation()
 
         
-        if( ! pasiva ) {
+        if( typeof cambiar == "function" ) {
+            if( ! pasiva ) {
 
-            if( apagable ) {
-                valorLocal = !valorLocal
+                if( apagable ) {
+                    valorLocal = !valorLocal
+                }
+
+                try {
+
+                    cambiar(valorLocal)
+                    cambiarInputOculto( valorLocal )
+                    
+                } catch( err) {
+                    console.log("Error al cambiar casilla", err);
+                }
+
+            } else {
+
+                try {
+
+                    cambiar(!valorLocal)
+                    
+                } catch( err) {
+                    console.log("Error al cambiar casilla pasiva", err);
+                }
+
             }
-
-            try {
-
-                cambiar(valorLocal)
-                cambiarInputOculto( valorLocal )
-                
-            } catch( err) {
-                console.log("Error al cambiar casilla", err);
-            }
-
-        } else {
-
-            try {
-
-                cambiar(!valorLocal)
-                
-            } catch( err) {
-                console.log("Error al cambiar casilla pasiva", err);
-            }
-
         }
             
         // actualizarValor( valorLocal )
