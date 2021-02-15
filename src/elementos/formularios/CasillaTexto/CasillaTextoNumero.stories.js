@@ -8,6 +8,7 @@ export const casillaTextoNumeroDefault = () => ({
     props: {
         componente: CasillaTextoNumero,
         datos: {
+            tipo: "MULTIPLE",
             nombre: "unCampo",
             valor: null,
             click: () => console.log("Click casillaTextoNumero"),
@@ -21,6 +22,7 @@ export const casillaTextoNumeroValor = () => ({
     props: {
         componente: CasillaTextoNumero,
         datos: {
+            tipo: "MULTIPLE",
             nombre: "unCampo",
             valor: {
                 texto: "Lorem ipsum",
@@ -41,7 +43,7 @@ export const casillaCirculoTextoNumeroValor = () => ({
                 texto: "Lorem ipsum",
                 numero: 66,
             },
-            tipo: "CIRCULAR",
+            tipo: "UNICO",
             click: () => console.log("Click casillaTextoNumero"),
             cambiar: valor => console.log("cambiar", valor)
         }

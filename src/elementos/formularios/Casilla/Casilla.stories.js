@@ -8,7 +8,7 @@ export const casillaDefault = () => ({
     props: {
         componente: Casilla,
         datos: {
-            tipo: "CUADRADO",
+            tipo: "MULTIPLE",
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",
@@ -21,7 +21,7 @@ export const casillaCirculo = () => ({
     props: {
         componente: Casilla,
         datos: {
-            tipo: "CIRCULAR",
+            tipo: "UNICO",
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",
@@ -34,7 +34,7 @@ export const casillaCirculoOtra = () => ({
     props: {
         componente: Casilla,
         datos: {
-            tipo: "CIRCULAR",
+            tipo: "UNICO",
             texto: "Aute in minim.",
             nombre: "unCampo",
             valor: "",

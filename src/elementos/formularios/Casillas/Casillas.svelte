@@ -162,7 +162,7 @@
 
                 return ({
                     ...o,
-                    tipo: tipo == "UNICO" || tipo == "UNICO_OTRA" ? 'CIRCULAR' : 'CUADRADO',
+                    tipo: tipo == "UNICO" || tipo == "UNICO_OTRA" ? 'UNICO' : 'MULTIPLE',
                     valor: valoresCasillas[i],
                     apagable: tipo != "UNICO",
                     // click: ()=>cambiarAccion(o)
