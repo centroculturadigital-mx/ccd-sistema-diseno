@@ -1,6 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Logo from '../../../componentes/Logo/Logo.svelte';
 import ImagenFondo from '../../../../public/placeholder.jpg';
+import ImagenVector from '../../../../public/ccd.svg';
 
 export default { title: "Componentes/Logos/Logo" }
 
@@ -90,6 +91,37 @@ export const logoConEnlace = () => ({
             nombre: 'LOGO',
             logotipo: ImagenFondo,
             enlace: "http://centroculturadigital.mx",
+            estilos: {
+                ancho: '40%',
+                alineacion: 'right',
+            }
+        }
+    }
+});
+export const logoVectorConEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Logo,
+        datos: {
+            nombre: 'LOGO',
+            tipo: "vector",
+            logotipo: ImagenVector,
+            enlace: "http://centroculturadigital.mx",
+            estilos: {
+                ancho: '40%',
+                alineacion: 'right',
+            }
+        }
+    }
+});
+export const logoVectorSinEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Logo,
+        datos: {
+            nombre: 'LOGO',
+            tipo: "vector",
+            logotipo: ImagenVector,
             estilos: {
                 ancho: '40%',
                 alineacion: 'right',

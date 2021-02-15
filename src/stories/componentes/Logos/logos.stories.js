@@ -1,21 +1,27 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Logos from '../../../componentes/Logos/Logos.svelte';
-import ImagenFondo from '../../../../public/placeholder.jpg';
+import imagen from '../../../../public/placeholder.jpg';
+import ImagenVector from '../../../../public/ccd.svg';
 
 export default { title: "Componentes/Logos/Logos" }
 
 const logo1 = {
-    logotipo: ImagenFondo,
+    logotipo: imagen,
     nombre: 'Nombre Enlace 1',
     enlace: "http://enlace1.com"
 }
 const logo2 = {
-    logotipo: ImagenFondo,
+    logotipo: imagen,
     nombre: 'Nombre Enlace 2',
     enlace: "http://otroenlace2.org"
 }
 const logo3 = {
-    logotipo: ImagenFondo,
+    logotipo: imagen,
+    nombre: 'Nombre Enlace 3',
+    enlace: "http://otroenlace3.org"
+}
+const logo3 = {
+    logotipo: imagen,
     nombre: 'Nombre Enlace 3',
     enlace: "http://otroenlace3.org"
 }
