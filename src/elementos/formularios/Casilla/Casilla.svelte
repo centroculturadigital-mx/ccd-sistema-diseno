@@ -7,6 +7,7 @@
     export let cambiar;
     export let apagable = true;
     export let tipo = "MULTIPLE";
+    export let pasiva
 
     // TODO:     
     // Agregar prop tipo
@@ -29,7 +30,6 @@
     $: valorActualizar(valor);
 
     const valorActualizar = v => {
-        console.log("cambio", v);
         valorLocal = v;
     };
 
@@ -48,19 +48,36 @@
 
 
     const cambiarAccion = (e) => {
+        
         e.preventDefault()
         e.stopPropagation()
-        if( apagable ) {
-            valorLocal = !valorLocal
-        }
 
-        try {
+        
+        if( ! pasiva ) {
 
-            cambiar(valorLocal)
-            cambiarInputOculto( valorLocal )
-            
-        } catch( err) {
-            console.log("Error al cambiar casilla", err);
+            if( apagable ) {
+                valorLocal = !valorLocal
+            }
+
+            try {
+
+                cambiar(valorLocal)
+                cambiarInputOculto( valorLocal )
+                
+            } catch( err) {
+                console.log("Error al cambiar casilla", err);
+            }
+
+        } else {
+
+            try {
+
+                cambiar(!valorLocal)
+                
+            } catch( err) {
+                console.log("Error al cambiar casilla pasiva", err);
+            }
+
         }
             
         // actualizarValor( valorLocal )

@@ -67,13 +67,13 @@
                     valorLocal = v
 
                 } else {
+                    
                     if( Array.isArray(valorLocal)) {
                         // si la intención de usuarix es activar casilla,
                         // if( !valorLocal[v] ) {
                             // revisar si cantidad de elementos positivos es superior a cantidad máxima
                             const numActivos = valorLocal.reduce((acc,v)=> ( acc + (v ? 1 : 0 )), 0 )
-                            valorLocal[v] = ( (! isNaN(datos.maximo)) && numActivos < datos.maximo) ;
-                            console.log("numActivos", numActivos, valorLocal);
+                            valorLocal[v] = ( (! isNaN(datos.maximo)) && numActivos < datos.maximo) ? ! valorLocal[v] : false;
                             
 
                         // } 
@@ -157,7 +157,6 @@
         setTimeout(()=>{
 
 
-            // console.log("valoresCasillas", valoresCasillas);
 
             casillas = Array.isArray(opciones)
             ? opciones.map((o,i)=>{
@@ -165,6 +164,7 @@
                 return ({
                     ...o,
                     tipo,
+                    pasiva: true,
                     valor: valoresCasillas[i],
                     apagable: tipo != "UNICO",
                     // click: ()=>cambiarAccion(o)

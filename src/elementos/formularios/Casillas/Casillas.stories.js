@@ -116,19 +116,12 @@ export const casillasMultipleMaximo = () => ({
     props: {
         componente: Casillas,
         datos: {
-            opciones,
-            valor: [
-                ...opciones.slice(0,4).map((o, i) => ({ id: i, valor: Math.random() > 0.5 })),
-                {
-                    id: opciones.length,
-                    valor: true,
-                    texto: "Hola mundo"
-                }
-            ],
+            opciones: opciones.slice(0,4),
+            valor: opciones.slice(0,4).map((o, i) => (Math.random() > 0.5 )),
             maximo: 3,
             nombre: "unCampo",
             cambiar: valor => console.log("cambiar", valor),
-            tipo: "MULTIPLE_OTRA"
+            tipo: "MULTIPLE_MAXIMO"
         }
     }
 });
