@@ -31,6 +31,8 @@
 
 
     const valorProcesar = v => {
+        
+        
         switch(tipo) {
             case "MULTIPLE":
                 if( Array.isArray(v)) {
@@ -98,12 +100,15 @@
             default:
                 valorLocal = v;
         }
-    
+
+        
     }
 
 
     const prepararArreglo = opciones => {
-        if( ! Array.isArray(valorLocal) ) {
+        
+        if( ! Array.isArray(valorLocal) && ( ! tipo.includes("UNICO") ) ) {
+
             switch(tipo) {
 
                 case "MULTIPLE_OTRA":
@@ -130,7 +135,7 @@
                 // }
                 break;         
                 
-                case "UNICO_OTRA":
+            case "UNICO_OTRA":
                     valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
                 break;
                 
@@ -162,7 +167,7 @@
                 return ({
                     ...o,
                     pasiva: true,
-                    tipo: tipo == "UNICO" || tipo == "UNICO_OTRA" ? 'UNICO' : 'MULTIPLE',
+                    tipo: tipo.includes( "UNICO" ) ? 'UNICO' : 'MULTIPLE',
                     valor: valoresCasillas[i],
                     apagable: tipo != "UNICO",
                     // click: ()=>cambiarAccion(o)
@@ -267,7 +272,7 @@
 
         {#if tipo.includes("OTRA") }
 
-            <CasillaTexto valor={otra} cambiar={cambiarOtra}/>
+            <CasillaTexto valor={otra} cambiar={cambiarOtra} tipo={tipo.includes("UNICO") ? "UNICO" : "MULTIPLE" } />
 
         {/if}
 
