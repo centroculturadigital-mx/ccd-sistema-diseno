@@ -10,6 +10,8 @@
     height: 100%;
     align-items: center;
     justify-content: flex-start;
+    width: 100%;
+    box-sizing: border-box;
   }
 </style>
 

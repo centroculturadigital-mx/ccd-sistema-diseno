@@ -1,36 +1,31 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Logos from '../../../componentes/Logos/Logos.svelte';
-import ImagenFondo from '../../../../public/placeholder.jpg';
+import imagen from '../../../../public/placeholder.jpg';
+import imagenVector from '../../../../public/ccd.svg';
 
 export default { title: "Componentes/Logos/Logos" }
 
-const logo1 = {
-    logotipo: ImagenFondo,
-    nombre: 'Nombre Enlace 1',
-    enlace: "http://enlace1.com"
-}
-const logo2 = {
-    logotipo: ImagenFondo,
-    nombre: 'Nombre Enlace 2',
-    enlace: "http://otroenlace2.org"
-}
-const logo3 = {
-    logotipo: ImagenFondo,
-    nombre: 'Nombre Enlace 3',
-    enlace: "http://otroenlace3.org"
-}
+let logos = new Array(4).fill(true).map((l, i) => ({
+    logotipo: imagen,
+    nombre: 'NombreLogo' + i,
+    enlace: "#"
+}))
 
-const logos = [logo1, logo2, logo3]
+let vectores = new Array(4).fill(true).map((l, i) => ({
+    logotipo: imagenVector,
+    nombre: 'NombreLogo' + i,
+    enlace: "#",
+    tipo: "vector",
+}))
+
+let variosTipos = new Array(8).fill(true).map((l, i) => ({
+    logotipo: i % 2 == 0 ? imagenVector : imagen,
+    nombre: 'NombreLogo' + i,
+    enlace: "#",
+    tipo: i % 2 == 0 ? "vector" : "imagen",
+}))
 
 export const logosVacio = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Logos,
-        datos: {}
-    }
-});
-
-export const logosArregloVacio = () => ({
     Component: ThemeTester,
     props: {
         componente: Logos,
@@ -40,12 +35,32 @@ export const logosArregloVacio = () => ({
     }
 });
 
-export const logosImagen = () => ({
+export const logosImagenes = () => ({
     Component: ThemeTester,
     props: {
         componente: Logos,
         datos: {
             logotipos: logos
+        }
+    }
+});
+
+export const logosVectores = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Logos,
+        datos: {
+            logotipos: vectores
+        }
+    }
+});
+
+export const logosImagenYVector = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Logos,
+        datos: {
+            logotipos: variosTipos
         }
     }
 });
