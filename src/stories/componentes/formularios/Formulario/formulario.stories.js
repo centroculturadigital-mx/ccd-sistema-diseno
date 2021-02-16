@@ -1001,5 +1001,83 @@ export const formularioPasosMulticampoValoresEnCampos = () => ({
 
 
 
+const sumaValoresObjeto = objeto => typeof objeto == "object" ? Object.values(objeto).reduce((acc,v)=> typeof v == "number" ? (acc+v) : acc, 0) : 0
+
+const suma100 = (valor, campo) => {
+                                    
+    const total = sumaValoresObjeto(valor)
+
+    const valido = total == 100
+
+    return {
+        estado: valido ? "ok" : ( valor ? "error" : "" ),
+        error: valido ? null : new Error(`Debe sumar 100. Faltan: ${100-total}`),
+        valido
+    }
+}
+
+
+export const formularioMulticampoSumaTotal = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioMultiCampo,
+        datos: {
+            // valor: [
+            //     "multicampo-casilla-1": ?,
+            //     "multicampo-casilla-2": ?,
+           
+
+            
+            campos: [
+                {
+                    "tipo": "multicampo",
+                    "nombre": "suma100",
+                    "instruccion": "Suma 100",
+                    "datos": {
+                      "campos": [
+                        {
+                          "tipo": "numero",
+                          "instruccion": null,
+                          "opciones": [],
+                          "nombre": "pregunta-0",
+                          "etiqueta": "Pregunta 1",
+                          "datos": null
+                        },
+                        {
+                          "tipo": "numero",
+                          "instruccion": null,
+                          "opciones": [],
+                          "nombre": "pregunta-1",
+                          "etiqueta": "Pregunta 2",
+                          "datos": null
+                        },
+                        {
+                          "tipo": "numero",
+                          "instruccion": null,
+                          "opciones": [],
+                          "nombre": "pregunta-2",
+                          "etiqueta": "Pregunta 3",
+                          "datos": null
+                        },
+                        {
+                          "tipo": "numero",
+                          "instruccion": null,
+                          "opciones": [],
+                          "nombre": "pregunta-3",
+                          "etiqueta": "Pregunta 4",
+                          "datos": null
+                        }
+                      ]
+                    },
+                    validacion: suma100,
+                    info: valor => `Total: ${sumaValoresObjeto(valor)}`
+                }
+            ]
+        }
+    },
+});
+
+
+
 
 

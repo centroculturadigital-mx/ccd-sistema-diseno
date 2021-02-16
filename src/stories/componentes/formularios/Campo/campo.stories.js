@@ -41,6 +41,7 @@ export const campoDefault = () => ({
         datos: {
             etiqueta: 'Un campo',
             tipo: 'texto',
+            info: 'Ea mollit reprehenderit do sunt.',
             instruccion: "Puedes hacer <em>algo</em> con <a href=#>este campo</a>",
             ejemplo: 'Un campo default',
         },
@@ -54,7 +55,8 @@ export const campoObligatorio = () => ({
             etiqueta: 'Un campo con etiqueta larga',
             requerido: true,
             tipo: 'texto',
-            indicacion: "Puedes hacer <em>algo</em> con <a href=#>este campo</a>",
+            info: 'Ad veniam do sit dolor dolore qui duis voluptate amet sunt dolore est cillum Lorem.',
+            instruccion: "Puedes hacer <em>algo</em> con <a href=#>este campo</a>",
             ejemplo: 'Un campo default',
         },
     }
@@ -67,6 +69,7 @@ export const campoConValor = () => ({
         datos: {
             etiqueta: 'Un campo con valor',
             tipo: 'texto',
+            info: 'Veniam duis deserunt in dolore fugiat.',
             ejemplo: 'Escribe algo',
             valor: 'Labore sint minim ex duis.',
         },
@@ -80,6 +83,7 @@ export const campoConError = () => ({
         datos: {
             etiqueta: 'Un campo con error',
             tipo: 'texto',
+            info: 'Aute laborum fugiat voluptate nulla quis consequat reprehenderit aute nostrud magna.',
             ejemplo: 'Un campo default',
             valor: "oh :(",
             error: new Error('Error: Labore sint minim ex duis.'),
@@ -93,6 +97,7 @@ export const campoConError = () => ({
 //     props: {
 //         etiqueta: 'Un campo',
 //         tipo: 'texto',
+//         info: 'Non in ullamco pariatur exercitation nostrud adipisicing est cupidatat sit Lorem officia.',
 //         ejemplo: 'Un campo default',
 //         valor: valorValidado.valor,
 //         validacion: e => {
@@ -109,6 +114,7 @@ export const campoTexto = () => ({
         componente: Campo,
         datos: {
             tipo: 'texto',
+            info: 'Voluptate enim dolor sint voluptate excepteur.',
             etiqueta: 'Un campo texto',
             ejemplo: "...",
         },
@@ -120,6 +126,7 @@ export const campoTextArea = () => ({
         componente: Campo,
         datos: {
             tipo: 'textarea',
+            info: 'Aute amet consectetur esse ullamco culpa quis tempor labore mollit eiusmod.',
             etiqueta: 'Un campo textarea',
             ejemplo: "...",
         },
@@ -131,6 +138,7 @@ export const campoNumero = () => ({
         componente: Campo,
         datos: {
             tipo: 'numero',
+            info: 'Sunt nulla ipsum consequat duis consequat culpa anim esse nulla.',
             etiqueta: 'Un campo número',
             ejemplo: "0",
         },
@@ -143,6 +151,7 @@ export const campoSelector = () => ({
         datos: {
             campo: {
                 tipo: 'selector',
+                info: 'Consectetur occaecat consectetur minim commodo sit id ex incididunt magna consequat.',
                 etiqueta: 'Un campo selector',
                 ejemplo: "...",
                 valor: "hashid-2",
@@ -170,6 +179,7 @@ export const campoArchivo = () => ({
         componente: Campo,
         datos: {
             tipo: 'archivo',
+            info: 'Laborum proident est est ullamco reprehenderit nisi laborum sit pariatur Lorem.',
             etiqueta: 'Un campo archivo',
             ejemplo: "...",
         },
@@ -182,11 +192,12 @@ export const campoCasilla = () => ({
         componente: Campo,
         datos: {
             tipo: 'casilla',
+            info: 'Exercitation excepteur reprehenderit cupidatat eu esse reprehenderit cupidatat id aute labore sunt minim officia do.',
             etiqueta: 'Una casilla',
             ejemplo: "...",
 
             etiqueta: "Un campo tipo casilla",
-            indicacion: "Verdadero o falso",
+            instruccion: "Verdadero o falso",
             nombre: "casilla",
             requerido: true,
 
@@ -209,9 +220,10 @@ export const campoMultiCampo = () => ({
         componente: Campo,
         datos: {
             tipo: 'multicampo',
+            info: 'Et aliquip est anim sint.',
 
             etiqueta: "Un campo tipo multicampo",
-            indicacion: "...",
+            instruccion: "...",
             nombre: "multicampo",
             requerido: true,
 
@@ -221,12 +233,14 @@ export const campoMultiCampo = () => ({
             datos: {
                 campos: [{
                         tipo: "texto",
+                        info: "Eu exercitation culpa pariatur eu sit ex sit voluptate proident sunt id ipsum adipisicing aute.",
                         etiqueta: "Sub-campo 1",
                         nombre: "multicampo-1",
                         ejemplo: "multicampo-1"
                     },
                     {
                         tipo: "numero",
+                        info: "Ullamco et elit aliqua dolor aliquip ipsum.",
                         etiqueta: "Sub-campo 2",
                         nombre: "multicampo-2",
                         ejemplo: "multicampo-2"
@@ -249,9 +263,10 @@ export const campoTextoNumero = () => ({
         componente: Campo,
         datos: {
             tipo: 'texto-numero',
+            info: 'Culpa reprehenderit Lorem nostrud do ut laborum nostrud excepteur amet amet pariatur ea.',
 
             etiqueta: "Un campo tipo texto-numero",
-            indicacion: "...",
+            instruccion: "...",
             nombre: "texto-numero",
             requerido: true,
 

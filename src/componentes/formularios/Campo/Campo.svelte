@@ -16,6 +16,7 @@
   export let resolver;
   export let opciones;
   export let datos;
+  export let info;
 
   export let valor;
   export let valorEstatico;
@@ -30,6 +31,10 @@
   let enfocado = false;
   let valorMultiCampo = {};
   
+  // necesario para validacion multicampo
+  // TODO: aplicar a todas las entradas?
+  // TODO: quizás bajar esto a entrada?
+  let cambiarDespues;
 
   // TODO: eliminar cuando este 100% implementado instruccion
   $: instruccion = !! indicacion ? indicacion : instruccion
@@ -70,10 +75,17 @@
 
   const cambiarMultiCampo = (datos, campo) => {
 
+
     if (typeof valorMultiCampo == "object") {
-      valorMultiCampo[campo.nombre] = datos;
-      // console.log("cambiarMultiCampo", datos, campo.nombre, valorMultiCampo );
-      cambiarAccion(valorMultiCampo);
+      
+      if( cambiarDespues ) {
+        clearTimeout( cambiarDespues )        
+      }
+
+      cambiarDespues = setTimeout(()=>{
+        valorMultiCampo[campo.nombre] = datos;
+        cambiarAccion(valorMultiCampo);
+      }, 400)
     }
   };
 
@@ -123,7 +135,15 @@
   
   $: listo = !! tipo
 
+
+  $: infoMostrar = info && (
+    typeof info == "function" 
+      ? info(valor)
+      : info
+  )
     
+  $: console.log("infoMostrar", infoMostrar);
+  
 </script>
 
 <style>
@@ -193,6 +213,13 @@
     font-weight: var(--theme-textos-parrafo-peso);
     color: #555;
   }
+
+  .error :global(*) {
+    color: red !important;
+  }
+  .info :global(*) {
+    margin-top: 0;
+  }
 </style>
 
 <div class="Campo">
@@ -249,6 +276,11 @@
     {#if error instanceof Error}
       <div class="error">
         <Parrafo texto={error.message} />
+      </div>
+    {/if}
+    {#if infoMostrar }
+      <div class="info">
+        <Parrafo texto={infoMostrar} />
       </div>
     {/if}
   {/if}
