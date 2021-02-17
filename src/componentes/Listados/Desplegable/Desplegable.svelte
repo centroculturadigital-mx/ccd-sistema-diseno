@@ -4,6 +4,8 @@
   import Icono from "../../../elementos/Icono/Icono";
   import Enlace from "../../../elementos/enlaces/Enlace/Enlace";
 
+  import { clickFueraDeArea }  from "../../../funciones/clickFueraDeArea"
+
   export let texto;
   export let enlace;
   export let enlaces = [];
@@ -14,6 +16,10 @@
   const alternar = () => {
     estado = !estado;
   };
+
+  function cierraFueraArea(event) {
+     estado = false;
+   }
 </script>
 
 <style>
@@ -86,7 +92,7 @@
   </header>
 
   {#if estado}
-    <ul transition:slide|local on:click={alternar}>
+    <ul transition:slide|local on:click={alternar} use:clickFueraDeArea on:click_outside={cierraFueraArea}>
       {#each enlaces as enlace (enlace)}
         <li>
           <Enlace texto={enlace.texto} enlace={enlace.enlace} />
