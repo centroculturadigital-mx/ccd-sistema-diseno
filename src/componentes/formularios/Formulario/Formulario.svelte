@@ -36,8 +36,12 @@
   export let cambiar;
   export let respuesta;
   export let enviando = false
-
-
+  
+  export let configuracion = {
+    opciones: {
+      requerido: "* requerido"
+    }
+  }
 
   let cargadoInicial = false
 

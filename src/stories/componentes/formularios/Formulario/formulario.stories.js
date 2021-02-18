@@ -1011,7 +1011,7 @@ const suma100 = (valor, campo) => {
 
     return {
         estado: valido ? "ok" : ( valor ? "error" : "" ),
-        error: valido ? null : new Error(`Debe sumar 100. Faltan: ${100-total}`),
+        error: valido ? null : new Error(`Debe sumar 100. Faltan: ${ 100 - total }`),
         valido
     }
 }
