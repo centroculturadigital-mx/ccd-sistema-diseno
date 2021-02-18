@@ -38,7 +38,7 @@
   export let enviando = false
   
   export let configuracion = {
-    opciones: {
+    textos: {
       requerido: "* requerido"
     }
   }
