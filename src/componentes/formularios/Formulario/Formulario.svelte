@@ -232,6 +232,11 @@
                 //   valor: estado[cC.nombre],
                 //   cambiar: v => cambiarCampo(cC, v)
                 // }))
+              },
+              configuracion: {
+                textos: {
+                  requerido: configuracion.textos.requerido
+                }
               }
             }
 
