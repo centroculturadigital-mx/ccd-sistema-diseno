@@ -224,29 +224,34 @@
 
 <div class="Campo">
   {#if listo }
+  
+  <div class="textos">
+    
     <label>
       {#if !!etiqueta}
-        <Parrafo texto={etiqueta} />
-        {#if requerido}
-          <span class="requerido">
-            <Texto
-              variante="CHICO"
-              texto={'* requerido'}
-              css={{ color: 'red' }} />
-          </span>
-        {/if}
+      <Parrafo texto={etiqueta} />
+      {#if requerido}
+      <span class="requerido">
+        <Texto
+        variante="CHICO"
+        texto={'* requerido'}
+        css={{ color: 'red' }} />
+      </span>
+      {/if}
       {/if}
     </label>
-
+    
     {#if !!instruccion}
-      <div class="instruccion">
-        <!-- <Parrafo variante="CHICO" texto={instruccion}/> -->
-        <p>
-          {@html instruccion}
-        </p>
-      </div>
+    <div class="instruccion">
+      <!-- <Parrafo variante="CHICO" texto={instruccion}/> -->
+      <p>
+        {@html instruccion}
+      </p>
+    </div>
     {/if}
-
+  
+  </div>
+    
     {#if tipo != 'multicampo'}
       <Entrada
         {tipo}
