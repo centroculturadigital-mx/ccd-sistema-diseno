@@ -34,15 +34,6 @@ const noRequeridos = campos.slice(0, 3).map(c => ({
     requerido: false
 }))
 
-const requeridosTexto = campos.slice(0, 5).map(c => ({
-    ...c,
-    requerido: true,
-    configuracion: {
-        textos: {
-            requerido: "***Ultra requerido***"
-        }
-    }
-}))
 
 export const formularioDefault = () => ({
     Component: ThemeTester,
@@ -89,9 +80,13 @@ export const formularioRequeridoTextoPersonalizado = () => ({
     props: {
         componente: FormularioTester,
         datos: {
-            campos: [
-                ...requeridosTexto
-            ]
+            campos: campos,
+            configuracion: {
+                textos: {
+                    requerido: "* texto requerido personalizado"
+                }
+            }
+
         }
     },
 });

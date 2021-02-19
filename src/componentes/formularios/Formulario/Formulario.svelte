@@ -43,6 +43,8 @@
     }
   }
 
+  
+
   let cargadoInicial = false
 
 
@@ -188,17 +190,19 @@
     
   }
 
+
+    
+  const prepararConfiguracionCampo = () => {
+    return {
+      textos: {
+        requerido: configuracion.textos.requerido
+      }
+    }
+  }
+  
   const computarCampos = (campos, datos) => {
 
 
-    
-    const prepararConfiguracionCampo = () => {
-      return {
-        textos: {
-          requerido: configuracion.textos.requerido
-        }
-      }
-    }
 
 
     
@@ -219,7 +223,9 @@
             valor,
             ultimo: c==ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
-            cambiar: v => cambiarCampo(c, v)
+            cambiar: v => cambiarCampo(c, v),
+            configuracion: prepararConfiguracionCampo()
+
           };
 
 
@@ -243,7 +249,6 @@
                 //   cambiar: v => cambiarCampo(cC, v)
                 // }))
               },
-              configuracion: prepararConfiguracionCampo()
             }
             
           }
@@ -255,7 +260,6 @@
               ...campoPreparado,
               error: resultadoValidacion.error,
               estado: resultadoValidacion.estado,
-              configuracion: prepararConfiguracionCampo()
 
             };
           }
@@ -497,7 +501,6 @@
   // $: pasoActualCorrecto = (Array.isArray(pasos) && estado && pasoActual) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
   
   
-
 
 </script>
 
