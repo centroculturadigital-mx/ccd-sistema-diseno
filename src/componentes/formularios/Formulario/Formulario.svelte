@@ -232,11 +232,6 @@
                 //   valor: estado[cC.nombre],
                 //   cambiar: v => cambiarCampo(cC, v)
                 // }))
-              },
-              configuracion: {
-                textos: {
-                  requerido: configuracion.textos.requerido
-                }
               }
             }
 
@@ -249,7 +244,12 @@
             campoPreparado = {
               ...campoPreparado,
               error: resultadoValidacion.error,
-              estado: resultadoValidacion.estado
+              estado: resultadoValidacion.estado,
+              configuracion: {
+                textos: {
+                  requerido: configuracion.textos.requerido
+                }
+              }
             };
           }
 
