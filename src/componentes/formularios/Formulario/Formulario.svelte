@@ -192,6 +192,16 @@
 
 
     
+    const prepararConfiguracionCampo = () => {
+      return {
+        textos: {
+          requerido: configuracion.textos.requerido
+        }
+      }
+    }
+
+
+    
     const camposPreparados = campos
       .map(c => {
         if (revisarValidezCampo(c)) {
@@ -237,12 +247,12 @@
                 //   valor: estado[cC.nombre],
                 //   cambiar: v => cambiarCampo(cC, v)
                 // }))
-              }
+              },
+              configuracion: prepararConfiguracionCampo()
             }
-
+            
           }
           
-
           if (( (c.tipo == "casilla") || !!valor) && typeof c.validacion == "function") {
 
             let resultadoValidacion = c.validacion(valor);
@@ -250,11 +260,8 @@
               ...campoPreparado,
               error: resultadoValidacion.error,
               estado: resultadoValidacion.estado,
-              configuracion: {
-                textos: {
-                  requerido: configuracion.textos.requerido
-                }
-              }
+              configuracion: prepararConfiguracionCampo()
+
             };
           }
 
