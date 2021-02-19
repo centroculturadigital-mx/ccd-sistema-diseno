@@ -10,18 +10,18 @@ export default {
 
     valor: true,
     // valorEstatico: "",
-    
+
     validacion: valor => {
         return {
             valido: valor == true,
-            estado: valor == true  ? "ok" : "error",
-            error: valor == false  ? new Error("Es necesario aceptar") : null,                            
+            estado: valor == true ? "ok" : "error",
+            error: valor == false ? new Error("Es necesario aceptar") : null,
         }
     },
 
     datos: {
         texto: "Una casilla"
     },
-    cambiar: datos=>console.log("Campo casilla datos", datos),
+    cambiar: datos => console.log("Campo casilla datos", datos),
 
 }

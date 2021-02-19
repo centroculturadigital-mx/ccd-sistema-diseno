@@ -34,12 +34,12 @@ const noRequeridos = campos.slice(0, 3).map(c => ({
     requerido: false
 }))
 
-const requeridosTexto = campos.slice(0, 5).map(c => ({
+const requeridosTexto = campos.slice(0, 10).map(c => ({
     ...c,
     requerido: true,
     configuracion: {
         textos: {
-            requerido: "***Ultra requerido***"
+            requerido: "*"
         }
     }
 }))
