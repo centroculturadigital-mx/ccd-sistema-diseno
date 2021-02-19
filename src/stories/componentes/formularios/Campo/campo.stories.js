@@ -61,6 +61,25 @@ export const campoObligatorio = () => ({
         },
     }
 });
+export const campoObligatorioTextoPersonalizado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Campo,
+        datos: {
+            etiqueta: 'Un campo con etiqueta larga',
+            requerido: true,
+            configuracion: {
+                textos: {
+                    requerido: "*Si soy requerido"
+                }
+            },
+            tipo: 'texto',
+            info: 'Ad veniam do sit dolor dolore qui duis voluptate amet sunt dolore est cillum Lorem.',
+            instruccion: "Puedes hacer <em>algo</em> con <a href=#>este campo</a>",
+            ejemplo: 'Un campo default',
+        },
+    }
+});
 
 export const campoConValor = () => ({
     Component: ThemeTester,
@@ -274,7 +293,7 @@ export const campoTextoNumero = () => ({
             // valorEstatico: "",
             // validacion: "",
             datos: {
-                
+
             },
             cambiar: datos => console.log("Campo texto-numero datos", datos),
 

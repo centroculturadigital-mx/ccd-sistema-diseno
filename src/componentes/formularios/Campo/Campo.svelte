@@ -25,7 +25,12 @@
 
   export let ultimo;
   export let deshabilitado;
-
+  
+  export let configuracion = {
+    textos: {
+      requerido: "* requerido"
+    }
+  };
   
   
   let enfocado = false;
@@ -226,7 +231,7 @@
   {#if listo }
   
   <div class="textos">
-    
+
     <label>
       {#if !!etiqueta}
       <Parrafo texto={etiqueta} />
@@ -234,7 +239,7 @@
       <span class="requerido">
         <Texto
         variante="CHICO"
-        texto={'* requerido'}
+        texto={configuracion.textos.requerido}
         css={{ color: 'red' }} />
       </span>
       {/if}
