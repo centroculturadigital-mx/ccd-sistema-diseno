@@ -705,7 +705,7 @@
         {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
           {#each pantallaActual.campos as campo, i ("formulario_" +formularioId + "_" + campo.nombre)}
           <!-- {#each pantallaActual.campos as campo, i (campo)} -->
-            <Campo {...campo} {configuracion}/>
+            <Campo {...campo}/>
           {/each}
         {/if}
 
