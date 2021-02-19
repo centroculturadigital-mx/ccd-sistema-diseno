@@ -234,15 +234,15 @@
 
     <label>
       {#if !!etiqueta}
-      <Parrafo texto={etiqueta} />
-      {#if requerido}
-      <span class="requerido">
-        <Texto
-        variante="CHICO"
-        texto={configuracion.textos.requerido}
-        css={{ color: 'red' }} />
-      </span>
-      {/if}
+        <Parrafo texto={etiqueta} />
+          {#if requerido}
+            <span class="requerido">
+              <Texto
+              variante="CHICO"
+              texto={configuracion.textos.requerido}
+              css={{ color: 'red' }} />
+            </span>
+          {/if}
       {/if}
     </label>
     

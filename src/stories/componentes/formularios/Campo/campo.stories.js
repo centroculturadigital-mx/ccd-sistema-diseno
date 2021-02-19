@@ -70,7 +70,7 @@ export const campoObligatorioTextoPersonalizado = () => ({
             requerido: true,
             configuracion: {
                 textos: {
-                    requerido: "*Si soy requerido"
+                    requerido: "*Requerido personalizado"
                 }
             },
             tipo: 'texto',

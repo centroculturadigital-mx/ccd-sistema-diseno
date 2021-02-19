@@ -234,6 +234,11 @@
             campoPreparado = {
               ...campoPreparado,
               // cambiar: v => cambiarCampo(c, v),
+              configuracion: {
+                textos: {
+                  requerido: configuracion.textos.requerido
+                }
+              },
 
               datos: {
                 ...campoPreparado.datos,
@@ -713,8 +718,7 @@
       <form on:submit|preventDefault={enviarFuncion}>
 
         {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
-          {#each pantallaActual.campos as campo, i ("formulario_" +formularioId + "_" + campo.nombre)}
-          <!-- {#each pantallaActual.campos as campo, i (campo)} -->
+          {#each pantallaActual.campos as campo, i ("formulario_" + formularioId + "_" + campo.nombre)}
             <Campo {...campo}/>
           {/each}
         {/if}
