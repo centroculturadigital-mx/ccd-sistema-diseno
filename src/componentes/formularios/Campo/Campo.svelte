@@ -147,7 +147,6 @@
       : info
   )
     
-  $: console.log("infoMostrar", infoMostrar);
   
 </script>
 
