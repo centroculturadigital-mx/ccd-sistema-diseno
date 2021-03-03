@@ -977,3 +977,13 @@ export const iconoFolder = () => ({
         }
     }
 });
+
+export const iconoImagenSubir = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "imagensubir",
+        }
+    }
+});

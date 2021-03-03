@@ -89,6 +89,7 @@
   import duda from "./iconos/duda.svg";
   import mapa from "./iconos/mapa.svg";
   import folder from "./iconos/folder.svg";
+  import imagensubir from "./iconos/imagensubir.svg";
   
   export let icono;
   export let tamanno = "2rem";
@@ -183,7 +184,8 @@
     cv,
     duda,
     mapa,
-    folder
+    folder,
+    imagensubir
   };
 
   $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;

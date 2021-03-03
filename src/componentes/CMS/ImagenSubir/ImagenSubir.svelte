@@ -1,13 +1,12 @@
 <script>
   import Aviso from "../../../elementos/texto/Aviso/Aviso.svelte";
-  import Campo from "../../formularios/Campo/Campo.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
   import Imagen from "../../../elementos/media/Imagen/Imagen.svelte";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
-  export let icono = "camara";
+  export let icono = "imagensubir";
   export let etiqueta;
   export let nombre;
   export let requerido;
@@ -18,25 +17,9 @@
   export let estado;
   export let borrarPermitir = true;
   export let iconoCambiar = true;
-  
-  
-  export let maximo=2;
-
-  // export let opciones;
-
-
-  $: props = {
-    nombre,
-    requerido,
-    ejemplo,
-    valor,
-    error,
-    cambiar,
-    estado,
-    // opciones
-  };
-
+  export let maximo = 2;
   export let imagen;
+
   let input;
 
 
@@ -85,6 +68,9 @@
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .ImagenSubir {
     height: 13rem;
     width: 13rem;
@@ -97,15 +83,16 @@
     z-index: -1;
   }
   .Contenedor {
-    height: 100%;
-    width: 100%;
+    background-color: #b9b9b9;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #b9b9b9;
-    cursor: pointer;
     padding: 0 !important;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    overflow: hidden;
   }
   .ImagenPreparada {
     height: 100%;
@@ -133,29 +120,28 @@
   }
   .Contenedor {
     padding: 0.5rem;
-    background-color: #b9b9b9;
-    box-sizing: border-box;
+    background-color: #EDE9FB;
+    border-radius: 7rem;
+    border: 1px dashed var(--theme-colores-primario);
   }
-
-  .ImagenSubir :global(.Aviso) {
-    position: absolute;
-    bottom: .25rem;
-    height: auto;
-    color: #f00;
+  .Contenedor .icono :global(svg) {
+    height: 100%;
+    width: 100%;
+    fill: #CCCCCC !important;
   }
   .ImagenSubir :global(.Aviso *) {
     color: #f00;
     margin: 0;
-    font-size: .8rem;
   }
   
   .CambiarIcono {
     position: absolute;
-    right: 1rem;  
+    right: 0;  
     bottom: 1rem;
     padding: 0 !important;
-    background-color: #fff;
-    box-shadow: .1225rem .1225rem .1225rem .1225rem rgba(0,0,0,0.1);
+    background-color: var(--theme-colores-primario);
+    border: 2px solid #fff;
+    box-shadow: 0 .15rem .15rem .15rem rgba(0,0,0,0.1);
     border-radius: 50%;
   }
 
@@ -164,15 +150,31 @@
     margin: 0 !important;
     
   }
+  .CambiarIcono :global( button .iconoContenedor) {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+  }
   .CambiarIcono :global( button * ) {
     padding: 0 !important;
     margin: 0 !important;
   }
 
   .CambiarIcono :global( svg ) {
-    height: 1rem;
+    height: 1.75rem;
+    fill: #FFF !important;
   }
-
+  .texto {
+    display: flex;
+    justify-content: center;
+    padding: 0.25rem;
+  }
+  .texto :global(span) {
+    color: var(--theme-colores-primario);
+    font-size: 0.875rem;
+  }
+  .error {
+    border: 1px dashed #f00;
+  }
 </style>
 
 <section class="ImagenSubir">
@@ -183,34 +185,32 @@
   on:change={seleccionarImagen} bind:this={input}
   />
   
+  <div class="Contenedor {error ? "error": ""}" on:click={abrir}>
   {#if !imagen}
-    <div class="Contenedor" on:click={abrir}>
-      <Icono {icono} tamanno={'2rem'} />
-      <Parrafo texto={ etiqueta ? etiqueta : 'Agregar Imagen.'} />
-      <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 2mb' }  variante="CHICO"/>
-  
-      {#if error}
-        <Aviso texto={error}/>
-      {/if}
-      
-    </div>
-  {:else}
-    
-  
-  <div class="ImagenPreparada">
-      
-      {#if borrarPermitir}
-        <BotonIcono icono={'cerrar'} click={eliminarImagen}/>
-      {/if}
 
-      {#if imagen}
-      <Imagen {imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
-      {/if}
+
+      <div class="icono">
+        <Icono {icono} tamanno={'6rem'} />
+      </div>
       
+      {:else}
+      
+      
+      <div class="ImagenPreparada">
+        
+        {#if borrarPermitir}
+        <BotonIcono icono={'cerrar'} click={eliminarImagen}/>
+        {/if}
+        
+        {#if imagen}
+        <Imagen {imagen} ajuste={'contain'} altTexto={'Subir imagen'} />
+        {/if}
+        
+      </div>
+      
+      {/if}
     </div>
-    
-  {/if}
-  
+      
   {#if iconoCambiar}
 
     <div class="CambiarIcono">
@@ -218,5 +218,21 @@
     </div>
     
   {/if}
+
+  <div class="texto">
+    <!-- texto ayuda -->
+    {#if !error}
+    
+      <Texto texto={ etiqueta ? etiqueta : 'Agregar Imagen.'} />
+      <!-- <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 2mb' }/> -->
+     
+    {:else}
+   
+     <Aviso texto={error}/>
+   
+    {/if}
+    <!--  -->
+      
+    </div>
 
 </section>
