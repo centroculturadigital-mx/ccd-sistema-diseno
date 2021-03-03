@@ -22,7 +22,7 @@
 
   let input;
 
-  $: textoError = maximo ? "Elige una imagen menor a " + maximo + 'mb' : 'Elige una imagen menor a 2mb';
+  $: textoError = maximo ? "Imagen supera " + maximo + 'mb' : 'Imagen supera a 2mb';
 
   const seleccionarImagen = async e => {
     let files = e.target.files;
