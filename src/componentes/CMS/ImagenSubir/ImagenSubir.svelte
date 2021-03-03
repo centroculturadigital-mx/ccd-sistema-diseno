@@ -22,11 +22,10 @@
 
   let input;
 
+  $: textoError = maximo ? "Elige una imagen menor a " + maximo + 'mb' : 'Elige una imagen menor a 2mb';
 
   const seleccionarImagen = async e => {
     let files = e.target.files;
-
-    // call them as such; files[0].size will get you the file size of the 0th file
 
     if (files && files.length) {
         const filesize = ((files[0].size/1024)/1024).toFixed(4); // MB
@@ -38,7 +37,7 @@
             
             fr.onload = async () => {
               const blob = fr.result;
-              imagen = blob// e.target.files[0].name;
+              imagen = blob
             };
             
             if( typeof cambiar == "function" ) {
@@ -48,10 +47,11 @@
 
           }
 
+          error = false
 
       } else {
 
-        error = new Error("Elige una imagen menor a 2mb.")
+        error = new Error(textoError)
 
       } 
     }
@@ -98,10 +98,7 @@
     height: 100%;
     width: 100%;
     position: relative;
-    /* display: flex;
-    justify-content: flex-end; */
   }
-
 
   .ImagenPreparada :global(.iconoContenedor) {
     height: auto;
@@ -133,7 +130,6 @@
     color: #f00;
     margin: 0;
   }
-  
   .CambiarIcono {
     position: absolute;
     right: 0;  
@@ -220,18 +216,18 @@
   {/if}
 
   <div class="texto">
-    <!-- texto ayuda -->
-    {#if !error}
+    {#if error}
     
+      <Aviso texto={error}/>
+    
+    {:else}
+    
+      {#if etiqueta}
       <Texto texto={ etiqueta ? etiqueta : 'Agregar Imagen.'} />
       <!-- <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 2mb' }/> -->
-     
-    {:else}
-   
-     <Aviso texto={error}/>
+      {/if}
    
     {/if}
-    <!--  -->
       
     </div>
 
