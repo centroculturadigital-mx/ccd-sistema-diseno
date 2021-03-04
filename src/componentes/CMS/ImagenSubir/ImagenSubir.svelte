@@ -22,40 +22,127 @@
 
   let input;
 
-  $: textoError = maximo ? "Imagen supera " + maximo + 'mb' : 'Imagen supera a 2mb';
-
+  
+  const cambiarAccion = datos => {
+    
+    
+    try {
+      
+      if( typeof cambiar == "function" ) {
+        cambiar(datos)
+      }
+      
+      error = null
+      
+    } catch(err) {
+      
+      error = new Error("Hubo un error")
+      
+      console.log(err);
+      
+    }
+    
+  }
+  
   const seleccionarImagen = async e => {
-    let files = e.target.files;
-
-    if (files && files.length) {
-        const filesize = ((files[0].size/1024)/1024).toFixed(4); // MB
+    
+    
+    try {
+      
+      let files = e.target.files;
+      
+      if (files && files.length) {
+        let file = files[0]
+        const filesize = ((file.size/1024)/1024).toFixed(4); // MB
         if (filesize <= maximo) { 
-
-
+          
           if (FileReader) {
-            let fr = new FileReader();
+            let fileReader = new FileReader();
             
-            fr.onload = async () => {
-              const blob = fr.result;
-              imagen = blob
+            let imagenValida
+
+
+            fileReader.onload = async () => {
+              
+              if (imagenValida) {
+                
+                const blob = fileReader.result;
+                imagen = blob
+
+              }
+
             };
             
-            if( typeof cambiar == "function" ) {
-              cambiar(files[0])
-            }
-            fr.readAsDataURL(files[0]);
+            // fileReader.readAsDataURL(file)
 
+
+            fileReader.onloadend = function (e) {
+                            var arr = (new Uint8Array(e.target.result)).subarray(0, 4);
+                            var header = "";
+                            for(var i = 0; i < arr.length; i++) {
+                               header += arr[i].toString(16);
+                            }
+
+                            // Check the file signature against known types
+                            let type = 'unknown';
+                            switch (header) {
+                              case "89504e47":
+                                  type = "image/png";
+                                  break;
+                              case "47494638":
+                                  type = "image/gif";
+                                  break;
+                              case "ffd8ffe0":
+                              case "ffd8ffe1":
+                              case "ffd8ffe2":
+                              case "ffd8ffe3":
+                              case "ffd8ffe8":
+                                  type = "image/jpeg";
+                                  break;
+                              default:
+                                  type = "unknown";
+                                  break;
+                          }
+
+                            if (file.type === type) {
+                              
+                              imagenValida = true
+                              fileReader.readAsDataURL(file)                          
+                              
+                            } else {
+                              if( !imagenValida ) {
+
+                                error =  new Error("Archivo no válido")
+                                imagen = null
+
+                              }
+                            }
+
+                        };
+
+                        fileReader.readAsArrayBuffer(file);
+
+                        cambiarAccion(file)
+            
           }
+          
+          
+        } else {
+          
+          const textoError = "Imagen supera " + (maximo || 2) + 'mb';
+          
+          error = new Error(textoError)
+          
+        } 
+      }
+    } catch(err) {
 
-          error = false
+      // 
 
-      } else {
-
-        error = new Error(textoError)
-
-      } 
     }
   };
+
+
 
   const abrir = () => input.click();
 
