@@ -1,6 +1,6 @@
 {
     "name": "@centroculturadigital-mx/ccd-sistema-diseno",
-    "version": "0.3.12",
+    "version": "0.3.13",
     "main": "dist/index.js",
     "module": "dist/index.mjs",
     "svelte": "src/index.js",
