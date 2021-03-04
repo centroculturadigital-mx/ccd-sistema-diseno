@@ -19,6 +19,7 @@
   export let iconoCambiar = true;
   export let maximo = 2;
   export let imagen;
+  export let formato = 'CUADRADO';//CIRCULAR
 
   let input;
 
@@ -208,8 +209,10 @@
   .Contenedor {
     padding: 0.5rem;
     background-color: #EDE9FB;
-    border-radius: 7rem;
     border: 1px dashed var(--theme-colores-primario);
+  }
+  .circular {
+    border-radius: 50%;
   }
   .Contenedor .icono :global(svg) {
     height: 100%;
@@ -222,12 +225,12 @@
   }
   .CambiarIcono {
     position: absolute;
-    right: 0;  
-    bottom: 0.5rem;
+    right: 0rem;  
+    bottom: 0rem;
     padding: 0 !important;
     background-color: var(--theme-colores-primario);
     border: 2px solid #fff;
-    box-shadow: 0 .15rem .15rem .15rem rgba(0,0,0,0.1);
+    box-shadow: 0.1rem 0.1rem 0.15rem rgba(0,0,0,0.1);
     border-radius: 50%;
   }
 
@@ -276,7 +279,7 @@
 
   <div class="contenido" >
 
-  <div class="Contenedor {error ? "error": ""}" on:click={abrir}>
+  <div class="Contenedor {formato == "CIRCULAR" ? "circular" : ""} {error ? "error": ""}" on:click={abrir}>
   {#if !imagen}
 
 
