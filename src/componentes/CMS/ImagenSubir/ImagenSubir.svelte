@@ -72,8 +72,8 @@
     box-sizing: border-box;
   }
   .ImagenSubir {
-    height: 13rem;
-    width: 13rem;
+    height: auto;
+    width: auto;
     position: relative;
     padding: 0 !important;
   }
@@ -89,8 +89,8 @@
     justify-content: center;
     align-items: center;
     padding: 0 !important;
-    height: 100%;
-    width: 100%;
+    height: 8.5rem;
+    width: 8.5rem;
     cursor: pointer;
     overflow: hidden;
   }
@@ -133,7 +133,7 @@
   .CambiarIcono {
     position: absolute;
     right: 0;  
-    bottom: 1rem;
+    bottom: 0.5rem;
     padding: 0 !important;
     background-color: var(--theme-colores-primario);
     border: 2px solid #fff;
@@ -147,8 +147,8 @@
     
   }
   .CambiarIcono :global( button .iconoContenedor) {
-    height: 2.5rem !important;
-    width: 2.5rem !important;
+    height: 1.75rem !important;
+    width: 1.75rem !important;
   }
   .CambiarIcono :global( button * ) {
     padding: 0 !important;
@@ -171,6 +171,9 @@
   .error {
     border: 1px dashed #f00;
   }
+  .contenido {
+    position: relative;
+  }
 </style>
 
 <section class="ImagenSubir">
@@ -180,13 +183,15 @@
   accept="image/x-png,image/gif,image/jpeg"
   on:change={seleccionarImagen} bind:this={input}
   />
-  
+
+  <div class="contenido" >
+
   <div class="Contenedor {error ? "error": ""}" on:click={abrir}>
   {#if !imagen}
 
 
       <div class="icono">
-        <Icono {icono} tamanno={'6rem'} />
+        <Icono {icono} tamanno={'4.25rem'} />
       </div>
       
       {:else}
@@ -214,6 +219,8 @@
     </div>
     
   {/if}
+
+  </div>
 
   <div class="texto">
     {#if error}
