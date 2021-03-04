@@ -12,6 +12,18 @@ export const imagenSubirInicial = () => ({
         }
     }
 });
+
+export const imagenSubirCircular = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ImagenSubir,
+        datos: {
+            borrarPermitir: false,
+            formato: "CIRCULAR"
+        }
+    }
+});
+
 export const imagenSubirEtiqueta = () => ({
     Component: ThemeTester,
     props: {
@@ -21,6 +33,19 @@ export const imagenSubirEtiqueta = () => ({
         }
     }
 });
+
+export const imagenSubirCircularEtiqueta = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ImagenSubir,
+        datos: {
+            borrarPermitir: false,
+            etiqueta: "Sube una imagen",
+            formato: "CIRCULAR"
+        }
+    }
+});
+
 export const imagenSubirIcono = () => ({
     Component: ThemeTester,
     props: {
