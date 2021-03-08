@@ -16,6 +16,9 @@ import numero from "../../../../data/campos/numero.js"
 
 
 
+import cuestionarioAD from "../../../../data/cuestionarioAD.js"
+
+
 export default {
     title: 'Componentes/Formularios/Formulario/Formulario'
 }
@@ -1044,5 +1047,14 @@ export const formularioMulticampoSumaTotal = () => ({
                 info: valor => `Total: ${sumaValoresObjeto(valor)}`
             }]
         }
+    },
+});
+
+
+export const formularioCuestionarioAD = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: cuestionarioAD
     },
 });

@@ -77,52 +77,55 @@
 
 
             fileReader.onloadend = function (e) {
-                            var arr = (new Uint8Array(e.target.result)).subarray(0, 4);
-                            var header = "";
-                            for(var i = 0; i < arr.length; i++) {
-                               header += arr[i].toString(16);
-                            }
 
-                            // Check the file signature against known types
-                            let type = 'unknown';
-                            switch (header) {
-                              case "89504e47":
-                                  type = "image/png";
-                                  break;
-                              case "47494638":
-                                  type = "image/gif";
-                                  break;
-                              case "ffd8ffe0":
-                              case "ffd8ffe1":
-                              case "ffd8ffe2":
-                              case "ffd8ffe3":
-                              case "ffd8ffe8":
-                                  type = "image/jpeg";
-                                  break;
-                              default:
-                                  type = "unknown";
-                                  break;
-                          }
+                let arr = (new Uint8Array(e.target.result)).subarray(0, 4);
+                let header = "";
 
-                            if (file.type === type) {
-                              
-                              imagenValida = true
-                              fileReader.readAsDataURL(file)                          
-                              
-                            } else {
-                              if( !imagenValida ) {
 
-                                error =  new Error("Archivo no válido")
-                                imagen = null
+                for(let i = 0; i < arr.length; i++) {
+                    header += arr[i].toString(16);
+                }
 
-                              }
-                            }
+                // Check the file signature against known types
+                let tipo = 'unknown';
+                switch (header) {
+                  case "89504e47":
+                      tipo = "image/png";
+                      break;
+                  case "47494638":
+                      tipo = "image/gif";
+                      break;
+                  case "ffd8ffe0":
+                  case "ffd8ffe1":
+                  case "ffd8ffe2":
+                  case "ffd8ffe3":
+                  case "ffd8ffe8":
+                      tipo = "image/jpeg";
+                      break;
+                  default:
+                      tipo = "unknown";
+                      break;
+              }
 
-                        };
+                if (file.type === tipo) {
+                  
+                  imagenValida = true
+                  fileReader.readAsDataURL(file)                          
+                  
+                } else {
+                  if( !imagenValida ) {
 
-                        fileReader.readAsArrayBuffer(file);
+                    error = new Error("Archivo no válido")
+                    imagen = null
 
-                        cambiarAccion(file)
+                  }
+                }
+
+            };
+
+            fileReader.readAsArrayBuffer(file);
+
+            cambiarAccion(file)
             
           }
           
