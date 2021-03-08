@@ -1055,6 +1055,20 @@ export const formularioCuestionarioAD = () => ({
     Component: ThemeTester,
     props: {
         componente: FormularioTester,
-        datos: cuestionarioAD
+        datos: {
+            ...cuestionarioAD,
+            pasos: cuestionarioAD.pasos.map(p=>({
+                ...p,
+                campos: p.campos.map(c=>({
+                    ...c,
+                    validacion: () => ({
+                        estado: "ok",
+                        error: null,
+                        valido: true
+                    })
+                }))
+
+            }))
+        }
     },
 });
