@@ -81,7 +81,6 @@
     })
 
 
-    console.log("todosTusCampos", todosTusCampos);
 
     // hidratar desde campos
     todosTusCampos.forEach(c=>{
@@ -324,7 +323,7 @@
       (acc,c)=> (c.tipo == "multicampo") ? (
       [
         ...acc,
-        // c,
+        {...c},
         ...c.datos.campos
       ]
     ) : (
@@ -372,11 +371,10 @@
   )
 
 
-  const multiCampoLleno = (campo, valor) => {
-
-    if( campo && campo.tipo == "multicampo" && campo.datos && valor) {
+  const multiCampoLleno = (campo, estado) => {
+    if( campo && campo.tipo == "multicampo" && campo.datos && estado) {
       
-      const valoresCampos = campo.datos.campos.map(c=>valor[c.nombre])
+      const valoresCampos = campo.datos.campos.map(c=>estado[c.nombre])
       
       return ! valoresCampos.includes(undefined)
 
@@ -384,7 +382,7 @@
 
     // (
     //   (
-    //     campo.tipo=="multicampo"
+    //     campo.tipo= ="multicampo"
     //   ) && valor === 0
     // )
   }
@@ -418,9 +416,8 @@
           
           ||
 
-          multiCampoLleno(cR, datos)
-          
-          // multiCampoLleno(cR, datos[cR.nombre])
+          // multiCampoLleno(cR, datos)          
+          multiCampoLleno(cR, datos[cR.nombre])
         )
         &&
         (
@@ -434,6 +431,7 @@
     return (llenos.length < campos.filter(c => !!c.requerido).length);
   
   }
+
 
 
 
