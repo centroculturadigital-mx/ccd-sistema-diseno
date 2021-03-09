@@ -136,12 +136,27 @@
                 break;         
                 
             case "UNICO_OTRA":
-                    valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
+                valoresCasillas = new Array(opciones.length+1).fill(false).map((e,i)=> v && i==v.id)
+                
+                textoOtra = v ? v.texto : null
+
                 break;
                 
             case "MULTIPLE_OTRA":
                 if( Array.isArray(v) ) {
-                    valoresCasillas = v.map(e=>e.valor)
+                    textoOtra = v[v.length - 1].valor
+                        ? v[v.length - 1].texto
+                        : null
+                    
+                    valorOtra = v[v.length - 1].valor
+                        ? v[v.length - 1].valor
+                        : null
+
+                    valoresCasillas = [
+                        ...v.slice(0,v.length-1).map(e=>e.valor),
+                        [...v].pop()
+                    ]
+
                 }
                 break;
                 
@@ -152,6 +167,7 @@
                 }
                 break;
         }
+
     
 
         // TODO: validar si todavía es necesario el timeout
@@ -235,6 +251,11 @@
         valor: tipo == "UNICO_OTRA" ? valorLocal.id == opciones.length : valorOtra,
         texto: textoOtra
     } : null
+
+    // $: otra = ( tipo == "MULTIPLE_OTRA" || ( valorLocal && valorLocal.id == opciones.length ) ) ? {
+    //     valor: tipo == "UNICO_OTRA" ? valorLocal.id == opciones.length : valorOtra,
+    //     texto: textoOtra
+    // } : null
 
     
 

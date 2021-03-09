@@ -34,7 +34,9 @@ const c1 = {
     }
   ],
   "valor": {
-    "id": 0
+    "id": 6,
+    "valor": true,
+    "texto": "abcdefghi"
   },
   "datos": {
     "tipo": "UNICO_OTRA"
@@ -377,7 +379,7 @@ const c8 = {
     "subquestion-6010a6c3cf990f00190716f1": 55,
     "subquestion-6010a6c3cf990f00190716f2": 66,
     "subquestion-6010a6c3cf990f00190716f3": {
-      "texto": "abcdef",
+      "texto": "abc def QWE RTY",
       "numero": 77
     }
   },
@@ -506,15 +508,10 @@ const paso = {
     c3,
     c4,
     c5,
-    
-    // req. cambio
     c6,
     c7,
     c8,
-
     c9,
-
-    // req. cambio
     c10
   ]
 }

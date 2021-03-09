@@ -15,11 +15,14 @@
 
     let valorLocal;
 
+
+    $: valorTexto = ""
+    $: valorEstado = false
+
     $: valorActualizar(valor);
 
     const valorActualizar = v => {
         if( v ) {
-
             valorLocal = v;
             
             valorTexto = v.texto
@@ -71,10 +74,6 @@
         // actualizarValor( valorLocal )
 
     }
-
-    let valorTexto
-    let valorEstado
-
     $: valorLocal = {
         ...valor,
         texto: valorTexto
@@ -121,7 +120,7 @@
     <BotonAlternar
         {texto}
         tipo={tipo == "UNICO" ? "CIRCULAR" : "CUADRADO"}
-        estado={!!valorLocal.valor}
+        estado={valorEstado}
         click={cambiarValor}
     />
 

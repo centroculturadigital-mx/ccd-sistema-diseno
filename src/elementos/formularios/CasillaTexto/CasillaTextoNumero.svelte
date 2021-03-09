@@ -24,6 +24,7 @@
     $: valorActualizar(valor);
 
     const valorActualizar = v => {
+
         if( v ) {
 
             valorLocal = v;

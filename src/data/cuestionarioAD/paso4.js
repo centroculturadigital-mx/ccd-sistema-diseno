@@ -322,7 +322,7 @@ const paso = {
         },
         {
           "id": 2,
-          "valor": true
+          "valor": false
         },
         {
           "id": 3,

@@ -38,10 +38,12 @@
 
   const prepararObjeto = tipo => {
     if( tipo == "texto-numero" ) {
-      valorLocalObjeto = {
+
+      valorLocalObjeto = valor || {
         texto: "",
         numero: 0
       }
+
     }
 
   }
