@@ -15,6 +15,8 @@
 
     let valorLocal;
 
+    let tecleando = false
+
 
     $: valorTexto = ""
     $: valorEstado = false
@@ -54,25 +56,41 @@
     }
 
     const cambiarAccion = (e) => {
-        if( e ) {
-            e.preventDefault()
-            e.stopPropagation()            
-        }
+
 
         // para actualizar input invisible
-        valorEstado = valorLocal.valor
+        valorEstado = !! valorTexto
+        // valorEstado = valorLocal.valor
 
-        try {
 
-            cambiar( valorLocal )
-            cambiarInputOculto( valorLocal.valor )
+        if( tecleando ) {
+
+            clearTimeout(tecleando)
             
-        } catch( err) {
-            console.log("Error al cambiar casilla", err);
         }
             
-        // actualizarValor( valorLocal )
+        tecleando = setTimeout(()=>{
+                                    
+            if( e ) {
+                e.preventDefault()
+                e.stopPropagation()            
+            }
 
+            try {
+
+                cambiar( valorLocal )
+                cambiarInputOculto( valorLocal.valor )
+                
+            } catch( err) {
+                console.log("Error al cambiar casilla", err);
+            }
+                
+            // actualizarValor( valorLocal )
+            tecleando = null
+
+        }, 600)
+
+        
     }
     $: valorLocal = {
         ...valor,

@@ -22,13 +22,15 @@
 
     let valorLocal;
 
-    $: valorProcesar(valor);
+    // $: valorProcesar(valor);
     
     
     $: prepararArreglo( opciones )
     $: prepararCasillas( opciones, valorLocal )
 
 
+    $: console.log("valorLocal", valorLocal);
+    $: console.log("valor", valor);
 
     const valorProcesar = v => {
         
@@ -87,22 +89,67 @@
                 }
                 break;
 
-            case "MULTIPLE_OTRA":               
+            case "MULTIPLE_OTRA":         
+            
+            
                 if( typeof v == "number" ) {
-                    if( Array.isArray(valorLocal)) {
+
+                    if( Array.isArray(valorLocal) ) {
                         valorLocal[v].valor = !valorLocal[v].valor;
                     }
-                }
-                if( typeof v == "object" ) {
-                    if( v.id == opciones.length && v.texto ) {
-                        valorLocal[opciones.length] = v
+
+                    if( !! valorLocal[opciones.length] && valorLocal[opciones.length].valor && ! valorLocal[opciones.length].texto ) {
+                        valorLocal[opciones.length].valor = false
                     }
+                    
                 }
+
                 if( Array.isArray(v)) {
                     valorLocal = v
-                }    
+
+                } else if( typeof v == "object" ) {
+                    
+                    if( v.id == opciones.length ) {
+                        if( v.texto && (v.valor !== false)) {
+                        
+                            valorLocal[opciones.length] = {
+                                ...v,
+                                valor: true
+                            }
+
+                        // if( !! valorLocal[opciones.length] ) {
+                        //     valorLocal[opciones.length] = {
+                        //         ...valorLocal[opciones.length],
+                        //         // valor: !valorLocal[opciones.length].valor,
+                        //         texto: v.texto
+                        //     }
+                        // }
+                        } else {
+                            if( v.valor === false ) {
+
+                                valorLocal[opciones.length] = {
+                                    ...v,
+                                    texto: null,
+                                    valor: false
+                                }
+
+                            } else {
+                                if( !! valorLocal[opciones.length] ) {
+                                    valorLocal[opciones.length].valor = ! valorLocal[opciones.length].valor
+                                    
+                                    if( ! valorLocal[opciones.length].valor ) {
+                                        delete valorLocal[opciones.length].texto
+                                    }
+                                }
+                            }
+
+                        }
+                    }
+                }
+                   
                 break;
             default:
+                console.log("default", v);
                 valorLocal = v;
         }
 
@@ -149,7 +196,8 @@
                 
             case "MULTIPLE_OTRA":
                 if( Array.isArray(v) ) {
-                    textoOtra = v[v.length - 1].valor
+                    textoOtra = v[v.length - 1].texto
+                    // textoOtra = v[v.length - 1].valor
                         ? v[v.length - 1].texto
                         : null
                     
