@@ -45,17 +45,22 @@
                 break;
             case "UNICO_OTRA":
                 if( typeof v == "object" ) {
-                    if( v.id ) {
-                        valorLocal = v
-                    }
-                    if( v.id == opciones.length && v.texto ) {
-                        valorLocal = v
-                    }
+
+                        if( v.id ) {
+                            valorLocal = v
+                        }
+                        if( v.id == opciones.length && v.texto ) {
+                            valorLocal = v
+                        }
+
                 }
                 if( typeof v == "number" ) {
                     valorLocal = {
                         id: v
                     }
+                    
+                    otra = null
+                    
                 }
                 
                 break;
@@ -247,8 +252,12 @@
     let textoOtra
     let valorOtra
 
-    $: otra = ( tipo == "MULTIPLE_OTRA" || ( valorLocal && valorLocal.id == opciones.length ) ) ? {
-        valor: tipo == "UNICO_OTRA" ? valorLocal.id == opciones.length : valorOtra,
+    // $: otra = ( tipo == "MULTIPLE_OTRA" || ( valorLocal && valorLocal.id == opciones.length ) ) ? {
+
+    let memoria = {}
+
+    $: otra = tipo.includes("OTRA") ? {
+        valor: (tipo == "UNICO_OTRA" && valorLocal) ? valorLocal.id == opciones.length : valorOtra,
         texto: textoOtra
     } : null
 

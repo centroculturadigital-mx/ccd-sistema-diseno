@@ -373,25 +373,25 @@ export const formularioCasillas = () => ({
         componente: FormularioTester,
         datos: {
             campos: [
-                {
-                    ...casilla,
-                    valor: true
-                },
-                {
-                    ...casillas,
-                    valor: new Array(13).fill(true).map(() => Math.random() > 0.5)
-                },
-                {
-                    ...casillas,
-                    nombre: "casillasUnico",
-                    etiqueta: "Opción única",
-                    indicacion: "Elige solo una",
-                    tipo: "casillas",
-                    datos: {
-                        tipo: "UNICO"
-                    },
-                    valor: 0
-                },
+                // {
+                //     ...casilla,
+                //     valor: true
+                // },
+                // {
+                //     ...casillas,
+                //     valor: new Array(13).fill(true).map(() => Math.random() > 0.5)
+                // },
+                // {
+                //     ...casillas,
+                //     nombre: "casillasUnico",
+                //     etiqueta: "Opción única",
+                //     indicacion: "Elige solo una",
+                //     tipo: "casillas",
+                //     datos: {
+                //         tipo: "UNICO"
+                //     },
+                //     valor: 0
+                // },
                 {
                     ...casillas,
                     nombre: "casillasUnicoOtra",
@@ -403,40 +403,40 @@ export const formularioCasillas = () => ({
                     },
                     valor: 0
                 },
-                {
-                    ...casillas,
-                    nombre: "casillasMultipleOtra",
-                    etiqueta: "Opción múltiple, y/o añade otra",
-                    indicacion: "Elige las opciones, y/o agrega tu opción",
-                    tipo: "casillas",
-                    datos: {
-                        tipo: "MULTIPLE_OTRA"
-                    },
-                    valor: [
-                        ...new Array(13).fill(true).map((o, i) => ({ id: i, valor: Math.random() > 0.5 })),
-                        {
-                            id: 13,
-                            valor: true,
-                            texto: "Hola mundo"
-                        }
-                    ]
-                },
-                {
-                    ...casillas,
-                    nombre: "casillasMultipleMaximo",
-                    etiqueta: "Opción múltiple, cantidad máxima",
-                    indicacion: "Elige máximo 3 opciones",
-                    tipo: "casillas",
-                    datos: {
-                        tipo: "MULTIPLE_MAXIMO",
-                        datos: {
-                            maximo: 3
-                        }
-                    },
-                    valor: [
-                        ...new Array(13).fill(false)
-                    ]
-                }
+                // {
+                //     ...casillas,
+                //     nombre: "casillasMultipleOtra",
+                //     etiqueta: "Opción múltiple, y/o añade otra",
+                //     indicacion: "Elige las opciones, y/o agrega tu opción",
+                //     tipo: "casillas",
+                //     datos: {
+                //         tipo: "MULTIPLE_OTRA"
+                //     },
+                //     valor: [
+                //         ...new Array(13).fill(true).map((o, i) => ({ id: i, valor: Math.random() > 0.5 })),
+                //         {
+                //             id: 13,
+                //             valor: true,
+                //             texto: "Hola mundo"
+                //         }
+                //     ]
+                // },
+                // {
+                //     ...casillas,
+                //     nombre: "casillasMultipleMaximo",
+                //     etiqueta: "Opción múltiple, cantidad máxima",
+                //     indicacion: "Elige máximo 3 opciones",
+                //     tipo: "casillas",
+                //     datos: {
+                //         tipo: "MULTIPLE_MAXIMO",
+                //         datos: {
+                //             maximo: 3
+                //         }
+                //     },
+                //     valor: [
+                //         ...new Array(13).fill(false)
+                //     ]
+                // }
             ],
             enviar: datos => console.log("Enviaste formulario", datos),
         }
