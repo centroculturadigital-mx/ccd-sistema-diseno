@@ -86,7 +86,7 @@
     todosTusCampos.forEach(c=>{
       if( c.valor || (
           (
-            c.tipo == "casillas" &&
+            c.tipo == "casillas" && c.datos &&
             (
               c.datos.tipo == "UNICO"
               ||
