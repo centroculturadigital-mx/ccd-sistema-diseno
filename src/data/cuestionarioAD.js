@@ -6,14 +6,14 @@ import paso5 from "./cuestionarioAD/paso5"
 
 export default {
   "pasos": [    
-    paso1,
-    paso2,
-    paso3,
+    // paso1,
+    // paso2,
+    // paso3,
     paso4,
-    paso5
+    // paso5
 
 
-    // paso1
+    paso1
   ],
   "campos": []
 }

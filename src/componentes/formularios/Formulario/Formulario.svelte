@@ -72,8 +72,7 @@
             }
           })
         }
-      } else {
-        
+      } else {        
 
         cambiarEstado(clave,valor)
 
@@ -82,8 +81,9 @@
     })
 
 
-    // hidratar desde campos
+    console.log("todosTusCampos", todosTusCampos);
 
+    // hidratar desde campos
     todosTusCampos.forEach(c=>{
       if( c.valor || (
           (
@@ -214,12 +214,8 @@
     }
   }
   
-  const computarCampos = (campos, datos) => {
+  const computarCampos = (campos, estado) => {
 
-
-
-
-    
     const camposPreparados = campos
       .map(c => {
         if (revisarValidezCampo(c)) {
@@ -229,8 +225,7 @@
           //   ? datos[c.nombre]
           //   : c.valor || datos[c.nombre];
 
-          let valor = estado[c.nombre]
-
+          let valor = estado[ c.nombre ]
 
           let campoPreparado = {
             ...c,
@@ -239,7 +234,6 @@
             // valor: c.valorInicial ? c.valorInicial : null,
             cambiar: v => cambiarCampo(c, v),
             configuracion: prepararConfiguracionCampo()
-
           };
 
 
@@ -282,6 +276,7 @@
               estado: resultadoValidacion.estado,
 
             };
+
           }
 
           return campoPreparado;
@@ -293,6 +288,7 @@
 
 
     return camposPreparados;
+
   };
 
   const realizarCambioCampo = (valor, c) => {
@@ -382,7 +378,6 @@
       
       const valoresCampos = campo.datos.campos.map(c=>valor[c.nombre])
       
-
       return ! valoresCampos.includes(undefined)
 
     }
@@ -405,21 +400,26 @@
       .filter(cR => (
         (
           (
-            // si tiene un valor no 0 o no nulo,
-            !! datos[cR.nombre]
-            &&
-            // y no es multicampo
-            ( cR.tipo != "multicampo" )
+            (
+              // si tiene un valor no 0 o no nulo,
+              !! datos[cR.nombre]
+              &&
+              // y no es multicampo
+              ( cR.tipo != "multicampo" )
+            )
+            // de otro modo, checamos excepciones a 0 o nulo:
+            ||
+            textoLleno(cR, datos[cR.nombre])
+            ||
+            numeroLleno(cR, datos[cR.nombre])
+            ||
+            casillasLlenas(cR, datos[cR.nombre])
           )
-          // de otro modo, checamos excepciones a 0 o nulo:
+          
           ||
-          textoLleno(cR, datos[cR.nombre])
-          ||
-          numeroLleno(cR, datos[cR.nombre])
-          ||
-          casillasLlenas(cR, datos[cR.nombre])
-          ||
+
           multiCampoLleno(cR, datos)
+          
           // multiCampoLleno(cR, datos[cR.nombre])
         )
         &&

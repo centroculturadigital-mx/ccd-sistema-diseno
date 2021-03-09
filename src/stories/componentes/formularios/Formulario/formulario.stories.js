@@ -1051,6 +1051,11 @@ export const formularioMulticampoSumaTotal = () => ({
     },
 });
 
+const todoOK = valor => ({
+    estado: "ok",
+    error: null,
+    valido: true
+})
 
 export const formularioCuestionarioAD = () => ({
     Component: ThemeTester,
@@ -1060,14 +1065,19 @@ export const formularioCuestionarioAD = () => ({
             ...cuestionarioAD,
             pasos: cuestionarioAD.pasos.map(p=>({
                 ...p,
-                campos: p.campos.map(c=>({
-                    ...c,
-                    validacion: () => ({
-                        estado: "ok",
-                        error: null,
-                        valido: true
+                campos: p.campos.map(
+                    c=>({
+                        ...c,
+                        validacion: todoOK,
+                        datos: ({
+                            ...c.datos,
+                            campos: c.tipo=="multicampo" ? c.datos.campos.map(cDc=>({
+                                ...cDc,
+                                validacion: todoOK
+                            })) : null
+                        })
                     })
-                }))
+                )
 
             }))
         }
