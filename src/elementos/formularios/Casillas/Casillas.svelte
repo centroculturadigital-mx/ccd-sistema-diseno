@@ -1,4 +1,7 @@
 <script>
+
+    import { onMount } from "svelte"
+
     import Casilla from "../Casilla/Casilla"
     import CasillaTexto from "../CasillaTexto/CasillaTexto"
     
@@ -22,15 +25,12 @@
 
     let valorLocal;
 
-    // $: valorProcesar(valor);
+    $: valorProcesar(valor);
     
     
     $: prepararArreglo( opciones )
     $: prepararCasillas( opciones, valorLocal )
 
-
-    $: console.log("valorLocal", valorLocal);
-    $: console.log("valor", valor);
 
     const valorProcesar = v => {
         
@@ -46,21 +46,27 @@
                 }
                 break;
             case "UNICO_OTRA":
+                console.log("UNICO_OTRA", v);
+
+            
                 if( typeof v == "object" ) {
 
-                        if( v.id ) {
-                            valorLocal = v
-                        }
-                        if( v.id == opciones.length && v.texto ) {
-                            valorLocal = v
-                        }
+                    console.log("UNICO_OTRA obj", v);
+
+
+                    if( v.id ) {
+                        valorLocal = v
+                    }
+                    if( v.id == opciones.length && v.texto ) {
+                        valorLocal = v
+                    }
 
                 }
                 if( typeof v == "number" ) {
                     valorLocal = {
                         id: v
                     }
-                    
+                            
                     otra = null
                     
                 }
@@ -90,14 +96,14 @@
                 break;
 
             case "MULTIPLE_OTRA":         
-            
-            
+                    
                 if( typeof v == "number" ) {
 
                     if( Array.isArray(valorLocal) ) {
                         valorLocal[v].valor = !valorLocal[v].valor;
                     }
 
+                    // si no trae texto, apagarlo
                     if( !! valorLocal[opciones.length] && valorLocal[opciones.length].valor && ! valorLocal[opciones.length].texto ) {
                         valorLocal[opciones.length].valor = false
                     }
@@ -112,6 +118,7 @@
                     if( v.id == opciones.length ) {
                         if( v.texto && (v.valor !== false)) {
                         
+                            console.log("escenmario A");
                             valorLocal[opciones.length] = {
                                 ...v,
                                 valor: true
@@ -126,6 +133,7 @@
                         // }
                         } else {
                             if( v.valor === false ) {
+                                console.log("escenmario b");
 
                                 valorLocal[opciones.length] = {
                                     ...v,
@@ -149,7 +157,6 @@
                    
                 break;
             default:
-                console.log("default", v);
                 valorLocal = v;
         }
 
@@ -315,6 +322,12 @@
     // } : null
 
     
+    // onMount(()=>{
+    //     if( valor ) {
+    //         valorProcesar(valor);
+    //     }
+    // })
+
 
 </script>
 

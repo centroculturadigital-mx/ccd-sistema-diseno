@@ -17,7 +17,8 @@
 
     let tecleando = false
 
-
+    let campoTexto
+    
     $: valorTexto = ""
     $: valorEstado = false
 
@@ -53,45 +54,97 @@
 
         cambiarAccion()
 
+        if( valorLocal.valor ) {
+            campoTexto.focus()
+        }
+
     }
 
-    const cambiarAccion = (e) => {
 
+    let valorAnterior
+    let textoAnterior
 
-        // para actualizar input invisible
-        valorEstado = !! valorTexto
-        // valorEstado = valorLocal.valor
+    const realizarCambio = valorLocal => {
 
-
-        if( tecleando ) {
-
-            clearTimeout(tecleando)
-            
-        }
-            
-        tecleando = setTimeout(()=>{
-                                    
-            if( e ) {
-                e.preventDefault()
-                e.stopPropagation()            
-            }
+        // console.log("valorLocal", valorLocal);
+        // if( textoAnterior != valorLocal.texto && valorAnterior != valorLocal.valor) {
 
             try {
+                
+                // si lo borraste,
+                if(!!textoAnterior && ! valorLocal.texto ) {
+                    // apaga campo
+                    valorLocal.valor = false
+                }
+                // guarda info para sig. cambio checar si borraste:
+                textoAnterior = valorLocal.texto
+                valorAnterior = valorLocal.valor
 
                 cambiar( valorLocal )
-                cambiarInputOculto( valorLocal.valor )
-                
+                cambiarInputOculto( valorLocal.valor )                            
             } catch( err) {
                 console.log("Error al cambiar casilla", err);
             }
-                
-            // actualizarValor( valorLocal )
-            tecleando = null
 
-        }, 600)
+        // } else {
+            
+        //     if( !! valorLocal.valor || ! valorLocal || valorLocal.texto == ""  || ! valorLocal.texto) {
+        //         valorLocal.valor = valorLocal.valor || false
+        //         cambiar( valorLocal )
+        //         cambiarInputOculto( valorLocal.valor )   
+        //     }
 
-        
+        // }
+
     }
+
+    const cambiarAccion = (e) => {
+        
+        if( valorLocal ) {
+            
+            if( valorLocal.texto ) {
+                // para actualizar input invisible
+                valorEstado = !! valorTexto
+                // valorEstado = valorLocal.valor    
+            
+                if( valorEstado ) {
+
+                    if( tecleando ) {
+
+                        clearTimeout(tecleando)
+
+                    }
+
+                    tecleando = setTimeout(()=>{
+                                            
+                        if( e ) {
+                            e.preventDefault()
+                            e.stopPropagation()            
+                        }
+
+                        realizarCambio( valorLocal )
+                          
+                        // actualizarValor( valorLocal )
+                        tecleando = null
+
+                    }, 600)
+
+                } else {
+                 
+                    realizarCambio( valorLocal )
+                    
+                }
+
+
+            } else {
+
+                realizarCambio( valorLocal )
+
+            }
+        
+        }
+    }
+
     $: valorLocal = {
         ...valor,
         texto: valorTexto
@@ -102,6 +155,18 @@
     } : node => { 
         node.type = 'checkbox'
     }
+
+
+    const soltar = () => {
+        if( tecleando ) {
+            clearTimeout(tecleando)
+            tecleando = null
+        }
+        realizarCambio( valorLocal )
+    }
+
+
+    
 
 </script>
 
@@ -142,6 +207,6 @@
         click={cambiarValor}
     />
 
-    <input type="text" bind:value={valorTexto} on:keyup={cambiarAccion}/>
+    <input type="text" bind:this={campoTexto} bind:value={valorTexto} on:keyup={cambiarAccion} on:blur={soltar}/>
 
 </div>
