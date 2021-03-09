@@ -45,6 +45,7 @@
 
   
 
+
   let cargadoInicial = false
 
 
@@ -59,7 +60,6 @@
 
   const hidratarEstado = () => {
     // hidratar desde datos:
-
     Object.entries( datos ).forEach( par => {
 
       const [clave, valor] = par
@@ -73,6 +73,7 @@
           })
         }
       } else {
+        
 
         cambiarEstado(clave,valor)
 
@@ -83,8 +84,19 @@
 
     // hidratar desde campos
 
-    todosLosCampos.forEach(c=>{
-      if(c.valor) {
+    todosTusCampos.forEach(c=>{
+      if( c.valor || (
+          (
+            c.tipo == "casillas" &&
+            (
+              c.datos.tipo == "UNICO"
+              ||
+              c.datos.tipo == "UNICO_OTRA"
+            ) &&
+            c.valor === 0
+          )
+        )
+      ) {
         cambiarEstado(c.nombre,c.valor)
       }
     })
@@ -94,6 +106,7 @@
 
   const cambiarEstado = ( clave, valor ) => {
     
+
     estado = {
       ...estado,
       [clave]: valor
@@ -106,13 +119,16 @@
 
   onMount(()=>{
 
+
     hidratarEstado()
     
     //eliminar valores campos
     
-    todosLosCampos.forEach(c=>{
-      delete c.valor
-    })
+    // // setTimeout(() => {
+      // todosTusCampos.forEach(c=>{
+      //   delete c.valor
+      // })
+    // // })
 
     cargadoInicial = true
 
@@ -141,7 +157,7 @@
   //   cargadoInicial = true
   // }
 
-  // $: ! cargadoInicial && Array.isArray(todosLosCampos) && llenarDatosCampos( todosLosCampos )
+  // $: ! cargadoInicial && Array.isArray(todosTusCampos) && llenarDatosCampos( todosTusCampos )
 
 
 
@@ -171,8 +187,6 @@
       const subpreguntaPar = Object.entries(v).filter(p=>!!p[1])
 
       if(subpreguntaPar) {
-
-        
         
         cambiarEstado( subpreguntaPar[0], subpreguntaPar[1] )
         
@@ -227,6 +241,7 @@
             configuracion: prepararConfiguracionCampo()
 
           };
+
 
 
           if (c.tipo == "multicampo") {
@@ -306,8 +321,8 @@
 
   
 
-  $: todosLosCampos = (
-    Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos) ? [...a,...p.campos]:a,[]) : campos
+  $: todosTusCampos = (
+    Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos) ? [...a,...p.campos]:a,[]) : [...campos]
   )
   .reduce(
       (acc,c)=> (c.tipo == "multicampo") ? (
@@ -326,7 +341,7 @@
   
   
 
-  $: camposMostrar = Array.isArray(todosLosCampos) ? computarCampos(todosLosCampos, estado) : []
+  $: camposMostrar = Array.isArray(todosTusCampos) ? computarCampos(todosTusCampos, estado) : []
   
   $: hayErrores =
     !camposMostrar || camposMostrar.filter(c => !!c.error).length > 0;
@@ -346,11 +361,21 @@
       campo.tipo=="numero"
     ) && valor === 0
   )
+
+
   const casillasLlenas = (campo, valor) => (
     (
       campo.tipo=="casillas"
+    ) && (
+      campo.datos && (
+        campo.datos.tipo=="UNICO"
+        ||
+        campo.datos.tipo=="UNICO_OTRA"
+      )
     ) && valor === 0
   )
+
+
   const multiCampoLleno = (campo, valor) => {
 
     if( campo && campo.tipo == "multicampo" && campo.datos && valor) {
@@ -376,12 +401,17 @@
     }
 
 
-
-
     const llenos = campos.filter(c => !!c.requerido)
       .filter(cR => (
         (
-          ( cR.tipo != "multicampo" && !! datos[cR.nombre])
+          (
+            // si tiene un valor no 0 o no nulo,
+            !! datos[cR.nombre]
+            &&
+            // y no es multicampo
+            ( cR.tipo != "multicampo" )
+          )
+          // de otro modo, checamos excepciones a 0 o nulo:
           ||
           textoLleno(cR, datos[cR.nombre])
           ||

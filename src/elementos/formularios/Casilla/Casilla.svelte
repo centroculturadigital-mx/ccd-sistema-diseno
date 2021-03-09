@@ -22,6 +22,9 @@
     let valorLocal;
 
 
+    $: console.log("valorLocal", valorLocal)
+
+
     const actualizarValor = v => {
         valor = v;
     };
