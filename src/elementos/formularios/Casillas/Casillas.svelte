@@ -116,13 +116,31 @@
                 } else if( typeof v == "object" ) {
                     
                     if( v.id == opciones.length ) {
-                        if( v.texto && (v.valor !== false)) {
+                        if( v.texto ) {
+
+                            if( (v.valor !== false) ) {
+
                         
-                            console.log("escenmario A");
-                            valorLocal[opciones.length] = {
-                                ...v,
-                                valor: true
+                                console.log("escenmario A");
+                                valorLocal[opciones.length] = {
+                                    ...v,
+                                    valor: true
+                                
+                                }
+                                
+                            } else {
+
+                                console.log("escenmario c");
+
+                                if( !! valorLocal[opciones.length] ) {
+                                    valorLocal[opciones.length].valor = ! valorLocal[opciones.length].valor
+                                    
+                                    if( ! valorLocal[opciones.length].valor ) {
+                                        delete valorLocal[opciones.length].texto
+                                    }
+                                }
                             }
+
 
                         // if( !! valorLocal[opciones.length] ) {
                         //     valorLocal[opciones.length] = {
@@ -138,18 +156,10 @@
                                 valorLocal[opciones.length] = {
                                     ...v,
                                     texto: null,
-                                    valor: false
+                                    // valor: false
                                 }
 
-                            } else {
-                                if( !! valorLocal[opciones.length] ) {
-                                    valorLocal[opciones.length].valor = ! valorLocal[opciones.length].valor
-                                    
-                                    if( ! valorLocal[opciones.length].valor ) {
-                                        delete valorLocal[opciones.length].texto
-                                    }
-                                }
-                            }
+                            } 
 
                         }
                     }

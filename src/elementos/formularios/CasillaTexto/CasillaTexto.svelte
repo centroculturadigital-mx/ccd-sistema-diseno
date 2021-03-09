@@ -31,6 +31,9 @@
             valorTexto = v.texto
             valorEstado = v.valor
             
+            textoAnterior = valorTexto
+
+            
         }
     };
 
@@ -67,8 +70,8 @@
     const realizarCambio = valorLocal => {
 
         // console.log("valorLocal", valorLocal);
-        // if( textoAnterior != valorLocal.texto && valorAnterior != valorLocal.valor) {
-
+        if( textoAnterior != valorLocal.texto || valorAnterior != valorLocal.valor) {
+        
             try {
                 
                 // si lo borraste,
@@ -95,6 +98,9 @@
         //     }
 
         // }
+        } else {
+            console.log("no cambiaron valores!");
+        }
 
     }
 
@@ -104,10 +110,9 @@
             
             if( valorLocal.texto ) {
                 // para actualizar input invisible
-                valorEstado = !! valorTexto
+                valorEstado = !! valorLocal.texto 
                 // valorEstado = valorLocal.valor    
-            
-                if( valorEstado ) {
+                if( textoAnterior != valorLocal.texto ) {
 
                     if( tecleando ) {
 
@@ -123,25 +128,23 @@
                         }
 
                         realizarCambio( valorLocal )
-                          
+                            
                         // actualizarValor( valorLocal )
                         tecleando = null
 
                     }, 600)
 
                 } else {
-                 
+
                     realizarCambio( valorLocal )
-                    
-                }
 
-
+                }                
             } else {
 
                 realizarCambio( valorLocal )
 
+            
             }
-        
         }
     }
 
