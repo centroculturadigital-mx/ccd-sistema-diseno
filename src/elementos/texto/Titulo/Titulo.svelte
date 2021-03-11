@@ -26,7 +26,7 @@
   const titulares = [Titulo1, Titulo2, Titulo3, Titulo4, Titulo5, Titulo6];
 
   $: elemento =
-    parseInt(nivel) >= 1 && parseInt(nivel) < 6
+    parseInt(nivel) >= 1 && parseInt(nivel) <= 6
       ? titulares[nivel - 1]
       : Titulo3;
 </script>
