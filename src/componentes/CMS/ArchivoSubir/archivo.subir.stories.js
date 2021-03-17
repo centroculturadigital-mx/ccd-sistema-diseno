@@ -1,4 +1,5 @@
 import ArchivoSubir from './ArchivoSubir.svelte';
+import ArchivoSubirProbar from './ArchivoSubirProbar.svelte';
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 
 export default { title: 'CMS/Componentes/ArchivoSubir' }
@@ -29,6 +30,16 @@ export const archivoSubirIcono = () => ({
         componente: ArchivoSubir,
         datos: {
             icono: "cv"
+        }
+    }
+});
+
+export const archivoSubirClickExterno = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ArchivoSubirProbar,
+        datos: {
+
         }
     }
 });

@@ -18,8 +18,9 @@
   export let error;
   export let cambiar;
   export let estado;
-  
-  
+  export let abierto;
+
+
   export let maximo=8;
   export let mensajeError="Su PDF sobrepasa el peso permitido.";
 
@@ -73,6 +74,9 @@
 
       } 
     }
+
+    abierto = false
+    
   };
 
   const abrir = () => input.click();
@@ -80,8 +84,12 @@
   const eliminarArchivo = () => {
     archivo = null;
     error = null
-    cambiar(null)
+    if (typeof cambiar == "function") {
+      cambiar(null)
+    } 
   };
+
+  $: abierto && abrir()
   
 </script>
 
