@@ -46,13 +46,8 @@
                 }
                 break;
             case "UNICO_OTRA":
-                console.log("UNICO_OTRA", v);
-
             
                 if( typeof v == "object" ) {
-
-                    console.log("UNICO_OTRA obj", v);
-
 
                     if( v.id ) {
                         valorLocal = v
@@ -121,7 +116,6 @@
                             if( (v.valor !== false) ) {
 
                         
-                                console.log("escenmario A");
                                 valorLocal[opciones.length] = {
                                     ...v,
                                     valor: true
@@ -130,7 +124,6 @@
                                 
                             } else {
 
-                                console.log("escenmario c");
 
                                 if( !! valorLocal[opciones.length] ) {
                                     valorLocal[opciones.length].valor = ! valorLocal[opciones.length].valor
@@ -151,7 +144,6 @@
                         // }
                         } else {
                             if( v.valor === false ) {
-                                console.log("escenmario b");
 
                                 valorLocal[opciones.length] = {
                                     ...v,
