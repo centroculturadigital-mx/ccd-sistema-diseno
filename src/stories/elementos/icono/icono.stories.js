@@ -228,15 +228,50 @@ export const iconoAbajo = () => ({
 
 });
 
-export const iconoFeliz = () => ({
+export const iconoCaraMuyFeliz = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos: {
-            icono: "feliz",
+            icono: "caraMuyFeliz",
         }
     },
-
+});
+export const iconoCaraFeliz = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "caraFeliz",
+        }
+    },
+});
+export const iconoCaraTriste = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "caraTriste",
+        }
+    },
+});
+export const iconoCaraNeutral = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "caraNeutral",
+        }
+    },
+});
+export const iconoCaraSorpresa = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "caraSorpresa",
+        }
+    },
 });
 
 export const iconoAdjuntar = () => ({

@@ -18,7 +18,11 @@
   import derecha from "./iconos/flecha.derecha.svg";
   import abajo from "./iconos/flecha.abajo.svg";
   import enviar from "./iconos/enviar.svg";
-  import feliz from "./iconos/feliz.svg";
+  import caraMuyFeliz from "./iconos/cara-muy-feliz.svg";
+  import caraFeliz from "./iconos/cara-feliz.svg";
+  import caraTriste from "./iconos/cara-triste.svg";
+  import caraNeutral from "./iconos/cara-neutral.svg";
+  import caraSorpresa from "./iconos/cara-sorpresa.svg";
   import reaccion from "./iconos/reaccion.svg";
   import adjuntar from "./iconos/adjuntar.svg";
   import sumar from "./iconos/sumar.svg";
@@ -114,7 +118,11 @@
     derecha,
     abajo,
     enviar,
-    feliz,
+    caraMuyFeliz,
+    caraFeliz,
+    caraTriste,
+    caraNeutral,
+    caraSorpresa,
     reaccion,
     adjuntar,
     sumar,
