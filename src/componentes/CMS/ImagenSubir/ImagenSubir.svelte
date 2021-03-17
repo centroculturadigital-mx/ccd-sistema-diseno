@@ -19,10 +19,10 @@
   export let iconoCambiar = true;
   export let maximo = 2;
   export let imagen;
+  export let abierto;
   export let formato = 'CUADRADO';//CIRCULAR
 
   let input;
-
   
   const cambiarAccion = datos => {
     
@@ -44,10 +44,9 @@
     }
     
   }
-  
+
   const seleccionarImagen = async e => {
-    
-    
+
     try {
       
       let files = e.target.files;
@@ -144,17 +143,22 @@
       // 
 
     }
+
+    abierto = false
+      
   };
-
-
 
   const abrir = () => input.click();
 
   const eliminarImagen = () => {
     imagen = null;
     error = null
-    cambiar(null)
+    if (typeof cambiar == "function") {
+      cambiar(null)
+    } 
   };
+
+  $: abierto && abrir()
 
 </script>
 
@@ -274,7 +278,8 @@
   <input
   type="file"
   accept="image/x-png,image/gif,image/jpeg"
-  on:change={seleccionarImagen} bind:this={input}
+  on:change={seleccionarImagen} 
+  bind:this={input}
   />
 
   <div class="contenido" >

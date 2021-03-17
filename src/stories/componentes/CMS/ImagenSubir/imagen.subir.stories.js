@@ -1,4 +1,5 @@
 import ImagenSubir from '../../../../componentes/CMS/ImagenSubir/ImagenSubir.svelte';
+import ImagenSubirProbar from '../../../../componentes/CMS/ImagenSubir/ImagenSubirProbar.svelte';
 import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte';
 
 export default { title: 'CMS/Componentes/ImagenSubir' }
@@ -62,6 +63,16 @@ export const imagenSubirNoBorrable = () => ({
         componente: ImagenSubir,
         datos: {
             borrarPermitir: false
+        }
+    }
+});
+
+export const imagenSubirClickExterno = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ImagenSubirProbar,
+        datos: {
+
         }
     }
 });
