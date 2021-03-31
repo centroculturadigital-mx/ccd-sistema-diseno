@@ -43,3 +43,15 @@ export const botonDeshabilitado = () => ({
         },
     }
 });
+
+export const botonEstilosVariante = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Boton estilos variante',
+            click: ()=>console.log("no debería loggear click"),
+            variante: "SECUNDARIO"
+        },
+    }
+});
