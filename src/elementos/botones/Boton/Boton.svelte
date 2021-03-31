@@ -40,47 +40,73 @@
           ...css
         };
         break;
+        case "SECUNDARIO":
+        css = {
+          "background": "transparent",
+          "border": "1px solid var(--theme-colores-primario)",          
+          "color": "var(--theme-colores-primario)",          
+          ...css
+        };
+        break;
     }
   }
 
 
   $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
 
+  $: classes = variante == 'SECUNDARIO' ? 'secundario' : "primario";
 </script>
 
 <style>
   button {
+    transition: var(--theme-transiciones-normal);
     background-color: var(--theme-botones-primario-fondo);
     color: var(--theme-botones-primario-color);
-    padding: calc(var(--theme-botones-primario-espacio) * 2)
-    calc(var(--theme-botones-primario-espacio) * 4);
+    padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
     font-family: var(--theme-botones-primario-familia);
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-textos-parrafo-tamanno);
     border-radius: var(--theme-botones-primario-esquinas);
-    border: 1px solid var(--theme-botones-primario-borde);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    border: none;
     cursor: pointer;
     margin: 0;
-    transition: 0.5s;
   }
   button:hover {
     background-color: var(--theme-botones-primario-hover);
-    border-color: var(--theme-botones-primario-hover);
-    color: var(--theme-botones-primario-color);
   }
-  button:focus,
-  button:visited,
-  button:active { 
+  button:active {
     background-color: var(--theme-botones-primario-activo);
-    border-color:  var(--theme-botones-primario-activo);
-    color: var(--theme-botones-primario-claro);
+  } 
+  /* button:focus, */
+  button:visited { 
+    background-color: var(--theme-botones-primario-hover);
   }
 
   button:disabled {
     background-color: var(--theme-botones-primario-inactivo);
-    border-color: var(--theme-botones-primario-inactivo);
-    color: var(--theme-botones-primario-claro);
+    box-shadow: initial;
+  }
+  /* boton secundario */
+  .secundario {
+    box-shadow: initial;
+  }
+  .secundario:hover,
+  .secundario:active {
+    border: 1px solid var(--theme-botones-primario-activo) !important;
+    color: var(--theme-botones-primario-activo) !important;
+  } 
+  .secundario:focus,
+  .secundario:visited { 
+    border: 1px solid var(--theme-botones-primario-hover) !important;
+    color: var(--theme-botones-primario-hover) !important;
+  }
+  .secundario:disabled {
+    border: 1px solid var(--theme-botones-primario-inactivo) !important;
+    color: var(--theme-botones-primario-inactivo) !important;
   }
 </style>
 
-<button on:click={click} disabled={deshabilitado} style={cssString}>
+<button class={classes} on:click={click} disabled={deshabilitado} style={cssString}>
   {!!texto ? texto : ''}
 </button>

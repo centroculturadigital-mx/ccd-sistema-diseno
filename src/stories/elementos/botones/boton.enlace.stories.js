@@ -1,31 +1,31 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import BotonEnlace from '../../../elementos/botones/BotonEnlace/BotonEnlace.svelte';
 
-export default { title: 'Elementos/Botones/Botón' } 
+export default { title: 'Elementos/Botones/Botón Enlace' }
 
 
 export const botonEnlaceDefault = () => ({
-    Component: ThemeTester, 
+    Component: ThemeTester,
     props: {
         componente: BotonEnlace,
         datos: {
             texto: 'Botón',
             enlace: '/enlace',
-            click: ()=>console.log("click"),
+            click: () => console.log("click"),
         }
     },
 });
 
 
 export const botonEnlaceExterno = () => ({
-    Component: ThemeTester, 
+    Component: ThemeTester,
     props: {
         componente: BotonEnlace,
         datos: {
             texto: 'Botón',
             enlace: 'https://enlace.com',
             externo: true,
-            click: ()=>console.log("click"),
+            click: () => console.log("click"),
         }
     },
 });

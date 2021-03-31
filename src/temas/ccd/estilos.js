@@ -1,4 +1,4 @@
-import variables from './variables'; 
+import variables from './variables';
 
 const estilos = {
     tipografia: {
@@ -15,7 +15,7 @@ const estilos = {
         titulo: {
             fuente: variables.tipografia.fuentes.titulo.nombre,
             peso: variables.tipografia.fuentes.titulo.negrita,
-            h1: { 
+            h1: {
                 tamanno: variables.tipografia.tamannos.xxxl,
             },
             h2: {
@@ -46,7 +46,7 @@ const estilos = {
                 color: variables.colores.texto.oscuro,
                 hover: variables.colores.primario.base,
                 fuente: variables.tipografia.fuentes.secundaria.nombre,
-                tamanno: variables.tipografia.tamannos.md,  
+                tamanno: variables.tipografia.tamannos.md,
                 peso: variables.tipografia.fuentes.principal.regular
             }
         },
@@ -57,14 +57,14 @@ const estilos = {
         }
     },
     cabecera: {
-        principal: { 
+        principal: {
             fondo: variables.colores.fondo.claro,
             altura: variables.alturas.cabecera,
         }
     },
     pestannas: {
         fondo: variables.colores.fondo.claro,
-        fondoHover: variables.colores.primario.claro, 
+        fondoHover: variables.colores.primario.claro,
         borde: variables.colores.fondo.claro,
         bordeHover: variables.colores.primario.base,
         texto: variables.colores.texto.oscuro,
@@ -102,7 +102,7 @@ const estilos = {
         fondo7: variables.colores.fondo.transparente,
     },
 
-    bordes: { 
+    bordes: {
         neutro: variables.colores.borde.neutro,
         oscuro: variables.colores.borde.oscuro,
     }

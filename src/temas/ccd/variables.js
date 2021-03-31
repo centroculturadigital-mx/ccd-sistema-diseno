@@ -1,11 +1,12 @@
 const variables = {
-    colores: { 
+    colores: {
         texto: {
             base: "#4C4CFF",
             claro: '#FFF',
             oscuro: '#282230',
             transparente: "transparent",
             neutro: "#666666",
+            inactivo: "#CCCCCC"
         },
         fondo: {
             base: "#CCCCCC",
@@ -15,6 +16,7 @@ const variables = {
             claro: "#FFF",
             oscuro: "#212121",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         borde: {
             base: "#CDCCFF",
@@ -22,78 +24,91 @@ const variables = {
             oscuro: "#212121",
             transparente: "transparent",
             neutro: "#AAAAAA",
+            inactivo: "#CCCCCC"
         },
         primario: {
             base: "#4D376D",
             claro: "#7A619C",
             oscuro: "#221042",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         primario2: {
             base: "#57C2BB",
             claro: "#8CF5ED",
             oscuro: "#15918B",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         primario3: {
             base: "#EAC00F",
             claro: "#FFF052",
             oscuro: "#B38E00",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         primario4: {
             base: "#EF4B48",
             claro: "#FF7F74",
             oscuro: "#B60220",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         secundario1: {
             base: "#2371E2",
             claro: "#6BA1FF",
             oscuro: "#0049AF",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         secundario2: {
             base: "#0A1699",
             claro: "#5540CB",
             oscuro: "#00006A",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         secundario3: {
             base: "#F752A1",
             claro: "#FF87D3",
             oscuro: "#C00973",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         secundario4: {
             base: "#ADD30F",
             claro: "#E1FF53",
             oscuro: "#B60220",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         secundario5: {
             base: "#2371E2",
             claro: "#6BA1FF",
             oscuro: "#0049AF",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         secundario6: {
             base: "#765ECC",
             claro: "#5540CB",
             oscuro: "#00006A",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         secundario7: {
             base: "#20C9E0",
             claro: "#6EFDFF",
             oscuro: "#0099AE",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         complementario: {
             base: "#FFFF4C",
             claro: "#FFFF81",
             oscuro: "#C8CC00",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         gradiente1: {
             fondo: `rgb(34,16,66);`,
@@ -112,6 +127,7 @@ const variables = {
             aviso: "#C8CC00",
             alerta: "#C50023",
             accion: "#212121",
+            inactivo: "#CCCCCC"
         },
         redes: {
             twitter: "#1DA1F2",
@@ -119,6 +135,7 @@ const variables = {
             youtube: "#FF0000",
             soundcloud: "#F7620E",
             linkedin: "#007BB6",
+            inactivo: "#CCCCCC"
         },
         cabecera: {
             fondo: "#FFF",
@@ -135,12 +152,14 @@ const variables = {
             claro: '#FFF',
             oscuro: '#282230',
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
         enlace: {
             base: "#FF4C4C",
             claro: "#FF8178",
             oscuro: "#C50023",
             transparente: "transparent",
+            inactivo: "#CCCCCC"
         },
     },
     tipografia: {
@@ -165,7 +184,7 @@ const variables = {
                 negrita: 700,
                 grueso: 900
             },
-            secundaria: { 
+            secundaria: {
                 nombre: "Roboto Condensed",
                 regular: 400,
                 ligero: 300,
@@ -179,7 +198,7 @@ const variables = {
                 negrita: 700,
                 grueso: 900
             },
-            complementaria2: { 
+            complementaria2: {
                 nombre: "Frank Ruhl Libre",
                 regular: 400,
                 ligero: 300,
