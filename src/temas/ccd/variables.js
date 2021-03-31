@@ -27,88 +27,100 @@ const variables = {
             inactivo: "#CCCCCC"
         },
         primario: {
-            base: "#4D376D",
-            claro: "#7A619C",
+            base: "#652D90",
+            claro: "#965AC1",
             oscuro: "#221042",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         primario2: {
             base: "#57C2BB",
             claro: "#8CF5ED",
             oscuro: "#15918B",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         primario3: {
             base: "#EAC00F",
             claro: "#FFF052",
             oscuro: "#B38E00",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         primario4: {
             base: "#EF4B48",
             claro: "#FF7F74",
             oscuro: "#B60220",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         secundario1: {
             base: "#2371E2",
             claro: "#6BA1FF",
             oscuro: "#0049AF",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         secundario2: {
             base: "#0A1699",
             claro: "#5540CB",
             oscuro: "#00006A",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         secundario3: {
             base: "#F752A1",
             claro: "#FF87D3",
             oscuro: "#C00973",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         secundario4: {
             base: "#ADD30F",
             claro: "#E1FF53",
             oscuro: "#B60220",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         secundario5: {
             base: "#2371E2",
             claro: "#6BA1FF",
             oscuro: "#0049AF",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         secundario6: {
             base: "#765ECC",
             claro: "#5540CB",
             oscuro: "#00006A",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         secundario7: {
             base: "#20C9E0",
             claro: "#6EFDFF",
             oscuro: "#0099AE",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         complementario: {
             base: "#FFFF4C",
             claro: "#FFFF81",
             oscuro: "#C8CC00",
             transparente: "transparent",
-            inactivo: "#CCCCCC"
+            inactivo: "#CCCCCC",
+            foco: "#965AC1"
         },
         gradiente1: {
             fondo: `rgb(34,16,66);`,

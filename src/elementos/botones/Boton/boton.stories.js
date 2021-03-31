@@ -35,7 +35,6 @@ export const varianteSecundario = () => ({
             variante: 'SECUNDARIO',
             texto: 'Texto de Botón',
         }
-
     }
 })
 

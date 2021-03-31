@@ -17,10 +17,12 @@
     switch (variante) {
       case "NORMAL":
         break;
-      case "HUECO":
+        case "HUECO":
+        case "SECUNDARIO":
         css = {
-          "background": "none",
-          "color": "black",          
+          "background": "transparent",
+          "border": "1px solid var(--theme-colores-primario)",          
+          "color": "var(--theme-colores-primario)",      
           ...css
         };
         break;
@@ -37,14 +39,6 @@
         css = {
           "padding": "0.25rem 1rem",
           "font-size": "0.75",          
-          ...css
-        };
-        break;
-        case "SECUNDARIO":
-        css = {
-          "background": "transparent",
-          "border": "1px solid var(--theme-colores-primario)",          
-          "color": "var(--theme-colores-primario)",          
           ...css
         };
         break;
@@ -77,12 +71,11 @@
   }
   button:active {
     background-color: var(--theme-botones-primario-activo);
-  } 
-  /* button:focus, */
-  button:visited { 
-    background-color: var(--theme-botones-primario-hover);
   }
-
+  button:focus,
+  button:visited { 
+    background-color: var(--theme-botones-primario-foco);
+  }
   button:disabled {
     background-color: var(--theme-botones-primario-inactivo);
     box-shadow: initial;
@@ -91,15 +84,18 @@
   .secundario {
     box-shadow: initial;
   }
-  .secundario:hover,
+  .secundario:hover {
+    border: 1px solid var(--theme-botones-primario-hover) !important;
+    color: var(--theme-botones-primario-hover) !important;
+  }
   .secundario:active {
     border: 1px solid var(--theme-botones-primario-activo) !important;
     color: var(--theme-botones-primario-activo) !important;
   } 
   .secundario:focus,
   .secundario:visited { 
-    border: 1px solid var(--theme-botones-primario-hover) !important;
-    color: var(--theme-botones-primario-hover) !important;
+    border: 1px solid var(--theme-botones-primario-foco) !important;
+    color: var(--theme-botones-primario-foco) !important;
   }
   .secundario:disabled {
     border: 1px solid var(--theme-botones-primario-inactivo) !important;
