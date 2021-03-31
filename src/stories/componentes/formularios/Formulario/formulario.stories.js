@@ -16,7 +16,8 @@ import numero from "../../../../data/campos/numero.js"
 
 
 
-import cuestionarioAD from "../../../../data/cuestionarioAD.js"
+import cuestionarioADEmpresa from "../../../../data/cuestionarioADEmpresa.js"
+import cuestionarioADIndependiente from "../../../../data/cuestionarioADIndependiente.js"
 
 
 export default {
@@ -1057,13 +1058,40 @@ const todoOK = valor => ({
     valido: true
 })
 
-export const formularioCuestionarioAD = () => ({
+export const formularioCuestionarioADIndependiente = () => ({
     Component: ThemeTester,
     props: {
         componente: FormularioTester,
         datos: {
-            ...cuestionarioAD,
-            pasos: cuestionarioAD.pasos.map(p=>({
+            ...cuestionarioADIndependiente,
+            pasos: cuestionarioADIndependiente.pasos.map(p=>({
+                ...p,
+                campos: p.campos.map(
+                    c=>({
+                        ...c,
+                        validacion: todoOK,
+                        datos: ({
+                            ...c.datos,
+                            campos: c.tipo=="multicampo" ? c.datos.campos.map(cDc=>({
+                                ...cDc,
+                                validacion: todoOK
+                            })) : null
+                        })
+                    })
+                )
+
+            }))
+        }
+    },
+});
+
+export const formularioCuestionarioADEmpresa = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            ...cuestionarioADEmpresa,
+            pasos: cuestionarioADEmpresa.pasos.map(p=>({
                 ...p,
                 campos: p.campos.map(
                     c=>({

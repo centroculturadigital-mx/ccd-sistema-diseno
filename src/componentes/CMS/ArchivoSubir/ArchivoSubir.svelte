@@ -116,7 +116,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #b9b9b9;
+    /* background-color: #b9b9b9; */
     cursor: pointer;
     border-radius: 0.25rem;
     border: 1px dashed var(--theme-colores-primario);
@@ -152,7 +152,7 @@
   }
   .Contenedor {
     padding: 0.5rem;
-    background-color: #b9b9b9;
+    /* background-color: #b9b9b9; */
   }
   .error {
     padding: var(--theme-espaciados-padding) 0;
