@@ -52,6 +52,9 @@
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   button {
     transition: var(--theme-transiciones-normal);
     background-color: var(--theme-botones-primario-fondo);
@@ -79,6 +82,7 @@
   button:disabled {
     background-color: var(--theme-botones-primario-inactivo);
     box-shadow: initial;
+    cursor: default;
   }
   /* boton secundario */
   .secundario {
@@ -100,6 +104,7 @@
   .secundario:disabled {
     border: 1px solid var(--theme-botones-primario-inactivo) !important;
     color: var(--theme-botones-primario-inactivo) !important;
+    cursor: default;
   }
 </style>
 

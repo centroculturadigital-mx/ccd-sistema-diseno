@@ -91,7 +91,7 @@ const tema = {
             },
             secundario: {
                 fondo: variables.colores.primario.transparente,
-                color: variables.colores.texto.base,
+                color: variables.colores.primario.base,
                 espacio: variables.espaciados.sm,
                 familia: estilos.tipografia.parrafo,
                 borde: variables.colores.primario.oscuro,

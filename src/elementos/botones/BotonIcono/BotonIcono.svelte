@@ -2,99 +2,121 @@
   import Icono from "../../Icono/Icono.svelte";
 
   export let texto;
-  export let icono;
-  export let borde = false;
+  export let icono = "mas";
   export let click = () => console.log("Accion botón ícono");
-  export let iconoBotonEstadoUnoUrl;
-  export let iconoBotonEstadoDosUrl;
-  export let estado = false;
-  
+  export let variante = "NORMAL";
   export let deshabilitado;
 
+  // export let borde = false;
+  // export let iconoBotonEstadoUnoUrl;
+  // export let iconoBotonEstadoDosUrl;
+  // export let estado = false;
+  
   export let css = {};
+
+  if (!!variante) {
+    switch (variante) {
+      case "NORMAL":
+        css = {   
+          // "color": "var(--theme-colores-primario)",      
+          ...css
+        };
+      break;
+      case "REDONDO":
+        css = {
+          "padding": "1rem",
+          "border-radius": "10rem",          
+          ...css
+        };
+        break;
+    }
+  }
 
   $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
 
-
+  $: classes = variante == "REDONDO" ? "redondo" : "";
+  
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   button {
-    transition: 0.5s;
-    color: var(--theme-botones-primario-borde);
-    padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
+    transition: var(--theme-transiciones-normal);
+    color: var(--theme-botones-secundario-color);
+    padding: var(--theme-botones-primario-espacio) calc(var(--theme-botones-primario-espacio) * 2);
     background-color: var(--theme-botones-secundario-fondo);
     font-family: var(--theme-botones-primario-familia);
-    border-radius: var(--theme-botones-primario-esquinas);
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-textos-parrafo-tamanno);
+    border: none;
     display: flex;
+    align-items: center;
     cursor: pointer;
     margin: 0;
-    align-items: center;
+  }
+  button :global(.iconoContenedor svg) {
+    transition: var(--theme-transiciones-normal);
+    fill: var(--theme-botones-secundario-color);
+    height: 100%;
   }
   button:hover {
     color: var(--theme-botones-secundario-hover);
-    /* border: 1px solid var(--theme-botones-secundario-hover) !important; */
-    opacity: 0.75;
+    background-color: #D1C8F5;
   }
   button:hover :global(svg) {
-    transition: 0.5s;
     fill: var(--theme-botones-secundario-hover);
-    /* stroke: var(--theme-botones-secundario-hover); */
   }
-
-  /* button:focus,
-  button:visited, */
   button:active {
     color: var(--theme-botones-primario-activo);
   }
-  .no-borde {
-    border: 0;
+  button:focus,
+  button:visited {
+    color: var(--theme-botones-secundario-foco);
+    background-color: #EDE9FB;
   }
-  .borde {
-    border: 1px solid var(--theme-botones-primario-borde);
-  }
-  .borde:hover {
-    border: 1px solid var(--theme-botones-primario-hover);
-  }
-  .borde:visited,
-  .borde:active {
-    border: 1px solid var(--theme-botones-primario-activo);
-  }
-  .borde:focus {
-    outline: 0;
+  button:focus :global(svg),
+  button:visited :global(svg) {
+    fill: var(--theme-botones-secundario-foco);
   }
   button :global(.iconoContenedor) {
     margin: 0 0.5rem;
+    padding: 0.25rem;
   }
-  button :global(.iconoContenedor svg) {
-    fill: var(--theme-botones-primario-borde);
-  }
-
-  button[disabled],  
-  button[disabled] :global(*) {
-    /* TODO: color via vars */
-    color: #999;
-    stroke: #999 !important;
-    fill: #999 !important;
+    
+  button:disabled,  
+  button:disabled :global(*) {
+    color: var(--theme-botones-secundario-inactivo) !important;
+    /* stroke: var(--theme-botones-secundario-inactivo) !important; */
+    fill: var(--theme-botones-secundario-inactivo) !important;
     cursor: default;
+  }
+  /*  */
+  .redondo :global(.iconoContenedor) {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+    margin: 0 !important;
   }
 
 </style>
 
-<button on:click={()=>click()} class={!!borde ? 'borde' : 'no-borde'} style={cssString} disabled={deshabilitado}>
+<button on:click={()=>click()} class={classes} style={cssString} disabled={deshabilitado}>
+
+  {#if !!icono}
+    <Icono {icono} tamanno={'1rem'} color={css.color} />
+  {/if}
 
   <!-- version iconos dos estados -->
-  {#if !!iconoBotonEstadoUnoUrl}
+  <!-- {#if !!iconoBotonEstadoUnoUrl}
     <Icono
     icono={!!estado ? iconoBotonEstadoDosUrl : iconoBotonEstadoUnoUrl}
     tamanno={'1rem'}
     color={css.color}
     />
-  {:else}{!!texto ? texto : ''}{/if}
+  {:else}{!!texto ? texto : ''}{/if} -->
 
-  <!-- Version prop icono -->
-  {#if !!icono}
-    <Icono {icono} tamanno={'1rem'} color={css.color} />
-  {/if}
+  {variante != "REDONDO" ? texto : ''}
+
 
 </button>
