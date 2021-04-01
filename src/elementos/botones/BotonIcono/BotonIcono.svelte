@@ -92,6 +92,9 @@
     fill: var(--theme-botones-secundario-inactivo) !important;
     cursor: default;
   }
+  button:disabled:hover {
+    background-color: transparent;
+  } 
   /*  */
   .redondo :global(.iconoContenedor) {
     height: 1.5rem !important;
