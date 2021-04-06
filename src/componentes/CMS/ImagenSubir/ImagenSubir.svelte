@@ -213,7 +213,7 @@
   .Contenedor {
     padding: 0.5rem;
     background-color: #EDE9FB;
-    border: 1px dashed var(--theme-colores-primario);
+    border: 1px dashed #666;
   }
   .circular {
     border-radius: 50%;
