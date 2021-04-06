@@ -116,10 +116,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #b9b9b9; */
     cursor: pointer;
     border-radius: 0.25rem;
-    border: 1px dashed var(--theme-colores-primario);
+    border: 1px dashed #666666;
   }
   .ArchivoPreparado {
     height: 100%;
@@ -138,11 +137,15 @@
   .ArchivoPreparado :global(.iconoContenedor.cerrar) {
     height: auto;
     transition: 0.5s;
-    background-color: rgba(255, 255, 255, 0.25);
-    padding: 0.25rem;
+    /* background-color: rgba(255, 255, 255, 0.25); */
+    padding: 0;
   }
-  .ArchivoPreparado :global(.iconoContenedor.cerrar:hover) {
-    filter: invert(50%);
+  .ArchivoPreparado :global(button) {
+    background-color: transparent;
+    color: #CCC;
+  }
+  .ArchivoPreparado :global(button:hover) {
+    opacity: 0.75rem;
   }
   .ArchivoPreparado :global(button) {
     position: absolute;
@@ -152,7 +155,29 @@
   }
   .Contenedor {
     padding: 0.5rem;
-    /* background-color: #b9b9b9; */
+    height: 10rem;
+    width: 11.8125;
+  }
+  .Contenedor :global(.iconoContenedor),
+  .ArchivoPreparado :global(a .iconoContenedor) {
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+  }
+  .Contenedor :global(.iconoContenedor svg),
+  .ArchivoPreparado :global(.iconoContenedor svg) {
+    fill: #CCC;
+  }
+  .Contenedor :global(p) {
+    margin-bottom: 1rem;
+  }
+  .Contenedor :global(p span),
+  .ArchivoPreparado :global(p span) {
+    color: #666;
+    font-size: 1rem;
+  }
+  .Contenedor :global(span small) {
+    color: #AAA;
+    font-size: 0.875rem;
   }
   .error {
     padding: var(--theme-espaciados-padding) 0;
@@ -192,7 +217,7 @@
     <div class="Contenedor {error ? "errorCarga" : ""}" on:click={abrir}>
       <Icono {icono} tamanno={'2rem'} />
       <Parrafo texto={ etiqueta } />
-      <Texto texto={ maximo ? 'Máx. ' + maximo + 'mb' : 'Máx. 8mb' }  variante="CHICO"/>
+      <Texto texto={ maximo ? 'Máximo ' + maximo + 'mb' : 'Máximo 8mb' }  variante="CHICO"/>
   
       
     </div>
@@ -205,7 +230,7 @@
     
   
   <div class="ArchivoPreparado">
-      <BotonIcono icono={'cerrar'} click={eliminarArchivo}/>
+      <BotonIcono icono={'cerrar'} click={eliminarArchivo} texto={"cerrar"}/>
       {#if archivo}
         <a href={archivo} target="_blank">
             <Icono icono={iconoDescargar} tamanno={'2rem'} />
