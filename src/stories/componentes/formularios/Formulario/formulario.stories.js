@@ -49,9 +49,6 @@ export const formularioDefault = () => ({
     },
 });
 
-
-
-
 export const formularioNoRequeridos = () => ({
     Component: ThemeTester,
     props: {
@@ -76,6 +73,25 @@ export const formularioRequeridoMixto = () => ({
                     requerido: true
                 },
             ],
+        }
+    },
+});
+export const formularioIndicarOpcionales = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            campos: [
+                ...noRequeridos,
+                {
+                    ...noRequeridos[noRequeridos.length - 1],
+                    nombre: "campo-requerido",
+                    requerido: true
+                },
+            ],
+            configuracion: {
+                indicarOpcionales: true,
+            }
         }
     },
 });
@@ -373,8 +389,7 @@ export const formularioCasillas = () => ({
     props: {
         componente: FormularioTester,
         datos: {
-            campos: [
-                {
+            campos: [{
                     ...casilla,
                     valor: true
                 },
@@ -1064,15 +1079,15 @@ export const formularioCuestionarioADIndependiente = () => ({
         componente: FormularioTester,
         datos: {
             ...cuestionarioADIndependiente,
-            pasos: cuestionarioADIndependiente.pasos.map(p=>({
+            pasos: cuestionarioADIndependiente.pasos.map(p => ({
                 ...p,
                 campos: p.campos.map(
-                    c=>({
+                    c => ({
                         ...c,
                         validacion: todoOK,
                         datos: ({
                             ...c.datos,
-                            campos: c.tipo=="multicampo" ? c.datos.campos.map(cDc=>({
+                            campos: c.tipo == "multicampo" ? c.datos.campos.map(cDc => ({
                                 ...cDc,
                                 validacion: todoOK
                             })) : null
@@ -1091,15 +1106,15 @@ export const formularioCuestionarioADEmpresa = () => ({
         componente: FormularioTester,
         datos: {
             ...cuestionarioADEmpresa,
-            pasos: cuestionarioADEmpresa.pasos.map(p=>({
+            pasos: cuestionarioADEmpresa.pasos.map(p => ({
                 ...p,
                 campos: p.campos.map(
-                    c=>({
+                    c => ({
                         ...c,
                         validacion: todoOK,
                         datos: ({
                             ...c.datos,
-                            campos: c.tipo=="multicampo" ? c.datos.campos.map(cDc=>({
+                            campos: c.tipo == "multicampo" ? c.datos.campos.map(cDc => ({
                                 ...cDc,
                                 validacion: todoOK
                             })) : null
