@@ -17,13 +17,8 @@
     switch (variante) {
       case "NORMAL":
         break;
-<<<<<<< HEAD
         case "HUECO":
         case "SECUNDARIO":
-=======
-      case "SECUNDARIO":
-      case "HUECO":
->>>>>>> ejemplo aplicacion estilos para pseudo-clases en variantes
         css = {
           "background": "transparent",
           "border": "1px solid var(--theme-colores-primario)",          
@@ -40,21 +35,12 @@
           ...css
         };
         break;
-<<<<<<< HEAD
       case "ENLACE":
         css = {
           "background": "transparent",
           "border": "0px",          
           "color": "var(--theme-colores-primario)",           
           "text-decoration": "underline",           
-=======
-      case "HUECO_COMPACTO":
-        css = {
-          "background": "none",
-          "padding": "0.25rem 1rem",
-          "color": "black",
-          "font-size": "0.75",          
->>>>>>> ejemplo aplicacion estilos para pseudo-clases en variantes
           ...css
         };
         break;
@@ -72,12 +58,7 @@
 
   $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
 
-<<<<<<< HEAD
   $: classes = variante == 'SECUNDARIO' ? 'secundario' : variante == 'ENLACE' ? "enlace" : "primario";
-=======
-  $: clases = `Boton${variante ? ` ${variante.toLowerCase()}` : ``}`
-
->>>>>>> ejemplo aplicacion estilos para pseudo-clases en variantes
 </script>
 
 <style>
@@ -168,10 +149,6 @@
 
 </style>
 
-<<<<<<< HEAD
 <button class={classes} on:click={click} disabled={deshabilitado} style={cssString}>
-=======
-<button class={clases} on:click={click} disabled={deshabilitado} style={cssString}>
->>>>>>> ejemplo aplicacion estilos para pseudo-clases en variantes
   {!!texto ? texto : ''}
 </button>
