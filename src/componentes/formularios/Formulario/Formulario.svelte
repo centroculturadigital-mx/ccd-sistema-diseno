@@ -39,7 +39,7 @@
   
 
 
-  export let configuracion
+  export let configuracion = {}
 
   let configuracionDefault = {
     textos: {
@@ -51,7 +51,11 @@
 
   $: configuracion = {
     ...configuracionDefault,
-    ...configuracion
+    ...configuracion,
+    textos: {
+      ...configuracionDefault.textos,
+      ...configuracion.textos,
+    }
   }
 
 
