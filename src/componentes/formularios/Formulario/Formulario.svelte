@@ -37,13 +37,22 @@
   export let respuesta;
   export let enviando = false
   
-  export let configuracion = {
+
+
+  export let configuracion
+
+  let configuracionDefault = {
     textos: {
-      requerido: "* requerido"
-    }
+      requerido: "* requerido",
+      opcional: "(opcional)"
+    },
+    indicarOpcionales: false,
   }
 
-  
+  $: configuracion = {
+    ...configuracionDefault,
+    ...configuracion
+  }
 
 
   let cargadoInicial = false
@@ -206,11 +215,8 @@
 
     
   const prepararConfiguracionCampo = () => {
-    return {
-      textos: {
-        requerido: configuracion.textos.requerido
-      }
-    }
+    // TODO: conceptualizar mejor
+    return configuracion
   }
   
   const computarCampos = (campos, estado) => {
@@ -234,27 +240,24 @@
             cambiar: v => cambiarCampo(c, v),
             configuracion: prepararConfiguracionCampo()
           };
-
-
-
+          
+          
+          
           if (c.tipo == "multicampo") {
-                      
+            
             campoPreparado = {
               ...campoPreparado,
               // cambiar: v => cambiarCampo(c, v),
-              configuracion: {
-                textos: {
-                  requerido: configuracion.textos.requerido
-                }
-              },
-
+              configuracion: prepararConfiguracionCampo(),
+              
               datos: {
                 ...campoPreparado.datos,
                 campos: campoPreparado.datos.campos.map(cC=>({
                   ...cC,
                   valor: estado[cC.nombre],
                   // cambiar: v => {}
-                  cambiar: v => cambiarCampo(cC, v)
+                  cambiar: v => cambiarCampo(cC, v),
+                  configuracion: prepararConfiguracionCampo()
                 }))
                 // campos: campoPreparado.datos.campos.map(cC=>({
                 //   ...cC,

@@ -224,6 +224,13 @@
   .info :global(*) {
     margin-top: 0;
   }
+  .opcional {
+    color: var(--theme-textos-parrafo-neutro);
+    font-weight: var(--theme-textos-parrafo-peso);
+    padding: 0;
+    padding-left: 0.25rem;
+    width: auto;
+  }
 </style>
 
 <div class="Campo">
@@ -234,12 +241,20 @@
     <label>
       {#if !!etiqueta}
         <Parrafo texto={etiqueta} />
-          {#if requerido}
+          {#if requerido && !configuracion.indicarOpcionales}
             <span class="requerido">
               <Texto
               variante="CHICO"
               texto={configuracion.textos.requerido}
               css={{ color: 'red' }} />
+            </span>
+          {/if}
+          {#if !requerido && configuracion.indicarOpcionales}
+            <span class="opcional">
+              <Texto
+              variante="CHICO"
+              texto={configuracion.textos.opcional}
+               />
             </span>
           {/if}
       {/if}
