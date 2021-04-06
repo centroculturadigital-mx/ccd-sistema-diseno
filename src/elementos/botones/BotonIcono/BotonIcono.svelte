@@ -75,7 +75,7 @@
   button:visited {
     color: var(--theme-botones-secundario-foco);
     /* background-color: #EDE9FB; */
-    border: 1px solid var(--theme-botones-secundario-foco);
+    border: 1px solid var(--theme-botones-secundario-foco); 
   }
   button:focus :global(svg),
   button:visited :global(svg) {
