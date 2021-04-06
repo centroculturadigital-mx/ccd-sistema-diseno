@@ -116,7 +116,7 @@
     />
   {:else}{!!texto ? texto : ''}{/if} -->
 
-  {variante != "REDONDO" ? texto : ''}
+  {variante != "REDONDO" ? !!texto ? texto : '' : ''}
 
 
 </button>

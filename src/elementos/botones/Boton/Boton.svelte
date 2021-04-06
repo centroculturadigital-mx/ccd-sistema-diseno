@@ -75,7 +75,7 @@
     font-weight: var(--theme-textos-parrafo-peso);
     font-size: var(--theme-textos-parrafo-tamanno);
     border-radius: var(--theme-botones-primario-esquinas);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.5); */
     border: none;
     cursor: pointer;
     margin: 0;
