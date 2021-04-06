@@ -50,7 +50,7 @@
     font-family: var(--theme-botones-primario-familia);
     font-weight: var(--theme-textos-parrafo-peso);
     font-size: var(--theme-textos-parrafo-tamanno);
-    border: none;
+    border: 1px solid var(--theme-botones-secundario-color);
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -63,7 +63,7 @@
   }
   button:hover {
     color: var(--theme-botones-secundario-hover);
-    background-color: #D1C8F5;
+    /* background-color: #D1C8F5; */
   }
   button:hover :global(svg) {
     fill: var(--theme-botones-secundario-hover);
@@ -74,7 +74,8 @@
   button:focus,
   button:visited {
     color: var(--theme-botones-secundario-foco);
-    background-color: #EDE9FB;
+    /* background-color: #EDE9FB; */
+    border: 1px solid var(--theme-botones-secundario-foco);
   }
   button:focus :global(svg),
   button:visited :global(svg) {
@@ -92,6 +93,9 @@
     fill: var(--theme-botones-secundario-inactivo) !important;
     cursor: default;
   }
+  button:disabled {
+    border: 1px solid var(--theme-botones-secundario-inactivo);
+  }  
   /*  */
   .redondo :global(.iconoContenedor) {
     height: 1.5rem !important;
