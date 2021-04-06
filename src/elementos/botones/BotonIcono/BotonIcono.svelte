@@ -191,6 +191,9 @@
     cursor: default;
     pointer-events: none;
   }
+  button:disabled {
+    border: 1px solid var(--theme-botones-secundario-inactivo);
+  }  
   /*  */
   .secundario {
     color: var(--theme-botones-secundario-color) !important;
