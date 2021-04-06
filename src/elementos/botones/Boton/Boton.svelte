@@ -17,12 +17,21 @@
     switch (variante) {
       case "NORMAL":
         break;
-        case "HUECO":
-        case "SECUNDARIO":
+      case "SECUNDARIO":
+      case "HUECO":
         css = {
           "background": "transparent",
           "border": "1px solid var(--theme-colores-primario)",          
           "color": "var(--theme-colores-primario)",      
+          ...css
+        };
+        break;
+      case "HUECO_COMPACTO":
+        css = {
+          "background": "none",
+          "padding": "0.25rem 1rem",
+          "color": "black",
+          "font-size": "0.75",          
           ...css
         };
         break;
@@ -42,13 +51,15 @@
           ...css
         };
         break;
+      
     }
   }
 
 
   $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
 
-  $: classes = variante == 'SECUNDARIO' ? 'secundario' : "primario";
+  $: clases = `Boton${variante ? ` ${variante.toLowerCase()}` : ``}`
+
 </script>
 
 <style>
@@ -106,8 +117,19 @@
     color: var(--theme-botones-primario-inactivo) !important;
     cursor: default;
   }
+
+  button.secundario {
+    border-color: #aaa;
+    color: #666 !important; 
+  }
+
+  button.secundario:hover {
+    border-color: #555;
+    color: #000 !important; 
+  }
+
 </style>
 
-<button class={classes} on:click={click} disabled={deshabilitado} style={cssString}>
+<button class={clases} on:click={click} disabled={deshabilitado} style={cssString}>
   {!!texto ? texto : ''}
 </button>
