@@ -110,6 +110,7 @@
     z-index: -1;
   }
   .Contenedor {
+    transition: var(--theme-transiciones-normal);
     height: 100%;
     width: 100%;
     display: flex;
@@ -118,8 +119,11 @@
     align-items: center;
     cursor: pointer;
     border-radius: 0.25rem;
-    border: 1px dashed #666666;
+    border: 1.5px dashed #666;
   }
+  .Contenedor:hover {
+    border-color: var(--theme-colores-primario) !important;
+  } 
   .ArchivoPreparado {
     height: 100%;
     width: 100%;
@@ -137,7 +141,6 @@
   .ArchivoPreparado :global(.iconoContenedor.cerrar) {
     height: auto;
     transition: 0.5s;
-    /* background-color: rgba(255, 255, 255, 0.25); */
     padding: 0;
   }
   .ArchivoPreparado :global(button) {
