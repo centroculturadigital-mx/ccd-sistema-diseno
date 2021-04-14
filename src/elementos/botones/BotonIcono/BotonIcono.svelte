@@ -39,7 +39,8 @@
 </script>
 
 <style>
-  * {
+  *,
+  * :global() {
     box-sizing: border-box;
   }
   button {
@@ -50,7 +51,8 @@
     font-family: var(--theme-botones-primario-familia);
     font-weight: var(--theme-textos-parrafo-peso);
     font-size: var(--theme-textos-parrafo-tamanno);
-    border: 1px solid var(--theme-botones-secundario-color);
+    /* border: 1px solid var(--theme-botones-secundario-color); */
+    border: 0;
     display: flex;
     align-items: center;
     cursor: pointer;
