@@ -83,7 +83,8 @@
 </button>
 
 <style>
-  * {
+  *,
+  * :global() {
     box-sizing: border-box;
   }
   button {
