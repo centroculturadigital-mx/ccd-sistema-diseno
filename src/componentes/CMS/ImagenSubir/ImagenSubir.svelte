@@ -213,8 +213,11 @@
   .Contenedor {
     padding: 0.5rem;
     background-color: #EDE9FB;
-    border: 1px dashed #666;
+    border: 1.5px dashed #666;
   }
+  .Contenedor:hover {
+    border-color: var(--theme-colores-primario) !important;
+  } 
   .circular {
     border-radius: 50%;
   }
@@ -241,7 +244,7 @@
   .CambiarIcono :global( button ) {
     padding: 0.25rem;
     margin: 0 !important;
-    
+    border: 0;
   }
   .CambiarIcono :global( button .iconoContenedor) {
     height: 1.75rem !important;
