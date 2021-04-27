@@ -26,3 +26,14 @@ export const desplegableEsEnlace = () => ({
         }
     },
 });
+export const desplegableSinCierreAutomatico = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Desplegable,
+        datos: {
+            ...desplegable,
+            estado: true,
+            cierreAutomatico: false,
+        }
+    },
+});

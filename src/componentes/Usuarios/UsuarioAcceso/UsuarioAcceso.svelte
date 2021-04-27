@@ -16,6 +16,7 @@
   export let elementos = [];
 
   export let estado = false;
+  export let cierreAutomatico = true;
 
   const alternarEstado = () => {
     estado = !estado;
@@ -32,6 +33,13 @@
     }
   }));
 
+  const evitaCerrar = () => {
+    estado = true;
+  }
+   $: clicar = !cierreAutomatico ? evitaCerrar : clickFueraDeArea;
+   $: cerrar = !cierreAutomatico ? evitaCerrar : cierraFueraArea;
+
+   $: console.log("debug cerrar", clicar, cerrar);
 </script>
 
 <style>
@@ -81,7 +89,7 @@
 
 <section class="UsuarioAcceso">
 
-  <div class="contenido" on:click={alternarEstado}>
+  <div class="contenido" on:click={cierreAutomatico ? alternarEstado : null}>
     {#if !!nombre}
       <Texto texto={nombre} variante="SECUNDARIO" />
     {/if}
@@ -90,7 +98,7 @@
 
   {#if Array.isArray(elementos) && elementos.length > 0}
     {#if estado}
-      <ul class="menu" transition:slide|local on:click={alternarEstado} use:clickFueraDeArea on:click_outside={cierraFueraArea}>
+      <ul class="menu" transition:slide|local on:click={cierreAutomatico ? alternarEstado : null} use:clicar on:click_outside={cerrar}>
         {#each elementosLista as elemento (elemento)}
           <ListaElemento contenido={elemento} />
         {/each}
