@@ -34,6 +34,18 @@ export const selectorDefault = () => ({
     },
 });
 
+export const selectorConValor = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Selector,
+        datos: {
+            ejemplo,
+            opciones,
+            accion,
+            valor: 1,
+        }
+    },
+});
 export const selectorDeshabilitado = () => ({
     Component: ThemeTester,
     props: {

@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte'
   import Icono from "../../Icono/Icono.svelte";
 
   export let ejemplo = "Selecciona una opción";
@@ -40,6 +41,7 @@
     if (typeof enfocar == "function") {
       enfocar();
     }
+    console.log("YA! desenfocarAccion");
   };
 
   const cambiarAccion = () => {
@@ -50,6 +52,7 @@
         cambiar(valorLocal);
       });
     }
+    console.log("YA! CambiarAccion");
   };
   //
 
@@ -61,12 +64,23 @@
   };
 
   const selecciona = (opcion,valor) => {
-    estado = null
     ejemplo = opcion
     valorLocal = valor
+    cambiarAccion()
+    estado = null
   }
 
-  $: console.log("select", estado, ejemplo,valorLocal);
+  const valorDefault = () => {
+    if (valor) {
+      ejemplo = opciones[valor].texto
+    }
+  }
+
+  onMount(() => {
+
+    valorDefault()
+  
+  })
 </script>
 
 <div class={clases}>
@@ -95,13 +109,14 @@
     {/if}
   </select> -->
 
-  <!-- seccion visible -->
-  <div class="seleccionado" 
+  <div class="seleccionado"  
   name={nombre} 
   on:click={enlistar}
   on:focus={() => enfocarAccion()}
   on:focusout={() => desenfocarAccion()}
-  on:change={() => cambiarAccion()} 
+  value={false} 
+  disabled={vacioPermitido ? false : true}
+  tabindex="0"
   >
 
     {ejemplo}
@@ -122,18 +137,10 @@
               name="opcion"
               value={opcion.valor}
               />
-              <!-- bind:value={valorLocal} -->
 
             <label for={opcion.valor}>
               {opcion.texto}
             </label>
-
-            <!-- <option
-          value={opcion.valor}
-          selected={opcion.valor == valorLocal || opcion.texto == valorLocal}
-          >
-          {opcion.texto}
-        </option> -->
           </div>
         {/each}
       {/if}
