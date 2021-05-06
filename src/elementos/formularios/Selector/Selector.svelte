@@ -13,7 +13,7 @@
   export let valor;
   export let deshabilitado;
 
-  $: clases = "Selector" + (estado ? "abierto"  : "cerrado");
+  $: clases = deshabilitado ? "selectorCustom " + "deshabilitado " : "selectorCustom " + (estado ? "abierto " : "cerrado ");
 
   let valorLocal;
 
@@ -54,13 +54,22 @@
   //
 
   const enlistar = () => {
-    estado = !estado;
+    
+    if (!deshabilitado) {  
+      estado = !estado;
+    }
   };
 
-  $: console.log("select", estado);
+  const selecciona = (opcion,valor) => {
+    estado = null
+    ejemplo = opcion
+    valorLocal = valor
+  }
+
+  $: console.log("select", estado, ejemplo,valorLocal);
 </script>
 
-<div class="selectorCustom">
+<div class={clases}>
   <!-- <select
     class={clases}
     name={nombre}
@@ -89,14 +98,17 @@
   <!-- seccion visible -->
   <div class="seleccionado" 
   name={nombre} 
-  on:click={enlistar}>
-  
+  on:click={enlistar}
+  on:focus={() => enfocarAccion()}
+  on:focusout={() => desenfocarAccion()}
+  on:change={() => cambiarAccion()} 
+  >
+
     {ejemplo}
 
     <div class="flecha">
       <Icono icono={estado ? "arriba" : "abajo"} />
     </div>
-  
   </div>
 
   <!-- lista no visible hasta clicar -->
@@ -104,15 +116,17 @@
     <section class="listaOpciones">
       {#if !deshabilitado && !!opciones}
         {#each opciones as opcion}
-          <div class="opcion">
+          <div class="opcion" on:click={selecciona(opcion.texto,opcion.valor)}>
             <input
               type="radio"
               name="opcion"
               value={opcion.valor}
-              id={opcion.valor}
-            />
+              />
+              <!-- bind:value={valorLocal} -->
 
-            <label for={opcion.valor}>{opcion.texto}</label>
+            <label for={opcion.valor}>
+              {opcion.texto}
+            </label>
 
             <!-- <option
           value={opcion.valor}
@@ -165,9 +179,17 @@
     outline: 1px solid var(--theme-alertas-exito);
   }
 
-  select:disabled {
+  /* select:disabled {
     color: #aaa;
     border-color: #ddd !important;
+  } */
+
+  .deshabilitado .seleccionado {
+    color: #aaa;
+    border-color: #ddd !important;
+  }
+  .deshabilitado :global(.iconoContenedor svg) {
+    fill: #aaa;
   }
 
   .selectorCustom {
@@ -221,8 +243,12 @@
   }
   .opcion:last-child {
     padding: 0.25rem 0;
-  } 
+  }
   .opcion input[type="radio"] {
     display: none;
+  }
+  .opcion label {
+    pointer-events: none;
+    cursor: pointer;
   }
 </style>
