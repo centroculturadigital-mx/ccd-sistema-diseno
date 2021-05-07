@@ -46,6 +46,18 @@ export const selectorConValor = () => ({
         }
     },
 });
+export const selectorAbierto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Selector,
+        datos: {
+            ejemplo,
+            opciones,
+            accion,
+            estado: true
+        }
+    },
+});
 export const selectorDeshabilitado = () => ({
     Component: ThemeTester,
     props: {
