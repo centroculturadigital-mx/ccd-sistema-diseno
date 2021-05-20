@@ -73,14 +73,31 @@
     seleccionado = opcion;
     valorLocal = valor;
     cambiarAccion();
-    // log
   };
+
+  let listaOpciones;
 
   const abrirConTecla = (e) => {
     if (e.keyCode == 13 || e.keyCode == 32) {
       abrir();
     }
   };
+
+  // const moverConFlecha = () => {
+
+  //   switch (e.keyCode) {
+  //     case 38:
+  //       console.log("Arriba");
+  //       break;
+  //     case 40:
+  //       console.log("Abajo");
+
+  //       abrir()
+  //       break;
+  //   }
+
+  // };
+
 </script>
 
 <div class={clases} on:keyup={abrirConTecla}>
@@ -109,32 +126,31 @@
     {/if}
   </select> -->
 
-  <!-- <div > -->
-    <input
-      type="text"
-      value={seleccionado}
-      class="seleccionado"
-      name={nombre}
-      on:click={abrir}
-      on:focus={() => enfocarAccion()}
-      on:focusout={() => desenfocarAccion()}
-      disabled={vacioPermitido ? false : true}
-    />
+  <input
+    type="text"
+    value={seleccionado}
+    class="seleccionado"
+    name={nombre}
+    on:click={abrir}
+    on:focus={() => enfocarAccion()}
+    on:focusout={() => desenfocarAccion()}
+    disabled={vacioPermitido ? false : true}
+    readonly
+  />
+  <!-- on:keydown={moverConFlecha} -->
 
-    <div class="flecha">
-      <Icono icono={estado ? "arriba" : "abajo"} />
-    </div>
-  <!-- </div> -->
+  <div class="flecha">
+    <Icono icono={estado ? "arriba" : "abajo"} />
+  </div>
 
-  <div class="listaOpciones">
+  <div class="listaOpciones {estado ? 'abierto' : 'cerrado'}">
     {#if !deshabilitado && !!opciones}
-      {#each opciones as opcion}
+      {#each opciones as opcion, i}
         <label
           class="opcion"
           on:click={seleccionar(opcion.texto, opcion.valor)}
         >
           <input
-            tabindex="0"
             type="radio"
             name="opcion"
             value={opcion.valor}
@@ -186,11 +202,6 @@
     outline: 1px solid var(--theme-alertas-exito);
   }
 
-  /* select:disabled {
-    color: #aaa;
-    border-color: #ddd !important;
-  } */
-
   .deshabilitado .seleccionado {
     color: #aaa;
     border-color: #ddd !important;
@@ -212,8 +223,7 @@
     background-color: var(--theme-campos-fondo);
     border: 1px solid var(--theme-campos-borde);
     border-top: 0;
-    padding: calc(var(--theme-campos-espacio) * 2)
-      calc(var(--theme-campos-espacio) * 1.5);
+    padding-bottom: calc(var(--theme-campos-espacio) * 2) 0;
     width: 100%;
   }
   .deshabilitado .listaOpciones,
@@ -233,15 +243,13 @@
   .abierto .seleccionado {
     border-bottom: 0;
   }
-  .abierto .seleccionado:after {
+  .listaOpciones.abierto:before {
     content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 0 1rem;
-    width: 100%;
-    border-bottom: 1px solid #4d376d;
+    padding: 0px 1rem;
+    width: 95%;
+    border-top: 1px solid var(--theme-campos-borde);
     box-sizing: border-box;
+    align-self: center;
   }
   .cerrado .seleccionado:after {
     border-bottom: 0;
@@ -264,15 +272,21 @@
     cursor: pointer;
   }
   .opcion {
+    position: relative;
+    height: 3rem;
     font-size: var(--theme-textos-parrafo-tamanno);
     font-family: var(--theme-textos-parrafo-tipografia);
     font-weight: var(--theme-textos-parrafo-peso);
     color: var(--theme-campos-color);
-    padding: 0.25rem 0 2.125rem;
+    pointer-events: none;
     cursor: pointer;
   }
-  .opcion label {
-    position: relative;
+  .opcion span {
+    display: flex;
+    align-items: center;
+    padding: 0 calc(var(--theme-campos-espacio) * 1.5);
+    height: 100%;
+    width: 100%;
   }
   .opcion:hover {
     color: var(--theme-colores-primario);
@@ -280,17 +294,19 @@
   .opcion:last-child {
     padding: 0.25rem 0;
   }
+  .opcion input[type="radio"] {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    z-index: -1;
+  }
   .opcion input[type="radio"]:active + span {
     background-color: #000;
   }
-  .opcion input[type="radio"] {
-    /* visibility: hidden; */
-    height: 0;
-    width: 0;
-    position: absolute;
+  .opcion input[type="radio"]:focus + span,
+  .opcion input[type="radio"]:active + span {
+    background-color: rgba(200, 200, 200, 0.25);
   }
-  .opcion label {
-    pointer-events: none;
-    cursor: pointer;
-  }
+
 </style>
