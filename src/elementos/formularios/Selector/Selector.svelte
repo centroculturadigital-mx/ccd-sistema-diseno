@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import Icono from "../../Icono/Icono.svelte";
 
-  export let seleccionado = "Selecciona una opción";
+  export let seleccionado;
   export let opciones;
   export let estado = null;
   export let nombre;
@@ -13,20 +13,25 @@
 
   export let valor;
   export let deshabilitado;
-
+  
   $: clases = deshabilitado
-    ? "selectorCustom " + "deshabilitado "
-    : "selectorCustom " + (estado ? "abierto " : "cerrado ");
-
+  ? "selectorCustom " + "deshabilitado "
+  : "selectorCustom " + (estado ? "abierto " : "cerrado ");
+  
   let valorLocal;
-
+  
+  
   const actualizarValor = (v) => {
     valorLocal = v;
-
+    
+    
     if (opciones && v) {
       //asegura valor default
       seleccionado = opciones[valorLocal - 1].texto;
+    } else {
+      seleccionado = "Selecciona una opción";
     }
+  
   };
 
   $: actualizarValor(valor);
@@ -48,7 +53,7 @@
     if (typeof enfocar == "function") {
       enfocar();
     }
-    console.log("YA! enfocarAccion");
+    console.log("enfocarAccion");
   };
 
   const cambiarAccion = () => {
@@ -59,44 +64,40 @@
         cambiar(valorLocal);
       });
     }
-    console.log("YA! CambiarAccion");
+    console.log("CambiarAccion");
   };
   //
 
   const abrir = () => {
+    console.log("abrecierra");
+    
     if (!deshabilitado) {
+      
       estado = !estado;
+      
     }
+    
   };
 
   const seleccionar = (opcion, valor) => {
+    // TODO: revisar si hacen falta mas cosas
     seleccionado = opcion;
     valorLocal = valor;
     cambiarAccion();
+    abrir();
+
+    console.log("Seleccionar", valor, "seleccionado", seleccionado);
+
   };
 
   let listaOpciones;
 
   const abrirConTecla = (e) => {
+    // enter y barra espacio
     if (e.keyCode == 13 || e.keyCode == 32) {
       abrir();
     }
   };
-
-  // const moverConFlecha = () => {
-
-  //   switch (e.keyCode) {
-  //     case 38:
-  //       console.log("Arriba");
-  //       break;
-  //     case 40:
-  //       console.log("Abajo");
-
-  //       abrir()
-  //       break;
-  //   }
-
-  // };
 
 </script>
 
@@ -126,30 +127,34 @@
     {/if}
   </select> -->
 
-  <input
-    type="text"
-    value={seleccionado}
-    class="seleccionado"
-    name={nombre}
-    on:click={abrir}
-    on:focus={() => enfocarAccion()}
-    on:focusout={() => desenfocarAccion()}
-    disabled={vacioPermitido ? false : true}
-    readonly
-  />
-  <!-- on:keydown={moverConFlecha} -->
+  <!-- on:change={seleccionar()} -->
+  <div class="seleccionado" on:click={abrir}>
 
-  <div class="flecha">
-    <Icono icono={estado ? "arriba" : "abajo"} />
-  </div>
-
-  <div class="listaOpciones {estado ? 'abierto' : 'cerrado'}">
-    {#if !deshabilitado && !!opciones}
-      {#each opciones as opcion, i}
-        <label
-          class="opcion"
-          on:click={seleccionar(opcion.texto, opcion.valor)}
-        >
+    <label class="opcion" >
+      <input type="radio" name="opcion" value="{seleccionado}"/>
+      <span>{seleccionado}</span>
+    </label>
+    
+    <!-- <input
+      type="text"
+      value={seleccionado}
+      class="seleccionado"
+      name={nombre}
+      on:focus={() => enfocarAccion()}
+      on:focusout={() => desenfocarAccion()}
+      disabled={vacioPermitido ? false : true}
+      readonly
+      /> -->
+      
+      <div class="flecha">
+        <Icono icono={estado ? "arriba" : "abajo"} />
+      </div>
+    </div>
+      
+      <div class="listaOpciones {estado ? 'abierto' : 'cerrado'}">
+        {#if !deshabilitado && !!opciones}
+        {#each opciones as opcion, i}
+        <label class="opcion" on:click={seleccionar(opcion.texto, opcion.valor)}>
           <input
             type="radio"
             name="opcion"
@@ -170,6 +175,8 @@
   }
   .Selector,
   .seleccionado {
+    position: relative;
+    display: flex;
     background-color: var(--theme-campos-fondo);
     font-size: var(--theme-textos-parrafo-tamanno);
     font-family: var(--theme-textos-parrafo-tipografia);
@@ -177,10 +184,9 @@
     color: var(--theme-campos-color);
     border: 1px solid var(--theme-campos-borde);
     border-radius: var(--theme-campos-esquinas);
-    padding: calc(var(--theme-campos-espacio) * 2)
-      calc(var(--theme-campos-espacio) * 1.5);
     min-height: 2rem;
     width: 100%;
+    cursor: pointer;
     /* IOS */
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -188,11 +194,11 @@
     opacity: 1;
   }
 
-  .Selector:focus,
+  /* .Selector:focus,
   .Selector:active {
     border-color: var(--theme-campos-activo);
     outline: 1px solid var(--theme-campos-activo);
-  }
+  } */
 
   .Selector.error {
     border-color: var(--theme-alertas-error);
@@ -202,7 +208,7 @@
     outline: 1px solid var(--theme-alertas-exito);
   }
 
-  .deshabilitado .seleccionado {
+  .deshabilitado .seleccionado span {
     color: #aaa;
     border-color: #ddd !important;
   }
@@ -215,6 +221,7 @@
     margin-top: var(--theme-espaciados-margen);
     margin-bottom: var(--theme-espaciados-margen);
     width: 100%;
+    cursor: pointer;
   }
   .listaOpciones {
     position: absolute;
@@ -233,12 +240,11 @@
     padding-bottom: 0;
     overflow: hidden;
   }
-  .seleccionado {
-    position: relative;
-    cursor: pointer;
+  .seleccionado label {
+    width: 100%;
   }
-  .seleccionado:hover {
-    opacity: 0.75;
+  .seleccionado:hover span {
+    color: var(--theme-colores-primario);
   }
   .abierto .seleccionado {
     border-bottom: 0;
@@ -271,6 +277,9 @@
     height: 1.125rem !important;
     cursor: pointer;
   }
+  .seleccionado .opcion {
+    pointer-events: none;
+  }
   .opcion {
     position: relative;
     height: 3rem;
@@ -278,7 +287,6 @@
     font-family: var(--theme-textos-parrafo-tipografia);
     font-weight: var(--theme-textos-parrafo-peso);
     color: var(--theme-campos-color);
-    pointer-events: none;
     cursor: pointer;
   }
   .opcion span {
@@ -288,7 +296,7 @@
     height: 100%;
     width: 100%;
   }
-  .opcion:hover {
+  .opcion:hover span {
     color: var(--theme-colores-primario);
   }
   .opcion:last-child {
@@ -301,12 +309,23 @@
     margin: 0;
     z-index: -1;
   }
-  .opcion input[type="radio"]:active + span {
-    background-color: #000;
+  
+  .seleccionado span {
+    padding: 1rem;
+    width: 100%;
   }
+
+  .opcion:hover + span,
+  .opcion:focus + span,
+  .opcion:active + span {
+    /* background-color: lightgray; */
+    color: var(--theme-colores-primario);
+  }
+  .opcion input[type="radio"]:hover + span,
   .opcion input[type="radio"]:focus + span,
   .opcion input[type="radio"]:active + span {
-    background-color: rgba(200, 200, 200, 0.25);
+    /* background-color: lightgray; */
+    color: var(--theme-colores-primario);
   }
 
 </style>
