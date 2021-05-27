@@ -13,25 +13,22 @@
 
   export let valor;
   export let deshabilitado;
-  
+
   $: clases = deshabilitado
-  ? "selectorCustom " + "deshabilitado "
-  : "selectorCustom " + (estado ? "abierto " : "cerrado ");
-  
+    ? "selectorCustom " + "deshabilitado "
+    : "selectorCustom " + (estado ? "abierto " : "cerrado ");
+
   let valorLocal;
-  
-  
+
   const actualizarValor = (v) => {
     valorLocal = v;
-    
-    
+
     if (opciones && v) {
       //asegura valor default
       seleccionado = opciones[valorLocal - 1].texto;
     } else {
       seleccionado = "Selecciona una opción";
     }
-  
   };
 
   $: actualizarValor(valor);
@@ -57,40 +54,36 @@
   };
 
   const cambiarAccion = () => {
-    // cambiado = true
 
     if (typeof cambiar == "function") {
       setTimeout(() => {
         cambiar(valorLocal);
       });
     }
-    console.log("CambiarAccion");
   };
   //
 
   const abrir = () => {
-    console.log("abrecierra");
-    
     if (!deshabilitado) {
-      
       estado = !estado;
-      
     }
-    
+    console.log("Abrir");
   };
 
+  // const cerrar = () => {
+  //   if (!deshabilitado) {
+  //     estado = false;
+  //   }
+  // };
+
   const seleccionar = (opcion, valor) => {
+    
     // TODO: revisar si hacen falta mas cosas
     seleccionado = opcion;
     valorLocal = valor;
     cambiarAccion();
-    abrir();
-
-    console.log("Seleccionar", valor, "seleccionado", seleccionado);
 
   };
-
-  let listaOpciones;
 
   const abrirConTecla = (e) => {
     // enter y barra espacio
@@ -127,42 +120,34 @@
     {/if}
   </select> -->
 
-  <!-- on:change={seleccionar()} -->
-  <div class="seleccionado" on:click={abrir}>
-
-    <label class="opcion" >
-      <input type="radio" name="opcion" value="{seleccionado}"/>
-      <span>{seleccionado}</span>
+  <div class="seleccionado">
+    <label class="opcion">
+      <input type="radio" name="opcion" value={seleccionado} />
+      <span on:click={abrir}>{seleccionado}</span>
     </label>
-    
-    <!-- <input
-      type="text"
-      value={seleccionado}
-      class="seleccionado"
-      name={nombre}
-      on:focus={() => enfocarAccion()}
-      on:focusout={() => desenfocarAccion()}
-      disabled={vacioPermitido ? false : true}
-      readonly
-      /> -->
-      
-      <div class="flecha">
-        <Icono icono={estado ? "arriba" : "abajo"} />
-      </div>
+
+    <div class="flecha">
+      <Icono icono={estado ? "arriba" : "abajo"} />
     </div>
-      
-      <div class="listaOpciones {estado ? 'abierto' : 'cerrado'}">
-        {#if !deshabilitado && !!opciones}
-        {#each opciones as opcion, i}
-        <label class="opcion" on:click={seleccionar(opcion.texto, opcion.valor)}>
+  </div>
+
+  <div class="listaOpciones {estado ? 'abierto' : 'cerrado'}">
+    {#if !deshabilitado && !!opciones}
+      {#each opciones as opcion, i}
+        <label
+          class="opcion"
+          on:click={seleccionar(opcion.texto, opcion.valor)}
+        >
           <input
             type="radio"
             name="opcion"
             value={opcion.valor}
             on:change={seleccionar(opcion.texto, opcion.valor)}
-          />
+            />
+            <!-- tabindex=0 -->
 
           <span>{opcion.texto}</span>
+          
         </label>
       {/each}
     {/if}
@@ -193,13 +178,7 @@
     appearance: none;
     opacity: 1;
   }
-
-  /* .Selector:focus,
-  .Selector:active {
-    border-color: var(--theme-campos-activo);
-    outline: 1px solid var(--theme-campos-activo);
-  } */
-
+  
   .Selector.error {
     border-color: var(--theme-alertas-error);
   }
@@ -244,7 +223,9 @@
     width: 100%;
   }
   .seleccionado:hover span {
-    color: var(--theme-colores-primario);
+    /* color: var(--theme-colores-primario); */
+    color: initial;
+    opacity: 0.85;
   }
   .abierto .seleccionado {
     border-bottom: 0;
@@ -278,7 +259,7 @@
     cursor: pointer;
   }
   .seleccionado .opcion {
-    pointer-events: none;
+    /* pointer-events: none; */
   }
   .opcion {
     position: relative;
@@ -309,7 +290,7 @@
     margin: 0;
     z-index: -1;
   }
-  
+
   .seleccionado span {
     padding: 1rem;
     width: 100%;
@@ -324,8 +305,13 @@
   .opcion input[type="radio"]:hover + span,
   .opcion input[type="radio"]:focus + span,
   .opcion input[type="radio"]:active + span {
-    /* background-color: lightgray; */
     color: var(--theme-colores-primario);
+  }
+  .seleccionado input[type="radio"]:hover + span,
+  .seleccionado input[type="radio"]:focus + span,
+  .seleccionado input[type="radio"]:active + span {
+    color: var(--theme-textos-parrafo-color);
+    outline: 1px solid var(--theme-colores-primario);
   }
 
 </style>
