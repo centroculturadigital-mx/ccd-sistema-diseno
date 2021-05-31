@@ -54,7 +54,6 @@
   };
 
   const cambiarAccion = () => {
-
     if (typeof cambiar == "function") {
       setTimeout(() => {
         cambiar(valorLocal);
@@ -76,25 +75,69 @@
   //   }
   // };
 
-  const seleccionar = (opcion, valor) => {
-    
-    // TODO: revisar si hacen falta mas cosas
-    seleccionado = opcion;
-    valorLocal = valor;
-    cambiarAccion();
+  let ultimaSeleccion;
 
+  const seleccionar = (opcion, valor) => {
+    // TODO: revisar si hacen falta mas cosas
+
+    if (opcion && valor) {
+      console.log("seleccionar", opcion, valor);
+      seleccionado = opcion;
+      valorLocal = valor;
+      cambiarAccion();
+    }
   };
 
-  const abrirConTecla = (e) => {
+  const manejarTeclas = (e) => {
     // enter y barra espacio
     if (e.keyCode == 13 || e.keyCode == 32) {
       abrir();
     }
+
+    console.log("manejarTeclas", seleccionado, ultimaSeleccion);
+
+    if (e.keyCode == "38") {
+      //arriba
+
+      console.log("seleccionado", seleccionado);
+
+      if (seleccionado === ultimaSeleccion) {
+        seleccionado = opciones[opciones.length - 1].texto;
+      } else if (
+        // seleccionadoEnfocado &&
+        seleccionado === opciones[opciones.length - 1].texto
+      ) {
+        seleccionado = opciones[opciones.length - 2].texto;
+      }
+    } else if (e.keyCode == "40") {
+      //abajo
+      if (seleccionado === ultimaSeleccion) {
+        seleccionado = opciones[0].texto;
+      } else if (
+        // seleccionadoEnfocado && 
+        seleccionado === opciones[0].texto) {
+        seleccionado = opciones[1].texto;
+      }
+    }
+
+    ultimaSeleccion = seleccionado;
+  };
+
+  let seleccionadoEnfocado;
+
+  const enfocarSeleccionado = () => {
+    seleccionadoEnfocado = true;
+    console.log("enfocarSeleccionado");
+  };
+
+  const desenfocarSeleccionado = () => {
+    seleccionadoEnfocado = false;
+    console.log("desenfocarSeleccionado");
   };
 
 </script>
 
-<div class={clases} on:keyup={abrirConTecla}>
+<div class={clases} on:keyup={manejarTeclas}>
   <!-- <select
     class={clases}
     name={nombre}
@@ -122,7 +165,13 @@
 
   <div class="seleccionado">
     <label class="opcion">
-      <input type="radio" name="opcion" value={seleccionado} />
+      <input
+        type="radio"
+        name="opcion"
+        value=""
+        on:focus={enfocarSeleccionado}
+        on:focusout={desenfocarSeleccionado}
+      />
       <span on:click={abrir}>{seleccionado}</span>
     </label>
 
@@ -143,11 +192,10 @@
             name="opcion"
             value={opcion.valor}
             on:change={seleccionar(opcion.texto, opcion.valor)}
-            />
-            <!-- tabindex=0 -->
+          />
+          <!-- tabindex=0 -->
 
           <span>{opcion.texto}</span>
-          
         </label>
       {/each}
     {/if}
@@ -178,7 +226,7 @@
     appearance: none;
     opacity: 1;
   }
-  
+
   .Selector.error {
     border-color: var(--theme-alertas-error);
   }
@@ -258,9 +306,7 @@
     height: 1.125rem !important;
     cursor: pointer;
   }
-  .seleccionado .opcion {
-    /* pointer-events: none; */
-  }
+
   .opcion {
     position: relative;
     height: 3rem;
@@ -307,11 +353,11 @@
   .opcion input[type="radio"]:active + span {
     color: var(--theme-colores-primario);
   }
-  .seleccionado input[type="radio"]:hover + span,
-  .seleccionado input[type="radio"]:focus + span,
-  .seleccionado input[type="radio"]:active + span {
+  .seleccionado:hover .opcion span,
+  .seleccionado:focus .opcion span,
+  .seleccionado:active .opcion span {
     color: var(--theme-textos-parrafo-color);
-    outline: 1px solid var(--theme-colores-primario);
+    outline: 1px solid var(--theme-colores-primario) !important;
   }
 
 </style>
