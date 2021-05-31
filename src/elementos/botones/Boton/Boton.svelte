@@ -35,6 +35,15 @@
           ...css
         };
         break;
+      case "ENLACE":
+        css = {
+          "background": "transparent",
+          "border": "0px",          
+          "color": "var(--theme-colores-primario)",           
+          "text-decoration": "underline",           
+          ...css
+        };
+        break;
       case "COMPACTO":
         css = {
           "padding": "0.25rem 1rem",
@@ -48,7 +57,7 @@
 
   $: cssString = Object.entries(css).reduce((acc,e)=>acc+(`${e[0]}: ${e[1]};`), "")
 
-  $: classes = variante == 'SECUNDARIO' ? 'secundario' : "primario";
+  $: classes = variante == 'SECUNDARIO' ? 'secundario' : variante == 'ENLACE' ? "enlace" : "primario";
 </script>
 
 <style>
@@ -83,12 +92,9 @@
   button:disabled {
     background-color: var(--theme-botones-primario-inactivo);
     box-shadow: initial;
-    cursor: default;
+    cursor: initial;
   }
   /* boton secundario */
-  .secundario {
-    box-shadow: initial;
-  }
   .secundario:hover {
     border: 1px solid var(--theme-botones-primario-hover) !important;
     color: var(--theme-botones-primario-hover) !important;
@@ -97,15 +103,37 @@
     border: 1px solid var(--theme-botones-primario-activo) !important;
     color: var(--theme-botones-primario-activo) !important;
   } 
-  .secundario:focus,
-  .secundario:visited { 
+  .secundario:focus { 
     border: 1px solid var(--theme-botones-primario-foco) !important;
     color: var(--theme-botones-primario-foco) !important;
+  }
+  .secundario:visited  { 
+    border: 1px solid var(--theme-botones-primario-visitado) !important;
+    color: var(--theme-botones-primario-visitado) !important;
   }
   .secundario:disabled {
     border: 1px solid var(--theme-botones-primario-inactivo) !important;
     color: var(--theme-botones-primario-inactivo) !important;
-    cursor: default;
+    cursor: initial;
+  }
+  /* boton enlace */
+  .enlace:hover {
+    color: var(--theme-botones-primario-hover) !important;
+  }
+  .enlace:active {
+    color: var(--theme-botones-primario-activo) !important;
+  } 
+  .enlace:focus { 
+    color: var(--theme-botones-primario-foco) !important;
+  }
+  .enlace:visited  { 
+    text-decoration: none;
+    color: var(--theme-botones-primario-visitado) !important;
+  }
+  .enlace:disabled {
+    color: var(--theme-botones-primario-inactivo) !important;
+    text-decoration: none;
+    cursor: initial;
   }
 </style>
 

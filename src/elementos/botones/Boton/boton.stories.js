@@ -37,7 +37,7 @@ export const botonDeshabilitado = () => ({
     }
 });
 
-export const varianteSecundario = () => ({
+export const botonVarianteSecundario = () => ({
     Component: ThemeTester,
     props: {
         componente: Boton,
@@ -46,7 +46,19 @@ export const varianteSecundario = () => ({
             texto: 'Botón',
         }
     }
-})
+});
+
+export const botonSecundarioTextoLargo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Texto largo de Botón variante secundario',
+            variante: "SECUNDARIO",
+            click: () => console.log("click"),
+        }
+    },
+});
 
 export const varianteSecundarioDeshabilitado = () => ({
     Component: ThemeTester,
@@ -60,18 +72,53 @@ export const varianteSecundarioDeshabilitado = () => ({
     }
 });
 
-// export const botonCss = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: Boton,
-//         datos: {
-//             texto: 'Texto de Botón',
-//             click: () => console.log("click"),
-//             css: {
-//                 'text-transform': 'uppercase',
-//                 'font-size': '0.5rem',
-//                 'letter-spacing': '3px',
-//             }
-//         },
-//     }
-// });
+export const botonVarianteEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            variante: 'ENLACE',
+            texto: 'Botón',
+        }
+    }
+});
+
+export const botonEnlaceTextoLargo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Texto largo de Botón que parece enlace',
+            variante: "ENLACE",
+            click: () => console.log("click"),
+        }
+    },
+});
+
+export const varianteEnlaceDeshabilitado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            variante: 'ENLACE',
+            texto: 'Botón',
+            deshabilitado: true
+        },
+    }
+});
+
+export const botonConCSS = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Texto de Botón',
+            click: () => console.log("click"),
+            css: {
+                'text-transform': 'uppercase',
+                'font-size': '0.5rem',
+                'letter-spacing': '3px',
+            }
+        },
+    }
+});
