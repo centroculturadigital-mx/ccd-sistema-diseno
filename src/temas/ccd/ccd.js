@@ -80,13 +80,14 @@ const tema = {
             primario: {
                 fondo: variables.colores.primario.base,
                 color: variables.colores.texto.claro,
-                espacio: variables.espaciados.sm,
+                espacio: variables.espaciados.lg,
                 familia: estilos.tipografia.parrafo.fuente,
                 borde: variables.colores.primario.base,
-                activo: variables.colores.primario.claro,
+                activo: variables.colores.primario.oscuro,
                 inactivo: variables.colores.primario.inactivo,
                 foco: variables.colores.primario.foco,
-                hover: variables.colores.primario.oscuro,
+                visitado: variables.colores.primario.visitado,
+                hover: variables.colores.primario.claro,
                 esquinas: variables.espaciados.xs,
             },
             secundario: {

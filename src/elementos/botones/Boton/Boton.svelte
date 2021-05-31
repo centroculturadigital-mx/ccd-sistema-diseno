@@ -59,12 +59,11 @@
     transition: var(--theme-transiciones-normal);
     background-color: var(--theme-botones-primario-fondo);
     color: var(--theme-botones-primario-color);
-    padding: calc(var(--theme-botones-primario-espacio) * 2) calc(var(--theme-botones-primario-espacio) * 4);
+    padding: calc(var(--theme-botones-primario-espacio) / 2) var(--theme-botones-primario-espacio);
     font-family: var(--theme-botones-primario-familia);
     font-weight: var(--theme-textos-parrafo-peso);
     font-size: var(--theme-textos-parrafo-tamanno);
-    border-radius: var(--theme-botones-primario-esquinas);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    border-radius: calc(var(--theme-botones-primario-esquinas) / 2 );
     border: none;
     cursor: pointer;
     margin: 0;
@@ -75,9 +74,11 @@
   button:active {
     background-color: var(--theme-botones-primario-activo);
   }
-  button:focus,
-  button:visited { 
+  button:focus { 
     background-color: var(--theme-botones-primario-foco);
+  }
+  button:visited { 
+    background-color: var(--theme-botones-primario-visitado);
   }
   button:disabled {
     background-color: var(--theme-botones-primario-inactivo);

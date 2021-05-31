@@ -9,7 +9,17 @@ export const botonDefault = () => ({
     props: {
         componente: Boton,
         datos: {
-            texto: 'Texto de Botón',
+            texto: 'Botón',
+            click: () => console.log("click"),
+        }
+    },
+});
+export const botonTextoLargo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Boton,
+        datos: {
+            texto: 'Esto es un texto largo de Botón',
             click: () => console.log("click"),
         }
     },
@@ -20,7 +30,7 @@ export const botonDeshabilitado = () => ({
     props: {
         componente: Boton,
         datos: {
-            texto: 'Texto de Botón',
+            texto: 'Botón',
             click: () => console.log("no debería loggear click"),
             deshabilitado: true
         },
@@ -33,7 +43,7 @@ export const varianteSecundario = () => ({
         componente: Boton,
         datos: {
             variante: 'SECUNDARIO',
-            texto: 'Texto de Botón',
+            texto: 'Botón',
         }
     }
 })
@@ -44,7 +54,7 @@ export const varianteSecundarioDeshabilitado = () => ({
         componente: Boton,
         datos: {
             variante: 'SECUNDARIO',
-            texto: 'Texto de Botón',
+            texto: 'Botón',
             deshabilitado: true
         },
     }
