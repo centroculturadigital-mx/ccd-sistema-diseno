@@ -97,7 +97,6 @@
     font-size: var(--theme-textos-parrafo-tamanno);
     display: flex;
     align-items: center;
-    border-radius: calc(var(--theme-botones-primario-esquinas) / 2);
     border: none;
     cursor: pointer;
     margin: 0;
@@ -150,7 +149,6 @@
   button:disabled,
   button:disabled :global(*) {
     color: var(--theme-botones-secundario-inactivo) !important;
-    /* stroke: var(--theme-botones-secundario-inactivo) !important; */
     fill: var(--theme-botones-secundario-inactivo) !important;
     cursor: default;
     pointer-events: none;
@@ -235,10 +233,15 @@
     cursor: default;
     pointer-events: none;
   }
+  .redondo {
+    border-radius: calc(var(--theme-botones-primario-esquinas) / 2);
+  }
   .redondo :global(.iconoContenedor) {
     height: 1.25rem !important;
     width: 1.25rem !important;
     margin: 0 !important;
   }
+  .redondo:disabled {
+    border:1px solid var(--theme-botones-secundario-inactivo) !important;
 
 </style>

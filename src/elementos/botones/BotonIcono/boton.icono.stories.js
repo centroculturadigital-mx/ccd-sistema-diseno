@@ -71,7 +71,6 @@ export const botonIconoSecundario = () => ({
         datos: {
             variante: 'SECUNDARIO',
             icono: 'irIzquierda',
-            // texto: 'Botón',
         }
     }
 });
@@ -94,7 +93,6 @@ export const botonIconoSecundarioDeshabilitado = () => ({
         datos: {
             variante: 'SECUNDARIO',
             icono: 'irIzquierda',
-            // texto: 'Botón',
             deshabilitado: true,
         }
     }
@@ -128,7 +126,6 @@ export const varianteRedondoDeshabilitado = () => ({
         datos: {
             variante: 'REDONDO',
             icono: 'irIzquierda',
-            texto: 'Botón',
             deshabilitado: true,
         }
     }
