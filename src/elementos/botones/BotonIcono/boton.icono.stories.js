@@ -10,7 +10,7 @@ export const botonIconoDefault = () => ({
     props: {
         componente: BotonIcono,
         datos: {
-            texto: 'Texto de botón',
+            texto: 'Botón',
             icono: 'mas',
             click: () => console.log("click")
         }
@@ -22,21 +22,102 @@ export const botonIconoDeshabilitado = () => ({
     props: {
         componente: BotonIcono,
         datos: {
-            texto: 'Texto de botón',
+            texto: 'Botón',
             icono: 'mas',
             deshabilitado: true
         }
     },
 });
 
-export const varianteRedondo = () => ({
+export const botonIconoPrimario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            variante: 'PRIMARIO',
+            icono: 'irIzquierda',
+            // texto: 'Botón',
+        }
+    }
+});
+export const botonIconoPrimarioConTexto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            variante: 'PRIMARIO',
+            icono: 'irIzquierda',
+            texto: 'Botón',
+        }
+    }
+});
+
+export const botonIconoPrimarioDeshabilitado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            variante: 'PRIMARIO',
+            icono: 'irIzquierda',
+            // texto: 'Botón',
+            deshabilitado: true,
+        }
+    }
+});
+export const botonIconoSecundario = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            variante: 'SECUNDARIO',
+            icono: 'irIzquierda',
+            // texto: 'Botón',
+        }
+    }
+});
+export const botonIconoSecundarioConTexto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            variante: 'SECUNDARIO',
+            icono: 'irIzquierda',
+            texto: 'Botón',
+        }
+    }
+});
+
+export const botonIconoSecundarioDeshabilitado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            variante: 'SECUNDARIO',
+            icono: 'irIzquierda',
+            // texto: 'Botón',
+            deshabilitado: true,
+        }
+    }
+});
+
+export const botonIconoRedondo = () => ({
     Component: ThemeTester,
     props: {
         componente: BotonIcono,
         datos: {
             variante: 'REDONDO',
-            icono: 'irDerecha',
-            texto: 'Texto de Botón',
+            icono: 'irIzquierda',
+        }
+    }
+});
+export const botonIconoRedondoConTexto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            variante: 'REDONDO',
+            icono: 'irIzquierda',
+            texto: 'Botón',
         }
     }
 });
@@ -47,58 +128,25 @@ export const varianteRedondoDeshabilitado = () => ({
         datos: {
             variante: 'REDONDO',
             icono: 'irIzquierda',
-            texto: 'Texto de Botón',
+            texto: 'Botón',
             deshabilitado: true,
         }
     }
 });
-// export const botonIconoSinTexto = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: BotonIcono,
-//         datos: {
-//             icono: 'cerrar'
-//         }
-//     },
-// });
-// export const botonIconoSinIcono = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: BotonIcono,
-//         datos: {
-//             texto: 'Texto de botón'
-//         }
-//     },
-// });
-// export const botonIconoBorde = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: BotonIcono,
-//         datos: {
-//             texto: 'Texto de botón',
-//             icono: 'cerrar',
-//             borde: true
-//         }
-//     },
-// });
 
-
-
-
-
-// export const botonIconoCss = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: BotonIcono,
-//         datos: {
-//             texto: 'Texto de botón',
-//             icono: 'cerrar',
-//             css: {
-//                 'text-transform': 'uppercase',
-//                 'font-size': '0.5rem',
-//                 'letter-spacing': '3px',
-//                 'background': "#fa0"
-//             }
-//         },
-//     }
-// });
+export const botonIconoCss = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: BotonIcono,
+        datos: {
+            texto: 'botón',
+            icono: 'cerrar',
+            css: {
+                'text-transform': 'uppercase',
+                'font-size': '0.5rem',
+                'letter-spacing': '3px',
+                'background': "#fa0"
+            }
+        },
+    }
+});

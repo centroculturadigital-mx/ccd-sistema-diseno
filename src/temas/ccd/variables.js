@@ -29,7 +29,7 @@ const variables = {
         primario: {
             base: "#652D90",
             claro: "#965AC1",
-            oscuro: "#360062",
+            oscuro: "#221042",
             transparente: "transparent",
             visitado: "#4D376D",
             inactivo: "#CCCCCC",

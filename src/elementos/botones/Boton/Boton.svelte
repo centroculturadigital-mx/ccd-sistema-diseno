@@ -66,8 +66,8 @@
   }
   button {
     transition: var(--theme-transiciones-normal);
-    background-color: var(--theme-botones-primario-fondo);
     color: var(--theme-botones-primario-color);
+    background-color: var(--theme-botones-primario-fondo);
     padding: calc(var(--theme-botones-primario-espacio) / 2) var(--theme-botones-primario-espacio);
     font-family: var(--theme-botones-primario-familia);
     font-weight: var(--theme-textos-parrafo-peso);

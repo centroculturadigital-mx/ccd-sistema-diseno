@@ -96,10 +96,11 @@ const tema = {
                 espacio: variables.espaciados.sm,
                 familia: estilos.tipografia.parrafo,
                 borde: variables.colores.primario.oscuro,
-                activo: variables.colores.primario.claro,
+                activo: variables.colores.primario.oscuro,
                 inactivo: variables.colores.primario.inactivo,
                 foco: variables.colores.primario.foco,
-                hover: variables.colores.primario.oscuro,
+                visitado: variables.colores.primario.visitado,
+                hover: variables.colores.primario.claro,
                 esquinas: variables.espaciados.none,
             },
             paso: {
