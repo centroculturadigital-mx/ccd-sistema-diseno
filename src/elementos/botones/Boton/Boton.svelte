@@ -1,11 +1,4 @@
 <script>
-
-  import { getContext } from "svelte";
-
-  // let { theme } = getContext('theme')
-
-  // $: console.log({$theme});
-
   export let texto = "Botón";
   export let click;
   export let deshabilitado;

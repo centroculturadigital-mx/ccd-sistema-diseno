@@ -7,18 +7,12 @@
   export let variante = "PLANO";
   export let deshabilitado;
 
-  // export let borde = false;
-  // export let iconoBotonEstadoUnoUrl;
-  // export let iconoBotonEstadoDosUrl;
-  // export let estado = false;
-
   export let css = {};
 
   if (!!variante) {
     switch (variante) {
       case "PLANO":
         css = {
-          // "color": "var(--theme-colores-primario)",
           ...css,
         };
         break;
@@ -69,15 +63,6 @@
   {#if !!icono}
     <Icono {icono} tamanno={"1rem"} color={css.color} />
   {/if}
-
-  <!-- version iconos dos estados -->
-  <!-- {#if !!iconoBotonEstadoUnoUrl}
-    <Icono
-    icono={!!estado ? iconoBotonEstadoDosUrl : iconoBotonEstadoUnoUrl}
-    tamanno={'1rem'}
-    color={css.color}
-    />
-  {:else}{!!texto ? texto : ''}{/if} -->
 
   {!!texto ? texto : ""}
 </button>
