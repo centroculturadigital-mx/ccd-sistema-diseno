@@ -243,5 +243,5 @@
   }
   .redondo:disabled {
     border:1px solid var(--theme-botones-secundario-inactivo) !important;
-
+  }
 </style>
