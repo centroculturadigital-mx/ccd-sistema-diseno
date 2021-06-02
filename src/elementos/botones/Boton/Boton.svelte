@@ -17,8 +17,8 @@
     switch (variante) {
       case "NORMAL":
         break;
-        case "HUECO":
-        case "SECUNDARIO":
+      case "SECUNDARIO":
+      case "HUECO":
         css = {
           "background": "transparent",
           "border": "1px solid var(--theme-colores-primario)",          
