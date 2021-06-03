@@ -114,7 +114,39 @@
     white-space: pre-wrap;
     line-height: 1.5;
   }
-  
+  /* contenidos html */
+  .Contenido :global(h1),
+  .Contenido :global(h2),
+  .Contenido :global(h3),
+  .Contenido :global(h4),
+  .Contenido :global(h5),
+  .Contenido :global(h6) {
+    font-family: var(--theme-textos-titulo-tipografia);
+  }
+  .Contenido :global(p),
+  .Contenido :global(section),
+  .Contenido :global(div),
+  .Contenido :global(li) {
+    white-space: initial !important;
+    font-size: var(--theme-textos-parrafo-tamanno);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    color: var(--theme-textos-parrafo-color);
+    font-weight: var(--theme-textos-parrafo-peso);
+  }
+  .Contenido :global(button){
+    font-size: var(--theme-textos-parrafo-tamanno);
+    font-family: var(--theme-textos-parrafo-tipografia);
+    font-weight: var(--theme-textos-parrafo-peso);
+  }
+  .Contenido :global(a) {
+    font-family: var(--theme-textos-enlaces-familia);
+    color: var(--theme-textos-enlaces-color);
+    font-weight: var(--theme-textos-parrafo-peso);
+    text-decoration: none;
+  }
+  .Contenido :global(img) {
+    width: 100%;
+  }
 </style>
 
 
