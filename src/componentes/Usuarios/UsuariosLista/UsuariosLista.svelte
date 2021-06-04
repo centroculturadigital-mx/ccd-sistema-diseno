@@ -3,24 +3,28 @@
   import Avatar from "../Avatar/Avatar";
   import Icono from "../../../elementos/Icono/Icono";
 
-  export let apariencia = "Horizontal";
+  export let apariencia = "HORIZONTAL";
   export let usuarios;
 
-  $: avatares = usuarios.map(u => ({
+  $: avatares = usuarios.map((u) => ({
     componente: Avatar,
     data: {
       ...u,
-      mostrarNombre: true
-    }
+      mostrarNombre: true,
+    },
   }));
 
+  $: clases =
+    "UsuariosLista " + (apariencia == "VERTICAL" ? "VERTICAL" : "HORIZONTAL");
 
-  $: clases = "UsuariosLista " + (apariencia == "vertical" ? "vertical" : "horizontal")
 </script>
 
+<section class={clases}>
+  <ListaComponentes elementos={avatares} />
+</section>
 
 <style>
-.UsuariosLista {
+  .UsuariosLista {
     scroll-behavior: smooth;
     position: relative;
     display: flex;
@@ -29,48 +33,39 @@
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-}
-.UsuariosLista :global(ul) {
+  }
+  .UsuariosLista :global(ul) {
     flex-wrap: nowrap;
-}
-.horizontal {
+  }
+  .horizontal {
     /* overflow-x: auto; */
-    height: auto; 
-}
-.horizontal :global(ul) {
+    height: auto;
+  }
+  .horizontal :global(ul) {
     flex-direction: row;
-}
-.UsuariosLista.vertical {
-  /* overflow-y: auto; */
-  /* overflow-x: visible !important; */
-  width: auto;
-  max-height: 100%;
-  min-width: 4rem;
-}
+  }
+  .UsuariosLista.vertical {
+    width: auto;
+    max-height: 100%;
+    min-width: 4rem;
+  }
 
-.vertical :global(ul) { 
+  .vertical :global(ul) {
     flex-direction: column !important;
-}
+  }
 
-:global( .ListaComponentes li) {
-  /* width: 10rem !important; */
-  display: flex;
-  justify-content: flex-end;
-}
+  :global(.ListaComponentes li) {
+    /* width: 10rem !important; */
+    display: flex;
+    justify-content: flex-end;
+  }
 
-:global( .Avatar img) {
-  width: 2rem !important;
-}
-:global( .Avatar .nombre) {
-  left: -7rem;
-  top: .25rem !important;
-}
-
+  :global(.Avatar img) {
+    width: 2rem !important;
+  }
+  :global(.Avatar .nombre) {
+    left: -7rem;
+    top: 0.25rem !important;
+  }
 
 </style>
-
-<section class={clases}>
-
-  <ListaComponentes elementos={avatares} />
-
-</section>
