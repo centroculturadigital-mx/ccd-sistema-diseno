@@ -34,14 +34,14 @@
     flex-wrap: nowrap;
 }
 .horizontal {
-    overflow-x: auto;
+    /* overflow-x: auto; */
     height: auto; 
 }
 .horizontal :global(ul) {
     flex-direction: row;
 }
 .UsuariosLista.vertical {
-  overflow-y: auto;
+  /* overflow-y: auto; */
   /* overflow-x: visible !important; */
   width: auto;
   max-height: 100%;
@@ -56,7 +56,7 @@
 }
 
 :global( .ListaComponentes li) {
-  width: 10rem !important;
+  /* width: 10rem !important; */
   display: flex;
   justify-content: flex-end;
 }

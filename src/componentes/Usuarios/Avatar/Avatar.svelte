@@ -6,10 +6,22 @@
   export let nombre;
   export let slug;
   export let mostrarNombre;
+
 </script>
 
-<style>
+<div class="Avatar">
+  <!-- <a href={slug ? slug : ""}> -->
+  <Imagen {imagen} alt={nombre} />
 
+  {#if mostrarNombre}
+    <div class="nombre">
+      <Texto variante="CHICO" texto={nombre} />
+    </div>
+  {/if}
+  <!-- </a> -->
+</div>
+
+<style>
   .Avatar {
     width: 2rem;
     height: 2rem;
@@ -20,7 +32,6 @@
     align-items: center;
     position: relative;
     text-align: center;
-    
   }
   .Avatar :global(img) {
     border-radius: 50%;
@@ -28,21 +39,14 @@
     width: 2rem;
     overflow: hidden;
   }
-  /* .Avatar a {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-  } */
-
   .nombre {
     display: none;
     position: absolute;
-    top: -1.5rem;    
-    background-color: rgba(255,255,255,0.8);
+    top: -1.5rem;
+    background-color: #efefef;
     padding: 0.25rem;
     border-radius: 0.25rem;
-    
+    z-index: 10;
   }
 
   .Avatar:hover .nombre {
@@ -50,15 +54,3 @@
   }
 
 </style>
-
-<div class="Avatar">
-  <!-- <a href={slug ? slug : ""}> -->
-    <Imagen {imagen} alt={nombre} />
-  
-    {#if mostrarNombre}
-      <div class="nombre">
-        <Texto variante="CHICO" texto={nombre}/>
-      </div>
-    {/if}
-  <!-- </a> -->
-</div>
