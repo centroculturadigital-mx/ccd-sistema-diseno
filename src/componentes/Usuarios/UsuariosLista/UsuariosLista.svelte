@@ -48,9 +48,6 @@
   min-width: 4rem;
 }
 
-.UsuariosLista.vertical:hover {
-  min-width: 12rem;
-}
 .vertical :global(ul) { 
     flex-direction: column !important;
 }
