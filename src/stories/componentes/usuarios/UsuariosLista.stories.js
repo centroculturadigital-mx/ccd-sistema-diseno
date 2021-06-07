@@ -20,7 +20,7 @@ export const usuariosListaVertical = () => ({
     props: {
         componente: UsuariosLista,
         datos: {
-            apariencia: "vertical",
+            apariencia: "VERTICAL",
             usuarios,
         }
     }

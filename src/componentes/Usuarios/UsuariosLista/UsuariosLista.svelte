@@ -1,7 +1,6 @@
 <script>
   import ListaComponentes from "../../Listados/ListaComponentes/ListaComponentes";
   import Avatar from "../Avatar/Avatar";
-  import Icono from "../../../elementos/Icono/Icono";
 
   export let apariencia = "HORIZONTAL";
   export let usuarios;
@@ -15,7 +14,7 @@
   }));
 
   $: clases =
-    "UsuariosLista " + (apariencia == "VERTICAL" ? "vertical" : apariencia == "HORIZONTAL" ? "horizontal" : "vertical");
+    "UsuariosLista " + (apariencia == "VERTICAL" ? "vertical" : "horizontal");
 
 </script>
 
@@ -38,7 +37,6 @@
     flex-wrap: nowrap;
   }
   .horizontal {
-    /* overflow-x: auto; */
     height: auto;
   }
   .horizontal :global(ul) {
