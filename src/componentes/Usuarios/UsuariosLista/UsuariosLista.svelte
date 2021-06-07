@@ -15,7 +15,7 @@
   }));
 
   $: clases =
-    "UsuariosLista " + (apariencia == "VERTICAL" ? "VERTICAL" : "HORIZONTAL");
+    "UsuariosLista " + (apariencia == "VERTICAL" ? "vertical" : apariencia == "HORIZONTAL" ? "horizontal" : "vertical");
 
 </script>
 
