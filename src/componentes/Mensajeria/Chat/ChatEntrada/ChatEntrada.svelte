@@ -20,25 +20,30 @@
 
   const enviarMensaje = () => {
 
-    if(contieneSoloEspacios(mensaje)) {
-
-      alert("No puedes mandar un mensaje vacío");
+    if(activo) {
       
-      return 
-    };
+      if(contieneSoloEspacios(mensaje)) {
 
-    if(excedeExtension(mensaje)) {
+        alert("No puedes mandar un mensaje vacío");
+        
+        return 
+      };
 
-      alert("No puedes mandar un mensaje mayor a " + numMaxCaracteres);
-      
-      return 
-    };
+      if(excedeExtension(mensaje)) {
 
-    if (typeof enviar == "function") {
-      enviar(mensaje);
+        alert("No puedes mandar un mensaje mayor a " + numMaxCaracteres);
+        
+        return 
+      };
+
+      if (typeof enviar == "function") {
+        enviar(mensaje);
+      }
+
+      mensaje = '';
+
     }
-
-    mensaje = '';
+    
   };
 
   const eventos = getEventsAction();
@@ -124,6 +129,6 @@
   <BotonIcono
     icono={'enviar'}
     inactivo={!activo}
-    click={ activo ? enviarMensaje : null }    
+    click={ enviarMensaje }    
   />
 </div>
