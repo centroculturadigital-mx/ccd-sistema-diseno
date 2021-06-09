@@ -23,12 +23,14 @@
 
 
   const scrollearUltimo = () => {
+    if(typeof document != "undefined") {
 
-    let msjs = document.querySelector(".ChatMensajes")
-    let msj = document.querySelector(".ChatMensaje:last-child")
+      let msjs = document.querySelector(".ChatMensajes")
+      let msj = document.querySelector(".ChatMensaje:last-child")
 
-    msj && scrollTo( msjs, msjs.scrollHeight)
+      msj && scrollTo( msjs, msjs.scrollHeight)
 
+    }
   }
   
   const actualizar = mensajes => {
@@ -66,7 +68,7 @@
   let hayNuevos = false
 
   onMount(()=>{
-    
+
     if(typeof document != "undefined") {
 
       let msjs = document.querySelector(".ChatMensajes")
