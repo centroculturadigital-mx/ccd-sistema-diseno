@@ -4,8 +4,32 @@ import Tarjeta from "../Tarjetas/Tarjeta/Tarjeta";
 
 import imagen from "../../data/recursos/placeholder.png";
 
-export default { title: 'Componentes/Acordeon' }
+const elementos = [{
+        componente: Tarjeta,
+        data: {
+            nombre: "Voluptate velit laborum voluptate excepteur velit commodo aute.",
+            imagen
+        }
+    },
+    {
+        componente: Tarjeta,
+        data: {
+            nombre: "Est consectetur aliqua ipsum et consectetur duis est dolor.",
+            imagen
+        }
+    },
+    {
+        componente: Tarjeta,
+        data: {
+            nombre: "Laborum magna cupidatat exd aute elit cupidatat.",
+            imagen
+        }
+    },
+]
 
+export default {
+    title: 'Componentes/Acordeon'
+}
 
 export const acordeonDefault = () => ({
     Component: ThemeTester,
@@ -17,25 +41,14 @@ export const acordeonDefault = () => ({
         }
     },
 });
-export const acordeonComponente = () => ({
+export const acordeonComponentes = () => ({
     Component: ThemeTester,
     props: {
         componente: Acordeon,
         datos: {
             titulo: "Título de un acordeón",
             nivel: 5,
-            elemento: {
-                componente: Tarjeta,
-                datos: {
-                    imagen,
-                    nombre: "Título de tarjeta",
-                    leyenda: "Perspiciatis unde omnis iste natus",
-                    acciones: [{
-                        texto: "Botón",
-                        enlace: "#"
-                    }]
-                }
-            }
+            elementos
         }
     },
 });
