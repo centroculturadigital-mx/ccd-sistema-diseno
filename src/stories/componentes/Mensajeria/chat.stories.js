@@ -21,6 +21,22 @@ export const chatDefault = () => ({
     }
 });
 
+export const chatAnonimo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ChatPrueba,
+        datos: {
+            
+            mensajes,
+            reacciones,
+            enviar: mensaje => console.log("Enviaste mensaje", mensaje),
+            
+            anonimoPermitir: true
+
+        }
+    }
+});
+
 
 export const chatInactivo = () => ({
     Component: ThemeTester,

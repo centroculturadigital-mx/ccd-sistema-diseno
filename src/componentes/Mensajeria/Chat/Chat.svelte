@@ -16,10 +16,11 @@
   export let reaccionar = () => console.log("reaccionar");
   export let objetoAccion
   
-  export let activo = true
+  export let activo = false
   export let textoActivo = "Enviar mensaje"
   export let textoInactivo = "Inicia sesión para chatear"
 
+  export let anonimoPermitir = false
 
 
   const scrollearUltimo = () => {
@@ -147,7 +148,7 @@
     <ChatEntrada
       enviar={enviarAccion}
       {enfocar}
-      {activo}
+      activo={activo || anonimoPermitir}
       {textoActivo}
       {textoInactivo}
     />
