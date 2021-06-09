@@ -7,6 +7,7 @@
   export let variante = "PLANO";
   export let deshabilitado;
 
+  $: console.log('click', click)
   export let css = {};
 
   if (!!variante) {
