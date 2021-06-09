@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  
   import Titulo from "../../../elementos/texto/Titulo/Titulo";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono";
@@ -764,7 +765,9 @@
 
         {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
           {#each pantallaActual.campos as campo, i ("formulario_" + formularioId + "_" + campo.nombre)}
+
             <Campo {...campo}/>
+
           {/each}
         {/if}
 
@@ -840,3 +843,4 @@
   {/if}
 
 </section>
+    

@@ -5,7 +5,7 @@ import imagenEjemplo from '../../../data/recursos/placeholder.png';
 
 import moment from 'moment';
 
-export default { title: "Componentes/Tarjetas/Tarjeta" }
+export default { title: "Componentes/Complejos/Tarjetas/Tarjeta" }
 
 let accionesFunciones = [{
         texto: "Acción 1",

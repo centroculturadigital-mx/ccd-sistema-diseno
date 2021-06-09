@@ -21,7 +21,7 @@ import cuestionarioADIndependiente from "../../../../data/cuestionarioADIndepend
 
 
 export default {
-    title: 'Componentes/Formularios/Formulario/Formulario'
+    title: 'Componentes/Complejos/Formularios/Formulario/Formulario'
 }
 
 

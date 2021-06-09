@@ -23,12 +23,14 @@
 
 
   const scrollearUltimo = () => {
+    if(typeof document != "undefined") {
 
-    let msjs = document.querySelector(".ChatMensajes")
-    let msj = document.querySelector(".ChatMensaje:last-child")
+      let msjs = document.querySelector(".ChatMensajes")
+      let msj = document.querySelector(".ChatMensaje:last-child")
 
-    msj && scrollTo( msjs, msjs.scrollHeight)
+      msj && scrollTo( msjs, msjs.scrollHeight)
 
+    }
   }
   
   const actualizar = mensajes => {
@@ -61,15 +63,22 @@
   };
 
 
-  let deberiaScrollear = true
+  $: deberiaScrollear = false
   
   let hayNuevos = false
 
   onMount(()=>{
-    let msjs = document.querySelector(".ChatMensajes")
-    msjs.addEventListener("scroll", ()=>{
-      deberiaScrollear = msjs.scrollTop  + 100 >= msjs.scrollHeight - msjs.clientHeight  
-    })
+
+    if(typeof document != "undefined") {
+
+      let msjs = document.querySelector(".ChatMensajes")
+
+      msjs.addEventListener("scroll", ()=>{
+        deberiaScrollear = msjs.scrollTop  + 100 >= msjs.scrollHeight - msjs.clientHeight        
+      })
+
+    }
+
   })
 
 

@@ -238,15 +238,17 @@
   
   <div class="textos">
 
-    <label>
+    <!-- <label> -->
       {#if !!etiqueta}
         <Parrafo texto={etiqueta} />
           {#if requerido && !configuracion.indicarOpcionales}
             <span class="requerido">
+
               <Texto
               variante="CHICO"
               texto={configuracion.textos.requerido}
               css={{ color: 'red' }} />
+              
             </span>
           {/if}
           {#if !requerido && configuracion.indicarOpcionales}
@@ -258,7 +260,7 @@
             </span>
           {/if}
       {/if}
-    </label>
+      <!-- </label> -->
     
     {#if !!instruccion}
     <div class="instruccion">

@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Mapa from '../../../componentes/Mapa/Mapa.svelte';
 
-export default { title: 'Componentes/Mapa/Mapa' }
+export default { title: 'Componentes/Complejos/Mapa/Mapa' }
 
 import mapa from "../../../../public/recursos/imagenes/vectores/mapamx.js";
 import datos from "../../../data/info/estados.js";

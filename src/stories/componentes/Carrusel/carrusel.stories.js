@@ -7,7 +7,7 @@ import Prueba from "./Prueba/Prueba.svelte";
 
 import ImagenArchivo from '../../../../public/placeholder.jpg';
 
-export default { title: "Componentes/Carrusel" }
+export default { title: "Componentes/Complejos/Carrusel" }
 
 // const generarComponente = i=>()
 
