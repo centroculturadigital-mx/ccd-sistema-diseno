@@ -5,7 +5,7 @@ import moment from "moment"
 
 import fechas from "../../../data/info/fechas.json"
 
-export default { title: 'Componentes/Calendario/Calendario' }
+export default { title: 'Componentes/WIP/Calendario/Calendario' }
 
 let eventos = []
 

@@ -6,7 +6,7 @@ import Imagen from '../../../elementos/media/Imagen/Imagen.svelte';
 
 import ImagenArchivo from '../../../../public/placeholder.jpg';
 
-export default { title: "Componentes/Carruseles" }
+export default { title: "Componentes/WIP/Carruseles" }
 
 const elementos = [{
         componente: Logo,
