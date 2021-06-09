@@ -10,6 +10,7 @@
   export let enlace;
   export let enlaces = [];
   export let estado = false;
+  export let cierreAutomatico = true;
 
   let icono = "abajo";
 
@@ -17,9 +18,16 @@
     estado = !estado;
   };
 
-  function cierraFueraArea(event) {
+  const cierraFueraArea = () => {
      estado = false;
    }
+
+  const evitaCerrar = () => {
+    estado = true;
+  }
+   $: clicar = !cierreAutomatico ? evitaCerrar : clickFueraDeArea;
+   $: cerrar = !cierreAutomatico ? evitaCerrar : cierraFueraArea;
+
 </script>
 
 <style>
@@ -82,7 +90,7 @@
 </style>
 
 <div class="Desplegable {!!enlace ? 'enlace' : ''}">
-  <header on:click={!enlace ? alternar : null}>
+  <header on:click={!enlace && cierreAutomatico ? alternar : null}>
     {#if !!enlace}
       <Enlace {texto} {enlace} blank={true} />
     {:else}
@@ -92,7 +100,7 @@
   </header>
 
   {#if estado}
-    <ul transition:slide|local on:click={alternar} use:clickFueraDeArea on:click_outside={cierraFueraArea}>
+    <ul transition:slide|local on:click={cierreAutomatico ? alternar : null} use:clicar on:click_outside={cerrar}>
       {#each enlaces as enlace (enlace)}
         <li>
           <Enlace texto={enlace.texto} enlace={enlace.enlace} />

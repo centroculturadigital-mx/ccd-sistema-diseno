@@ -574,13 +574,18 @@
     cursor: pointer;
     margin: 0;
     transition: 0.5s;
+    /* IOS rendering */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 1;
   }
   form input[type="submit"]:hover {
     background-color: var(--theme-botones-primario-hover);
     border-color: var(--theme-botones-primario-hover);
     color: var(--theme-botones-secundario-color);
   }
-  form input[type="submit"]:ad,
+  form input[type="submit"]:focus,
   form input[type="submit"]:visited,
   form input[type="submit"]:active {
     background-color: var(--theme-botones-primario-activo);
@@ -661,6 +666,11 @@
       calc(var(--theme-botones-primario-espacio) * 4);
     color: var(--theme-botones-primario-color) !important;
     box-sizing: border-box;
+    /* IOS rendering */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 1;
   }
   .paso input[type="submit"]:hover {
     background-color: var(--theme-botones-secundario-hover);

@@ -12,7 +12,8 @@
 <style>
   .ThemeTester {
     width: 100%;
-    background-color: #f0f0f0;
+    /* background-color: #f4f4f4; */
+    background-color: transparent;
     border-radius: 0.5rem;
   }
 
@@ -20,7 +21,7 @@
     border-bottom: 1px solid #666;
     position: relative;
     z-index: 1;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1); */
   }
 
   .container {
@@ -30,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
     border-radius: 0.5rem;
     padding: 1rem;
     box-sizing: border-box;

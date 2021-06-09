@@ -81,3 +81,30 @@ export const usuarioAccesoConMenuDesplegableAcciones = () => ({
         }
     }
 });
+export const usuarioAccesoSinCierreAutomatico = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: UsuarioAcceso,
+        datos: {
+            ...usuario,
+            estado: true,
+            cierreAutomatico: false,
+            elementos: [{
+                    texto: "Ver perfil",
+                    enlace: "/perfil",
+                    icono: "avatar"
+                },
+                {
+                    texto: "Configuraciones",
+                    accion: () => console.log("Configuraciones"),
+                    icono: "configuracion"
+                },
+                {
+                    texto: "salir",
+                    accion: () => console.log("salir"),
+                    icono: "flechaDerecha"
+                }
+            ],
+        }
+    }
+});

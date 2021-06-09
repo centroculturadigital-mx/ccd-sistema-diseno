@@ -26,6 +26,11 @@
     position: initial !important;
     margin-top: 1rem;
     box-sizing: border-box;
+    /* IOS rendering */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    opacity: 1;
   }
   .Registro {
     display: flex;
