@@ -61,7 +61,7 @@
   };
 
 
-  let deberiaScrollear = true
+  $: deberiaScrollear = false
   
   let hayNuevos = false
 
@@ -69,6 +69,8 @@
     let msjs = document.querySelector(".ChatMensajes")
     msjs.addEventListener("scroll", ()=>{
       deberiaScrollear = msjs.scrollTop  + 100 >= msjs.scrollHeight - msjs.clientHeight  
+      // proteger si no ha cargado
+      deberiaScrollear = deberiaScrollear && typeof document != "undefined"
     })
   })
 
