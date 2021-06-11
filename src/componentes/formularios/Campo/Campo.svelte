@@ -168,7 +168,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    /*  */
     font-size: calc(var(--theme-textos-parrafo-tamanno) / 1.5);
     font-family: var(--theme-textos-parrafo-tipografia);
     font-weight: var(--theme-textos-parrafo-peso);
@@ -187,7 +186,6 @@
     font-weight: 900;
   }
   label :global(.requerido span) {
-    /* color: var(--theme-alertas-error); */
     font-size: calc(var(--theme-textos-parrafo-tamanno) / 1.5);
     font-family: inherit;
     font-weight: inherit;
@@ -200,12 +198,13 @@
     font-weight: inherit;
   }
   .instruccion {
-    margin: 0.25rem 0 0.5rem;
-    padding: 0 calc(var(--theme-campos-espacio) / 4);
+    margin: 0.25rem 0;
   }
   .instruccion p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     font-size: 0.75rem;
-    /* font-size: var(--theme-textos-parrafo-tamanno); */
     font-family: var(--theme-textos-parrafo-tipografia);
     color: var(--theme-textos-parrafo-color);
     font-weight: var(--theme-textos-parrafo-peso);
@@ -231,6 +230,25 @@
     padding-left: 0.25rem;
     width: auto;
   }
+  .textos {
+    display: flex;
+    flex-direction: column;
+  }
+  .textosSuperiores {
+    display: flex;
+  }
+  .textos :global(p) {
+    margin: 0.25rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .requerido {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--theme-espaciados-padding);
+  }
 </style>
 
 <div class="Campo">
@@ -239,37 +257,40 @@
   <div class="textos">
 
     <!-- <label> -->
-      {#if !!etiqueta}
-        <Parrafo texto={etiqueta} />
-          {#if requerido && !configuracion.indicarOpcionales}
-            <span class="requerido">
+      <div class="textosSuperiores">
 
-              <Texto
-              variante="CHICO"
-              texto={configuracion.textos.requerido}
-              css={{ color: 'red' }} />
-              
-            </span>
-          {/if}
-          {#if !requerido && configuracion.indicarOpcionales}
-            <span class="opcional">
-              <Texto
-              variante="CHICO"
-              texto={configuracion.textos.opcional}
-               />
-            </span>
-          {/if}
-      {/if}
-      <!-- </label> -->
-    
-    {#if !!instruccion}
-    <div class="instruccion">
-      <!-- <Parrafo variante="CHICO" texto={instruccion}/> -->
-      <p>
-        {@html instruccion}
-      </p>
-    </div>
-    {/if}
+        {#if !!etiqueta}
+        <Parrafo texto={etiqueta} />
+        {#if requerido && !configuracion.indicarOpcionales}
+        <span class="requerido">
+          
+          <Texto
+          variante="CHICO"
+          texto={configuracion.textos.requerido}
+          css={{ color: 'red' }} />
+          
+        </span>
+        {/if}
+        {#if !requerido && configuracion.indicarOpcionales}
+        <span class="opcional">
+          <Texto
+          variante="CHICO"
+          texto={configuracion.textos.opcional}
+          />
+        </span>
+        {/if}
+        {/if}
+      </div>
+        <!-- </label> -->
+        
+        {#if !!instruccion}
+        <div class="instruccion">
+          <!-- <Parrafo variante="CHICO" texto={instruccion}/> -->
+          <p>
+            {@html instruccion}
+          </p>
+        </div>
+        {/if}
   
   </div>
     

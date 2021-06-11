@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  
+
   import Titulo from "../../../elementos/texto/Titulo/Titulo";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo";
   import BotonIcono from "../../../elementos/botones/BotonIcono/BotonIcono";
@@ -8,11 +8,9 @@
   import Campo from "../Campo/Campo.svelte";
   import Aviso from "../../../elementos/texto/Aviso/Aviso";
   import Contenido from "../../../componentes/Contenido/Contenido";
-  
+
   import isHTML from "../../../funciones/isHTML";
-  
-  
-  
+
   let tiposValidos = [
     "texto",
     "email",
@@ -36,19 +34,17 @@
   export let enviar;
   export let cambiar;
   export let respuesta;
-  export let enviando = false
-  
+  export let enviando = false;
 
-
-  export let configuracion = {}
+  export let configuracion = {};
 
   let configuracionDefault = {
     textos: {
       requerido: "* requerido",
-      opcional: "(opcional)"
+      opcional: "(opcional)",
     },
     indicarOpcionales: false,
-  }
+  };
 
   $: configuracion = {
     ...configuracionDefault,
@@ -56,105 +52,78 @@
     textos: {
       ...configuracionDefault.textos,
       ...configuracion.textos,
-    }
-  }
+    },
+  };
 
+  let cargadoInicial = false;
 
-  let cargadoInicial = false
+  let estado = {};
 
-
-  let estado = {}
-  
   // orden cargado datos
   // 1. desde "datos"
   // 2. desde campos
-  
 
-  const todosLosDatos = []
+  const todosLosDatos = [];
 
   const hidratarEstado = () => {
     // hidratar desde datos:
-    Object.entries( datos ).forEach( par => {
+    Object.entries(datos).forEach((par) => {
+      const [clave, valor] = par;
 
-      const [clave, valor] = par
-
-      if( typeof valor == "object" ) {
-        if( valor.tipo == "multicampo" ) {
-          valor.datos.campos.forEach( mC => {
-            if( datos[mC.nombre] ) {
-              cambiarEstado( mC.nombre, datos[mC.nombre] )              
+      if (typeof valor == "object") {
+        if (valor.tipo == "multicampo") {
+          valor.datos.campos.forEach((mC) => {
+            if (datos[mC.nombre]) {
+              cambiarEstado(mC.nombre, datos[mC.nombre]);
             }
-          })
+          });
         }
-      } else {        
-
-        cambiarEstado(clave,valor)
-
+      } else {
+        cambiarEstado(clave, valor);
       }
-
-    })
-
-
+    });
 
     // hidratar desde campos
-    todosTusCampos.forEach(c=>{
-      if( c.valor || (
-          (
-            c.tipo == "casillas" && c.datos &&
-            (
-              c.datos.tipo == "UNICO"
-              ||
-              c.datos.tipo == "UNICO_OTRA"
-            ) &&
-            c.valor === 0
-          )
-        )
+    todosTusCampos.forEach((c) => {
+      if (
+        c.valor ||
+        (c.tipo == "casillas" &&
+          c.datos &&
+          (c.datos.tipo == "UNICO" || c.datos.tipo == "UNICO_OTRA") &&
+          c.valor === 0)
       ) {
-        cambiarEstado(c.nombre,c.valor)
+        cambiarEstado(c.nombre, c.valor);
       }
-    })
+    });
+  };
 
-  }
-
-
-  const cambiarEstado = ( clave, valor ) => {
-    
-
+  const cambiarEstado = (clave, valor) => {
     estado = {
       ...estado,
-      [clave]: valor
-    }
+      [clave]: valor,
+    };
+  };
 
-  }
-              
+  onMount(() => {
+    hidratarEstado();
 
-
-
-  onMount(()=>{
-
-
-    hidratarEstado()
-    
     //eliminar valores campos
-    
+
     // // setTimeout(() => {
-      // todosTusCampos.forEach(c=>{
-      //   delete c.valor
-      // })
+    // todosTusCampos.forEach(c=>{
+    //   delete c.valor
+    // })
     // // })
 
-    cargadoInicial = true
+    cargadoInicial = true;
 
-    if( Array.isArray(pasos)) {
+    if (Array.isArray(pasos)) {
       // pasoActual = 1
-      setTimeout(()=>{
-        pasoActual = 0
-      })
-
+      setTimeout(() => {
+        pasoActual = 0;
+      });
     }
-
-  })
-
+  });
 
   // const llenarDatosCampos = ( campos ) => {
   //   const nuevosDatos = {}
@@ -172,118 +141,104 @@
 
   // $: ! cargadoInicial && Array.isArray(todosTusCampos) && llenarDatosCampos( todosTusCampos )
 
-
-
-  $: respuesta && (()=>{ enviando=false })()
+  $: respuesta &&
+    (() => {
+      enviando = false;
+    })();
 
   export let config = {
     textos: {
       enviar: "Enviar",
       enviando: "Enviando...",
-    }
+    },
   };
 
   // let pasoActual;
   let pasoActual = Array.isArray(pasos) ? null : 0;
 
-  let formularioId = Math.random().toString().replace("0.","") // identificador para ids de campos
-  
-  let ultimoCampoCambiado
+  let formularioId = Math.random().toString().replace("0.", ""); // identificador para ids de campos
 
+  let ultimoCampoCambiado;
 
   const cambiarCampo = (c, v) => {
+    ultimoCampoCambiado = c;
 
-    ultimoCampoCambiado = c
+    if (c.tipo == "multicampo") {
+      const subpreguntaPar = Object.entries(v).filter((p) => !!p[1]);
 
-    if( c.tipo == "multicampo" ) {
-     
-      const subpreguntaPar = Object.entries(v).filter(p=>!!p[1])
-
-      if(subpreguntaPar) {
-        
-        cambiarEstado( subpreguntaPar[0], subpreguntaPar[1] )
-        
+      if (subpreguntaPar) {
+        cambiarEstado(subpreguntaPar[0], subpreguntaPar[1]);
       }
-      
     }
     //  else {
 
-    cambiarEstado( c.nombre, v )
+    cambiarEstado(c.nombre, v);
 
     // }
 
-    
     realizarCambioCampo(v, c);
-    
-  }
+  };
 
-
-    
   const prepararConfiguracionCampo = () => {
     // TODO: conceptualizar mejor
-    return configuracion
-  }
-  
-  const computarCampos = (campos, estado) => {
+    return configuracion;
+  };
 
+  const computarCampos = (campos, estado) => {
     const camposPreparados = campos
-      .map(c => {
+      .map((c) => {
         if (revisarValidezCampo(c)) {
-          // primero revisar si viene un valor desde afuera. 
+          // primero revisar si viene un valor desde afuera.
 
           // let valor = (c.tipo == "casilla")
           //   ? datos[c.nombre]
           //   : c.valor || datos[c.nombre];
 
-          let valor = estado[ c.nombre ]
+          let valor = estado[c.nombre];
 
           let campoPreparado = {
             ...c,
             valor,
-            ultimo: c==ultimoCampoCambiado,
+            ultimo: c == ultimoCampoCambiado,
             // valor: c.valorInicial ? c.valorInicial : null,
-            cambiar: v => cambiarCampo(c, v),
-            configuracion: prepararConfiguracionCampo()
+            cambiar: (v) => cambiarCampo(c, v),
+            configuracion: prepararConfiguracionCampo(),
           };
-          
-          
-          
+
           if (c.tipo == "multicampo") {
-            
             campoPreparado = {
               ...campoPreparado,
               // cambiar: v => cambiarCampo(c, v),
               configuracion: prepararConfiguracionCampo(),
-              
+
               datos: {
                 ...campoPreparado.datos,
-                campos: campoPreparado.datos.campos.map(cC=>({
+                campos: campoPreparado.datos.campos.map((cC) => ({
                   ...cC,
                   valor: estado[cC.nombre],
                   // cambiar: v => {}
-                  cambiar: v => cambiarCampo(cC, v),
-                  configuracion: prepararConfiguracionCampo()
-                }))
+                  cambiar: (v) => cambiarCampo(cC, v),
+                  configuracion: prepararConfiguracionCampo(),
+                })),
                 // campos: campoPreparado.datos.campos.map(cC=>({
                 //   ...cC,
                 //   valor: estado[cC.nombre],
                 //   cambiar: v => cambiarCampo(cC, v)
                 // }))
               },
-            }
-            
+            };
           }
-          
-          if (( (c.tipo == "casilla") || !!valor) && typeof c.validacion == "function") {
 
+          if (
+            (c.tipo == "casilla" || !!valor) &&
+            typeof c.validacion == "function"
+          ) {
             let resultadoValidacion = c.validacion(valor);
             campoPreparado = {
               ...campoPreparado,
               error: resultadoValidacion.error,
               estado: resultadoValidacion.estado,
-
             };
-
           }
 
           return campoPreparado;
@@ -291,24 +246,20 @@
 
         return null;
       })
-      .filter(c => !!c);
-
+      .filter((c) => !!c);
 
     return camposPreparados;
-
   };
 
   const realizarCambioCampo = (valor, c) => {
-    
-    
     // if( ! c.valorExterno ) {
     //   // if( c.tipo != "multicampo" ) {
-    //   //   datos[c.nombre] = valor;    
+    //   //   datos[c.nombre] = valor;
     //   // } else {
-    //   //   datos[c.nombre] = valor;    
+    //   //   datos[c.nombre] = valor;
     //   // }
     //   // datos[c.nombre] = valor;
-          
+
     // }
 
     if (typeof c.cambiar == "function") {
@@ -318,74 +269,47 @@
     if (typeof cambiar == "function") {
       cambiar(valor, c);
     }
-
   };
 
+  $: todosTusCampos = (Array.isArray(pasos)
+    ? pasos.reduce(
+        (a, p) => (Array.isArray(p.campos) ? [...a, ...p.campos] : a),
+        []
+      )
+    : [...campos]
+  ).reduce(
+    (acc, c) =>
+      c.tipo == "multicampo"
+        ? [...acc, { ...c }, ...c.datos.campos]
+        : [...acc, c],
+    []
+  );
 
-  
+  $: camposMostrar = Array.isArray(todosTusCampos)
+    ? computarCampos(todosTusCampos, estado)
+    : [];
 
-  $: todosTusCampos = (
-    Array.isArray(pasos) ? pasos.reduce((a,p)=>Array.isArray(p.campos) ? [...a,...p.campos]:a,[]) : [...campos]
-  )
-  .reduce(
-      (acc,c)=> (c.tipo == "multicampo") ? (
-      [
-        ...acc,
-        {...c},
-        ...c.datos.campos
-      ]
-    ) : (
-      [
-        ...acc,
-        c
-      ]
-    ),
-  [])
-  
-  
-
-  $: camposMostrar = Array.isArray(todosTusCampos) ? computarCampos(todosTusCampos, estado) : []
-  
   $: hayErrores =
-    !camposMostrar || camposMostrar.filter(c => !!c.error).length > 0;
-
+    !camposMostrar || camposMostrar.filter((c) => !!c.error).length > 0;
 
   // TODO: validar implementación "casilla"
 
-  const textoLleno = (campo, valor) => (
-    (
-      campo.tipo=="texto" ||
-      campo.tipo=="textarea"
-    ) && valor !== ""
-  )
+  const textoLleno = (campo, valor) =>
+    (campo.tipo == "texto" || campo.tipo == "textarea") && valor !== "";
 
-  const numeroLleno = (campo, valor) => (
-    (
-      campo.tipo=="numero"
-    ) && valor === 0
-  )
+  const numeroLleno = (campo, valor) => campo.tipo == "numero" && valor === 0;
 
-
-  const casillasLlenas = (campo, valor) => (
-    (
-      campo.tipo=="casillas"
-    ) && (
-      campo.datos && (
-        campo.datos.tipo=="UNICO"
-        ||
-        campo.datos.tipo=="UNICO_OTRA"
-      )
-    ) && valor === 0
-  )
-
+  const casillasLlenas = (campo, valor) =>
+    campo.tipo == "casillas" &&
+    campo.datos &&
+    (campo.datos.tipo == "UNICO" || campo.datos.tipo == "UNICO_OTRA") &&
+    valor === 0;
 
   const multiCampoLleno = (campo, estado) => {
-    if( campo && campo.tipo == "multicampo" && campo.datos && estado) {
-      
-      const valoresCampos = campo.datos.campos.map(c=>estado[c.nombre])
-      
-      return ! valoresCampos.includes(undefined)
+    if (campo && campo.tipo == "multicampo" && campo.datos && estado) {
+      const valoresCampos = campo.datos.campos.map((c) => estado[c.nombre]);
 
+      return !valoresCampos.includes(undefined);
     }
 
     // (
@@ -393,66 +317,45 @@
     //     campo.tipo= ="multicampo"
     //   ) && valor === 0
     // )
-  }
+  };
 
   const calcularRequeridosVacios = (campos, datos) => {
-
-    if( campos.filter(c => !!c.requerido).length == 0 ) {
-      return false
+    if (campos.filter((c) => !!c.requerido).length == 0) {
+      return false;
     }
 
-
-    const llenos = campos.filter(c => !!c.requerido)
-      .filter(cR => (
-        (
-          (
-            (
-              // si tiene un valor no 0 o no nulo,
-              !! datos[cR.nombre]
-              &&
-              // y no es multicampo
-              ( cR.tipo != "multicampo" )
-            )
+    const llenos = campos
+      .filter((c) => !!c.requerido)
+      .filter(
+        (cR) =>
+          (// si tiene un valor no 0 o no nulo,
+          (!!datos[cR.nombre] &&
+            // y no es multicampo
+            cR.tipo != "multicampo") ||
             // de otro modo, checamos excepciones a 0 o nulo:
-            ||
-            textoLleno(cR, datos[cR.nombre])
-            ||
-            numeroLleno(cR, datos[cR.nombre])
-            ||
-            casillasLlenas(cR, datos[cR.nombre])
-          )
-          
-          ||
-
-          // multiCampoLleno(cR, datos)          
-          multiCampoLleno(cR, datos[cR.nombre])
-        )
-        &&
-        (
+            textoLleno(cR, datos[cR.nombre]) ||
+            numeroLleno(cR, datos[cR.nombre]) ||
+            casillasLlenas(cR, datos[cR.nombre]) ||
+            // multiCampoLleno(cR, datos)
+            multiCampoLleno(cR, datos[cR.nombre])) &&
           datos[cR.nombre] != null &&
           datos[cR.nombre] != undefined &&
-          (typeof datos[cR.nombre] != "undefined")
-        )
-    ) )
+          typeof datos[cR.nombre] != "undefined"
+      );
 
-
-    return (llenos.length < campos.filter(c => !!c.requerido).length);
-  
-  }
-
-
-
+    return llenos.length < campos.filter((c) => !!c.requerido).length;
+  };
 
   const enviarFuncion = () => {
     if (typeof enviar == "function") {
       if (!hayErrores || !hayRequeridosVacios()) {
         enviar(estado);
-        enviando = true
+        enviando = true;
       }
     }
   };
 
-  const revisarValidezCampo = c => {
+  const revisarValidezCampo = (c) => {
     if (!c.nombre) {
       return false;
     }
@@ -464,26 +367,26 @@
     return false;
   };
 
-  let superior
+  let superior;
 
   const avanzar = () => {
     pasoActual = pasoActual + 1;
-    superior.scrollIntoView()
+    superior.scrollIntoView();
   };
   const regresar = () => {
     pasoActual = pasoActual - 1;
-    superior.scrollIntoView()
+    superior.scrollIntoView();
   };
-  
-  const cambiarPaso = i => {
+
+  const cambiarPaso = (i) => {
     pasoActual = i;
-    superior.scrollIntoView()
+    superior.scrollIntoView();
   };
 
   // let pasoUltimo
   let pantallaActual;
 
-  const init = el => {
+  const init = (el) => {
     el.focus();
   };
 
@@ -494,56 +397,158 @@
             ...pasos[pasoActual],
             campos:
               pasos[pasoActual].campos &&
-              computarCampos(pasos[pasoActual].campos, estado)
+              computarCampos(pasos[pasoActual].campos, estado),
           }
         : {
-            campos: computarCampos(campos, estado)
+            campos: computarCampos(campos, estado),
           };
-
   };
 
   const reiniciar = () => {
-    respuesta = null
-    estado = {}
+    respuesta = null;
+    estado = {};
     // TODO: Verificar si sig. línea todavía aplica:
-    datos = {}
-    enviando = false
-  }
+    datos = {};
+    enviando = false;
+  };
 
-  const calcularErroresCampos = (campos) => campos.filter(c => !!c.error).length > 0
+  const calcularErroresCampos = (campos) =>
+    campos.filter((c) => !!c.error).length > 0;
 
   const calcularCamposCorrectos = (campos, datos) => {
+    return (
+      Array.isArray(campos) &&
+      typeof datos == "object" &&
+      !calcularRequeridosVacios(campos, datos) &&
+      !calcularErroresCampos(computarCampos(campos, datos))
+    );
+  };
 
+  $: (pasoActual > 0 || pasoActual === 0) &&
+    actualizarPantalla(pasoActual, camposMostrar);
 
-    return ( Array.isArray(campos) && typeof datos == "object" ) &&
-    (    
-      (! calcularRequeridosVacios(campos, datos) )
-      &&
-      (! calcularErroresCampos( computarCampos(campos, datos) ) )
-    )
-    
-  }
+  $: clasesContenedor =
+    Array.isArray(pasos) && pasos.length > 0 ? "paso paso_" + pasoActual : "";
 
+  $: esHTML = isHTML(respuesta);
 
-  $: ( pasoActual > 0 || pasoActual === 0 )&& actualizarPantalla(pasoActual, camposMostrar);
+  $: hayRequeridosVacios =
+    (!pasos || !Array.isArray(pasos) || pasos.length > 0) &&
+    calcularRequeridosVacios(camposMostrar, estado);
 
-  $: clasesContenedor = Array.isArray(pasos) && pasos.length > 0 ? 'paso paso_' + pasoActual : ''
-
-
-  $: esHTML = isHTML(respuesta)
-
-  $: hayRequeridosVacios = ( ! pasos || ! Array.isArray(pasos) || pasos.length > 0) && calcularRequeridosVacios( camposMostrar, estado )
-
-
-  
-
-  $: pasoActualCorrecto = (Array.isArray(pasos) && estado) && calcularCamposCorrectos(pasos[pasoActual ? pasoActual : 0].campos, estado)
+  $: pasoActualCorrecto =
+    Array.isArray(pasos) &&
+    estado &&
+    calcularCamposCorrectos(pasos[pasoActual ? pasoActual : 0].campos, estado);
 
   // $: pasoActualCorrecto = (Array.isArray(pasos) && estado && pasoActual) && calcularCamposCorrectos(pasos[pasoActual].campos, estado)
-  
-  
 
 </script>
+
+<section class="Formulario" bind:this={superior}>
+  {#if !respuesta}
+    {#if Array.isArray(pasos)}
+      <header class="pasos">
+        <nav>
+          {#each pasos as paso, i (paso)}
+            <button
+              class="botonPaso {pasoActual > i ? 'pasado' : ''}
+              {pasoActual == i ? 'actual' : ''}"
+              on:click={() => cambiarPaso(i)}
+              disabled={i != 0 &&
+                pasoActual != i &&
+                !calcularCamposCorrectos(pasos[i - 1].campos, estado)}
+            >
+              {pasoActual == i ? i + 1 + " . " + paso.nombre : i + 1}
+            </button>
+          {/each}
+        </nav>
+      </header>
+    {/if}
+    {#if pantallaActual}
+      <div class={clasesContenedor}>
+        {#if !!pantallaActual.titulo}
+          <Titulo texto={pantallaActual.titulo} nivel={1} />
+        {/if}
+        {#if !!pantallaActual.texto}
+          <Parrafo texto={pantallaActual.texto} />
+        {/if}
+
+        <form on:submit|preventDefault={enviarFuncion}>
+          {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
+            {#each pantallaActual.campos as campo, i ("formulario_" + formularioId + "_" + campo.nombre)}
+              <Campo {...campo} />
+            {/each}
+          {/if}
+
+          {#if !!enviar}
+            {#if !Array.isArray(pasos) || pasoActual == pasos.length - 1}
+              <input
+                disabled={enviando || hayErrores || hayRequeridosVacios}
+                type="submit"
+                class={hayErrores || hayRequeridosVacios
+                  ? "inactivo"
+                  : "activo"}
+                value={enviando ? config.textos.enviando : config.textos.enviar}
+              />
+            {/if}
+          {/if}
+        </form>
+      </div>
+    {/if}
+
+    {#if Array.isArray(pasos)}
+      <nav class="navegacion">
+        <div class="regresa">
+          {#if pasoActual > 0}
+            <BotonIcono
+              texto={"Regresa"}
+              icono={"irIzquierda"}
+              click={regresar}
+            />
+          {/if}
+        </div>
+
+        <div class="avanza">
+          {#if pasoActual < pasos.length - 1}
+            <BotonIcono
+              texto={"Siguiente"}
+              icono={"irDerecha"}
+              click={avanzar}
+              deshabilitado={!pasoActualCorrecto}
+            />
+            <!-- deshabilitado={ pasoCompleto } -->
+          {/if}
+        </div>
+      </nav>
+    {/if}
+  {:else}
+    <section class="respuesta">
+      {#if typeof respuesta == "string"}
+        {#if esHTML}
+          <Contenido html={respuesta} />
+        {:else}
+          <Aviso texto={respuesta} />
+        {/if}
+      {/if}
+
+      {#if typeof respuesta == "object"}
+        <Titulo texto={respuesta.titulo} nivel={1} />
+        <Parrafo texto={respuesta.texto} nivel={1} />
+      {/if}
+
+      {#if respuesta instanceof Error}
+        <div class="error">
+          <Titulo texto={"Error"} nivel={1} />
+          <Parrafo texto={respuesta.message} />
+        </div>
+        <footer>
+          <Boton texto="Reiniciar" click={reiniciar} />
+        </footer>
+      {/if}
+    </section>
+  {/if}
+</section>
 
 <style>
   .Formulario {
@@ -564,50 +569,48 @@
     align-items: center;
   }
   form input[type="submit"] {
-    background-color: var(--theme-botones-primario-fondo);
+    transition: var(--theme-transiciones-normal);
     color: var(--theme-botones-primario-color);
-    padding: calc(var(--theme-botones-primario-espacio) * 2)
-      calc(var(--theme-botones-primario-espacio) * 4);
+    background-color: var(--theme-botones-primario-fondo);
+    padding: calc(var(--theme-botones-primario-espacio) / 2)
+      var(--theme-botones-primario-espacio);
     font-family: var(--theme-botones-primario-familia);
-    border-radius: var(--theme-botones-primario-esquinas);
-    border: 1px solid var(--theme-botones-primario-borde);
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-textos-parrafo-tamanno);
+    border-radius: calc(var(--theme-botones-primario-esquinas) / 2);
+    border: none;
     cursor: pointer;
     margin: 0;
-    transition: 0.5s;
     /* IOS rendering */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     opacity: 1;
   }
-  form input[type="submit"]:hover {
+  form input[type="submit"]:hover,
+  .paso input[type="submit"]:hover {
     background-color: var(--theme-botones-primario-hover);
-    border-color: var(--theme-botones-primario-hover);
-    color: var(--theme-botones-secundario-color);
+  }
+  form input[type="submit"]:active,
+  .paso input[type="submit"]:active {
+    background-color: var(--theme-botones-primario-activo);
   }
   form input[type="submit"]:focus,
-  form input[type="submit"]:visited,
-  form input[type="submit"]:active {
-    background-color: var(--theme-botones-primario-activo);
-    border-color: var(--theme-botones-primario-activo);
-    color: var(--theme-botones-primario-claro);
+  .paso input[type="submit"]:focus {
+    background-color: var(--theme-botones-primario-foco);
   }
-  form input[type="submit"].inactivo {
+  form input[type="submit"]:visited,
+  .paso input[type="submit"]:visited {
+    background-color: var(--theme-botones-primario-visitado);
+  }
+  form input[type="submit"].inactivo,
+  .paso input[type="submit"].inactivo {
     background-color: var(--theme-botones-primario-inactivo);
     border-color: var(--theme-botones-primario-inactivo);
     color: var(--theme-botones-primario-claro);
   }
-  form input[type="submit"].activo {
-    background-color: var(--theme-botones-primario-hover);
-    border-color: var(--theme-botones-primario-hover);
-    color: var(--theme-botones-primario-color);
-  }
-  form input[type="submit"].activo:hover {
-    background-color: var(--theme-botones-primario-hover);
-    border-color: var(--theme-botones-primario-hover);
-    color: var(--theme-botones-primario-inactivo);
-  }
   .pasos {
+    background-color: var(--theme-colores-fondo);
     position: sticky;
     top: -0.1px;
     height: 100%;
@@ -661,11 +664,19 @@
   .paso input[type="submit"] {
     position: absolute;
     right: 0.5rem;
-    bottom: -4.75rem;
-    padding: calc(var(--theme-botones-primario-espacio) * 1.5)
-      calc(var(--theme-botones-primario-espacio) * 4);
-    color: var(--theme-botones-primario-color) !important;
-    box-sizing: border-box;
+    bottom: -4.2rem;
+    transition: var(--theme-transiciones-normal);
+    color: var(--theme-botones-primario-color);
+    background-color: var(--theme-botones-primario-fondo);
+    padding: calc(var(--theme-botones-primario-espacio) / 2)
+      var(--theme-botones-primario-espacio);
+    font-family: var(--theme-botones-primario-familia);
+    font-weight: var(--theme-textos-parrafo-peso);
+    font-size: var(--theme-textos-parrafo-tamanno);
+    border-radius: calc(var(--theme-botones-primario-esquinas) / 2);
+    border: none;
+    cursor: pointer;
+    margin: 0;
     /* IOS rendering */
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -681,10 +692,10 @@
     padding: 2rem 0;
     box-sizing: border-box;
   }
-  .navegacion :global(button) {
+  /* .navegacion :global(button) {
     padding: calc(var(--theme-botones-primario-espacio) * 1.5)
       calc(var(--theme-botones-primario-espacio) * 2.5);
-  }
+  } */
   .regresa :global(button .iconoContenedor) {
     order: -1;
   }
@@ -713,134 +724,16 @@
     color: var(--theme-alertas-error);
   }
 
-
   .Formulario :global(.Campo) {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
-
-
 
   :global(.inactivo),
   :global(.inactivo *),
-  :global(input[disabled=true]),
-  :global(input[disabled=true]:hover ){
-    cursor:unset !important;
+  :global(input[disabled="true"]),
+  :global(input[disabled="true"]:hover) {
+    cursor: unset !important;
     background-color: var(--theme-botones-primario-inactivo) !important;
   }
 
-
-
 </style>
-
-<section class="Formulario" bind:this={superior}>
-
-  {#if !respuesta}
-    {#if Array.isArray(pasos)}
-      <header class="pasos">
-        <nav>
-          {#each pasos as paso, i (paso)}
-            <button
-              class="botonPaso {pasoActual > i ? 'pasado' : ''}
-              {pasoActual == i ? 'actual' : ''}"
-              on:click={() => cambiarPaso(i)}
-              disabled={ i != 0 && pasoActual != i && ! calcularCamposCorrectos(pasos[i-1].campos, estado) }
-              >
-              {pasoActual == i ? i + 1 + ' . ' + paso.nombre : i + 1}
-            </button>
-          {/each}
-        </nav>
-      </header>
-    {/if}
-    {#if pantallaActual}
-
-    <div class={clasesContenedor}>
-      {#if !!pantallaActual.titulo}
-        <Titulo texto={pantallaActual.titulo} nivel={1} />
-      {/if}
-      {#if !!pantallaActual.texto}
-        <Parrafo texto={pantallaActual.texto} />
-      {/if}
-
-      <form on:submit|preventDefault={enviarFuncion}>
-
-        {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
-          {#each pantallaActual.campos as campo, i ("formulario_" + formularioId + "_" + campo.nombre)}
-
-            <Campo {...campo}/>
-
-          {/each}
-        {/if}
-
-        {#if !!enviar}
-          {#if !Array.isArray(pasos) || (pasoActual == pasos.length - 1)}
-            <input
-              disabled={enviando || hayErrores || hayRequeridosVacios}
-              type="submit"
-              class={hayErrores || hayRequeridosVacios ? 'inactivo' : 'activo'}
-              value={ enviando ? config.textos.enviando : config.textos.enviar} />
-          {/if}
-        {/if}
-
-      </form>
-
-    </div>
-
-    {/if}
-
-      {#if Array.isArray(pasos)}
-      <nav class="navegacion">
-
-        <div class="regresa">
-          {#if pasoActual > 0}
-            <BotonIcono
-              texto={'Regresa'}
-              icono={'irIzquierda'}
-              click={regresar} />
-          {/if}
-        </div>
-
-        <div class="avanza">
-          {#if (pasoActual < pasos.length - 1) }
-            <BotonIcono
-              texto={'Siguiente'}
-              icono={'irDerecha'}
-              click={avanzar}
-              deshabilitado={ ! pasoActualCorrecto }
-              />
-              <!-- deshabilitado={ pasoCompleto } -->
-          {/if}
-        </div>
-
-      </nav>
-    {/if}
-  {:else}
-    <section class="respuesta">
-      {#if typeof respuesta == 'string'}
-        {#if esHTML }
-          <Contenido html={respuesta}/>
-        {:else}
-          <Aviso texto={respuesta} />
-        {/if}
-      {/if}
-
-      {#if typeof respuesta == 'object'}
-        <Titulo texto={respuesta.titulo} nivel={1} />
-        <Parrafo texto={respuesta.texto} nivel={1} />
-      {/if}
-
-      {#if respuesta instanceof Error}
-        <div class="error">
-          <Titulo texto={'Error'} nivel={1} />
-          <Parrafo texto={respuesta.message} />
-        </div>
-        <footer>
-
-          <Boton texto="Reiniciar" click={reiniciar}/>
-
-        </footer>
-      {/if}
-    </section>
-  {/if}
-
-</section>
-    
