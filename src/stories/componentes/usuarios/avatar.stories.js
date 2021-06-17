@@ -24,3 +24,25 @@ export const avatarMostrarNombre = () => ({
         }
     }
 });
+export const avatarMostrarNombreCorto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Avatar,
+        datos: {
+            ...usuario,
+            mostrarNombre: true,
+            nombre: "Xyz"
+        }
+    }
+});
+export const avatarMostrarNombreLargo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Avatar,
+        datos: {
+            ...usuario,
+            mostrarNombre: true,
+            nombre: "Jose Luís Rodriguez"
+        }
+    }
+});

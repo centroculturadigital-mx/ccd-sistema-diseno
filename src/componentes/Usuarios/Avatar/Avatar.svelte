@@ -22,6 +22,9 @@
 </div>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .Avatar {
     width: 2rem;
     height: 2rem;
@@ -32,6 +35,7 @@
     align-items: center;
     position: relative;
     text-align: center;
+    cursor: pointer;
   }
   .Avatar :global(img) {
     border-radius: 50%;
@@ -40,17 +44,30 @@
     overflow: hidden;
   }
   .nombre {
+    transition: 0.5s;
     display: none;
+    opacity: 0;
     position: absolute;
-    top: -1.5rem;
-    background-color: #efefef;
+    top: 0.25rem;
+    left: auto;
+    right: auto;
+    /* background-color: #efefef; */
+    /* padding: 0.25rem; */
+    /* border-radius: 0.25rem; */
+    z-index: 10;
+  }
+  .nombre :global(span) {
+    /* position: fixed; */
+    background-color: #000;
+    color: #efefef;
     padding: 0.25rem;
     border-radius: 0.25rem;
-    z-index: 10;
+    flex-shrink: 0;
   }
 
   .Avatar:hover .nombre {
-    display: block;
+    display: flex;
+    opacity: 1;
   }
 
 </style>

@@ -23,6 +23,9 @@
 </section>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .UsuariosLista {
     scroll-behavior: smooth;
     position: relative;
@@ -31,10 +34,9 @@
     flex-wrap: nowrap;
     height: 100%;
     width: 100%;
-    box-sizing: border-box;
   }
   .UsuariosLista :global(ul) {
-    flex-wrap: nowrap;
+    flex-wrap: nowrap !important;
   }
   .horizontal {
     height: auto;
