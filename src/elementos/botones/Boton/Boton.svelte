@@ -89,6 +89,9 @@
     cursor: initial;
   }
   /* boton secundario */
+  .secundario {
+    color: var(--theme-colores-primario) !important;
+  }
   .secundario:hover {
     border: 1px solid var(--theme-botones-primario-hover) !important;
     color: var(--theme-botones-primario-hover) !important;
@@ -128,16 +131,6 @@
     color: var(--theme-botones-primario-inactivo) !important;
     text-decoration: none;
     cursor: initial;
-  }
-
-  button.secundario {
-    border-color: #aaa;
-    color: #666 !important; 
-  }
-
-  button.secundario:hover {
-    border-color: #555;
-    color: #000 !important; 
   }
 
 </style>
