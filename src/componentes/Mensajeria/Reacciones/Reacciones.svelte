@@ -20,20 +20,44 @@
     estado = !estado;
   };
 
-  const reaccionarAccion = reaccion => {
+  const reaccionarAccion = (reaccion) => {
     if (typeof reaccionar == "function") {
-      reaccionar(reaccion);  
+      reaccionar(reaccion);
     }
     estado = !estado;
   };
-
 </script>
+
+<div class="Reacciones">
+  <Icono icono={"reaccion"} on:click={abrir} />
+
+  <ul
+    bind:this={lista}
+    class="ReaccionesLista {!!estado ? 'abierto' : ''}"
+    transition:fade|local
+  >
+    {#if !!estado}
+      {#each reacciones as reaccion (reaccion)}
+        <li on:click={reaccionarAccion(reaccion)}>
+          <Imagen imagen={reaccion.imagen} />
+          <div class="Texto">
+            <Texto
+              texto={reaccion.texto}
+              css={{ color: "white", "font-size": "0.75rem" }}
+            />
+          </div>
+        </li>
+      {/each}
+    {/if}
+  </ul>
+</div>
 
 <style>
   .Reacciones {
     position: relative;
     width: auto;
     height: auto;
+    cursor: pointer;
   }
   .Reacciones:hover :global(.iconoContenedor) {
     opacity: 0.75;
@@ -42,23 +66,23 @@
     transition: 0.5s;
     position: relative;
     background-color: var(--theme-tarjetas-fondo);
-    /* overflow-y: auto; */
-    /* overflow-x: hidden; */
     position: absolute;
     padding: 0;
     top: 1.75rem;
     right: 1.75rem;
-    padding-top: 2rem !important;
     list-style-type: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0;
     height: auto;
-    max-height: 8rem;
+    /* padding-top: 2rem !important; */
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+    /* max-height: 8rem; */
     width: 16rem;
     box-sizing: border-box;
-    z-index: -1;
+    z-index: 0;
   }
   .ReaccionesLista :global(img) {
     border-radius: 5rem;
@@ -95,23 +119,3 @@
     z-index: 10000;
   }
 </style>
-
-<div class="Reacciones">
-
-  <Icono icono={'reaccion'} on:click={abrir} />
-
-  <ul bind:this={lista} class="ReaccionesLista {!!estado ? "abierto" : ""}" transition:fade>
-  {#if !!estado}
-      {#each reacciones as reaccion (reaccion)}
-        <li on:click={reaccionarAccion(reaccion)}>
-          <Imagen imagen={reaccion.imagen} />
-          <div class="Texto">
-            <Texto
-              texto={reaccion.texto}
-              css={{ color: 'white', 'font-size': '0.75rem' }} />
-          </div>
-        </li>
-      {/each}
-  {/if}
-    </ul>
-</div>
