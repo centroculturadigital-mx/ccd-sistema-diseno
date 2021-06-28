@@ -1,6 +1,7 @@
 ## CCD Sistema de diseño V0.2
 
-Proyecto en proceso de diseño y desarrollo.
+Proyecto en proceso de diseño y desarrollo. Concebido como una herramienta para facilitar el desarrollo de proyectos en el sector público cultural mexicano.
+
 
 La publicación de la versión 1.0 será en noviembre del 2021.
 
@@ -8,6 +9,7 @@ La publicación de la versión 1.0 será en noviembre del 2021.
 - Diseñado como librería de Figma
 - Desarrollado con Svelte.js
 - Desarrollado por el Centro de Cultura Digital
+
 
 
 ![CCDSD](
