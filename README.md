@@ -1,5 +1,15 @@
 ## CCD Sistema de diseño V0.2
 
+Proyecto en proceso de diseño y desarrollo.
+
+La publicación de la versión 1.0 será en noviembre del 2021.
+
+- Código escrito en español para facilitar su adopción
+- Diseñado como librería de Figma
+- Desarrollado con Svelte.js
+- Desarrollado por el Centro de Cultura Digital
+
+
 ![CCDSD](
     https://github.com/centroculturadigital-mx/ccd-sistema-diseno/blob/master/ccdsd.png)
 
