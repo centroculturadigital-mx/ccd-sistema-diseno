@@ -9,6 +9,15 @@
     ? iconos[icono]
     : iconos.duda;
 
+  // let TMP_V_1_0 = true;
+
+  // if ( TMP_V_1_0 ) {
+  //   iconos.nuevo = nuevo
+  // }
+
+  $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;
+
+
 </script>
 
 {#if icono && Object.keys(iconos).includes(icono)}
