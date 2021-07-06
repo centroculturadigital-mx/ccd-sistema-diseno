@@ -95,6 +95,12 @@
   import folder from "./iconos/folder.svg";
   import imagensubir from "./iconos/imagensubir.svg";
   
+  // Nuevo iconos:
+  import grados360 from "./iconos-v1/grados360.svg";
+  
+
+
+  // props
   export let icono;
   export let tamanno = "2rem";
   export let color = "#000";
@@ -196,10 +202,21 @@
     imagensubir
   };
 
+  // let TMP_V_1_0 = true;
+
+  // if ( TMP_V_1_0 ) {
+  //   iconos.nuevo = nuevo
+  // }
+
   $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;
+
+
 </script>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .iconoContenedor {
     display: flex;
     align-items: center;
