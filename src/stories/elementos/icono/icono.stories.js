@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import Icono from '../../../elementos/Icono/Icono.svelte';
 
-export default { title: 'Elementos/Icono' }
+export default { title: 'Elementos/Icono/V0' }
 
 export const iconoDefault = () => ({
     Component: ThemeTester,
