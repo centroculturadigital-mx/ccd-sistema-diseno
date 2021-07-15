@@ -4,13 +4,8 @@
 
     export let texto;
     export let contenido;
-    export let data;
+    export let leyenda;
    
-
-    $: atributos = typeof data == 'object' ? data : {
-        // style: `font-size: ${tamanno}`
-    };
-    
 </script>
 
 <style>
@@ -25,10 +20,9 @@
     }
 </style>
 
-<blockquote {...atributos}>
+<blockquote>
     <Bloque
     {contenido}
     {texto}
-   
     />
 </blockquote>
