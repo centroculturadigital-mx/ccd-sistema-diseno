@@ -117,7 +117,7 @@
     .izquierdaCentro:after {
         content: "";
         left: -0.65rem;
-        top: 0.5rem;
+        top: calc(50% - 0.25rem);
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
@@ -125,7 +125,7 @@
     .izquierdaArriba:after {
         content: "";
         left: -0.65rem;
-        top: 0.15rem;
+        top: calc(10% + 0.25rem);
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
@@ -133,7 +133,7 @@
     .izquierdaAbajo:after {
         content: "";
         left: -0.65rem;
-        top: 0.95rem;
+        top: calc(90% - 0.55rem);
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
@@ -141,7 +141,7 @@
     .derechaCentro:before {
         content: "";
         right: -0.65rem;
-        top: 0.5rem;
+        top: calc(50% - 0.25rem);
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
@@ -149,7 +149,7 @@
     .derechaArriba:before {
         content: "";
         right: -0.65rem;
-        top: 0.15rem;
+        top: calc(0% + 0.25rem);
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
@@ -157,7 +157,7 @@
     .derechaAbajo:before {
         content: "";
         right: -0.65rem;
-        top: 0.95rem;
+        top: calc(90% - 0.55rem);
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);

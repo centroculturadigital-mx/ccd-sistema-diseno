@@ -142,13 +142,63 @@ export const globoInformacionTextoLargo = () => ({
         }
     },
 });
-export const globoInformacionTextoLargoConFlecha = () => ({
+export const globoInformacionTextoLargoConFlechaIzquierdaAbajo = () => ({
     Component: ThemeTester,
     props: {
         componente: GloboInformacion,
         datos: {
             texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
             posicion: "IZQUIERDA_ABAJO",
+        }
+    },
+});
+export const globoInformacionTextoLargoConFlechaIzquierdaArriba = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacion,
+        datos: {
+            texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
+            posicion: "IZQUIERDA_ARRIBA",
+        }
+    },
+});
+export const globoInformacionTextoLargoConFlechaIzquierdaCentro = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacion,
+        datos: {
+            texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
+            posicion: "IZQUIERDA_CENTRO",
+        }
+    },
+});
+export const globoInformacionTextoLargoConFlechaAbajoCentro = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacion,
+        datos: {
+            texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
+            posicion: "ABAJO_CENTRO",
+        }
+    },
+});
+export const globoInformacionTextoLargoConFlechaAbajoIzquierda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacion,
+        datos: {
+            texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
+            posicion: "ABAJO_IZQUIERDA",
+        }
+    },
+});
+export const globoInformacionTextoLargoConFlechaAbajoDerecha = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacion,
+        datos: {
+            texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
+            posicion: "ABAJO_DERECHA",
         }
     },
 });
