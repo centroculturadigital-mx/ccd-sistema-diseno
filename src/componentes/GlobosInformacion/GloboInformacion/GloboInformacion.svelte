@@ -2,24 +2,8 @@
     import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
     export let texto;
-    // TODO: quitar eje y posicion pasa a tener 12 posibilidades
     export let posicion;
-    
-    // ARRIBA_CENTRO
-    // ARRIBA_IZQUIERDA
-    // ARRIBA_DERECHA
-
-    // ABAJO_IZQUIERDA
-    // ABAJO_CENTRO
-    // ABAJO_DERECHA 
-
-    // IZQUIERDA_ABAJO
-    // IZQUIERDA_CENTRO
-    // IZQUIERDA_ARRIBA
-
-    // DERECHA_ABAJO
-    // DERECHA_CENTRO
-    // DERECHA_ARRIBA
+    export let coordenadas;
 
     $: posicionTipo =
         posicion === "ARRIBA_CENTRO"
@@ -48,9 +32,16 @@
             ? "derechaAbajo"
             : "";
 
+    let estilos;
+
+    if (coordenadas) {
+        estilos = {
+            style: `top: ${coordenadas.y}px;left: ${coordenadas.x}px;`,
+        };
+    }
 </script>
 
-<div class="{posicionTipo} GloboInformacion">
+<div class="{posicionTipo} GloboInformacion" {...estilos}>
     <Texto {texto} />
 </div>
 

@@ -1,7 +1,7 @@
 import ThemeTester from '../../ThemeTester/ThemeTester'
 import GloboInformacion from './GloboInformacion';
 
-export default { title: 'Componentes/GlobosDeInformación/GloboInformacion' }
+export default { title: 'Componentes/GlobosInformación/GloboInformacion' }
 
 export const globoInformacionDefault = () => ({
     Component: ThemeTester,
