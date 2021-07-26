@@ -2,33 +2,33 @@
     import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
     export let texto;
-    export let posicion;
+    export let posicionFlecha;
     export let coordenadas;
 
     $: posicionTipo =
-        posicion === "ARRIBA_CENTRO"
+        posicionFlecha === "ARRIBA_CENTRO"
             ? "arribaCentro"
-            : posicion === "ARRIBA_IZQUIERDA"
+            : posicionFlecha === "ARRIBA_IZQUIERDA"
             ? "arribaIzquierda"
-            : posicion === "ARRIBA_DERECHA"
+            : posicionFlecha === "ARRIBA_DERECHA"
             ? "arribaDerecha"
-            : posicion === "ABAJO_CENTRO"
+            : posicionFlecha === "ABAJO_CENTRO"
             ? "abajoCentro"
-            : posicion === "ABAJO_IZQUIERDA"
+            : posicionFlecha === "ABAJO_IZQUIERDA"
             ? "abajoIzquierda"
-            : posicion === "ABAJO_DERECHA"
+            : posicionFlecha === "ABAJO_DERECHA"
             ? "abajoDerecha"
-            : posicion === "IZQUIERDA_CENTRO"
+            : posicionFlecha === "IZQUIERDA_CENTRO"
             ? "izquierdaCentro"
-            : posicion === "IZQUIERDA_ARRIBA"
+            : posicionFlecha === "IZQUIERDA_ARRIBA"
             ? "izquierdaArriba"
-            : posicion === "IZQUIERDA_ABAJO"
+            : posicionFlecha === "IZQUIERDA_ABAJO"
             ? "izquierdaAbajo"
-            : posicion === "DERECHA_CENTRO"
+            : posicionFlecha === "DERECHA_CENTRO"
             ? "derechaCentro"
-            : posicion === "DERECHA_ARRIBA"
+            : posicionFlecha === "DERECHA_ARRIBA"
             ? "derechaArriba"
-            : posicion === "DERECHA_ABAJO"
+            : posicionFlecha === "DERECHA_ABAJO"
             ? "derechaAbajo"
             : "";
 

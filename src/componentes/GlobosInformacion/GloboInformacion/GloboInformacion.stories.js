@@ -18,7 +18,7 @@ export const globoInformacionFlechaArribaCentro = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "ARRIBA_CENTRO",
+            posicionFlecha: "ARRIBA_CENTRO",
         }
     },
 });
@@ -28,7 +28,7 @@ export const globoInformacionFlechaArribaIzquierda = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "ARRIBA_IZQUIERDA",
+            posicionFlecha: "ARRIBA_IZQUIERDA",
         }
     },
 });
@@ -38,7 +38,7 @@ export const globoInformacionFlechaArribaDerecha = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "ARRIBA_DERECHA",
+            posicionFlecha: "ARRIBA_DERECHA",
         }
     },
 });
@@ -49,7 +49,7 @@ export const globoInformacionFlechaAbajoCentro = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "ABAJO_CENTRO",
+            posicionFlecha: "ABAJO_CENTRO",
         }
     },
 });
@@ -59,7 +59,7 @@ export const globoInformacionFlechaAbajoIzquierda = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "ABAJO_IZQUIERDA",
+            posicionFlecha: "ABAJO_IZQUIERDA",
         }
     },
 });
@@ -69,7 +69,7 @@ export const globoInformacionFlechaAbajoDerecha = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "ABAJO_DERECHA",
+            posicionFlecha: "ABAJO_DERECHA",
         }
     },
 });
@@ -79,7 +79,7 @@ export const globoInformacionFlechaDerechaCentro = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "DERECHA_CENTRO",
+            posicionFlecha: "DERECHA_CENTRO",
         }
     },
 });
@@ -89,7 +89,7 @@ export const globoInformacionFlechaDerechaArriba = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "DERECHA_ARRIBA",
+            posicionFlecha: "DERECHA_ARRIBA",
         }
     },
 });
@@ -99,7 +99,7 @@ export const globoInformacionFlechaDerechaAbajo = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "DERECHA_ABAJO",
+            posicionFlecha: "DERECHA_ABAJO",
         }
     },
 });
@@ -109,7 +109,7 @@ export const globoInformacionFlechaIzquierdaCentro = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "IZQUIERDA_CENTRO",
+            posicionFlecha: "IZQUIERDA_CENTRO",
         }
     },
 });
@@ -119,7 +119,7 @@ export const globoInformacionFlechaIzquierdaArriba = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "IZQUIERDA_ARRIBA",
+            posicionFlecha: "IZQUIERDA_ARRIBA",
         }
     },
 });
@@ -129,7 +129,7 @@ export const globoInformacionFlechaIzquierdaAbajo = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Nombre de usuaria",
-            posicion: "IZQUIERDA_ABAJO",
+            posicionFlecha: "IZQUIERDA_ABAJO",
         }
     },
 });
@@ -148,7 +148,7 @@ export const globoInformacionTextoLargoConFlechaIzquierdaAbajo = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
-            posicion: "IZQUIERDA_ABAJO",
+            posicionFlecha: "IZQUIERDA_ABAJO",
         }
     },
 });
@@ -158,7 +158,7 @@ export const globoInformacionTextoLargoConFlechaIzquierdaArriba = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
-            posicion: "IZQUIERDA_ARRIBA",
+            posicionFlecha: "IZQUIERDA_ARRIBA",
         }
     },
 });
@@ -168,7 +168,7 @@ export const globoInformacionTextoLargoConFlechaIzquierdaCentro = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
-            posicion: "IZQUIERDA_CENTRO",
+            posicionFlecha: "IZQUIERDA_CENTRO",
         }
     },
 });
@@ -178,7 +178,7 @@ export const globoInformacionTextoLargoConFlechaAbajoCentro = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
-            posicion: "ABAJO_CENTRO",
+            posicionFlecha: "ABAJO_CENTRO",
         }
     },
 });
@@ -188,7 +188,7 @@ export const globoInformacionTextoLargoConFlechaAbajoIzquierda = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
-            posicion: "ABAJO_IZQUIERDA",
+            posicionFlecha: "ABAJO_IZQUIERDA",
         }
     },
 });
@@ -198,7 +198,7 @@ export const globoInformacionTextoLargoConFlechaAbajoDerecha = () => ({
         componente: GloboInformacion,
         datos: {
             texto: "Este globo funciona como un elemento informativo con texto largo para indicar instrucciones u otro dato importante.",
-            posicion: "ABAJO_DERECHA",
+            posicionFlecha: "ABAJO_DERECHA",
         }
     },
 });
