@@ -3,7 +3,7 @@ import GlobosInformacion from './GlobosInformacion';
 
 const globos = Array(Math.ceil(Math.random()*8)).fill(true).map(g => ({
     texto: "Lorem ipsum dolor",
-    posicion: "ARRIBA_CENTRO",
+    posicionFlecha: "ARRIBA_CENTRO",
     coordenadas: {
         x: Math.ceil(Math.random() * 320),
         y: Math.ceil(Math.random() * 480)

@@ -1,6 +1,7 @@
 <script>
     import GloboInformacion from "../GloboInformacion/GloboInformacion";
 
+    export let globo;
     export let globos;
     export let fondoMostrar;
     export let estado;
@@ -11,13 +12,21 @@
         {#if fondoMostrar}
             <div class="fondo" />
         {/if}
-        {#each globos as globo, i}
+        {#if globo}
             <GloboInformacion
-            texto={globo.texto}
-            posicion={globo.posicion}
-            coordenadas={globo.coordenadas}
+                texto={globo.texto}
+                posicionFlecha={globo.posicionFlecha}
+                coordenadas={globo.coordenadas}
             />
-        {/each}
+        {:else}
+            {#each globos as globo, i}
+                <GloboInformacion
+                    texto={globo.texto}
+                    posicionFlecha={globo.posicionFlecha}
+                    coordenadas={globo.coordenadas}
+                />
+            {/each}
+        {/if}
     </section>
 {/if}
 
@@ -26,9 +35,11 @@
         box-sizing: border-box;
     }
     .GlobosInformacion {
-        position: relative;
+        position: absolute;
         top: 0;
         left: 0;
+        height: 100vh;
+        width: 100vw;
     }
     .fondo {
         position: absolute;
@@ -36,7 +47,7 @@
         left: 0;
         height: 100vh;
         width: 100vw;
-        background-color: rgba(0,0,0,0.35);
+        background-color: rgba(0, 0, 0, 0.35);
         z-index: 0;
     }
 </style>
