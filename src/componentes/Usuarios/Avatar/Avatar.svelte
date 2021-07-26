@@ -4,20 +4,28 @@
 
   export let imagen;
   export let nombre;
-  export let slug;
-  export let mostrarNombre;
+  // export let slug;
+  // export let mostrarNombre;
+  export let hover;
 
+  let hoverAccion = (evento,nombreUsuaria) => {
+    if (typeof hover === "function") {
+      hover(evento,nombre);
+      nombreUsuaria = nombre;
+      // console.log("evento", evento);
+    }
+  };
 </script>
 
-<div class="Avatar">
+<div class="Avatar" on:mouseenter={hoverAccion}>
   <!-- <a href={slug ? slug : ""}> -->
   <Imagen {imagen} alt={nombre} />
 
-  {#if mostrarNombre}
+  <!-- {#if mostrarNombre}
     <div class="nombre">
       <Texto variante="CHICO" texto={nombre} />
     </div>
-  {/if}
+  {/if} -->
   <!-- </a> -->
 </div>
 
@@ -69,5 +77,4 @@
     display: flex;
     opacity: 1;
   }
-
 </style>

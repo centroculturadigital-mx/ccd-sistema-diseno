@@ -14,35 +14,45 @@ export const avatarDefault = () => ({
         }
     }
 });
-export const avatarMostrarNombre = () => ({
+export const avatarHover = () => ({
     Component: ThemeTester,
     props: {
         componente: Avatar,
         datos: {
             ...usuario,
-            mostrarNombre: true
+            hover: n => console.log(n + " Avatar")
         }
     }
 });
-export const avatarMostrarNombreCorto = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Avatar,
-        datos: {
-            ...usuario,
-            mostrarNombre: true,
-            nombre: "Xyz"
-        }
-    }
-});
-export const avatarMostrarNombreLargo = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Avatar,
-        datos: {
-            ...usuario,
-            mostrarNombre: true,
-            nombre: "Jose Luís Rodriguez"
-        }
-    }
-});
+// export const avatarMostrarNombre = () => ({
+//     Component: ThemeTester,
+//     props: {
+//         componente: Avatar,
+//         datos: {
+//             ...usuario,
+//             mostrarNombre: true
+//         }
+//     }
+// });
+// export const avatarMostrarNombreCorto = () => ({
+//     Component: ThemeTester,
+//     props: {
+//         componente: Avatar,
+//         datos: {
+//             ...usuario,
+//             mostrarNombre: true,
+//             nombre: "Xyz"
+//         }
+//     }
+// });
+// export const avatarMostrarNombreLargo = () => ({
+//     Component: ThemeTester,
+//     props: {
+//         componente: Avatar,
+//         datos: {
+//             ...usuario,
+//             mostrarNombre: true,
+//             nombre: "Jose Luís Rodriguez"
+//         }
+//     }
+// });
