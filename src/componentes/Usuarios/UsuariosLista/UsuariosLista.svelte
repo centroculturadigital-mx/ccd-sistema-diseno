@@ -5,14 +5,14 @@
   export let apariencia = "HORIZONTAL";
   export let usuarios;
   export let hover;
-
+  export let hoverRetirar;
 
   $: avatares = usuarios.map((u) => ({
     componente: Avatar,
     data: {
       ...u,
       hover,
-      // mostrarNombre: true,
+      hoverRetirar,
     },
   }));
 

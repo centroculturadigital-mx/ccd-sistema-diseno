@@ -7,17 +7,30 @@
   // export let slug;
   // export let mostrarNombre;
   export let hover;
+  export let hoverRetirar;
 
-  let hoverAccion = (evento,nombreUsuaria) => {
+  let hoverAccion = (evento, nombreUsuaria) => {
     if (typeof hover === "function") {
-      hover(evento,nombre);
+      hover(evento, nombre);
       nombreUsuaria = nombre;
-      // console.log("evento", evento);
+    }
+  };
+
+  let hoverAccionRetirar = (evento) => {
+    if (typeof hover === "function") {
+      setTimeout(() => {
+        hoverRetirar(evento);
+      },100)
     }
   };
 </script>
 
-<div class="Avatar" on:mouseenter={hoverAccion}>
+
+<div
+  class="Avatar"
+  on:mouseenter={hoverAccion}
+  on:mouseleave={hoverAccionRetirar}
+  >
   <!-- <a href={slug ? slug : ""}> -->
   <Imagen {imagen} alt={nombre} />
 

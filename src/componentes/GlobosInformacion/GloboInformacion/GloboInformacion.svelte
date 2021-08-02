@@ -50,7 +50,8 @@
         box-sizing: border-box;
     }
     .GloboInformacion {
-        position: relative;
+        display: inline;
+        position: absolute;
         background-color: #000;
         padding: 0.25rem 0.5rem;
         max-width: 14rem;
@@ -105,6 +106,12 @@
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
     }
+    /* .izquierdaCentro {
+        right: 0;
+    }
+    .derechaCentro {
+        left: 0;
+    } */
     .izquierdaCentro:after {
         content: "";
         left: -0.65rem;
@@ -131,7 +138,7 @@
     }
     .derechaCentro:before {
         content: "";
-        right: -0.65rem;
+        right: -0.6rem;
         top: calc(50% - 0.25rem);
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
