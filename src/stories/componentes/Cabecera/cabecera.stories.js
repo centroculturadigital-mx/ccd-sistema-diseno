@@ -133,3 +133,22 @@ export const cabeceraConComponenteSinMenu = () => ({
         }
     }
 });
+export const cabeceraConTexto = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Cabecera,
+        datos: {
+            logotipos: logo,
+            sombra: true,
+            fixed: true,
+            componentes: [{
+                componente: UsuarioAcceso,
+                datos: {
+                    nombre: "Nombre usuaria",
+                    imagen: ImagenArchivo,
+                }
+            }],
+            texto: "Exposiciones"
+        }
+    }
+});

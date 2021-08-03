@@ -5,6 +5,7 @@
   import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
   import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
   import Icono from "../../elementos/Icono/Icono";
+  import Texto from "../../elementos/texto/Texto/Texto";
 
   export let segment;
   export let logotipos;
@@ -13,6 +14,7 @@
   export let fixed;
   export let sombra;
   export let estado;
+  export let texto;
 
   $: clases = `Cabecera ${!!fixed ? "fixed" : ""}`;
 
@@ -22,27 +24,102 @@
   const menuAlternar = () => {
     estado = !estado;
   };
-
-
 </script>
 
+<svelte:window bind:innerWidth={responsivo} />
+
+<header class={!!sombra ? "sombra " + clases : clases}>
+  <div class="contenedor">
+    <div class="informacion">
+      {#if Array.isArray(logotipos)}
+        <Logos {logotipos} />
+      {/if}
+
+      {#if texto}
+        <div class="texto">
+          <Texto {texto} />
+        </div>
+      {/if}
+    </div>
+
+    <div class="Navegacion">
+      {#if responsivo < breakpoint}
+        {#if Array.isArray(elementos) || Array.isArray(componentes)}
+          <div class="iconoMenu" on:click={menuAlternar}>
+            <Icono icono={!estado ? "menu" : "cerrar"} />
+          </div>
+        {/if}
+      {:else}
+        <MenuEscritorio {elementos} {segment} />
+
+        {#if Array.isArray(componentes) && componentes.length > 0}
+          <div class="Herramientas">
+            {#each componentes as componente}
+              <svelte:component
+                this={componente.componente}
+                {...componente.datos}
+              />
+            {/each}
+          </div>
+        {/if}
+      {/if}
+    </div>
+  </div>
+
+  <!-- Navegacion Movil  -->
+  {#if responsivo < breakpoint}
+    {#if Array.isArray(elementos) || Array.isArray(componentes)}
+      <MenuMovil
+        on:eventoEstadoMenu
+        {estado}
+        {elementos}
+        {sombra}
+        {segment}
+        {componentes}
+        on:click={menuAlternar}
+      />
+    {/if}
+  {/if}
+</header>
+
 <style>
+  * {
+    box-sizing: border-box;
+  }
   header.Cabecera {
     position: relative;
-    width: 100%;
     background-color: var(--theme-cabeceras-principal-fondo);
-    height: var(--theme-cabeceras-principal-altura);
     padding: var(--theme-espaciados-padding) 0;
-    box-sizing: border-box;
+    height: var(--theme-cabeceras-principal-altura);
+    width: 100%;
   }
 
   .contenedor {
-    box-sizing: border-box;
-    padding: 0 0.5rem;
     display: flex;
     justify-content: space-between;
+    padding: 0 0.5rem;
     height: 100%;
     width: 100%;
+  }
+  .contenedor :global(.Logotipos) {
+    width: auto;
+  }
+  .contenedor :global(.Logo) {
+    max-width: 4rem;
+  }
+  .informacion {
+    display: flex;
+  }
+  .texto {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 var(--theme-espaciados-padding);
+    border-left: 1px solid #aaa;
+  }
+  .texto :global(span) {
+    font-size: calc(var(--theme-textos-parrafo-tamanno) * 1.5);
+    text-transform: uppercase;
   }
   .fixed {
     position: fixed !important;
@@ -88,53 +165,3 @@
     }
   }
 </style>
-
-<svelte:window bind:innerWidth={responsivo} />
-
-<header class={!!sombra ? 'sombra ' + clases : clases}>
-  <div class="contenedor">
-
-    {#if Array.isArray(logotipos)}
-        <Logos {logotipos} />
-    {/if}
-
-    <div class="Navegacion">
-      {#if responsivo < breakpoint}
-        {#if Array.isArray(elementos) || Array.isArray(componentes)}
-          <div class="iconoMenu" on:click={menuAlternar}>
-            <Icono icono={!estado ? 'menu' : 'cerrar'} />
-          </div>
-        {/if}
-      {:else}
-        
-        <MenuEscritorio {elementos} {segment} />
-
-        {#if Array.isArray(componentes) && componentes.length > 0}
-          <div class="Herramientas">
-            {#each componentes as componente}
-              <svelte:component
-                this={componente.componente}
-                {...componente.datos} />
-            {/each}
-          </div>
-        {/if}
-      {/if}
-    </div>
-
-  </div>
-
-  <!-- Navegacion Movil  -->
-  {#if responsivo < breakpoint}
-    {#if Array.isArray(elementos) || Array.isArray(componentes)}
-      <MenuMovil
-        on:eventoEstadoMenu
-        {estado}
-        {elementos}
-        {sombra}
-        {segment}
-        {componentes}
-        on:click={menuAlternar} />
-    {/if}
-  {/if}
-
-</header>
