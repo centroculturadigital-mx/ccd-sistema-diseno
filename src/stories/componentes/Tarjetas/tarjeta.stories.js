@@ -402,7 +402,7 @@ export const tarjetaTipoVertical = () => ({
             acciones: [accionesFunciones[0], accionesEnlaces[0]],
             pleca,
             enlaces,
-            apariencia: "Vertical"
+            apariencia: "VERTICAL"
         }
     }
 });
@@ -421,7 +421,7 @@ export const tarjetaTipoVerticalSinEnlace = () => ({
             acciones: [accionesFunciones[0], accionesEnlaces[0]],
             pleca,
             enlaces,
-            apariencia: "Vertical"
+            apariencia: "VERTICAL"
         }
     }
 });
@@ -443,7 +443,7 @@ export const tarjetaTipoHorizontal = () => ({
             sombra: true,
             pleca,
             enlaces,
-            apariencia: "Horizontal",
+            apariencia: "HORIZONTAL",
             acciones: [accionesFunciones[0], accionesEnlaces[0]],
         }
     }
@@ -462,7 +462,7 @@ export const tarjetaTipoHorizontalSinEnlace = () => ({
             sombra: true,
             pleca,
             enlaces,
-            apariencia: "Horizontal",
+            apariencia: "HORIZONTAL",
             acciones: [accionesFunciones[0], accionesEnlaces[0]],
         }
     }
@@ -482,7 +482,7 @@ export const tarjetaTipoChica = () => ({
             sombra: true,
             subtitulo: "Esto es un subtítulo",
             leyenda: "Un texto configurable",
-            apariencia: "Chica"
+            apariencia: "CHICA"
         }
     }
 });
@@ -497,7 +497,39 @@ export const tarjetaTipoChicaSinEnlace = () => ({
             sombra: true,
             subtitulo: "Esto es un subtítulo",
             leyenda: "Un texto configurable",
-            apariencia: "Chica"
+            apariencia: "CHICA"
+        }
+    }
+});
+export const tarjetaAparienciaImagen = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            nivelTitulo: 'h5',
+            leyenda: "Un texto configurable",
+            nombre: 'Esto es un título para la tarjeta apariencia chica.',
+            // subtitulo: "Esto es un subtítulo",
+            apariencia: "IMAGEN",
+            sombra: true,
+        }
+    }
+});
+export const tarjetaAparienciaImagenConEtiqueta = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Esto es un título para la tarjeta apariencia chica.',
+            nivelTitulo: 'h5',
+            leyenda: "Un texto configurable",
+            apariencia: "IMAGEN",
+            sombra: true,
+            etiquetas: [{
+                texto: "Etiqueta"
+            }]
         }
     }
 });

@@ -8,9 +8,11 @@
   import Texto from "../../../elementos/texto/Texto/Texto.svelte";
   import Icono from "../../../elementos/Icono/Icono.svelte";
   import Embebido from "../../../elementos/media/Embebido/Embebido";
+  import Etiqueta from "../../Etiqueta/Etiqueta";
 
-  export let apariencia = "Vertical"; //"Vertical", "Horizontal", "Chica"
+  export let apariencia = "VERTICAL"; //"VERTICAL", "HORIZONTAL", "CHICA"
   export let pleca;
+  export let etiquetas;
   export let enlace;
   export let imagen;
   export let video;
@@ -38,12 +40,198 @@
     : "#000";
 
   $: aparienciaEstilo =
-    apariencia == "Horizontal"
+    apariencia == "HORIZONTAL"
       ? "TarjetaHorizontal"
-      : apariencia == "Chica"
+      : apariencia == "CHICA"
       ? "TarjetaChica"
-      : "";
+      : apariencia == "IMAGEN"
+      ? "TarjetaImagen"
+      : "TarjetaVertical";
+
+  $: console.log("etiquetas", etiquetas);
 </script>
+
+<article class="{aparienciaEstilo} Tarjeta {!!sombra ? ' sombra' : ''}">
+  <div class="{aparienciaEstilo} Contenido">
+    <div class="Cabecera">
+      {#if !!video}
+        <Embebido enlace={video} />
+      {:else if !!imagen}
+        <div
+          class="{aparienciaEstilo} Imagen {apariencia == 'Chica'
+            ? 'TarjetaChicaImagen'
+            : ''}"
+        >
+          {#if !!enlace}
+            <a
+              class="{aparienciaEstilo} enlazado"
+              {...linkTarget}
+              href={enlace}
+            >
+              <Imagen {imagen} alt={nombre} estilos={{ ajuste: "cover" }} />
+            </a>
+          {:else}
+            <Imagen {imagen} alt={nombre} estilos={{ ajuste: "cover" }} />
+          {/if}
+        </div>
+      {/if}
+
+      {#if pleca && typeof pleca == "object"}
+        <div class="Pleca {!imagen ? 'noImagen' : ''}">
+          <div
+            class="PlecaContenido"
+            style={`background-color: ${colorFondoPleca}`}
+          >
+            {#if !!pleca.texto}
+              <Texto
+                texto={pleca.texto}
+                variante="COMPACTO"
+                css={{ color: colorTextoPleca }}
+              />
+            {/if}
+            {#if Array.isArray(pleca.textos)}
+              <ul class="Textos">
+                {#each pleca.textos as texto}
+                  <Texto
+                    {texto}
+                    variante="COMPACTO"
+                    css={{ color: colorTextoPleca }}
+                  />
+                {/each}
+              </ul>
+            {/if}
+            {#if !!pleca.icono}
+              <Icono icono={pleca.icono} color={colorTextoPleca} />
+            {/if}
+          </div>
+        </div>
+      {/if}
+    </div>
+
+    <section
+      class={apariencia == "Chica" ? "TarjetaChicaContenido" : "Contenidos"}
+    >
+      <div class="Textos {apariencia == 'Chica' ? 'TarjetaChicaTextos' : ''}">
+        {#if !!leyenda}
+          <div class="Leyenda">
+            <Parrafo texto={leyenda} />
+          </div>
+        {/if}
+        <!-- etiquetas -->
+        {#if Array.isArray(etiquetas)}
+          <div class="etiquetas">
+            {#each etiquetas as etiqueta (etiqueta)}
+              <Etiqueta
+                texto={etiqueta.texto}
+                cerrar={etiqueta.cerrar}
+                icono={etiqueta.icono}
+                imagen={etiqueta.imagen}
+              />
+            {/each}
+          </div>
+        {/if}
+        <!--  -->
+        {#if !!enlace}
+          <a class="{aparienciaEstilo} enlazado" {...linkTarget} href={enlace}>
+            {#if !!nombre}
+              <div class="Titulo">
+                <Titulo texto={nombre} nivel={nivelTitulo} />
+              </div>
+            {/if}
+            {#if !!subtitulo}
+              <div class="Subtitulo">
+                <Titulo texto={subtitulo} nivel={4} />
+              </div>
+            {/if}
+          </a>
+        {:else}
+          {#if !!nombre}
+            <div class="Titulo">
+              <Titulo texto={nombre} nivel={nivelTitulo} />
+            </div>
+          {/if}
+          {#if !!subtitulo}
+            <div class="Subtitulo">
+              <Titulo texto={subtitulo} nivel={4} />
+            </div>
+          {/if}
+        {/if}
+
+        {#if Array.isArray(enlaces) && enlaces.length > 0}
+          <section>
+            <hr />
+            <div class="Enlaces">
+              {#each enlaces as enlace, i ("enlace_" + i)}
+                <Enlace enlace={enlace.enlace} texto={enlace.texto} />
+              {/each}
+            </div>
+          </section>
+        {/if}
+
+        {#if !!extracto}
+          {#if !!enlace}
+            <a
+              class="{aparienciaEstilo} enlazado"
+              {...linkTarget}
+              href={enlace}
+            >
+              <div class="Extracto">
+                <Parrafo texto={extracto} />
+              </div>
+            </a>
+          {:else}
+            <div class="Extracto">
+              <Parrafo texto={extracto} />
+            </div>
+          {/if}
+        {/if}
+      </div>
+      <!-- footer horizontal-->
+      {#if apariencia == "Horizontal" || apariencia == "Chica"}
+        {#if Array.isArray(acciones) && acciones.length > 0}
+          <footer class={aparienciaEstilo}>
+            <div class="Acciones">
+              {#each acciones as accion (accion)}
+                {#if accion.enlace}
+                  <Enlace enlace={accion.enlace} texto={accion.texto} />
+                {/if}
+                {#if typeof accion.accion == "function"}
+                  <BotonSecundario
+                    click={accion.accion}
+                    radius="15px"
+                    texto={accion.texto}
+                  />
+                {/if}
+              {/each}
+            </div>
+          </footer>
+        {/if}
+      {/if}
+    </section>
+  </div>
+  <!-- footer vertical (unico duplicado) -->
+  {#if apariencia == "Vertical" || !apariencia}
+    {#if Array.isArray(acciones) && acciones.length > 0}
+      <footer>
+        <hr />
+        <div class="Acciones">
+          {#each acciones as accion (accion)}
+            {#if accion.enlace}
+              <Enlace enlace={accion.enlace} texto={accion.texto} />
+            {/if}
+            {#if typeof accion.accion == "function"}
+              <BotonSecundario
+                click={accion.accion}
+                radius="15px"
+                texto={accion.texto}
+              />
+            {/if}
+          {/each}
+        </div>
+      </footer>
+    {/if}
+  {/if}
+</article>
 
 <style>
   .Tarjeta {
@@ -152,6 +340,9 @@
     font-weight: var(--theme-textos-parrafo-peso);
     font-size: var(--theme-tamannos-sm);
   }
+  .Leyenda :global(p) {
+    margin: 0;
+  }
   .Leyenda :global(span) {
     color: var(--theme-textos-parrafo-color);
     font-weight: var(--theme-textos-parrafo-peso);
@@ -255,174 +446,44 @@
   .noImagen {
     position: initial !important;
   }
+  .etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .etiquetas :global(.Etiqueta) {
+    margin-right: 0.25rem;
+  }
+  .TarjetaImagen {
+    height: 20rem;
+  }
+  .TarjetaImagen .Cabecera {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .TarjetaImagen .Contenidos {
+    position: relative;
+    height: 100%;
+    z-index: 1;
+  }
+  .TarjetaImagen .Textos {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  .TarjetaImagen .Textos .etiquetas {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+  .TarjetaImagen .Textos :global(span) {
+    color: #fff;
+  }
+  .TarjetaImagen.Imagen {
+    height: 100% !important;
+  }
 </style>
-
-<article class="{aparienciaEstilo} Tarjeta {!!sombra ? ' sombra' : ''}">
-  <div class="{aparienciaEstilo} Contenido">
-
-    <div class="Cabecera">
-      {#if !!video}
-
-        <Embebido enlace={video}/>
-      
-      {:else}
-      
-        {#if !!imagen}
-          <div
-            class="{aparienciaEstilo} Imagen {apariencia == 'Chica' ? 'TarjetaChicaImagen' : ''}">
-
-            {#if !!enlace}
-              <a
-                class="{aparienciaEstilo} enlazado"
-                {...linkTarget}
-                href={enlace}>
-                <Imagen {imagen} alt={nombre} estilos={{ ajuste: 'cover' }} />
-              </a>
-            {:else}
-              <Imagen {imagen} alt={nombre} estilos={{ ajuste: 'cover' }} />
-            {/if}
-          </div>
-        {/if}
-      {/if}
-
-      {#if pleca && typeof pleca == 'object'}
-        <div
-          class="Pleca {!imagen ? 'noImagen' : ''}">
-
-          <div
-            class="PlecaContenido"
-            style={`background-color: ${colorFondoPleca}`}>
-            {#if !!pleca.texto}
-              <Texto
-                texto={pleca.texto}
-                variante="COMPACTO"
-                css={{ color: colorTextoPleca }} />
-            {/if}
-            {#if Array.isArray(pleca.textos)}
-              <ul class="Textos">
-                {#each pleca.textos as texto}
-                  <Texto
-                    {texto}
-                    variante="COMPACTO"
-                    css={{ color: colorTextoPleca }} />
-                {/each}
-              </ul>
-            {/if}
-            {#if !!pleca.icono}
-              <Icono icono={pleca.icono} color={colorTextoPleca} />
-            {/if}
-          </div>
-
-        </div>
-      {/if}
-
-    </div>
-
-    <section
-      class={apariencia == 'Chica' ? 'TarjetaChicaContenido' : 'Contenidos'}>
-      <div class="Textos {apariencia == 'Chica' ? 'TarjetaChicaTextos' : ''}">
-        {#if !!leyenda}
-          <div class="Leyenda">
-            <Parrafo texto={leyenda} nivel={5} />
-          </div>
-        {/if}
-        {#if !!enlace}
-          <a class="{aparienciaEstilo} enlazado" {...linkTarget} href={enlace}>
-            {#if !!nombre}
-              <div class="Titulo">
-                <Titulo texto={nombre} nivel={nivelTitulo} />
-              </div>
-            {/if}
-            {#if !!subtitulo}
-              <div class="Subtitulo">
-                <Titulo texto={subtitulo} nivel={4} />
-              </div>
-            {/if}
-          </a>
-        {:else}
-          {#if !!nombre}
-            <div class="Titulo">
-              <Titulo texto={nombre} nivel={nivelTitulo} />
-            </div>
-          {/if}
-          {#if !!subtitulo}
-            <div class="Subtitulo">
-              <Titulo texto={subtitulo} nivel={4} />
-            </div>
-          {/if}
-        {/if}
-
-        {#if Array.isArray(enlaces) && enlaces.length > 0}
-          <section>
-            <hr />
-            <div class="Enlaces">
-              {#each enlaces as enlace, i ('enlace_' + i)}
-                <Enlace enlace={enlace.enlace} texto={enlace.texto} />
-              {/each}
-            </div>
-          </section>
-        {/if}
-
-        {#if !!extracto}
-          {#if !!enlace}
-            <a
-              class="{aparienciaEstilo} enlazado"
-              {...linkTarget}
-              href={enlace}>
-              <div class="Extracto">
-                <Parrafo texto={extracto} />
-              </div>
-            </a>
-          {:else}
-            <div class="Extracto">
-              <Parrafo texto={extracto} />
-            </div>
-          {/if}
-        {/if}
-
-      </div>
-      <!-- footer horizontal-->
-      {#if apariencia == 'Horizontal' || apariencia == 'Chica'}
-        {#if Array.isArray(acciones) && acciones.length > 0}
-          <footer class={aparienciaEstilo}>
-            <div class="Acciones">
-              {#each acciones as accion (accion)}
-                {#if accion.enlace}
-                  <Enlace enlace={accion.enlace} texto={accion.texto} />
-                {/if}
-                {#if typeof accion.accion == 'function'}
-                  <BotonSecundario
-                    click={accion.accion}
-                    radius="15px"
-                    texto={accion.texto} />
-                {/if}
-              {/each}
-            </div>
-          </footer>
-        {/if}
-      {/if}
-    </section>
-  </div>
-  <!-- footer vertical (unico duplicado) -->
-  {#if apariencia == 'Vertical' || !apariencia}
-    {#if Array.isArray(acciones) && acciones.length > 0}
-      <footer>
-        <hr />
-        <div class="Acciones">
-          {#each acciones as accion (accion)}
-            {#if accion.enlace}
-              <Enlace enlace={accion.enlace} texto={accion.texto} />
-            {/if}
-            {#if typeof accion.accion == 'function'}
-              <BotonSecundario
-                click={accion.accion}
-                radius="15px"
-                texto={accion.texto} />
-            {/if}
-          {/each}
-        </div>
-      </footer>
-    {/if}
-  {/if}
-
-</article>
