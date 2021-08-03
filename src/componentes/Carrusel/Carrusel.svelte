@@ -257,16 +257,16 @@
 
   .elementosBotones {
     width: 100%;
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    bottom: 0.66rem;
-    left: 0;
-    right: 0;
+    /* position: absolute; */
+    /* bottom: 0.66rem;
+    left: 0; 
+    right: 0;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1rem;
+    /* height: 1rem; */
+    margin: 0;
+    padding: 0.25rem 0;
   }
   .elementosBotones li {
     list-style: none;
