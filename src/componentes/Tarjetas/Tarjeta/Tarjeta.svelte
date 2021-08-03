@@ -451,7 +451,9 @@
     flex-wrap: wrap;
   }
   .etiquetas :global(.Etiqueta) {
+    padding: 0.25rem;
     margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
   }
   .TarjetaImagen {
     height: 20rem;
@@ -474,6 +476,11 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+  }
+  .TarjetaImagen .Textos .etiquetas {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
   }
   .TarjetaImagen .Textos .etiquetas {
     position: absolute;
