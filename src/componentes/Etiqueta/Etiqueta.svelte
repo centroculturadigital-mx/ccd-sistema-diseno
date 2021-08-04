@@ -46,7 +46,7 @@
     .Etiqueta {
         display: flex;
         align-items: center;
-        background-color: #ccc;
+        background-color: #F2F2F2;
         border-radius: 0.25rem;
         padding: var(--theme-espaciados-padding);
     }
