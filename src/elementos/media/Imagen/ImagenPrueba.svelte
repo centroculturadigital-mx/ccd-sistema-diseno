@@ -2,13 +2,11 @@
     import Imagen from "./Imagen";
     import Diapositivas from "../../../componentes/Ventanas/Diapositivas/Diapositivas";
 
-    // export let imagen = "https://fakeimg.pl/f0f0ff/?text=Prueba";
     export let tamannos;
     export let nombre;
     export let descripcion;
     export let descripcionPosicion;
     export let alt;
-    // export let maximizar;
 
     let estado = false;
 
@@ -30,7 +28,6 @@
         },
     ];
 
-    $: console.log("ImagenPrueba", estado);
 </script>
 
 <section class="ImagenPrueba">
@@ -40,3 +37,12 @@
 
     <Diapositivas {diapositivas} {estado} />
 </section>
+
+<style>
+.ImagenPrueba {
+    width: 100%;
+}
+.contenedor {
+    width: 100%;
+}
+</style>
