@@ -18,22 +18,31 @@ import { xlink_attr } from "svelte/internal";
     altura: "",
   };
 
-  let cargando = true;
-
   $: clases = estilos.altura ? "width-auto" : "";
 
-  //
+  let cargando = true
+
   const cargar = () => {
-    cargando = false;
-    console.log("ya cargue");
+    // cargando = true
+    contenedorCalculo()
+    console.log("Imagen cargada")
   };
+
+  let imagenElemento
+  let contenedor
+
+  const contenedorCalculo = () => {
+    
+    console.log("Imagen: ", imagenElemento)
+    console.log("Contenedor: ", contenedor)
+
+  }
 </script>
 
-<div class="imagen">
+<div class="imagen" bind:this={contenedor}>
   {#if !!imagen}
     <img
       on:click
-      on:load={cargar}
       class={clases}
       src={imagen}
       {alt}
@@ -41,7 +50,7 @@ import { xlink_attr } from "svelte/internal";
     />
   {:else if !!tamannos && typeof tamannos === "object"}
     {#if cargando}
-      <picture on:load={cargar}>
+      <picture on:load={cargar}  bind:this={imagenElemento}>
         <!-- tamanno xl -->
         <source media="(min-width:1680px)" srcset="{tamannos.xl.x1} 1x, {tamannos.xl.x2} 2x, {tamannos.xl.x3} 3x" />
         <!-- tamanno lg -->
@@ -51,7 +60,7 @@ import { xlink_attr } from "svelte/internal";
         <!-- tamanno sm -->
         <source media="(min-width:465px)" srcset="{tamannos.sm.x1} 1x, {tamannos.sm.x2} 2x, {tamannos.sm.x3} 3x" />
         <!-- tamanno xs -->
-        <img srcset="{tamannos.xs.x1} 1x, {tamannos.xs.x2} 2x, {tamannos.xs.x3} 3x" {alt} />
+        <img srcset="{tamannos.xs.x1} 1x, {tamannos.xs.x2} 2x, {tamannos.xs.x3} 3x" {alt}/>
       </picture>
     {:else}
       <div class="cargando">
@@ -84,6 +93,12 @@ import { xlink_attr } from "svelte/internal";
   }
   img {
     object-fit: cover;
+    object-position: center;
+    height: 100%;
+    width: 100%;
+    }
+  picture img {
+    object-fit: contain;
     object-position: center;
     height: 100%;
     width: 100%;
