@@ -7,6 +7,7 @@
   export let etiqueta;
   export let indicacion;
   export let instruccion;
+  export let textosAuxiliares;
   export let nombre;
   export let requerido;
   export let tipo;
@@ -197,10 +198,12 @@
     font-family: inherit;
     font-weight: inherit;
   }
-  .instruccion {
+  .instruccion,
+  .textoAuxiliar {
     margin: 0.25rem 0;
   }
-  .instruccion p {
+  .instruccion p,
+  .textoAuxiliar p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -208,13 +211,36 @@
     font-family: var(--theme-textos-parrafo-tipografia);
     color: var(--theme-textos-parrafo-color);
     font-weight: var(--theme-textos-parrafo-peso);
+    color: var(--theme-textos-parrafo-color);
+
   }
-  .instruccion :global(*) {
+  .instruccion :global(*),
+  .textoAuxiliar :global(*) {
     font-size: 0.75rem;
     font-family: var(--theme-textos-parrafo-tipografia);
-    color: var(--theme-textos-parrafo-color);
     font-weight: var(--theme-textos-parrafo-peso);
-    color: #555;
+  }
+
+
+  .textoAuxiliar :global(p) {
+    margin: 0;  
+  }
+
+  .textoAuxiliar :global(a),
+  .textoAuxiliar.accion,
+  .textoAuxiliar.accion :global(span) {
+    cursor: pointer;
+    color: var(--theme-textos-enlaces-color);
+    text-decoration: underline;
+  }
+  .textoAuxiliar :global(a:hover),
+
+  .textoAuxiliar.accion:hover {
+    color: var(--theme-textos-enlaces-hover);
+  }
+  .textoAuxiliar :global(a:hover) ,
+  .textoAuxiliar.accion :global(span:hover) {
+    color: inherit;
   }
 
   .error :global(*) {
@@ -320,11 +346,27 @@
       
     {/if}
 
+    {#if Array.isArray(textosAuxiliares)}
+      {#each textosAuxiliares as textoAuxiliar (textoAuxiliar)}
+        <div class={`textoAuxiliar${
+          typeof textoAuxiliar.accion == "function" ?
+          ' accion' : ''
+        }`} on:click={textoAuxiliar.accion}>
+        <!-- <div class="textoAuxiliar" on:click={
+        }> -->
+          <Parrafo contenido={textoAuxiliar.contenido} />
+        </div>
+      {/each}
+    {/if}
+
+
     {#if error instanceof Error}
       <div class="error">
         <Parrafo texto={error.message} />
       </div>
     {/if}
+
+
     {#if infoMostrar }
       <div class="info">
         <Parrafo texto={infoMostrar} />
