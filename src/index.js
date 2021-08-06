@@ -45,6 +45,8 @@ from "./elementos/Colapsable/Colapsable.svelte";
 //  Componentes
 export { default as Acordeon }
 from "./componentes/Acordeon/Acordeon.svelte";
+export { default as Etiqueta }
+from "./componentes/Etiqueta/Etiqueta.svelte";
 export { default as Campo }
 from "./componentes/formularios/Campo/Campo.svelte";
 export { default as Compartir }
@@ -101,6 +103,8 @@ export { default as TransmisionesIndicador }
 from "./componentes/Indicadores/TransmisionesIndicador/TransmisionesIndicador.svelte";
 export { default as Modal }
 from "./componentes/Ventanas/Modal/Modal.svelte";
+export { default as Diapositivas }
+from "./componentes/Ventanas/Diapositivas/Diapositivas.svelte";
 export { default as Alerta }
 from "./componentes/Mensajes/Alerta/Alerta.svelte";
 export { default as NavegacionLista }
