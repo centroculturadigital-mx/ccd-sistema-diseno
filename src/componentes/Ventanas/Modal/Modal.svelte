@@ -14,8 +14,23 @@
       cerrar();
     }
   };
-
 </script>
+
+{#if !!estado}
+  <section class="Modal" transition:fade|local>
+    <div class="capaCerrar" on:click={cerrarModal} />
+
+    <div class="Contenedor">
+      <header>
+        <div on:click={cerrarModal}>
+          <Icono icono={"cerrar"} />
+        </div>
+      </header>
+
+      <svelte:component this={componente} {...datos} />
+    </div>
+  </section>
+{/if}
 
 <style>
   * {
@@ -75,25 +90,3 @@
     z-index: 0;
   }
 </style>
-
-{#if !!estado}
-
-  <section class="Modal" transition:fade >
-
-    <div class="capaCerrar" on:click={cerrarModal}/>
-
-    <div class="Contenedor">
-
-      <header>
-        <div on:click={cerrarModal}>
-          <Icono icono={'cerrar'}/>
-        </div>
-      </header>
-
-      <svelte:component this={componente} {...datos}/>
-
-    </div>
-
-  </section>
-
-{/if}

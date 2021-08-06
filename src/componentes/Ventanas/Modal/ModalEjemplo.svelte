@@ -14,6 +14,7 @@
     }
     estado = !estado; //toggle del estado
   };
+  $: console.log("modal", estado);
 </script>
 
 <Boton texto={'Abre Modal'} click={abrirModal} />
