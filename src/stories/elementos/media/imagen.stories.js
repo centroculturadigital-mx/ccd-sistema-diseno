@@ -1,5 +1,6 @@
-import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import Imagen from '../../../elementos/media/Imagen/Imagen.svelte';
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester';
+import Imagen from '../../../elementos/media/Imagen/Imagen';
+import ImagenPrueba from "../../../elementos/media/Imagen/ImagenPrueba"
 import ImagenArchivo from '../../../../public/placeholder.jpg';
 
 let tamannos = {
