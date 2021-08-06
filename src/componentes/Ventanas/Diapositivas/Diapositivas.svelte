@@ -17,7 +17,6 @@
         if (typeof cerrar == "function") {
             cerrar();
         }
-        console.log("Diapositivas cerrar", estado);
     };
 
     $: elementosPreparados = diapositivas
@@ -63,27 +62,22 @@
         align-items: center;
         min-height: 100vh;
         width: 100%;
+        z-index: 2000;
     }
     .contenido {
         position: relative;
-        overflow: hidden;
-        z-index: 1001;
-        /* max-width: 40rem;
-        min-width: 30rem; */
-        width: 100%;
-    }
-
-    .contenido :global(.Carrusel) {
-        width: 100% !important;
-    }
-    /* .fondo {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.5);
         height: 100%;
         width: 100%;
-    } */
+    }
+    .contenido :global(.Carrusel) {
+        height: 100% !important;
+        width: 100% !important;
+        max-height: 90vh;
+        max-width: 90vw;
+    }
+    .contenido :global(.Carrusel .ventana) {
+        overflow: initial !important;
+    }
     header {
         position: absolute;
         top: 0;
