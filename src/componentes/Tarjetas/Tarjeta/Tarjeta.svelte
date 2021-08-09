@@ -10,7 +10,7 @@
   import Embebido from "../../../elementos/media/Embebido/Embebido";
   import Etiqueta from "../../Etiqueta/Etiqueta";
 
-  export let apariencia = "VERTICAL"; //"VERTICAL", "HORIZONTAL", "CHICA"
+  export let apariencia = "VERTICAL"; //"VERTICAL", "HORIZONTAL", "IMAGEN", "CHICA"
   export let pleca;
   export let etiquetas;
   export let enlace;
@@ -470,7 +470,8 @@
     height: 100%;
     z-index: 1;
   }
-  .TarjetaImagen .Textos {
+  .TarjetaImagen .Textos,
+  .TarjetaImagen .Textos a {
     background-color: transparent;
     display: flex;
     flex-direction: column;
