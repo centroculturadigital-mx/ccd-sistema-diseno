@@ -548,7 +548,7 @@ export const tarjetaAparienciaImagen = () => ({
         }
     }
 });
-export const tarjetaAparienciaImagenConEtiqueta = () => ({
+export const tarjetaAparienciaImagenConPleca = () => ({
     Component: ThemeTester,
     props: {
         componente: Tarjeta,
@@ -559,9 +559,10 @@ export const tarjetaAparienciaImagenConEtiqueta = () => ({
             leyenda: "Un texto configurable",
             apariencia: "IMAGEN",
             sombra: true,
-            etiquetas: [{
-                texto: "Etiqueta"
-            }]
+            // etiquetas: [{
+            //     texto: "Etiqueta"
+            // }]
+            pleca
         }
     }
 });
