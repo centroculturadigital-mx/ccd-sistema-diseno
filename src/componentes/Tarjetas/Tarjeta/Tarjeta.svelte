@@ -10,7 +10,7 @@
   import Embebido from "../../../elementos/media/Embebido/Embebido";
   import Etiqueta from "../../Etiqueta/Etiqueta";
 
-  export let apariencia = "VERTICAL"; //"VERTICAL", "HORIZONTAL", "CHICA"
+  export let apariencia = "VERTICAL"; //"VERTICAL", "HORIZONTAL", "IMAGEN", "CHICA"
   export let pleca;
   export let etiquetas;
   export let enlace;
@@ -234,6 +234,9 @@
 </article>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .Tarjeta {
     position: relative;
     max-width: 20rem;
@@ -246,7 +249,6 @@
     background-color: var(--theme-tarjetas-fondo);
     color: var(--theme-textos-parrafo-color);
     overflow: hidden;
-    box-sizing: border-box;
   }
   .TarjetaHorizontal {
     max-width: 36rem !important;
@@ -291,7 +293,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    box-sizing: border-box;
     width: 100%;
   }
   .Contenidos {
@@ -299,7 +300,6 @@
   }
   .Textos {
     background-color: var(--theme-tarjetas-fondo);
-    box-sizing: border-box;
     padding: var(--theme-espaciados-padding)
       calc(var(--theme-espaciados-padding) * 2);
     width: 100%;
@@ -369,7 +369,6 @@
   footer {
     width: 100%;
     padding: 0 1rem 0.5rem 1rem;
-    box-sizing: border-box;
   }
   .enlazado {
     text-decoration: none;
@@ -390,32 +389,32 @@
     align-items: center;
     justify-content: flex-start;
     position: absolute;
-    top: 2rem;
-    left: 0;
-    width: 100%;
-    box-sizing: border-box;
-    color: #000;
-    fill: currentColor;
+    bottom: 0.75rem;
+    left: 0.75rem;
   }
   .PlecaContenido {
     display: flex;
     padding: calc(var(--theme-espaciados-padding) / 2)
-      calc(var(--theme-espaciados-padding) * 2);
+    calc(var(--theme-espaciados-padding) * 1.5);
+    border-radius: 0.125rem;
+    align-items: center;
   }
   .PlecaContenido :global(span) {
     display: flex;
-    align-items: center;
   }
-  .Pleca :global(.iconoContenedor > *) {
-    height: 1.5rem !important;
-    width: 0.75rem;
+  .Pleca :global(.iconoContenedor) {
+    height: 0.875rem !important;
+    width: 0.75rem !important;
     margin-left: 0.5rem;
     fill: inherit;
   }
+  .Pleca :global(svg) {
+    height: 100%;
+  } 
   .Pleca :global(span) {
     white-space: pre-wrap;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: var(--theme-textos-parrafo-tamanno) !important;
     letter-spacing: 5%;
     font-weight: normal;
     line-height: 1.5;
@@ -441,7 +440,6 @@
     position: relative;
     height: initial;
     width: 100%;
-    box-sizing: border-box;
   }
   .noImagen {
     position: initial !important;
@@ -470,7 +468,13 @@
     height: 100%;
     z-index: 1;
   }
-  .TarjetaImagen .Textos {
+  .TarjetaImagen .Pleca {
+    top: 1rem;
+    left: 1rem;
+    bottom: initial;
+  }
+  .TarjetaImagen .Textos,
+  .TarjetaImagen .Textos a {
     background-color: transparent;
     display: flex;
     flex-direction: column;
