@@ -79,7 +79,7 @@
 
 <nav>
   <ul>
-    {#each elementos as elemento, i ('elemento_local_' + i)}
+    {#each elementos as elemento, i (elemento)}
       {#if elemento.enlace}
         <li class={`Enlace ${i == actual ? ' actual' : ''}`}>
           <a href={elemento.enlace}>
