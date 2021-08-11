@@ -67,7 +67,7 @@ export const tarjetaDefault = () => ({
             sombra: true,
             acciones: [accionesFunciones[0], accionesEnlaces[0]],
             pleca,
-            enlaces
+            enlaces,
         }
     }
 });
@@ -138,7 +138,22 @@ export const tarjetaSinImagenConPleca = () => ({
         }
     }
 });
-
+export const tarjetaConCortinaOscura = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Esto es un título para la tarjeta apariencia chica.',
+            nivelTitulo: 'h5',
+            leyenda: "Un texto configurable",
+            // apariencia: "IMAGEN",
+            sombra: true,
+            pleca,
+            cortina: true,
+        }
+    }
+});
 export const tarjetaExtractoCorto = () => ({
     Component: ThemeTester,
     props: {
@@ -563,6 +578,40 @@ export const tarjetaAparienciaImagenConPleca = () => ({
             //     texto: "Etiqueta"
             // }]
             pleca
+        }
+    }
+});
+
+export const tarjetaAparienciaImagenConCortinaOscura = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Esto es un título para la tarjeta apariencia chica.',
+            nivelTitulo: 'h5',
+            leyenda: "Un texto configurable",
+            apariencia: "IMAGEN",
+            sombra: true,
+            pleca,
+            cortina: true,
+        }
+    }
+});
+export const tarjetaAparienciaImagenConEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            nombre: 'Esto es un título para la tarjeta apariencia chica.',
+            nivelTitulo: 'h5',
+            leyenda: "Un texto configurable",
+            apariencia: "IMAGEN",
+            sombra: true,
+            pleca,
+            enlace: "#",
+            cortina: true,
         }
     }
 });

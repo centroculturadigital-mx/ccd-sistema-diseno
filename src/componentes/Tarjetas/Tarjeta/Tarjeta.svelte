@@ -24,6 +24,9 @@
   export let leyenda;
   export let enlaces = [];
   export let acciones = [];
+  export let cortina = false;
+
+$: console.log("acciones",acciones, apariencia);
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
@@ -47,13 +50,14 @@
       : apariencia == "IMAGEN"
       ? "TarjetaImagen"
       : "TarjetaVertical";
-
-  $: console.log("etiquetas", etiquetas);
 </script>
 
 <article class="{aparienciaEstilo} Tarjeta {!!sombra ? ' sombra' : ''}">
   <div class="{aparienciaEstilo} Contenido">
     <div class="Cabecera">
+      {#if cortina}
+        <div class="cortina" />
+      {/if}
       {#if !!video}
         <Embebido enlace={video} />
       {:else if !!imagen}
@@ -112,27 +116,27 @@
       class={apariencia == "Chica" ? "TarjetaChicaContenido" : "Contenidos"}
     >
       <div class="Textos {apariencia == 'Chica' ? 'TarjetaChicaTextos' : ''}">
-        {#if !!leyenda}
-          <div class="Leyenda">
-            <Parrafo texto={leyenda} />
-          </div>
-        {/if}
-        <!-- etiquetas -->
-        {#if Array.isArray(etiquetas)}
-          <div class="etiquetas">
-            {#each etiquetas as etiqueta (etiqueta)}
-              <Etiqueta
-                texto={etiqueta.texto}
-                cerrar={etiqueta.cerrar}
-                icono={etiqueta.icono}
-                imagen={etiqueta.imagen}
-              />
-            {/each}
-          </div>
-        {/if}
         <!--  -->
         {#if !!enlace}
           <a class="{aparienciaEstilo} enlazado" {...linkTarget} href={enlace}>
+            {#if !!leyenda}
+              <div class="Leyenda">
+                <Parrafo texto={leyenda} />
+              </div>
+            {/if}
+            <!-- etiquetas -->
+            {#if Array.isArray(etiquetas)}
+              <div class="etiquetas">
+                {#each etiquetas as etiqueta (etiqueta)}
+                  <Etiqueta
+                    texto={etiqueta.texto}
+                    cerrar={etiqueta.cerrar}
+                    icono={etiqueta.icono}
+                    imagen={etiqueta.imagen}
+                  />
+                {/each}
+              </div>
+            {/if}
             {#if !!nombre}
               <div class="Titulo">
                 <Titulo texto={nombre} nivel={nivelTitulo} />
@@ -145,6 +149,24 @@
             {/if}
           </a>
         {:else}
+          {#if !!leyenda}
+            <div class="Leyenda">
+              <Parrafo texto={leyenda} />
+            </div>
+          {/if}
+          <!-- etiquetas -->
+          {#if Array.isArray(etiquetas)}
+            <div class="etiquetas">
+              {#each etiquetas as etiqueta (etiqueta)}
+                <Etiqueta
+                  texto={etiqueta.texto}
+                  cerrar={etiqueta.cerrar}
+                  icono={etiqueta.icono}
+                  imagen={etiqueta.imagen}
+                />
+              {/each}
+            </div>
+          {/if}
           {#if !!nombre}
             <div class="Titulo">
               <Titulo texto={nombre} nivel={nivelTitulo} />
@@ -187,7 +209,7 @@
         {/if}
       </div>
       <!-- footer horizontal-->
-      {#if apariencia == "Horizontal" || apariencia == "Chica"}
+      {#if apariencia == "HORIZONTAL" || apariencia == "Chica"}
         {#if Array.isArray(acciones) && acciones.length > 0}
           <footer class={aparienciaEstilo}>
             <div class="Acciones">
@@ -209,8 +231,9 @@
       {/if}
     </section>
   </div>
+
   <!-- footer vertical (unico duplicado) -->
-  {#if apariencia == "Vertical" || !apariencia}
+  {#if apariencia === "VERTICAL" || !apariencia}
     {#if Array.isArray(acciones) && acciones.length > 0}
       <footer>
         <hr />
@@ -220,6 +243,7 @@
               <Enlace enlace={accion.enlace} texto={accion.texto} />
             {/if}
             {#if typeof accion.accion == "function"}
+            <!-- TODO: actualizar a Boton -->
               <BotonSecundario
                 click={accion.accion}
                 radius="15px"
@@ -391,11 +415,12 @@
     position: absolute;
     bottom: 0.75rem;
     left: 0.75rem;
+    z-index: 2;
   }
   .PlecaContenido {
     display: flex;
     padding: calc(var(--theme-espaciados-padding) / 2)
-    calc(var(--theme-espaciados-padding) * 1.5);
+      calc(var(--theme-espaciados-padding) * 1.5);
     border-radius: 0.125rem;
     align-items: center;
   }
@@ -410,7 +435,7 @@
   }
   .Pleca :global(svg) {
     height: 100%;
-  } 
+  }
   .Pleca :global(span) {
     white-space: pre-wrap;
     text-transform: uppercase;
@@ -435,11 +460,19 @@
     margin-bottom: 0;
   }
   .Cabecera {
+    position: relative;
     display: flex;
     flex-direction: column;
     position: relative;
     height: initial;
     width: 100%;
+  }
+  .cortina {
+    background-color: rgba(0, 0, 0, 0.075);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
   }
   .noImagen {
     position: initial !important;
@@ -496,5 +529,6 @@
   }
   .TarjetaImagen.Imagen {
     height: 100% !important;
+    z-index: 0;
   }
 </style>
