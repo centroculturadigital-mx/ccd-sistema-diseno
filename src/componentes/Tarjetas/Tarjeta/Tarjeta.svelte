@@ -26,7 +26,6 @@
   export let acciones = [];
   export let cortina = false;
 
-$: console.log("acciones",acciones, apariencia);
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 

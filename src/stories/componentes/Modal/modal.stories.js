@@ -7,6 +7,7 @@ import placeholder from '../../../../public/placeholder.jpg'
 
 export default { title: 'Componentes/Ventanas/Modal' }
 
+
 export const modalAbrir = () => ({
     Component: ThemeTester,
     props: {
@@ -25,6 +26,7 @@ export const modalAbrir = () => ({
     },
 });
 
+
 export const modalAbierto = () => ({
     Component: ThemeTester,
     props: {
@@ -42,6 +44,7 @@ export const modalAbierto = () => ({
         },
     },
 });
+
 
 export const modalCerrado = () => ({
     Component: ThemeTester,
