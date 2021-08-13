@@ -12,6 +12,7 @@
   export let titulo = "";
   export let contenido = "";
   export let acciones;
+  export let cerrar;
 
   let tipos = ["informacion", "exito", "aviso", "alerta", "accion"];
 
@@ -43,8 +44,14 @@
       : "informacion" //default
   }`;
 
-  let cerrar = () => {
+  let cerrarAccion = () => {
+    
+    if( typeof cerrar == "function" ) {
+      cerrar()
+    }
+
     estado = false;
+
   };
 </script>
 
@@ -204,7 +211,7 @@
       {/if}
       <div
         class="Cerrar {apariencia == 'vertical' ? 'verticalCerrar' : ''}"
-        on:click={cerrar}>
+        on:click={cerrarAccion}>
         <Icono icono={'cerrar'} />
       </div>
     </div>

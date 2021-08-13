@@ -20,7 +20,9 @@ export const alertaDefault = () => ({
                     texto: "Guardar",
                     accion: () => console.log("Guardado"),
                 }
-            ]
+            ],
+            cerrar: () => console.log("Alerta cerrada")
+            
         }
     }
 });
