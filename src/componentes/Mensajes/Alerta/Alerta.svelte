@@ -60,7 +60,9 @@
     box-sizing: border-box;
   }
   .Alerta {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     padding: var(--theme-espaciados-padding);
     display: flex;
     justify-content: space-between;
