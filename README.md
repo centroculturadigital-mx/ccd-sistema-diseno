@@ -12,8 +12,7 @@ La publicación de la versión 1.0 será en noviembre del 2021.
 
 
 
-![CCDSD](
-    https://github.com/centroculturadigital-mx/ccd-sistema-diseno/blob/master/ccdsd.png)
+![CCDSD](https://github.com/centroculturadigital-mx/ccd-sistema-diseno/blob/master/ccdsd.png)
 
 
 
