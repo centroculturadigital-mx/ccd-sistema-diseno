@@ -6,7 +6,7 @@
   import Boton from "../../../elementos/botones/Boton/Boton.svelte";
   import BotonSecundario from "../../../elementos/botones/BotonSecundario/BotonSecundario.svelte";
 
-  export let apariencia = "horizontal"; //Vertical
+  export let apariencia = "HORIZONTAL"; //Vertical
   export let estado = "";
   export let tipo = "";
   export let titulo = "";
@@ -46,13 +46,95 @@
   let cerrar = () => {
     estado = false;
   };
+
+  let responsivo;
 </script>
+
+<svelte:window bind:innerWidth={responsivo} />
+
+{#if !!estado}
+  <section
+    class="{clases}
+    {apariencia == 'VERTICAL' ? 'vertical' : ''}"
+    transition:fade
+  >
+    <div class="superior">
+      <div
+        class="Informacion {apariencia == 'VERTICAL'
+          ? 'verticalInformacion'
+          : ''}"
+      >
+        <Icono {icono} />
+
+        {#if !!titulo}
+          <div
+            class="titulo {apariencia == 'VERTICAL' ? 'verticalTextos' : ''}"
+          >
+            <Titulo texto={titulo} nivel={4} />
+          </div>
+        {/if}
+      </div>
+
+      {#if responsivo > 768}
+        <div
+          class="Acciones {apariencia == 'VERTICAL' ? 'verticalAcciones' : ''}"
+        >
+          {#if Array.isArray(acciones) && acciones.length > 0}
+            {#each acciones as accion (accion)}
+              {#if typeof accion.accion == "function"}
+                <Boton texto={accion.texto} click={accion.accion} />
+              {/if}
+            {/each}
+          {/if}
+        </div>
+      {/if}
+
+      <div
+        class="Cerrar {apariencia == 'VERTICAL' ? 'verticalCerrar' : ''}"
+        on:click={cerrar}
+      >
+        <Icono icono={"cerrar"} />
+      </div>
+    </div>
+    <!--  -->
+    {#if !!contenido}
+      <div
+        class="descripcion {apariencia == 'VERTICAL' ? 'verticalTextos' : ''}"
+      >
+        <Parrafo {contenido} />
+      </div>
+    {/if}
+
+    {#if responsivo <= 768}
+      <div
+        class="Acciones {apariencia == 'VERTICAL' ? 'verticalAcciones' : ''}"
+      >
+        {#if Array.isArray(acciones) && acciones.length > 0}
+          {#each acciones as accion (accion)}
+            {#if typeof accion.accion == "function"}
+              <Boton texto={accion.texto} click={accion.accion} />
+            {/if}
+          {/each}
+        {/if}
+      </div>
+    {/if}
+
+  </section>
+{/if}
 
 <style>
   * {
     box-sizing: border-box;
+    /* outline: 1px solid #FFF; */
   }
   .Alerta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+  }
+  .superior {
     position: relative;
     padding: var(--theme-espaciados-padding);
     display: flex;
@@ -82,7 +164,7 @@
     justify-content: flex-end;
     align-items: center;
   }
-  .Textos {
+  .titulo {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -92,25 +174,41 @@
     padding: 0 calc(var(--theme-espaciados-padding) * 2) 0
       var(--theme-espaciados-padding);
   }
-  .Textos :global(h4) {
+  .titulo :global(h4) {
     margin-top: 0;
     padding: calc(var(--theme-espaciados-margen) / 3) 0;
     margin-bottom: 0;
     color: inherit !important;
   }
-  .Textos :global(p) {
+  .titulo :global(span) {
+    color: var(--theme-textos-alerta-color);
+    font-weight: 400 !important;
+  }
+  .titulo :global(a) {
+    transition: 0.5s;
+    color: var(--theme-textos-alerta-color);
+  }
+  .titulo :global(a:hover) {
+    color: var(--theme-textos-alerta-enlace);
+  }
+  .descripcion {
+    color: var(--theme-textos-alerta-color);
+    padding: var(--theme-espaciados-padding)
+      calc(var(--theme-espaciados-padding) * 2);
+  }
+  .descripcion :global(p) {
     margin-bottom: 0;
     padding: calc(var(--theme-espaciados-margen) / 3) 0;
     margin-top: 0;
   }
-  .Textos :global(span) {
+  .descripcion :global(span) {
     color: var(--theme-textos-alerta-color);
   }
-  .Textos :global(a) {
+  .descripcion :global(a) {
     transition: 0.5s;
     color: var(--theme-textos-alerta-color);
   }
-  .Textos :global(a:hover) {
+  .descripcion :global(a:hover) {
     color: var(--theme-textos-alerta-enlace);
   }
   .Cerrar {
@@ -121,9 +219,13 @@
   .Cerrar:hover {
     opacity: 0.75;
   }
-  .Cerrar :global(.iconoContenedor img) {
-    height: 1.25rem;
-    width: auto;
+  .Cerrar :global(.iconoContenedor) {
+    height: 1.125rem !important;
+    width: 1.125rem !important;
+  }
+  .Cerrar :global(.iconoContenedor svg) {
+    height: 100%;
+    width: 100%;
   }
   .Acciones :global(button) {
     background-color: var(--theme-botones-alerta-uno-fondo);
@@ -156,13 +258,22 @@
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
+  .vertical .superior {
+    justify-content: center;
+    padding: 0;
+  }
+  .vertical .superior .Cerrar {
+    position: absolute;
+    top: -1rem;
+    right: -1rem;
+  }
   .verticalInformacion {
     flex-direction: column;
     max-width: 20rem;
     padding: 1rem 0rem;
   }
   .verticalTextos {
-    margin: 2rem 0;
+    margin: 0.5rem 0;
   }
   .verticalAcciones {
     justify-content: center;
@@ -173,41 +284,3 @@
     right: 0.5rem;
   }
 </style>
-
-{#if !!estado}
-  <section
-    class="{clases}
-    {apariencia == 'vertical' ? 'vertical' : ''}"
-    transition:fade>
-
-    <div
-      class="Informacion {apariencia == 'vertical' ? 'verticalInformacion' : ''}">
-      <Icono {icono} />
-
-      <div class="Textos {apariencia == 'vertical' ? 'verticalTextos' : ''}">
-        {#if !!titulo}
-          <Titulo texto={titulo} nivel={4} />
-        {/if}
-        {#if !!contenido}
-          <Parrafo {contenido} />
-        {/if}
-      </div>
-    </div>
-
-    <div class="Acciones {apariencia == 'vertical' ? 'verticalAcciones' : ''}">
-      {#if Array.isArray(acciones) && acciones.length > 0}
-        {#each acciones as accion (accion)}
-          {#if typeof accion.accion == 'function'}
-            <Boton texto={accion.texto} click={accion.accion} />
-          {/if}
-        {/each}
-      {/if}
-      <div
-        class="Cerrar {apariencia == 'vertical' ? 'verticalCerrar' : ''}"
-        on:click={cerrar}>
-        <Icono icono={'cerrar'} />
-      </div>
-    </div>
-
-  </section>
-{/if}

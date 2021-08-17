@@ -173,7 +173,7 @@ export const alertaVertical = () => ({
         componente: Alerta,
         datos: {
             estado: true,
-            apariencia: "vertical",
+            apariencia: "VERTICAL",
             titulo: "Titulo de alerta acción",
             contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
             acciones: [{
