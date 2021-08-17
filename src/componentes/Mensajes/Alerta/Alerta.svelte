@@ -86,15 +86,14 @@
               {/if}
             {/each}
           {/if}
+          <div
+            class="Cerrar {apariencia == 'VERTICAL' ? 'verticalCerrar' : ''}"
+            on:click={cerrar}
+          >
+            <Icono icono={"cerrar"} />
+          </div>
         </div>
       {/if}
-
-      <div
-        class="Cerrar {apariencia == 'VERTICAL' ? 'verticalCerrar' : ''}"
-        on:click={cerrar}
-      >
-        <Icono icono={"cerrar"} />
-      </div>
     </div>
     <!--  -->
     {#if !!contenido}
@@ -107,7 +106,9 @@
 
     {#if responsivo <= 768}
       <div
-        class="Acciones {apariencia == 'VERTICAL' ? 'verticalAcciones' : ''}"
+        class="Acciones {apariencia == 'VERTICAL'
+          ? 'verticalAcciones'
+          : ''} {responsivo <= 768 ? 'movilAcciones' : ''}"
       >
         {#if Array.isArray(acciones) && acciones.length > 0}
           {#each acciones as accion (accion)}
@@ -118,7 +119,6 @@
         {/if}
       </div>
     {/if}
-
   </section>
 {/if}
 
@@ -128,15 +128,17 @@
     /* outline: 1px solid #FFF; */
   }
   .Alerta {
-    position: relative;
+    position: sticky;
+    top: 0.01;
     display: flex;
     flex-direction: column;
     height: auto;
     width: 100%;
+    z-index: 9999;
   }
   .superior {
     position: relative;
-    padding: var(--theme-espaciados-padding);
+    padding: var(--theme-espaciados-padding) calc(var(--theme-espaciados-padding) * 2);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -194,7 +196,7 @@
   .descripcion {
     color: var(--theme-textos-alerta-color);
     padding: var(--theme-espaciados-padding)
-      calc(var(--theme-espaciados-padding) * 2);
+      calc(var(--theme-espaciados-padding) * 3);
   }
   .descripcion :global(p) {
     margin-bottom: 0;
@@ -250,6 +252,10 @@
   }
   .accion {
     background-color: var(--theme-alertas-accion);
+  }
+  .movilAcciones {
+    padding: var(--theme-espaciados-padding)
+      calc(var(--theme-espaciados-padding) * 2);
   }
   .vertical {
     flex-direction: column;

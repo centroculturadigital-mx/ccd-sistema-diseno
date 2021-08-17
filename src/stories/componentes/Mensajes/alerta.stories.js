@@ -20,7 +20,9 @@ export const alertaDefault = () => ({
                     texto: "Guardar",
                     accion: () => console.log("Guardado"),
                 }
-            ]
+            ],
+            cerrar: () => console.log("Alerta cerrada")
+            
         }
     }
 });
@@ -175,7 +177,7 @@ export const alertaVertical = () => ({
             estado: true,
             apariencia: "VERTICAL",
             titulo: "Titulo de alerta acción",
-            contenido: 'Texto con un <a href="#">link acción</a> entre el texto',
+            contenido: 'Lorem ipsum dolor sit amet <a href="#">link acción</a> Perferendis, atque nemo placeat debitis odio exercitationem quasi fugiat officiis',
             acciones: [{
                 texto: "Guardar",
                 accion: () => console.log("Guardado"),
