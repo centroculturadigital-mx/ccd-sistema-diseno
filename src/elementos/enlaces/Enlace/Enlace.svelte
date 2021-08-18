@@ -5,16 +5,19 @@
   export let texto;
   export let contenido;
   export let blank;
+  export let nuevaPestanna;
+
+  $: nuevaPestanna = typeof blank != "undefined" ? blank : nuevaPestanna;
 
   const atributos = {
     enlace
   };
 
-  $: (blank => {
-    if( !! blank ) {
+  $: (nuevaPestanna => {
+    if( !! nuevaPestanna ) {
       atributos["target"] = "_blank";
     }
-  })(blank);
+  })(nuevaPestanna);
 </script>
 
 <style>

@@ -11,7 +11,7 @@ export const EnlaceDefault = () => ({
         datos:{
         texto:"Hola Mundo",
         enlace: "http://wikipedia.org",
-        blank: false,
+        nuevaPestanna: false,
     }
     }
 });
@@ -24,7 +24,7 @@ export const EnlaceNueva = () => ({
         datos:{
         texto:"Hola Mundo",
         enlace: "http://wikipedia.org",
-        blank: true,
+        nuevaPestanna: true,
     }
     }
 });
@@ -37,7 +37,7 @@ export const EnlaceContenidoHTML = () => ({
         datos: {
         contenido:"<button>contenido HTML</button>",
         enlace: "http://wikipedia.org",
-        blank: true,
+        nuevaPestanna: true,
     }
     }
 });
@@ -54,7 +54,7 @@ export const EnlaceContenidoBloques = () => ({
             }
         }],
         enlace: "http://wikipedia.org",
-        blank: true,
+        nuevaPestanna: true,
     }
     }
 });
