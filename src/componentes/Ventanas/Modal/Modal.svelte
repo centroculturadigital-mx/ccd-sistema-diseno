@@ -46,7 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: 10000;
   }
   .Modal header {
     position: absolute;
@@ -57,7 +57,7 @@
     width: auto;
     display: flex;
     justify-content: flex-end;
-    z-index: 1001;
+    z-index: 11000;
   }
   .Modal header :global(img) {
     transition: var(--theme-transisiones-normal);
