@@ -135,7 +135,7 @@ const variables = {
             error: "red",
             inactivo: "gray",
             transmitiendo: "red",
-            informacion: "#4C4CFF",
+            informacion: "#221042",
             exito: "#009900",
             aviso: "#C8CC00",
             alerta: "#C50023",
