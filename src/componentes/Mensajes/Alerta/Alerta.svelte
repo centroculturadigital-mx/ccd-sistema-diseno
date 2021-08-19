@@ -129,7 +129,7 @@
   }
   .Alerta {
     position: sticky;
-    top: 0.01;
+    top: 0.01rem;
     display: flex;
     flex-direction: column;
     height: auto;
