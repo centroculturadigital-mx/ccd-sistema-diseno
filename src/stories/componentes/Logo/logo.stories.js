@@ -10,9 +10,19 @@ export const logoDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: Logo,
-        datos: {}
+        datos: {
+            nombre: 'LOGO',
+            imagen: ImagenFondo,
+            enlace: "http://centroculturadigital.mx",
+            estilos: {
+                ancho: '40%',
+                alineacion: 'right',
+            }
+        }
     }
 });
+
+
 export const logoSoloTexto = () => ({
     Component: ThemeTester,
     props: {
@@ -47,7 +57,7 @@ export const logoImagen = () => ({
         datos: {
             componente: Logo,
             nombre: 'LOGO',
-            logotipo: ImagenFondo,
+            imagen: ImagenFondo,
             estilos: {
                 ancho: '40%',
             }
@@ -60,7 +70,7 @@ export const logoAnchoFila = () => ({
         componente: Logo,
         datos: {
             componente: Logo,
-            logotipo: ImagenFondo,
+            imagen: ImagenFondo,
             nombre: 'LOGO',
             estilos: {
                 ancho: '33%',
@@ -75,25 +85,10 @@ export const logoSinEnlace = () => ({
         datos: {
             componente: Logo,
             nombre: 'LOGO',
-            logotipo: ImagenFondo,
+            imagen: ImagenFondo,
             estilos: {
                 ancho: '40%',
                 alineacion: "center",
-            }
-        }
-    }
-});
-export const logoConEnlace = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Logo,
-        datos: {
-            nombre: 'LOGO',
-            logotipo: ImagenFondo,
-            enlace: "http://centroculturadigital.mx",
-            estilos: {
-                ancho: '40%',
-                alineacion: 'right',
             }
         }
     }
@@ -105,7 +100,7 @@ export const logoVectorConEnlace = () => ({
         datos: {
             nombre: 'LOGO',
             tipo: "vector",
-            logotipo: ImagenVector,
+            imagen: ImagenVector,
             enlace: "http://centroculturadigital.mx",
             estilos: {
                 ancho: '40%',
@@ -121,11 +116,19 @@ export const logoVectorSinEnlace = () => ({
         datos: {
             nombre: 'LOGO',
             tipo: "vector",
-            logotipo: ImagenVector,
+            imagen: ImagenVector,
             estilos: {
                 ancho: '40%',
                 alineacion: 'right',
             }
         }
+    }
+});
+
+export const logoVacio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Logo,
+        datos: {}
     }
 });

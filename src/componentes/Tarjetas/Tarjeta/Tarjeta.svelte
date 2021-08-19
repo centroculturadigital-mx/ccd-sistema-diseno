@@ -214,7 +214,7 @@
             <div class="Acciones">
               {#each acciones as accion (accion)}
                 {#if accion.enlace}
-                  <Enlace enlace={accion.enlace} texto={accion.texto} />
+                  <Enlace {...accion} />
                 {/if}
                 {#if typeof accion.accion == "function"}
                   <BotonSecundario
@@ -239,7 +239,7 @@
         <div class="Acciones">
           {#each acciones as accion (accion)}
             {#if accion.enlace}
-              <Enlace enlace={accion.enlace} texto={accion.texto} />
+              <Enlace {...accion}  />
             {/if}
             {#if typeof accion.accion == "function"}
             <!-- TODO: actualizar a Boton -->

@@ -9,23 +9,23 @@ export const EnlaceDefault = () => ({
     props: {
         componente: Enlace,
         datos:{
-        texto:"Hola Mundo",
-        enlace: "http://wikipedia.org",
-        blank: false,
-    }
+            texto:"Hola Mundo",
+            enlace: "http://wikipedia.org",
+            nuevaPestanna: false,
+        }
     }
 });
 
 
-export const EnlaceNueva = () => ({
+export const EnlaceNuevaPestanna = () => ({
     Component: ThemeTester,    
     props: {
         componente: Enlace,
         datos:{
-        texto:"Hola Mundo",
-        enlace: "http://wikipedia.org",
-        blank: true,
-    }
+            texto:"Hola Mundo",
+            enlace: "http://wikipedia.org",
+            nuevaPestanna: true,
+        }
     }
 });
 
@@ -35,10 +35,10 @@ export const EnlaceContenidoHTML = () => ({
     props: {
         componente: Enlace,
         datos: {
-        contenido:"<button>contenido HTML</button>",
-        enlace: "http://wikipedia.org",
-        blank: true,
-    }
+            contenido:"<button>contenido HTML</button>",
+            enlace: "http://wikipedia.org",
+            nuevaPestanna: true,
+        }
     }
 });
 
@@ -47,15 +47,15 @@ export const EnlaceContenidoBloques = () => ({
     props: {
         componente: Enlace,
         datos: {
-        contenido: [{
-            componente: Titulo,
-            data: {
-                texto: "Hola Mundo",
-            }
-        }],
-        enlace: "http://wikipedia.org",
-        blank: true,
-    }
+            contenido: [{
+                componente: Titulo,
+                data: {
+                    texto: "Hola Mundo",
+                }
+            }],
+            enlace: "http://wikipedia.org",
+            nuevaPestanna: true,
+        }
     }
 });
 

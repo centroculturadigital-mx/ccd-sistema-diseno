@@ -3,6 +3,7 @@
   import Titulo from "../../elementos/texto/Titulo/Titulo.svelte";
 
   export let logotipo;
+  export let imagen;
   export let enlace;
   export let externo = false;
   export let nombre;
@@ -16,6 +17,10 @@
   if (!estilos.alineacion) {
     estilos.alineacion = "left";
   }
+
+  $: imagen = typeof logotipo != "undefined" ? logotipo : imagen;
+
+
 </script>
 
 <div
@@ -26,10 +31,10 @@
 >
   {#if !!enlace}
     <a href={enlace} target={externo ? "_blank" : ""} class="enlace">
-      {#if !!logotipo}
+      {#if !!imagen}
         {#if tipo == "imagen" || !tipo}
         <Imagen
-          imagen={logotipo}
+          imagen={imagen}
           altTexto={nombre}
           altura="100%"
           ajuste="contain"
@@ -37,18 +42,18 @@
         />
         {:else if tipo == "vector"}
           <div class="vector {nombre ? nombre : ""}">
-            {@html logotipo}
+            {@html imagen}
           </div>
         {/if}
-      {:else if !logotipo && !!nombre}
+      {:else if !imagen && !!nombre}
         <Titulo texto={nombre} nivel={4} />
       {/if}
     </a>
   {:else if !enlace}
-    {#if !!logotipo}
+    {#if !!imagen}
       {#if tipo == "imagen" || !tipo}
       <Imagen
-        imagen={logotipo}
+        imagen={imagen}
         altTexto={nombre}
         altura="100%"
         ajuste="contain"
@@ -56,10 +61,10 @@
       />
       {:else if tipo == "vector"}
       <div class="vector {nombre ? nombre : ""}">
-        {@html logotipo}
+        {@html imagen}
       </div>
     {/if}
-    {:else if !logotipo && !!nombre}
+    {:else if !imagen && !!nombre}
       <Titulo texto={nombre} nivel={4} />
     {/if}
   {/if}

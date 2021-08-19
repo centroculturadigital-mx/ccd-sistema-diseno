@@ -6,20 +6,20 @@ import imagenVector from '../../../../public/ccd.svg';
 export default { title: "Componentes/Logos/Logos" }
 
 let logos = new Array(4).fill(true).map((l, i) => ({
-    logotipo: imagen,
+    imagen: imagen,
     nombre: 'NombreLogo' + i,
     enlace: "#"
 }))
 
 let vectores = new Array(4).fill(true).map((l, i) => ({
-    logotipo: imagenVector,
+    imagen: imagenVector,
     nombre: 'NombreLogo' + i,
     enlace: "#",
     tipo: "vector",
 }))
 
 let variosTipos = new Array(8).fill(true).map((l, i) => ({
-    logotipo: i % 2 == 0 ? imagenVector : imagen,
+    imagen: i % 2 == 0 ? imagenVector : imagen,
     nombre: 'NombreLogo' + i,
     enlace: "#",
     tipo: i % 2 == 0 ? "vector" : "imagen",

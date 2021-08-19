@@ -184,7 +184,7 @@
   }
   .titulo :global(span) {
     color: var(--theme-textos-alerta-color);
-    font-weight: 400 !important;
+    /* font-weight: 400 !important; */
   }
   .titulo :global(a) {
     transition: 0.5s;
