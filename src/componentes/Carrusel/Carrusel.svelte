@@ -1,9 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import IconoCaretIzquierda from "../../../public/recursos/iconos/caret-izquierda-64-negro.png";
-  import IconoCaretArriba from "../../../public/recursos/iconos/caret-arriba-64-negro.png";
-  import IconoCaretDerecha from "../../../public/recursos/iconos/caret-derecha-64-negro.png";
-  import IconoCaretAbajo from "../../../public/recursos/iconos/caret-abajo-64-negro.png";
+  import Icono from "../../elementos/Icono/Icono";
 
   export let elementos;
 
@@ -14,13 +11,14 @@
   export let autoplayMs = 2500;
   export let flechas = true;
   export let navegacion = true;
+  export let fondo = false;
 
   export let activo = 0;
 
   export let estilos = {
     direccion: "horizontal",
     ancho: 288,
-    alto: 288
+    alto: 288,
   };
 
   let carrusel;
@@ -73,13 +71,13 @@
 
   $: estilosCarrusel = generarEstilosAnchoAlto(estilos.ancho, estilos.alto);
 
-  const calcularScrollX = activo => {
+  const calcularScrollX = (activo) => {
     if (estilos.direccion == "horizontal") {
       return calcularScroll(activo, anchoCarrusel, anchoElemento);
     }
     return 0;
   };
-  const calcularScrollY = activo => {
+  const calcularScrollY = (activo) => {
     if (estilos.direccion == "vertical") {
       return calcularScroll(activo, altoCarrusel, altoElemento);
     }
@@ -137,7 +135,7 @@
 
   $: estilosElemento = generarEstilosAnchoAlto(anchoElemento, altoCarrusel);
 
-  const ir = i => {
+  const ir = (i) => {
     if (typeof i == "number") {
       if (i < 0) {
         activo = elementos.length - 1;
@@ -152,21 +150,21 @@
       document.getElementsByClassName("carrusel_listo")
     );
 
-    carruseles = carruseles.map(c =>
+    carruseles = carruseles.map((c) =>
       parseInt(c.getAttribute("id").split("carrusel_")[1])
     );
 
     return carruseles;
   };
 
-  const obtenerDireccionCarrusel = direccion => {
+  const obtenerDireccionCarrusel = (direccion) => {
     if (direccion == "vertical") {
       return "column";
     }
     return "row";
   };
 
-  const generarClases = i => {
+  const generarClases = (i) => {
     let clases = "elemento";
 
     clases += " " + estilos.direccion;
@@ -190,10 +188,63 @@
     `;
 </script>
 
+<div
+  class={`Carrusel ${estilos.direccion}`}
+  id={`carrusel_${id}`}
+  style={estilosCarrusel}
+>
+  {#if fondo}
+    <div class="fondo" />
+  {/if}
+
+  {#if Array.isArray(elementos)}
+    <div bind:this={carrusel} class="ventana" style={estilosVentana}>
+      <div class="elementos" style={estilosLista}>
+        {#each elementos as elemento, i (elemento)}
+          <div
+            class={i == activo ? "elemento activo" : "elemento"}
+            style={estilosElemento}
+            on:click={ir(i)}
+          >
+            <svelte:component this={elemento.componente} {...elemento.data} />
+          </div>
+        {/each}
+      </div>
+    </div>
+
+    {#if !!navegacion}
+      <ul class="elementosBotones">
+        {#each elementosBotones as boton, i ("boton_" + i)}
+          <li class={activo == i ? "activo" : ""}>
+            <button on:click={ir(i)}>
+              {i}
+            </button>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+
+    {#if !!flechas}
+      <button class="boton-flecha boton-anterior" on:click={ir(activo - 1)}>
+        <Icono
+          icono={estilos.direccion == "vertical" ? "irArriba" : "irIzquierda"}
+        />
+      </button>
+      <button class="boton-flecha boton-siguiente" on:click={ir(activo + 1)}>
+        <Icono
+          icono={estilos.direccion == "vertical" ? "irAbajo" : "irDerecha"}
+        />
+      </button>
+    {/if}
+  {/if}
+</div>
+
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .Carrusel {
     padding: 0;
-    box-sizing: border-box;
     position: relative;
     width: 100%;
     height: 100%;
@@ -201,7 +252,15 @@
     min-width: 15rem;
     min-height: 15rem;
   }
-
+.fondo {
+  background-color: rgba(0,0,0,0.25);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
   .ventana {
     box-sizing: border-box;
     width: calc(100% - 4rem);
@@ -297,6 +356,7 @@
   }
 
   .boton-flecha {
+    transition: var(--theme-transiciones-normal);
     position: absolute;
     bottom: calc(50% - 1rem);
     width: 2rem;
@@ -304,26 +364,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: none !important;
-    border: none;
     border-radius: 50%;
-    outline: none;
-  }
-
-  .boton-flecha img {
-    height: 70%;
-    object-fit: contain;
-    transition: all 0.3s ease-in-out;
-    opacity: 0.25;
     cursor: pointer;
   }
+  .boton-flecha:hover {
+    opacity: 0.75;
+  }
 
-  .boton-flecha:hover img,
-  .boton-flecha:active img {
-    transform: scale(1.03);
-    opacity: 0.8;
-    /* background-color: rgba(0,0,0,0.2);
-        box-shadow: 3px 3px 3px rgba(0,0,0,0.1); */
+  .boton-flecha :global(svg) {
+    fill: #fff;
+  }
+  .boton-flecha :global(.iconoContenedor) {
+    background-color: #000;
+    border-radius: 5rem;
+    padding: 0.4rem;
+    box-sizing: border-box;
   }
 
   .boton-anterior {
@@ -355,55 +410,3 @@
     bottom: 2rem;
   }
 </style>
-
-<div
-  class={`Carrusel ${estilos.direccion}`}
-  id={`carrusel_${id}`}
-  style={estilosCarrusel}>
-
-  {#if Array.isArray(elementos)}
-    <div bind:this={carrusel} class="ventana" style={estilosVentana}>
-
-      <div class="elementos" style={estilosLista}>
-
-        {#each elementos as elemento, i (elemento)}
-          <div
-            class={i == activo ? 'elemento activo' : 'elemento'}
-            style={estilosElemento}
-            on:click={ir(i)}>
-
-            <svelte:component this={elemento.componente} {...elemento.data} />
-
-          </div>
-        {/each}
-
-      </div>
-
-    </div>
-
-    {#if !!navegacion}
-      <ul class="elementosBotones">
-        {#each elementosBotones as boton, i ('boton_' + i)}
-          <li class={activo == i ? 'activo' : ''}>
-            <button on:click={ir(i)}>
-            {i}
-            </button>
-          </li>
-        {/each}
-      </ul>
-    {/if}
-
-    {#if !!flechas}
-      <button class="boton-flecha boton-anterior" on:click={ir(activo - 1)}>
-        <img
-          src={estilos.direccion == 'vertical' ? IconoCaretArriba : IconoCaretIzquierda}
-          alt="Anterior" />
-      </button>
-      <button class="boton-flecha boton-siguiente" on:click={ir(activo + 1)}>
-        <img
-          src={estilos.direccion == 'vertical' ? IconoCaretAbajo : IconoCaretDerecha}
-          alt="Siguiente" />
-      </button>
-    {/if}
-  {/if}
-</div>

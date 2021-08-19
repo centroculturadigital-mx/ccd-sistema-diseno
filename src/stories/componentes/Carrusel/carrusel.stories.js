@@ -83,6 +83,17 @@ export const carruselDefault = () => ({
         }
     }
 });
+export const carruselConFondo = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Carrusel,
+        datos: {
+            elementos,
+            fondo: true
+
+        }
+    }
+});
 
 
 export const carruselVertical = () => ({
