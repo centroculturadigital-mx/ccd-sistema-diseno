@@ -382,10 +382,10 @@
   }
 
   .boton-anterior {
-    right: calc(100% - 2rem);
+    right: calc(100% - 2.25rem);
   }
   .boton-siguiente {
-    right: 0;
+    right: 0.25rem;
   }
 
   .Carrusel.vertical .elementosBotones {
