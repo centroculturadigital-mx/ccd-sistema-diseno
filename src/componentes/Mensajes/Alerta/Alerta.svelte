@@ -1,5 +1,4 @@
 <script>
-  import { slide, fade } from "svelte/transition";
   import Icono from "../../../elementos/Icono/Icono";
   import Titulo from "../../../elementos/texto/Titulo/Titulo.svelte";
   import Parrafo from "../../../elementos/texto/Parrafo/Parrafo.svelte";
@@ -56,7 +55,6 @@
   <section
     class="{clases}
     {apariencia == 'VERTICAL' ? 'vertical' : ''}"
-    transition:fade
   >
     <div class="superior">
       <div
