@@ -75,25 +75,29 @@
         {/if}
       </div>
 
-      {#if responsivo > 768}
-        <div
-          class="Acciones {apariencia == 'VERTICAL' ? 'verticalAcciones' : ''}"
-        >
-          {#if Array.isArray(acciones) && acciones.length > 0}
-            {#each acciones as accion (accion)}
-              {#if typeof accion.accion == "function"}
-                <Boton texto={accion.texto} click={accion.accion} />
-              {/if}
-            {/each}
-          {/if}
+      <div class="Acciones">
+        {#if responsivo > 768}
           <div
-            class="Cerrar {apariencia == 'VERTICAL' ? 'verticalCerrar' : ''}"
-            on:click={cerrar}
+            class=" {apariencia == 'VERTICAL'
+              ? 'verticalAcciones'
+              : ''}"
           >
-            <Icono icono={"cerrar"} />
+            {#if Array.isArray(acciones) && acciones.length > 0}
+              {#each acciones as accion (accion)}
+                {#if typeof accion.accion == "function"}
+                  <Boton texto={accion.texto} click={accion.accion} />
+                {/if}
+              {/each}
+            {/if}
           </div>
+        {/if}
+        <div
+          class="Cerrar {apariencia == 'VERTICAL' ? 'verticalCerrar' : ''}"
+          on:click={cerrar}
+        >
+          <Icono icono={"cerrar"} />
         </div>
-      {/if}
+      </div>
     </div>
     <!--  -->
     {#if !!contenido}
@@ -138,7 +142,8 @@
   }
   .superior {
     position: relative;
-    padding: var(--theme-espaciados-padding) calc(var(--theme-espaciados-padding) * 2);
+    padding: var(--theme-espaciados-padding)
+      calc(var(--theme-espaciados-padding) * 2);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
