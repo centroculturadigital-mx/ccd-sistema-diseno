@@ -3,6 +3,7 @@
 
     export let componente;
     export let datos;
+    // 
     export let posicionContenido; //Para poder crear historias con distintas posiciones de UsuariosLista y comprobar la posici[on del globo]
 
     let estado;

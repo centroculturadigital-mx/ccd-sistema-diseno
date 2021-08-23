@@ -39,9 +39,13 @@
             style: `top: ${coordenadas.y}px;left: ${coordenadas.x}px;`,
         };
     }
+    export let globoInstancia = (e) => {
+        console.log("GLOBO", e);
+    }
+
 </script>
 
-<div class="{posicionTipo} GloboInformacion" {...estilos}>
+<div class="{posicionTipo} GloboInformacion" {...estilos} bind:this={globoInstancia}>
     <Texto {texto} />
 </div>
 

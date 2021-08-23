@@ -12,12 +12,14 @@
     let posicionFlecha;
     let elementoX;
     let elementoY;
-
+    
     const mostrarGlobo = (evento, texto) => {
         let elemento = evento.target.getBoundingClientRect();
-
+        
         calcularPosicion(elemento);
 
+        console.log("Globox::: ", document.querySelector(".GloboInformacion"));
+        
         if (evento && texto) {
             globo = {
                 texto: texto,
@@ -44,9 +46,6 @@
         let ventanaAlto = window.innerHeight;
         let tamannoX = elemento.width;
         let tamannoY = elemento.height;
-
-        //TODO: detecta la posicion del elemento en pantalla
-        // TODO: traer el valor de ancho del globo para el calculo???
 
         if (elemento.right > (ventanaAncho * 0.5)) {//globo a laizquierda
 
