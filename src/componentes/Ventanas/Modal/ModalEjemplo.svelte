@@ -6,17 +6,18 @@
   export let estado;
   export let componente;
   export let datos;
+  export let cerrar;
+  export let cerrarBoton;
 
   let abrirModal = () => {
     //obliga al boton a regresar a su estado inicial
     if (estado == true) {
       estado = false;
     }
-    estado = !estado; //toggle del estado
+    estado = !estado;
   };
-  $: console.log("modal", estado);
 </script>
 
 <Boton texto={'Abre Modal'} click={abrirModal} />
 
-<Modal {estado} {componente} {datos} />
+<Modal {estado} {componente} {datos} {cerrar} {cerrarBoton}/>

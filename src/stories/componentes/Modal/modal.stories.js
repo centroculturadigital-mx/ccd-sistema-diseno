@@ -44,6 +44,24 @@ export const modalAbierto = () => ({
         },
     },
 });
+export const modalAbiertoConBotonCerrar = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: ModalEjemplo,
+        datos: {
+            estado: true,
+            componente: Tarjeta,
+            datos: {
+                imagen: placeholder,
+                nombre: "Titulo de tarjeta",
+                nivelTitulo: 3,
+                // texto: "Nam in timeam commodo numquam, eu sed dolore vivendum reprimique. Cibo referrentur id pri, ei sea placerat adipisci.",
+                sombra: true,
+            },
+            cerrarBoton: true,
+        },
+    },
+});
 
 
 export const modalCerrado = () => ({

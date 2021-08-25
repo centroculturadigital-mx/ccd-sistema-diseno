@@ -7,6 +7,7 @@
   export let componente = null;
   export let datos = {};
   export let cerrar;
+  export let cerrarBoton = false;
 
   const cerrarModal = () => {
     estado = !estado;
@@ -14,19 +15,21 @@
       cerrar();
     }
   };
+  $: console.log("modalxxx", cerrarBoton);
 </script>
 
 {#if !!estado}
   <section class="Modal" transition:fade|local>
     <div class="capaCerrar" on:click={cerrarModal} />
 
-    <div class="Contenedor">
+    {#if !!cerrarBoton}
       <header>
         <div on:click={cerrarModal}>
           <Icono icono={"cerrar"} />
         </div>
       </header>
-
+    {/if}
+    <div class="Contenedor">
       <svelte:component this={componente} {...datos} />
     </div>
   </section>
@@ -50,13 +53,12 @@
   }
   .Modal header {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: var(--theme-espaciados-padding);
+    right: var(--theme-espaciados-padding);
     padding: calc(var(--theme-espaciados-padding) * 1);
     height: auto;
     width: auto;
-    display: flex;
-    justify-content: flex-end;
+    cursor: pointer;
     z-index: 11000;
   }
   .Modal header :global(img) {
@@ -66,23 +68,23 @@
   .Modal header :global(img:hover) {
     filter: invert();
   }
+  .Modal header :global(.cerrar) {
+    fill: #aaaaaa !important;
+    cursor: pointer;
+  }
+  .Modal header :global(.cerrar:hover) {
+    opacity: 0.75;
+  }
   .Contenedor {
     position: relative;
     max-width: 85vw;
     overflow: hidden;
     z-index: 1001;
   }
-  .Contenedor :global(.cerrar) {
-    fill: #aaaaaa !important;
-    cursor: pointer;
-  }
-  .Contenedor :global(.cerrar:hover) {
-    opacity: 0.75;
-  }
-  .Contenedor :global(svg) {
+  /* .Contenedor :global(svg) {
     height: 100%;
     width: 100%;
-  }
+  } */
   .capaCerrar {
     position: absolute;
     height: 100%;
