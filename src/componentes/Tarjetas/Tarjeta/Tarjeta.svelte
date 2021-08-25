@@ -25,7 +25,7 @@
   export let enlaces = [];
   export let acciones = [];
   export let cortina = false;
-
+  export let accionCabecera;
 
   $: linkTarget = enlace ? (enlace.externo ? { target: "_blank" } : {}) : {};
 
@@ -53,6 +53,11 @@
 
 <article class="{aparienciaEstilo} Tarjeta {!!sombra ? ' sombra' : ''}">
   <div class="{aparienciaEstilo} Contenido">
+    {#if accionCabecera && typeof accionCabecera == "object"}
+      <div class="accionCabecera" on:click={accionCabecera.accion}>
+        <span><Icono icono={accionCabecera.icono} /></span>
+      </div>
+    {/if}
     <div class="Cabecera">
       {#if cortina}
         <div class="cortina" />
@@ -239,10 +244,10 @@
         <div class="Acciones">
           {#each acciones as accion (accion)}
             {#if accion.enlace}
-              <Enlace {...accion}  />
+              <Enlace {...accion} />
             {/if}
             {#if typeof accion.accion == "function"}
-            <!-- TODO: actualizar a Boton -->
+              <!-- TODO: actualizar a Boton -->
               <BotonSecundario
                 click={accion.accion}
                 radius="15px"
@@ -317,6 +322,24 @@
     flex-direction: column;
     position: relative;
     width: 100%;
+  }
+  .accionCabecera {
+    position: absolute;
+    top: var(--theme-espaciados-padding);
+    right: var(--theme-espaciados-padding);
+    cursor: pointer;
+    z-index: 999;
+  }
+  .accionCabecera :global(.iconoContenedor) {
+    height: 1.5rem !important;
+    width: 1.5rem !important;
+  }
+  .TarjetaHorizontal .accionCabecera :global(.iconoContenedor) {
+    height: 2rem !important;
+  }
+  .accionCabecera:hover :global(svg) {
+    fill: var(--theme-colores-secundario2) !important;
+    height: 100%;
   }
   .Contenidos {
     width: 100%;

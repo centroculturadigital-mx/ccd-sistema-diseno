@@ -5,7 +5,9 @@ import imagenEjemplo from '../../../data/recursos/placeholder.png';
 
 import moment from 'moment';
 
-export default { title: "Componentes/Complejos/Tarjetas/Tarjeta" }
+export default {
+    title: "Componentes/Complejos/Tarjetas/Tarjeta"
+}
 
 let accionesFunciones = [{
         texto: "Acción 1",
@@ -71,7 +73,51 @@ export const tarjetaDefault = () => ({
         }
     }
 });
-
+export const tarjetaAccionCabecera = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtítulo",
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            leyenda: "Un texto configurable",
+            sombra: true,
+            acciones: [accionesFunciones[0], accionesEnlaces[0]],
+            // pleca,
+            imagen: imagenEjemplo,
+            enlaces,
+            accionCabecera: {
+                icono: "agregar",
+                accion: () => console.log("Acción en cabecera"),
+            }
+        }
+    }
+});
+export const tarjetaAccionCabeceraHorizontal = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            apariencia: "HORIZONTAL",
+            nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtítulo",
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            leyenda: "Un texto configurable",
+            sombra: true,
+            acciones: [accionesFunciones[0], accionesEnlaces[0]],
+            // pleca,
+            imagen: imagenEjemplo,
+            enlaces,
+            accionCabecera: {
+                icono: "agregar",
+                accion: () => console.log("Acción en cabecera"),
+            }
+        }
+    }
+});
 export const tarjetaVideo = () => ({
     Component: ThemeTester,
     props: {
@@ -442,14 +488,15 @@ export const tarjetaTipoVerticalConEtiquetas = () => ({
             enlaces,
             apariencia: "VERTICAL",
             etiquetas: [{
-                texto: "Etiqueta 1"
-            },
-            {
-                texto: "Etiqueta 2"
-            },
-            {
-                texto: "Etiqueta 3"
-            }]
+                    texto: "Etiqueta 1"
+                },
+                {
+                    texto: "Etiqueta 2"
+                },
+                {
+                    texto: "Etiqueta 3"
+                }
+            ]
         }
     }
 });
