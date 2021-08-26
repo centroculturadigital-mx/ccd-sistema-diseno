@@ -155,7 +155,7 @@
         {:else}
           {#if !!leyenda}
             <div class="Leyenda">
-              <Parrafo texto={leyenda} />
+              <Parrafo contenido={leyenda} />
             </div>
           {/if}
           <!-- etiquetas -->
@@ -202,12 +202,12 @@
               href={enlace}
             >
               <div class="Extracto">
-                <Parrafo texto={extracto} />
+                <Parrafo contenido={extracto} />
               </div>
             </a>
           {:else}
             <div class="Extracto">
-              <Parrafo texto={extracto} />
+              <Parrafo contenido={extracto} />
             </div>
           {/if}
         {/if}
@@ -436,7 +436,7 @@
     justify-content: flex-start;
     position: absolute;
     bottom: 0.75rem;
-    left: 0.75rem;
+    left: 1rem;
     z-index: 2;
   }
   .PlecaContenido {
