@@ -692,25 +692,3 @@ export const tarjetaAccionEnlacePestannaNueva = () => ({
         }
     }
 });
-export const tarjetaExtractoHTML = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Tarjeta,
-        datos: {
-            imagen: imagenEjemplo,
-            nombre: 'Esto es un título.',
-            subtitulo: "Esto es un subtítulo",
-            extracto: '<b>Mei</b> sanctus delenit <a href="#">denique</a> in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
-            nivelTitulo: 'h3',
-            leyenda: "<a href='#'>Un texto</a> configurable</a>",
-            sombra: true,
-            acciones: [{
-                texto: "Nueva Pestaña",
-                enlace: "https://wikipedia.org",
-                nuevaPestanna: true
-            }],
-            pleca,
-            enlaces,
-        }
-    }
-});

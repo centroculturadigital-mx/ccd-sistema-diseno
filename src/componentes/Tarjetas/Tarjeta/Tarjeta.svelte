@@ -155,7 +155,7 @@
         {:else}
           {#if !!leyenda}
             <div class="Leyenda">
-              <Parrafo contenido={leyenda} />
+              <Parrafo texto={leyenda} />
             </div>
           {/if}
           <!-- etiquetas -->
@@ -202,12 +202,12 @@
               href={enlace}
             >
               <div class="Extracto">
-                <Parrafo contenido={extracto} />
+                <Parrafo texto={extracto} />
               </div>
             </a>
           {:else}
             <div class="Extracto">
-              <Parrafo contenido={extracto} />
+              <Parrafo texto={extracto} />
             </div>
           {/if}
         {/if}
