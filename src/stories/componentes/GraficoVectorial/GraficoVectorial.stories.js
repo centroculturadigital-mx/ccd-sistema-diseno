@@ -6,12 +6,12 @@ import mapa_mexico from "../../../../public/recursos/imagenes/vectores/mapa_mexi
 export default { title: 'Componentes/GraficoVectorial' }
 
 
-export const textoDefault = () => ({
+export const graficoVectorialDefault = () => ({
     Component: ThemeTester,
     props: {
         componente: GraficoVectorial,
         datos:{
-            svg: mapamx
+            svg: mapa_mexico
         }
     },
 });

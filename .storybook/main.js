@@ -38,10 +38,10 @@ module.exports = {
                     esModule: false
                 }
             },
-            {
-                test: /\.(svg)(\?.*)?$/,
-                loader: 'raw-loader'
-            },
+            // {
+            //     test: /\.(svg)(\?.*)?$/,
+            //     loader: 'raw-loader'
+            // },
             ...config.module.rules,
             {
                 test: /\.svg$/i,
