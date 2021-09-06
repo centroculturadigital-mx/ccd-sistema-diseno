@@ -43,15 +43,15 @@ module.exports = {
                 loader: 'raw-loader'
             },
             ...config.module.rules,
-            // {
-            //     test: /\.svg$/i,
-            //     use: [{
-            //         loader: 'svg-inline-loader',
-            //         options: {
-            //             removeSVGTagAttrs: false
-            //         },
-            //     }, ],
-            // },
+            {
+                test: /\.svg$/i,
+                use: [{
+                    loader: 'svg-inline-loader',
+                    options: {
+                        removeSVGTagAttrs: false
+                    },
+                }, ],
+            },
 
 
         ]
