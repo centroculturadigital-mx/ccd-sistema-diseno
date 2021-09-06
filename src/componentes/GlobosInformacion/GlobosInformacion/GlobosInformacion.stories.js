@@ -40,7 +40,8 @@ export const globosInformacionConFondo = () => ({
         datos: {
             globos,
             estado: true,
-            fondoMostrar: true
+            fondoMostrar: true,
+            // inicializarGlobo: (elemento) => console.log("Globos",elemento)
         }
     },
 });

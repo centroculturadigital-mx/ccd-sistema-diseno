@@ -9,8 +9,8 @@
     let estado;
 
     $: clases =
-        posicionContenido == "IZQUIERDA"
-            ? "izquierda"
+        posicionContenido == "ARRIBA_IZQUIERDA"
+            ? "arribaIzquierda"
             : posicionContenido == "DERECHA"
             ? "derecha"
             : posicionContenido == "CENTRO"
@@ -20,6 +20,19 @@
             : posicionContenido == "ABAJO"
             ? "abajo"
             : "";
+
+// POSICIONES
+// ARRIBA_IZQUIERDA
+// ARRIBA_DERECHA
+// ABAJO_IZQUIERDA
+// ABAJO_DERECHA
+// ABAJO_CENTRO
+// IZQUIERDA_CENTRO
+// IZQUIERDA_ARRIBA
+// IZQUIERDA_ABAJO
+// DERECHA_ABAJO
+// DERECHA_CENTRO
+// DERECHA_ARRIBA
 </script>
 
 <section class="{clases} GloboInformacionPrueba">
@@ -41,8 +54,9 @@
     .GloboInformacionPrueba :global(.ListaComponentes ul) {
         width: 100%;
     }
-    .izquierda :global(.UsuariosLista ul) {
+    .arribaIzquierda :global(.UsuariosLista ul) {
         align-items: flex-start !important;
+        justify-content: flex-start;
     }
     .derecha :global(.UsuariosLista ul) {
         align-items: flex-end !important;

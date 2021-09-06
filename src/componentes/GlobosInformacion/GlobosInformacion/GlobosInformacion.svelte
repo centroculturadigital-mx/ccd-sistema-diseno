@@ -5,9 +5,7 @@
     export let globos;
     export let fondoMostrar;
     export let estado;
-    export let globoInstancia;
-
-    $: console.log("desde globosinfromacion", globoInstancia)
+    export let inicializarGlobo;
 
 </script>
 
@@ -21,6 +19,7 @@
             texto={globo.texto}
             posicionFlecha={globo.posicionFlecha}
             coordenadas={globo.coordenadas}
+            inicializar={inicializarGlobo}
         />
 
         {#if Array.isArray(globos)}
@@ -29,6 +28,7 @@
                     texto={globo.texto}
                     posicionFlecha={globo.posicionFlecha}
                     coordenadas={globo.coordenadas}
+                    inicializar={inicializarGlobo}
                 />
             {/each}
         {/if}
@@ -47,10 +47,7 @@
         width: 100%;
         z-index: 1;
     }
-    .GlobosInformacion :global(.GloboInformacion) {
-        visibility: visible;
-        /* visibility: hidden; */
-    }
+
     .fondo {
         position: absolute;
         top: 0;

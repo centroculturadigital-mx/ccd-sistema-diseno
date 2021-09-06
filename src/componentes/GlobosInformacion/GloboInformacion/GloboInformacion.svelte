@@ -1,9 +1,14 @@
 <script>
+    import { onMount } from "svelte";
+
     import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
     export let texto;
     export let posicionFlecha;
     export let coordenadas;
+    export let inicializar;
+
+    let elemento;
 
     $: posicionTipo =
         posicionFlecha === "ARRIBA_CENTRO"
@@ -39,13 +44,19 @@
             style: `top: ${coordenadas.y}px;left: ${coordenadas.x}px;`,
         };
     }
-    export let globoInstancia = (e) => {
-        console.log("GLOBO", e);
-    }
 
+    onMount(() => {
+        
+        if (typeof inicializar == 'function') {
+            
+            inicializar(elemento);
+        
+        }
+    
+    });
 </script>
 
-<div class="{posicionTipo} GloboInformacion" {...estilos} bind:this={globoInstancia}>
+<div class="{posicionTipo} GloboInformacion" {...estilos} bind:this={elemento}>
     <Texto {texto} />
 </div>
 

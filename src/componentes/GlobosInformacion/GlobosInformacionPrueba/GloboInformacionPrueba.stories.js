@@ -5,6 +5,21 @@ import UsuariosLista from "../../Usuarios/UsuariosLista/UsuariosLista";
 import usuario from "../../../data/usuario";
 
 export default { title: 'Componentes/GlobosInformación/GloboInformacionPrueba' }
+export const globoInformacionPruebaElementoArribaIzquierda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            posicionContenido: "ARRIBA_IZQUIERDA"//Posicion del documento prueba
+            
+        }
+    },
+});
 
 export const globoInformacionPruebaElementoAlCentro = () => ({
     Component: ThemeTester,
@@ -17,21 +32,6 @@ export const globoInformacionPruebaElementoAlCentro = () => ({
                 apariencia: "VERTICAL",
             },
             posicionContenido: "CENTRO"// Debug
-            
-        }
-    },
-});
-export const globoInformacionPruebaElementoALaIzquierda = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: GloboInformacionPrueba,
-        datos: {
-            componente: UsuariosLista,
-            datos: {
-                usuarios: [usuario],
-                apariencia: "VERTICAL",
-            },
-            posicionContenido: "IZQUIERDA"// Debug
             
         }
     },

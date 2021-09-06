@@ -12,14 +12,19 @@
     let posicionFlecha;
     let elementoX;
     let elementoY;
-    
+    let elementoGloboAlto;
+    let elementoGloboAncho;
+
+    const inicializarGlobo = (elemento) => {
+        elementoGloboAncho = elemento.getBoundingClientRect().width
+        elementoGloboAlto = elemento.getBoundingClientRect().height
+    };
+
     const mostrarGlobo = (evento, texto) => {
         let elemento = evento.target.getBoundingClientRect();
-        
+
         calcularPosicion(elemento);
 
-        console.log("Globox::: ", document.querySelector(".GloboInformacion"));
-        
         if (evento && texto) {
             globo = {
                 texto: texto,
@@ -29,6 +34,7 @@
                 },
                 posicionFlecha,
             };
+
             estado = true;
         }
     };
@@ -36,46 +42,44 @@
     const retirarGlobo = () => {
         globo = null;
         estado = false;
-        // console.log("Retirar");
     };
 
-    // TODO: calcular posicion de globo de manera adecuada
-    // TODO: traer el valor de ancho del globo para el calculo
     const calcularPosicion = (elemento) => {
         let ventanaAncho = window.innerWidth;
         let ventanaAlto = window.innerHeight;
         let tamannoX = elemento.width;
         let tamannoY = elemento.height;
 
-        if (elemento.right > (ventanaAncho * 0.5)) {//globo a laizquierda
+        inicializarGlobo
 
-            elementoX = elemento.right - tamannoX * 5; //cambiar por el ancho del globo
+        if (elemento.left <= ventanaAncho / 2) {
+            //elemento izquierda arriba, globo a la derecha
+            elementoX = elemento.left + tamannoX
             elementoY = elemento.top;
+            posicionFlecha = "IZQUIERDA_CENTRO";
+            console.log("elemento está a la izquierda Arriba");
+        }
+
+        if (elemento.right > ventanaAncho * 0.5) {
+            //elemento a la derecha, globo a la izquierda
+            elementoX = elemento.right - (elementoGloboAncho + tamannoX)
+            elementoY = elemento.top - (elementoGloboAlto - tamannoY)
             posicionFlecha = "DERECHA_CENTRO";
             console.log("elemento está a la derecha");
         }
-
-        if (elemento.left <= (ventanaAncho / 2)) {
-
-            elementoX = elemento.left + tamannoX;
-            elementoY = elemento.top;
-            posicionFlecha = "IZQUIERDA_CENTRO";
-            console.log("elemento está a la izquierda");
-        }
-        if (elemento.top <= (ventanaAlto * 0.5)) {
-
-            elementoX = elemento.left - tamannoX;//necesita valor de globo
-            elementoY = elemento.top + tamannoY;
-            posicionFlecha = "ARRIBA_CENTRO";
-            console.log("elemento está arriba");
-        }
-        if (elemento.top > (ventanaAlto / 2)) {
-
-            elementoX = elemento.left - tamannoX;//necesita dividir entre el tamanno de globo
-            elementoY = elemento.top - tamannoY;
-            posicionFlecha = "ABAJO_CENTRO";
-            console.log("elemento está a abajo");
-        }
+        
+        // if (elemento.top <= ventanaAlto * 0.5) {
+        //     elementoX = elemento.left - tamannoX; //necesita valor de globo
+        //     elementoY = elemento.top + tamannoY;
+        //     posicionFlecha = "ARRIBA_CENTRO";
+        //     console.log("elemento está arriba");
+        // }
+        // if (elemento.top > ventanaAlto / 2) {
+        //     elementoX = elemento.left - tamannoX; //necesita dividir entre el tamanno de globo
+        //     elementoY = elemento.top - tamannoY;
+        //     posicionFlecha = "ABAJO_CENTRO";
+        //     console.log("elemento está a abajo");
+        // }
     };
 
     const datosPreparados = {
@@ -86,7 +90,7 @@
 </script>
 
 <section class="GlobosInformacionContexto">
-    <GlobosInformacion {globo} {estado} />
+    <GlobosInformacion {globo} {estado} {inicializarGlobo} />
 
     <svelte:component this={componente} {...datosPreparados} />
 </section>
@@ -100,5 +104,4 @@
         width: 100%;
         z-index: 1;
     }
-
 </style>
