@@ -15,7 +15,7 @@
       cerrar();
     }
   };
-  $: console.log("modalxxx", cerrarBoton);
+
 </script>
 
 {#if !!estado}
