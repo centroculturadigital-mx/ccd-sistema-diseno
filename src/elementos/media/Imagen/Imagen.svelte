@@ -5,11 +5,11 @@
 
   export let imagen;
   export let tamannos;
-  export let maximizar;
+  export let alt;
   export let nombre;
   export let descripcion;
   export let descripcionPosicion;
-  export let alt;
+  export let maximizar;
 
   export let estilos = {
     ajuste: "",
@@ -19,7 +19,7 @@
 
   $: clases = estilos.altura ? "width-auto" : "";
 
-  let cargar = false;
+  let cargar = false; //cambiar nombres variable por funcion (cargado)
   let imagenElemento;
   let contenedor;
 
@@ -64,17 +64,18 @@
         srcset="{tamannos.xs.x1} 1x, {tamannos.xs.x2} 2x, {tamannos.xs.x3} 3x"
         {alt}
         on:load={cargando}
+        style="object-fit:{estilos.ajuste};object-position:{estilos.alineacion};height:{estilos.altura}"
       />
     </picture>
   {/if}
 
   {#if cargar}
-    {#if nombre || descripcion}
-      <div class="descripcion {descripcionPosicion ? 'afuera' : ''}">
-        <Texto texto={nombre} />
+    <div class="descripcion {descripcionPosicion ? 'afuera' : ''}">
+      {#if nombre || descripcion}
         <Parrafo texto={descripcion} />
-      </div>
-    {/if}
+        <Texto texto={nombre} />
+      {/if}
+    </div>
     {#if maximizar}
       <div class="maximizar" on:click={maximizar}>
         <Icono icono={"maximizar"} />
@@ -101,6 +102,8 @@
   }
   picture {
     position: relative;
+    height: 100%;
+    width: 100%;
     z-index: 1;
   }
   picture img {
@@ -135,7 +138,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* height: 50%; */
     width: 100%;
     /* gradiente */
     background: transparent;

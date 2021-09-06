@@ -248,12 +248,11 @@
     position: relative;
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
     min-width: 15rem;
     min-height: 15rem;
   }
 .fondo {
-  background-color: rgba(0,0,0,0.25);
+  background-color: rgba(0,0,0,0.75);
   position: absolute;
   top: 0;
   left: 0;
@@ -262,12 +261,11 @@
   z-index: 0;
 }
   .ventana {
-    box-sizing: border-box;
-    width: calc(100% - 4rem);
     margin-left: 2rem;
     height: 100%;
     display: block;
     overflow: hidden;
+    width: calc(100% - 4rem);
   }
 
   .elementos {
@@ -286,7 +284,6 @@
   }
   .elementos,
   .elemento {
-    box-sizing: border-box;
     transition: transform 0.4s ease-in-out;
   }
 
@@ -304,10 +301,6 @@
     opacity: 0.7;
   }
 
-  .elemento:last-child {
-    margin-right: 0 !important;
-  }
-
   :global(.Carrusel .elemento > *) {
     max-width: 100% !important;
     max-height: 100% !important;
@@ -315,24 +308,19 @@
   }
 
   .elementosBotones {
-    width: 100%;
-    /* position: absolute; */
-    /* bottom: 0.66rem;
-    left: 0; 
-    right: 0;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 1rem; */
-    margin: 0;
     padding: 0.25rem 0;
+    margin: 0;
+    width: 100%;
   }
   .elementosBotones li {
     list-style: none;
     height: 0.75rem;
     width: 0.75rem;
     margin: 0.15rem;
-    box-sizing: border-box;
+    opacity: 0.6;
   }
 
   .elementosBotones li button {
@@ -365,10 +353,11 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    opacity: 0.6;
     cursor: pointer;
   }
   .boton-flecha:hover {
-    opacity: 0.75;
+    opacity: 0.9;
   }
 
   .boton-flecha :global(svg) {
@@ -382,10 +371,10 @@
   }
 
   .boton-anterior {
-    right: calc(100% - 2.25rem);
+    right: calc(100% - 2.5rem);
   }
   .boton-siguiente {
-    right: 0.25rem;
+    right: 0.5rem;
   }
 
   .Carrusel.vertical .elementosBotones {
