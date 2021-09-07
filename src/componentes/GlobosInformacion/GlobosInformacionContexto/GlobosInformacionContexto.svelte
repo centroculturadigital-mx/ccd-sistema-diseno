@@ -52,12 +52,14 @@
 
         inicializarGlobo
 
+        console.log("GLBX", elemento, (tamannoY / 2) - (elemento.height / 2));
+
         if (elemento.left <= ventanaAncho / 2) {
             //elemento izquierda arriba, globo a la derecha
-            elementoX = elemento.left + tamannoX
-            elementoY = elemento.top;
             posicionFlecha = "IZQUIERDA_CENTRO";
-            console.log("elemento está a la izquierda Arriba");
+            elementoX = elemento.left + (tamannoX + 7)// 7 es el desface de la flecha
+            elementoY = elemento.top + ((tamannoY / 2) - (elementoGloboAlto / 2))// centra verticalmente
+            // console.log("elemento está a la izquierda Arriba");
         }
 
         if (elemento.right > ventanaAncho * 0.5) {
