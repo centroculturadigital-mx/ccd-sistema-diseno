@@ -73,6 +73,7 @@
 
         
     }
+    
     const escalar = (w,h) => {
 
         let wFinal = w;
