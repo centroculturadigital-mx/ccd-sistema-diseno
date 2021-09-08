@@ -20,8 +20,8 @@
         const beforePan = function(oldPan, newPan){
           var stopHorizontal = false
             , stopVertical = false
-            , gutterWidth = 100
-            , gutterHeight = 100
+            , gutterWidth = svgCargado.clientWidth
+            , gutterHeight = svgCargado.clientHeight
               // Computed variables
             , sizes = this.getSizes()
             , leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth
@@ -41,7 +41,6 @@
             contain: true,
             controlIconsEnabled: mostrarControles,
             beforePan,
-            eventsListenerElement: svgCargado.querySelector('path')
         })
 
 
