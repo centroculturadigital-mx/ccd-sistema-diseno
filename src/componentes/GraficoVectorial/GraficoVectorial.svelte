@@ -11,8 +11,24 @@
 
     let svgZoomeable
 
+    let clases = ""
+
+    const hacerClicSvg = e => {
+
+        clases = "clicado"
+
+    }
+    
+    const soltarClicSvg = e => {
+
+        clases = ""
+
+    }
+
     onMount(async () => {
+
         const module = await import("svg-pan-zoom");
+        
         svgPanZoom = module.default;
 
         const svgCargado = document.querySelector(".GraficoVectorial svg")
@@ -48,6 +64,10 @@
 
 
         svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => console.log(e.target) ))
+        
+        
+        svgCargado.addEventListener("mousedown", hacerClicSvg )
+        svgCargado.addEventListener("mouseup", soltarClicSvg )
 
 
     });
@@ -60,7 +80,7 @@
 
 
 {#if svg}
-    <div class="GraficoVectorial">
+    <div class={ `GraficoVectorial${ clases != "" ? ` ${clases}` : "" }`}>
         {@html svg }
     </div>
 {/if}
@@ -77,4 +97,23 @@
         justify-content: center;
         border: 1px solid #000;
     }
+
+    .GraficoVectorial :global(svg) {
+        cursor: move;
+        cursor: url('https://www.google.com/intl/en_ALL/mapfiles/openhand.cur'), all-scroll;
+        cursor: grab;
+        cursor: -webkit-grab;
+        cursor: -moz-grab;
+        cursor: grab;
+    }
+
+    .GraficoVectorial.clicado :global(svg) {
+        cursor: move;
+        cursor: url('https://www.google.com/intl/en_ALL/mapfiles/closedhand.cur'), all-scroll;
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+        cursor: -moz-grabbing;
+        cursor: grabbing;
+    }
+
 </style>
