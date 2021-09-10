@@ -5,7 +5,7 @@
     export let mostrarControles = true
     export let svg
     export let actualizarPanZoom
-    export let atributoPaths = "id"
+    export let seleccionarPath
 
     let panZoom;
 
@@ -39,6 +39,16 @@
                 pan: svgZoomeable.getPan(),
                 zoom: svgZoomeable.getZoom(),
             })
+
+        }
+
+    }
+
+    const seleccionarPathAccion = ( path ) => {
+
+        if( typeof seleccionarPath == "function" ) {
+
+            seleccionarPath( path )
 
         }
 
@@ -83,7 +93,7 @@
         svgZoomeable.setOnPan( actualizarPanZoomAccion );
 
 
-        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => console.log(e.target.getAttribute( atributoPaths )) ))
+        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => seleccionarPathAccion(e.target) ))
         
         
         svgCargado.addEventListener("mousedown", hacerClicSvg )

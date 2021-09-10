@@ -3,14 +3,28 @@
     import GraficoVectorial from "../GraficoVectorial.svelte"
 
     export let svg
+    export let actualizarPanZoom
+    export let seleccionarPath
+    export let componentes
 
-    const actualizarPanZoom = datos => {
-
-        console.log("actualizarPanZoom", datos);
-
+    $: propiedades = {
+        svg,
+        actualizarPanZoom,
+        seleccionarPath,
     }
+
+    $: componentesMostrar = Array.isArray( componentes ) ? componentes : []
 
 </script>
 
 
-<GraficoVectorial {svg} {actualizarPanZoom}/>
+<GraficoVectorial {...propiedades}/>
+
+
+{#each componentesMostrar as componente (componente) }
+    {#if typeof componente.datos === "object"  }
+
+        <svelte:component this={ componente.componente } {...componente.datos}/>
+
+    {/if}
+{/each}
