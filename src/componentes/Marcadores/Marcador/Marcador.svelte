@@ -2,7 +2,7 @@
     
     export let clicar
     export let contenido
-    export let css = {}
+    export let css = ""
 
     const clicarAccion = () => {
         if( typeof clicar == "function" ) {
