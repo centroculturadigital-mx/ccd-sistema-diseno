@@ -26,7 +26,7 @@ export const graficoVectorialContexto = () => ({
         componente: GraficoVectorialContexto,
         datos:{
             svg: mapa_mexico,
-            actualizarPanZoom: datos => console.log("actualizarPanZoom", datos),
+            actualizarGraficoVectorial: datos => console.log("actualizarGraficoVectorial", datos),
             seleccionarPath: path => console.log("seleccionarPath", path.getAttribute("id") ),
         }
     },

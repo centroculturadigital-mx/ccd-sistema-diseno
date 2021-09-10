@@ -5,15 +5,21 @@
 
     export let svg
 
-    const actualizarPanZoom = datos => console.log("actualizarPanZoom", datos)
+    const actualizarGraficoVectorial = datos => console.log("actualizarGraficoVectorial", datos)
     const seleccionarPath = path => console.log("seleccionarPath", path.getAttribute("id") )
 
+
+    let marcadores = [
+        {
+            contenido: "hola!"
+        }
+    ]
 
     let componentes = [
         {
             componente: GraficoVectorialMarcadores,
             datos: {
-                marcadores: [ "holi" ]
+                marcadores
             }
         }
     ]
@@ -21,7 +27,7 @@
 
     $: propiedades = {
         svg,
-        actualizarPanZoom,
+        actualizarGraficoVectorial,
         seleccionarPath,
         componentes
     }
@@ -31,3 +37,13 @@
 
 
 <GraficoVectorialContexto {...propiedades}/>
+
+
+<style>
+
+    :global(.GraficoVectorialContexto) {
+        width: 80vw !important;
+        height: 80vh !important;
+    }
+
+</style>

@@ -4,7 +4,7 @@
 
     export let mostrarControles = true
     export let svg
-    export let actualizarPanZoom
+    export let actualizarGraficoVectorial
     export let seleccionarPath
 
     let panZoom;
@@ -26,16 +26,16 @@
 
         clases = ""
 
-        actualizarPanZoomAccion()
+        actualizarGraficoVectorialAccion()
 
     }
 
 
-    const actualizarPanZoomAccion = () => {
+    const actualizarGraficoVectorialAccion = () => {
 
-        if( typeof actualizarPanZoom == "function" ) {
+        if( typeof actualizarGraficoVectorial == "function" ) {
 
-            actualizarPanZoom({
+            actualizarGraficoVectorial({
                 pan: svgZoomeable.getPan(),
                 zoom: svgZoomeable.getZoom(),
             })
@@ -90,7 +90,7 @@
         })
 
 
-        svgZoomeable.setOnPan( actualizarPanZoomAccion );
+        svgZoomeable.setOnPan( actualizarGraficoVectorialAccion );
 
 
         svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => seleccionarPathAccion(e.target) ))
