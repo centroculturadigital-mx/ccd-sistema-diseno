@@ -4,6 +4,8 @@
 
     export let mostrarControles = true
     export let svg
+    export let actualizarPanZoom
+    export let atributoPaths = "id"
 
     let panZoom;
 
@@ -17,11 +19,28 @@
 
         clases = "clicado"
 
+
     }
     
     const soltarClicSvg = e => {
 
         clases = ""
+
+        actualizarPanZoomAccion()
+
+    }
+
+
+    const actualizarPanZoomAccion = () => {
+
+        if( typeof actualizarPanZoom == "function" ) {
+
+            actualizarPanZoom({
+                pan: svgZoomeable.getPan(),
+                zoom: svgZoomeable.getZoom(),
+            })
+
+        }
 
     }
 
@@ -50,6 +69,7 @@
           customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
 
           return customPan
+
         }
 
 
@@ -60,10 +80,10 @@
         })
 
 
-        svgZoomeable.setOnPan( ( punto ) => console.log("punto", punto) );
+        svgZoomeable.setOnPan( actualizarPanZoomAccion );
 
 
-        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => console.log(e.target) ))
+        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => console.log(e.target.getAttribute( atributoPaths )) ))
         
         
         svgCargado.addEventListener("mousedown", hacerClicSvg )
