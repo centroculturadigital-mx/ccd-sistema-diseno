@@ -28,15 +28,28 @@
         },
     ]
 
+    let contenedor
 
     let graficoPosicion
+
+    let marcadoresMostrar = []
     
+
     graficoPosicion = {
         x: 0,
         y: 0,
     }
 
-    const computarCss = marcador => {
+    const computarCss = (marcador, { pan, zoom }) => {
+
+        console.log("pan", pan);
+        console.log("zoom", zoom);
+        
+        if( ! zoom ) zoom = 1
+        if( ! pan ) pan = {
+            x: 0,
+            y: 0,
+        }
 
         const paths = Array.from( contenedor.querySelectorAll(".GraficoVectorialMarcadores svg path") )
 
@@ -48,13 +61,11 @@
 
                 const cajaPath = path.getBoundingClientRect();
                 
-                
-                
                 return `
-                    left: ${cajaPath.x - graficoPosicion.x}px;
-                    top: ${cajaPath.y - graficoPosicion.y}px;
-                    width: ${parseInt(cajaPath.width)}px;
-                    height: ${parseInt(cajaPath.height)}px;
+                    left: ${(cajaPath.x - graficoPosicion.x + pan.x) * zoom }px;
+                    top: ${(cajaPath.y - graficoPosicion.y + pan.y) * zoom }px;
+                    width: ${(parseInt(cajaPath.width)) * zoom}px;
+                    height: ${(parseInt(cajaPath.height)) * zoom}px;
                 `
                 
             }
@@ -65,26 +76,35 @@
 
     }
 
-    const computarMarcadores = (contenedor) => {
-        if( contenedor ) {
+    const computarMarcadores = ( datos ) => {
 
-            return marcadores.map( m => ({
-                ...m,
-                css: computarCss( m )
-            }))
+        return marcadores.map( m => ({
+            ...m,
+            css: computarCss( m, datos )
+        }))
 
-        }
-        
-        return []
     }
 
-    $: marcadoresMostrar = computarMarcadores( contenedor )
+
+    const actualizarMarcadores = datos => {
+        
+        marcadoresMostrar = computarMarcadores( datos )
+
+    }
 
 
-    const actualizarGraficoVectorial = datos => console.log("actualizarGraficoVectorial", datos)
+    const actualizarGraficoVectorial = datos => {
+
+        actualizarMarcadores( datos )
+
+    }
+    
     const seleccionarPath = path => console.log("seleccionarPath", path.getAttribute("id") )
 
-    let contenedor
+
+    $: contenedor && actualizarMarcadores({})
+
+    
 
     $: componentes = [
         {

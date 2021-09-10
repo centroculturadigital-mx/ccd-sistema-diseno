@@ -86,11 +86,12 @@
         svgZoomeable = svgPanZoom( svgCargado, {
             contain: true,
             controlIconsEnabled: mostrarControles,
-            beforePan,
+            // beforePan,
         })
 
 
         svgZoomeable.setOnPan( actualizarGraficoVectorialAccion );
+        svgZoomeable.setOnZoom( actualizarGraficoVectorialAccion );
 
 
         svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => seleccionarPathAccion(e.target) ))
