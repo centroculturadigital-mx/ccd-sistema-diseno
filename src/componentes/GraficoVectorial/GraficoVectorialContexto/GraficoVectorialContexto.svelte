@@ -40,6 +40,8 @@
         height: 100%;
         min-width: 50vw;
         min-height: 50vh;
+        pointer-events: none !important;
+
     }
 
     .GraficoVectorialContexto :global(.GraficoVectorial) {

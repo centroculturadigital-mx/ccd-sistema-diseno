@@ -126,6 +126,9 @@
         align-items: center;
         justify-content: center;
         border: 1px solid #000;
+
+        pointer-events: all;
+
     }
 
     .GraficoVectorial :global(svg) {
