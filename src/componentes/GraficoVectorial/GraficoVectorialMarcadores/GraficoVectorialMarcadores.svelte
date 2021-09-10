@@ -6,38 +6,61 @@
     export let svg
     export let marcadores = [
         {
-            contenido: "hola!",
-            path: "Veracruz"
-            // css: `
-            //   left: ${caja.x - mapa.x}px;
-            //   top: ${caja.y - mapa.y}px;
-            //   width: ${parseInt(caja.width)}px;
-            //   height: ${parseInt(caja.height)}px;
-            // `
-
-        }
+            contenido: "Veracruz",
+            path: {
+                atributo: "id",
+                valor: "Veracruz"
+            }
+        },
+        {
+            contenido: "Chiapas",
+            path: {
+                atributo: "id",
+                valor: "Chiapas"
+            }
+        },
+        {
+            contenido: "Chihuahua",
+            path: {
+                atributo: "id",
+                valor: "Chihuahua"
+            }
+        },
     ]
+
+
+    let graficoPosicion
+    
+    graficoPosicion = {
+        x: 0,
+        y: 0,
+    }
 
     const computarCss = marcador => {
 
         const paths = Array.from( contenedor.querySelectorAll(".GraficoVectorialMarcadores svg path") )
 
-        console.log("paths", paths);
-
         if( Array.isArray(paths) ) {
 
-            const path = paths.find( p => p.getAttribute("id") == marcador.path )
+            const path = paths.find( p => p.getAttribute(marcador.path.atributo) === marcador.path.valor )
 
-            console.log( "path", path );
+            if( path ) {
 
+                const cajaPath = path.getBoundingClientRect();
+                
+                
+                
+                return `
+                    left: ${cajaPath.x - graficoPosicion.x}px;
+                    top: ${cajaPath.y - graficoPosicion.y}px;
+                    width: ${parseInt(cajaPath.width)}px;
+                    height: ${parseInt(cajaPath.height)}px;
+                `
+                
+            }
 
-            return `
-              left: ${100}px;
-              top: ${100}px;
-              width: ${100}px;
-              height: ${100}px;
-            `
-
+            return ""
+            
         }
 
     }
@@ -57,16 +80,17 @@
 
     $: marcadoresMostrar = computarMarcadores( contenedor )
 
+
     const actualizarGraficoVectorial = datos => console.log("actualizarGraficoVectorial", datos)
     const seleccionarPath = path => console.log("seleccionarPath", path.getAttribute("id") )
 
     let contenedor
 
-    let componentes = [
+    $: componentes = [
         {
             componente: Marcadores,
             datos: {
-                marcadores
+                marcadores: marcadoresMostrar
             }
         }
     ]
@@ -95,6 +119,7 @@
     .GraficoVectorialMarcadores :global(.GraficoVectorialContexto) {
         width: 100%;
         height: 100%;
+        pointer-events: none;
     }
 
 </style>
