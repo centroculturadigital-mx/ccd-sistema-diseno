@@ -100,6 +100,8 @@
         svgCargado.addEventListener("mousedown", hacerClicSvg )
         svgCargado.addEventListener("mouseup", soltarClicSvg )
 
+        actualizarGraficoVectorialAccion()
+
 
     });
 
@@ -120,9 +122,14 @@
 
 <style>
 
-    .GraficoVectorial {
+    /* .GraficoVectorial { */
+    .GraficoVectorial,
+    .GraficoVectorial :global( svg ) {
         width: 100%;
         height: 100%;
+    }
+
+    .GraficoVectorial {
         display: flex;
         align-items: center;
         justify-content: center;
