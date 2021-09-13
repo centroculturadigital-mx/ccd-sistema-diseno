@@ -1,5 +1,7 @@
 <script>
 
+    import { onMount } from "svelte"
+
     import GraficoVectorialContexto from "../GraficoVectorialContexto/GraficoVectorialContexto.svelte";
     import Marcadores from "../../Marcadores/Marcadores.svelte";
 
@@ -42,7 +44,11 @@
     let pathsDentro
     
     const actualizarPathsDentro = () => {
-        pathsDentro = paths.filter( filtrarDentro )
+        const mapa = contenedor.querySelector(".GraficoVectorialMarcadores svg")
+
+        const mapaCaja = mapa.getBoundingClientRect()
+
+        pathsDentro = paths.filter( p => filtrarDentro( p, mapaCaja ) )
     }
 
 
@@ -53,20 +59,15 @@
 
 
 
-    const filtrarDentro = path => {
+    const filtrarDentro = (path, mapaCaja) => {
         
-
-        const mapa = contenedor.querySelector(".GraficoVectorialMarcadores svg")
-
-        const mapaCaja = mapa.getBoundingClientRect()
-
         const caja = path.getBoundingClientRect();
 
         const dentro =
-            caja.x > mapaCaja.x &&
-            caja.x < mapaCaja.x + mapaCaja.width &&
-            caja.y > mapaCaja.y &&
-            caja.y < mapaCaja.y + mapaCaja.height;
+            (caja.x - caja.width/2) > mapaCaja.x &&
+            (caja.x - caja.width/2) < mapaCaja.x + mapaCaja.width &&
+            (caja.y + caja.height/2) > mapaCaja.y &&
+            (caja.y + caja.height/2) < mapaCaja.y + mapaCaja.height;
             
         return dentro;
 
@@ -133,6 +134,7 @@
 
     const actualizarMarcadores = datos => {
         
+        console.log("actualizarMarcadores");
         actualizarPathsDentro()
 
         marcadoresMostrar = computarMarcadores( datos )
@@ -171,6 +173,8 @@
     }
 
 
+
+
 </script>
 
 <div class="GraficoVectorialMarcadores" bind:this={contenedor}>
@@ -187,6 +191,8 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
+
+        margin-top: 10px;
     }
 
 </style>
