@@ -49,39 +49,66 @@
         let ventanaAlto = window.innerHeight;
         let tamannoX = elemento.width;
         let tamannoY = elemento.height;
+        let tamannoFlecha = 8
+
+        // let cuadranteIzquierdo = elemento.left <= ventanaAncho / 2 //mitad pantalla
+        // let cuadranteDerecho = elemento.right > ventanaAncho * 0.5 // mitad pantalla
+        let cuadranteIzquierdo = elemento.right < (elementoGloboAncho + tamannoFlecha) 
+        let cuadranteDerecho = elemento.right > (elementoGloboAncho + tamannoFlecha)
+        let cuadranteArriba = elemento.top < (elementoGloboAlto + tamannoFlecha)
+        let cuadranteAbajo = elemento.bottom > (elementoGloboAlto + tamannoFlecha)
 
         inicializarGlobo
 
-        console.log("GLBX", elemento, (tamannoY / 2) - (elemento.height / 2));
-
-        if (elemento.left <= ventanaAncho / 2) {
-            //elemento izquierda arriba, globo a la derecha
-            posicionFlecha = "IZQUIERDA_CENTRO";
-            elementoX = elemento.left + (tamannoX + 7)// 7 es el desface de la flecha
+        if (cuadranteIzquierdo) {
+            //elemento izquierda centro, globo a la derecha
+            elementoX = 200
             elementoY = elemento.top + ((tamannoY / 2) - (elementoGloboAlto / 2))// centra verticalmente
-            // console.log("elemento está a la izquierda Arriba");
-        }
-
-        if (elemento.right > ventanaAncho * 0.5) {
-            //elemento a la derecha, globo a la izquierda
-            elementoX = elemento.right - (elementoGloboAncho + tamannoX)
-            elementoY = elemento.top - (elementoGloboAlto - tamannoY)
-            posicionFlecha = "DERECHA_CENTRO";
-            console.log("elemento está a la derecha");
+            posicionFlecha = "IZQUIERDA_CENTRO";
+            console.log("Elemento izquierda - globo a la derecha", posicionFlecha, cuadranteIzquierdo)
+            
         }
         
-        // if (elemento.top <= ventanaAlto * 0.5) {
-        //     elementoX = elemento.left - tamannoX; //necesita valor de globo
-        //     elementoY = elemento.top + tamannoY;
-        //     posicionFlecha = "ARRIBA_CENTRO";
-        //     console.log("elemento está arriba");
+        if (cuadranteDerecho) {
+            //elemento a la derecha centro, globo a la izquierda
+            elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha))
+            elementoY = elemento.top + ((tamannoY / 2) - (elementoGloboAlto / 2))
+            posicionFlecha = "DERECHA_CENTRO";
+        }
+        
+        // if (elemento.top < tamannoY) {
+            if (cuadranteArriba) {
+                //elemento al centro arriba, globo abajo
+                elementoX = elemento.right + ((tamannoX * 1.5) + elementoGloboAlto)
+                elementoY = elemento.top +  (elementoGloboAlto + tamannoFlecha)
+                posicionFlecha = "ABAJO_CENTRO";
+                console.log("Elemento arrriba - globo a la abajo", cuadranteArriba,posicionFlecha)
+            }
+
+        // if (elemento.bottom > (ventanaAlto - tamannoY)) {
+        if (cuadranteAbajo) {
+            //elemento al centro abajo, globo abajo
+            elementoX = elemento.right - ((tamannoX * 1.5) + elementoGloboAlto)
+            elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha)
+            posicionFlecha = "ABAJO_CENTRO";
+        }
+        
+        // if (elemento.top < tamannoY && cuadranteIzquierdo) {
+        if (cuadranteArriba && cuadranteIzquierdo) {
+            //elemento a la izquierda arriba, globo abajo derecha
+            elementoX = elemento.left - ((tamannoX / 2) - elementoGloboAlto);
+            elementoY = elemento.top + (tamannoY + tamannoFlecha);
+            posicionFlecha = "ARRIBA_IZQUIERDA";
+        }
+
+        // // if (elemento.top < tamannoY && cuadranteDerecho) {
+        // if (cuadranteArriba && cuadranteDerecho) {
+        //     //elemento a la derecha arriba, globo abajo izquierda
+        //     elementoX = elemento.right - ((tamannoX / 2) - elementoGloboAlto);
+        //     elementoY = elemento.top + (tamannoY + tamannoFlecha);
+        //     posicionFlecha = "ARRIBA_IZQUIERDA";
         // }
-        // if (elemento.top > ventanaAlto / 2) {
-        //     elementoX = elemento.left - tamannoX; //necesita dividir entre el tamanno de globo
-        //     elementoY = elemento.top - tamannoY;
-        //     posicionFlecha = "ABAJO_CENTRO";
-        //     console.log("elemento está a abajo");
-        // }
+
     };
 
     const datosPreparados = {

@@ -5,7 +5,8 @@ import UsuariosLista from "../../Usuarios/UsuariosLista/UsuariosLista";
 import usuario from "../../../data/usuario";
 
 export default { title: 'Componentes/GlobosInformación/GloboInformacionPrueba' }
-export const globoInformacionPruebaElementoArribaIzquierda = () => ({
+
+export const globoInformacionPruebaElementoIzquierda = () => ({
     Component: ThemeTester,
     props: {
         componente: GloboInformacionPrueba,
@@ -15,27 +16,12 @@ export const globoInformacionPruebaElementoArribaIzquierda = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "ARRIBA_IZQUIERDA"//Posicion del documento prueba
+            posicionContenido: "CENTRO_IZQUIERDA"//Posicion del documento prueba
             
         }
     },
 });
 
-export const globoInformacionPruebaElementoAlCentro = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: GloboInformacionPrueba,
-        datos: {
-            componente: UsuariosLista,
-            datos: {
-                usuarios: [usuario],
-                apariencia: "VERTICAL",
-            },
-            posicionContenido: "CENTRO"// Debug
-            
-        }
-    },
-});
 export const globoInformacionPruebaElementoALaDerecha = () => ({
     Component: ThemeTester,
     props: {
@@ -46,11 +32,12 @@ export const globoInformacionPruebaElementoALaDerecha = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "DERECHA"// Debug
+            posicionContenido: "CENTRO_DERECHA"// Debug
         }
     },
 });
-export const globoInformacionPruebaElementoArriba = () => ({
+
+export const globoInformacionPruebaElementoArribaCentro = () => ({
     Component: ThemeTester,
     props: {
         componente: GloboInformacionPrueba,
@@ -60,11 +47,12 @@ export const globoInformacionPruebaElementoArriba = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "ARRIBA"
+            posicionContenido: "ARRIBA_CENTRO"// Debug
+            
         }
     },
 });
-export const globoInformacionPruebaElementoAbajo = () => ({
+export const globoInformacionPruebaElementoAbajoCentro = () => ({
     Component: ThemeTester,
     props: {
         componente: GloboInformacionPrueba,
@@ -74,10 +62,54 @@ export const globoInformacionPruebaElementoAbajo = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "ABAJO"
+            posicionContenido: "ABAJO_CENTRO"// Debug
+            
         }
     },
 });
+export const globoInformacionPruebaElementoAbajoCentroArribaIzquierda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            posicionContenido: "ARRIBA_IZQUIERDA"// Debug
+            
+        }
+    },
+});
+// export const globoInformacionPruebaElementoArriba = () => ({
+//     Component: ThemeTester,
+//     props: {
+//         componente: GloboInformacionPrueba,
+//         datos: {
+//             componente: UsuariosLista,
+//             datos: {
+//                 usuarios: [usuario],
+//                 apariencia: "VERTICAL",
+//             },
+//             posicionContenido: "ARRIBA"
+//         }
+//     },
+// });
+// export const globoInformacionPruebaElementoAbajo = () => ({
+//     Component: ThemeTester,
+//     props: {
+//         componente: GloboInformacionPrueba,
+//         datos: {
+//             componente: UsuariosLista,
+//             datos: {
+//                 usuarios: [usuario],
+//                 apariencia: "VERTICAL",
+//             },
+//             posicionContenido: "ABAJO"
+//         }
+//     },
+// });
 // export const globoInformacionPruebaVariosElementosHorizontal = () => ({
 //     Component: ThemeTester,
 //     props: {
