@@ -64,10 +64,10 @@
         const caja = path.getBoundingClientRect();
 
         const dentro =
-            (caja.x - caja.width/2) > mapaCaja.x &&
-            (caja.x - caja.width/2) < mapaCaja.x + mapaCaja.width &&
-            (caja.y + caja.height/2) > mapaCaja.y &&
-            (caja.y + caja.height/2) < mapaCaja.y + mapaCaja.height;
+            ((caja.x + caja.width/2) > mapaCaja.x ) &&
+            ((caja.x - caja.width/2) < mapaCaja.x + mapaCaja.width ) &&
+            ((caja.y + caja.height/2) > mapaCaja.y ) &&
+            ((caja.y - caja.height/2) < mapaCaja.y + mapaCaja.height);
             
         return dentro;
 
@@ -76,8 +76,8 @@
 
     const computarCss = (marcador, { pan, zoom }) => {
 
-        console.log("pan", pan);
-        console.log("zoom", zoom);
+        // console.log("pan", pan);
+        // console.log("zoom", zoom);
         
         if( ! zoom ) zoom = 1
         if( ! pan ) pan = {
@@ -97,13 +97,11 @@
 
                 const cajaPath = path.getBoundingClientRect();
 
-                console.log("cajaPath", cajaPath);
-                
                 return `
-                    left: ${(cajaPath.x - mapaCaja.x ) }px;
-                    top: ${(cajaPath.y - mapaCaja.y ) }px;
-                    width: ${(parseInt(cajaPath.width)) * zoom}px;
-                    height: ${(parseInt(cajaPath.height)) * zoom}px;
+                    left: ${ cajaPath.x - mapaCaja.x }px;
+                    top: ${ cajaPath.y - mapaCaja.y }px;
+                    width: ${ parseInt(cajaPath.width) }px;
+                    height: ${ parseInt(cajaPath.height) }px;
                 `
                 // return `
                 //     left: ${(cajaPath.x - mapaCaja.x - graficoPosicion.x + pan.x) * zoom }px;
