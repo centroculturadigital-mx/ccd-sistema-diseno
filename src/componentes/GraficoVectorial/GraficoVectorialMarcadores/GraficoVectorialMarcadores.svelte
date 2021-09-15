@@ -65,9 +65,9 @@
 
         const dentro =
             ((caja.x + caja.width/2) > mapaCaja.x ) &&
-            ((caja.x - caja.width/2) < mapaCaja.x + mapaCaja.width ) &&
+            ((caja.x + caja.width/2) < mapaCaja.x + mapaCaja.width ) &&
             ((caja.y + caja.height/2) > mapaCaja.y ) &&
-            ((caja.y - caja.height/2) < mapaCaja.y + mapaCaja.height);
+            ((caja.y + caja.height/2) < mapaCaja.y + mapaCaja.height);
             
         return dentro;
 
