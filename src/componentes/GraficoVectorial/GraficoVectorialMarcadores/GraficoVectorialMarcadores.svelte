@@ -129,7 +129,31 @@
 
     }
     
-    const seleccionarPath = path => console.log("seleccionarPath", path.getAttribute("id") )
+    const seleccionarPath = (path, svgZoomeable) => {
+        
+        
+        svgZoomeable.resetZoom();
+        svgZoomeable.resetPan();
+        
+
+        if( marcadores.find(m=>m.contenido===path.getAttribute(m.path.atributo))) {
+        
+            const bb=path.getBBox();
+            const vbb=svgZoomeable.getSizes().viewBox;
+            const x=vbb.width/2-bb.x-bb.width/2;
+            const y=vbb.height/2-bb.y-bb.height/2;
+            const rz=svgZoomeable.getSizes().realZoom;
+            
+            const zoom=(vbb.height/bb.height) / 1.618;
+
+            svgZoomeable.panBy({x:x*rz,y:y*rz});
+            
+            svgZoomeable.zoom(zoom);
+                
+
+        }
+
+    } 
 
 
     $: contenedor && actualizarMarcadores({})
@@ -172,8 +196,6 @@
         width: 100%;
         height: 100%;
         pointer-events: none;
-
-        margin-top: 10px;
     }
 
 </style>

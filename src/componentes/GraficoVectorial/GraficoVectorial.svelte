@@ -48,7 +48,7 @@
 
         if( typeof seleccionarPath == "function" ) {
 
-            seleccionarPath( path )
+            seleccionarPath( path, svgZoomeable )
 
         }
 
@@ -94,7 +94,7 @@
         svgZoomeable.setOnZoom( actualizarGraficoVectorialAccion );
 
 
-        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("click", e => seleccionarPathAccion(e.target) ))
+        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("mouseup", e => seleccionarPathAccion(e.target) ))
         
         
         svgCargado.addEventListener("mousedown", hacerClicSvg )
