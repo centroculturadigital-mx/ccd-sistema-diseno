@@ -16,19 +16,51 @@
   export let estado;
   export let texto;
 
-  $: clases = `Cabecera ${!!fixed ? "fixed" : ""}`;
-
   let responsivo;
   let breakpoint = 1024;
+
+  function noScroll() {
+    if (window) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  const pararScroll = () => {
+    console.log("pararScrollll");
+    if (estado) {
+      if (window) {
+        window.addEventListener("scroll", noScroll);
+      }
+    } else {
+      if (window) {
+        window.removeEventListener("scroll", noScroll);
+      }
+    }
+  };
+
+  const habilitarScroll = () => {
+    console.log("habilitarScrollll");
+
+    if (window) {
+      window.removeEventListener("scroll", noScroll);
+      // body.css.overflow = "initial";
+    }
+  };
 
   const menuAlternar = () => {
     estado = !estado;
   };
+
+  $: clases = `Cabecera ${fixed ? "fixed" : ""}`;
 </script>
 
 <svelte:window bind:innerWidth={responsivo} />
 
-<header class={!!sombra ? "sombra " + clases : clases}>
+<header
+  class={!!sombra ? "sombra " + clases : clases}
+  on:mouseenter={estado ? pararScroll : null}
+  on:mouseleave={estado ? habilitarScroll : null}
+>
   <div class="contenedor">
     <div class="informacion">
       {#if Array.isArray(logotipos)}
@@ -76,6 +108,8 @@
         {sombra}
         {segment}
         {componentes}
+        entraRaton={pararScroll}
+        saleRaton={habilitarScroll}
         on:click={menuAlternar}
       />
     {/if}
