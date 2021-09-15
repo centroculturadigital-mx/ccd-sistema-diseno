@@ -39,7 +39,6 @@
    $: clicar = !cierreAutomatico ? evitaCerrar : clickFueraDeArea;
    $: cerrar = !cierreAutomatico ? evitaCerrar : cierraFueraArea;
 
-   $: console.log("debug cerrar", clicar, cerrar);
 </script>
 
 <style>
