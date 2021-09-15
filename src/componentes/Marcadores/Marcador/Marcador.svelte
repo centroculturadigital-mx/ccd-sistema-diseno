@@ -26,11 +26,10 @@
         place-items: center;
         padding: 0;
         margin: 0;
-        /* pointer-events: none; */
         z-index: 1;
     }
     .Marcador span {
-        transition: var(--theme-transiciones-normal);
+        pointer-events: all;
         position: relative;
         display: flex;
         justify-content: center;
