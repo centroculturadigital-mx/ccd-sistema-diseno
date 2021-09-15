@@ -13,8 +13,12 @@ const agregarDesplazamiento = (estado, desplazamiento) => {
 }
 
 agregarDesplazamiento( "Colima", {
-    x: 172,
-    y: (-5)
+    x: 270,
+    y: -5
+})
+
+agregarDesplazamiento( "Puebla", {
+    y: 40
 })
 
 agregarDesplazamiento( "Veracruz", {
