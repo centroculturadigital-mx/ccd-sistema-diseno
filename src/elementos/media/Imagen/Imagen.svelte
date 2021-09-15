@@ -2,15 +2,14 @@
   import Icono from "../../Icono/Icono";
   import Texto from "../../texto/Texto/Texto";
   import Parrafo from "../../texto/Parrafo/Parrafo";
-import { xlink_attr } from "svelte/internal";
 
   export let imagen;
   export let tamannos;
-  export let maximizar;
+  export let alt;
   export let nombre;
   export let descripcion;
   export let descripcionPosicion;
-  export let alt;
+  export let maximizar;
 
   export let estilos = {
     ajuste: "",
@@ -20,23 +19,13 @@ import { xlink_attr } from "svelte/internal";
 
   $: clases = estilos.altura ? "width-auto" : "";
 
-  let cargando = true
+  let cargar = false; //cambiar nombres variable por funcion (cargado)
+  let imagenElemento;
+  let contenedor;
 
-  const cargar = () => {
-    // cargando = true
-    contenedorCalculo()
-    console.log("Imagen cargada")
+  const cargando = (e) => {
+    cargar = true;
   };
-
-  let imagenElemento
-  let contenedor
-
-  const contenedorCalculo = () => {
-    
-    console.log("Imagen: ", imagenElemento)
-    console.log("Contenedor: ", contenedor)
-
-  }
 </script>
 
 <div class="imagen" bind:this={contenedor}>
@@ -49,35 +38,49 @@ import { xlink_attr } from "svelte/internal";
       style="object-fit:{estilos.ajuste};object-position:{estilos.alineacion};height:{estilos.altura}"
     />
   {:else if !!tamannos && typeof tamannos === "object"}
-    {#if cargando}
-      <picture on:load={cargar}  bind:this={imagenElemento}>
-        <!-- tamanno xl -->
-        <source media="(min-width:1680px)" srcset="{tamannos.xl.x1} 1x, {tamannos.xl.x2} 2x, {tamannos.xl.x3} 3x" />
-        <!-- tamanno lg -->
-        <source media="(min-width:1220px)" srcset="{tamannos.lg.x1} 1x, {tamannos.lg.x2} 2x, {tamannos.lg.x3} 3x" />
-        <!-- tamanno md -->
-        <source media="(min-width:768px)" srcset="{tamannos.md.x1} 1x, {tamannos.md.x2} 2x, {tamannos.md.x3} 3x" />
-        <!-- tamanno sm -->
-        <source media="(min-width:465px)" srcset="{tamannos.sm.x1} 1x, {tamannos.sm.x2} 2x, {tamannos.sm.x3} 3x" />
-        <!-- tamanno xs -->
-        <img srcset="{tamannos.xs.x1} 1x, {tamannos.xs.x2} 2x, {tamannos.xs.x3} 3x" {alt}/>
-      </picture>
-    {:else}
+    {#if !cargar}
       <div class="cargando">
         <img src={tamannos.cargando} {alt} />
       </div>
     {/if}
+    <picture class={cargar ? "lista" : "espera"} bind:this={imagenElemento}>
+      <source
+        media="(min-width:1680px)"
+        srcset="{tamannos.xl.x1} 1x, {tamannos.xl.x2} 2x, {tamannos.xl.x3} 3x"
+      />
+      <source
+        media="(min-width:1220px)"
+        srcset="{tamannos.lg.x1} 1x, {tamannos.lg.x2} 2x, {tamannos.lg.x3} 3x"
+      />
+      <source
+        media="(min-width:768px)"
+        srcset="{tamannos.md.x1} 1x, {tamannos.md.x2} 2x, {tamannos.md.x3} 3x"
+      />
+      <source
+        media="(min-width:465px)"
+        srcset="{tamannos.sm.x1} 1x, {tamannos.sm.x2} 2x, {tamannos.sm.x3} 3x"
+      />
+      <img
+        srcset="{tamannos.xs.x1} 1x, {tamannos.xs.x2} 2x, {tamannos.xs.x3} 3x"
+        {alt}
+        on:load={cargando}
+        style="object-fit:{estilos.ajuste};object-position:{estilos.alineacion};height:{estilos.altura}"
+      />
+    </picture>
   {/if}
-  {#if nombre || descripcion}
-    <div class="descripcion {descripcionPosicion ? "afuera" : ""}">
-      <Texto texto={nombre} />
-      <Parrafo texto={descripcion} />
+
+  {#if cargar}
+    <div class="descripcion {descripcionPosicion ? 'afuera' : ''}">
+      {#if nombre || descripcion}
+        <Parrafo texto={descripcion} />
+        <Texto texto={nombre} />
+      {/if}
     </div>
-  {/if}
-  {#if maximizar}
-    <div class="maximizar" on:click={maximizar}>
-      <Icono icono={"maximizar"}/>
-    </div>
+    {#if maximizar}
+      <div class="maximizar" on:click={maximizar}>
+        <Icono icono={"maximizar"} />
+      </div>
+    {/if}
   {/if}
 </div>
 
@@ -96,7 +99,13 @@ import { xlink_attr } from "svelte/internal";
     object-position: center;
     height: 100%;
     width: 100%;
-    }
+  }
+  picture {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+  }
   picture img {
     object-fit: contain;
     object-position: center;
@@ -106,8 +115,20 @@ import { xlink_attr } from "svelte/internal";
   .width-auto {
     width: auto;
   }
+  .espera {
+    visibility: hidden;
+  }
+  .lista {
+    visibility: visible;
+  }
   .cargando {
-    filter: blur(3px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    filter: blur(10px);
+    z-index: 2;
   }
   .descripcion {
     position: absolute;
@@ -117,7 +138,6 @@ import { xlink_attr } from "svelte/internal";
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    /* height: 50%; */
     width: 100%;
     /* gradiente */
     background: transparent;
@@ -139,15 +159,15 @@ import { xlink_attr } from "svelte/internal";
     z-index: 1;
   }
   .descripcion :global(span) {
-    color: #FFF;
-    font-weight:700;
+    color: #fff;
+    font-weight: 700;
     font-size: 0.75rem;
   }
   .descripcion :global(p) {
     margin: 0.5rem 0 0;
   }
   .descripcion :global(p span) {
-    font-weight:400;
+    font-weight: 400;
     font-size: 0.875rem;
   }
   .descripcion.afuera {
@@ -176,8 +196,7 @@ import { xlink_attr } from "svelte/internal";
     width: 1.25rem !important;
   }
   .maximizar :global(svg) {
-    fill: #FFF;
+    fill: #fff;
     height: 100%;
   }
-  
 </style>

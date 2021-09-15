@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Icono from "../../elementos/Icono/Icono";
+  import Texto from "../../elementos/texto/Texto/Texto";
 
   export let elementos;
 
@@ -22,6 +23,8 @@
   };
 
   let carrusel;
+  let total = elementos.length;
+  let indice = pagina;
 
   const generarID = () => Math.floor(Math.random() * 99999);
 
@@ -138,11 +141,20 @@
   const ir = (i) => {
     if (typeof i == "number") {
       if (i < 0) {
-        activo = elementos.length - 1;
+        //atras
+        activo = elementos.length - 1
+        indice = elementos.length
       } else {
-        activo = i % elementos.length;
+        // adelante
+        activo = i % elementos.length
+        if (i >= elementos.length) {
+          indice = 1
+        } else {          
+          indice = i + 1
+        }
       }
     }
+    console.log("IR", i, indice);
   };
 
   const obtenerIDsCarruseles = () => {
@@ -186,6 +198,9 @@
         transform: translate( ${scrollX}px, ${scrollY}px);
         justify-content: center;        
     `;
+
+  //
+  $: console.log("CARRUSEL:::", paginasNum, total);
 </script>
 
 <div
@@ -213,15 +228,23 @@
     </div>
 
     {#if !!navegacion}
-      <ul class="elementosBotones">
-        {#each elementosBotones as boton, i ("boton_" + i)}
-          <li class={activo == i ? "activo" : ""}>
-            <button on:click={ir(i)}>
-              {i}
-            </button>
-          </li>
-        {/each}
-      </ul>
+      <div class="navegacion">
+        <div class="separador"/>
+        <ul class="elementosBotones">
+          {#each elementosBotones as boton, i ("boton_" + i)}
+            <li class={activo == i ? "activo" : ""}>
+              <button>
+                {i}
+              </button>
+            </li>
+          {/each}
+        </ul>
+        <!--  -->
+        <div class="indice">
+          <Texto texto={indice + " de " + total} />
+        </div>
+        <!--  -->
+      </div>
     {/if}
 
     {#if !!flechas}
@@ -248,26 +271,24 @@
     position: relative;
     width: 100%;
     height: 100%;
-    box-sizing: border-box;
     min-width: 15rem;
     min-height: 15rem;
   }
-.fondo {
-  background-color: rgba(0,0,0,0.25);
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: 0;
-}
+  .fondo {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+  }
   .ventana {
-    box-sizing: border-box;
-    width: calc(100% - 4rem);
     margin-left: 2rem;
     height: 100%;
     display: block;
     overflow: hidden;
+    width: calc(100% - 4rem);
   }
 
   .elementos {
@@ -281,12 +302,23 @@
     flex-direction: row;
   }
 
+  .indice {
+    padding: var(--theme-espaciados-padding) 0;
+    flex-shrink: 0;
+  }
+  .indice :global(span) {
+    color: #aaa;
+    font-size: calc(var(--theme-textos-parrafo-tamanno) - 0.125rem);
+  }
+  .navegacion {
+    display: flex;
+    justify-content: space-between;
+  }
   .horizontal .elementos {
     margin-left: 1.5rem;
   }
   .elementos,
   .elemento {
-    box-sizing: border-box;
     transition: transform 0.4s ease-in-out;
   }
 
@@ -304,10 +336,6 @@
     opacity: 0.7;
   }
 
-  .elemento:last-child {
-    margin-right: 0 !important;
-  }
-
   :global(.Carrusel .elemento > *) {
     max-width: 100% !important;
     max-height: 100% !important;
@@ -315,24 +343,19 @@
   }
 
   .elementosBotones {
-    width: 100%;
-    /* position: absolute; */
-    /* bottom: 0.66rem;
-    left: 0; 
-    right: 0;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 1rem; */
-    margin: 0;
     padding: 0.25rem 0;
+    margin: 0;
+    width: 100%;
   }
   .elementosBotones li {
     list-style: none;
-    height: 0.75rem;
-    width: 0.75rem;
-    margin: 0.15rem;
-    box-sizing: border-box;
+    height: 0.25rem;
+    width: 0.25rem;
+    margin: 0.125rem;
+    opacity: 0.75;
   }
 
   .elementosBotones li button {
@@ -345,11 +368,10 @@
     height: 100%;
     border-radius: 10rem;
     transition: background-color 0.25s ease-in-out;
-    cursor: pointer;
   }
-  .elementosBotones li:hover button {
+  /* .elementosBotones li:hover button {
     background-color: var(--theme-botones-primario-fondo);
-  }
+  } */
   .elementosBotones li.activo button {
     background-color: var(--theme-botones-primario-fondo);
     color: transparent;
@@ -365,10 +387,11 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    opacity: 0.6;
     cursor: pointer;
   }
   .boton-flecha:hover {
-    opacity: 0.75;
+    opacity: 0.9;
   }
 
   .boton-flecha :global(svg) {
@@ -382,10 +405,10 @@
   }
 
   .boton-anterior {
-    right: calc(100% - 2.25rem);
+    right: calc(100% - 2.5rem);
   }
   .boton-siguiente {
-    right: 0.25rem;
+    right: 0.5rem;
   }
 
   .Carrusel.vertical .elementosBotones {

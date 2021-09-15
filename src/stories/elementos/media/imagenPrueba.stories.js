@@ -33,9 +33,9 @@ let tamannos = {
 let imagenesReales = {
         cargando: "https://fakeimg.pl/320x320/?text=Cargando",
         xl: {
-            x1: "https://i.pinimg.com/originals/2e/51/a9/2e51a9d793bbfe4266ad8fc3dee81c4f.jpg",
-            x2: "https://i.pinimg.com/originals/2e/51/a9/2e51a9d793bbfe4266ad8fc3dee81c4f.jpg",
-            x3: "https://i.pinimg.com/originals/2e/51/a9/2e51a9d793bbfe4266ad8fc3dee81c4f.jpg",
+            x1: "https://s1.1zoom.me/big3/312/Planets_Earth_442854.jpg",
+            x2: "https://s1.1zoom.me/big3/312/Planets_Earth_442854.jpg",
+            x3: "https://s1.1zoom.me/big3/312/Planets_Earth_442854.jpg",
         },
         lg: {
             x1: "https://i.ytimg.com/vi/FL3A4GaihNA/maxresdefault.jpg",
