@@ -6,8 +6,45 @@
   export let elementos;
   export let sombra;
   export let componentes;
-
+  export let entraRaton
+  export let saleRaton
+  
 </script>
+
+{#if estado === true}
+  <nav
+    class={!!sombra ? "sombra MenuMovil" : "MenuMovil"}
+    transition:slide|local
+    on:mouseenter={typeof entraRaton === 'function' ? entraRaton : null}
+    on:mouseleave={typeof saleRaton === 'function' ? saleRaton : null}
+  >
+    {#if Array.isArray(elementos) && elementos.length > 0}
+      <ul>
+        {#each elementos as elemento, i ("elemento_" + i)}
+          <li>
+            <a
+              class:selected={segment === elemento.enlace}
+              href={elemento.enlace}
+              on:click
+            >
+              {elemento.texto}
+            </a>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+    {#if Array.isArray(componentes) && componentes.length > 0}
+      <div class="Herramientas">
+        {#each componentes as componente}
+          <svelte:component
+            this={componente.componente}
+            {...componente.datos}
+          />
+        {/each}
+      </div>
+    {/if}
+  </nav>
+{/if}
 
 <style>
   nav {
@@ -52,33 +89,3 @@
     justify-content: center;
   }
 </style>
-
-{#if estado === true}
-  <nav
-    class={!!sombra ? 'sombra MenuMovil' : 'MenuMovil'}
-    transition:slide|local>
-    {#if Array.isArray(elementos) && elementos.length > 0}
-      <ul>
-        {#each elementos as elemento, i ('elemento_' + i)}
-          <li>
-            <a
-              class:selected={segment === elemento.enlace}
-              href={elemento.enlace}
-              on:click>
-              {elemento.texto}
-            </a>
-          </li>
-        {/each}
-      </ul>
-    {/if}
-    {#if Array.isArray(componentes) && componentes.length > 0}
-      <div class="Herramientas">
-        {#each componentes as componente}
-          <svelte:component
-            this={componente.componente}
-            {...componente.datos} />
-        {/each}
-      </div>
-    {/if}
-  </nav>
-{/if}

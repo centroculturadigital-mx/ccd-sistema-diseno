@@ -1,6 +1,7 @@
-import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
-import Cabecera from '../../../componentes/Cabecera/Cabecera.svelte';
-import UsuarioAcceso from '../../../componentes/Usuarios/UsuarioAcceso/UsuarioAcceso.svelte';
+import ThemeTester from '../../../componentes/ThemeTester/ThemeTester';
+import Cabecera from '../../../componentes/Cabecera/Cabecera';
+import CabeceraPrueba from '../../../componentes/Cabecera/CabeceraPruebaScrollMovil';
+import UsuarioAcceso from '../../../componentes/Usuarios/UsuarioAcceso/UsuarioAcceso';
 
 import ImagenArchivo from '../../../../public/placeholder.jpg';
 
@@ -45,6 +46,20 @@ let logos = [{
     }
 ];
 
+let datosCabeceraScroll = {
+    logotipos: logo,
+            sombra: true,
+            fixed: false,
+            elementos: rutas,
+            componentes: [{
+                componente: UsuarioAcceso,
+                datos: {
+                    nombre: "Nombre usuaria",
+                    imagen: ImagenArchivo,
+                }
+            }],
+            texto: "Exposiciones"
+}
 export const cabeceraDefault = () => ({
     Component: ThemeTester,
     props: {
@@ -149,6 +164,18 @@ export const cabeceraConTexto = () => ({
                 }
             }],
             texto: "Exposiciones"
+        }
+    }
+});
+export const cabeceraMovilBloqueaScroll = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: CabeceraPrueba,
+        datos: {
+            datos: {
+                ...datosCabeceraScroll,
+            }
+            
         }
     }
 });
