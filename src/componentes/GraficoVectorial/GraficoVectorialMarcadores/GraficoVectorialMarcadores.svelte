@@ -6,33 +6,30 @@
     import Marcadores from "../../Marcadores/Marcadores.svelte";
 
     export let svg
-    export let marcadores = [
-        // {
-        //     contenido: "Veracruz",
-        //     path: {
-        //         atributo: "id",
-        //         valor: "Veracruz"
-        //     }
-        // },
-        {
-            contenido: "Chiapas",
-            path: {
-                atributo: "id",
-                valor: "Chiapas"
-            }
-        },
-        {
-            contenido: "Chihuahua",
-            path: {
-                atributo: "id",
-                valor: "Chihuahua"
-            }
-        },
-    ]
+    export let marcadores = []
+
+    const prepararMarcadorEntrada = m => ({
+        ...m,
+        path: {
+            ...m.path,
+            atributo: m.path.atributo || "id",
+            desplazamiento: m.path.desplazamiento
+                ? {
+                    x: m.path.desplazamiento.x || 0,
+                    y: m.path.desplazamiento.y || 0,
+                }
+                : {
+                    x: 0,
+                    y: 0
+                }
+        }
+    })
+
+    $: marcadores = marcadores.map( prepararMarcadorEntrada )
+
 
     let contenedor
 
-    let graficoPosicion
 
     let marcadoresMostrar = []
     
@@ -52,10 +49,6 @@
     }
 
 
-    graficoPosicion = {
-        x: 0,
-        y: 0,
-    }
 
 
 
@@ -74,11 +67,8 @@
     }
 
 
-    const computarCss = (marcador, { pan, zoom }) => {
+    const computarPosicion = (marcador, { pan, zoom }) => {
 
-        // console.log("pan", pan);
-        // console.log("zoom", zoom);
-        
         if( ! zoom ) zoom = 1
         if( ! pan ) pan = {
             x: 0,
@@ -98,17 +88,11 @@
                 const cajaPath = path.getBoundingClientRect();
 
                 return `
-                    left: ${ cajaPath.x - mapaCaja.x }px;
-                    top: ${ cajaPath.y - mapaCaja.y }px;
+                    left: ${ cajaPath.x - mapaCaja.x + (marcador.path.desplazamiento.x * zoom) }px;
+                    top: ${ cajaPath.y - mapaCaja.y + (marcador.path.desplazamiento.y * zoom) }px;
                     width: ${ parseInt(cajaPath.width) }px;
                     height: ${ parseInt(cajaPath.height) }px;
                 `
-                // return `
-                //     left: ${(cajaPath.x - mapaCaja.x - graficoPosicion.x + pan.x) * zoom }px;
-                //     top: ${(cajaPath.y - mapaCaja.y - graficoPosicion.y + pan.y) * zoom }px;
-                //     width: ${(parseInt(cajaPath.width)) * zoom}px;
-                //     height: ${(parseInt(cajaPath.height)) * zoom}px;
-                // `
                 
             }
 
@@ -124,7 +108,7 @@
             p => p.getAttribute(marcador.path.atributo) === marcador.path.valor
         )).map( marcador => ({
             ...marcador,
-            css: computarCss( marcador, datos )
+            css: computarPosicion( marcador, datos )
         }))
 
     }
@@ -132,7 +116,6 @@
 
     const actualizarMarcadores = datos => {
         
-        console.log("actualizarMarcadores");
         actualizarPathsDentro()
 
         marcadoresMostrar = computarMarcadores( datos )
@@ -142,7 +125,7 @@
 
     const actualizarGraficoVectorial = datos => {
 
-        actualizarMarcadores( datos )
+        setTimeout(()=>actualizarMarcadores( datos ), 30)
 
     }
     
