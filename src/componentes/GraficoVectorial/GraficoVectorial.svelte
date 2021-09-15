@@ -44,6 +44,27 @@
 
     }
 
+
+    let pathClicado = false
+    let pathArrastrando = false
+    
+    const clicarPath = ( path ) => {
+        pathClicado = true
+        pathArrastrando = false
+    }
+
+    const moverPath = ( path ) => {
+        if( pathClicado ) {
+            pathArrastrando = true
+        }
+    }
+
+    const soltarPath = ( path ) => {
+        if( pathClicado && ! pathArrastrando ) {
+            seleccionarPathAccion( path )
+        }
+    }
+
     const seleccionarPathAccion = ( path ) => {
 
         if( typeof seleccionarPath == "function" ) {
@@ -94,7 +115,9 @@
         svgZoomeable.setOnZoom( actualizarGraficoVectorialAccion );
 
 
-        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("mouseup", e => seleccionarPathAccion(e.target) ))
+        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("mousedown", e => clicarPath(e.target) ))
+        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("mousemove", e => moverPath(e.target) ))
+        svgCargado.querySelectorAll("path").forEach(p => p.addEventListener("mouseup", e => soltarPath(e.target) ))
         
         
         svgCargado.addEventListener("mousedown", hacerClicSvg )
