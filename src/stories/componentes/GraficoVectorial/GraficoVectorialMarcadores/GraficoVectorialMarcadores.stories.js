@@ -17,3 +17,26 @@ export const graficoVectorialMarcadoresDefault = () => ({
         }
     },
 });
+
+
+
+export const graficoVectorialMarcadoresActivosVsInactivos = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GraficoVectorialMarcadores,
+        datos:{
+            svg: mapa_mexico,
+            marcadores: [
+                marcadoresMapaMexico[1],
+                marcadoresMapaMexico[6],
+                marcadoresMapaMexico[11],
+                marcadoresMapaMexico[16],
+                marcadoresMapaMexico[22],
+            ],
+            activos: {
+                mostrar: true,
+                color: "#00ff33"
+            }
+        }
+    },
+});

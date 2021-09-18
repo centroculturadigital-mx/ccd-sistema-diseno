@@ -7,6 +7,20 @@
 
     export let svg
     export let marcadores = []
+    export let activos = {
+        mostrar: false,
+        color: "#aaa",
+    }
+
+
+    let contenedor
+
+    let marcadoresMostrar = []
+
+    let pathsDentro
+
+    
+
 
     const prepararMarcadorEntrada = m => ({
         ...m,
@@ -25,28 +39,6 @@
         }
     })
 
-    $: marcadores = marcadores.map( prepararMarcadorEntrada )
-
-
-    let contenedor
-
-
-    let marcadoresMostrar = []
-    
-    $: paths = !! contenedor
-        ? Array.from( contenedor.querySelectorAll(".GraficoVectorialMarcadores svg path") )
-        : []
-    
-
-    let pathsDentro
-    
-    const actualizarPathsDentro = () => {
-        const mapa = contenedor.querySelector(".GraficoVectorialMarcadores svg")
-
-        const mapaCaja = mapa.getBoundingClientRect()
-
-        pathsDentro = paths.filter( p => filtrarDentro( p, mapaCaja ) )
-    }
 
 
 
@@ -65,6 +57,16 @@
         return dentro;
 
     }
+
+
+    const actualizarPathsDentro = () => {
+        const mapa = contenedor.querySelector(".GraficoVectorialMarcadores svg")
+
+        const mapaCaja = mapa.getBoundingClientRect()
+
+        pathsDentro = paths.filter( p => filtrarDentro( p, mapaCaja ) )
+    }
+
 
 
     const computarPosicion = (marcador, { pan, zoom }) => {
@@ -128,6 +130,7 @@
         setTimeout(()=>actualizarMarcadores( datos ), 30)
 
     }
+
     
     const seleccionarPath = (path, svgZoomeable) => {
         
@@ -156,25 +159,48 @@
     } 
 
 
-    $: contenedor && actualizarMarcadores({})
+    const mostrarPathsActivos = () => {
+
+        console.log("mostrarPathsActivos", paths );
+
+        if( activos && activos.mostrar ) {
+
+            const pathsActivos = paths.filter(
+                p => !! marcadores.find(m => p.getAttribute( m.path.atributo ) === m.path.valor )
+            )
+            
+            console.log("pathsActivos", pathsActivos);
+            pathsActivos.forEach( p => p.style = `fill: ${ activos.color ? activos.color : "#aaa" }`)
+
+        }
+
+    }
+
+
 
     
+    $: paths = !! contenedor
+    ? Array.from( contenedor.querySelectorAll(".GraficoVectorialMarcadores svg path") )
+    : []
+    
+    $: marcadores = marcadores.map( prepararMarcadorEntrada )
+    
 
-    $: componentes = [
-        {
-            componente: Marcadores,
-            datos: {
-                marcadores: marcadoresMostrar
-            }
-        }
-    ]
+    $: Array.isArray(paths) && paths.length > 0 && mostrarPathsActivos()
 
 
     $: propiedades = {
         svg,
         actualizarGraficoVectorial,
         seleccionarPath,
-        componentes
+        componentes: [
+            {
+                componente: Marcadores,
+                datos: {
+                    marcadores: marcadoresMostrar
+                }
+            }
+        ]
     }
 
 
@@ -197,5 +223,6 @@
         height: 100%;
         pointer-events: none;
     }
+
 
 </style>
