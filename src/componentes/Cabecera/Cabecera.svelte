@@ -1,4 +1,5 @@
 <script>
+  import { fade } from 'svelte/transition'
   import Logo from "../Logo/Logo.svelte";
   import Logos from "../Logos/Logos.svelte";
   import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
@@ -11,6 +12,7 @@
   export let logotipos;
   export let elementos;
   export let componentes;
+  export let componentesMovil;
   export let fixed;
   export let sombra;
   export let estado;
@@ -26,7 +28,6 @@
   }
 
   const pararScroll = () => {
-    console.log("pararScrollll");
     if (estado) {
       if (window) {
         window.addEventListener("scroll", noScroll);
@@ -39,8 +40,6 @@
   };
 
   const habilitarScroll = () => {
-    console.log("habilitarScrollll");
-
     if (window) {
       window.removeEventListener("scroll", noScroll);
       // body.css.overflow = "initial";
@@ -76,6 +75,19 @@
 
     <div class="Navegacion">
       {#if responsivo < breakpoint}
+
+        {#if componentesMovil && !estado}
+          <!--  -->
+        <div class="componentesMovil" transition:fade={{duration:100}}>
+            {#each componentesMovil as componente}
+              <svelte:component
+                this={componente.componente}
+                {...componente.datos}
+              />
+            {/each}
+          </div>
+        {/if}
+
         {#if Array.isArray(elementos) || Array.isArray(componentes)}
           <div class="iconoMenu" on:click={menuAlternar}>
             <Icono icono={!estado ? "menu" : "cerrar"} />
@@ -100,19 +112,21 @@
 
   <!-- Navegacion Movil  -->
   {#if responsivo < breakpoint}
-    {#if Array.isArray(elementos) || Array.isArray(componentes)}
-      <MenuMovil
-        on:eventoEstadoMenu
-        {estado}
-        {elementos}
-        {sombra}
-        {segment}
-        {componentes}
-        entraRaton={pararScroll}
-        saleRaton={habilitarScroll}
-        on:click={menuAlternar}
-      />
-    {/if}
+    <div class="navegacionMovil">
+      {#if Array.isArray(elementos) || Array.isArray(componentes)}
+        <MenuMovil
+          on:eventoEstadoMenu
+          {estado}
+          {elementos}
+          {sombra}
+          {segment}
+          {componentes}
+          entraRaton={pararScroll}
+          saleRaton={habilitarScroll}
+          on:click={menuAlternar}
+        />
+      {/if}
+    </div>
   {/if}
 </header>
 
@@ -192,6 +206,10 @@
   }
   .sombra {
     box-shadow: 0 4px 3px rgba(0, 0, 0, 0.5);
+  }
+  .componentesMovil {
+    display: flex;
+    padding: 0 var(--theme-espaciados-padding);
   }
   @media screen and (max-width: 1024px) {
     .Herramientas {

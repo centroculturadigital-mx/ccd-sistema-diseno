@@ -2,6 +2,7 @@ import ThemeTester from '../../../componentes/ThemeTester/ThemeTester';
 import Cabecera from '../../../componentes/Cabecera/Cabecera';
 import CabeceraPrueba from '../../../componentes/Cabecera/CabeceraPruebaScrollMovil';
 import UsuarioAcceso from '../../../componentes/Usuarios/UsuarioAcceso/UsuarioAcceso';
+import Boton from "../../../elementos/botones/Boton/Boton"
 
 import ImagenArchivo from '../../../../public/placeholder.jpg';
 
@@ -164,6 +165,33 @@ export const cabeceraConTexto = () => ({
                 }
             }],
             texto: "Exposiciones"
+        }
+    }
+});
+export const cabeceraMuestraComponentesMovil = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Cabecera,
+        datos: {
+            elementos: rutas,
+            logotipos: logo,
+            sombra: true,
+            componentes: [
+            {
+                componente: Boton,
+                datos: {
+                    texto: "Ingreso",
+                    click: () => console.log("Clicaste componente en menu movil"),
+                }
+            }],
+            componentesMovil: [{
+                componente: Boton,
+                datos: {
+                    texto: "Registro",
+                    click: () => console.log("Clicaste componente movil"),
+                }
+            }]
+            
         }
     }
 });
