@@ -111,7 +111,7 @@
 
   .Contenido {
     /* word-break: break-all; */
-    white-space: pre-wrap;
+    /* white-space: pre-wrap; */
     line-height: 1.5;
   }
   /* contenidos html */
