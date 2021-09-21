@@ -29,6 +29,20 @@ let rutas = [{
         enlace: "una-ruta"
     }
 ];
+let herramientas = [{
+    componente: Boton,
+    datos: {
+        texto: "Registrarme",
+        click: () => console.log("Ir a registro"),
+    }
+},{
+    componente: Boton,
+    datos: {
+        variante: "SECUNDARIO",
+        texto: "Ingresar",
+        click: () => console.log("Ir a ingreso"),
+    }
+}]
 
 let logo = [{
     logotipo: ImagenArchivo,
@@ -75,9 +89,11 @@ export const cabeceraLogo = () => ({
         datos: {
             elementos: rutas,
             logotipos: logo,
+            componentes: herramientas
         }
     }
 });
+
 export const cabeceraLogos = () => ({
     Component: ThemeTester,
     props: {
@@ -85,33 +101,11 @@ export const cabeceraLogos = () => ({
         datos: {
             elementos: rutas,
             logotipos: logos,
+            componentes: herramientas
         }
     }
 });
 
-export const cabeceraSombra = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Cabecera,
-        datos: {
-            elementos: rutas,
-            logotipos: logo,
-            sombra: true,
-        }
-    }
-});
-export const cabeceraFixed = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Cabecera,
-        datos: {
-            elementos: rutas,
-            logotipos: logo,
-            sombra: true,
-            fixed: true,
-        }
-    }
-});
 export const cabeceraConMenuYComponente = () => ({
     Component: ThemeTester,
     props: {
@@ -168,33 +162,7 @@ export const cabeceraConTexto = () => ({
         }
     }
 });
-export const cabeceraMuestraComponentesMovil = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Cabecera,
-        datos: {
-            elementos: rutas,
-            logotipos: logo,
-            sombra: true,
-            componentes: [
-            {
-                componente: Boton,
-                datos: {
-                    texto: "Ingreso",
-                    click: () => console.log("Clicaste componente en menu movil"),
-                }
-            }],
-            componentesMovil: [{
-                componente: Boton,
-                datos: {
-                    texto: "Registro",
-                    click: () => console.log("Clicaste componente movil"),
-                }
-            }]
-            
-        }
-    }
-});
+
 export const cabeceraMovilBloqueaScroll = () => ({
     Component: ThemeTester,
     props: {
@@ -204,6 +172,29 @@ export const cabeceraMovilBloqueaScroll = () => ({
                 ...datosCabeceraScroll,
             }
             
+        }
+    }
+});
+export const cabeceraSombra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Cabecera,
+        datos: {
+            elementos: rutas,
+            logotipos: logo,
+            sombra: true,
+        }
+    }
+});
+export const cabeceraFixed = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Cabecera,
+        datos: {
+            elementos: rutas,
+            logotipos: logo,
+            sombra: true,
+            fixed: true,
         }
     }
 });

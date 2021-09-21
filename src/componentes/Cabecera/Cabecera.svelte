@@ -1,8 +1,6 @@
 <script>
-  import { fade } from 'svelte/transition'
-  import Logo from "../Logo/Logo.svelte";
+  import { fade } from "svelte/transition";
   import Logos from "../Logos/Logos.svelte";
-  import BotonIcono from "../../elementos/botones/BotonIcono/BotonIcono.svelte";
   import MenuEscritorio from "../../elementos/menu/MenuEscritorio/MenuEscritorio.svelte";
   import MenuMovil from "../../elementos/menu/MenuMovil/MenuMovil.svelte";
   import Icono from "../../elementos/Icono/Icono";
@@ -12,7 +10,6 @@
   export let logotipos;
   export let elementos;
   export let componentes;
-  export let componentesMovil;
   export let fixed;
   export let sombra;
   export let estado;
@@ -42,7 +39,6 @@
   const habilitarScroll = () => {
     if (window) {
       window.removeEventListener("scroll", noScroll);
-      // body.css.overflow = "initial";
     }
   };
 
@@ -75,15 +71,16 @@
 
     <div class="Navegacion">
       {#if responsivo < breakpoint}
-
-        {#if componentesMovil && !estado}
+        {#if Array.isArray(componentes) && !estado}
           <!--  -->
-        <div class="componentesMovil" transition:fade={{duration:100}}>
-            {#each componentesMovil as componente}
-              <svelte:component
-                this={componente.componente}
-                {...componente.datos}
-              />
+          <div class="componentesMovil" transition:fade={{ duration: 100 }}>
+            {#each componentes as componente, i}
+              {#if i === 0}
+                <svelte:component
+                  this={componente.componente}
+                  {...componente.datos}
+                />
+              {/if}
             {/each}
           </div>
         {/if}
@@ -99,10 +96,10 @@
         {#if Array.isArray(componentes) && componentes.length > 0}
           <div class="Herramientas">
             {#each componentes as componente}
-              <svelte:component
-                this={componente.componente}
-                {...componente.datos}
-              />
+                <svelte:component
+                  this={componente.componente}
+                  {...componente.datos}
+                />
             {/each}
           </div>
         {/if}

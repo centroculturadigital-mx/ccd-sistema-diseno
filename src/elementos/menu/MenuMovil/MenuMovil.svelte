@@ -6,17 +6,16 @@
   export let elementos;
   export let sombra;
   export let componentes;
-  export let entraRaton
-  export let saleRaton
-  
+  export let entraRaton;
+  export let saleRaton;
 </script>
 
 {#if estado === true}
   <nav
     class={!!sombra ? "sombra MenuMovil" : "MenuMovil"}
     transition:slide|local
-    on:mouseenter={typeof entraRaton === 'function' ? entraRaton : null}
-    on:mouseleave={typeof saleRaton === 'function' ? saleRaton : null}
+    on:mouseenter={typeof entraRaton === "function" ? entraRaton : null}
+    on:mouseleave={typeof saleRaton === "function" ? saleRaton : null}
   >
     {#if Array.isArray(elementos) && elementos.length > 0}
       <ul>
@@ -36,10 +35,12 @@
     {#if Array.isArray(componentes) && componentes.length > 0}
       <div class="Herramientas">
         {#each componentes as componente}
-          <svelte:component
-            this={componente.componente}
-            {...componente.datos}
-          />
+          <div class="herramienta">
+            <svelte:component
+              this={componente.componente}
+              {...componente.datos}
+            />
+          </div>
         {/each}
       </div>
     {/if}
@@ -84,8 +85,13 @@
   .sombra {
     box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.5);
   }
-  nav :global(.Herramientas) {
+  .Herramientas {
+    display: flex;
+    flex-direction: column;
+  }
+  .herramienta {
     display: flex;
     justify-content: center;
+    padding: calc(var(--theme-espaciados-padding) / 2) 0;
   }
 </style>
