@@ -31,6 +31,11 @@
   export let pasos;
   export let datos = {};
   export let campos;
+  
+  // para mandar campos mezclados con componentes extra:
+  // TODO: agregar a documentación: (mencionar la necesidad de usar propiedad 'elementoTipo: "campo"')
+  export let elementos;
+
   export let enviar;
   export let cambiar;
   export let respuesta;
@@ -45,6 +50,24 @@
     },
     indicarOpcionales: false,
   };
+
+
+  const prepararCamposDesdeElementos = els => {
+
+    campos = els
+      .filter(e=>e.datos.elementoTipo=="campo")
+      .map( c => c.datos )
+
+
+
+    
+    
+  }
+
+  $: Array.isArray( elementos ) && elementos.length > 0 && prepararCamposDesdeElementos( elementos )
+
+
+
 
   $: configuracion = {
     ...configuracionDefault,
@@ -185,6 +208,9 @@
   };
 
   const computarCampos = (campos, estado) => {
+
+
+    
     const camposPreparados = campos
       .map((c) => {
         if (revisarValidezCampo(c)) {
@@ -247,6 +273,29 @@
         return null;
       })
       .filter((c) => !!c);
+
+
+
+    if( Array.isArray(elementos) && elementos.length > 0 ) {
+
+      elementos.filter(e=>!!e).forEach( (e,i) => {
+        
+        if( e.datos.elementoTipo === "campo" ) {
+          
+          let campoPreparado = camposPreparados.find( c=>c.nombre===e.datos.nombre)
+
+          elementos[i] = {
+            componente: Campo,
+            datos: campoPreparado
+          }
+
+        }
+
+      })
+
+      
+
+    }
 
     return camposPreparados;
   };
@@ -474,23 +523,43 @@
           <Parrafo texto={pantallaActual.texto} />
         {/if}
 
-        <form on:submit|preventDefault={enviarFuncion}>
-          {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
-            {#each pantallaActual.campos as campo, i ("formulario_" + formularioId + "_" + campo.nombre)}
-              <Campo {...campo} />
-            {/each}
+        <!-- <form on:submit|preventDefault={enviarFuncion}> -->
+        <form>
+
+
+          {#if Array.isArray(elementos) && elementos.length > 0}
+
+              {#each elementos as elemento (elemento)}
+                
+                <div class="elemento">
+                  <svelte:component this={elemento.componente} {...elemento.datos} />
+                </div>
+              
+              {/each}
+
+          {:else}
+
+            {#if Array.isArray(pantallaActual.campos) && pantallaActual.campos.length > 0}
+              {#each pantallaActual.campos as campo, i ("formulario_" + formularioId + "_" + campo.nombre)}
+                <Campo {...campo} />
+              {/each}
+            {/if}
+
           {/if}
+
 
           {#if !!enviar}
             {#if !Array.isArray(pasos) || pasoActual == pasos.length - 1}
-              <input
+              <button
                 disabled={enviando || hayErrores || hayRequeridosVacios}
-                type="submit"
+                on:click|preventDefault={ enviarFuncion }
                 class={hayErrores || hayRequeridosVacios
                   ? "inactivo"
                   : "activo"}
                 value={enviando ? config.textos.enviando : config.textos.enviar}
-              />
+              >
+                {enviando ? config.textos.enviando : config.textos.enviar}
+              </button>
             {/if}
           {/if}
         </form>
@@ -734,6 +803,11 @@
   :global(input[disabled="true"]:hover) {
     cursor: unset !important;
     background-color: var(--theme-botones-primario-inactivo) !important;
+  }
+
+
+  .elemento {
+    margin: .5rem 0;
   }
 
 </style>
