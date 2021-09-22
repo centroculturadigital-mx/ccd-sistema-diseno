@@ -637,7 +637,7 @@
     justify-content: center;
     align-items: center;
   }
-  form input[type="submit"] {
+  form button {
     transition: var(--theme-transiciones-normal);
     color: var(--theme-botones-primario-color);
     background-color: var(--theme-botones-primario-fondo);
