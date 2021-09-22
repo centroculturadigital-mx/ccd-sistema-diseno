@@ -2,6 +2,8 @@ import ThemeTester from '../../../../componentes/ThemeTester/ThemeTester.svelte'
 import FormularioTester from '../../../../componentes/formularios/Formulario/FormularioTester.svelte';
 import FormularioMultiCampo from '../../../../componentes/formularios/Formulario/FormularioMultiCampo.svelte';
 import Formulario from '../../../../componentes/formularios/Formulario/Formulario.svelte';
+import Campo from '../../../../componentes/formularios/Campo/Campo.svelte';
+import Boton from '../../../../elementos/botones/Boton/Boton.svelte';
 
 import campos from "../../../../data/campos/";
 import campoFecha from "../../../../data/campos/fecha";
@@ -37,6 +39,55 @@ const noRequeridos = campos.slice(0, 3).map(c => ({
     ...c,
     requerido: false
 }))
+
+
+const convertirCampoAElemento = campo => ({
+    componente: Campo,
+    datos: {
+        elementoTipo: "campo",
+        ...campo
+    }
+})
+
+const camposYElementos = [
+    {
+        componente: Boton,
+        datos: {
+            texto: "Botón 1",
+            click: e => {
+                console.log("Botón 1")
+                e.preventDefault()
+                e.stopPropagation()
+            }
+        }
+    },
+    convertirCampoAElemento( noRequeridos[0] ),
+    {
+        componente: Boton,
+        datos: {
+            texto: "Botón 2",
+            click: e => {
+                console.log("Botón 2")
+                e.preventDefault()
+                e.stopPropagation()
+            }
+        }
+    },
+    convertirCampoAElemento( noRequeridos[1] ),
+    {
+        componente: Boton,
+        datos: {
+            texto: "Botón 3",
+            click: e => {
+                console.log("Botón 3")
+                e.preventDefault()
+                e.stopPropagation()
+            }
+        }
+    },
+    convertirCampoAElemento( noRequeridos[2] )
+]
+
 
 
 export const formularioDefault = () => ({
@@ -1123,6 +1174,19 @@ export const formularioCuestionarioADEmpresa = () => ({
                 )
 
             }))
+        }
+    },
+});
+
+
+
+
+export const formularioElementosExtra = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            elementos: camposYElementos
         }
     },
 });
