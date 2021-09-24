@@ -44,47 +44,31 @@ const noRequeridos = campos.slice(0, 3).map(c => ({
 const convertirCampoAElemento = campo => ({
     componente: Campo,
     datos: {
+        // TODO: esta propiedad debería retirarse porque no es claro el proceso
         elementoTipo: "campo",
         ...campo
     }
 })
 
+
+const generarElementoBoton = ( texto = "Botón" ) => ({
+    componente: Boton,
+    datos: {
+        texto: texto,
+        click: e => {
+            console.log(texto)
+            e.preventDefault()
+            e.stopPropagation()
+        }
+    }
+})
+
 const camposYElementos = [
-    {
-        componente: Boton,
-        datos: {
-            texto: "Botón 1",
-            click: e => {
-                console.log("Botón 1")
-                e.preventDefault()
-                e.stopPropagation()
-            }
-        }
-    },
+    generarElementoBoton(`Botón 1`),
     convertirCampoAElemento( noRequeridos[0] ),
-    {
-        componente: Boton,
-        datos: {
-            texto: "Botón 2",
-            click: e => {
-                console.log("Botón 2")
-                e.preventDefault()
-                e.stopPropagation()
-            }
-        }
-    },
+    generarElementoBoton(`Botón 2`),
     convertirCampoAElemento( noRequeridos[1] ),
-    {
-        componente: Boton,
-        datos: {
-            texto: "Botón 3",
-            click: e => {
-                console.log("Botón 3")
-                e.preventDefault()
-                e.stopPropagation()
-            }
-        }
-    },
+    generarElementoBoton(`Botón 3`),
     convertirCampoAElemento( noRequeridos[2] )
 ]
 
@@ -1190,3 +1174,29 @@ export const formularioElementosExtra = () => ({
         }
     },
 });
+
+
+
+
+// const gruposDesplegables = [
+//     convertirCampoAElemento( campo[0] ),
+//     {
+//         componente: GrupoDesplegable,
+//         datos: {
+//             elementos: [
+                
+//             ]
+//         }
+//     }
+// ]
+
+
+// export const formularioGruposDesplegables = () => ({
+//     Component: ThemeTester,
+//     props: {
+//         componente: FormularioTester,
+//         datos: {
+//             elementos: gruposDesplegables
+//         }
+//     },
+// });
