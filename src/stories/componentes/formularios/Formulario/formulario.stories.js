@@ -3,6 +3,7 @@ import FormularioTester from '../../../../componentes/formularios/Formulario/For
 import FormularioMultiCampo from '../../../../componentes/formularios/Formulario/FormularioMultiCampo.svelte';
 import Formulario from '../../../../componentes/formularios/Formulario/Formulario.svelte';
 import Campo from '../../../../componentes/formularios/Campo/Campo.svelte';
+import GrupoDesplegable from '../../../../componentes/formularios/GrupoDesplegable/GrupoDesplegable.svelte';
 import Boton from '../../../../elementos/botones/Boton/Boton.svelte';
 
 import campos from "../../../../data/campos/";
@@ -1178,25 +1179,43 @@ export const formularioElementosExtra = () => ({
 
 
 
-// const gruposDesplegables = [
-//     convertirCampoAElemento( campo[0] ),
-//     {
-//         componente: GrupoDesplegable,
-//         datos: {
-//             elementos: [
-                
-//             ]
-//         }
-//     }
-// ]
+
+const elementosGrupoDesplegable = [
+    convertirCampoAElemento( campos[0] ),
+    generarElementoBoton("Un botón"),
+    convertirCampoAElemento( campos[1] ),
+]
 
 
-// export const formularioGruposDesplegables = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: FormularioTester,
-//         datos: {
-//             elementos: gruposDesplegables
-//         }
-//     },
-// });
+const elementosGruposDesplegables = [
+    convertirCampoAElemento( campos[0] ),
+    generarElementoBoton("Un botón"),
+    convertirCampoAElemento( campos[1] ),
+    {
+        componente: GrupoDesplegable,
+        datos: {
+            texto: "Mostrar grupo de campos",
+            textoCerrar: "Ocultar grupo de campos",        
+            elementos: elementosGrupoDesplegable
+        }
+    },
+    {
+        componente: GrupoDesplegable,
+        datos: {
+            texto: "Mostrar grupo de campos",
+            textoCerrar: "Ocultar grupo de campos",        
+            elementos: elementosGrupoDesplegable
+        }
+    }
+]
+
+
+export const formularioGruposDesplegables = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: FormularioTester,
+        datos: {
+            elementos: elementosGruposDesplegables
+        }
+    },
+});
