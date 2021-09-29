@@ -17,8 +17,8 @@
 
   $: mostrar = revisarNumero(elementosMostrar);
 
-  $: paginasNum = Math.ceil(elementosMostrar / elementosPagina);
-  $: paginas = Array(paginasNum)
+  $: paginas = Math.ceil(elementosMostrar / elementosPagina);
+  $: paginas = Array(paginas)
     .fill(0)
     .map((e, i) => {
       return i + 1;
@@ -42,13 +42,25 @@
       paginaSeleccionada = i;
     }
   };
+  const anterior = () => {
+    if (actual = !0) {
+      actual--;
+      console.log("Regresa", actual);
+    }
+  };
+  const siguiente = () => {
+    if (actual < paginas.length - 1) {
+      actual++;
+      console.log("Avanza", actual);
+    }
+  };
 </script>
 
 {#if mostrar}
   {#if variante === "NUMERICA"}
     <div class="Paginacion">
       <nav>
-        <div class="navegacion anterior">
+        <div class="navegacion anterior" on:click={anterior}>
           <button>
             <Icono icono="izquierda" />
           </button>
@@ -60,7 +72,7 @@
             </li>
           {/each}
         </ul>
-        <div class="navegacion siguiente">
+        <div class="navegacion siguiente" on:click={siguiente}>
           <button>
             <Icono icono="derecha" />
           </button>
