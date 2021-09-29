@@ -8,8 +8,8 @@ export const PaginacionDefault = () => ({
     props: {
         componente: Paginacion,
         datos: {
-            elementos: 24, // total de elementos a representar
-            elementosPagina: 4, // cuantos se muestran por pag.
+            elementos: 24, 
+            elementosPagina: 4,
             pagina: 0, // el índice de pag actual
             seleccionar: i => console.log(i) // función que consume el índice
         },
@@ -46,6 +46,16 @@ export const PaginacionNoMostrar2 = () => ({
         componente: Paginacion,
         datos: {
             elementos: 10,
+        },
+    },
+});
+export const PaginacionVarianteCarga = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Paginacion,
+        datos: {
+            elementos: 10,
+            variante: "CARGA"
         },
     },
 });
