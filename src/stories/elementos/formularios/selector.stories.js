@@ -29,7 +29,7 @@ export const selectorDefault = () => ({
         datos: {
             opciones,
             ejemplo,
-            accion
+            cambiar: accion
         }
     },
 });
@@ -41,7 +41,7 @@ export const selectorDeshabilitado = () => ({
         datos: {
             ejemplo,
             opciones,
-            accion,
+            cambiar: accion,
             deshabilitado: true
         }
     },

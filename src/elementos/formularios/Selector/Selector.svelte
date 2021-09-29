@@ -48,9 +48,6 @@
 
 
   const cambiarAccion = () => {
-    // cambiado = true
-
-    
     if (typeof cambiar == "function") {
       setTimeout(()=>{
         cambiar(valorLocal)
@@ -98,17 +95,17 @@
 
 </style>
 
+
 <select
   class={clases}
   name={nombre}
-  
   on:focus={()=>enfocarAccion()}
   on:focusout={()=>desenfocarAccion()}
-  on:change={()=>cambiarAccion()}
+  on:blur={()=>cambiarAccion()}
   bind:value={valorLocal}
   disabled={deshabilitado}
->
-
+  >
+  
     <!-- primer elemento -->
     <option
     value={false}
