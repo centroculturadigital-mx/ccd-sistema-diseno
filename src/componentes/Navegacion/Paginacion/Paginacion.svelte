@@ -17,8 +17,8 @@
 
   $: mostrar = revisarNumero(elementosMostrar);
 
-  $: paginas = Math.ceil(elementosMostrar / elementosPagina);
-  $: paginas = Array(paginas)
+  $: numPaginas = Math.ceil(elementosMostrar / elementosPagina);
+  $: paginas = new Array(numPaginas)
     .fill(0)
     .map((e, i) => {
       return i + 1;
