@@ -121,14 +121,18 @@
     display: grid;
     grid-template-columns: repeat(2, 50%);
   }
-  .Enlaces :global(a span) {
+  .Enlaces :global(a span),
+  .Enlaces :global(span.Texto) {
     padding: calc(var(--theme-espaciados-padding) / 2);
     padding-left: 0;
     font-size: var(--theme-tamannos-sm);
     font-weight: 700;
-    color: var(--theme-textos-enlaces-color);
     height: auto;
   }
+  .Enlaces :global(a span) {
+    color: var(--theme-textos-enlaces-color);
+  }
+  
   hr {
     border-color: var(--theme-bordes-neutro);
     border-style: solid;
@@ -264,7 +268,11 @@
           <hr />
           <div class="Enlaces">
             {#each enlaces as enlace, i ('enlace_' + i)}
-              <Enlace enlace={enlace.enlace} texto={enlace.texto} />
+              {#if enlace.enlace }
+                <Enlace enlace={enlace.enlace} texto={enlace.texto} />
+              {:else}
+                <Texto texto={enlace.texto} />
+              {/if}
             {/each}
           </div>
         </section>

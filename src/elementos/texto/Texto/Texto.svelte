@@ -82,6 +82,6 @@
   }
 </style>
 
-<span on:click style={cssString}>
+<span class="Texto" on:click style={cssString}>
   {@html html}
 </span>
