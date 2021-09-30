@@ -200,7 +200,6 @@
     `;
 
   //
-  $: console.log("CARRUSEL:::", paginasNum, total);
 </script>
 
 <div
@@ -389,7 +388,11 @@
     border-radius: 50%;
     opacity: 0.6;
     cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
   }
+  
   .boton-flecha:hover {
     opacity: 0.9;
   }
