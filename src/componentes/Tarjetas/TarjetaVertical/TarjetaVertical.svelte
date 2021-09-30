@@ -267,11 +267,16 @@
         <section>
           <hr />
           <div class="Enlaces">
-            {#each enlaces as enlace, i ('enlace_' + i)}
-              {#if enlace.enlace }
-                <Enlace enlace={enlace.enlace} texto={enlace.texto} />
+            {#each enlaces as e, i (enlace)}
+              {#if e.enlace }
+                <Enlace enlace={e.enlace} texto={e.texto} />
               {:else}
-                <Texto texto={enlace.texto} />
+                <!-- Usar enlace de Tarjeta, si existe -->
+                {#if enlace }
+                  <Enlace enlace={enlace} texto={e.texto} />
+                {:else}
+                  <Texto texto={e.texto} />
+                {/if}
               {/if}
             {/each}
           </div>
