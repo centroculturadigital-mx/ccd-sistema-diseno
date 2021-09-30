@@ -572,7 +572,8 @@
   .TarjetaImagen .Textos :global(span) {
     color: #fff;
   }
-  .TarjetaImagen .Enlaces .enlace-tarjeta :global(a) {
+  .TarjetaImagen .Enlaces .enlace-tarjeta :global(a),
+  .TarjetaImagen .Enlaces .enlace-tarjeta :global(a span) {
     color: #fff;
   }
   .TarjetaImagen.Imagen {
