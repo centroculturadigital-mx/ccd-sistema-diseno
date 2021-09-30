@@ -572,6 +572,9 @@
   .TarjetaImagen .Textos :global(span) {
     color: #fff;
   }
+  .TarjetaImagen .Enlaces .enlace-tarjeta :global(a) {
+    color: #fff;
+  }
   .TarjetaImagen.Imagen {
     height: 100% !important;
     z-index: 0;
