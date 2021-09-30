@@ -692,3 +692,29 @@ export const tarjetaAccionEnlacePestannaNueva = () => ({
         }
     }
 });
+
+
+
+
+export const tarjetaEnlacesSinEnlace = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Tarjeta,
+        datos: {
+            imagen: imagenEjemplo,
+            enlace: {
+                url: "http://un-enlace.com",
+                externo: true
+            },
+            nombre: 'Esto es un título.',
+            subtitulo: "Esto es un subtítulo",
+            extracto: 'Mei sanctus delenit denique in, dolore legere at eos, eam putant deserunt ei. Vidit adhuc eam ne, partem animal ne pro. Esse eligendi no qui, feugiat nonumes voluptatibus sit ei. Duis nihil aperiri sed ei.',
+            nivelTitulo: 'h3',
+            leyenda: "Un texto configurable",
+            sombra: true,
+            acciones: [accionesFunciones[0], accionesEnlaces[0]],
+            pleca,
+            enlaces: enlaces.map(e=>({ texto: e.texto }))
+        }
+    }
+});
