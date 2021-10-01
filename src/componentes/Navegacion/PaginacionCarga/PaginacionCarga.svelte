@@ -19,40 +19,36 @@
 
   $: numPaginas = Math.ceil(elementosMostrar / elementosPagina);
 
-  let desplegados = elementosPagina
-  let valorProgreso = 0
-  let pagina = 1
+  let desplegados = elementosPagina;
+  let valorProgreso = 0;
+  let pagina = 1;
 
   const calculaProgreso = () => {
-
     if (desplegados < elementosMostrar) {
       // funcion externa
       if (typeof cargarResultados === "function") {
         cargarResultados();
       }
       // calcula número elementos mostrados
-      if (pagina === (numPaginas - 1)) {
-        desplegados = Math.floor(elementosMostrar)
+      if (pagina === numPaginas - 1) {
+        desplegados = Math.floor(elementosMostrar);
       } else {
-        desplegados = Math.floor(desplegados + elementosPagina)
+        desplegados = Math.floor(desplegados + elementosPagina);
       }
       // calcula porcentaje
       valorProgreso = Math.floor((desplegados / elementosMostrar) * 100);
 
-      pagina++
-
+      pagina++;
     } else {
       console.log("No hay más elementos por desplegar");
     }
-    
   };
-  
-  const calculaValorDefault = () => {
-    valorProgreso = Math.ceil((desplegados / elementos) * 100)
-    return valorProgreso
-  }
-  calculaValorDefault();
 
+  const calculaValorDefault = () => {
+    valorProgreso = Math.ceil((desplegados / elementos) * 100);
+    return valorProgreso;
+  };
+  calculaValorDefault();
 </script>
 
 {#if mostrar}
@@ -99,7 +95,7 @@
     min-width: 20rem;
   }
   progress[value] {
-    background-color: var(--theme-fondos-fondos1);
+    background-color: #CCC;
     height: 1rem;
     -webkit-appearance: none;
     appearance: none;
@@ -107,9 +103,19 @@
   }
   progress[value]::-webkit-progress-bar {
     background-color: var(--theme-colores-primario);
+    color: var(--theme-colores-primario);
     border-radius: 2px;
-    -webkit-appearance: none;
-    appearance: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  
+  progress[value]::-webkit-progress-value {
+    background-color: var(--theme-colores-primario);
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  }
+  progress[value]::-moz-progress-bar {
+    background-color: var(--theme-colores-primario);
+    border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
   }
   .valores {
