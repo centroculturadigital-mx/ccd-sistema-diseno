@@ -1,13 +1,14 @@
 <script>
   import Icono from "../../../elementos/Icono/Icono";
+  import Boton from "../../../elementos/botones/Boton/Boton";
+  import Texto from "../../../elementos/texto/Texto/Texto";
+
   const revisarNumero = (n) => parseInt(n) === 0 || parseInt(n) > 0;
 
   export let elementos;
   export let elementosPagina = 10;
   export let pagina;
   export let seleccionar;
-  export let variante = "NUMERICA"; //CARGA
-  export let cargarResultados;
 
   $: elementosMostrar = revisarNumero(elementos)
     ? elementos
@@ -18,11 +19,9 @@
   $: mostrar = revisarNumero(elementosMostrar);
 
   $: numPaginas = Math.ceil(elementosMostrar / elementosPagina);
-  $: paginas = new Array(numPaginas)
-    .fill(0)
-    .map((e, i) => {
-      return i + 1;
-    });
+  $: paginas = new Array(numPaginas).fill(0).map((e, i) => {
+    return i + 1;
+  });
 
   $: actual =
     pagina === 0 || parseInt(pagina) > 0
@@ -43,7 +42,7 @@
     }
   };
   const anterior = () => {
-    if (actual = !0) {
+    if (actual > 0) {
       actual--;
       console.log("Regresa", actual);
     }
@@ -54,11 +53,12 @@
       console.log("Avanza", actual);
     }
   };
+
+  let valorProgreso = 70;
 </script>
 
 {#if mostrar}
-  {#if variante === "NUMERICA"}
-    <div class="Paginacion">
+  <div class="Paginacion">
       <nav>
         <div class="navegacion anterior" on:click={anterior}>
           <button>
@@ -78,13 +78,17 @@
           </button>
         </div>
       </nav>
-    </div>
-  {:else if variante === "CARGA"}
-    Pag. Carga
-  {/if}
+  </div>
 {/if}
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
+  .Paginacion {
+    position: relative;
+    width: 100%;
+  }
   nav {
     width: 100%;
     display: flex;

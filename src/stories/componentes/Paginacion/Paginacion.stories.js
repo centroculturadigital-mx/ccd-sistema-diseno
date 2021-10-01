@@ -49,13 +49,3 @@ export const PaginacionNoMostrar2 = () => ({
         },
     },
 });
-export const PaginacionVarianteCarga = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Paginacion,
-        datos: {
-            elementos: 10,
-            variante: "CARGA"
-        },
-    },
-});
