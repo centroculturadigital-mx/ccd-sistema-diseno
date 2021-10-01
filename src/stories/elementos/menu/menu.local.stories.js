@@ -1,7 +1,7 @@
 import ThemeTester from '../../../componentes/ThemeTester/ThemeTester.svelte';
 import MenuLocal from '../../../elementos/menu/MenuLocal/MenuLocal.svelte';
 
-export default { title: 'Elementos/Menú/Menú Local' }
+export default { title: 'Elementos/Menú/MenúLocal' }
 
 let elementos = [{
         texto: "Menú 1",
