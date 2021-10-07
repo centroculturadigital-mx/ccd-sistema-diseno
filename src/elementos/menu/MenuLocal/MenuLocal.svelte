@@ -10,7 +10,7 @@
   let estado = false;
   let inicio;
   let scrollIzq;
-
+  
   const scrollHorizontal = (elemento) => {
     // activa scroll
     elemento.addEventListener("mousedown", (e) => {
@@ -45,17 +45,16 @@
         let x = e.pageX - elemento.offsetLeft;
         let avanza = x - inicio;
         elemento.scrollLeft = scrollIzq - avanza;
-        console.log("mouse si", e);
       }
-      });
-      elemento.addEventListener("touchmove", (e) => {
-        if (estado) {
-          e.preventDefault();
-          let x = e.touches[0].pageX - elemento.offsetLeft;
-          let avanza = x - inicio;
-          elemento.scrollLeft = scrollIzq - avanza;
-        } 
-      });
+    });
+    elemento.addEventListener("touchmove", (e) => {
+      if (estado) {
+        e.preventDefault();
+        let x = e.touches[0].pageX - elemento.offsetLeft;
+        let avanza = x - inicio;
+        elemento.scrollLeft = scrollIzq - avanza;
+      } 
+    });
   };
 </script>
 
@@ -65,7 +64,7 @@
   <ul>
     {#each elementos as elemento, i (elemento)}
       {#if elemento.enlace}
-        <li class={`Enlace ${i == actual ? " actual" : ""}`}>
+        <li class={`Enlace ${i == actual ? " actual" : ""}`} >
           <a href={elemento.enlace}>
             {#if elemento.icono && responsivo < 768}
               <Icono icono={elemento.icono} />
@@ -140,10 +139,10 @@
     text-decoration: none;
   }
 
-  /* li:hover {
+  li a:hover {
     opacity: 0.75;
-    border-bottom: 3px solid var(--theme-pestannas-borde-hover);
-  } */
+    /* border-bottom: 3px solid var(--theme-pestannas-borde-hover); */
+  }
   li :global(.iconoContenedor) {
     height: 1.25rem !important;
     width: 1.25rem !important;
