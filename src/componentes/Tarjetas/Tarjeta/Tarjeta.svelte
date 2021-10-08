@@ -187,7 +187,7 @@
           <section>
             <hr />
             <div class="Enlaces">
-              {#each enlaces as e (enlace)}
+              {#each enlaces as e (e)}
                 {#if e.enlace }
                   <Enlace enlace={e.enlace} texto={e.texto} />
                 {:else}
