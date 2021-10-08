@@ -14,22 +14,6 @@
     
     let anchoOriginal
     let altoOriginal
-
-    $: (seleccion=>{
-        
-        if(!seleccion&&!!pathSeleccionado) {
-            regresar()
-            return
-        }
-        if( !! paths ) {
-            pathSeleccionado=paths.find(p=>p.getAttribute("name")==seleccion)
-            if( !! pathSeleccionado ) {
-                setTimeout(()=>centrarPath(pathSeleccionado))
-            }
-        }
-    })(seleccionado) 
-
-    
     let pathSeleccionado
     
     let svg;
@@ -215,6 +199,28 @@
         }
         return []
     }
+
+    
+    const centrarPathSeleccionado = seleccion => {
+        
+        if(!seleccion&&!!pathSeleccionado) {
+            regresar()
+            return
+        }
+        if( !! paths ) {
+            pathSeleccionado=paths.find(p=>p.getAttribute("name")==seleccion)
+            if( !! pathSeleccionado ) {
+                setTimeout(()=>centrarPath(pathSeleccionado))
+            }
+        }
+    }
+
+    
+
+    $: centrarPathSeleccionado(seleccionado) 
+
+    
+
 
 </script>
 
