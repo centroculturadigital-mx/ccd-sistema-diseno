@@ -203,7 +203,7 @@
 </script>
 
 <div
-  class={`Carrusel ${estilos.direccion}`}
+  class={`Carrusel ${estilos.direccion} ${!!navegacion ? "conNavegacion" : ""}`}
   id={`carrusel_${id}`}
   style={estilosCarrusel}
 >
@@ -289,7 +289,7 @@
     overflow: hidden;
     width: calc(100% - 4rem);
   }
-
+  
   .elementos {
     min-width: 100%;
     min-height: 100%;
@@ -300,7 +300,9 @@
     flex-wrap: none;
     flex-direction: row;
   }
-
+  .conNavegacion {
+    margin-bottom: 2.25rem;
+  }
   .indice {
     padding: var(--theme-espaciados-padding) 0;
     flex-shrink: 0;
