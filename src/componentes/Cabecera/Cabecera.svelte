@@ -144,6 +144,7 @@
     justify-content: space-between;
     padding: 0 0.5rem;
     height: 100%;
+    max-width: 64rem;
     width: 100%;
   }
   .contenedor :global(.Logotipos) {
