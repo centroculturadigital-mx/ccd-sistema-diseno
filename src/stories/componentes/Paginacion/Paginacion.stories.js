@@ -30,22 +30,11 @@ export const PaginacionArreglo = () => ({
 });
 
 // errores
-export const PaginacionNoMostrar = () => ({
+export const PaginacionSinDatos = () => ({
     Component: ThemeTester,
     props: {
         componente: Paginacion,
         datos: {
-            seleccionar: i => console.log(i)
-        },
-    },
-});
-
-export const PaginacionNoMostrar2 = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Paginacion,
-        datos: {
-            elementos: 10,
         },
     },
 });
