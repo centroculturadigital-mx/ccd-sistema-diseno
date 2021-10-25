@@ -46,52 +46,49 @@
       if (!moviendoMouse) {
         moviendoMouse = setTimeout(() => {
           if (estado) {
-        e.preventDefault();
-        let x = e.pageX - elemento.offsetLeft;
-        let avanza = x - inicio;
-        elemento.scrollLeft = scrollIzq - avanza;
-      }
-      activaNavegacion();
-      moviendoMouse = null
-        },50)
+            e.preventDefault();
+            let x = e.pageX - elemento.offsetLeft;
+            let avanza = x - inicio;
+            elemento.scrollLeft = scrollIzq - avanza;
+          }
+          activaNavegacion();
+          moviendoMouse = null;
+        }, 50);
       }
     });
     elemento.addEventListener("touchmove", (e) => {
       if (!moviendoTouch) {
         moviendoTouch = setTimeout(() => {
           if (estado) {
-        e.preventDefault();
-        let x = e.touches[0].pageX - elemento.offsetLeft;
-        let avanza = x - inicio;
-        elemento.scrollLeft = scrollIzq - avanza;
+            e.preventDefault();
+            let x = e.touches[0].pageX - elemento.offsetLeft;
+            let avanza = x - inicio;
+            elemento.scrollLeft = scrollIzq - avanza;
+          }
+          activaNavegacion();
+          moviendoTouch = null;
+        }, 50);
       }
-      activaNavegacion();
-      moviendoTouch = null
-        },50)
-      }
-      
     });
   };
 
-  let moviendoMouse
-  let moviendoTouch
+  let moviendoMouse;
+  let moviendoTouch;
 
   let contenedor;
   let contenido;
   let navegacion = false;
   let izquierda;
   let derecha;
+  let elementoActual = actual
 
   const activaNavegacion = () => {
     let anchoContenedor = contenedor.clientWidth;
     let scrollDerecha = anchoContenedor - contenedor.scrollLeftMax;
 
-    // activa navegacion izq o der segun se necesite overflow
-
     if (anchoContenedor <= contenido.clientWidth) {
-
       navegacion = true;
-      
+
       if (contenedor.scrollLeft > 0) {
         izquierda = true;
       } else {
@@ -103,81 +100,76 @@
         derecha = false;
       }
       // console.log('scrollderecha: ',scrollDerecha,'anchoContenedor: ', anchoContenedor);
-
     } else {
-      // si el ancho del contenedor es mayor al ancho del contenido, descativa navegacion
       navegacion = false;
       izquierda = false;
       derecha = false;
     }
   };
 
-  const calculaPosicion = (direccion) => {
-    let activo;
+  const centrarElemento = (indice) => {
     let contenedorElementos;
-    let posicionActivo;
+    let posicionElemento;
     let centro;
+    let elemento; 
 
     if (window !== "undefined") {
+      elemento = Array.from(document.querySelectorAll(".MenuLocal .elemento"))[indice]
       contenedorElementos = document.querySelector(".MenuLocal nav");
-      activo = document.querySelector(".actual"); //localiza elemento activo
-      posicionActivo = activo.offsetLeft; //separacion izquierda del elemento activo
-      centro = contenedor.clientWidth / 2 - activo.clientWidth / 2; // centro del contenedor
-
-      switch (direccion) {
-        case "IZQUIERDA":
-          console.log("ir izquierda");
-          break;
-        case "DERECHA":
-          console.log("ir derecha");
-          break;
-        case "CENTRADO":
-          // centrar en el contenedor principal el elemento activo
-          contenedorElementos.scrollBy({
-            top: 0,
-            left: posicionActivo - centro,
-            behavior: "smooth",
-          });
-          // contenedorElementos.scrollIntoView(true)
-          console.log("Centrado");
-          break;
+      if (elemento) {
+        posicionElemento = elemento.offsetLeft; //separacion izquierda del elemento
+        // centro = contenedor.clientWidth / 2 - elemento.clientWidth / 2; // centro del contenedor
+        
+        contenedorElementos.scrollBy({
+          top: 0,
+          left: posicionElemento - contenedor.clientWidth / 2,
+          behavior: "smooth",
+        });
       }
     }
   };
 
   const regresa = () => {
-    calculaPosicion("IZQUIERDA");
+    actual -= 1
+    actual = Math.max(0, actual)
+    console.log("regresa", actual);
   };
+  
   const avanza = () => {
-    calculaPosicion("DERECHA");
+    actual += 1 
+    actual = Math.min(elementos.length - 1, actual)
+    console.log("avanza", actual);
   };
 
   onMount(() => {
     if (window !== "undefined") {
       window.addEventListener("resize", () => {
-        activaNavegacion();
+        activaNavegacion()
       });
       setTimeout(() => {
-        activaNavegacion(); //defaults
-      });
+        //defaults
+        activaNavegacion() 
+        centrarElemento(actual)
+      },500);
     }
   });
+
+  $: centrarElemento(actual);
 </script>
 
 <svelte:window bind:innerWidth={responsivo} />
-
-<div class="MenuLocal {navegacion ? 'interaccion' : ''}">
+ 
+<div class="MenuLocal  {navegacion ? 'interaccion' : ''}">
   {#if izquierda}
     <div class="navegacion izquierda" on:click={regresa}>
       <Icono icono={"izquierda"} />
     </div>
   {/if}
-
   <nav use:scrollHorizontal bind:this={contenedor}>
     <ul bind:this={contenido}>
       {#each elementos as elemento, i (elemento)}
         {#if elemento.enlace}
-          <li class={`Enlace ${i == actual ? " actual" : ""}`}>
+          <li class={`elemento Enlace ${i == actual ? " actual" : ""}`}>
             <a href={elemento.enlace}>
               {#if elemento.icono && responsivo < 768}
                 <Icono icono={elemento.icono} />
@@ -186,7 +178,10 @@
             </a>
           </li>
         {:else}
-          <li on:click={elemento.accion(i)} class={i == actual ? "actual" : ""}>
+          <li
+            on:click={elemento.accion(i)}
+            class={`elemento ${i == actual ? "actual" : ""}`}
+          >
             {#if elemento.icono && responsivo < 768}
               <Icono icono={elemento.icono} />
             {/if}
@@ -305,7 +300,7 @@
     width: 1rem !important;
   }
   .navegacion :global(svg) {
-    fill: #AAAAAA;
+    fill: #aaaaaa;
   }
 
   .izquierda {

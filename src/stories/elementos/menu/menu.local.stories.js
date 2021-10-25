@@ -60,7 +60,7 @@ export const menuLocalAcciones = () => ({
                 delete obj.enlace
                 return obj
             }),
-            actual: 4
+            actual: 3
         }
     }
 });
