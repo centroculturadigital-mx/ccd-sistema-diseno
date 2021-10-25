@@ -208,7 +208,9 @@
     fill: currentColor;
   }
   .iconoContenedor :global(*) {
-    fill: inherit; 
+    fill: inherit;
+    height: 100%;
+    width: 100%;
   }
   .iconoContenedor :global(img) {
     object-fit: contain;
