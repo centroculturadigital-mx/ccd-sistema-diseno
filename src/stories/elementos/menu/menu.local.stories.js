@@ -44,7 +44,8 @@ export const menuLocalEnlaces = () => ({
                 let obj = { ...e }
                 delete obj.accion
                 return obj
-            })
+            }),
+            actual: 3
         }
     }
 });
@@ -58,7 +59,8 @@ export const menuLocalAcciones = () => ({
                 let obj = { ...e }
                 delete obj.enlace
                 return obj
-            })
+            }),
+            actual: 4
         }
     }
 });
