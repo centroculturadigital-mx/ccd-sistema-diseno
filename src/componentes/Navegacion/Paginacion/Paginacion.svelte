@@ -10,15 +10,12 @@
   export let pagina;
   export let seleccionar;
 
-  $: elementosMostrar = revisarNumero(elementos)
-    ? elementos
-    : Array.isArray(elementos)
-    ? elementos.length
-    : null;
+  $: elementosMostrar = elementos || 0
 
   $: mostrar = revisarNumero(elementosMostrar);
 
-  $: numPaginas = Math.ceil(elementosMostrar / elementosPagina);
+  $: numPaginas = Math.ceil( elementosMostrar / elementosPagina );
+  
   $: paginas = new Array(numPaginas).fill(0).map((e, i) => {
     return i + 1;
   });
@@ -32,6 +29,7 @@
 
   let paginaSeleccionada;
 
+
   const accion = (e, i) => {
     if (revisarNumero(i) && i < elementosMostrar) {
       if (typeof seleccionar == "function") {
@@ -41,18 +39,23 @@
       paginaSeleccionada = i;
     }
   };
+
+
   const anterior = () => {
     if (actual > 0) {
       actual--;
       console.log("Regresa", actual);
     }
   };
+
+  
   const siguiente = () => {
     if (actual < paginas.length - 1) {
       actual++;
       console.log("Avanza", actual);
     }
   };
+
 
   let valorProgreso = 70;
 </script>
