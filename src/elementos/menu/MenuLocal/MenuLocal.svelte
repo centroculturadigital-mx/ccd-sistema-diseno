@@ -13,9 +13,7 @@
   let scrollIzq;
   let scrollDer;
 
-  //Arrastre
   const scrollHorizontal = (elemento) => {
-    // activa scroll
     elemento.addEventListener("mousedown", (e) => {
       estado = true;
       elemento.classList.add("activo");
@@ -80,49 +78,51 @@
   let navegacion = false;
   let izquierda;
   let derecha;
-  let elementoActual = actual
+  let elementoActual = actual;
 
   const activaNavegacion = () => {
-    let anchoContenedor = contenedor.clientWidth;
-    let scrollDerecha = anchoContenedor - contenedor.scrollLeftMax;
+    if (contenedor) {
+      let anchoContenedor = contenedor.clientWidth;
+      let scrollDerecha = anchoContenedor - contenedor.scrollLeftMax;
 
-    if (anchoContenedor <= contenido.clientWidth) {
-      navegacion = true;
+      if (anchoContenedor <= contenido.clientWidth) {
+        navegacion = true;
 
-      if (contenedor.scrollLeft > 0) {
-        izquierda = true;
+        if (contenedor.scrollLeft > 0) {
+          izquierda = true;
+        } else {
+          izquierda = false;
+        }
+        if (scrollDerecha <= anchoContenedor) {
+          derecha = true;
+        } else {
+          derecha = false;
+        }
       } else {
+        navegacion = false;
         izquierda = false;
-      }
-      if (scrollDerecha <= anchoContenedor) {
-        derecha = true;
-      } else {
         derecha = false;
       }
-      // console.log('scrollderecha: ',scrollDerecha,'anchoContenedor: ', anchoContenedor);
-    } else {
-      navegacion = false;
-      izquierda = false;
-      derecha = false;
-    }
+    } 
   };
 
-  const centrarElemento = (indice) => {
+  const centrarElemento = (indice,contenedor) => {
     let contenedorElementos;
     let posicionElemento;
-    let centro;
-    let elemento; 
+    let elemento;
 
     if (window !== "undefined") {
-      elemento = Array.from(document.querySelectorAll(".MenuLocal .elemento"))[indice]
-      contenedorElementos = document.querySelector(".MenuLocal nav");
-      if (elemento) {
-        posicionElemento = elemento.offsetLeft; //separacion izquierda del elemento
-        // centro = contenedor.clientWidth / 2 - elemento.clientWidth / 2; // centro del contenedor
+      if (contenedor) {
+        elemento = Array.from(contenedor.querySelectorAll(".elemento"))[
+          indice
+        ];
+        posicionElemento = elemento.offsetLeft;
         
-        contenedorElementos.scrollBy({
+        console.log("Posicion elemento", elemento.offsetLeft);
+        
+        contenedor.scrollTo({
           top: 0,
-          left: posicionElemento - contenedor.clientWidth / 2,
+          left: (posicionElemento - ((contenedor.clientWidth - elemento.clientWidth)   / 2)),
           behavior: "smooth",
         });
       }
@@ -130,35 +130,33 @@
   };
 
   const regresa = () => {
-    actual -= 1
-    actual = Math.max(0, actual)
-    console.log("regresa", actual);
-  };
-  
-  const avanza = () => {
-    actual += 1 
-    actual = Math.min(elementos.length - 1, actual)
-    console.log("avanza", actual);
+    actual -= 1;
+    actual = Math.max(0, actual);
   };
 
-  onMount(() => {
+  const avanza = () => {
+    actual += 1;
+    actual = Math.min(elementos.length - 1, actual);
+  };
+
+  onMount(() => { 
     if (window !== "undefined") {
       window.addEventListener("resize", () => {
-        activaNavegacion()
+        activaNavegacion();
       });
       setTimeout(() => {
         //defaults
-        activaNavegacion() 
-        centrarElemento(actual)
-      },500);
+        activaNavegacion();
+        centrarElemento(actual);
+      }, 500);
     }
   });
 
-  $: centrarElemento(actual);
+  $: centrarElemento(actual,contenedor);
 </script>
 
 <svelte:window bind:innerWidth={responsivo} />
- 
+
 <div class="MenuLocal  {navegacion ? 'interaccion' : ''}">
   {#if izquierda}
     <div class="navegacion izquierda" on:click={regresa}>

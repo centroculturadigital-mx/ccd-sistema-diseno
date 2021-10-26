@@ -35,6 +35,12 @@ let elementos = [{
     }
 ]
 
+const elementosActuales = new Array(15).fill(true).map((e,i) => ({
+        texto: `Menú ${i+1}`,
+        icono: "twitter",
+        enlace: "/un/enlace",
+        accion: () => console.log("Navegación local"),
+}))
 export const menuLocalEnlaces = () => ({
     Component: ThemeTester,
     props: {
@@ -64,3 +70,49 @@ export const menuLocalAcciones = () => ({
         }
     }
 });
+// 
+export const MenuLocalActualCasiAlInicio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: MenuLocal,
+        datos: {
+            elementos: elementosActuales,
+            actual: 2,
+        },
+    },
+});
+
+export const MenuLocalActualEnMedio = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: MenuLocal,
+        datos: {
+            elementos: elementosActuales,
+            actual: 8,
+        },
+    },
+});
+
+export const MenuLocalActualCasiAlFinal = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: MenuLocal,
+        datos: {
+            elementos: elementosActuales,
+            actual: 13,
+        },
+    },
+});
+
+
+export const MenuLocalActualAlFinal = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: MenuLocal,
+        datos: {
+            elementos: elementosActuales,
+            actual: 14,
+        },
+    },
+});
+
