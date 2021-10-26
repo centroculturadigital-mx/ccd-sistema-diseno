@@ -78,7 +78,6 @@
   let navegacion = false;
   let izquierda;
   let derecha;
-  let elementoActual = actual;
 
   const activaNavegacion = () => {
     if (contenedor) {
@@ -117,9 +116,7 @@
           indice
         ];
         posicionElemento = elemento.offsetLeft;
-        
-        console.log("Posicion elemento", elemento.offsetLeft);
-        
+
         contenedor.scrollTo({
           top: 0,
           left: (posicionElemento - ((contenedor.clientWidth - elemento.clientWidth)   / 2)),
