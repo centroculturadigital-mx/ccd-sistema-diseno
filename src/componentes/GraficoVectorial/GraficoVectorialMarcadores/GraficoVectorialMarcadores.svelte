@@ -7,10 +7,9 @@
 
     export let svg
     export let marcadores = []
-    export let activos = {
-        mostrar: false,
-        color: "#aaa",
-    }
+    export let configuracion
+    export let seleccionar
+    export let seleccionado
 
 
     let contenedor
@@ -132,7 +131,7 @@
     }
 
     
-    const seleccionarPath = (path, svgZoomeable) => {
+    const seleccionarAccion = (path, svgZoomeable) => {
         
         
         svgZoomeable.resetZoom();
@@ -159,22 +158,20 @@
     } 
 
 
-    const mostrarPathsActivos = () => {
+    // const mostrarPathsActivos = () => {
 
-        console.log("mostrarPathsActivos", paths );
+    //     if( configuracion && configuracion.activos && configuracion.activos.mostrar ) {
 
-        if( activos && activos.mostrar ) {
-
-            const pathsActivos = paths.filter(
-                p => !! marcadores.find(m => p.getAttribute( m.path.atributo ) === m.path.valor )
-            )
+    //         const pathsActivos = paths.filter(
+    //             p => !! marcadores.find(m => p.getAttribute( m.path.atributo ) === m.path.valor )
+    //         )
             
-            console.log("pathsActivos", pathsActivos);
-            pathsActivos.forEach( p => p.style = `fill: ${ activos.color ? activos.color : "#aaa" }`)
+    //         console.log("pathsActivos", pathsActivos);
+    //         pathsActivos.forEach( p => p.style = `fill: ${ configuracion.activos.color ? configuracion.activos.color : "#aaa" }`)
 
-        }
+    //     }
 
-    }
+    // }
 
 
 
@@ -192,7 +189,7 @@
     $: propiedades = {
         svg,
         actualizarGraficoVectorial,
-        seleccionarPath,
+        seleccionar: seleccionarAccion,
         componentes: [
             {
                 componente: Marcadores,
@@ -200,7 +197,8 @@
                     marcadores: marcadoresMostrar
                 }
             }
-        ]
+        ],
+        configuracion
     }
 
 

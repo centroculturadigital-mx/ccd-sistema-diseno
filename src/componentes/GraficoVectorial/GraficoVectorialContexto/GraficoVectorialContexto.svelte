@@ -4,13 +4,15 @@
 
     export let svg
     export let actualizarGraficoVectorial
-    export let seleccionarPath
+    export let seleccionar
     export let componentes
+    export let configuracion
 
     $: propiedades = {
         svg,
         actualizarGraficoVectorial,
-        seleccionarPath,
+        seleccionar,
+        configuracion
     }
 
     $: componentesMostrar = Array.isArray( componentes ) ? componentes : []
