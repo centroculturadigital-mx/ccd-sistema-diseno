@@ -72,7 +72,7 @@
         } else {
           izquierda = false;
         }
-        if (scrollDerecha < anchoContenedor) {
+        if (actual != paginas.length - 1) {
           derecha = true;
         } else {
           derecha = false;
@@ -98,7 +98,7 @@
             top: 0,
             left:
               posicionElemento -
-              (contenedor.clientWidth - elemento.clientWidth) / 1.25,
+              (contenedor.clientWidth - elemento.clientWidth) / 1.85,
             behavior: "smooth",
           });
         }
@@ -117,8 +117,7 @@
         centrarElemento(actual);
       }, 500);
     }
-      // centrarElemento(actual, contenedor);
-
+    // centrarElemento(actual, contenedor);
   });
 
   $: centrarElemento(actual, contenedor);
@@ -205,16 +204,22 @@
     outline: 0;
   }
   .navegacion {
-    height: 100%;
-    width: 3rem;
+    display: flex;
+    align-items: center;
+    width: 1rem;
   }
   .navegacion button {
     background-color: transparent;
+    padding: 0;
     border: 0;
     border-radius: 0.25rem;
     height: 100%;
     width: 100%;
     cursor: pointer;
+  }
+  .navegacion :global(.iconoContenedor) {
+    height: 1rem !important;
+    width: 1rem !important;
   }
   .navegacion button:hover {
     background-color: initial;
@@ -223,10 +228,6 @@
   .navegacion button:active,
   .navegacion button:focus {
     outline: 0;
-  }
-  .navegacion :global(.iconoContenedor) {
-    height: 1.5rem !important;
-    width: 1.5rem !important;
   }
   .actual button {
     border: 1px solid var(--theme-colores-primario) !important;

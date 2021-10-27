@@ -62,7 +62,7 @@ export const PaginacionNumeroCasiAlFinal = () => ({
         datos: {
             elementos: 100,
             elementosPagina: 4,
-            pagina: 21,
+            pagina: 20,
             seleccionar: i => console.log(i) // función que consume el índice
         },
     },
@@ -76,7 +76,7 @@ export const PaginacionNumeroAlFinal = () => ({
         datos: {
             elementos: 100,
             elementosPagina: 4,
-            pagina: 25,
+            pagina: 24,
             seleccionar: i => console.log(i) // función que consume el índice
         },
     },
