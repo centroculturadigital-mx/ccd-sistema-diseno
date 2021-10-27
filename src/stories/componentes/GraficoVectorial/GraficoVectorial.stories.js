@@ -61,10 +61,32 @@ export const graficoVectorialHabilitadosConfiguracion = () => ({
             seleccionar: datos => console.log("seleccionar", datos),
             habilitados: ['Chihuahua', 'Oaxaca', 'Ciudad de México'],
             configuracion: {
+                habilitados: {                
+                    mostrar: true,
+                    color: "#0f0",    
+                }
             }
         }
     },
 });
+
+
+
+export const graficoVectorialAnchoTrazoVariable = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GraficoVectorial,
+        datos:{
+            svg: mapa_mexico,
+            seleccionar: datos => console.log("seleccionar", datos),
+            configuracion: {
+                anchoTrazoConstante: false
+            }
+        }
+    },
+});
+
+
 
 
 

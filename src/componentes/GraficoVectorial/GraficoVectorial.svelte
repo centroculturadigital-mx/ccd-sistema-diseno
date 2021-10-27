@@ -7,24 +7,32 @@
     export let actualizarGraficoVectorial
     export let seleccionar
     export let habilitados
-    export let configuracion = {
-        centrarAlSeleccionar: true,
-        anchoTrazosConstante: true
-    }
+    export let configuracion
 
 
-    configuracion = configuracion ? {
+    $: configuracion = configuracion ? {
         ...configuracion,
-        habilitados: configuracion.habilitados ? configuracion.habilitados : {
+        centrarAlSeleccionar: configuracion.centrarAlSeleccionar || true,
+        anchoTrazosConstante: configuracion.anchoTrazosConstante || true,        
+        habilitados: configuracion.habilitados ? {
+            ...configuracion.habilitados,
+            mostrar: typeof configuracion.habilitados.mostrar == "boolean" ? configuracion.habilitados.mostrar : true,
+            color: configuracion.habilitados.color || "#aaa"
+        } : {
             mostrar: true,
             color: "#aaa",
         }
     } : {
+        centrarAlSeleccionar: true,
+        anchoTrazosConstante: true,
         habilitados: {
             mostrar: true,
             color: "#aaa",
         }
     }
+
+
+    $: console.log("configuraicon", configuracion);
 
 
     let panZoom;
@@ -127,13 +135,12 @@
 
     const mostrarHabilitados = ( paths ) => {
 
-        console.log("ppaths", paths, configuracion );
-
+        
         if( configuracion && configuracion.habilitados && configuracion.habilitados.mostrar ) {            
             
-            paths.forEach( p => p.style = `fill: ${ configuracion.habilitados.color ? configuracion.habilitados.color : "#aaa" };`)
+            console.log("ppaths", paths, configuracion );
 
-            configurarAnchoTrazos( contenedor )
+            paths.forEach( p => p.style = `fill: ${ configuracion.habilitados.color ? configuracion.habilitados.color : "#aaa" };`)
 
         }
 
@@ -153,10 +160,7 @@
                     p => habilitados.includes( p.getAttribute( configuracion.habilitados.atributo || "id" ) )
                 )
 
-
-                console.log("pathsHabilitados", pathsHabilitados);
-                
-
+            
                 paths.forEach(p=>{
                     // p.removeEventListener('click',clicarPath)
                     p.setAttribute('inhabilitado',true)
