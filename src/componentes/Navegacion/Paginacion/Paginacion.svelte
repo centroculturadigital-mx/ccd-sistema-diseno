@@ -54,10 +54,6 @@
     activaNavegacion();
   };
 
-  // interaccion
-  let moviendoMouse;
-  let moviendoTouch;
-
   let contenedor;
   let contenido;
   let navegacion = false;
@@ -69,7 +65,6 @@
       let anchoContenedor = contenedor.clientWidth;
       let scrollDerecha = anchoContenedor - contenedor.scrollLeftMax;
       if (anchoContenedor <= contenido.clientWidth) {
-        
         navegacion = true;
 
         if (actual > 0) {
@@ -97,15 +92,16 @@
     if (window !== "undefined") {
       if (contenedor) {
         elemento = Array.from(contenedor.querySelectorAll(".elemento"))[indice];
-        posicionElemento = elemento.offsetLeft;
-
-        contenedor.scrollTo({
-          top: 0,
-          left:
-            posicionElemento -
-            (contenedor.clientWidth - elemento.clientWidth) / 1.25,
-          behavior: "smooth",
-        });
+        if (elemento) {
+          posicionElemento = elemento.offsetLeft;
+          contenedor.scrollTo({
+            top: 0,
+            left:
+              posicionElemento -
+              (contenedor.clientWidth - elemento.clientWidth) / 1.25,
+            behavior: "smooth",
+          });
+        }
       }
     }
   };
@@ -121,6 +117,8 @@
         centrarElemento(actual);
       }, 500);
     }
+      // centrarElemento(actual, contenedor);
+
   });
 
   $: centrarElemento(actual, contenedor);
@@ -133,8 +131,8 @@
         <button>
           <Icono icono="izquierda" />
         </button>
-        {/if}
-      </div>
+      {/if}
+    </div>
     <nav bind:this={contenedor}>
       <ul bind:this={contenido}>
         {#each paginas as p, i ("pagina_" + i)}
@@ -149,8 +147,8 @@
         <button>
           <Icono icono="derecha" />
         </button>
-        {/if}
-      </div>
+      {/if}
+    </div>
   </div>
 {/if}
 
