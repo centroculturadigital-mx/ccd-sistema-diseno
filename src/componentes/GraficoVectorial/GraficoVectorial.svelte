@@ -5,7 +5,35 @@
     export let mostrarControles = true
     export let svg
     export let actualizarGraficoVectorial
-    export let seleccionarPath
+    export let seleccionar
+    export let habilitados
+    export let configuracion
+
+
+    $: configuracion = configuracion ? {
+        ...configuracion,
+        centrarAlSeleccionar: configuracion.centrarAlSeleccionar || true,
+        anchoTrazosConstante: configuracion.anchoTrazosConstante || true,        
+        habilitados: configuracion.habilitados ? {
+            ...configuracion.habilitados,
+            mostrar: typeof configuracion.habilitados.mostrar == "boolean" ? configuracion.habilitados.mostrar : true,
+            color: configuracion.habilitados.color || "#aaa"
+        } : {
+            mostrar: true,
+            color: "#aaa",
+        }
+    } : {
+        centrarAlSeleccionar: true,
+        anchoTrazosConstante: true,
+        habilitados: {
+            mostrar: true,
+            color: "#aaa",
+        }
+    }
+
+
+    $: console.log("configuraicon", configuracion);
+
 
     let panZoom;
 
@@ -14,6 +42,8 @@
     let svgZoomeable
 
     let clases = ""
+    
+    let contenedor
 
     const hacerClicSvg = e => {
 
@@ -61,19 +91,109 @@
 
     const soltarPath = ( path ) => {
         if( pathClicado && ! pathArrastrando ) {
-            seleccionarPathAccion( path )
+            seleccionarAccion( path )
         }
     }
 
-    const seleccionarPathAccion = ( path ) => {
+    const seleccionarAccion = ( path ) => {
+        
+        if( configuracion.centrarAlSeleccionar ) {
+            if( Array.isArray(habilitados) && habilitados.includes(path.getAttribute( configuracion.habilitados.atributo || "id")) ) {
 
-        if( typeof seleccionarPath == "function" ) {
+                svgZoomeable.resetZoom(); 
+                svgZoomeable.resetPan();
+                
+                
+                const bb=path.getBBox();
+                const vbb=svgZoomeable.getSizes().viewBox;
+                const x=vbb.width/2-bb.x-bb.width/2;
+                const y=vbb.height/2-bb.y-bb.height/2;
+                const rz=svgZoomeable.getSizes().realZoom;
+                
+                const zoom=(vbb.height/bb.height) / 1.618;
+        
+                svgZoomeable.panBy({x:x*rz,y:y*rz});
+                
+                svgZoomeable.zoom(zoom);
+                    
+            }
+        }
 
-            seleccionarPath( path, svgZoomeable )
+
+
+        if( typeof seleccionar == "function" ) {
+
+            seleccionar( path, svgZoomeable )
+
+                        
+        }
+
+    }
+
+
+
+
+    const mostrarHabilitados = ( paths ) => {
+
+        
+        if( configuracion && configuracion.habilitados && configuracion.habilitados.mostrar ) {            
+            
+            console.log("ppaths", paths, configuracion );
+
+            paths.forEach( p => p.style = `fill: ${ configuracion.habilitados.color ? configuracion.habilitados.color : "#aaa" };`)
 
         }
 
     }
+
+
+    const activarHabilitados = () => {
+        
+        const paths = Array.from(contenedor.querySelectorAll("svg path"))
+        
+        if( !! paths ) {
+
+            if(Array.isArray(habilitados) && habilitados.length > 0 ){                                
+                
+
+                const pathsHabilitados = paths.filter(
+                    p => habilitados.includes( p.getAttribute( configuracion.habilitados.atributo || "id" ) )
+                )
+
+            
+                paths.forEach(p=>{
+                    // p.removeEventListener('click',clicarPath)
+                    p.setAttribute('inhabilitado',true)
+                })
+                pathsHabilitados.forEach(p=>{
+                    p.setAttribute('inhabilitado',false)
+                    // p.addEventListener('click',clicarPath)
+                })
+
+                mostrarHabilitados( pathsHabilitados )
+
+                return pathsHabilitados
+            
+            }
+        }
+        
+        return []
+
+    }
+
+
+    const configurarAnchoTrazos = contenedor => {
+
+        if( configuracion.anchoTrazosConstante ) {
+
+            const paths = Array.from(contenedor.querySelectorAll("svg path"))
+            
+            paths.forEach( p => p.setAttribute("vector-effect","non-scaling-stroke"))
+            
+        } 
+
+    }
+    
 
     onMount(async () => {
 
@@ -126,17 +246,20 @@
         actualizarGraficoVectorialAccion()
 
 
+        
+
     });
 
 
-
+    $: contenedor && activarHabilitados( contenedor )
+    $: contenedor && configurarAnchoTrazos( contenedor )
 
 
 </script>
 
 
 {#if svg}
-    <div class={ `GraficoVectorial${ clases != "" ? ` ${clases}` : "" }`}>
+    <div class={ `GraficoVectorial${ clases != "" ? ` ${clases}` : "" }`} bind:this={ contenedor }>
         {@html svg }
     </div>
 {/if}

@@ -73,6 +73,10 @@ export { default as Contenido }
 from "./componentes/Contenido/Contenido.svelte";
 export { default as Mapa }
 from "./componentes/Mapa/Mapa.svelte";
+export { default as GraficoVectorial }
+from "./componentes/GraficoVectorial/GraficoVectorial.svelte";
+export { default as GraficoVectorialMarcadores }
+from "./componentes/GraficoVectorial/GraficoVectorialMarcadores/GraficoVectorialMarcadores.svelte";
 export { default as VideoGaleria }
 from "./componentes/VideoGaleria/VideoGaleria.svelte";
 export { default as VideoReproductor }

@@ -13,10 +13,24 @@ export const graficoVectorialMarcadoresDefault = () => ({
         componente: GraficoVectorialMarcadores,
         datos:{
             svg: mapa_mexico,
-            marcadores: marcadoresMapaMexico
+            marcadores: marcadoresMapaMexico,
+            seleccionar: datos => console.log("seleccionar", datos)
         }
     },
 });
+
+export const graficoVectorialMarcadoresSeleccionado = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GraficoVectorialMarcadores,
+        datos:{
+            svg: mapa_mexico,
+            marcadores: marcadoresMapaMexico,
+            seleccionado: "Puebla"
+        }
+    },
+});
+
 
 
 
@@ -33,9 +47,11 @@ export const graficoVectorialMarcadoresActivosVsInactivos = () => ({
                 marcadoresMapaMexico[16],
                 marcadoresMapaMexico[22],
             ],
-            activos: {
-                mostrar: true,
-                color: "#00ff33"
+            configuracion: {
+                activos: {
+                    mostrar: true,
+                    color: "#00ff33"
+                }
             }
         }
     },
