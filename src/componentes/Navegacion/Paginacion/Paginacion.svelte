@@ -63,7 +63,6 @@
   const activaNavegacion = () => {
     if (contenedor) {
       let anchoContenedor = contenedor.clientWidth;
-      let scrollDerecha = anchoContenedor - contenedor.scrollLeftMax;
       if (anchoContenedor <= contenido.clientWidth) {
         navegacion = true;
 
@@ -98,7 +97,7 @@
             top: 0,
             left:
               posicionElemento -
-              (contenedor.clientWidth - elemento.clientWidth) / 1.85,
+              (contenedor.clientWidth - elemento.clientWidth) / 1.125,
             behavior: "smooth",
           });
         }
@@ -108,19 +107,26 @@
 
   onMount(() => {
     if (window !== "undefined") {
-      window.addEventListener("resize", () => {
-        activaNavegacion();
-      });
+      window.addEventListener(
+        "resize",
+        () => {
+          setTimeout(() => {
+            activaNavegacion();
+            centrarElemento(actual, contenedor);
+          });
+        },
+        500
+      );
       //defaults
       setTimeout(() => {
         activaNavegacion();
         centrarElemento(actual);
       }, 500);
     }
-    // centrarElemento(actual, contenedor);
   });
 
   $: centrarElemento(actual, contenedor);
+
 </script>
 
 {#if mostrar}
@@ -132,7 +138,17 @@
         </button>
       {/if}
     </div>
-    <nav bind:this={contenedor}>
+    {#if actual > 3}
+      <div class="inicio">
+        <span>
+          <button on:click={(e) => accion(e, 0)}>{"1"}</button>
+        </span>
+        <span class="puntos">
+          <Texto texto={"..."} />
+        </span>
+      </div>
+    {/if}
+    <nav class="contenedor" bind:this={contenedor}>
       <ul bind:this={contenido}>
         {#each paginas as p, i ("pagina_" + i)}
           <li class="elemento {i == actual ? 'actual' : ''}">
@@ -141,6 +157,16 @@
         {/each}
       </ul>
     </nav>
+    {#if elementosMostrar > 8 && actual < (paginas.length - 2)}
+    <div class="final">
+      <span class="puntos">
+        <Texto texto={"..."} />
+      </span>
+      <span>
+        <button on:click={(e) => accion(e, paginas.length)}>{paginas.length}</button>
+      </span>
+    </div>
+  {/if}
     <div class="navegacion siguiente" on:click={siguiente}>
       {#if derecha}
         <button>
@@ -164,9 +190,12 @@
   }
   nav {
     display: flex;
-    width: 100%;
     overflow: hidden;
     padding: var(--theme-espaciados-padding) 0;
+    width: 100%;
+  }
+  .contenedor {
+    max-width: 20rem;
   }
   ul {
     display: flex;
@@ -175,6 +204,10 @@
     list-style-type: none;
     width: auto;
   }
+  .inicio,
+  .final {
+    display: flex;
+  }
   li {
     display: flex;
     justify-content: center;
@@ -182,6 +215,19 @@
     height: 2rem;
     width: 2rem;
     margin: 0 0.5rem;
+  }
+  .inicio span:first-of-type,
+  .final span:last-of-type {
+    height: 2rem;
+    width: 2rem;
+  }
+  .puntos {
+    display: flex;
+    align-items: flex-end;
+    padding: 0 var(--theme-espaciados-padding); 
+  }
+  .puntos :global(span) {
+    font-weight: var(--theme-textos-titulo-peso);
   }
   button {
     transition: var(--theme-transiciones-rapida);
