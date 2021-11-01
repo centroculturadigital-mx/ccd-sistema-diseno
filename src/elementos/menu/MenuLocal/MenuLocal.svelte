@@ -112,16 +112,23 @@
 
     if (window !== "undefined") {
       if (contenedor) {
+        
         elemento = Array.from(contenedor.querySelectorAll(".elemento"))[
           indice
         ];
-        posicionElemento = elemento.offsetLeft;
 
-        contenedor.scrollTo({
-          top: 0,
-          left: (posicionElemento - ((contenedor.clientWidth - elemento.clientWidth)   / 2)),
-          behavior: "smooth",
-        });
+        if(elemento) {
+
+          posicionElemento = elemento.offsetLeft;
+          
+          contenedor.scrollTo({
+            top: 0,
+            left: (posicionElemento - ((contenedor.clientWidth - elemento.clientWidth)   / 2)),
+            behavior: "smooth",
+          });
+
+        }
+
       }
     }
   };
@@ -162,7 +169,7 @@
   {/if}
   <nav use:scrollHorizontal bind:this={contenedor}>
     <ul bind:this={contenido}>
-      {#each elementos as elemento, i (elemento)}
+      {#each elementos as elemento (elemento)}
         {#if elemento.enlace}
           <li class={`elemento Enlace ${i == actual ? " actual" : ""}`}>
             <a href={elemento.enlace}>
