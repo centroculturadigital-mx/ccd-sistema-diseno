@@ -21,7 +21,7 @@
 <style>
   .Paginacion {
     position: relative;
-    width: 26rem;
+    width: 20rem;
     border: 2px solid red;
   }
 </style>
