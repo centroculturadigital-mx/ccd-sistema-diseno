@@ -169,7 +169,7 @@
   {/if}
   <nav use:scrollHorizontal bind:this={contenedor}>
     <ul bind:this={contenido}>
-      {#each elementos as elemento (elemento)}
+      {#each elementos as elemento, i (elemento)}
         {#if elemento.enlace}
           <li class={`elemento Enlace ${i == actual ? " actual" : ""}`}>
             <a href={elemento.enlace}>
