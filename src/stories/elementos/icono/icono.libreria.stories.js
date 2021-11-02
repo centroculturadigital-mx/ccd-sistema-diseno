@@ -477,16 +477,6 @@ export const enlace = () => ({
     },
 });
 
-export const youtube = () => ({
-    Component: ThemeTester,
-    props: {
-        componente: Icono,
-        datos: {
-            icono: "youtube",
-        }
-    },
-});
-
 export const linkedin = () => ({
     Component: ThemeTester,
     props: {
@@ -1883,6 +1873,16 @@ export const cd = () => ({
         componente: Icono,
         datos: {
             icono: "cd",
+        }
+    },
+});
+
+export const cerrarOctagono = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: Icono,
+        datos: {
+            icono: "cerrarOctagono",
         }
     },
 });
@@ -3487,12 +3487,12 @@ export const graficaBarras = () => ({
     },
 });
 
-export const gxpulsar = () => ({
+export const expulsar = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos: {
-            icono: "gxpulsar",
+            icono: "expulsar",
         }
     },
 });
@@ -5207,22 +5207,12 @@ export const volumenNo = () => ({
     },
 });
 
-export const cerrarOctagono = () => ({
+export const youtube = () => ({
     Component: ThemeTester,
     props: {
         componente: Icono,
         datos: {
-            icono: "cerrarOctagono",
+            icono: "youtube",
         }
     },
 });
-// export const youtube = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: Icono,
-//         datos: {
-//             icono: "youtube",
-//         }
-//     },
-// });
-
