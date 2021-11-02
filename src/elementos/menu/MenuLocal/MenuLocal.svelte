@@ -82,7 +82,7 @@
   const activaNavegacion = () => {
     if (contenedor) {
       let anchoContenedor = contenedor.clientWidth;
-      let scrollDerecha = anchoContenedor - contenedor.scrollLeftMax;
+      let scrollDerecha = anchoContenedor - contenedor.scrollLeft;
 
       if (anchoContenedor <= contenido.clientWidth) {
         navegacion = true;
