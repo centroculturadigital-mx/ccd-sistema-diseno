@@ -112,16 +112,23 @@
 
     if (window !== "undefined") {
       if (contenedor) {
+        
         elemento = Array.from(contenedor.querySelectorAll(".elemento"))[
           indice
         ];
-        posicionElemento = elemento.offsetLeft;
 
-        contenedor.scrollTo({
-          top: 0,
-          left: (posicionElemento - ((contenedor.clientWidth - elemento.clientWidth)   / 2)),
-          behavior: "smooth",
-        });
+        if(elemento) {
+
+          posicionElemento = elemento.offsetLeft;
+          
+          contenedor.scrollTo({
+            top: 0,
+            left: (posicionElemento - ((contenedor.clientWidth - elemento.clientWidth)   / 2)),
+            behavior: "smooth",
+          });
+
+        }
+
       }
     }
   };
