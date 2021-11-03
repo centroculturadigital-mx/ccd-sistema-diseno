@@ -123,34 +123,36 @@
         <!--  -->
         {#if !!enlace}
           <a class="{aparienciaEstilo} enlazado" {...linkTarget} href={enlace}>
-            {#if !!leyenda}
-              <div class="Leyenda">
-                <Parrafo texto={leyenda} />
-              </div>
-            {/if}
-            <!-- etiquetas -->
-            {#if Array.isArray(etiquetas)}
-              <div class="etiquetas">
-                {#each etiquetas as etiqueta (etiqueta)}
-                  <Etiqueta
-                    texto={etiqueta.texto}
-                    cerrar={etiqueta.cerrar}
-                    icono={etiqueta.icono}
-                    imagen={etiqueta.imagen}
-                  />
-                {/each}
-              </div>
-            {/if}
-            {#if !!nombre}
-              <div class="Titulo">
-                <Titulo texto={nombre} nivel={nivelTitulo} />
-              </div>
-            {/if}
-            {#if !!subtitulo}
-              <div class="Subtitulo">
-                <Titulo texto={subtitulo} nivel={4} />
-              </div>
-            {/if}
+            <div class="contenido">
+              {#if !!leyenda}
+                <div class="Leyenda">
+                  <Parrafo texto={leyenda} />
+                </div>
+              {/if}
+              <!-- etiquetas -->
+              {#if Array.isArray(etiquetas)}
+                <div class="etiquetas">
+                  {#each etiquetas as etiqueta (etiqueta)}
+                    <Etiqueta
+                      texto={etiqueta.texto}
+                      cerrar={etiqueta.cerrar}
+                      icono={etiqueta.icono}
+                      imagen={etiqueta.imagen}
+                    />
+                  {/each}
+                </div>
+              {/if}
+              {#if !!nombre}
+                <div class="Titulo">
+                  <Titulo texto={nombre} nivel={nivelTitulo} />
+                </div>
+              {/if}
+              {#if !!subtitulo}
+                <div class="Subtitulo">
+                  <Titulo texto={subtitulo} nivel={4} />
+                </div>
+              {/if}
+            </div>
           </a>
         {:else}
           {#if !!leyenda}
@@ -188,16 +190,20 @@
             <hr />
             <div class="Enlaces">
               {#each enlaces as e (e)}
-                {#if e.enlace }
+                {#if e.enlace}
                   <Enlace enlace={e.enlace} texto={e.texto} />
                 {:else}
                   <!-- Usar enlace de Tarjeta, si existe -->
-                  {#if enlace }
+                  {#if enlace}
                     <div class="enlace-tarjeta">
-                      {#if enlace.externo }
-                        <Enlace enlace={enlace.url} texto={e.texto} nuevaPestanna={true}/>
+                      {#if enlace.externo}
+                        <Enlace
+                          enlace={enlace.url}
+                          texto={e.texto}
+                          nuevaPestanna={true}
+                        />
                       {:else}
-                        <Enlace enlace={enlace} texto={e.texto} />
+                        <Enlace {enlace} texto={e.texto} />
                       {/if}
                     </div>
                   {:else}
@@ -427,7 +433,6 @@
   .Enlaces .enlace-tarjeta :global(a span),
   .Enlaces .enlace-tarjeta :global(a span:hover) {
     color: var(--theme-textos-parrafo-color);
-
   }
   hr {
     border-color: var(--theme-bordes-neutro);
