@@ -16,8 +16,8 @@
     let elementoGloboAncho;
 
     const inicializarGlobo = (elemento) => {
-        elementoGloboAncho = elemento.getBoundingClientRect().width
-        elementoGloboAlto = elemento.getBoundingClientRect().height
+        elementoGloboAncho = elemento.getBoundingClientRect().width;
+        elementoGloboAlto = elemento.getBoundingClientRect().height;
     };
 
     const mostrarGlobo = (evento, texto) => {
@@ -49,57 +49,51 @@
         let ventanaAlto = window.innerHeight;
         let tamannoX = elemento.width;
         let tamannoY = elemento.height;
-        let tamannoFlecha = 8
+        let tamannoFlecha = 10;
 
         // let cuadranteIzquierdo = elemento.left <= ventanaAncho / 2 //mitad pantalla
         // let cuadranteDerecho = elemento.right > ventanaAncho * 0.5 // mitad pantalla
-        let cuadranteIzquierdo = elemento.right < (elementoGloboAncho + tamannoFlecha) 
-        let cuadranteDerecho = elemento.right > (elementoGloboAncho + tamannoFlecha)
-        let cuadranteArriba = elemento.top < (elementoGloboAlto + tamannoFlecha)
-        let cuadranteAbajo = elemento.bottom > (elementoGloboAlto + tamannoFlecha)
+        let cuadranteIzquierdo = elemento.right < (elementoGloboAncho + tamannoFlecha);
+        let cuadranteDerecho = elemento.right > (elementoGloboAncho + tamannoFlecha);
+        let cuadranteArriba = elemento.top < (elementoGloboAlto + tamannoFlecha);
+        let cuadranteAbajo = elemento.bottom > (elementoGloboAlto + tamannoFlecha);
 
-        inicializarGlobo
-
+        
         if (cuadranteIzquierdo) {
             //elemento izquierda centro, globo a la derecha
-            elementoX = 200
-            elementoY = elemento.top + ((tamannoY / 2) - (elementoGloboAlto / 2))// centra verticalmente
+            elementoX = tamannoX + elementoGloboAncho / 2;
+            elementoY = elemento.top + (tamannoY / 2 - elementoGloboAlto / 2); // centra verticalmente
             posicionFlecha = "IZQUIERDA_CENTRO";
-            console.log("Elemento izquierda - globo a la derecha", posicionFlecha, cuadranteIzquierdo)
-            
         }
-        
         if (cuadranteDerecho) {
             //elemento a la derecha centro, globo a la izquierda
-            elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha))
-            elementoY = elemento.top + ((tamannoY / 2) - (elementoGloboAlto / 2))
+            elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha));
+            elementoY = elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
             posicionFlecha = "DERECHA_CENTRO";
         }
         
-        // if (elemento.top < tamannoY) {
-            if (cuadranteArriba) {
-                //elemento al centro arriba, globo abajo
-                elementoX = elemento.right + ((tamannoX * 1.5) + elementoGloboAlto)
-                elementoY = elemento.top +  (elementoGloboAlto + tamannoFlecha)
-                posicionFlecha = "ABAJO_CENTRO";
-                console.log("Elemento arrriba - globo a la abajo", cuadranteArriba,posicionFlecha)
-            }
-
-        // if (elemento.bottom > (ventanaAlto - tamannoY)) {
-        if (cuadranteAbajo) {
+        if (cuadranteArriba) {
+            //elemento al centro arriba, globo abajo
+            elementoX = (elemento.right - (tamannoX / 3)) - (elementoGloboAncho / 2);
+            elementoY = elemento.top + (elementoGloboAlto + tamannoFlecha);
+            posicionFlecha = "ARRIBA_CENTRO"
+        }
+        
+        if (cuadranteAbajo && !cuadranteIzquierdo && !cuadranteDerecho) {
             //elemento al centro abajo, globo abajo
             elementoX = elemento.right - ((tamannoX * 1.5) + elementoGloboAlto)
             elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha)
-            posicionFlecha = "ABAJO_CENTRO";
+            posicionFlecha = "ABAJO_CENTRO"
+            console.log("DEBUGX: ", elementoX, elementoY);
         }
-        
-        // if (elemento.top < tamannoY && cuadranteIzquierdo) {
-        if (cuadranteArriba && cuadranteIzquierdo) {
-            //elemento a la izquierda arriba, globo abajo derecha
-            elementoX = elemento.left - ((tamannoX / 2) - elementoGloboAlto);
-            elementoY = elemento.top + (tamannoY + tamannoFlecha);
-            posicionFlecha = "ARRIBA_IZQUIERDA";
-        }
+
+        // // if (elemento.top < tamannoY && cuadranteIzquierdo) {
+        // if (cuadranteArriba && cuadranteIzquierdo) {
+        //     //elemento a la izquierda arriba, globo abajo derecha
+        //     elementoX = elemento.left - ((tamannoX / 2) - elementoGloboAlto);
+        //     elementoY = elemento.top + (tamannoY + tamannoFlecha);
+        //     posicionFlecha = "ARRIBA_IZQUIERDA";
+        // }
 
         // // if (elemento.top < tamannoY && cuadranteDerecho) {
         // if (cuadranteArriba && cuadranteDerecho) {
@@ -108,7 +102,6 @@
         //     elementoY = elemento.top + (tamannoY + tamannoFlecha);
         //     posicionFlecha = "ARRIBA_IZQUIERDA";
         // }
-
     };
 
     const datosPreparados = {
