@@ -45,13 +45,15 @@
       actual--;
     }
     activaNavegacion();
+    
   };
-
+  
   const siguiente = () => {
     if (actual < paginas.length - 1) {
       actual++;
     }
     activaNavegacion();
+
   };
 
   let contenedor;
@@ -97,7 +99,7 @@
             top: 0,
             left:
               posicionElemento -
-              (contenedor.clientWidth - elemento.clientWidth) / 1.125,
+              (contenedor.clientWidth - elemento.clientWidth) / 1.425,
             behavior: "smooth",
           });
         }
@@ -125,6 +127,10 @@
     }
   });
 
+  $: activaNavegacionAvanzada =
+    contenedor && contenido 
+      ? contenido.clientWidth >= contenedor.clientWidth
+      : null;
   $: centrarElemento(actual, contenedor);
 
 </script>
@@ -138,7 +144,7 @@
         </button>
       {/if}
     </div>
-    {#if actual > 3}
+    {#if activaNavegacionAvanzada && actual > 3}
       <div class="inicio">
         <span>
           <button on:click={(e) => accion(e, 0)}>{"1"}</button>
@@ -157,16 +163,19 @@
         {/each}
       </ul>
     </nav>
-    {#if elementosMostrar > 8 && actual < (paginas.length - 2)}
-    <div class="final">
-      <span class="puntos">
-        <Texto texto={"..."} />
-      </span>
-      <span>
-        <button on:click={(e) => accion(e, paginas.length)}>{paginas.length}</button>
-      </span>
-    </div>
-  {/if}
+    {#if activaNavegacionAvanzada && actual < paginas.length - 3}
+      <!-- {#if elementosMostrar > 8 && actual < (paginas.length - 2)} -->
+      <div class="final">
+        <span class="puntos">
+          <Texto texto={"..."} />
+        </span>
+        <span>
+          <button on:click={(e) => accion(e, paginas.length)}
+            >{paginas.length}</button
+          >
+        </span>
+      </div>
+    {/if}
     <div class="navegacion siguiente" on:click={siguiente}>
       {#if derecha}
         <button>
@@ -208,13 +217,21 @@
   .final {
     display: flex;
   }
+  .inicio {
+    background-color: var(--theme-colores-fondo);
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    height: 100%;
+    align-items: center;
+  }
   li {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 2rem;
     width: 2rem;
-    margin: 0 0.5rem;
+    margin: 0 calc(var(--theme-espaciados-margen) / 2);
   }
   .inicio span:first-of-type,
   .final span:last-of-type {
@@ -224,7 +241,7 @@
   .puntos {
     display: flex;
     align-items: flex-end;
-    padding: 0 var(--theme-espaciados-padding); 
+    padding: 0 calc(var(--theme-espaciados-padding) / 2);
   }
   .puntos :global(span) {
     font-weight: var(--theme-textos-titulo-peso);
