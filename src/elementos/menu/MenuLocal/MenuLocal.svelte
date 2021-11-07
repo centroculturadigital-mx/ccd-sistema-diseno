@@ -136,11 +136,13 @@
   const regresa = () => {
     actual -= 1;
     actual = Math.max(0, actual);
+    activaNavegacion()
   };
 
   const avanza = () => {
     actual += 1;
     actual = Math.min(elementos.length - 1, actual);
+    activaNavegacion()
   };
 
   onMount(() => { 
