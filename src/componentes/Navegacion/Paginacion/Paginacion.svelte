@@ -53,7 +53,7 @@
       actual++;
     }
     activaNavegacion();
-
+    console.log(contenedor.scrollLeft)
   };
 
   let contenedor;
@@ -99,7 +99,7 @@
             top: 0,
             left:
               posicionElemento -
-              (contenedor.clientWidth - elemento.clientWidth) / 1.425,
+              (contenedor.clientWidth - elemento.clientWidth) / 1.25,
             behavior: "smooth",
           });
         }
@@ -238,10 +238,14 @@
     height: 2rem;
     width: 2rem;
   }
+  .inicio .puntos {
+    margin-top: 0.75rem;
+  }
   .puntos {
     display: flex;
     align-items: flex-end;
     padding: 0 calc(var(--theme-espaciados-padding) / 2);
+    /* height: 100%; */
   }
   .puntos :global(span) {
     font-weight: var(--theme-textos-titulo-peso);
