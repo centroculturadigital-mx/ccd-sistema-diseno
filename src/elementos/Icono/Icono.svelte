@@ -15,7 +15,6 @@
   //   iconos.nuevo = nuevo
   // }
 
-  $: iconoMostrar = Object.keys(iconos).includes(icono)  ? iconos[icono] : ojoAbierto;
 
 
 </script>
