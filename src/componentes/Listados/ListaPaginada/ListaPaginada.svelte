@@ -66,7 +66,7 @@
 
   {#if elementos.length > elementosPagina}
     <Paginacion
-      elementos={elementosCargados}
+      elementos={elementosCargados.length}
       elementosPagina={elementosPaginaNum}
       {pagina}
       seleccionar={i => seleccionarPagina(i)} />

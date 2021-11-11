@@ -10,19 +10,10 @@ const elementos = new Array(11).fill(0).map((e, i) => ({
     componente: TarjetaHorizontal,
     data: {
         // chica: true,
-        nombre: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
+        nombre: "Elemento "+(i+1)+": Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
         imagen: ImagenArchivo
     }
 }))
-const elementosUnaPagina = new Array(3).fill(0).map((e, i) => ({
-    componente: TarjetaHorizontal,
-    data: {
-        // chica: true,
-        nombre: "Est consectetur adipisicing minim occaecat aliqua ipsum et nisi consectetur duis est dolor.",
-        imagen: ImagenArchivo
-    }
-}))
-
 export const ListaPaginadaDefault = () => ({
     Component: ThemeTester,
     props: {
@@ -65,7 +56,7 @@ export const ListaPaginadaUnaPagina = () => ({
     props: {
         componente: ListaPaginada,
         datos: {
-            elementos: elementosUnaPagina,
+            elementos: elementos.slice(0,3),
             elementosPagina: 11
         },
     }
