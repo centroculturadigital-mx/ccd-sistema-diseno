@@ -9,7 +9,9 @@
     let estado;
 
     $: clases =
-        posicionContenido == "CENTRO_IZQUIERDA"
+        posicionContenido == "CENTRO_CENTRO"
+            ? "centro"
+            : posicionContenido == "CENTRO_IZQUIERDA"
             ? "centroIzquierda"
             : posicionContenido == "CENTRO_DERECHA"
             ? "centroDerecha"
@@ -19,8 +21,12 @@
             ? "abajoCentro"
             : posicionContenido == "ARRIBA_IZQUIERDA"
             ? "arribaIzquierda"
-            : posicionContenido == "ABAJO"
-            ? "abajo"
+            : posicionContenido == "ARRIBA_DERECHA"
+            ? "arribaDerecha"
+            : posicionContenido == "ABAJO_IZQUIERDA"
+            ? "abajoIzquierda"
+            : posicionContenido == "ABAJO_DERECHA"
+            ? "abajoDerecha"
             : "";
 
 //// POSICIONES Flecha
@@ -71,19 +77,35 @@
         align-items: center !important;
         justify-content: flex-start;
     }
-    .abajoCentro :global(.UsuariosLista ul) {
-        position: fixed;
-        bottom: 0;
-        align-items: center !important;
-        justify-content: flex-end;
-    }
     .arribaIzquierda :global(.UsuariosLista ul) {
         position: fixed;
         top: 0;
         left: 0;
         align-items: flex-start;
     }
-    .abajo :global(.UsuariosLista ul) {
+    .arribaDerecha :global(.UsuariosLista ul) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: flex-end;
+    }
+    .abajoIzquierda :global(.UsuariosLista ul) {
         justify-content: flex-end !important;
+        align-items: flex-start !important;
+    }
+    .abajoDerecha :global(.UsuariosLista ul) {
+        justify-content: flex-end !important;
+        align-items: flex-end !important;
+    }
+    .abajoCentro :global(.UsuariosLista ul) {
+        position: fixed;
+        bottom: 0;
+        justify-content: flex-end;
+        align-items: center !important;
+    }
+    .centro :global(.UsuariosLista ul) {
+
+        justify-content: center !important;
+        align-items: center !important;
     }
 </style>

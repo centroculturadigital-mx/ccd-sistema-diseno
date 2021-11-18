@@ -6,7 +6,22 @@ import usuario from "../../../data/usuario";
 
 export default { title: 'Componentes/GlobosInformación/GloboInformacionPrueba' }
 
-export const globoInformacionPruebaElementoIzquierda = () => ({
+export const globoInformacionPruebaElementoCentroCentro = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            posicionContenido: "CENTRO_CENTRO"
+            
+        }
+    },
+});
+export const globoInformacionPruebaElementoCentroIzquierda = () => ({
     Component: ThemeTester,
     props: {
         componente: GloboInformacionPrueba,
@@ -22,7 +37,7 @@ export const globoInformacionPruebaElementoIzquierda = () => ({
     },
 });
 
-export const globoInformacionPruebaElementoALaDerecha = () => ({
+export const globoInformacionPruebaElementoCentroDerecha = () => ({
     Component: ThemeTester,
     props: {
         componente: GloboInformacionPrueba,
@@ -32,7 +47,7 @@ export const globoInformacionPruebaElementoALaDerecha = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "CENTRO_DERECHA"// Debug
+            posicionContenido: "CENTRO_DERECHA"
         }
     },
 });
@@ -47,7 +62,38 @@ export const globoInformacionPruebaElementoArribaCentro = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "ARRIBA_CENTRO"// Debug
+            posicionContenido: "ARRIBA_CENTRO"
+            
+        }
+    },
+});
+
+export const globoInformacionPruebaElementoArribaIzquierda = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            posicionContenido: "ARRIBA_IZQUIERDA"
+            
+        }
+    },
+});
+export const globoInformacionPruebaElementoArribaDerecha = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            posicionContenido: "ARRIBA_DERECHA"
             
         }
     },
@@ -62,12 +108,12 @@ export const globoInformacionPruebaElementoAbajoCentro = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "ABAJO_CENTRO"// Debug
+            posicionContenido: "ABAJO_CENTRO"
             
         }
     },
 });
-export const globoInformacionPruebaElementoAbajoCentroArribaIzquierda = () => ({
+export const globoInformacionPruebaElementoAbajoIzquierda = () => ({
     Component: ThemeTester,
     props: {
         componente: GloboInformacionPrueba,
@@ -77,65 +123,23 @@ export const globoInformacionPruebaElementoAbajoCentroArribaIzquierda = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
-            posicionContenido: "ARRIBA_IZQUIERDA"// Debug
+            posicionContenido: "ABAJO_IZQUIERDA"
             
         }
     },
 });
-// export const globoInformacionPruebaElementoArriba = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: GloboInformacionPrueba,
-//         datos: {
-//             componente: UsuariosLista,
-//             datos: {
-//                 usuarios: [usuario],
-//                 apariencia: "VERTICAL",
-//             },
-//             posicionContenido: "ARRIBA"
-//         }
-//     },
-// });
-// export const globoInformacionPruebaElementoAbajo = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: GloboInformacionPrueba,
-//         datos: {
-//             componente: UsuariosLista,
-//             datos: {
-//                 usuarios: [usuario],
-//                 apariencia: "VERTICAL",
-//             },
-//             posicionContenido: "ABAJO"
-//         }
-//     },
-// });
-// export const globoInformacionPruebaVariosElementosHorizontal = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: GloboInformacionPrueba,
-//         datos: {
-//             componente: UsuariosLista,
-//             datos: {
-//                 usuarios: [usuario, usuario,usuario, usuario,usuario, usuario,usuario, usuario],
-//                 apariencia: "HORIZONTAL"
-//                 posicionContenido: "CENTRO"// Debug
-//             }
+export const globoInformacionPruebaElementoAbajoDerecha = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            posicionContenido: "ABAJO_DERECHA"
             
-//         }
-//     },
-// });
-// export const globoInformacionPruebaVariosElementosVertical = () => ({
-//     Component: ThemeTester,
-//     props: {
-//         componente: GloboInformacionPrueba,
-//         datos: {
-//             componente: UsuariosLista,
-//             datos: {
-//                 usuarios: [usuario, usuario,usuario, usuario,usuario, usuario,usuario, usuario],
-//                 apariencia: "VERTICAL"
-//             }
-        
-//         }
-//     },
-// });
+        }
+    },
+});

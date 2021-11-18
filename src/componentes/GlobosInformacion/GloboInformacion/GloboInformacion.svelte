@@ -70,7 +70,7 @@
         background-color: #000;
         padding: 0.25rem 0.5rem;
         max-width: 14rem;
-        border-radius: 0.25rem;
+        border-radius: 0.2rem;
     }
     .GloboInformacion:before,
     .GloboInformacion:after {
@@ -108,7 +108,7 @@
     .abajoIzquierda:after {
         content: "";
         left: 0.15rem;
-        bottom: -0.65rem;
+        bottom: -0.6rem;
         transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
@@ -116,7 +116,7 @@
     .abajoDerecha:after {
         content: "";
         right: 0.15rem;
-        bottom: -0.65rem;
+        bottom: -0.6rem;
         transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);

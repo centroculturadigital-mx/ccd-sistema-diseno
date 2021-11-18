@@ -49,59 +49,90 @@
         let ventanaAlto = window.innerHeight;
         let tamannoX = elemento.width;
         let tamannoY = elemento.height;
-        let tamannoFlecha = 10;
+        let tamannoFlecha = 8;
 
-        // let cuadranteIzquierdo = elemento.left <= ventanaAncho / 2 //mitad pantalla
-        // let cuadranteDerecho = elemento.right > ventanaAncho * 0.5 // mitad pantalla
-        let cuadranteIzquierdo = elemento.right < (elementoGloboAncho + tamannoFlecha);
-        let cuadranteDerecho = elemento.right > (elementoGloboAncho + tamannoFlecha);
-        let cuadranteArriba = elemento.top < (elementoGloboAlto + tamannoFlecha);
-        let cuadranteAbajo = elemento.bottom > (elementoGloboAlto + tamannoFlecha);
+        let cuadranteIzquierdo = elemento.right < elementoGloboAncho + tamannoFlecha;
+        let cuadranteDerecho = ventanaAncho < elemento.right + (elementoGloboAncho + tamannoFlecha);
+        let cuadranteArriba = elemento.top < elementoGloboAlto + tamannoFlecha;
+        let cuadranteAbajo = ventanaAlto < elemento.bottom + (elementoGloboAlto + tamannoFlecha);
 
-        
-        if (cuadranteIzquierdo) {
+                        // DEBUG:
+        $: console.log(
+            "CuadranteIzquierdo: ",
+            cuadranteIzquierdo,
+            "CuadranteDerecho: ",
+            cuadranteDerecho,
+            "CuadranteArriba: ",
+            cuadranteArriba,
+            "CuadranteAbajo: ",
+            cuadranteAbajo
+        );
+        if (cuadranteIzquierdo && !cuadranteArriba && !cuadranteAbajo) {
             //elemento izquierda centro, globo a la derecha
-            elementoX = tamannoX + elementoGloboAncho / 2;
+            elementoX = elemento.right + tamannoFlecha;
             elementoY = elemento.top + (tamannoY / 2 - elementoGloboAlto / 2); // centra verticalmente
             posicionFlecha = "IZQUIERDA_CENTRO";
+            return
         }
-        if (cuadranteDerecho) {
+        if (cuadranteDerecho && !cuadranteArriba && !cuadranteAbajo) {
             //elemento a la derecha centro, globo a la izquierda
             elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha));
             elementoY = elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
             posicionFlecha = "DERECHA_CENTRO";
+            return
         }
-        
-        if (cuadranteArriba) {
+        if (cuadranteArriba && !cuadranteDerecho && !cuadranteIzquierdo) {
             //elemento al centro arriba, globo abajo
-            elementoX = (elemento.right - (tamannoX / 3)) - (elementoGloboAncho / 2);
+            elementoX = elemento.right - tamannoX / 3 - elementoGloboAncho / 2;
             elementoY = elemento.top + (elementoGloboAlto + tamannoFlecha);
-            posicionFlecha = "ARRIBA_CENTRO"
+            posicionFlecha = "ARRIBA_CENTRO";
+            return
+        }
+        if (cuadranteAbajo && !cuadranteDerecho && !cuadranteIzquierdo) {
+            //elemento al centro abajo, globo abajo
+            elementoX = elemento.right - (elementoGloboAncho / 2) - tamannoFlecha
+            elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha);
+            posicionFlecha = "ABAJO_CENTRO";
+            return
+        }
+
+        if (cuadranteIzquierdo && cuadranteArriba) {
+            //elemento a la izquierda arriba, globo abajo derecha
+            elementoX = elemento.left - ((tamannoX / 2) - elementoGloboAlto);
+            elementoY = elemento.top + (tamannoY + tamannoFlecha);
+            posicionFlecha = "ARRIBA_IZQUIERDA";
+            return
+        }
+
+        if (cuadranteDerecho && cuadranteArriba) {
+            //elemento a la derecha arriba, globo abajo izquierda
+            elementoX = elemento.left - (elementoGloboAncho - (tamannoX / 1.5));
+            elementoY = elemento.bottom + tamannoFlecha;
+            posicionFlecha = "ARRIBA_DERECHA";
+            return
+        }
+        if (cuadranteAbajo && cuadranteIzquierdo) {
+            //elemento a la izquierda abajo, globo arriba derecha
+            elementoX = elemento.left - ((tamannoX / 2) - elementoGloboAlto)
+            elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha);
+            posicionFlecha = "ABAJO_IZQUIERDA";
+            return
+        }
+        if (cuadranteAbajo && cuadranteDerecho) {
+            //elemento a la derecha abajo, globo arriba izquierda
+            elementoX = elemento.left - (elementoGloboAncho - (tamannoX / 1.5));
+            elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha);
+            posicionFlecha = "ABAJO_DERECHA";
+            return
+        }
+        //default
+        if (!cuadranteAbajo && !cuadranteArriba && !cuadranteIzquierdo && !cuadranteDerecho) {
+            elementoX = elemento.right + tamannoFlecha;
+            elementoY = elemento.top + (tamannoY / 2 - elementoGloboAlto / 2); // centra verticalmente
+            posicionFlecha = "IZQUIERDA_CENTRO";
+            return
         }
         
-        if (cuadranteAbajo && !cuadranteIzquierdo && !cuadranteDerecho) {
-            //elemento al centro abajo, globo abajo
-            elementoX = elemento.right - ((tamannoX * 1.5) + elementoGloboAlto)
-            elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha)
-            posicionFlecha = "ABAJO_CENTRO"
-            console.log("DEBUGX: ", elementoX, elementoY);
-        }
-
-        // // if (elemento.top < tamannoY && cuadranteIzquierdo) {
-        // if (cuadranteArriba && cuadranteIzquierdo) {
-        //     //elemento a la izquierda arriba, globo abajo derecha
-        //     elementoX = elemento.left - ((tamannoX / 2) - elementoGloboAlto);
-        //     elementoY = elemento.top + (tamannoY + tamannoFlecha);
-        //     posicionFlecha = "ARRIBA_IZQUIERDA";
-        // }
-
-        // // if (elemento.top < tamannoY && cuadranteDerecho) {
-        // if (cuadranteArriba && cuadranteDerecho) {
-        //     //elemento a la derecha arriba, globo abajo izquierda
-        //     elementoX = elemento.right - ((tamannoX / 2) - elementoGloboAlto);
-        //     elementoY = elemento.top + (tamannoY + tamannoFlecha);
-        //     posicionFlecha = "ARRIBA_IZQUIERDA";
-        // }
     };
 
     const datosPreparados = {
