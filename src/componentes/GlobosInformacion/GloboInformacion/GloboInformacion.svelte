@@ -132,15 +132,15 @@
     .izquierdaArriba:after {
         content: "";
         left: -0.6rem;
-        top: calc(10% + 0.25rem);
+        top: 0.25rem;
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
     }
     .izquierdaAbajo:after {
         content: "";
-        left: -0.65rem;
-        top: calc(90% - 0.55rem);
+        left: -0.6rem;
+        bottom: 0.25rem;
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
@@ -156,7 +156,7 @@
     .derechaArriba:before {
         content: "";
         right: -0.6rem;
-        top: calc(0% + 0.25rem);
+        top: 0.25rem;
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
@@ -164,7 +164,7 @@
     .derechaAbajo:before {
         content: "";
         right: -0.6rem;
-        top: calc(90% - 0.55rem);
+        bottom: 0.25rem;
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);

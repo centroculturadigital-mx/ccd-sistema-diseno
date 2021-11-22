@@ -37,36 +37,56 @@
 
         if ((elementoGloboAncho > 0, elementoGloboAlto > 0)) {
             if (cuadranteIzquierdo && !cuadranteArriba && !cuadranteAbajo) {
-                elementoX = elemento.right + tamannoFlecha;
-                elementoY =
-                    elemento.top + (tamannoY / 2 - elementoGloboAlto / 2); // centra verticalmente
-                posicionFlecha = "IZQUIERDA_CENTRO";
-                return;
+                if (direccion === "VERTICAL") {
+                    elementoX = elemento.right + tamannoFlecha;
+                    elementoY = elemento.top;
+                    posicionFlecha = "IZQUIERDA_ARRIBA";
+                    return;
+                } else {
+                    elementoX = elemento.right + tamannoFlecha;
+                    elementoY =
+                        elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
+                    posicionFlecha = "IZQUIERDA_CENTRO";
+                }
             }
             if (cuadranteDerecho && !cuadranteArriba && !cuadranteAbajo) {
-                elementoX =
-                    elemento.right -
-                    (elementoGloboAncho + (tamannoX + tamannoFlecha));
-                elementoY =
-                    elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
-                posicionFlecha = "DERECHA_CENTRO";
-                return;
+                if (direccion === "VERTICAL") {
+                    elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha));
+                    elementoY = elemento.top
+                    posicionFlecha = "DERECHA_ARRIBA";
+                    return;
+                } else {
+                    elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha));
+                    elementoY = elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
+                    posicionFlecha = "DERECHA_CENTRO";
+                }
             }
             if (cuadranteArriba && !cuadranteDerecho && !cuadranteIzquierdo) {
-                elementoX =
-                    elemento.right - tamannoX / 3 - elementoGloboAncho / 2;
-                elementoY = elemento.top + (elementoGloboAlto + tamannoFlecha);
-                posicionFlecha = "ARRIBA_CENTRO";
-                return;
+                if (direccion === "VERTICAL") {
+                    elementoX = elemento.right + (tamannoX / 2) - tamannoFlecha
+                    elementoY = elemento.top
+                    posicionFlecha = "IZQUIERDA_ARRIBA";
+                    return;
+                } else {
+                    elementoX = elemento.left - (elementoGloboAncho / 2 - (tamannoX / 2) - tamannoFlecha / 2)
+                    elementoY = elemento.top + (elementoGloboAlto + tamannoFlecha);
+                    posicionFlecha = "ARRIBA_CENTRO";
+                    return;
+                }
             }
             if (cuadranteAbajo && !cuadranteDerecho && !cuadranteIzquierdo) {
-                elementoX =
-                    elemento.right - elementoGloboAncho / 2 - tamannoFlecha;
-                elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha);
-                posicionFlecha = "ABAJO_CENTRO";
-                return;
+                if (direccion === "VERTICAL") {
+                    elementoX = elemento.right + tamannoFlecha
+                    elementoY = elemento.bottom - elementoGloboAlto
+                    posicionFlecha = "IZQUIERDA_ABAJO";
+                    return;
+                } else {
+                    elementoX = elemento.left - (elementoGloboAncho / 2 - tamannoX / 1.5);
+                    elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha);
+                    posicionFlecha = "ABAJO_CENTRO";
+                    return;
+                }
             }
-
             if (cuadranteIzquierdo && cuadranteArriba) {
                 if (direccion === "VERTICAL") {
                     elementoX = elemento.left + (tamannoX + tamannoFlecha);
@@ -90,8 +110,7 @@
                     posicionFlecha = "DERECHA_ARRIBA";
                     return;
                 } else {
-                    elementoX =
-                        elemento.left - (elementoGloboAncho - tamannoX / 1.5);
+                    elementoX = elemento.left - (elementoGloboAncho / 2 - (tamannoX / 2) - tamannoFlecha / 2);
                     elementoY = elemento.bottom + tamannoFlecha;
                     posicionFlecha = "ARRIBA_DERECHA";
                     return;
@@ -114,13 +133,16 @@
             }
             if (cuadranteAbajo && cuadranteDerecho) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.left - (elementoGloboAncho + tamannoFlecha);
+                    elementoX =
+                        elemento.left - (elementoGloboAncho + tamannoFlecha);
                     elementoY = elemento.bottom - elementoGloboAlto;
                     posicionFlecha = "DERECHA_ABAJO";
                     return;
                 } else {
-                    elementoX = elemento.left - (elementoGloboAncho - tamannoX / 1.5);
-                    elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha);
+                    elementoX =
+                        elemento.left - (elementoGloboAncho - tamannoX / 1.5);
+                    elementoY =
+                        elemento.top - (elementoGloboAlto + tamannoFlecha);
                     posicionFlecha = "ABAJO_DERECHA";
                     return;
                 }
@@ -132,11 +154,18 @@
                 !cuadranteIzquierdo &&
                 !cuadranteDerecho
             ) {
-                elementoX = elemento.right + tamannoFlecha;
-                elementoY =
-                    elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
-                posicionFlecha = "IZQUIERDA_CENTRO";
-                return;
+                if (direccion === "VERTICAL") {
+                    elementoX = elemento.right + tamannoFlecha;
+                    elementoY = elemento.top;
+                    posicionFlecha = "IZQUIERDA_ARRIBA";
+                    return;
+                } else {
+                    elementoX = elemento.right + tamannoFlecha;
+                    elementoY =
+                        elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
+                    posicionFlecha = "IZQUIERDA_CENTRO";
+                    return;
+                }
             }
         }
     };

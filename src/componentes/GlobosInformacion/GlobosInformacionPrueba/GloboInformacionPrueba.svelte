@@ -30,19 +30,6 @@
             ? "abajoDerecha"
             : "";
 
-//// POSICIONES Flecha
-// ARRIBA_CENTRO - listo
-// ABAJO_CENTRO - listo
-// ABAJO_IZQUIERDA - listo
-// ABAJO_DERECHA - listo
-// IZQUIERDA_CENTRO - listo
-// IZQUIERDA_ARRIBA - listo
-// IZQUIERDA_ABAJO - listo
-// DERECHA_CENTRO - listo
-// ARRIBA_IZQUIERDA - listo
-// ARRIBA_DERECHA - listo
-// DERECHA_ARRIBA - listo
-// DERECHA_ABAJO - listo
 </script>
 
 <section class="{clases} GloboInformacionPrueba">
