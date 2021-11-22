@@ -3,6 +3,7 @@
 
     export let componente;
     export let datos;
+    export let direccion;
     // 
     export let posicionContenido; //Para poder crear historias con distintas posiciones de UsuariosLista y comprobar la posici[on del globo]
 
@@ -31,21 +32,21 @@
 
 //// POSICIONES Flecha
 // ARRIBA_CENTRO - listo
-// ARRIBA_IZQUIERDA - 
-// ARRIBA_DERECHA
 // ABAJO_CENTRO - listo
-// ABAJO_IZQUIERDA
-// ABAJO_DERECHA
+// ABAJO_IZQUIERDA - listo
+// ABAJO_DERECHA - listo
 // IZQUIERDA_CENTRO - listo
-// IZQUIERDA_ARRIBA
-// IZQUIERDA_ABAJO
-// DERECHA_CENTRO / listo
-// DERECHA_ABAJO
-// DERECHA_ARRIBA
+// IZQUIERDA_ARRIBA - listo
+// IZQUIERDA_ABAJO - listo
+// DERECHA_CENTRO - listo
+// ARRIBA_IZQUIERDA - listo
+// ARRIBA_DERECHA - listo
+// DERECHA_ARRIBA - listo
+// DERECHA_ABAJO - listo
 </script>
 
 <section class="{clases} GloboInformacionPrueba">
-    <GlobosInformacionContexto {componente} {datos} />
+    <GlobosInformacionContexto {componente} {datos} {direccion}/>
 </section>
 
 <style>

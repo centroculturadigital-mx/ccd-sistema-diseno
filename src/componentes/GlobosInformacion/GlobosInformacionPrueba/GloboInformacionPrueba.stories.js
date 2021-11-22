@@ -83,6 +83,22 @@ export const globoInformacionPruebaElementoArribaIzquierda = () => ({
         }
     },
 });
+export const globoInformacionPruebaElementoArribaIzquierdaDireccionVertical = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            direccion: "VERTICAL",
+            posicionContenido: "ARRIBA_IZQUIERDA"
+            
+        }
+    },
+});
 export const globoInformacionPruebaElementoArribaDerecha = () => ({
     Component: ThemeTester,
     props: {
@@ -93,6 +109,22 @@ export const globoInformacionPruebaElementoArribaDerecha = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
+            posicionContenido: "ARRIBA_DERECHA"
+            
+        }
+    },
+});
+export const globoInformacionPruebaElementoArribaDerechaDireccionVertical = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            direccion: "VERTICAL",
             posicionContenido: "ARRIBA_DERECHA"
             
         }
@@ -128,6 +160,22 @@ export const globoInformacionPruebaElementoAbajoIzquierda = () => ({
         }
     },
 });
+export const globoInformacionPruebaElementoAbajoIzquierdaDireccionVertical = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            direccion: 'VERTICAL',
+            posicionContenido: "ABAJO_IZQUIERDA"
+            
+        }
+    },
+});
 export const globoInformacionPruebaElementoAbajoDerecha = () => ({
     Component: ThemeTester,
     props: {
@@ -138,6 +186,22 @@ export const globoInformacionPruebaElementoAbajoDerecha = () => ({
                 usuarios: [usuario],
                 apariencia: "VERTICAL",
             },
+            posicionContenido: "ABAJO_DERECHA"
+            
+        }
+    },
+});
+export const globoInformacionPruebaElementoAbajoDerechaDireccionVertical = () => ({
+    Component: ThemeTester,
+    props: {
+        componente: GloboInformacionPrueba,
+        datos: {
+            componente: UsuariosLista,
+            datos: {
+                usuarios: [usuario],
+                apariencia: "VERTICAL",
+            },
+            direccion: 'VERTICAL',
             posicionContenido: "ABAJO_DERECHA"
             
         }

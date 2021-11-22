@@ -100,7 +100,7 @@
     .abajoCentro:after {
         content: "";
         left: calc(50% - 0.625rem);
-        bottom: -0.65rem;
+        bottom: -0.6rem;
         transform: rotate(180deg);
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
@@ -121,15 +121,9 @@
         -webkit-transform: rotate(180deg);
         -moz-transform: rotate(180deg);
     }
-    /* .izquierdaCentro {
-        right: 0;
-    }
-    .derechaCentro {
-        left: 0;
-    } */
     .izquierdaCentro:after {
         content: "";
-        left: -0.65rem;
+        left: -0.6rem;
         top: calc(50% - 0.25rem);
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
@@ -137,7 +131,7 @@
     }
     .izquierdaArriba:after {
         content: "";
-        left: -0.65rem;
+        left: -0.6rem;
         top: calc(10% + 0.25rem);
         transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
@@ -161,7 +155,7 @@
     }
     .derechaArriba:before {
         content: "";
-        right: -0.65rem;
+        right: -0.6rem;
         top: calc(0% + 0.25rem);
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
@@ -169,7 +163,7 @@
     }
     .derechaAbajo:before {
         content: "";
-        right: -0.65rem;
+        right: -0.6rem;
         top: calc(90% - 0.55rem);
         transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
