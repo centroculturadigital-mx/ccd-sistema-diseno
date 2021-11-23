@@ -125,7 +125,7 @@ export const globoInformacionPruebaElementoArribaCentroDireccionVertical = () =>
         datos: {
             componente: UsuariosLista,
             datos: {
-                usuarios: [usuario],
+                usuarios: [usuarioTextoLargo],
                 apariencia: "VERTICAL",
             },
             direccion: 'VERTICAL',

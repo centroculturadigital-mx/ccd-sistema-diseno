@@ -1,18 +1,14 @@
 <script>
   import Imagen from "../../../elementos/media/Imagen/Imagen";
-  import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
   export let imagen;
   export let nombre;
-  // export let slug;
-  // export let mostrarNombre;
   export let hover;
   export let hoverRetirar;
 
-  let hoverAccion = (evento, nombreUsuaria) => {
+  let hoverAccion = (evento) => {
     if (typeof hover === "function") {
       hover(evento, nombre);
-      nombreUsuaria = nombre;
     }
   };
 
@@ -20,9 +16,10 @@
     if (typeof hover === "function") {
       setTimeout(() => {
         hoverRetirar(evento);
-      },100)
+      },200)
     }
   };
+  
 </script>
 
 
@@ -31,7 +28,8 @@
   on:mouseover={hoverAccion}
   on:mouseout={hoverAccionRetirar}
   >
-  <Imagen {imagen} alt={nombre} />
+  
+    <Imagen {imagen} alt={nombre} />
 
 </div>
 

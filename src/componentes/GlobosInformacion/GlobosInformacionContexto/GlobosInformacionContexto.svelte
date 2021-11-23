@@ -2,7 +2,7 @@
     import GlobosInformacion from "../GlobosInformacion/GlobosInformacion.svelte";
 
     export let globo;
-    // export let globos = [];
+    export let globos = [];
     export let componente;
     export let direccion = "HORIZONTAL"; //HORIZONTAL - VERTICAL
     export let datos;
@@ -26,16 +26,15 @@
         let tamannoY = elemento.height;
         let tamannoFlecha = 8;
 
-        let cuadranteIzquierdo =
-            elemento.right < elementoGloboAncho + tamannoFlecha;
-        let cuadranteDerecho =
-            ventanaAncho <
-            elemento.right + (elementoGloboAncho + tamannoFlecha);
+        let cuadranteIzquierdo = elemento.right < elementoGloboAncho + tamannoFlecha;
+        let cuadranteDerecho = ventanaAncho < elemento.right + (elementoGloboAncho + tamannoFlecha);
         let cuadranteArriba = elemento.top < elementoGloboAlto + tamannoFlecha;
-        let cuadranteAbajo =
-            ventanaAlto < elemento.bottom + (elementoGloboAlto + tamannoFlecha);
+        let cuadranteAbajo = ventanaAlto < elemento.bottom + (elementoGloboAlto + tamannoFlecha);
+
+        console.log("calcularPosicion", elementoGloboAncho, elementoGloboAlto);
 
         if ((elementoGloboAncho > 0, elementoGloboAlto > 0)) {
+
             if (cuadranteIzquierdo && !cuadranteArriba && !cuadranteAbajo) {
                 if (direccion === "VERTICAL") {
                     elementoX = elemento.right + tamannoFlecha;
@@ -167,31 +166,51 @@
                     return;
                 }
             }
-        }
+        } 
     };
 
     const mostrarGlobo = (evento, texto) => {
         let elemento = evento.target.getBoundingClientRect();
-        if (evento && texto) {
-            calcularPosicion(elemento);
-            globo = {
-                texto: texto,
-                coordenadas: {
-                    x: elementoX,
-                    y: elementoY,
-                },
-                posicionFlecha,
-            };
-            estado = true;
-        }
-    };
 
+        calcularPosicion(elemento);
+        
+        
+        if ((elementoGloboAncho > 0, elementoGloboAlto > 0)) {
+            
+            console.log("Muestra con datos");
+            if (evento && texto) {
+                globo = {
+                    texto: texto,
+                    coordenadas: {
+                        x: elementoX,
+                        y: elementoY,
+                    },
+                    posicionFlecha,
+                }
+                estado = true
+            } 
+            
+        } else {
+            
+            console.log("Muestra sin datos");
+            globo = {
+                    texto: "",
+                    coordenadas: {
+                        x: 1,
+                        y: 1,
+                    },
+                }
+            estado = true
+        } 
+    };
+    
     const retirarGlobo = () => {
         globo = null;
         estado = false;
+        console.log("Retira");
     };
 
-    const datosPreparados = {
+    $: datosPreparados = {
         ...datos,
         hover: mostrarGlobo,
         hoverRetirar: retirarGlobo,

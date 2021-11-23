@@ -39,7 +39,7 @@
 
     let estilos;
 
-    if (coordenadas) {
+    if (!!coordenadas.x && !!coordenadas.y) {
         estilos = {
             style: `top: ${coordenadas.y}px;left: ${coordenadas.x}px;`,
         };
@@ -54,10 +54,13 @@
         }
     
     });
+
+    $: clases = texto && !!coordenadas.x && !!coordenadas.y ? "visible" : " invisible"
+
 </script>
 
-<div class="{posicionTipo} GloboInformacion" {...estilos} bind:this={elemento}>
-    <Texto {texto} />
+<div class="{posicionTipo} {clases} GloboInformacion" {...estilos} bind:this={elemento}>
+    <Texto texto={texto ? texto : ""} />  
 </div>
 
 <style>
@@ -71,6 +74,9 @@
         padding: 0.25rem 0.5rem;
         max-width: 14rem;
         border-radius: 0.2rem;
+    }
+    .visible {
+        padding: 0.25rem 0.5rem;
     }
     .GloboInformacion:before,
     .GloboInformacion:after {
