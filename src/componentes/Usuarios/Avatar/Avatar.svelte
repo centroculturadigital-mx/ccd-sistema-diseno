@@ -25,8 +25,8 @@
 
 <div
   class="Avatar"
-  on:mouseover={hoverAccion}
-  on:mouseout={hoverAccionRetirar}
+  on:mouseenter={hoverAccion}
+  on:mouseleave={hoverAccionRetirar}
   >
   
     <Imagen {imagen} alt={nombre} />

@@ -1,47 +1,41 @@
 <script>
     import GloboInformacion from "../GloboInformacion/GloboInformacion";
 
-    export let globo
+    export let globo;
     export let globos;
     export let fondoMostrar;
     export let inicializarGlobo;
-    export let estado;
 
-    $: cambiaEstado = estado ? "visible" : "invisible"
+
     
-    // $: console.log("GlobosInformacion", estado);
-
 </script>
 
-<!-- {#if estado} -->
-    <section class="GlobosInformacion {cambiaEstado}">
+    <section class="GlobosInformacion">
         {#if fondoMostrar}
             <div class="fondo" />
         {/if}
 
         {#if globo}
-            <GloboInformacion
-                texto={globo.texto}
-                posicionFlecha={globo.posicionFlecha}
-                coordenadas={globo.coordenadas}
-                inicializar={inicializarGlobo}
-            />
-        {/if}
-
-        {#if Array.isArray(globos)}
+        <GloboInformacion
+        texto={globo.texto}
+        flecha={globo.flecha}
+        coordenadas={globo.coordenadas}
+        inicializar={inicializarGlobo}
+        />
+        
+        {:else if Array.isArray(globos)}
             {#each globos as globo (globo)}
                 <GloboInformacion
-                    texto={globo.texto}
-                    posicionFlecha={globo.posicionFlecha}
-                    coordenadas={globo.coordenadas}
-                    inicializar={inicializarGlobo}
+                texto={globo.texto}
+                flecha={globo.flecha}
+                coordenadas={globo.coordenadas}
+                inicializar={inicializarGlobo}
                 />
             {/each}
         {/if}
     </section>
-<!-- {/if} -->
-
-<style>
+    
+    <style>
     * {
         box-sizing: border-box;
     }
@@ -52,6 +46,7 @@
         min-height: 100vh;
         width: 100%;
         z-index: 1;
+        pointer-events: none;
     }
 
     .fondo {

@@ -4,62 +4,63 @@
     import Texto from "../../../elementos/texto/Texto/Texto.svelte";
 
     export let texto;
-    export let posicionFlecha;
-    export let coordenadas;
+    export let flecha;
+    export let coordenadas
     export let inicializar;
 
     let elemento;
 
     $: posicionTipo =
-        posicionFlecha === "ARRIBA_CENTRO"
+        flecha === "ARRIBA_CENTRO"
             ? "arribaCentro"
-            : posicionFlecha === "ARRIBA_IZQUIERDA"
+            : flecha === "ARRIBA_IZQUIERDA"
             ? "arribaIzquierda"
-            : posicionFlecha === "ARRIBA_DERECHA"
+            : flecha === "ARRIBA_DERECHA"
             ? "arribaDerecha"
-            : posicionFlecha === "ABAJO_CENTRO"
+            : flecha === "ABAJO_CENTRO"
             ? "abajoCentro"
-            : posicionFlecha === "ABAJO_IZQUIERDA"
+            : flecha === "ABAJO_IZQUIERDA"
             ? "abajoIzquierda"
-            : posicionFlecha === "ABAJO_DERECHA"
+            : flecha === "ABAJO_DERECHA"
             ? "abajoDerecha"
-            : posicionFlecha === "IZQUIERDA_CENTRO"
+            : flecha === "IZQUIERDA_CENTRO"
             ? "izquierdaCentro"
-            : posicionFlecha === "IZQUIERDA_ARRIBA"
+            : flecha === "IZQUIERDA_ARRIBA"
             ? "izquierdaArriba"
-            : posicionFlecha === "IZQUIERDA_ABAJO"
+            : flecha === "IZQUIERDA_ABAJO"
             ? "izquierdaAbajo"
-            : posicionFlecha === "DERECHA_CENTRO"
+            : flecha === "DERECHA_CENTRO"
             ? "derechaCentro"
-            : posicionFlecha === "DERECHA_ARRIBA"
+            : flecha === "DERECHA_ARRIBA"
             ? "derechaArriba"
-            : posicionFlecha === "DERECHA_ABAJO"
+            : flecha === "DERECHA_ABAJO"
             ? "derechaAbajo"
             : "";
 
     let estilos;
+    let inicializado
 
-    if (!!coordenadas.x && !!coordenadas.y) {
-        estilos = {
-            style: `top: ${coordenadas.y}px;left: ${coordenadas.x}px;`,
-        };
-    }
+        $: estilos = coordenadas 
+        ? { style: `top: ${coordenadas.y}px;left: ${coordenadas.x}px;`} 
+        : {} ;
 
     onMount(() => {
-        
         if (typeof inicializar == 'function') {
             
             inicializar(elemento);
+            setTimeout(() => {
+                inicializado = true
+            });
         
         }
     
     });
 
-    $: clases = texto && !!coordenadas.x && !!coordenadas.y ? "visible" : " invisible"
+    $: clases = inicializado ? "visible" : " invisible"
 
 </script>
 
-<div class="{posicionTipo} {clases} GloboInformacion" {...estilos} bind:this={elemento}>
+<div class="{posicionTipo} GloboInformacion" {...estilos} bind:this={elemento}>
     <Texto texto={texto ? texto : ""} />  
 </div>
 
@@ -75,9 +76,12 @@
         max-width: 14rem;
         border-radius: 0.2rem;
     }
-    .visible {
-        padding: 0.25rem 0.5rem;
+    /* .visible {
+        visibility: visible;
     }
+    .invisible {
+        visibility: hidden;
+    } */
     .GloboInformacion:before,
     .GloboInformacion:after {
         display: block;

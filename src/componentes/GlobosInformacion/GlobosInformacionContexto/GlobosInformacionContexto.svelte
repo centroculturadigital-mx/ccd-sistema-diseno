@@ -6,146 +6,124 @@
     export let componente;
     export let direccion = "HORIZONTAL"; //HORIZONTAL - VERTICAL
     export let datos;
+      
+    const calcularPosicion = (elementoOrigen,globo) => {
+        const recuadro = elementoOrigen.getBoundingClientRect()
+        const recuadroGlobo = globo.getBoundingClientRect()
 
-    let estado;
-    let posicionFlecha;
-    let elementoX;
-    let elementoY;
-    let elementoGloboAlto = 0;
-    let elementoGloboAncho = 0;
+        let flecha;
+        let x;
+        let y;
+        let ancho = recuadroGlobo.width;//globo
+        let alto = recuadroGlobo.height;//globo
 
-    const inicializarGlobo = (elemento) => {
-        elementoGloboAncho = elemento.getBoundingClientRect().width;
-        elementoGloboAlto = elemento.getBoundingClientRect().height;
-    };
-
-    const calcularPosicion = (elemento) => {
         let ventanaAncho = window.innerWidth;
         let ventanaAlto = window.innerHeight;
-        let tamannoX = elemento.width;
-        let tamannoY = elemento.height;
+        let anchoElementoOrigen = recuadro.width;
+        let altoElementoOrigen = recuadro.height;
         let tamannoFlecha = 8;
 
-        let cuadranteIzquierdo = elemento.right < elementoGloboAncho + tamannoFlecha;
-        let cuadranteDerecho = ventanaAncho < elemento.right + (elementoGloboAncho + tamannoFlecha);
-        let cuadranteArriba = elemento.top < elementoGloboAlto + tamannoFlecha;
-        let cuadranteAbajo = ventanaAlto < elemento.bottom + (elementoGloboAlto + tamannoFlecha);
-
-        console.log("calcularPosicion", elementoGloboAncho, elementoGloboAlto);
-
-        if ((elementoGloboAncho > 0, elementoGloboAlto > 0)) {
+        let cuadranteIzquierdo = recuadro.right < ancho + tamannoFlecha;
+        let cuadranteDerecho = ventanaAncho < recuadro.right + (ancho + tamannoFlecha);
+        let cuadranteArriba = recuadro.top < alto + tamannoFlecha;
+        let cuadranteAbajo = ventanaAlto < recuadro.bottom + (alto + tamannoFlecha);
 
             if (cuadranteIzquierdo && !cuadranteArriba && !cuadranteAbajo) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.right + tamannoFlecha;
-                    elementoY = elemento.top;
-                    posicionFlecha = "IZQUIERDA_ARRIBA";
-                    return;
+                    x = recuadro.right + tamannoFlecha;
+                    y = recuadro.top;
+                    flecha = "IZQUIERDA_ARRIBA";
                 } else {
-                    elementoX = elemento.right + tamannoFlecha;
-                    elementoY =
-                        elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
-                    posicionFlecha = "IZQUIERDA_CENTRO";
+                    x = recuadro.right + tamannoFlecha;
+                    y =
+                        recuadro.top + (altoElementoOrigen / 2 - alto / 2);
+                    flecha = "IZQUIERDA_CENTRO";
                 }
-            }
+            } else 
             if (cuadranteDerecho && !cuadranteArriba && !cuadranteAbajo) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha));
-                    elementoY = elemento.top
-                    posicionFlecha = "DERECHA_ARRIBA";
-                    return;
+                    x = recuadro.right - (ancho + (anchoElementoOrigen + tamannoFlecha));
+                    y = recuadro.top
+                    flecha = "DERECHA_ARRIBA";
                 } else {
-                    elementoX = elemento.right - (elementoGloboAncho + (tamannoX + tamannoFlecha));
-                    elementoY = elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
-                    posicionFlecha = "DERECHA_CENTRO";
+                    x = recuadro.right - (ancho + (anchoElementoOrigen + tamannoFlecha));
+                    y = recuadro.top + (altoElementoOrigen / 2 - alto / 2);
+                    flecha = "DERECHA_CENTRO";
                 }
-            }
+            } else
             if (cuadranteArriba && !cuadranteDerecho && !cuadranteIzquierdo) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.right + (tamannoX / 2) - tamannoFlecha
-                    elementoY = elemento.top
-                    posicionFlecha = "IZQUIERDA_ARRIBA";
-                    return;
+                    x = recuadro.right + (anchoElementoOrigen / 2) - tamannoFlecha
+                    y = recuadro.top
+                    flecha = "IZQUIERDA_ARRIBA";
                 } else {
-                    elementoX = elemento.left - (elementoGloboAncho / 2 - (tamannoX / 2) - tamannoFlecha / 2)
-                    elementoY = elemento.top + (elementoGloboAlto + tamannoFlecha);
-                    posicionFlecha = "ARRIBA_CENTRO";
-                    return;
+                    x = recuadro.left - (ancho / 2 - (anchoElementoOrigen / 2) - tamannoFlecha / 2)
+                    y = recuadro.top + (alto + tamannoFlecha);
+                    flecha = "ARRIBA_CENTRO";
                 }
-            }
+            } else
             if (cuadranteAbajo && !cuadranteDerecho && !cuadranteIzquierdo) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.right + tamannoFlecha
-                    elementoY = elemento.bottom - elementoGloboAlto
-                    posicionFlecha = "IZQUIERDA_ABAJO";
-                    return;
+                    x = recuadro.right + tamannoFlecha
+                    y = recuadro.bottom - alto
+                    flecha = "IZQUIERDA_ABAJO";
                 } else {
-                    elementoX = elemento.left - (elementoGloboAncho / 2 - tamannoX / 1.5);
-                    elementoY = elemento.top - (elementoGloboAlto + tamannoFlecha);
-                    posicionFlecha = "ABAJO_CENTRO";
-                    return;
+                    x = recuadro.left - (ancho / 2 - anchoElementoOrigen / 1.5);
+                    y = recuadro.top - (alto + tamannoFlecha);
+                    flecha = "ABAJO_CENTRO";
                 }
-            }
+            } else
             if (cuadranteIzquierdo && cuadranteArriba) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.left + (tamannoX + tamannoFlecha);
-                    elementoY = elemento.top;
-                    posicionFlecha = "IZQUIERDA_ARRIBA";
-                    return;
+                    x = recuadro.left + (anchoElementoOrigen + tamannoFlecha);
+                    y = recuadro.top;
+                    flecha = "IZQUIERDA_ARRIBA";
                 } else {
-                    elementoX =
-                        elemento.left - (tamannoX / 2 - elementoGloboAlto);
-                    elementoY = elemento.top + (tamannoY + tamannoFlecha);
-                    posicionFlecha = "ARRIBA_IZQUIERDA";
-                    return;
+                    x = recuadro.left - (anchoElementoOrigen / 2 - alto);
+                    y = recuadro.top + (altoElementoOrigen + tamannoFlecha);
+                    flecha = "ARRIBA_IZQUIERDA";
                 }
-            }
+            } else
 
             if (cuadranteDerecho && cuadranteArriba) {
                 if (direccion === "VERTICAL") {
-                    elementoX =
-                        elemento.left - (elementoGloboAncho + tamannoFlecha);
-                    elementoY = elemento.top;
-                    posicionFlecha = "DERECHA_ARRIBA";
-                    return;
+                    x =
+                        recuadro.left - (ancho + tamannoFlecha);
+                    y = recuadro.top;
+                    flecha = "DERECHA_ARRIBA";
                 } else {
-                    elementoX = elemento.left - (elementoGloboAncho / 2 - (tamannoX / 2) - tamannoFlecha / 2);
-                    elementoY = elemento.bottom + tamannoFlecha;
-                    posicionFlecha = "ARRIBA_DERECHA";
-                    return;
+                    x = recuadro.left - (ancho - (anchoElementoOrigen / 2) - tamannoFlecha);
+                    y = recuadro.bottom + tamannoFlecha;
+                    flecha = "ARRIBA_DERECHA";
                 }
-            }
+            } else
             if (cuadranteAbajo && cuadranteIzquierdo) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.right + tamannoFlecha;
-                    elementoY = elemento.bottom - elementoGloboAlto;
-                    posicionFlecha = "IZQUIERDA_ABAJO";
-                    return;
+                    x = recuadro.right + tamannoFlecha;
+                    y = recuadro.bottom - alto;
+                    flecha = "IZQUIERDA_ABAJO";
                 } else {
-                    elementoX =
-                        elemento.left - (tamannoX / 2 - elementoGloboAlto);
-                    elementoY =
-                        elemento.top - (elementoGloboAlto + tamannoFlecha);
-                    posicionFlecha = "ABAJO_IZQUIERDA";
-                    return;
+                    x =
+                        recuadro.left - (anchoElementoOrigen / 2 - alto);
+                    y =
+                        recuadro.top - (alto + tamannoFlecha);
+                    flecha = "ABAJO_IZQUIERDA";
                 }
-            }
+            } else
             if (cuadranteAbajo && cuadranteDerecho) {
                 if (direccion === "VERTICAL") {
-                    elementoX =
-                        elemento.left - (elementoGloboAncho + tamannoFlecha);
-                    elementoY = elemento.bottom - elementoGloboAlto;
-                    posicionFlecha = "DERECHA_ABAJO";
-                    return;
+                    x =
+                        recuadro.left - (ancho + tamannoFlecha);
+                    y = recuadro.bottom - alto;
+                    flecha = "DERECHA_ABAJO";
                 } else {
-                    elementoX =
-                        elemento.left - (elementoGloboAncho - tamannoX / 1.5);
-                    elementoY =
-                        elemento.top - (elementoGloboAlto + tamannoFlecha);
-                    posicionFlecha = "ABAJO_DERECHA";
-                    return;
+                    x =
+                        recuadro.left - (ancho - anchoElementoOrigen / 1.5);
+                    y =
+                        recuadro.top - (alto + tamannoFlecha);
+                    flecha = "ABAJO_DERECHA";
                 }
-            }
+            } else
             //default
             if (
                 !cuadranteAbajo &&
@@ -154,60 +132,52 @@
                 !cuadranteDerecho
             ) {
                 if (direccion === "VERTICAL") {
-                    elementoX = elemento.right + tamannoFlecha;
-                    elementoY = elemento.top;
-                    posicionFlecha = "IZQUIERDA_ARRIBA";
-                    return;
+                    x = recuadro.right + tamannoFlecha;
+                    y = recuadro.top;
+                    flecha = "IZQUIERDA_ARRIBA";
                 } else {
-                    elementoX = elemento.right + tamannoFlecha;
-                    elementoY =
-                        elemento.top + (tamannoY / 2 - elementoGloboAlto / 2);
-                    posicionFlecha = "IZQUIERDA_CENTRO";
-                    return;
+                    x = recuadro.right + tamannoFlecha;
+                    y = recuadro.top + (altoElementoOrigen / 2 - alto / 2);
+                    flecha = "IZQUIERDA_CENTRO";
                 }
             }
-        } 
+
+            return {
+                flecha,
+                x,
+                y,
+                ancho,
+                alto,
+            }
     };
 
-    const mostrarGlobo = (evento, texto) => {
-        let elemento = evento.target.getBoundingClientRect();
+    const inicializarGlobo = (g) => {
+        const posicion = calcularPosicion(globo.elemento,g)
 
-        calcularPosicion(elemento);
-        
-        
-        if ((elementoGloboAncho > 0, elementoGloboAlto > 0)) {
-            
-            console.log("Muestra con datos");
+        globo = {
+            ...globo,
+            coordenadas: {
+                x: posicion.x,
+                y: posicion.y,
+            },
+            flecha: posicion.flecha,
+        }
+    }
+
+    const mostrarGlobo = (evento, texto) => {
+        let elemento = evento.target;
+
             if (evento && texto) {
                 globo = {
                     texto: texto,
-                    coordenadas: {
-                        x: elementoX,
-                        y: elementoY,
-                    },
-                    posicionFlecha,
+                    elemento,
+                   
                 }
-                estado = true
             } 
-            
-        } else {
-            
-            console.log("Muestra sin datos");
-            globo = {
-                    texto: "",
-                    coordenadas: {
-                        x: 1,
-                        y: 1,
-                    },
-                }
-            estado = true
-        } 
     };
     
     const retirarGlobo = () => {
         globo = null;
-        estado = false;
-        console.log("Retira");
     };
 
     $: datosPreparados = {
@@ -218,7 +188,7 @@
 </script>
 
 <section class="GlobosInformacionContexto">
-    <GlobosInformacion {globo} {estado} {inicializarGlobo} />
+    <GlobosInformacion {globo} {inicializarGlobo} />
 
     <svelte:component this={componente} {...datosPreparados} />
 </section>
