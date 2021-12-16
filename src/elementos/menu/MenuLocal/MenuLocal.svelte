@@ -110,7 +110,7 @@
     let posicionElemento;
     let elemento;
 
-    if (window !== "undefined") {
+    if (window !== undefined) {
       if (contenedor) {
         
         elemento = Array.from(contenedor.querySelectorAll(".elemento"))[
@@ -146,7 +146,7 @@
   };
 
   onMount(() => { 
-    if (window !== "undefined") {
+    if (window !== undefined) {
       window.addEventListener("resize", () => {
         activaNavegacion();
       });
@@ -162,6 +162,7 @@
 </script>
 
 <svelte:window bind:innerWidth={responsivo} />
+
 
 <div class="MenuLocal  {navegacion ? 'interaccion' : ''}">
   {#if izquierda}
