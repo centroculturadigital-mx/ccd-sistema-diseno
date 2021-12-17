@@ -110,7 +110,7 @@
     let posicionElemento;
     let elemento;
 
-    if (window !== undefined) {
+    if ( typeof window !== "undefined" ) {
       if (contenedor) {
         
         elemento = Array.from(contenedor.querySelectorAll(".elemento"))[
@@ -146,7 +146,7 @@
   };
 
   onMount(() => { 
-    if (window !== undefined) {
+    if ( typeof window !== "undefined" ) {
       window.addEventListener("resize", () => {
         activaNavegacion();
       });
