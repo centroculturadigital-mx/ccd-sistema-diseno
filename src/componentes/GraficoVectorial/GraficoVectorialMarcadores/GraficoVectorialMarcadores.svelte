@@ -158,20 +158,20 @@
     } 
 
 
-    // const mostrarPathsActivos = () => {
+    const mostrarPathsActivos = () => {
 
-    //     if( configuracion && configuracion.activos && configuracion.activos.mostrar ) {
+        if( configuracion && configuracion.activos && configuracion.activos.mostrar ) {
 
-    //         const pathsActivos = paths.filter(
-    //             p => !! marcadores.find(m => p.getAttribute( m.path.atributo ) === m.path.valor )
-    //         )
+            const pathsActivos = paths.filter(
+                p => !! marcadores.find(m => p.getAttribute( m.path.atributo ) === m.path.valor )
+            )
             
-    //         console.log("pathsActivos", pathsActivos);
-    //         pathsActivos.forEach( p => p.style = `fill: ${ configuracion.activos.color ? configuracion.activos.color : "#aaa" }`)
+            console.log("pathsActivos", pathsActivos);
+            pathsActivos.forEach( p => p.style = `fill: ${ configuracion.activos.color ? configuracion.activos.color : "#aaa" }`)
 
-    //     }
+        }
 
-    // }
+    }
 
 
 
