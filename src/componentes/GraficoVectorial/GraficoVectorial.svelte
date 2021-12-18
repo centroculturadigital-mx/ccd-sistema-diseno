@@ -32,8 +32,6 @@
     }
 
 
-    $: console.log("configuraicon", configuracion);
-
 
     let panZoom;
 
@@ -98,7 +96,14 @@
     const seleccionarAccion = ( path ) => {
         
         if( configuracion.centrarAlSeleccionar ) {
-            if( Array.isArray(habilitados) && habilitados.includes(path.getAttribute( configuracion.habilitados.atributo || "id")) ) {
+
+            let ejecutarSeleccion = false
+
+            ejecutarSeleccion = Array.isArray(habilitados)
+                ? habilitados.includes(path.getAttribute( configuracion.habilitados.atributo || "id"))
+                : true
+
+            if( ejecutarSeleccion ) {
 
                 svgZoomeable.resetZoom(); 
                 svgZoomeable.resetPan();
@@ -138,8 +143,6 @@
         
         if( configuracion && configuracion.habilitados && configuracion.habilitados.mostrar ) {            
             
-            console.log("ppaths", paths, configuracion );
-
             paths.forEach( p => p.style = `fill: ${ configuracion.habilitados.color ? configuracion.habilitados.color : "#aaa" };`)
 
         }

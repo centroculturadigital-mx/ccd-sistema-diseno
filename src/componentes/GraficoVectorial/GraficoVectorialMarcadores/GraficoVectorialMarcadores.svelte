@@ -166,7 +166,6 @@
                 p => !! marcadores.find(m => p.getAttribute( m.path.atributo ) === m.path.valor )
             )
             
-            console.log("pathsActivos", pathsActivos);
             pathsActivos.forEach( p => p.style = `fill: ${ configuracion.activos.color ? configuracion.activos.color : "#aaa" }`)
 
         }
