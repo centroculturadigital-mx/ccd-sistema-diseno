@@ -29,7 +29,7 @@
     },
     "dependencies": {
         "escape-html": "^1.0.3",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "npm": "^6.14.5",
         "rollup-plugin-svg-import": "^1.4.0",
         "sirv-cli": "^0.4.4",
